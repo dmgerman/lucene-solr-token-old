@@ -1258,8 +1258,6 @@ name|FieldNumbers
 argument_list|()
 argument_list|,
 name|context
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|MergeState

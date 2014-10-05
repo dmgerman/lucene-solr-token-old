@@ -48,6 +48,19 @@ name|lucene
 operator|.
 name|codecs
 operator|.
+name|CompoundFormat
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
 name|DocValuesFormat
 import|;
 end_import
@@ -62,19 +75,6 @@ operator|.
 name|codecs
 operator|.
 name|FieldInfosFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|FilterCodec
 import|;
 end_import
 begin_import
@@ -166,6 +166,21 @@ operator|.
 name|codecs
 operator|.
 name|TermVectorsFormat
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|lucene40
+operator|.
+name|Lucene40CompoundFormat
 import|;
 end_import
 begin_import
@@ -287,18 +302,11 @@ name|SegmentWriteState
 import|;
 end_import
 begin_comment
-comment|/**  * Implements the Lucene 4.9 index format, with configurable per-field postings  * and docvalues formats.  *<p>  * If you want to reuse functionality of this codec in another codec, extend  * {@link FilterCodec}.  *  * @see org.apache.lucene.codecs.lucene49 package documentation for file format details.  * @lucene.experimental  */
-end_comment
-begin_comment
-comment|// NOTE: if we make largish changes in a minor release, easier to just make Lucene410Codec or whatever
-end_comment
-begin_comment
-comment|// if they are backwards compatible or smallish we can probably do the backwards in the postingsreader
-end_comment
-begin_comment
-comment|// (it writes a minor version, etc).
+comment|/**  * Implements the Lucene 4.9 index format  * @deprecated only for old 4.x segments  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|Lucene49Codec
 specifier|public
 class|class
@@ -354,6 +362,16 @@ name|liveDocsFormat
 init|=
 operator|new
 name|Lucene40LiveDocsFormat
+argument_list|()
+decl_stmt|;
+DECL|field|compoundFormat
+specifier|private
+specifier|final
+name|CompoundFormat
+name|compoundFormat
+init|=
+operator|new
+name|Lucene40CompoundFormat
 argument_list|()
 decl_stmt|;
 DECL|field|postingsFormat
@@ -438,7 +456,6 @@ annotation|@
 name|Override
 DECL|method|storedFieldsFormat
 specifier|public
-specifier|final
 name|StoredFieldsFormat
 name|storedFieldsFormat
 parameter_list|()
@@ -451,7 +468,6 @@ annotation|@
 name|Override
 DECL|method|termVectorsFormat
 specifier|public
-specifier|final
 name|TermVectorsFormat
 name|termVectorsFormat
 parameter_list|()
@@ -509,6 +525,18 @@ parameter_list|()
 block|{
 return|return
 name|liveDocsFormat
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|compoundFormat
+specifier|public
+name|CompoundFormat
+name|compoundFormat
+parameter_list|()
+block|{
+return|return
+name|compoundFormat
 return|;
 block|}
 comment|/** Returns the postings format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene41"    */

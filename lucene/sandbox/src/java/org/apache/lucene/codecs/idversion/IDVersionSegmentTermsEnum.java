@@ -1410,8 +1410,6 @@ operator|+
 name|fr
 operator|.
 name|parent
-operator|.
-name|segment
 assert|;
 specifier|final
 name|int
@@ -4793,8 +4791,6 @@ operator|+
 name|fr
 operator|.
 name|parent
-operator|.
-name|segment
 operator|+
 literal|")"
 return|;

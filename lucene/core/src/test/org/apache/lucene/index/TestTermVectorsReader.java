@@ -845,7 +845,7 @@ argument_list|()
 expr_stmt|;
 name|fieldInfos
 operator|=
-name|SegmentReader
+name|IndexWriter
 operator|.
 name|readFieldInfos
 argument_list|(
