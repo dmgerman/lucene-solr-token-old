@@ -8251,10 +8251,6 @@ name|trackingDir
 argument_list|,
 name|info
 argument_list|,
-name|mergeState
-operator|.
-name|mergeFieldInfos
-argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -15083,10 +15079,6 @@ operator|.
 name|info
 operator|.
 name|info
-argument_list|,
-name|mergeState
-operator|.
-name|mergeFieldInfos
 argument_list|,
 name|context
 argument_list|)
