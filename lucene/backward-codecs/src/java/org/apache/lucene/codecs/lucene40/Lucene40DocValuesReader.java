@@ -94,7 +94,7 @@ name|codecs
 operator|.
 name|lucene40
 operator|.
-name|Lucene40FieldInfosReader
+name|Lucene40FieldInfosFormat
 operator|.
 name|LegacyDocValuesType
 import|;
