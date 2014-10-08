@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.analysis.core
+DECL|package|org.apache.lucene.analysis.standard
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
+name|standard
 package|;
 end_package
 begin_import
