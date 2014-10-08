@@ -146,10 +146,10 @@ begin_comment
 comment|/**  * Test the Brazilian Stem Filter, which only modifies the term text.  *   * It is very similar to the snowball portuguese algorithm but not exactly the same.  *  */
 end_comment
 begin_class
-DECL|class|TestBrazilianStemmer
+DECL|class|TestBrazilianAnalyzer
 specifier|public
 class|class
-name|TestBrazilianStemmer
+name|TestBrazilianAnalyzer
 extends|extends
 name|BaseTokenStreamTestCase
 block|{

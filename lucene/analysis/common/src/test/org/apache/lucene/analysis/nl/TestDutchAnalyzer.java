@@ -85,10 +85,10 @@ begin_comment
 comment|/**  * Test the Dutch Stem Filter, which only modifies the term text.  *   * The code states that it uses the snowball algorithm, but tests reveal some differences.  *   */
 end_comment
 begin_class
-DECL|class|TestDutchStemmer
+DECL|class|TestDutchAnalyzer
 specifier|public
 class|class
-name|TestDutchStemmer
+name|TestDutchAnalyzer
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
