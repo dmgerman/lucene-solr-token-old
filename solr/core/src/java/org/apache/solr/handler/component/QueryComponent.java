@@ -5704,6 +5704,13 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+operator|(
+operator|!
+name|fields
+operator|.
+name|hasPatternMatching
+argument_list|()
+operator|&&
 name|Arrays
 operator|.
 name|asList
@@ -5720,6 +5727,7 @@ operator|.
 name|getRequestedFieldNames
 argument_list|()
 argument_list|)
+operator|)
 operator|)
 condition|)
 block|{
