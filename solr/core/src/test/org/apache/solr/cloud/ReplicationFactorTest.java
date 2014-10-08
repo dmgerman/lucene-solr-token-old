@@ -299,6 +299,9 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
+comment|//@AwaitsFix(bugUrl = "https://issues.apache.org/jira/browse/SOLR-6157")
+end_comment
+begin_comment
 comment|/**  * Tests a client application's ability to get replication factor  * information back from the cluster after an add or update.  */
 end_comment
 begin_class
@@ -310,13 +313,6 @@ argument_list|(
 name|bugUrl
 operator|=
 literal|"https://issues.apache.org/jira/browse/SOLR-5776"
-argument_list|)
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://issues.apache.org/jira/browse/SOLR-6157"
 argument_list|)
 DECL|class|ReplicationFactorTest
 specifier|public
@@ -685,6 +681,11 @@ argument_list|)
 expr_stmt|;
 name|testRf3
 argument_list|()
+expr_stmt|;
+name|waitForThingsToLevelOut
+argument_list|(
+literal|30000
+argument_list|)
 expr_stmt|;
 comment|// test handling when not using direct updates
 name|log
