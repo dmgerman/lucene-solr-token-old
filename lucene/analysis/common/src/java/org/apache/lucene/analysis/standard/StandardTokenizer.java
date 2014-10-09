@@ -126,7 +126,7 @@ block|{
 comment|/** A private instance of the JFlex-constructed scanner */
 DECL|field|scanner
 specifier|private
-name|StandardTokenizerInterface
+name|StandardTokenizerImpl
 name|scanner
 decl_stmt|;
 comment|// TODO: how can we remove these old types?!
@@ -525,7 +525,7 @@ if|if
 condition|(
 name|tokenType
 operator|==
-name|StandardTokenizerInterface
+name|StandardTokenizerImpl
 operator|.
 name|YYEOF
 condition|)

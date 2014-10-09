@@ -43,8 +43,6 @@ specifier|public
 specifier|final
 class|class
 name|UAX29URLEmailTokenizerImpl
-implements|implements
-name|StandardTokenizerInterface
 block|{
 comment|/** This character denotes the end of file */
 DECL|field|YYEOF
@@ -15345,8 +15343,6 @@ name|YYINITIAL
 case|:
 block|{
 return|return
-name|StandardTokenizerInterface
-operator|.
 name|YYEOF
 return|;
 block|}
@@ -15359,8 +15355,6 @@ name|AVOID_BAD_URL
 case|:
 block|{
 return|return
-name|StandardTokenizerInterface
-operator|.
 name|YYEOF
 return|;
 block|}

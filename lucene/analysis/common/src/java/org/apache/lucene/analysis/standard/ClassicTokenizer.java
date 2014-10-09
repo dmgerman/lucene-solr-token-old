@@ -126,7 +126,7 @@ block|{
 comment|/** A private instance of the JFlex-constructed scanner */
 DECL|field|scanner
 specifier|private
-name|StandardTokenizerInterface
+name|ClassicTokenizerImpl
 name|scanner
 decl_stmt|;
 DECL|field|ALPHANUM
@@ -434,7 +434,7 @@ if|if
 condition|(
 name|tokenType
 operator|==
-name|StandardTokenizerInterface
+name|ClassicTokenizerImpl
 operator|.
 name|YYEOF
 condition|)
