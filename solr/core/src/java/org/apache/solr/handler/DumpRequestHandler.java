@@ -524,7 +524,7 @@ name|SolrRequestHandler
 name|getSubHandler
 parameter_list|(
 name|String
-name|path
+name|subPath
 parameter_list|)
 block|{
 if|if
@@ -537,7 +537,7 @@ name|subpaths
 operator|.
 name|contains
 argument_list|(
-name|path
+name|subPath
 argument_list|)
 condition|)
 return|return
