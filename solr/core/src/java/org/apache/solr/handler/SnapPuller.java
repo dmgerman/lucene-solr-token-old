@@ -7315,7 +7315,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No content recieved for file: "
+literal|"No content received for file: "
 operator|+
 name|currentFile
 argument_list|)
@@ -8576,7 +8576,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No content recieved for file: "
+literal|"No content received for file: "
 operator|+
 name|currentFile
 argument_list|)
