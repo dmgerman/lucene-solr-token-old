@@ -9869,17 +9869,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-switch|switch
+if|if
 condition|(
 name|fi
 operator|.
-name|getNormType
+name|hasNorms
 argument_list|()
 condition|)
 block|{
-case|case
-name|NUMERIC
-case|:
 name|checkNumericDocValues
 argument_list|(
 name|fi
@@ -9909,20 +9906,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-break|break;
-default|default:
-throw|throw
-operator|new
-name|AssertionError
-argument_list|(
-literal|"wtf: "
-operator|+
-name|fi
-operator|.
-name|getNormType
-argument_list|()
-argument_list|)
-throw|;
 block|}
 block|}
 comment|/**    * Test term vectors.    * @lucene.experimental    */

@@ -72,11 +72,6 @@ specifier|private
 name|boolean
 name|storeTermVector
 decl_stmt|;
-DECL|field|normType
-specifier|private
-name|DocValuesType
-name|normType
-decl_stmt|;
 DECL|field|omitNorms
 specifier|private
 name|boolean
@@ -163,7 +158,7 @@ comment|/**       * A pre-sorted Set&lt;byte[]&gt;. Fields with this type only s
 DECL|enum constant|SORTED_SET
 name|SORTED_SET
 block|}
-comment|/**    * Sole Constructor.    *    * @lucene.experimental    */
+comment|/**    * Sole constructor.    *    * @lucene.experimental    */
 DECL|method|FieldInfo
 specifier|public
 name|FieldInfo
@@ -191,9 +186,6 @@ name|indexOptions
 parameter_list|,
 name|DocValuesType
 name|docValues
-parameter_list|,
-name|DocValuesType
-name|normsType
 parameter_list|,
 name|long
 name|dvGen
@@ -260,17 +252,6 @@ name|indexOptions
 operator|=
 name|indexOptions
 expr_stmt|;
-name|this
-operator|.
-name|normType
-operator|=
-operator|!
-name|omitNorms
-condition|?
-name|normsType
-else|:
-literal|null
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -296,12 +277,6 @@ expr_stmt|;
 name|this
 operator|.
 name|indexOptions
-operator|=
-literal|null
-expr_stmt|;
-name|this
-operator|.
-name|normType
 operator|=
 literal|null
 expr_stmt|;
@@ -353,31 +328,6 @@ operator|+
 literal|"' must have index options"
 argument_list|)
 throw|;
-block|}
-if|if
-condition|(
-name|omitNorms
-condition|)
-block|{
-if|if
-condition|(
-name|normType
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"indexed field '"
-operator|+
-name|name
-operator|+
-literal|"' cannot both omit norms and have norms"
-argument_list|)
-throw|;
-block|}
 block|}
 comment|// Cannot store payloads unless positions are indexed:
 if|if
@@ -459,25 +409,6 @@ operator|+
 name|name
 operator|+
 literal|"' cannot omit norms"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|normType
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"non-indexed field '"
-operator|+
-name|name
-operator|+
-literal|"' cannot have norms"
 argument_list|)
 throw|;
 block|}
@@ -624,12 +555,6 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// if one require omitNorms at least once, it remains off for life
-name|this
-operator|.
-name|normType
-operator|=
-literal|null
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -826,17 +751,6 @@ return|return
 name|dvGen
 return|;
 block|}
-comment|/**    * Returns {@link DocValuesType} of the norm. this may be null if the field has no norms.    */
-DECL|method|getNormType
-specifier|public
-name|DocValuesType
-name|getNormType
-parameter_list|()
-block|{
-return|return
-name|normType
-return|;
-block|}
 DECL|method|setStoreTermVectors
 name|void
 name|setStoreTermVectors
@@ -882,54 +796,6 @@ name|checkConsistency
 argument_list|()
 assert|;
 block|}
-DECL|method|setNormValueType
-name|void
-name|setNormValueType
-parameter_list|(
-name|DocValuesType
-name|type
-parameter_list|)
-block|{
-if|if
-condition|(
-name|normType
-operator|!=
-literal|null
-operator|&&
-name|normType
-operator|!=
-name|type
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"cannot change Norm type from "
-operator|+
-name|normType
-operator|+
-literal|" to "
-operator|+
-name|type
-operator|+
-literal|" for field \""
-operator|+
-name|name
-operator|+
-literal|"\""
-argument_list|)
-throw|;
-block|}
-name|normType
-operator|=
-name|type
-expr_stmt|;
-assert|assert
-name|checkConsistency
-argument_list|()
-assert|;
-block|}
 comment|/**    * Returns true if norms are explicitly omitted for this field    */
 DECL|method|omitsNorms
 specifier|public
@@ -949,9 +815,11 @@ name|hasNorms
 parameter_list|()
 block|{
 return|return
-name|normType
-operator|!=
-literal|null
+name|indexed
+operator|&&
+name|omitNorms
+operator|==
+literal|false
 return|;
 block|}
 comment|/**    * Returns true if this field is indexed.    */

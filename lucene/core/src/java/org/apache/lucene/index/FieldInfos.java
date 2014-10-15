@@ -1211,7 +1211,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** NOTE: this method does not carry over termVector      *  booleans nor docValuesType; the indexer chain      *  (TermVectorsConsumerPerField, DocFieldProcessor) must      *  set these fields when they succeed in consuming      *  the document */
+comment|/** NOTE: this method does not carry over termVector      *  the indexer chain must set these fields when they      *  succeed in consuming the document */
 DECL|method|addOrUpdate
 specifier|public
 name|FieldInfo
@@ -1260,8 +1260,6 @@ name|fieldType
 operator|.
 name|docValueType
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1293,9 +1291,6 @@ name|indexOptions
 parameter_list|,
 name|DocValuesType
 name|docValues
-parameter_list|,
-name|DocValuesType
-name|normType
 parameter_list|)
 block|{
 name|FieldInfo
@@ -1353,8 +1348,6 @@ argument_list|,
 name|indexOptions
 argument_list|,
 name|docValues
-argument_list|,
-name|normType
 argument_list|,
 operator|-
 literal|1
@@ -1473,27 +1466,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-operator|!
-name|fi
-operator|.
-name|omitsNorms
-argument_list|()
-operator|&&
-name|normType
-operator|!=
-literal|null
-condition|)
-block|{
-name|fi
-operator|.
-name|setNormValueType
-argument_list|(
-name|normType
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|fi
@@ -1549,11 +1521,6 @@ name|fi
 operator|.
 name|getDocValuesType
 argument_list|()
-argument_list|,
-name|fi
-operator|.
-name|getNormType
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1576,7 +1543,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|finish
-specifier|final
 name|FieldInfos
 name|finish
 parameter_list|()
