@@ -1770,8 +1770,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Just checking if no errors occur
-comment|// TODO: Check if this makes any sense now that timeAllowed is also used during Terms enumeration.
-comment|//       The query can potentially timeout iterating over terms if this is set to too low.
 name|assertJQ
 argument_list|(
 name|req
@@ -1794,7 +1792,7 @@ literal|"id:2"
 argument_list|,
 literal|"timeAllowed"
 argument_list|,
-literal|"100"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;

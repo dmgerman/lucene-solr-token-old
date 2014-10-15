@@ -2323,9 +2323,6 @@ argument_list|)
 decl_stmt|;
 name|infosFormat
 operator|.
-name|getFieldInfosWriter
-argument_list|()
-operator|.
 name|write
 argument_list|(
 name|trackingDir

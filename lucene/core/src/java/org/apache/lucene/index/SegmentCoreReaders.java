@@ -571,9 +571,6 @@ operator|.
 name|fieldInfosFormat
 argument_list|()
 operator|.
-name|getFieldInfosReader
-argument_list|()
-operator|.
 name|read
 argument_list|(
 name|cfsDir

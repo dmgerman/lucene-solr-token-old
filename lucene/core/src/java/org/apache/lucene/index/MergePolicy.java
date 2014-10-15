@@ -343,6 +343,7 @@ operator|.
 name|size
 argument_list|()
 condition|)
+block|{
 throw|throw
 operator|new
 name|RuntimeException
@@ -350,6 +351,7 @@ argument_list|(
 literal|"segments must include at least one segment"
 argument_list|)
 throw|;
+block|}
 comment|// clone the list, as the in list may be based off original SegmentInfos and may be modified
 name|this
 operator|.
@@ -745,6 +747,7 @@ name|i
 operator|>
 literal|0
 condition|)
+block|{
 name|b
 operator|.
 name|append
@@ -752,6 +755,7 @@ argument_list|(
 literal|' '
 argument_list|)
 expr_stmt|;
+block|}
 name|b
 operator|.
 name|append
@@ -803,6 +807,7 @@ operator|!=
 operator|-
 literal|1
 condition|)
+block|{
 name|b
 operator|.
 name|append
@@ -814,6 +819,7 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|aborted
@@ -998,6 +1004,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|b
 operator|.
 name|append
@@ -1032,6 +1039,7 @@ name|dir
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|b
 operator|.
@@ -1421,7 +1429,6 @@ decl_stmt|;
 name|double
 name|delRatio
 init|=
-operator|(
 name|info
 operator|.
 name|info
@@ -1433,7 +1440,6 @@ literal|0
 condition|?
 literal|0.0f
 else|:
-operator|(
 operator|(
 name|float
 operator|)
@@ -1448,8 +1454,6 @@ name|info
 operator|.
 name|getDocCount
 argument_list|()
-operator|)
-operator|)
 decl_stmt|;
 assert|assert
 name|delRatio
@@ -1659,13 +1663,11 @@ name|this
 operator|.
 name|maxCFSSegmentSize
 operator|=
-operator|(
 name|v
 operator|>
 name|Long
 operator|.
 name|MAX_VALUE
-operator|)
 condition|?
 name|Long
 operator|.

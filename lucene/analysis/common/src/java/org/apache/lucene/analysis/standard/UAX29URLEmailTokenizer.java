@@ -127,7 +127,7 @@ comment|/** A private instance of the JFlex-constructed scanner */
 DECL|field|scanner
 specifier|private
 specifier|final
-name|StandardTokenizerInterface
+name|UAX29URLEmailTokenizerImpl
 name|scanner
 decl_stmt|;
 DECL|field|ALPHANUM
@@ -404,7 +404,7 @@ expr_stmt|;
 block|}
 DECL|method|getScanner
 specifier|private
-name|StandardTokenizerInterface
+name|UAX29URLEmailTokenizerImpl
 name|getScanner
 parameter_list|()
 block|{
@@ -505,7 +505,7 @@ if|if
 condition|(
 name|tokenType
 operator|==
-name|StandardTokenizerInterface
+name|UAX29URLEmailTokenizerImpl
 operator|.
 name|YYEOF
 condition|)

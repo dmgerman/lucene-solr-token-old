@@ -1874,11 +1874,6 @@ literal|"q"
 argument_list|,
 literal|"*:*"
 argument_list|,
-literal|"fq"
-argument_list|,
-literal|"-id:4"
-argument_list|,
-comment|// SOLR-6540
 literal|"stats"
 argument_list|,
 literal|"true"
@@ -1896,8 +1891,7 @@ literal|"//double[@name='sum'][.='2.375']"
 argument_list|,
 literal|"//long[@name='count'][.='3']"
 argument_list|,
-literal|"//long[@name='missing'][.='0']"
-comment|// SOLR-6540 ==> '1'
+literal|"//long[@name='missing'][.='1']"
 argument_list|)
 expr_stmt|;
 block|}

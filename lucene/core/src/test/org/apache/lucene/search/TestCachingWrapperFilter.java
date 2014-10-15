@@ -85,19 +85,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|DirectoryReader
 import|;
 end_import
@@ -112,6 +99,19 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -241,7 +241,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|WAH8DocIdSet
+name|RoaringDocIdSet
 import|;
 end_import
 begin_class
@@ -1601,11 +1601,11 @@ else|else
 block|{
 name|assertTrue
 argument_list|(
-literal|"Cached DocIdSet must be an WAH8DocIdSet if the original one was not cacheable"
+literal|"Cached DocIdSet must be a RoaringDocIdSet if the original one was not cacheable"
 argument_list|,
 name|cachedSet
 operator|instanceof
-name|WAH8DocIdSet
+name|RoaringDocIdSet
 operator|||
 name|cachedSet
 operator|==

@@ -938,9 +938,6 @@ decl_stmt|;
 return|return
 name|fisFormat
 operator|.
-name|getFieldInfosReader
-argument_list|()
-operator|.
 name|read
 argument_list|(
 name|si
