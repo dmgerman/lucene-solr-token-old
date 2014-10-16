@@ -2357,10 +2357,27 @@ name|f
 operator|+
 literal|")'}"
 block|,
-comment|// identity math functions don't work as expected due to LUCENE-5961
-comment|// "{!type=func key="+key+" ex=key_ex_tag v='sum(0,"+f+")'}",
-comment|// "{!type=func key="+key+" ex=key_ex_tag v='product(1,"+f+")'}",
-block|}
+comment|// identity math functions
+literal|"{!type=func key="
+operator|+
+name|key
+operator|+
+literal|" ex=key_ex_tag v='sum(0,"
+operator|+
+name|f
+operator|+
+literal|")'}"
+block|,
+literal|"{!type=func key="
+operator|+
+name|key
+operator|+
+literal|" ex=key_ex_tag v='product(1,"
+operator|+
+name|f
+operator|+
+literal|")'}"
+block|,       }
 control|)
 block|{
 name|assertQ
@@ -2793,10 +2810,27 @@ name|f
 operator|+
 literal|")'}"
 block|,
-comment|// identity math functions don't work as expected due to LUCENE-5961
-comment|// "{!type=func key="+f+" ex=key_ex_tag v='sum(0,"+f+")'}",
-comment|// "{!type=func key="+f+" ex=key_ex_tag v='product(1,"+f+")'}",
-block|}
+comment|// identity math functions
+literal|"{!type=func key="
+operator|+
+name|f
+operator|+
+literal|" ex=key_ex_tag v='sum(0,"
+operator|+
+name|f
+operator|+
+literal|")'}"
+block|,
+literal|"{!type=func key="
+operator|+
+name|f
+operator|+
+literal|" ex=key_ex_tag v='product(1,"
+operator|+
+name|f
+operator|+
+literal|")'}"
+block|,       }
 control|)
 block|{
 name|assertQ
