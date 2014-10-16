@@ -762,11 +762,13 @@ name|MonotonicBlockPackedReader
 import|;
 end_import
 begin_comment
-comment|/** reader for {@link Lucene410DocValuesFormat} */
+comment|/**   * reader for 4.10 docvalues format  * @deprecated only for old 4.x segments  */
 end_comment
 begin_class
-DECL|class|Lucene410DocValuesProducer
+annotation|@
+name|Deprecated
 class|class
+DECL|class|Lucene410DocValuesProducer
 name|Lucene410DocValuesProducer
 extends|extends
 name|DocValuesProducer
