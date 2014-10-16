@@ -1180,17 +1180,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|doc
-operator|==
-name|NO_MORE_DOCS
-condition|)
-block|{
-return|return
-name|NO_MORE_DOCS
-return|;
-block|}
 specifier|final
 name|int
 name|subNext
