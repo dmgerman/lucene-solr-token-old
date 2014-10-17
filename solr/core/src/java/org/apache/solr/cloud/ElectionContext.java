@@ -1313,8 +1313,6 @@ condition|)
 block|{
 name|waitForReplicasToComeUp
 argument_list|(
-name|weAreReplacement
-argument_list|,
 name|leaderVoteWait
 argument_list|)
 expr_stmt|;
@@ -1381,8 +1379,6 @@ condition|)
 block|{
 name|rejoinLeaderElection
 argument_list|(
-name|leaderSeqPath
-argument_list|,
 name|core
 argument_list|)
 expr_stmt|;
@@ -1690,8 +1686,6 @@ condition|)
 block|{
 name|rejoinLeaderElection
 argument_list|(
-name|leaderSeqPath
-argument_list|,
 name|core
 argument_list|)
 expr_stmt|;
@@ -1821,8 +1815,6 @@ expr_stmt|;
 comment|// we could not publish ourselves as leader - try and rejoin election
 name|rejoinLeaderElection
 argument_list|(
-name|leaderSeqPath
-argument_list|,
 name|core
 argument_list|)
 expr_stmt|;
@@ -2213,9 +2205,6 @@ specifier|private
 name|void
 name|waitForReplicasToComeUp
 parameter_list|(
-name|boolean
-name|weAreReplacement
-parameter_list|,
 name|int
 name|timeoutms
 parameter_list|)
@@ -2487,9 +2476,6 @@ specifier|private
 name|void
 name|rejoinLeaderElection
 parameter_list|(
-name|String
-name|leaderSeqPath
-parameter_list|,
 name|SolrCore
 name|core
 parameter_list|)
@@ -2513,7 +2499,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Not rejoining election because CoreContainer is close"
+literal|"Not rejoining election because CoreContainer is closed"
 argument_list|)
 expr_stmt|;
 return|return;
