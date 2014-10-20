@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.lucene41
+DECL|package|org.apache.lucene.codecs.lucene50
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 package|;
 end_package
 begin_comment
@@ -26,9 +26,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|BLOCK_SIZE
 import|;
@@ -43,7 +43,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
 name|ForUtil
 operator|.
@@ -60,7 +60,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
 name|ForUtil
 operator|.
@@ -77,9 +77,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|IntBlockTermState
 import|;
@@ -214,19 +214,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfos
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexFileNames
 import|;
 end_import
@@ -240,7 +227,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentInfo
+name|SegmentReadState
 import|;
 end_import
 begin_import
@@ -254,32 +241,6 @@ operator|.
 name|store
 operator|.
 name|DataInput
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|Directory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|IOContext
 import|;
 end_import
 begin_import
@@ -374,14 +335,14 @@ name|RamUsageEstimator
 import|;
 end_import
 begin_comment
-comment|/**  * Concrete class that reads docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * @see Lucene41SkipReader for details  * @lucene.experimental  */
+comment|/**  * Concrete class that reads docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * @see Lucene50SkipReader for details  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|Lucene41PostingsReader
+DECL|class|Lucene50PostingsReader
 specifier|public
 specifier|final
 class|class
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 extends|extends
 name|PostingsReaderBase
 block|{
@@ -396,7 +357,7 @@ name|RamUsageEstimator
 operator|.
 name|shallowSizeOfInstance
 argument_list|(
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 operator|.
 name|class
 argument_list|)
@@ -430,26 +391,13 @@ specifier|private
 name|int
 name|version
 decl_stmt|;
-comment|// public static boolean DEBUG = false;
 comment|/** Sole constructor. */
-DECL|method|Lucene41PostingsReader
+DECL|method|Lucene50PostingsReader
 specifier|public
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 parameter_list|(
-name|Directory
-name|dir
-parameter_list|,
-name|FieldInfos
-name|fieldInfos
-parameter_list|,
-name|SegmentInfo
-name|segmentInfo
-parameter_list|,
-name|IOContext
-name|ioContext
-parameter_list|,
-name|String
-name|segmentSuffix
+name|SegmentReadState
+name|state
 parameter_list|)
 throws|throws
 name|IOException
@@ -474,51 +422,75 @@ name|payIn
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
-name|docIn
-operator|=
-name|dir
-operator|.
-name|openInput
-argument_list|(
+name|String
+name|docName
+init|=
 name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
+name|state
+operator|.
 name|segmentInfo
 operator|.
 name|name
 argument_list|,
+name|state
+operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|DOC_EXTENSION
 argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|docIn
+operator|=
+name|state
+operator|.
+name|directory
+operator|.
+name|openInput
+argument_list|(
+name|docName
 argument_list|,
-name|ioContext
+name|state
+operator|.
+name|context
 argument_list|)
 expr_stmt|;
 name|version
 operator|=
 name|CodecUtil
 operator|.
-name|checkHeader
+name|checkSegmentHeader
 argument_list|(
 name|docIn
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|DOC_CODEC
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|VERSION_START
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 name|forUtil
@@ -529,15 +501,6 @@ argument_list|(
 name|docIn
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|version
-operator|>=
-name|Lucene41PostingsWriter
-operator|.
-name|VERSION_CHECKSUM
-condition|)
-block|{
 comment|// NOTE: data file is too costly to verify checksum against all the bytes on open,
 comment|// but for now we at least verify proper structure of the checksum footer: which looks
 comment|// for FOOTER_MAGIC + algorithmID. This is cheap and can detect some forms of corruption
@@ -549,63 +512,79 @@ argument_list|(
 name|docIn
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
+name|state
+operator|.
 name|fieldInfos
 operator|.
 name|hasProx
 argument_list|()
 condition|)
 block|{
-name|posIn
-operator|=
-name|dir
-operator|.
-name|openInput
-argument_list|(
+name|String
+name|proxName
+init|=
 name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
+name|state
+operator|.
 name|segmentInfo
 operator|.
 name|name
 argument_list|,
+name|state
+operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|POS_EXTENSION
 argument_list|)
+decl_stmt|;
+name|posIn
+operator|=
+name|state
+operator|.
+name|directory
+operator|.
+name|openInput
+argument_list|(
+name|proxName
 argument_list|,
-name|ioContext
+name|state
+operator|.
+name|context
 argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|checkHeader
+name|checkSegmentHeader
 argument_list|(
 name|posIn
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|POS_CODEC
 argument_list|,
 name|version
 argument_list|,
 name|version
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|version
-operator|>=
-name|Lucene41PostingsWriter
-operator|.
-name|VERSION_CHECKSUM
-condition|)
-block|{
 comment|// NOTE: data file is too costly to verify checksum against all the bytes on open,
 comment|// but for now we at least verify proper structure of the checksum footer: which looks
 comment|// for FOOTER_MAGIC + algorithmID. This is cheap and can detect some forms of corruption
@@ -617,68 +596,86 @@ argument_list|(
 name|posIn
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
+name|state
+operator|.
 name|fieldInfos
 operator|.
 name|hasPayloads
 argument_list|()
 operator|||
+name|state
+operator|.
 name|fieldInfos
 operator|.
 name|hasOffsets
 argument_list|()
 condition|)
 block|{
-name|payIn
-operator|=
-name|dir
-operator|.
-name|openInput
-argument_list|(
+name|String
+name|payName
+init|=
 name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
+name|state
+operator|.
 name|segmentInfo
 operator|.
 name|name
 argument_list|,
+name|state
+operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|PAY_EXTENSION
 argument_list|)
+decl_stmt|;
+name|payIn
+operator|=
+name|state
+operator|.
+name|directory
+operator|.
+name|openInput
+argument_list|(
+name|payName
 argument_list|,
-name|ioContext
+name|state
+operator|.
+name|context
 argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|checkHeader
+name|checkSegmentHeader
 argument_list|(
 name|payIn
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|PAY_CODEC
 argument_list|,
 name|version
 argument_list|,
 name|version
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|version
-operator|>=
-name|Lucene41PostingsWriter
-operator|.
-name|VERSION_CHECKSUM
-condition|)
-block|{
 comment|// NOTE: data file is too costly to verify checksum against all the bytes on open,
 comment|// but for now we at least verify proper structure of the checksum footer: which looks
 comment|// for FOOTER_MAGIC + algorithmID. This is cheap and can detect some forms of corruption
@@ -690,7 +687,6 @@ argument_list|(
 name|payIn
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|this
@@ -747,6 +743,9 @@ name|init
 parameter_list|(
 name|IndexInput
 name|termsIn
+parameter_list|,
+name|SegmentReadState
+name|state
 parameter_list|)
 throws|throws
 name|IOException
@@ -754,21 +753,32 @@ block|{
 comment|// Make sure we are talking to the matching postings writer
 name|CodecUtil
 operator|.
-name|checkHeader
+name|checkSegmentHeader
 argument_list|(
 name|termsIn
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|TERMS_CODEC
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|VERSION_START
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1072,27 +1082,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|version
-operator|<
-name|Lucene41PostingsWriter
-operator|.
-name|VERSION_META_ARRAY
-condition|)
-block|{
-comment|// backward compatibility
-name|_decodeTerm
-argument_list|(
-name|in
-argument_list|,
-name|fieldInfo
-argument_list|,
-name|termState
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 name|termState
 operator|.
 name|docStartFP
@@ -1195,205 +1184,6 @@ name|lastPosBlockOffset
 operator|=
 operator|-
 literal|1
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|termState
-operator|.
-name|docFreq
-operator|>
-name|BLOCK_SIZE
-condition|)
-block|{
-name|termState
-operator|.
-name|skipOffset
-operator|=
-name|in
-operator|.
-name|readVLong
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|termState
-operator|.
-name|skipOffset
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-block|}
-block|}
-DECL|method|_decodeTerm
-specifier|private
-name|void
-name|_decodeTerm
-parameter_list|(
-name|DataInput
-name|in
-parameter_list|,
-name|FieldInfo
-name|fieldInfo
-parameter_list|,
-name|IntBlockTermState
-name|termState
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-specifier|final
-name|boolean
-name|fieldHasPositions
-init|=
-name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-operator|.
-name|compareTo
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_AND_FREQS_AND_POSITIONS
-argument_list|)
-operator|>=
-literal|0
-decl_stmt|;
-specifier|final
-name|boolean
-name|fieldHasOffsets
-init|=
-name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-operator|.
-name|compareTo
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
-argument_list|)
-operator|>=
-literal|0
-decl_stmt|;
-specifier|final
-name|boolean
-name|fieldHasPayloads
-init|=
-name|fieldInfo
-operator|.
-name|hasPayloads
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|termState
-operator|.
-name|docFreq
-operator|==
-literal|1
-condition|)
-block|{
-name|termState
-operator|.
-name|singletonDocID
-operator|=
-name|in
-operator|.
-name|readVInt
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|termState
-operator|.
-name|singletonDocID
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-name|termState
-operator|.
-name|docStartFP
-operator|+=
-name|in
-operator|.
-name|readVLong
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|fieldHasPositions
-condition|)
-block|{
-name|termState
-operator|.
-name|posStartFP
-operator|+=
-name|in
-operator|.
-name|readVLong
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|termState
-operator|.
-name|totalTermFreq
-operator|>
-name|BLOCK_SIZE
-condition|)
-block|{
-name|termState
-operator|.
-name|lastPosBlockOffset
-operator|=
-name|in
-operator|.
-name|readVLong
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|termState
-operator|.
-name|lastPosBlockOffset
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|(
-name|fieldHasPayloads
-operator|||
-name|fieldHasOffsets
-operator|)
-operator|&&
-name|termState
-operator|.
-name|totalTermFreq
-operator|>=
-name|BLOCK_SIZE
-condition|)
-block|{
-name|termState
-operator|.
-name|payStartFP
-operator|+=
-name|in
-operator|.
-name|readVLong
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1785,7 +1575,7 @@ name|docBufferUpto
 decl_stmt|;
 DECL|field|skipper
 specifier|private
-name|Lucene41SkipReader
+name|Lucene50SkipReader
 name|skipper
 decl_stmt|;
 DECL|field|skipped
@@ -1910,7 +1700,7 @@ name|this
 operator|.
 name|startDocIn
 operator|=
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 operator|.
 name|this
 operator|.
@@ -2070,9 +1860,6 @@ name|liveDocs
 operator|=
 name|liveDocs
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.reset: termState=" + termState);
-comment|// }
 name|docFreq
 operator|=
 name|termState
@@ -2254,9 +2041,6 @@ operator|>=
 name|BLOCK_SIZE
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill doc block from fp=" + docIn.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|readBlock
@@ -2273,9 +2057,6 @@ condition|(
 name|indexHasFreq
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill freq block from fp=" + docIn.getFilePointer());
-comment|// }
 if|if
 condition|(
 name|needsFreq
@@ -2335,9 +2116,6 @@ block|}
 else|else
 block|{
 comment|// Read vInts:
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill last vInt block from fp=" + docIn.getFilePointer());
-comment|// }
 name|readVIntBlock
 argument_list|(
 name|docIn
@@ -2367,17 +2145,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("\nFPR.nextDoc");
-comment|// }
 while|while
 condition|(
 literal|true
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  docUpto=" + docUpto + " (of df=" + docFreq + ") docBufferUpto=" + docBufferUpto);
-comment|// }
 if|if
 condition|(
 name|docUpto
@@ -2385,9 +2157,6 @@ operator|==
 name|docFreq
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  return doc=END");
-comment|// }
 return|return
 name|doc
 operator|=
@@ -2405,9 +2174,6 @@ name|refillDocs
 argument_list|()
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("    accum=" + accum + " docDeltaBuffer[" + docBufferUpto + "]=" + docDeltaBuffer[docBufferUpto]);
-comment|// }
 name|accum
 operator|+=
 name|docDeltaBuffer
@@ -2446,16 +2212,10 @@ expr_stmt|;
 name|docBufferUpto
 operator|++
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("  return doc=" + doc + " freq=" + freq);
-comment|// }
 return|return
 name|doc
 return|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("  doc=" + accum + " is deleted; try next doc");
-comment|// }
 name|docBufferUpto
 operator|++
 expr_stmt|;
@@ -2475,9 +2235,6 @@ throws|throws
 name|IOException
 block|{
 comment|// TODO: make frq block load lazy/skippable
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.advance target=" + target);
-comment|// }
 comment|// current skip docID< docIDs generated from current buffer<= next skip docID
 comment|// we don't need to skip if target is buffered already
 if|if
@@ -2491,9 +2248,6 @@ operator|>
 name|nextSkipDoc
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("load skipper");
-comment|// }
 if|if
 condition|(
 name|skipper
@@ -2505,16 +2259,16 @@ comment|// Lazy init: first time this enum has ever been used for skipping
 name|skipper
 operator|=
 operator|new
-name|Lucene41SkipReader
+name|Lucene50SkipReader
 argument_list|(
 name|docIn
 operator|.
 name|clone
 argument_list|()
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
-name|maxSkipLevels
+name|MAX_SKIP_LEVELS
 argument_list|,
 name|BLOCK_SIZE
 argument_list|,
@@ -2562,7 +2316,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// always plus one to fix the result, since skip position in Lucene41SkipReader
+comment|// always plus one to fix the result, since skip position in Lucene50SkipReader
 comment|// is a little different from MultiLevelSkipListReader
 specifier|final
 name|int
@@ -2585,9 +2339,6 @@ name|docUpto
 condition|)
 block|{
 comment|// Skipper moved
-comment|// if (DEBUG) {
-comment|//   System.out.println("skipper moved to docUpto=" + newDocUpto + " vs current=" + docUpto + "; docID=" + skipper.getDoc() + " fp=" + skipper.getDocPointer());
-comment|// }
 assert|assert
 name|newDocUpto
 operator|%
@@ -2669,9 +2420,6 @@ condition|(
 literal|true
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  scan doc=" + accum + " docBufferUpto=" + docBufferUpto);
-comment|// }
 name|accum
 operator|+=
 name|docDeltaBuffer
@@ -2722,9 +2470,6 @@ name|accum
 argument_list|)
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  return doc=" + accum);
-comment|// }
 name|freq
 operator|=
 name|freqBuffer
@@ -2743,9 +2488,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  now do nextDoc()");
-comment|// }
 name|docBufferUpto
 operator|++
 expr_stmt|;
@@ -2833,7 +2575,7 @@ name|posBufferUpto
 decl_stmt|;
 DECL|field|skipper
 specifier|private
-name|Lucene41SkipReader
+name|Lucene50SkipReader
 name|skipper
 decl_stmt|;
 DECL|field|skipped
@@ -2986,7 +2728,7 @@ name|this
 operator|.
 name|startDocIn
 operator|=
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 operator|.
 name|this
 operator|.
@@ -3002,7 +2744,7 @@ name|this
 operator|.
 name|posIn
 operator|=
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 operator|.
 name|this
 operator|.
@@ -3106,9 +2848,6 @@ name|liveDocs
 operator|=
 name|liveDocs
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.reset: termState=" + termState);
-comment|// }
 name|docFreq
 operator|=
 name|termState
@@ -3333,9 +3072,6 @@ operator|>=
 name|BLOCK_SIZE
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill doc block from fp=" + docIn.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|readBlock
@@ -3347,9 +3083,6 @@ argument_list|,
 name|docDeltaBuffer
 argument_list|)
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill freq block from fp=" + docIn.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|readBlock
@@ -3391,9 +3124,6 @@ block|}
 else|else
 block|{
 comment|// Read vInts:
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill last vInt doc block from fp=" + docIn.getFilePointer());
-comment|// }
 name|readVIntBlock
 argument_list|(
 name|docIn
@@ -3421,9 +3151,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("      refillPositions");
-comment|// }
 if|if
 condition|(
 name|posIn
@@ -3434,9 +3161,6 @@ operator|==
 name|lastPosBlockFP
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        vInt pos block @ fp=" + posIn.getFilePointer() + " hasPayloads=" + indexHasPayloads + " hasOffsets=" + indexHasOffsets);
-comment|// }
 specifier|final
 name|int
 name|count
@@ -3573,9 +3297,6 @@ block|}
 block|}
 else|else
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        bulk pos block @ fp=" + posIn.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|readBlock
@@ -3599,17 +3320,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.nextDoc");
-comment|// }
 while|while
 condition|(
 literal|true
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    docUpto=" + docUpto + " (of df=" + docFreq + ") docBufferUpto=" + docBufferUpto);
-comment|// }
 if|if
 condition|(
 name|docUpto
@@ -3634,9 +3349,6 @@ name|refillDocs
 argument_list|()
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("    accum=" + accum + " docDeltaBuffer[" + docBufferUpto + "]=" + docDeltaBuffer[docBufferUpto]);
-comment|// }
 name|accum
 operator|+=
 name|docDeltaBuffer
@@ -3683,16 +3395,10 @@ name|position
 operator|=
 literal|0
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("    return doc=" + doc + " freq=" + freq + " posPendingCount=" + posPendingCount);
-comment|// }
 return|return
 name|doc
 return|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("    doc=" + accum + " is deleted; try next doc");
-comment|// }
 block|}
 block|}
 annotation|@
@@ -3709,9 +3415,6 @@ throws|throws
 name|IOException
 block|{
 comment|// TODO: make frq block load lazy/skippable
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.advance target=" + target);
-comment|// }
 if|if
 condition|(
 name|target
@@ -3719,9 +3422,6 @@ operator|>
 name|nextSkipDoc
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    try skipper");
-comment|// }
 if|if
 condition|(
 name|skipper
@@ -3730,22 +3430,19 @@ literal|null
 condition|)
 block|{
 comment|// Lazy init: first time this enum has ever been used for skipping
-comment|// if (DEBUG) {
-comment|//   System.out.println("    create skipper");
-comment|// }
 name|skipper
 operator|=
 operator|new
-name|Lucene41SkipReader
+name|Lucene50SkipReader
 argument_list|(
 name|docIn
 operator|.
 name|clone
 argument_list|()
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
-name|maxSkipLevels
+name|MAX_SKIP_LEVELS
 argument_list|,
 name|BLOCK_SIZE
 argument_list|,
@@ -3771,9 +3468,6 @@ literal|1
 assert|;
 comment|// This is the first time this enum has skipped
 comment|// since reset() was called; load the skip data:
-comment|// if (DEBUG) {
-comment|//   System.out.println("    init skipper");
-comment|// }
 name|skipper
 operator|.
 name|init
@@ -3817,9 +3511,6 @@ name|docUpto
 condition|)
 block|{
 comment|// Skipper moved
-comment|// if (DEBUG) {
-comment|//   System.out.println("    skipper moved to docUpto=" + newDocUpto + " vs current=" + docUpto + "; docID=" + skipper.getDoc() + " fp=" + skipper.getDocPointer() + " pos.fp=" + skipper.getPosPointer() + " pos.bufferUpto=" + skipper.getPosBufferUpto());
-comment|// }
 assert|assert
 name|newDocUpto
 operator|%
@@ -3911,9 +3602,6 @@ condition|(
 literal|true
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  scan doc=" + accum + " docBufferUpto=" + docBufferUpto);
-comment|// }
 name|accum
 operator|+=
 name|docDeltaBuffer
@@ -3975,9 +3663,6 @@ name|accum
 argument_list|)
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  return doc=" + accum);
-comment|// }
 name|position
 operator|=
 literal|0
@@ -3990,9 +3675,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  now do nextDoc()");
-comment|// }
 return|return
 name|nextDoc
 argument_list|()
@@ -4019,9 +3701,6 @@ name|posPendingCount
 operator|-
 name|freq
 decl_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("      FPR.skipPositions: toSkip=" + toSkip);
-comment|// }
 specifier|final
 name|int
 name|leftInBlock
@@ -4041,9 +3720,6 @@ name|posBufferUpto
 operator|+=
 name|toSkip
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("        skip w/in block to posBufferUpto=" + posBufferUpto);
-comment|// }
 block|}
 else|else
 block|{
@@ -4058,9 +3734,6 @@ operator|>=
 name|BLOCK_SIZE
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        skip whole block @ fp=" + posIn.getFilePointer());
-comment|// }
 assert|assert
 name|posIn
 operator|.
@@ -4088,9 +3761,6 @@ name|posBufferUpto
 operator|=
 name|toSkip
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("        skip w/in block to posBufferUpto=" + posBufferUpto);
-comment|// }
 block|}
 name|position
 operator|=
@@ -4107,9 +3777,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    FPR.nextPosition posPendingCount=" + posPendingCount + " posBufferUpto=" + posBufferUpto);
-comment|// }
 if|if
 condition|(
 name|posPendingFP
@@ -4118,9 +3785,6 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("      seek to pendingFP=" + posPendingFP);
-comment|// }
 name|posIn
 operator|.
 name|seek
@@ -4180,9 +3844,6 @@ expr_stmt|;
 name|posPendingCount
 operator|--
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("      return pos=" + position);
-comment|// }
 return|return
 name|position
 return|;
@@ -4356,7 +4017,7 @@ name|posBufferUpto
 decl_stmt|;
 DECL|field|skipper
 specifier|private
-name|Lucene41SkipReader
+name|Lucene50SkipReader
 name|skipper
 decl_stmt|;
 DECL|field|skipped
@@ -4538,7 +4199,7 @@ name|this
 operator|.
 name|startDocIn
 operator|=
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 operator|.
 name|this
 operator|.
@@ -4554,7 +4215,7 @@ name|this
 operator|.
 name|posIn
 operator|=
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 operator|.
 name|this
 operator|.
@@ -4567,7 +4228,7 @@ name|this
 operator|.
 name|payIn
 operator|=
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 operator|.
 name|this
 operator|.
@@ -4760,9 +4421,6 @@ name|liveDocs
 operator|=
 name|liveDocs
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.reset: termState=" + termState);
-comment|// }
 name|docFreq
 operator|=
 name|termState
@@ -5019,9 +4677,6 @@ operator|>=
 name|BLOCK_SIZE
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill doc block from fp=" + docIn.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|readBlock
@@ -5033,9 +4688,6 @@ argument_list|,
 name|docDeltaBuffer
 argument_list|)
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill freq block from fp=" + docIn.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|readBlock
@@ -5076,9 +4728,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    fill last vInt doc block from fp=" + docIn.getFilePointer());
-comment|// }
 name|readVIntBlock
 argument_list|(
 name|docIn
@@ -5106,9 +4755,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("      refillPositions");
-comment|// }
 if|if
 condition|(
 name|posIn
@@ -5119,9 +4765,6 @@ operator|==
 name|lastPosBlockFP
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        vInt pos block @ fp=" + posIn.getFilePointer() + " hasPayloads=" + indexHasPayloads + " hasOffsets=" + indexHasOffsets);
-comment|// }
 specifier|final
 name|int
 name|count
@@ -5196,9 +4839,6 @@ name|readVInt
 argument_list|()
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("        i=" + i + " payloadLen=" + payloadLength);
-comment|// }
 name|payloadLengthBuffer
 index|[
 name|i
@@ -5247,7 +4887,6 @@ name|payloadLength
 argument_list|)
 expr_stmt|;
 block|}
-comment|//System.out.println("          read payload @ pos.fp=" + posIn.getFilePointer());
 name|posIn
 operator|.
 name|readBytes
@@ -5280,9 +4919,6 @@ condition|(
 name|indexHasOffsets
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        i=" + i + " read offsets from posIn.fp=" + posIn.getFilePointer());
-comment|// }
 name|int
 name|deltaCode
 init|=
@@ -5326,9 +4962,6 @@ index|]
 operator|=
 name|offsetLength
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("          startOffDelta=" + offsetStartDeltaBuffer[i] + " offsetLen=" + offsetLengthBuffer[i]);
-comment|// }
 block|}
 block|}
 name|payloadByteUpto
@@ -5338,9 +4971,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        bulk pos block @ fp=" + posIn.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|readBlock
@@ -5357,9 +4987,6 @@ condition|(
 name|indexHasPayloads
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        bulk payload block @ pay.fp=" + payIn.getFilePointer());
-comment|// }
 if|if
 condition|(
 name|needsPayloads
@@ -5384,9 +5011,6 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("        " + numBytes + " payload bytes @ pay.fp=" + payIn.getFilePointer());
-comment|// }
 if|if
 condition|(
 name|numBytes
@@ -5464,9 +5088,6 @@ condition|(
 name|indexHasOffsets
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        bulk offset block @ pay.fp=" + payIn.getFilePointer());
-comment|// }
 if|if
 condition|(
 name|needsOffsets
@@ -5528,17 +5149,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.nextDoc");
-comment|// }
 while|while
 condition|(
 literal|true
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    docUpto=" + docUpto + " (of df=" + docFreq + ") docBufferUpto=" + docBufferUpto);
-comment|// }
 if|if
 condition|(
 name|docUpto
@@ -5563,9 +5178,6 @@ name|refillDocs
 argument_list|()
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("    accum=" + accum + " docDeltaBuffer[" + docBufferUpto + "]=" + docDeltaBuffer[docBufferUpto]);
-comment|// }
 name|accum
 operator|+=
 name|docDeltaBuffer
@@ -5608,9 +5220,6 @@ name|doc
 operator|=
 name|accum
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("    return doc=" + doc + " freq=" + freq + " posPendingCount=" + posPendingCount);
-comment|// }
 name|position
 operator|=
 literal|0
@@ -5623,9 +5232,6 @@ return|return
 name|doc
 return|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("    doc=" + accum + " is deleted; try next doc");
-comment|// }
 block|}
 block|}
 annotation|@
@@ -5642,9 +5248,6 @@ throws|throws
 name|IOException
 block|{
 comment|// TODO: make frq block load lazy/skippable
-comment|// if (DEBUG) {
-comment|//   System.out.println("  FPR.advance target=" + target);
-comment|// }
 if|if
 condition|(
 name|target
@@ -5652,9 +5255,6 @@ operator|>
 name|nextSkipDoc
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    try skipper");
-comment|// }
 if|if
 condition|(
 name|skipper
@@ -5663,22 +5263,19 @@ literal|null
 condition|)
 block|{
 comment|// Lazy init: first time this enum has ever been used for skipping
-comment|// if (DEBUG) {
-comment|//   System.out.println("    create skipper");
-comment|// }
 name|skipper
 operator|=
 operator|new
-name|Lucene41SkipReader
+name|Lucene50SkipReader
 argument_list|(
 name|docIn
 operator|.
 name|clone
 argument_list|()
 argument_list|,
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 operator|.
-name|maxSkipLevels
+name|MAX_SKIP_LEVELS
 argument_list|,
 name|BLOCK_SIZE
 argument_list|,
@@ -5704,9 +5301,6 @@ literal|1
 assert|;
 comment|// This is the first time this enum has skipped
 comment|// since reset() was called; load the skip data:
-comment|// if (DEBUG) {
-comment|//   System.out.println("    init skipper");
-comment|// }
 name|skipper
 operator|.
 name|init
@@ -5750,9 +5344,6 @@ name|docUpto
 condition|)
 block|{
 comment|// Skipper moved
-comment|// if (DEBUG) {
-comment|//   System.out.println("    skipper moved to docUpto=" + newDocUpto + " vs current=" + docUpto + "; docID=" + skipper.getDoc() + " fp=" + skipper.getDocPointer() + " pos.fp=" + skipper.getPosPointer() + " pos.bufferUpto=" + skipper.getPosBufferUpto() + " pay.fp=" + skipper.getPayPointer() + " lastStartOffset=" + lastStartOffset);
-comment|// }
 assert|assert
 name|newDocUpto
 operator|%
@@ -5862,9 +5453,6 @@ condition|(
 literal|true
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  scan doc=" + accum + " docBufferUpto=" + docBufferUpto);
-comment|// }
 name|accum
 operator|+=
 name|docDeltaBuffer
@@ -5926,9 +5514,6 @@ name|accum
 argument_list|)
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  return doc=" + accum);
-comment|// }
 name|position
 operator|=
 literal|0
@@ -5945,9 +5530,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  now do nextDoc()");
-comment|// }
 return|return
 name|nextDoc
 argument_list|()
@@ -6023,9 +5605,6 @@ name|posBufferUpto
 operator|++
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("        skip w/in block to posBufferUpto=" + posBufferUpto);
-comment|// }
 block|}
 else|else
 block|{
@@ -6040,9 +5619,6 @@ operator|>=
 name|BLOCK_SIZE
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("        skip whole block @ fp=" + posIn.getFilePointer());
-comment|// }
 assert|assert
 name|posIn
 operator|.
@@ -6153,9 +5729,6 @@ name|posBufferUpto
 operator|++
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("        skip w/in block to posBufferUpto=" + posBufferUpto);
-comment|// }
 block|}
 name|position
 operator|=
@@ -6176,9 +5749,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    FPR.nextPosition posPendingCount=" + posPendingCount + " posBufferUpto=" + posBufferUpto + " payloadByteUpto=" + payloadByteUpto)// ;
-comment|// }
 if|if
 condition|(
 name|posPendingFP
@@ -6187,9 +5757,6 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("      seek pos to pendingFP=" + posPendingFP);
-comment|// }
 name|posIn
 operator|.
 name|seek
@@ -6210,9 +5777,6 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("      seek pay to pendingFP=" + payPendingFP);
-comment|// }
 name|payIn
 operator|.
 name|seek
@@ -6338,9 +5902,6 @@ expr_stmt|;
 name|posPendingCount
 operator|--
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("      return pos=" + position);
-comment|// }
 return|return
 name|position
 return|;
@@ -6377,9 +5938,6 @@ name|BytesRef
 name|getPayload
 parameter_list|()
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("    FPR.getPayload payloadLength=" + payloadLength + " payloadByteUpto=" + payloadByteUpto);
-comment|// }
 if|if
 condition|(
 name|payloadLength
@@ -6455,15 +6013,6 @@ name|IOException
 block|{
 if|if
 condition|(
-name|version
-operator|>=
-name|Lucene41PostingsWriter
-operator|.
-name|VERSION_CHECKSUM
-condition|)
-block|{
-if|if
-condition|(
 name|docIn
 operator|!=
 literal|null
@@ -6506,7 +6055,6 @@ argument_list|(
 name|payIn
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@

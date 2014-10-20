@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.lucene41
+DECL|package|org.apache.lucene.codecs.lucene50
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 package|;
 end_package
 begin_comment
@@ -26,9 +26,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|BLOCK_SIZE
 import|;
@@ -43,7 +43,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
 name|ForUtil
 operator|.
@@ -60,7 +60,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
 name|ForUtil
 operator|.
@@ -613,6 +613,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|d
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

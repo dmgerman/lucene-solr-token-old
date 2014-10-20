@@ -100,9 +100,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 import|;
 end_import
 begin_import
@@ -115,9 +115,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 import|;
 end_import
 begin_import
@@ -160,13 +160,13 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/** Uses {@link OrdsBlockTreeTermsWriter} with {@link Lucene41PostingsWriter}. */
+comment|/** Uses {@link OrdsBlockTreeTermsWriter} with {@link Lucene50PostingsWriter}. */
 end_comment
 begin_class
-DECL|class|Ords41PostingsFormat
+DECL|class|BlockTreeOrdsPostingsFormat
 specifier|public
 class|class
-name|Ords41PostingsFormat
+name|BlockTreeOrdsPostingsFormat
 extends|extends
 name|PostingsFormat
 block|{
@@ -194,9 +194,9 @@ init|=
 literal|128
 decl_stmt|;
 comment|/** Creates {@code Lucene41PostingsFormat} with default    *  settings. */
-DECL|method|Ords41PostingsFormat
+DECL|method|BlockTreeOrdsPostingsFormat
 specifier|public
-name|Ords41PostingsFormat
+name|BlockTreeOrdsPostingsFormat
 parameter_list|()
 block|{
 name|this
@@ -212,9 +212,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Creates {@code Lucene41PostingsFormat} with custom    *  values for {@code minBlockSize} and {@code    *  maxBlockSize} passed to block terms dictionary.    *  @see OrdsBlockTreeTermsWriter#OrdsBlockTreeTermsWriter(SegmentWriteState,PostingsWriterBase,int,int) */
-DECL|method|Ords41PostingsFormat
+DECL|method|BlockTreeOrdsPostingsFormat
 specifier|public
-name|Ords41PostingsFormat
+name|BlockTreeOrdsPostingsFormat
 parameter_list|(
 name|int
 name|minTermBlockSize
@@ -225,7 +225,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"OrdsLucene41"
+literal|"BlockTreeOrds"
 argument_list|)
 expr_stmt|;
 name|this
@@ -287,7 +287,7 @@ name|PostingsWriterBase
 name|postingsWriter
 init|=
 operator|new
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 argument_list|(
 name|state
 argument_list|)
@@ -357,27 +357,9 @@ name|PostingsReaderBase
 name|postingsReader
 init|=
 operator|new
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 argument_list|(
 name|state
-operator|.
-name|directory
-argument_list|,
-name|state
-operator|.
-name|fieldInfos
-argument_list|,
-name|state
-operator|.
-name|segmentInfo
-argument_list|,
-name|state
-operator|.
-name|context
-argument_list|,
-name|state
-operator|.
-name|segmentSuffix
 argument_list|)
 decl_stmt|;
 name|boolean

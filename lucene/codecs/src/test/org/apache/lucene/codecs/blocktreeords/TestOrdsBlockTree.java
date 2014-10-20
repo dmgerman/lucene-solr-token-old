@@ -266,7 +266,7 @@ operator|.
 name|alwaysPostingsFormat
 argument_list|(
 operator|new
-name|Ords41PostingsFormat
+name|BlockTreeOrdsPostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;

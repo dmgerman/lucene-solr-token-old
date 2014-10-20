@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.lucene41
+DECL|package|org.apache.lucene.codecs.lucene50
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 package|;
 end_package
 begin_comment
@@ -64,14 +64,13 @@ begin_comment
 comment|/**  * Write skip lists with multiple levels, and support skip within block ints.  *  * Assume that docFreq = 28, skipInterval = blockSize = 12  *  *  |       block#0       | |      block#1        | |vInts|  *  d d d d d d d d d d d d d d d d d d d d d d d d d d d d (posting list)  *                          ^                       ^       (level 0 skip point)  *  * Note that skipWriter will ignore first document in block#0, since   * it is useless as a skip point.  Also, we'll never skip into the vInts  * block, only record skip data at the start its start point(if it exist).  *  * For each skip point, we will record:   * 1. docID in former position, i.e. for position 12, record docID[11], etc.  * 2. its related file points(position, payload),   * 3. related numbers or uptos(position, payload).  * 4. start offset.  *  */
 end_comment
 begin_class
-DECL|class|Lucene41SkipWriter
+DECL|class|Lucene50SkipWriter
 specifier|final
 class|class
-name|Lucene41SkipWriter
+name|Lucene50SkipWriter
 extends|extends
 name|MultiLevelSkipListWriter
 block|{
-comment|// private boolean DEBUG = Lucene41PostingsReader.DEBUG;
 DECL|field|lastSkipDoc
 specifier|private
 name|int
@@ -165,9 +164,9 @@ specifier|private
 name|boolean
 name|fieldHasPayloads
 decl_stmt|;
-DECL|method|Lucene41SkipWriter
+DECL|method|Lucene50SkipWriter
 specifier|public
-name|Lucene41SkipWriter
+name|Lucene50SkipWriter
 parameter_list|(
 name|int
 name|maxSkipLevels
@@ -566,9 +565,6 @@ index|[
 name|level
 index|]
 decl_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("writeSkipData level=" + level + " lastDoc=" + curDoc + " delta=" + delta + " curDocPointer=" + curDocPointer);
-comment|// }
 name|skipBuffer
 operator|.
 name|writeVInt
@@ -612,9 +608,6 @@ condition|(
 name|fieldHasPositions
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  curPosPointer=" + curPosPointer + " curPosBufferUpto=" + curPosBufferUpto);
-comment|// }
 name|skipBuffer
 operator|.
 name|writeVInt

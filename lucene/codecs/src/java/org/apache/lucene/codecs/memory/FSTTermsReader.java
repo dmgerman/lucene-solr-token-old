@@ -668,6 +668,8 @@ operator|.
 name|init
 argument_list|(
 name|in
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 name|seekDir

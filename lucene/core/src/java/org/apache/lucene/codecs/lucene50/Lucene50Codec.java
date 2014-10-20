@@ -429,7 +429,7 @@ return|return
 name|compoundFormat
 return|;
 block|}
-comment|/** Returns the postings format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene41"    */
+comment|/** Returns the postings format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene50"    */
 DECL|method|getPostingsFormatForField
 specifier|public
 name|PostingsFormat
@@ -480,7 +480,7 @@ name|PostingsFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene41"
+literal|"Lucene50"
 argument_list|)
 decl_stmt|;
 DECL|field|defaultDVFormat

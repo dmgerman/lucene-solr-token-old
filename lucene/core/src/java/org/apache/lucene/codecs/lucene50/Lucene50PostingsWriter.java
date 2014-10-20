@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.lucene41
+DECL|package|org.apache.lucene.codecs.lucene50
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 package|;
 end_package
 begin_comment
@@ -219,7 +219,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
 name|ForUtil
 operator|.
@@ -236,7 +236,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
 name|ForUtil
 operator|.
@@ -253,31 +253,31 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|BLOCK_SIZE
 import|;
 end_import
 begin_comment
-comment|/**  * Concrete class that writes docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * Postings list for each term will be stored separately.   *  * @see Lucene41SkipWriter for details about skipping setting and postings layout.  * @lucene.experimental  */
+comment|/**  * Concrete class that writes docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * Postings list for each term will be stored separately.   *  * @see Lucene50SkipWriter for details about skipping setting and postings layout.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|Lucene41PostingsWriter
+DECL|class|Lucene50PostingsWriter
 specifier|public
 specifier|final
 class|class
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 extends|extends
 name|PushPostingsWriterBase
 block|{
 comment|/**     * Expert: The maximum number of skip levels. Smaller values result in     * slightly smaller indexes, but slower skipping in big posting lists.    */
-DECL|field|maxSkipLevels
+DECL|field|MAX_SKIP_LEVELS
 specifier|static
 specifier|final
 name|int
-name|maxSkipLevels
+name|MAX_SKIP_LEVELS
 init|=
 literal|10
 decl_stmt|;
@@ -287,7 +287,7 @@ specifier|static
 name|String
 name|TERMS_CODEC
 init|=
-literal|"Lucene41PostingsWriterTerms"
+literal|"Lucene50PostingsWriterTerms"
 decl_stmt|;
 DECL|field|DOC_CODEC
 specifier|final
@@ -295,7 +295,7 @@ specifier|static
 name|String
 name|DOC_CODEC
 init|=
-literal|"Lucene41PostingsWriterDoc"
+literal|"Lucene50PostingsWriterDoc"
 decl_stmt|;
 DECL|field|POS_CODEC
 specifier|final
@@ -303,7 +303,7 @@ specifier|static
 name|String
 name|POS_CODEC
 init|=
-literal|"Lucene41PostingsWriterPos"
+literal|"Lucene50PostingsWriterPos"
 decl_stmt|;
 DECL|field|PAY_CODEC
 specifier|final
@@ -311,7 +311,7 @@ specifier|static
 name|String
 name|PAY_CODEC
 init|=
-literal|"Lucene41PostingsWriterPay"
+literal|"Lucene50PostingsWriterPay"
 decl_stmt|;
 comment|// Increment version to change it
 DECL|field|VERSION_START
@@ -322,29 +322,13 @@ name|VERSION_START
 init|=
 literal|0
 decl_stmt|;
-DECL|field|VERSION_META_ARRAY
-specifier|final
-specifier|static
-name|int
-name|VERSION_META_ARRAY
-init|=
-literal|1
-decl_stmt|;
-DECL|field|VERSION_CHECKSUM
-specifier|final
-specifier|static
-name|int
-name|VERSION_CHECKSUM
-init|=
-literal|2
-decl_stmt|;
 DECL|field|VERSION_CURRENT
 specifier|final
 specifier|static
 name|int
 name|VERSION_CURRENT
 init|=
-name|VERSION_CHECKSUM
+name|VERSION_START
 decl_stmt|;
 DECL|field|docOut
 name|IndexOutput
@@ -505,35 +489,31 @@ decl_stmt|;
 DECL|field|skipWriter
 specifier|private
 specifier|final
-name|Lucene41SkipWriter
+name|Lucene50SkipWriter
 name|skipWriter
 decl_stmt|;
-comment|/** Creates a postings writer with the specified PackedInts overhead ratio */
-comment|// TODO: does this ctor even make sense?
-DECL|method|Lucene41PostingsWriter
+comment|/** Creates a postings writer */
+DECL|method|Lucene50PostingsWriter
 specifier|public
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 parameter_list|(
 name|SegmentWriteState
 name|state
-parameter_list|,
-name|float
-name|acceptableOverheadRatio
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|docOut
-operator|=
-name|state
+specifier|final
+name|float
+name|acceptableOverheadRatio
+init|=
+name|PackedInts
 operator|.
-name|directory
-operator|.
-name|createOutput
-argument_list|(
+name|COMPACT
+decl_stmt|;
+name|String
+name|docFileName
+init|=
 name|IndexFileNames
 operator|.
 name|segmentFileName
@@ -548,10 +528,20 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|DOC_EXTENSION
 argument_list|)
+decl_stmt|;
+name|docOut
+operator|=
+name|state
+operator|.
+name|directory
+operator|.
+name|createOutput
+argument_list|(
+name|docFileName
 argument_list|,
 name|state
 operator|.
@@ -577,13 +567,24 @@ try|try
 block|{
 name|CodecUtil
 operator|.
-name|writeHeader
+name|writeSegmentHeader
 argument_list|(
 name|docOut
 argument_list|,
 name|DOC_CODEC
 argument_list|,
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 name|forUtil
@@ -614,14 +615,9 @@ index|[
 name|MAX_DATA_SIZE
 index|]
 expr_stmt|;
-name|posOut
-operator|=
-name|state
-operator|.
-name|directory
-operator|.
-name|createOutput
-argument_list|(
+name|String
+name|posFileName
+init|=
 name|IndexFileNames
 operator|.
 name|segmentFileName
@@ -636,10 +632,20 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|POS_EXTENSION
 argument_list|)
+decl_stmt|;
+name|posOut
+operator|=
+name|state
+operator|.
+name|directory
+operator|.
+name|createOutput
+argument_list|(
+name|posFileName
 argument_list|,
 name|state
 operator|.
@@ -648,13 +654,24 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeHeader
+name|writeSegmentHeader
 argument_list|(
 name|posOut
 argument_list|,
 name|POS_CODEC
 argument_list|,
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 if|if
@@ -750,14 +767,9 @@ name|hasOffsets
 argument_list|()
 condition|)
 block|{
-name|payOut
-operator|=
-name|state
-operator|.
-name|directory
-operator|.
-name|createOutput
-argument_list|(
+name|String
+name|payFileName
+init|=
 name|IndexFileNames
 operator|.
 name|segmentFileName
@@ -772,10 +784,20 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 operator|.
 name|PAY_EXTENSION
 argument_list|)
+decl_stmt|;
+name|payOut
+operator|=
+name|state
+operator|.
+name|directory
+operator|.
+name|createOutput
+argument_list|(
+name|payFileName
 argument_list|,
 name|state
 operator|.
@@ -784,13 +806,24 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeHeader
+name|writeSegmentHeader
 argument_list|(
 name|payOut
 argument_list|,
 name|PAY_CODEC
 argument_list|,
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 block|}
@@ -876,9 +909,9 @@ comment|// TODO: should we try skipping every 2/4 blocks...?
 name|skipWriter
 operator|=
 operator|new
-name|Lucene41SkipWriter
+name|Lucene50SkipWriter
 argument_list|(
-name|maxSkipLevels
+name|MAX_SKIP_LEVELS
 argument_list|,
 name|BLOCK_SIZE
 argument_list|,
@@ -903,27 +936,6 @@ name|byte
 index|[
 name|MAX_ENCODED_SIZE
 index|]
-expr_stmt|;
-block|}
-comment|/** Creates a postings writer with<code>PackedInts.COMPACT</code> */
-DECL|method|Lucene41PostingsWriter
-specifier|public
-name|Lucene41PostingsWriter
-parameter_list|(
-name|SegmentWriteState
-name|state
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-argument_list|(
-name|state
-argument_list|,
-name|PackedInts
-operator|.
-name|COMPACT
-argument_list|)
 expr_stmt|;
 block|}
 DECL|class|IntBlockTermState
@@ -1123,19 +1135,33 @@ name|init
 parameter_list|(
 name|IndexOutput
 name|termsOut
+parameter_list|,
+name|SegmentWriteState
+name|state
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|CodecUtil
 operator|.
-name|writeHeader
+name|writeSegmentHeader
 argument_list|(
 name|termsOut
 argument_list|,
 name|TERMS_CODEC
 argument_list|,
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 name|termsOut
@@ -1264,9 +1290,6 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("FPW.startTerm startFP=" + docStartFP);
-comment|// }
 name|skipWriter
 operator|.
 name|resetSkip
@@ -1289,9 +1312,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("FPW.startDoc docID["+docBufferUpto+"]=" + docID);
-comment|// }
 comment|// Have collected a block of docs, and get a new doc.
 comment|// Should write skip data as well as postings list for
 comment|// current block.
@@ -1307,9 +1327,6 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  bufferSkip at writeBlock: lastDocID=" + lastBlockDocID + " docCount=" + (docCount-1));
-comment|// }
 name|skipWriter
 operator|.
 name|bufferSkip
@@ -1381,9 +1398,6 @@ index|]
 operator|=
 name|docDelta
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("  docDeltaBuffer[" + docBufferUpto + "]=" + docDelta);
-comment|// }
 if|if
 condition|(
 name|writeFreqs
@@ -1410,9 +1424,6 @@ operator|==
 name|BLOCK_SIZE
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  write docDelta block @ fp=" + docOut.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|writeBlock
@@ -1429,9 +1440,6 @@ condition|(
 name|writeFreqs
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  write freq block @ fp=" + docOut.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|writeBlock
@@ -1483,9 +1491,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("FPW.addPosition pos=" + position + " posBufferUpto=" + posBufferUpto + (writePayloads ? " payloadByteUpto=" + payloadByteUpto: ""));
-comment|// }
 name|posDeltaBuffer
 index|[
 name|posBufferUpto
@@ -1643,9 +1648,6 @@ operator|==
 name|BLOCK_SIZE
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("  write pos bulk block @ fp=" + posOut.getFilePointer());
-comment|// }
 name|forUtil
 operator|.
 name|writeBlock
@@ -1792,9 +1794,6 @@ operator|=
 name|payloadByteUpto
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("  docBufferUpto="+docBufferUpto+" now get lastBlockDocID="+lastBlockDocID+" lastBlockPosFP=" + lastBlockPosFP + " lastBlockPosBufferUpto=" +  lastBlockPosBufferUpto + " lastBlockPayloadByteUpto=" + lastBlockPayloadByteUpto);
-comment|// }
 name|docBufferUpto
 operator|=
 literal|0
@@ -1847,14 +1846,6 @@ literal|" vs "
 operator|+
 name|docCount
 assert|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("FPW.finishTerm docFreq=" + state.docFreq);
-comment|// }
-comment|// if (DEBUG) {
-comment|//   if (docBufferUpto> 0) {
-comment|//     System.out.println("  write doc/freq vInt block (count=" + docBufferUpto + ") at fp=" + docOut.getFilePointer() + " docStartFP=" + docStartFP);
-comment|//   }
-comment|// }
 comment|// docFreq == 1, don't write the single docid/freq to a separate file along with a pointer to it.
 specifier|final
 name|int
@@ -1988,11 +1979,6 @@ condition|(
 name|writePositions
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   if (posBufferUpto> 0) {
-comment|//     System.out.println("  write pos vInt block (count=" + posBufferUpto + ") at fp=" + posOut.getFilePointer() + " posStartFP=" + posStartFP + " hasPayloads=" + writePayloads + " hasOffsets=" + writeOffsets);
-comment|//   }
-comment|// }
 comment|// totalTermFreq is just total number of positions(or payloads, or offsets)
 comment|// associated with current term.
 assert|assert
@@ -2144,9 +2130,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("        i=" + i + " payloadLen=" + payloadLength);
-comment|// }
 if|if
 condition|(
 name|payloadLength
@@ -2154,9 +2137,6 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("          write payload @ pos.fp=" + posOut.getFilePointer());
-comment|// }
 name|posOut
 operator|.
 name|writeBytes
@@ -2189,9 +2169,6 @@ condition|(
 name|writeOffsets
 condition|)
 block|{
-comment|// if (DEBUG) {
-comment|//   System.out.println("          write offset @ pos.fp=" + posOut.getFilePointer());
-comment|// }
 name|int
 name|delta
 init|=
@@ -2268,9 +2245,6 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("  totalTermFreq=" + state.totalTermFreq + " lastPosBlockOffset=" + lastPosBlockOffset);
-comment|// }
 block|}
 else|else
 block|{
@@ -2301,9 +2275,6 @@ argument_list|)
 operator|-
 name|docStartFP
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("skip packet " + (docOut.getFilePointer() - (docStartFP + skipOffset)) + " bytes");
-comment|// }
 block|}
 else|else
 block|{
@@ -2312,13 +2283,7 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-comment|// if (DEBUG) {
-comment|//   System.out.println("  no skip: docCount=" + docCount);
-comment|// }
 block|}
-comment|// if (DEBUG) {
-comment|//   System.out.println("  payStartFP=" + payStartFP);
-comment|// }
 name|state
 operator|.
 name|docStartFP

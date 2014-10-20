@@ -302,9 +302,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 import|;
 end_import
 begin_import
@@ -317,9 +317,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 import|;
 end_import
 begin_import
@@ -647,7 +647,9 @@ literal|2
 expr_stmt|;
 block|}
 comment|// we pull this before the seed intentionally: because its not consumed at runtime
-comment|// (the skipInterval is written into postings header)
+comment|// (the skipInterval is written into postings header).
+comment|// NOTE: Currently not passed to postings writer.
+comment|//       before, it was being passed in wrongly as acceptableOverhead!
 name|int
 name|skipInterval
 init|=
@@ -799,11 +801,9 @@ name|PostingsWriterBase
 name|postingsWriter
 init|=
 operator|new
-name|Lucene41PostingsWriter
+name|Lucene50PostingsWriter
 argument_list|(
 name|state
-argument_list|,
-name|skipInterval
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1691,27 +1691,9 @@ name|PostingsReaderBase
 name|postingsReader
 init|=
 operator|new
-name|Lucene41PostingsReader
+name|Lucene50PostingsReader
 argument_list|(
 name|state
-operator|.
-name|directory
-argument_list|,
-name|state
-operator|.
-name|fieldInfos
-argument_list|,
-name|state
-operator|.
-name|segmentInfo
-argument_list|,
-name|state
-operator|.
-name|context
-argument_list|,
-name|state
-operator|.
-name|segmentSuffix
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1858,27 +1840,9 @@ operator|=
 operator|new
 name|BlockTreeTermsReader
 argument_list|(
-name|state
-operator|.
-name|directory
-argument_list|,
-name|state
-operator|.
-name|fieldInfos
-argument_list|,
-name|state
-operator|.
-name|segmentInfo
-argument_list|,
 name|postingsReader
 argument_list|,
 name|state
-operator|.
-name|context
-argument_list|,
-name|state
-operator|.
-name|segmentSuffix
 argument_list|)
 expr_stmt|;
 name|success
