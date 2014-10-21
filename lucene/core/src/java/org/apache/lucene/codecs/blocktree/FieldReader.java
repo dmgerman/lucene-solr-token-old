@@ -581,6 +581,8 @@ return|;
 block|}
 block|}
 comment|/** For debugging -- used by CheckIndex too*/
+annotation|@
+name|Override
 DECL|method|getStats
 specifier|public
 name|Stats
