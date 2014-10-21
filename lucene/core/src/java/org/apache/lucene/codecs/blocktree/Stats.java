@@ -105,7 +105,7 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * BlockTree statistics for a single field   * returned by {@link FieldReader#computeStats()}.  */
+comment|/**  * BlockTree statistics for a single field   * returned by {@link FieldReader#getStats()}.  */
 end_comment
 begin_class
 DECL|class|Stats
