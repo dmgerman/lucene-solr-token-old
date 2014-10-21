@@ -1846,8 +1846,6 @@ name|FieldInfo
 argument_list|(
 name|field
 argument_list|,
-literal|true
-argument_list|,
 name|fieldUpto
 argument_list|,
 literal|false
@@ -3584,8 +3582,6 @@ argument_list|(
 name|oldFieldInfo
 operator|.
 name|name
-argument_list|,
-literal|true
 argument_list|,
 name|fieldUpto
 argument_list|,
@@ -9663,13 +9659,6 @@ operator|.
 name|setIndexOptions
 argument_list|(
 name|opts
-argument_list|)
-expr_stmt|;
-name|ft
-operator|.
-name|setIndexed
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 name|ft

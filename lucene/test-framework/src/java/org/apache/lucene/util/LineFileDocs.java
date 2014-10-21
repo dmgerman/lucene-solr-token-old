@@ -271,6 +271,21 @@ operator|.
 name|TextField
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|FieldInfo
+operator|.
+name|IndexOptions
+import|;
+end_import
 begin_comment
 comment|/** Minimal port of benchmark's LneDocSource +  * DocMaker, so tests can enum docs from a line file created  * by benchmark's WriteLineDoc task */
 end_comment
@@ -931,6 +946,15 @@ operator|.
 name|TYPE_STORED
 argument_list|)
 decl_stmt|;
+name|ft
+operator|.
+name|setIndexOptions
+argument_list|(
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
+argument_list|)
+expr_stmt|;
 name|ft
 operator|.
 name|setStoreTermVectors

@@ -69,13 +69,6 @@ static|static
 block|{
 name|TYPE_NOT_STORED
 operator|.
-name|setIndexed
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|TYPE_NOT_STORED
-operator|.
 name|setOmitNorms
 argument_list|(
 literal|true
@@ -101,13 +94,6 @@ name|TYPE_NOT_STORED
 operator|.
 name|freeze
 argument_list|()
-expr_stmt|;
-name|TYPE_STORED
-operator|.
-name|setIndexed
-argument_list|(
-literal|true
-argument_list|)
 expr_stmt|;
 name|TYPE_STORED
 operator|.

@@ -3727,13 +3727,6 @@ argument_list|)
 expr_stmt|;
 name|ft
 operator|.
-name|setIndexed
-argument_list|(
-name|indexed
-argument_list|)
-expr_stmt|;
-name|ft
-operator|.
 name|setOmitNorms
 argument_list|(
 name|field
@@ -3746,6 +3739,8 @@ name|ft
 operator|.
 name|setIndexOptions
 argument_list|(
+name|indexed
+condition|?
 name|getIndexOptions
 argument_list|(
 name|field
@@ -3755,6 +3750,8 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+else|:
+literal|null
 argument_list|)
 expr_stmt|;
 switch|switch
