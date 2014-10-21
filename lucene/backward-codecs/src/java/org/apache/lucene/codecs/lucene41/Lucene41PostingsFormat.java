@@ -89,7 +89,7 @@ name|codecs
 operator|.
 name|blocktree
 operator|.
-name|BlockTreeTermsReader
+name|Lucene40BlockTreeTermsReader
 import|;
 end_import
 begin_import
@@ -363,7 +363,7 @@ name|FieldsProducer
 name|ret
 init|=
 operator|new
-name|BlockTreeTermsReader
+name|Lucene40BlockTreeTermsReader
 argument_list|(
 name|postingsReader
 argument_list|,
