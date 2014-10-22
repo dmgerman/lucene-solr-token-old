@@ -1673,10 +1673,10 @@ if|if
 condition|(
 name|ft
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
 operator|==
-literal|false
+literal|null
 condition|)
 block|{
 if|if

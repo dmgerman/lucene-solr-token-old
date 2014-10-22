@@ -2005,9 +2005,9 @@ argument_list|)
 decl_stmt|;
 name|fieldType
 operator|.
-name|setIndexed
+name|setIndexOptions
 argument_list|(
-literal|false
+literal|null
 argument_list|)
 expr_stmt|;
 name|bboxStrategy

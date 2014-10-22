@@ -163,13 +163,6 @@ static|static
 block|{
 name|TYPE
 operator|.
-name|setIndexed
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|TYPE
-operator|.
 name|setOmitNorms
 argument_list|(
 literal|true

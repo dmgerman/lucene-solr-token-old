@@ -1247,7 +1247,7 @@ literal|0
 decl_stmt|;
 synchronized|synchronized
 init|(
-name|logs
+name|this
 init|)
 block|{
 for|for
@@ -1277,12 +1277,18 @@ name|long
 name|getTotalLogsNumber
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 return|return
 name|logs
 operator|.
 name|size
 argument_list|()
 return|;
+block|}
 block|}
 DECL|method|getVersionInfo
 specifier|public
@@ -1849,6 +1855,7 @@ block|}
 comment|/* Takes over ownership of the log, keeping it until no longer needed      and then decrementing it's reference and dropping it.    */
 DECL|method|addOldLog
 specifier|protected
+specifier|synchronized
 name|void
 name|addOldLog
 parameter_list|(

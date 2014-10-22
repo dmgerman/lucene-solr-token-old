@@ -345,6 +345,7 @@ name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
+comment|// ensure shift is 0..63
 if|if
 condition|(
 operator|(
@@ -356,14 +357,17 @@ operator|)
 operator|!=
 literal|0
 condition|)
-comment|// ensure shift is 0..63
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Illegal shift value, must be 0..63"
+literal|"Illegal shift value, must be 0..63; got shift="
+operator|+
+name|shift
 argument_list|)
 throw|;
+block|}
 name|int
 name|nChars
 init|=
@@ -480,6 +484,7 @@ name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
+comment|// ensure shift is 0..31
 if|if
 condition|(
 operator|(
@@ -491,14 +496,17 @@ operator|)
 operator|!=
 literal|0
 condition|)
-comment|// ensure shift is 0..31
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Illegal shift value, must be 0..31"
+literal|"Illegal shift value, must be 0..31; got shift="
+operator|+
+name|shift
 argument_list|)
 throw|;
+block|}
 name|int
 name|nChars
 init|=

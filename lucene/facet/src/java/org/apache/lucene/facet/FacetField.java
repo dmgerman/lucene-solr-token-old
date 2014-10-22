@@ -62,6 +62,21 @@ operator|.
 name|FieldType
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|FieldInfo
+operator|.
+name|IndexOptions
+import|;
+end_import
 begin_comment
 comment|/**  * Add an instance of this to your {@link Document} for every facet label.  *   *<p>  *<b>NOTE:</b> you must call {@link FacetsConfig#build(Document)} before  * you add the document to IndexWriter.  */
 end_comment
@@ -87,9 +102,11 @@ static|static
 block|{
 name|TYPE
 operator|.
-name|setIndexed
+name|setIndexOptions
 argument_list|(
-literal|true
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
 argument_list|)
 expr_stmt|;
 name|TYPE

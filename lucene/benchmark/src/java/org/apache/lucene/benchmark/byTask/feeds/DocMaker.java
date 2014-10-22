@@ -1108,13 +1108,6 @@ argument_list|)
 decl_stmt|;
 name|ft
 operator|.
-name|setIndexed
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|ft
-operator|.
 name|setStored
 argument_list|(
 literal|true

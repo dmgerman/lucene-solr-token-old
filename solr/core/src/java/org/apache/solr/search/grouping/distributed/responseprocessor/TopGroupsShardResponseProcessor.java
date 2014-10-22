@@ -912,6 +912,13 @@ argument_list|(
 literal|"secondPhase"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|secondPhaseResult
+operator|==
+literal|null
+condition|)
+continue|continue;
 name|Map
 argument_list|<
 name|String

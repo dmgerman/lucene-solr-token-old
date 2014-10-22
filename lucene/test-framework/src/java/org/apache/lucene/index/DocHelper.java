@@ -1309,8 +1309,10 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
+operator|!=
+literal|null
 condition|)
 name|add
 argument_list|(
@@ -1351,8 +1353,10 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
+operator|!=
+literal|null
 operator|&&
 operator|!
 name|f

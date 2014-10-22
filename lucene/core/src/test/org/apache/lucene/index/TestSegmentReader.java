@@ -1029,8 +1029,10 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|assertEquals

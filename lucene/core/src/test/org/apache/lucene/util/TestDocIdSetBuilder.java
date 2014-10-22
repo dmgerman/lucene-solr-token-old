@@ -538,7 +538,7 @@ argument_list|()
 operator|.
 name|nextInt
 argument_list|(
-literal|10000
+literal|10
 argument_list|)
 decl_stmt|;
 name|RoaringDocIdSet

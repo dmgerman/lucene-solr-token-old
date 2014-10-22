@@ -4206,10 +4206,11 @@ argument_list|(
 name|ivyXmlFile
 argument_list|)
 decl_stmt|;
+comment|// Exclude the 'start' configuration in solr/example/ivy.xml
 name|String
 name|dependencyPath
 init|=
-literal|"/ivy-module/dependencies/dependency[not(starts-with(@conf,'start->'))]"
+literal|"/ivy-module/dependencies/dependency[not(starts-with(@conf,'start'))]"
 decl_stmt|;
 name|NodeList
 name|dependencies
