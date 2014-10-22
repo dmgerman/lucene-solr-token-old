@@ -3101,12 +3101,6 @@ name|callPostCommitCallbacks
 argument_list|()
 expr_stmt|;
 block|}
-else|else
-block|{
-name|callPostSoftCommitCallbacks
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{
@@ -3183,7 +3177,9 @@ name|cmd
 argument_list|)
 expr_stmt|;
 block|}
-comment|// ulog.postSoftCommit();
+name|callPostSoftCommitCallbacks
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
