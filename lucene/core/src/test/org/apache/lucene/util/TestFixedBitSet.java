@@ -834,6 +834,10 @@ operator|.
 name|flip
 argument_list|(
 name|idx
+argument_list|,
+name|idx
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|b
@@ -869,10 +873,6 @@ operator|.
 name|flip
 argument_list|(
 name|idx
-argument_list|,
-name|idx
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|boolean
