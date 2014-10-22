@@ -596,7 +596,7 @@ specifier|static
 name|String
 name|TERMS_CODEC_NAME
 init|=
-literal|"VERSION_BLOCK_TREE_TERMS_DICT"
+literal|"VersionBlockTreeTermsDict"
 decl_stmt|;
 comment|/** Initial terms format. */
 DECL|field|VERSION_START
@@ -633,7 +633,7 @@ specifier|static
 name|String
 name|TERMS_INDEX_CODEC_NAME
 init|=
-literal|"VERSION_BLOCK_TREE_TERMS_INDEX"
+literal|"VersionBlockTreeTermsIndex"
 decl_stmt|;
 DECL|field|out
 specifier|private

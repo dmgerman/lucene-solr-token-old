@@ -293,7 +293,7 @@ specifier|final
 name|String
 name|META_CODEC
 init|=
-literal|"Lucene50ValuesMetadata"
+literal|"Lucene50DocValuesMetadata"
 decl_stmt|;
 DECL|field|META_EXTENSION
 specifier|static
