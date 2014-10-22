@@ -3984,16 +3984,14 @@ expr_stmt|;
 block|}
 name|SegmentInfos
 name|sis
-init|=
-operator|new
-name|SegmentInfos
-argument_list|()
 decl_stmt|;
 try|try
 block|{
 name|sis
+operator|=
+name|SegmentInfos
 operator|.
-name|read
+name|readCommit
 argument_list|(
 name|in
 argument_list|,
@@ -4008,6 +4006,12 @@ name|ioe
 parameter_list|)
 block|{
 comment|// OK: likely some of the .si files were deleted
+name|sis
+operator|=
+operator|new
+name|SegmentInfos
+argument_list|()
+expr_stmt|;
 block|}
 try|try
 block|{

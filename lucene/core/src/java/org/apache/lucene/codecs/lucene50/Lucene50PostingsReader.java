@@ -588,7 +588,7 @@ name|version
 operator|=
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|docIn
 argument_list|,
@@ -674,7 +674,7 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|posIn
 argument_list|,
@@ -759,7 +759,7 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|payIn
 argument_list|,
@@ -854,7 +854,7 @@ block|{
 comment|// Make sure we are talking to the matching postings writer
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|termsIn
 argument_list|,

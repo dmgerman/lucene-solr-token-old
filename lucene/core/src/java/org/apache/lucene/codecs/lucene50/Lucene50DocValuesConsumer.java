@@ -612,7 +612,7 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeSegmentHeader
+name|writeIndexHeader
 argument_list|(
 name|data
 argument_list|,
@@ -671,7 +671,7 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeSegmentHeader
+name|writeIndexHeader
 argument_list|(
 name|meta
 argument_list|,
