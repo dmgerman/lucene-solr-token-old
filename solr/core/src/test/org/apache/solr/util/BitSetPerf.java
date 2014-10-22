@@ -1076,6 +1076,8 @@ operator|new
 name|FixedBitSetIterator
 argument_list|(
 name|set
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 for|for

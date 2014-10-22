@@ -2896,6 +2896,9 @@ name|leaf
 argument_list|,
 literal|null
 argument_list|)
+operator|.
+name|bits
+argument_list|()
 decl_stmt|;
 return|return
 name|leaf

@@ -202,6 +202,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|FixedBitDocIdSet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|FixedBitSet
 import|;
 end_import
@@ -1785,6 +1798,9 @@ parameter_list|)
 block|{
 return|return
 operator|new
+name|FixedBitDocIdSet
+argument_list|(
+operator|new
 name|FixedBitSet
 argument_list|(
 name|context
@@ -1794,6 +1810,7 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
