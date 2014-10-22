@@ -429,14 +429,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-assert|assert
-name|docWriter
-operator|.
-name|testPoint
-argument_list|(
-literal|"TermVectorsTermsWriter.finishDocument start"
-argument_list|)
-assert|;
 if|if
 condition|(
 operator|!
@@ -532,14 +524,6 @@ expr_stmt|;
 name|resetFields
 argument_list|()
 expr_stmt|;
-assert|assert
-name|docWriter
-operator|.
-name|testPoint
-argument_list|(
-literal|"TermVectorsTermsWriter.finishDocument end"
-argument_list|)
-assert|;
 block|}
 annotation|@
 name|Override

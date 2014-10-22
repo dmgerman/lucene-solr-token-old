@@ -6193,12 +6193,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-assert|assert
 name|testPoint
 argument_list|(
 literal|"rollback before checkpoint"
 argument_list|)
-assert|;
+expr_stmt|;
 comment|// Ask deleter to locate unreferenced files& remove
 comment|// them:
 name|deleter
@@ -8707,12 +8706,11 @@ block|}
 name|doBeforeFlush
 argument_list|()
 expr_stmt|;
-assert|assert
 name|testPoint
 argument_list|(
 literal|"startDoFlush"
 argument_list|)
-assert|;
+expr_stmt|;
 name|SegmentInfos
 name|toCommit
 init|=
@@ -9619,12 +9617,11 @@ block|}
 name|doBeforeFlush
 argument_list|()
 expr_stmt|;
-assert|assert
 name|testPoint
 argument_list|(
 literal|"startDoFlush"
 argument_list|)
-assert|;
+expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -10029,22 +10026,8 @@ name|DocumentsWriter
 name|getDocsWriter
 parameter_list|()
 block|{
-name|boolean
-name|test
-init|=
-literal|false
-decl_stmt|;
-assert|assert
-name|test
-operator|=
-literal|true
-assert|;
 return|return
-name|test
-condition|?
 name|docWriter
-else|:
-literal|null
 return|;
 block|}
 comment|/** Expert:  Return the number of documents currently    *  buffered in RAM. */
@@ -10511,12 +10494,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
 name|testPoint
 argument_list|(
 literal|"startCommitMergeDeletes"
 argument_list|)
-assert|;
+expr_stmt|;
 specifier|final
 name|List
 argument_list|<
@@ -11581,12 +11563,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
 name|testPoint
 argument_list|(
 literal|"startCommitMerge"
 argument_list|)
-assert|;
+expr_stmt|;
 if|if
 condition|(
 name|tragedy
@@ -13163,12 +13144,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
 name|testPoint
 argument_list|(
 literal|"startMergeInit"
 argument_list|)
-assert|;
+expr_stmt|;
 assert|assert
 name|merge
 operator|.
@@ -15754,12 +15734,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
 name|testPoint
 argument_list|(
 literal|"startStartCommit"
 argument_list|)
-assert|;
+expr_stmt|;
 assert|assert
 name|pendingCommit
 operator|==
@@ -15907,12 +15886,11 @@ name|toSync
 argument_list|)
 assert|;
 block|}
-assert|assert
 name|testPoint
 argument_list|(
 literal|"midStartCommit"
 argument_list|)
-assert|;
+expr_stmt|;
 name|boolean
 name|pendingCommitSet
 init|=
@@ -15920,12 +15898,11 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-assert|assert
 name|testPoint
 argument_list|(
 literal|"midStartCommit2"
 argument_list|)
-assert|;
+expr_stmt|;
 synchronized|synchronized
 init|(
 name|this
@@ -16053,12 +16030,11 @@ name|filesToSync
 argument_list|)
 expr_stmt|;
 block|}
-assert|assert
 name|testPoint
 argument_list|(
 literal|"midStartCommitSuccess"
 argument_list|)
-assert|;
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -16134,12 +16110,11 @@ literal|"startCommit"
 argument_list|)
 expr_stmt|;
 block|}
-assert|assert
 name|testPoint
 argument_list|(
 literal|"finishStartCommit"
 argument_list|)
-assert|;
+expr_stmt|;
 block|}
 comment|/**    * Returns<code>true</code> iff the index in the named directory is    * currently locked.    * @param directory the directory to check for a lock    * @throws IOException if there is a low-level IO error    */
 DECL|method|isLocked
@@ -16336,7 +16311,7 @@ name|tragedy
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Used only by assert for testing.  Current points:
+comment|// Used for testing.  Current points:
 comment|//   startDoFlush
 comment|//   startCommitMerge
 comment|//   startStartCommit
@@ -16350,7 +16325,7 @@ comment|//   DocumentsWriter.ThreadState.init start
 DECL|method|testPoint
 specifier|private
 specifier|final
-name|boolean
+name|void
 name|testPoint
 parameter_list|(
 name|String
@@ -16377,9 +16352,6 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-literal|true
-return|;
 block|}
 DECL|method|nrtIsCurrent
 specifier|synchronized

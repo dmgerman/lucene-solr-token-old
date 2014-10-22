@@ -224,14 +224,6 @@ name|doVectors
 operator|=
 literal|false
 expr_stmt|;
-assert|assert
-name|docState
-operator|.
-name|testPoint
-argument_list|(
-literal|"TermVectorsTermsWriterPerField.finish start"
-argument_list|)
-assert|;
 specifier|final
 name|int
 name|numPostings
@@ -1054,14 +1046,6 @@ name|int
 name|termID
 parameter_list|)
 block|{
-assert|assert
-name|docState
-operator|.
-name|testPoint
-argument_list|(
-literal|"TermVectorsTermsWriterPerField.newTerm start"
-argument_list|)
-assert|;
 name|TermVectorsPostingsArray
 name|postings
 init|=
@@ -1113,14 +1097,6 @@ name|int
 name|termID
 parameter_list|)
 block|{
-assert|assert
-name|docState
-operator|.
-name|testPoint
-argument_list|(
-literal|"TermVectorsTermsWriterPerField.addTerm start"
-argument_list|)
-assert|;
 name|TermVectorsPostingsArray
 name|postings
 init|=
