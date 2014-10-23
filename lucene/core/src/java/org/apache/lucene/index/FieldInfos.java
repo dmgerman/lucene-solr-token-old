@@ -1491,7 +1491,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// only pay the synchronization cost if fi does not already have a DVType
+comment|// Only pay the synchronization cost if fi does not already have a DVType
 name|boolean
 name|updateGlobal
 init|=
@@ -1501,21 +1501,14 @@ operator|.
 name|hasDocValues
 argument_list|()
 decl_stmt|;
-name|fi
-operator|.
-name|setDocValuesType
-argument_list|(
-name|docValues
-argument_list|)
-expr_stmt|;
-comment|// this will also perform the consistency check.
 if|if
 condition|(
 name|updateGlobal
 condition|)
 block|{
-comment|// must also update docValuesType map so it's
-comment|// aware of this field's DocValueType
+comment|// Must also update docValuesType map so it's
+comment|// aware of this field's DocValueType.  This will throw IllegalArgumentException if
+comment|// an illegal type change was attempted.
 name|globalFieldNumbers
 operator|.
 name|setDocValuesType
@@ -1530,6 +1523,14 @@ name|docValues
 argument_list|)
 expr_stmt|;
 block|}
+name|fi
+operator|.
+name|setDocValuesType
+argument_list|(
+name|docValues
+argument_list|)
+expr_stmt|;
+comment|// this will also perform the consistency check.
 block|}
 block|}
 return|return

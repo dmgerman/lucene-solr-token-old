@@ -1797,17 +1797,6 @@ operator|.
 name|hasDocValues
 argument_list|()
 decl_stmt|;
-comment|// This will throw an exc if the caller tried to
-comment|// change the DV type for the field:
-name|fp
-operator|.
-name|fieldInfo
-operator|.
-name|setDocValuesType
-argument_list|(
-name|dvType
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|hasDocValues
@@ -1815,6 +1804,8 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// This will throw an exc if the caller tried to
+comment|// change the DV type for the field:
 name|fieldInfos
 operator|.
 name|globalFieldNumbers
@@ -1837,6 +1828,15 @@ name|dvType
 argument_list|)
 expr_stmt|;
 block|}
+name|fp
+operator|.
+name|fieldInfo
+operator|.
+name|setDocValuesType
+argument_list|(
+name|dvType
+argument_list|)
+expr_stmt|;
 name|int
 name|docID
 init|=
