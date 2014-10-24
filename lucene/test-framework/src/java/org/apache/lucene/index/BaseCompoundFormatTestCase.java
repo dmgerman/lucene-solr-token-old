@@ -1480,7 +1480,13 @@ operator|.
 name|DEFAULT
 argument_list|)
 init|)
-block|{}
+block|{
+assert|assert
+name|cfsIn
+operator|!=
+literal|null
+assert|;
+block|}
 block|}
 block|}
 block|}
