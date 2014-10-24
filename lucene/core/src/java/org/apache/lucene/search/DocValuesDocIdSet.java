@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitDocIdSet
+name|BitDocIdSet
 import|;
 end_import
 begin_import
@@ -378,7 +378,7 @@ operator|new
 name|FilteredDocIdSetIterator
 argument_list|(
 operator|new
-name|FixedBitDocIdSet
+name|BitDocIdSet
 argument_list|(
 operator|(
 name|FixedBitSet

@@ -40,29 +40,14 @@ operator|.
 name|DocIdSetIterator
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|FixedBitSet
-operator|.
-name|FixedBitSetIterator
-import|;
-end_import
 begin_comment
-comment|/**  * Implementation of the {@link DocIdSet} interface on top of a {@link FixedBitSet}.  * @lucene.internal  */
+comment|/**  * Implementation of the {@link DocIdSet} interface on top of a {@link BitSet}.  * @lucene.internal  */
 end_comment
 begin_class
-DECL|class|FixedBitDocIdSet
+DECL|class|BitDocIdSet
 specifier|public
 class|class
-name|FixedBitDocIdSet
+name|BitDocIdSet
 extends|extends
 name|DocIdSet
 block|{
@@ -77,7 +62,7 @@ name|RamUsageEstimator
 operator|.
 name|shallowSizeOfInstance
 argument_list|(
-name|SparseFixedBitDocIdSet
+name|BitDocIdSet
 operator|.
 name|class
 argument_list|)
@@ -85,7 +70,7 @@ decl_stmt|;
 DECL|field|set
 specifier|private
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|set
 decl_stmt|;
 DECL|field|cost
@@ -95,11 +80,11 @@ name|long
 name|cost
 decl_stmt|;
 comment|/**    * Wrap the given {@link FixedBitSet} as a {@link DocIdSet}. The provided    * {@link FixedBitSet} should not be modified after having wrapped as a    * {@link DocIdSet}.    */
-DECL|method|FixedBitDocIdSet
+DECL|method|BitDocIdSet
 specifier|public
-name|FixedBitDocIdSet
+name|BitDocIdSet
 parameter_list|(
-name|FixedBitSet
+name|BitSet
 name|set
 parameter_list|,
 name|long
@@ -119,12 +104,12 @@ operator|=
 name|cost
 expr_stmt|;
 block|}
-comment|/**    * Same as {@link #FixedBitDocIdSet(FixedBitSet, long)} but uses the set    * {@link FixedBitSet#cardinality() cardinality} as a cost.    */
-DECL|method|FixedBitDocIdSet
+comment|/**    * Same as {@link #BitDocIdSet(BitSet, long)} but uses the set's    * {@link BitSet#approximateCardinality() approximate cardinality} as a cost.    */
+DECL|method|BitDocIdSet
 specifier|public
-name|FixedBitDocIdSet
+name|BitDocIdSet
 parameter_list|(
-name|FixedBitSet
+name|BitSet
 name|set
 parameter_list|)
 block|{
@@ -134,7 +119,7 @@ name|set
 argument_list|,
 name|set
 operator|.
-name|cardinality
+name|approximateCardinality
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -149,7 +134,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|FixedBitSetIterator
+name|BitSetIterator
 argument_list|(
 name|set
 argument_list|,
@@ -161,7 +146,7 @@ annotation|@
 name|Override
 DECL|method|bits
 specifier|public
-name|FixedBitSet
+name|BitSet
 name|bits
 parameter_list|()
 block|{

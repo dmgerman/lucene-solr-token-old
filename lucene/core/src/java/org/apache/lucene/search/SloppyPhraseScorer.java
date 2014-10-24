@@ -2734,8 +2734,9 @@ argument_list|)
 init|;
 name|ord
 operator|!=
-operator|-
-literal|1
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 condition|;
 name|ord
 operator|=
@@ -2748,8 +2749,9 @@ operator|.
 name|length
 argument_list|()
 condition|?
-operator|-
-literal|1
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 else|:
 name|bits
 operator|.

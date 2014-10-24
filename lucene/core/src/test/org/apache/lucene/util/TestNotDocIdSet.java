@@ -125,7 +125,7 @@ argument_list|(
 name|length
 argument_list|,
 operator|new
-name|FixedBitDocIdSet
+name|BitDocIdSet
 argument_list|(
 name|set
 argument_list|)
@@ -262,7 +262,7 @@ argument_list|(
 literal|3
 argument_list|,
 operator|new
-name|FixedBitDocIdSet
+name|BitDocIdSet
 argument_list|(
 operator|new
 name|FixedBitSet

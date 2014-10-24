@@ -281,19 +281,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitDocIdSet
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|FixedBitSet
 import|;
 end_import
@@ -709,8 +696,11 @@ condition|(
 operator|!
 operator|(
 name|parents
+operator|.
+name|bits
+argument_list|()
 operator|instanceof
-name|FixedBitDocIdSet
+name|FixedBitSet
 operator|)
 condition|)
 block|{
@@ -721,6 +711,9 @@ argument_list|(
 literal|"parentFilter must return FixedBitSet; got "
 operator|+
 name|parents
+operator|.
+name|bits
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -733,11 +726,9 @@ argument_list|,
 name|childScorer
 argument_list|,
 operator|(
-operator|(
-name|FixedBitDocIdSet
+name|FixedBitSet
 operator|)
 name|parents
-operator|)
 operator|.
 name|bits
 argument_list|()
@@ -1192,8 +1183,9 @@ comment|//System.out.println("  parentDoc=" + parentDoc);
 assert|assert
 name|parentDoc
 operator|!=
-operator|-
-literal|1
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 assert|;
 comment|//System.out.println("  nextChildDoc=" + nextChildDoc);
 if|if

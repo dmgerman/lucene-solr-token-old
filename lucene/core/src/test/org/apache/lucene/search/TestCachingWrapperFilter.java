@@ -202,7 +202,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitDocIdSet
+name|BitDocIdSet
 import|;
 end_import
 begin_import
@@ -1798,7 +1798,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FixedBitDocIdSet
+name|BitDocIdSet
 argument_list|(
 operator|new
 name|FixedBitSet

@@ -362,8 +362,9 @@ expr_stmt|;
 assert|assert
 name|excludedDoc
 operator|!=
-operator|-
-literal|1
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 assert|;
 name|excludedDocs
 index|[
@@ -395,8 +396,9 @@ operator|+
 literal|1
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 assert|;
 name|sets
 index|[
@@ -425,7 +427,7 @@ name|currentBlock
 index|]
 operator|=
 operator|new
-name|FixedBitDocIdSet
+name|BitDocIdSet
 argument_list|(
 name|denseBuffer
 argument_list|,

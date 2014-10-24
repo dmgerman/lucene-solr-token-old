@@ -187,7 +187,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitDocIdSet
+name|BitDocIdSet
 import|;
 end_import
 begin_import
@@ -783,7 +783,7 @@ operator|!
 operator|(
 name|parents
 operator|instanceof
-name|FixedBitDocIdSet
+name|BitDocIdSet
 operator|)
 condition|)
 block|{
