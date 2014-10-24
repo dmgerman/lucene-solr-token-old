@@ -645,7 +645,7 @@ name|fieldInfos
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeSegmentHeader
+name|writeIndexHeader
 argument_list|(
 name|out
 argument_list|,
@@ -682,6 +682,8 @@ operator|.
 name|init
 argument_list|(
 name|out
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 comment|// have consumer write its format/header

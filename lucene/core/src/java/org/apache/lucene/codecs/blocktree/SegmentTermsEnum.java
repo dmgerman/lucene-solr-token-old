@@ -534,7 +534,7 @@ name|fr
 operator|.
 name|parent
 operator|.
-name|in
+name|termsIn
 operator|.
 name|clone
 argument_list|()
@@ -1257,7 +1257,7 @@ name|fpSeek
 init|=
 name|code
 operator|>>>
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 decl_stmt|;
@@ -1281,7 +1281,7 @@ operator|=
 operator|(
 name|code
 operator|&
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 operator|)
@@ -1303,7 +1303,7 @@ operator|=
 operator|(
 name|code
 operator|&
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 operator|)
@@ -1814,14 +1814,14 @@ name|arc
 operator|.
 name|output
 operator|!=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|NO_OUTPUT
 condition|)
 block|{
 name|output
 operator|=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -2113,7 +2113,7 @@ name|pushFrame
 argument_list|(
 name|arc
 argument_list|,
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -2331,14 +2331,14 @@ name|arc
 operator|.
 name|output
 operator|!=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|NO_OUTPUT
 condition|)
 block|{
 name|output
 operator|=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -2373,7 +2373,7 @@ name|pushFrame
 argument_list|(
 name|arc
 argument_list|,
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -2623,7 +2623,7 @@ name|cmp
 init|=
 literal|0
 decl_stmt|;
-comment|// TOOD: we should write our vLong backwards (MSB
+comment|// TODO: we should write our vLong backwards (MSB
 comment|// first) to get better sharing from the FST
 comment|// First compare up to valid seek frames:
 while|while
@@ -2731,7 +2731,7 @@ operator|&
 literal|0xFF
 argument_list|)
 assert|;
-comment|// TOOD: we could save the outputs in local
+comment|// TODO: we could save the outputs in local
 comment|// byte[][] instead of making new objs ever
 comment|// seek; but, often the FST doesn't have any
 comment|// shared bytes (but this could change if we
@@ -2742,14 +2742,14 @@ name|arc
 operator|.
 name|output
 operator|!=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|NO_OUTPUT
 condition|)
 block|{
 name|output
 operator|=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -3036,7 +3036,7 @@ name|pushFrame
 argument_list|(
 name|arc
 argument_list|,
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -3247,14 +3247,14 @@ name|arc
 operator|.
 name|output
 operator|!=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|NO_OUTPUT
 condition|)
 block|{
 name|output
 operator|=
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -3289,7 +3289,7 @@ name|pushFrame
 argument_list|(
 name|arc
 argument_list|,
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|FST_OUTPUTS
 operator|.
@@ -3589,7 +3589,7 @@ name|f
 operator|.
 name|fp
 operator|<<
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 operator|)
@@ -3599,7 +3599,7 @@ name|f
 operator|.
 name|hasTerms
 condition|?
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 else|:
@@ -3611,7 +3611,7 @@ name|f
 operator|.
 name|isFloor
 condition|?
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 else|:
@@ -3741,7 +3741,7 @@ name|f
 operator|.
 name|fp
 operator|<<
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 operator|)
@@ -3751,7 +3751,7 @@ name|f
 operator|.
 name|hasTerms
 condition|?
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 else|:
@@ -3763,7 +3763,7 @@ name|f
 operator|.
 name|isFloor
 condition|?
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 else|:
@@ -3988,7 +3988,7 @@ name|f
 operator|.
 name|fp
 operator|<<
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 operator|)
@@ -3998,7 +3998,7 @@ name|f
 operator|.
 name|hasTerms
 condition|?
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 else|:
@@ -4010,7 +4010,7 @@ name|f
 operator|.
 name|isFloor
 condition|?
-name|BlockTreeTermsWriter
+name|BlockTreeTermsReader
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 else|:

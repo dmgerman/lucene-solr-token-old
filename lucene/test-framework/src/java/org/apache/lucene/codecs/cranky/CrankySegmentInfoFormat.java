@@ -139,6 +139,10 @@ parameter_list|,
 name|String
 name|segmentName
 parameter_list|,
+name|byte
+index|[]
+name|segmentID
+parameter_list|,
 name|IOContext
 name|context
 parameter_list|)
@@ -153,6 +157,8 @@ argument_list|(
 name|directory
 argument_list|,
 name|segmentName
+argument_list|,
+name|segmentID
 argument_list|,
 name|context
 argument_list|)

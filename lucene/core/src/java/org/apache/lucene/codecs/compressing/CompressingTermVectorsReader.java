@@ -913,7 +913,7 @@ name|version
 operator|=
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|input
 argument_list|,
@@ -934,7 +934,7 @@ expr_stmt|;
 assert|assert
 name|CodecUtil
 operator|.
-name|segmentHeaderLength
+name|indexHeaderLength
 argument_list|(
 name|codecNameIdx
 argument_list|,
@@ -1041,7 +1041,7 @@ name|version2
 init|=
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|vectorsStream
 argument_list|,
@@ -1085,7 +1085,7 @@ block|}
 assert|assert
 name|CodecUtil
 operator|.
-name|segmentHeaderLength
+name|indexHeaderLength
 argument_list|(
 name|codecNameDat
 argument_list|,

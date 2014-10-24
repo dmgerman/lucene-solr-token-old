@@ -626,7 +626,7 @@ try|try
 block|{
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|in
 argument_list|,
@@ -668,6 +668,8 @@ operator|.
 name|init
 argument_list|(
 name|in
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 name|seekDir

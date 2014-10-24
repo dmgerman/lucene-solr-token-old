@@ -62,7 +62,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PostingsBaseFormat
+name|PostingsReaderBase
 import|;
 end_import
 begin_import
@@ -105,7 +105,7 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * BlockTree statistics for a single field   * returned by {@link FieldReader#computeStats()}.  */
+comment|/**  * BlockTree statistics for a single field   * returned by {@link FieldReader#getStats()}.  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|Stats
@@ -214,13 +214,13 @@ specifier|public
 name|long
 name|totalBlockSuffixBytes
 decl_stmt|;
-comment|/** Total number of bytes used to store term stats (not    *  including what the {@link PostingsBaseFormat}    *  stores. */
+comment|/** Total number of bytes used to store term stats (not    *  including what the {@link PostingsReaderBase}    *  stores. */
 DECL|field|totalBlockStatsBytes
 specifier|public
 name|long
 name|totalBlockStatsBytes
 decl_stmt|;
-comment|/** Total bytes stored by the {@link PostingsBaseFormat},    *  plus the other few vInts stored in the frame. */
+comment|/** Total bytes stored by the {@link PostingsReaderBase},    *  plus the other few vInts stored in the frame. */
 DECL|field|totalBlockOtherBytes
 specifier|public
 name|long

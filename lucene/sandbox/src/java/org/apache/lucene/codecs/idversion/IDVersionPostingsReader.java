@@ -185,26 +185,6 @@ name|IDVersionPostingsReader
 extends|extends
 name|PostingsReaderBase
 block|{
-DECL|field|state
-specifier|final
-name|SegmentReadState
-name|state
-decl_stmt|;
-DECL|method|IDVersionPostingsReader
-specifier|public
-name|IDVersionPostingsReader
-parameter_list|(
-name|SegmentReadState
-name|state
-parameter_list|)
-block|{
-name|this
-operator|.
-name|state
-operator|=
-name|state
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|init
@@ -214,6 +194,9 @@ name|init
 parameter_list|(
 name|IndexInput
 name|termsIn
+parameter_list|,
+name|SegmentReadState
+name|state
 parameter_list|)
 throws|throws
 name|IOException
@@ -221,7 +204,7 @@ block|{
 comment|// Make sure we are talking to the matching postings writer
 name|CodecUtil
 operator|.
-name|checkSegmentHeader
+name|checkIndexHeader
 argument_list|(
 name|termsIn
 argument_list|,

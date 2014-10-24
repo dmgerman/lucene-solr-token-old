@@ -429,7 +429,7 @@ return|return
 name|compoundFormat
 return|;
 block|}
-comment|/** Returns the postings format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene41"    */
+comment|/** Returns the postings format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene50"    */
 DECL|method|getPostingsFormatForField
 specifier|public
 name|PostingsFormat
@@ -443,7 +443,7 @@ return|return
 name|defaultFormat
 return|;
 block|}
-comment|/** Returns the docvalues format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene410"    */
+comment|/** Returns the docvalues format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene50"    */
 DECL|method|getDocValuesFormatForField
 specifier|public
 name|DocValuesFormat
@@ -480,7 +480,7 @@ name|PostingsFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene41"
+literal|"Lucene50"
 argument_list|)
 decl_stmt|;
 DECL|field|defaultDVFormat
@@ -493,7 +493,7 @@ name|DocValuesFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene410"
+literal|"Lucene50"
 argument_list|)
 decl_stmt|;
 DECL|field|normsFormat

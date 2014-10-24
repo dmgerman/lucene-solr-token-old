@@ -596,7 +596,7 @@ specifier|static
 name|String
 name|TERMS_CODEC_NAME
 init|=
-literal|"VERSION_BLOCK_TREE_TERMS_DICT"
+literal|"VersionBlockTreeTermsDict"
 decl_stmt|;
 comment|/** Initial terms format. */
 DECL|field|VERSION_START
@@ -633,7 +633,7 @@ specifier|static
 name|String
 name|TERMS_INDEX_CODEC_NAME
 init|=
-literal|"VERSION_BLOCK_TREE_TERMS_INDEX"
+literal|"VersionBlockTreeTermsIndex"
 decl_stmt|;
 DECL|field|out
 specifier|private
@@ -1014,7 +1014,7 @@ name|maxItemsInBlock
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeSegmentHeader
+name|writeIndexHeader
 argument_list|(
 name|out
 argument_list|,
@@ -1073,7 +1073,7 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeSegmentHeader
+name|writeIndexHeader
 argument_list|(
 name|indexOut
 argument_list|,
@@ -1106,6 +1106,8 @@ operator|.
 name|init
 argument_list|(
 name|out
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 comment|// have consumer write its format/header
