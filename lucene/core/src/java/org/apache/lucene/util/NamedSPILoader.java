@@ -515,7 +515,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"A SPI class of type "
+literal|"An SPI class of type "
 operator|+
 name|clazz
 operator|.
@@ -526,11 +526,11 @@ literal|" with name '"
 operator|+
 name|name
 operator|+
-literal|"' does not exist. "
+literal|"' does not exist."
 operator|+
-literal|"You need to add the corresponding JAR file supporting this SPI to your classpath."
+literal|"  You need to add the corresponding JAR file supporting this SPI to your classpath."
 operator|+
-literal|"The current classpath supports the following names: "
+literal|"  The current classpath supports the following names: "
 operator|+
 name|availableServices
 argument_list|()
