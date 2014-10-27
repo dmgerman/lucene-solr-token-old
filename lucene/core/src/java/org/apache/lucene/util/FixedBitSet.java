@@ -34,15 +34,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -601,26 +592,6 @@ name|sizeOf
 argument_list|(
 name|bits
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getChildResources
-specifier|public
-name|Iterable
-argument_list|<
-name|?
-extends|extends
-name|Accountable
-argument_list|>
-name|getChildResources
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 return|;
 block|}
 comment|/** Expert. */
@@ -1189,16 +1160,13 @@ name|iter
 argument_list|)
 operator|!=
 literal|null
-operator|&&
-name|iter
-operator|.
-name|docID
-argument_list|()
-operator|==
-operator|-
-literal|1
 condition|)
 block|{
+name|assertUnpositioned
+argument_list|(
+name|iter
+argument_list|)
+expr_stmt|;
 specifier|final
 name|FixedBitSet
 name|bits
@@ -1213,15 +1181,6 @@ decl_stmt|;
 name|or
 argument_list|(
 name|bits
-argument_list|)
-expr_stmt|;
-comment|// advance after last doc that would be accepted if standard
-comment|// iteration is used (to exhaust it):
-name|iter
-operator|.
-name|advance
-argument_list|(
-name|numBits
 argument_list|)
 expr_stmt|;
 block|}
@@ -1361,6 +1320,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertUnpositioned
+argument_list|(
+name|iter
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|BitSetIterator
@@ -1371,14 +1335,6 @@ name|iter
 argument_list|)
 operator|!=
 literal|null
-operator|&&
-name|iter
-operator|.
-name|docID
-argument_list|()
-operator|==
-operator|-
-literal|1
 condition|)
 block|{
 specifier|final
@@ -1395,15 +1351,6 @@ decl_stmt|;
 name|xor
 argument_list|(
 name|bits
-argument_list|)
-expr_stmt|;
-comment|// advance after last doc that would be accepted if standard
-comment|// iteration is used (to exhaust it):
-name|iter
-operator|.
-name|advance
-argument_list|(
-name|numBits
 argument_list|)
 expr_stmt|;
 block|}
@@ -1524,16 +1471,13 @@ name|iter
 argument_list|)
 operator|!=
 literal|null
-operator|&&
-name|iter
-operator|.
-name|docID
-argument_list|()
-operator|==
-operator|-
-literal|1
 condition|)
 block|{
+name|assertUnpositioned
+argument_list|(
+name|iter
+argument_list|)
+expr_stmt|;
 specifier|final
 name|FixedBitSet
 name|bits
@@ -1548,15 +1492,6 @@ decl_stmt|;
 name|and
 argument_list|(
 name|bits
-argument_list|)
-expr_stmt|;
-comment|// advance after last doc that would be accepted if standard
-comment|// iteration is used (to exhaust it):
-name|iter
-operator|.
-name|advance
-argument_list|(
-name|numBits
 argument_list|)
 expr_stmt|;
 block|}
@@ -1757,16 +1692,13 @@ name|iter
 argument_list|)
 operator|!=
 literal|null
-operator|&&
-name|iter
-operator|.
-name|docID
-argument_list|()
-operator|==
-operator|-
-literal|1
 condition|)
 block|{
+name|assertUnpositioned
+argument_list|(
+name|iter
+argument_list|)
+expr_stmt|;
 specifier|final
 name|FixedBitSet
 name|bits
@@ -1781,15 +1713,6 @@ decl_stmt|;
 name|andNot
 argument_list|(
 name|bits
-argument_list|)
-expr_stmt|;
-comment|// advance after last doc that would be accepted if standard
-comment|// iteration is used (to exhaust it):
-name|iter
-operator|.
-name|advance
-argument_list|(
-name|numBits
 argument_list|)
 expr_stmt|;
 block|}
