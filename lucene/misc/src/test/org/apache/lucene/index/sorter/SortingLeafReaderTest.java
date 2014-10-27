@@ -118,6 +118,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// NOTE: index was created by by super's @BeforeClass
 comment|// sort the index by id (as integer, in NUMERIC_DV_FIELD)
 name|Sort
 name|sort
@@ -152,14 +153,14 @@ argument_list|)
 operator|.
 name|sort
 argument_list|(
-name|reader
+name|unsortedReader
 argument_list|)
 decl_stmt|;
 comment|// Sorter.compute also sorts the values
 name|NumericDocValues
 name|dv
 init|=
-name|reader
+name|unsortedReader
 operator|.
 name|getNumericDocValues
 argument_list|(
@@ -171,7 +172,7 @@ operator|=
 operator|new
 name|Integer
 index|[
-name|reader
+name|unsortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -186,7 +187,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|reader
+name|unsortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -250,13 +251,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// sort the index by id (as integer, in NUMERIC_DV_FIELD)
-name|reader
+name|sortedReader
 operator|=
 name|SortingLeafReader
 operator|.
 name|wrap
 argument_list|(
-name|reader
+name|unsortedReader
 argument_list|,
 name|sort
 argument_list|)
@@ -278,7 +279,7 @@ expr_stmt|;
 name|Bits
 name|mappedLiveDocs
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -337,7 +338,7 @@ name|TestUtil
 operator|.
 name|checkReader
 argument_list|(
-name|reader
+name|sortedReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -355,7 +356,7 @@ name|SortingLeafReader
 operator|.
 name|wrap
 argument_list|(
-name|reader
+name|sortedReader
 argument_list|,
 name|Sort
 operator|.

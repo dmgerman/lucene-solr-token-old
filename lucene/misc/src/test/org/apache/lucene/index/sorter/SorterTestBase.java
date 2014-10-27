@@ -1206,11 +1206,17 @@ specifier|static
 name|Directory
 name|dir
 decl_stmt|;
-DECL|field|reader
+DECL|field|unsortedReader
 specifier|protected
 specifier|static
 name|LeafReader
-name|reader
+name|unsortedReader
+decl_stmt|;
+DECL|field|sortedReader
+specifier|protected
+specifier|static
+name|LeafReader
+name|sortedReader
 decl_stmt|;
 DECL|field|sortedValues
 specifier|protected
@@ -1496,9 +1502,9 @@ return|return
 name|doc
 return|;
 block|}
-comment|/** Creates an index for sorting. */
+comment|/** Creates an unsorted index; subclasses then sort this index and open sortedReader. */
 DECL|method|createIndex
-specifier|public
+specifier|private
 specifier|static
 name|void
 name|createIndex
@@ -1773,7 +1779,7 @@ name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|reader
+name|unsortedReader
 operator|=
 name|SlowCompositeReaderWrapper
 operator|.
@@ -1799,7 +1805,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|reader
+name|unsortedReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|sortedReader
 operator|.
 name|close
 argument_list|()
@@ -1823,7 +1834,7 @@ block|{
 name|BinaryDocValues
 name|dv
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getBinaryDocValues
 argument_list|(
@@ -1839,7 +1850,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -1894,7 +1905,7 @@ block|{
 name|TermsEnum
 name|termsEnum
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|terms
 argument_list|(
@@ -2398,7 +2409,7 @@ name|mappedLiveDocs
 init|=
 name|randomLiveDocs
 argument_list|(
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -2407,7 +2418,7 @@ decl_stmt|;
 name|TermsEnum
 name|termsEnum
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|terms
 argument_list|(
@@ -2512,7 +2523,7 @@ name|Integer
 operator|.
 name|parseInt
 argument_list|(
-name|reader
+name|sortedReader
 operator|.
 name|document
 argument_list|(
@@ -2561,7 +2572,7 @@ condition|(
 operator|++
 name|prev
 operator|<
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -2696,7 +2707,7 @@ name|Integer
 operator|.
 name|parseInt
 argument_list|(
-name|reader
+name|sortedReader
 operator|.
 name|document
 argument_list|(
@@ -2745,7 +2756,7 @@ condition|(
 operator|++
 name|prev
 operator|<
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -2786,7 +2797,7 @@ block|{
 name|NumericDocValues
 name|dv
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getNormValues
 argument_list|(
@@ -2796,7 +2807,7 @@ decl_stmt|;
 name|int
 name|maxDoc
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -2853,7 +2864,7 @@ block|{
 name|NumericDocValues
 name|dv
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getNumericDocValues
 argument_list|(
@@ -2863,7 +2874,7 @@ decl_stmt|;
 name|int
 name|maxDoc
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -2920,7 +2931,7 @@ block|{
 name|SortedDocValues
 name|dv
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getSortedDocValues
 argument_list|(
@@ -2930,7 +2941,7 @@ decl_stmt|;
 name|int
 name|maxDoc
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -2996,7 +3007,7 @@ block|{
 name|SortedSetDocValues
 name|dv
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getSortedSetDocValues
 argument_list|(
@@ -3006,7 +3017,7 @@ decl_stmt|;
 name|int
 name|maxDoc
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -3142,7 +3153,7 @@ block|{
 name|SortedNumericDocValues
 name|dv
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getSortedNumericDocValues
 argument_list|(
@@ -3152,7 +3163,7 @@ decl_stmt|;
 name|int
 name|maxDoc
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -3249,7 +3260,7 @@ block|{
 name|int
 name|maxDoc
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|maxDoc
 argument_list|()
@@ -3272,7 +3283,7 @@ block|{
 name|Terms
 name|terms
 init|=
-name|reader
+name|sortedReader
 operator|.
 name|getTermVector
 argument_list|(
