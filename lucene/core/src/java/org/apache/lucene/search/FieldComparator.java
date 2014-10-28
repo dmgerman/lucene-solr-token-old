@@ -531,7 +531,9 @@ specifier|private
 name|double
 name|topValue
 decl_stmt|;
+comment|/**       * Creates a new comparator based on {@link Double#compare} for {@code numHits}.      * When a document has no value for the field, {@code missingValue} is substituted.       */
 DECL|method|DoubleComparator
+specifier|public
 name|DoubleComparator
 parameter_list|(
 name|int
@@ -871,7 +873,9 @@ specifier|private
 name|float
 name|topValue
 decl_stmt|;
+comment|/**       * Creates a new comparator based on {@link Float#compare} for {@code numHits}.      * When a document has no value for the field, {@code missingValue} is substituted.       */
 DECL|method|FloatComparator
+specifier|public
 name|FloatComparator
 parameter_list|(
 name|int
@@ -1222,7 +1226,9 @@ specifier|private
 name|int
 name|topValue
 decl_stmt|;
+comment|/**       * Creates a new comparator based on {@link Integer#compare} for {@code numHits}.      * When a document has no value for the field, {@code missingValue} is substituted.       */
 DECL|method|IntComparator
+specifier|public
 name|IntComparator
 parameter_list|(
 name|int
@@ -1556,7 +1562,9 @@ specifier|private
 name|long
 name|topValue
 decl_stmt|;
+comment|/**       * Creates a new comparator based on {@link Long#compare} for {@code numHits}.      * When a document has no value for the field, {@code missingValue} is substituted.       */
 DECL|method|LongComparator
+specifier|public
 name|LongComparator
 parameter_list|(
 name|int
@@ -1889,7 +1897,9 @@ specifier|private
 name|float
 name|topValue
 decl_stmt|;
+comment|/** Creates a new comparator based on relevance for {@code numHits}. */
 DECL|method|RelevanceComparator
+specifier|public
 name|RelevanceComparator
 parameter_list|(
 name|int
@@ -2243,7 +2253,9 @@ specifier|private
 name|int
 name|topValue
 decl_stmt|;
+comment|/** Creates a new comparator based on document ids for {@code numHits} */
 DECL|method|DocComparator
+specifier|public
 name|DocComparator
 parameter_list|(
 name|int
