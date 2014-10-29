@@ -614,7 +614,7 @@ name|CommonParams
 operator|.
 name|Q
 argument_list|,
-literal|"{!mlt id=17 qf=lowerfilt}"
+literal|"{!mlt qf=lowerfilt}17"
 argument_list|)
 expr_stmt|;
 name|QueryResponse
@@ -732,7 +732,7 @@ name|CommonParams
 operator|.
 name|Q
 argument_list|,
-literal|"{!mlt id=3 qf=lowerfilt}"
+literal|"{!mlt qf=lowerfilt}3"
 argument_list|)
 expr_stmt|;
 name|queryResponse
@@ -829,7 +829,7 @@ name|CommonParams
 operator|.
 name|Q
 argument_list|,
-literal|"{!mlt id=20 qf=lowerfilt}"
+literal|"{!mlt qf=lowerfilt}20"
 argument_list|)
 expr_stmt|;
 name|params

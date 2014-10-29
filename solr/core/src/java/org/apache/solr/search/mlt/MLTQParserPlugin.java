@@ -86,7 +86,7 @@ name|QParserPlugin
 import|;
 end_import
 begin_comment
-comment|/**  * Usage: {!mlt id=uniqueId qf=queryField1,queryField2}  */
+comment|/**  * Usage: {!mlt qf=queryField1,queryField2}uniqueId  */
 end_comment
 begin_class
 DECL|class|MLTQParserPlugin
