@@ -38,7 +38,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Iterator
 import|;
 end_import
 begin_import
@@ -47,7 +47,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|List
 import|;
 end_import
 begin_import
@@ -153,7 +153,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
+name|BitDocIdSet
 import|;
 end_import
 begin_import
@@ -166,7 +166,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|DocIdSetBuilder
+name|Bits
 import|;
 end_import
 begin_comment
@@ -216,7 +216,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|DocIdSetBuilder
+name|BitDocIdSet
+operator|.
+name|Builder
 name|res
 init|=
 literal|null
@@ -291,7 +293,9 @@ block|{
 name|res
 operator|=
 operator|new
-name|DocIdSetBuilder
+name|BitDocIdSet
+operator|.
+name|Builder
 argument_list|(
 name|reader
 operator|.
@@ -355,7 +359,9 @@ assert|;
 name|res
 operator|=
 operator|new
-name|DocIdSetBuilder
+name|BitDocIdSet
+operator|.
+name|Builder
 argument_list|(
 name|reader
 operator|.
@@ -455,7 +461,9 @@ block|{
 name|res
 operator|=
 operator|new
-name|DocIdSetBuilder
+name|BitDocIdSet
+operator|.
+name|Builder
 argument_list|(
 name|reader
 operator|.

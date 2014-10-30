@@ -576,6 +576,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BitSet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BitSetIterator
 import|;
 end_import
@@ -3983,7 +3996,7 @@ index|[
 name|r
 index|]
 decl_stmt|;
-name|FixedBitSet
+name|BitSet
 name|expectedResult
 init|=
 name|createExpectedResult
@@ -4143,7 +4156,7 @@ expr_stmt|;
 block|}
 comment|// Need to know all documents that have matches. TopDocs doesn't give me that and then I'd be also testing TopDocsCollector...
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|actualResult
 init|=
 operator|new
@@ -6864,7 +6877,7 @@ return|;
 block|}
 DECL|method|createExpectedResult
 specifier|private
-name|FixedBitSet
+name|BitSet
 name|createExpectedResult
 parameter_list|(
 name|String
@@ -6939,7 +6952,7 @@ operator|.
 name|fromDocuments
 expr_stmt|;
 block|}
-name|FixedBitSet
+name|BitSet
 name|expectedResult
 init|=
 operator|new

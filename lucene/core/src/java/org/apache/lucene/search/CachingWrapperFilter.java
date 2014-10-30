@@ -252,16 +252,7 @@ condition|(
 name|docIdSet
 operator|==
 literal|null
-condition|)
-block|{
-comment|// this is better than returning null, as the nonnull result can be cached
-return|return
-name|EMPTY
-return|;
-block|}
-elseif|else
-if|if
-condition|(
+operator|||
 name|docIdSet
 operator|.
 name|isCacheable
@@ -283,9 +274,6 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-comment|// null is allowed to be returned by iterator(),
-comment|// in this case we wrap with the sentinel set,
-comment|// which is cacheable.
 if|if
 condition|(
 name|it
@@ -294,7 +282,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|EMPTY
+literal|null
 return|;
 block|}
 else|else
@@ -431,6 +419,19 @@ argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|docIdSet
+operator|==
+literal|null
+condition|)
+block|{
+comment|// We use EMPTY as a sentinel for the empty set, which is cacheable
+name|docIdSet
+operator|=
+name|EMPTY
+expr_stmt|;
+block|}
 assert|assert
 name|docIdSet
 operator|.
