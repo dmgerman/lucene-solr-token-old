@@ -126,6 +126,35 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|FieldInvertState
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexOptions
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexWriter
 import|;
 end_import
@@ -184,22 +213,6 @@ operator|.
 name|BytesRef
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|FieldInvertState
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_comment
 comment|/**  * Expert: directly create a field for a document.  Most  * users should use one of the sugar subclasses: {@link  * IntField}, {@link LongField}, {@link FloatField}, {@link  * DoubleField}, {@link BinaryDocValuesField}, {@link  * NumericDocValuesField}, {@link SortedDocValuesField}, {@link  * StringField}, {@link TextField}, {@link StoredField}.  *  *<p/> A field is a section of a Document. Each field has three  * parts: name, type and value. Values may be text  * (String, Reader or pre-analyzed TokenStream), binary  * (byte[]), or numeric (a Number).  Fields are optionally stored in the  * index, so that they may be returned with hits on the document.  *  *<p/>  * NOTE: the field type is an {@link IndexableFieldType}.  Making changes  * to the state of the IndexableFieldType will impact any  * Field it is used in.  It is strongly recommended that no  * changes be made after Field instantiation.  */
 end_comment
@@ -385,7 +398,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|!=
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 operator|&&
 operator|!
 name|type
@@ -473,7 +488,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|==
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 operator|||
 operator|!
 name|type
@@ -655,7 +672,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|!=
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 condition|)
 block|{
 throw|throw
@@ -744,7 +763,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|==
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 condition|)
 block|{
 throw|throw
@@ -1010,7 +1031,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|!=
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 condition|)
 block|{
 throw|throw
@@ -1346,7 +1369,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|==
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 operator|||
 operator|!
 name|type
@@ -1437,7 +1462,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|==
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 operator|||
 name|type
 operator|.
@@ -1632,7 +1659,9 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|==
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 condition|)
 block|{
 comment|// Not indexed

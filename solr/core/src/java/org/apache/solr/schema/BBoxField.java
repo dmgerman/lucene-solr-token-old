@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
+name|DocValuesType
 import|;
 end_import
 begin_import
@@ -677,8 +677,6 @@ name|luceneType
 operator|.
 name|setDocValueType
 argument_list|(
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|NUMERIC

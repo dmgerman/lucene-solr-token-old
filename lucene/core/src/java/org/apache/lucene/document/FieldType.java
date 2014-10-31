@@ -40,8 +40,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|DocValuesType
 import|;
 end_import
@@ -54,8 +52,6 @@ operator|.
 name|lucene
 operator|.
 name|index
-operator|.
-name|FieldInfo
 operator|.
 name|IndexOptions
 import|;
@@ -177,6 +173,10 @@ DECL|field|indexOptions
 specifier|private
 name|IndexOptions
 name|indexOptions
+init|=
+name|IndexOptions
+operator|.
+name|NO
 decl_stmt|;
 DECL|field|numericType
 specifier|private
@@ -201,6 +201,10 @@ DECL|field|docValueType
 specifier|private
 name|DocValuesType
 name|docValueType
+init|=
+name|DocValuesType
+operator|.
+name|NO
 decl_stmt|;
 comment|/**    * Create a new mutable FieldType with all of the properties from<code>ref</code>    */
 DECL|method|FieldType
@@ -586,7 +590,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**    * {@inheritDoc}    *<p>    * The default is {@link IndexOptions#DOCS_AND_FREQS_AND_POSITIONS}.    * @see #setIndexOptions(org.apache.lucene.index.FieldInfo.IndexOptions)    */
+comment|/**    * {@inheritDoc}    *<p>    * The default is {@link IndexOptions#DOCS_AND_FREQS_AND_POSITIONS}.    * @see #setIndexOptions(IndexOptions)    */
 annotation|@
 name|Override
 DECL|method|indexOptions
@@ -614,6 +618,21 @@ block|{
 name|checkIfFrozen
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NullPointerException
+argument_list|(
+literal|"IndexOptions cannot be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|indexOptions
@@ -735,7 +754,9 @@ if|if
 condition|(
 name|indexOptions
 operator|!=
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 condition|)
 block|{
 if|if
@@ -910,7 +931,9 @@ if|if
 condition|(
 name|docValueType
 operator|!=
-literal|null
+name|DocValuesType
+operator|.
+name|NO
 condition|)
 block|{
 if|if
@@ -922,6 +945,7 @@ argument_list|()
 operator|>
 literal|0
 condition|)
+block|{
 name|result
 operator|.
 name|append
@@ -929,6 +953,7 @@ argument_list|(
 literal|","
 argument_list|)
 expr_stmt|;
+block|}
 name|result
 operator|.
 name|append
@@ -952,7 +977,7 @@ argument_list|()
 return|;
 block|}
 comment|/* from StorableFieldType */
-comment|/**    * {@inheritDoc}    *<p>    * The default is<code>null</code> (no docValues)     * @see #setDocValueType(org.apache.lucene.index.FieldInfo.DocValuesType)    */
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>null</code> (no docValues)     * @see #setDocValueType(DocValuesType)    */
 annotation|@
 name|Override
 DECL|method|docValueType
@@ -978,6 +1003,21 @@ block|{
 name|checkIfFrozen
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NullPointerException
+argument_list|(
+literal|"DocValuesType cannot be null"
+argument_list|)
+throw|;
+block|}
 name|docValueType
 operator|=
 name|type
@@ -1029,20 +1069,10 @@ name|prime
 operator|*
 name|result
 operator|+
-operator|(
-operator|(
-name|indexOptions
-operator|==
-literal|null
-operator|)
-condition|?
-literal|0
-else|:
 name|indexOptions
 operator|.
 name|hashCode
 argument_list|()
-operator|)
 expr_stmt|;
 name|result
 operator|=

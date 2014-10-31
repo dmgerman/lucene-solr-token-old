@@ -139,8 +139,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|DocValuesType
 import|;
 end_import
@@ -1025,6 +1023,12 @@ operator|!=
 name|DocValuesType
 operator|.
 name|SORTED_NUMERIC
+operator|&&
+name|type
+operator|!=
+name|DocValuesType
+operator|.
+name|NO
 condition|)
 block|{
 name|test

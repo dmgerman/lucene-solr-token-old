@@ -124,21 +124,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|document
 operator|.
 name|TextField
@@ -193,7 +178,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
+name|FixedBitSet
 import|;
 end_import
 begin_import
@@ -221,7 +206,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitSet
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -1432,7 +1417,7 @@ name|doTestLongPostingsNoPositions
 argument_list|(
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|)
 expr_stmt|;
 name|doTestLongPostingsNoPositions
@@ -1946,7 +1931,7 @@ name|options
 operator|==
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 condition|)
 block|{
 name|docs

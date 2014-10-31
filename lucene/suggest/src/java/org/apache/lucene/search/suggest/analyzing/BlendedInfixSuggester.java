@@ -147,7 +147,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
+name|IndexOptions
 import|;
 end_import
 begin_import
@@ -661,8 +661,6 @@ name|ft
 operator|.
 name|setIndexOptions
 argument_list|(
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS

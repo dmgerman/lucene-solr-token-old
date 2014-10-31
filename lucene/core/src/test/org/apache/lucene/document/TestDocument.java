@@ -101,8 +101,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|IndexOptions
 import|;
 end_import
@@ -424,8 +422,12 @@ name|stored
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
+name|IndexOptions
+operator|.
+name|NO
+argument_list|,
 name|binaryFld
 operator|.
 name|fieldType

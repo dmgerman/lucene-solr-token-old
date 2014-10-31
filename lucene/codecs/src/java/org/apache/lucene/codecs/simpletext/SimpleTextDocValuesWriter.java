@@ -150,8 +150,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|DocValuesType
 import|;
 end_import
@@ -481,8 +479,6 @@ operator|.
 name|getDocValuesType
 argument_list|()
 operator|==
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|NUMERIC
@@ -496,8 +492,6 @@ name|writeFieldEntry
 argument_list|(
 name|field
 argument_list|,
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|NUMERIC
@@ -987,8 +981,6 @@ name|writeFieldEntry
 argument_list|(
 name|field
 argument_list|,
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|BINARY
@@ -1340,8 +1332,6 @@ name|writeFieldEntry
 argument_list|(
 name|field
 argument_list|,
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|SORTED
@@ -2086,8 +2076,6 @@ name|writeFieldEntry
 argument_list|(
 name|field
 argument_list|,
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|SORTED_SET
@@ -2741,8 +2729,6 @@ parameter_list|(
 name|FieldInfo
 name|field
 parameter_list|,
-name|FieldInfo
-operator|.
 name|DocValuesType
 name|type
 parameter_list|)

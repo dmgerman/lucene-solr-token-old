@@ -30,36 +30,6 @@ end_import
 begin_comment
 comment|// javadocs
 end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|DocValuesType
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
-import|;
-end_import
 begin_comment
 comment|/**   * Describes the properties of a field.  * @lucene.experimental   */
 end_comment
@@ -76,7 +46,7 @@ name|boolean
 name|stored
 parameter_list|()
 function_decl|;
-comment|/**     * True if this field's value should be analyzed by the    * {@link Analyzer}.    *<p>    * This has no effect if {@link #indexOptions()} returns null.    */
+comment|/**     * True if this field's value should be analyzed by the    * {@link Analyzer}.    *<p>    * This has no effect if {@link #indexOptions()} returns    * IndexOptions.NO.    */
 comment|// TODO: shouldn't we remove this?  Whether/how a field is
 comment|// tokenized is an impl detail under Field?
 DECL|method|tokenized
@@ -85,7 +55,7 @@ name|boolean
 name|tokenized
 parameter_list|()
 function_decl|;
-comment|/**     * True if this field's indexed form should be also stored     * into term vectors.    *<p>    * This builds a miniature inverted-index for this field which    * can be accessed in a document-oriented way from     * {@link IndexReader#getTermVector(int,String)}.    *<p>    * This option is illegal if {@link #indexOptions()} returns null.    */
+comment|/**     * True if this field's indexed form should be also stored     * into term vectors.    *<p>    * This builds a miniature inverted-index for this field which    * can be accessed in a document-oriented way from     * {@link IndexReader#getTermVector(int,String)}.    *<p>    * This option is illegal if {@link #indexOptions()} returns    * IndexOptions.NO.    */
 DECL|method|storeTermVectors
 specifier|public
 name|boolean
@@ -120,14 +90,14 @@ name|boolean
 name|omitNorms
 parameter_list|()
 function_decl|;
-comment|/** {@link IndexOptions}, describing what should be    *  recorded into the inverted index, or null if this field    *  is not indexed */
+comment|/** {@link IndexOptions}, describing what should be    *  recorded into the inverted index */
 DECL|method|indexOptions
 specifier|public
 name|IndexOptions
 name|indexOptions
 parameter_list|()
 function_decl|;
-comment|/**     * DocValues {@link DocValuesType}: if non-null then the field's value    * will be indexed into docValues.    */
+comment|/**     * DocValues {@link DocValuesType}: how the field's value will be indexed    * into docValues.    */
 DECL|method|docValueType
 specifier|public
 name|DocValuesType

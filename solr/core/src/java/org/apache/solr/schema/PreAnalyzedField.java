@@ -150,8 +150,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|IndexOptions
 import|;
 end_import
@@ -984,7 +982,7 @@ name|options
 operator|=
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 expr_stmt|;
 block|}
 elseif|else
@@ -1398,7 +1396,9 @@ argument_list|()
 operator|.
 name|setIndexOptions
 argument_list|(
-literal|null
+name|IndexOptions
+operator|.
+name|NO
 argument_list|)
 expr_stmt|;
 name|f

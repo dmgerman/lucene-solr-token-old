@@ -109,21 +109,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|BooleanClause
@@ -551,7 +536,7 @@ name|setIndexOptions
 argument_list|(
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|)
 expr_stmt|;
 block|}
@@ -749,7 +734,7 @@ literal|"OmitTermFreqAndPositions field bit should be set."
 argument_list|,
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|,
 name|fi
 operator|.
@@ -768,7 +753,7 @@ literal|"OmitTermFreqAndPositions field bit should be set."
 argument_list|,
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|,
 name|fi
 operator|.
@@ -1020,7 +1005,7 @@ literal|"OmitTermFreqAndPositions field bit should be set."
 argument_list|,
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|,
 name|fi
 operator|.
@@ -1039,7 +1024,7 @@ literal|"OmitTermFreqAndPositions field bit should be set."
 argument_list|,
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|,
 name|fi
 operator|.
@@ -1266,7 +1251,7 @@ literal|"OmitTermFreqAndPositions field bit should be set."
 argument_list|,
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|,
 name|fi
 operator|.
@@ -2561,7 +2546,7 @@ name|setIndexOptions
 argument_list|(
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|)
 expr_stmt|;
 name|ft

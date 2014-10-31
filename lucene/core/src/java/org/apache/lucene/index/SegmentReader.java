@@ -180,21 +180,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|DocValuesType
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -1457,7 +1442,9 @@ operator|.
 name|getDocValuesType
 argument_list|()
 operator|==
-literal|null
+name|DocValuesType
+operator|.
+name|NO
 condition|)
 block|{
 comment|// Field was not indexed with doc values
@@ -1671,7 +1658,9 @@ operator|.
 name|getDocValuesType
 argument_list|()
 operator|==
-literal|null
+name|DocValuesType
+operator|.
+name|NO
 condition|)
 block|{
 comment|// Field was not indexed with doc values
