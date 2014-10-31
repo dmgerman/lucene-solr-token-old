@@ -660,7 +660,7 @@ name|type
 condition|)
 block|{
 case|case
-name|NO
+name|NONE
 case|:
 return|return
 literal|0
@@ -734,7 +734,7 @@ case|:
 return|return
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 return|;
 case|case
 literal|1
@@ -821,7 +821,7 @@ name|indexOptions
 condition|)
 block|{
 case|case
-name|NO
+name|NONE
 case|:
 return|return
 literal|0
@@ -889,7 +889,7 @@ case|:
 return|return
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 return|;
 case|case
 literal|1

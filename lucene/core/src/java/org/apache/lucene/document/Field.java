@@ -400,7 +400,7 @@ argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|&&
 operator|!
 name|type
@@ -490,7 +490,7 @@ argument_list|()
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|||
 operator|!
 name|type
@@ -674,7 +674,7 @@ argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 throw|throw
@@ -765,7 +765,7 @@ argument_list|()
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 throw|throw
@@ -1033,7 +1033,7 @@ argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 throw|throw
@@ -1371,7 +1371,7 @@ argument_list|()
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|||
 operator|!
 name|type
@@ -1464,7 +1464,7 @@ argument_list|()
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|||
 name|type
 operator|.
@@ -1661,7 +1661,7 @@ argument_list|()
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 comment|// Not indexed

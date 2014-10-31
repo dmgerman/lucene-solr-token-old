@@ -1194,7 +1194,7 @@ argument_list|()
 operator|!=
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 return|;
 block|}
 block|}
@@ -1244,7 +1244,7 @@ argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 return|;
 block|}
 block|}

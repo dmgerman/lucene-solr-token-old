@@ -6981,7 +6981,7 @@ argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|&&
 name|oldType
 operator|.
@@ -7115,7 +7115,7 @@ argument_list|()
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|||
 name|prevType
 operator|!=

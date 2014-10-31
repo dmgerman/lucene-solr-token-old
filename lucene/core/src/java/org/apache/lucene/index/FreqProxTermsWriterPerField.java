@@ -201,7 +201,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 assert|;
 name|hasFreq
 operator|=
@@ -1106,7 +1106,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 assert|;
 name|boolean
 name|hasFreq

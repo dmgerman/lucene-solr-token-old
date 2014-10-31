@@ -1845,7 +1845,7 @@ name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
 argument_list|,
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 argument_list|,
 operator|-
 literal|1
@@ -3584,7 +3584,7 @@ name|indexOptions
 argument_list|,
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 argument_list|,
 operator|-
 literal|1
@@ -9644,7 +9644,7 @@ name|opts
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 continue|continue;

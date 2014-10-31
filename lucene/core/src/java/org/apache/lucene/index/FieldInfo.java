@@ -63,7 +63,7 @@ name|docValuesType
 init|=
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 decl_stmt|;
 comment|// True if any document indexed term vectors
 DECL|field|storeTermVector
@@ -84,7 +84,7 @@ name|indexOptions
 init|=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 decl_stmt|;
 DECL|field|storePayloads
 specifier|private
@@ -213,7 +213,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 name|this
@@ -287,7 +287,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 comment|// Cannot store payloads unless positions are indexed:
@@ -385,7 +385,7 @@ name|docValuesType
 operator|==
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 throw|throw
@@ -485,7 +485,7 @@ name|indexOptions
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 name|this
@@ -502,7 +502,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 comment|// downgrade
@@ -537,7 +537,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 condition|)
 block|{
 comment|// if updated field data is not for indexing, leave the updates out
@@ -561,7 +561,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|&&
 name|this
 operator|.
@@ -587,7 +587,7 @@ name|indexOptions
 operator|==
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|||
 name|this
 operator|.
@@ -649,7 +649,7 @@ name|docValuesType
 operator|!=
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 operator|&&
 name|docValuesType
 operator|!=
@@ -685,7 +685,7 @@ name|checkConsistency
 argument_list|()
 assert|;
 block|}
-comment|/** Returns IndexOptions for the field, or IndexOptions.NO if the field is not indexed */
+comment|/** Returns IndexOptions for the field, or IndexOptions.NONE if the field is not indexed */
 DECL|method|getIndexOptions
 specifier|public
 name|IndexOptions
@@ -708,10 +708,10 @@ name|docValuesType
 operator|!=
 name|DocValuesType
 operator|.
-name|NO
+name|NONE
 return|;
 block|}
-comment|/**    * Returns {@link DocValuesType} of the docValues; this is    * {@code DocValuesType.NO} if the field has no docvalues.    */
+comment|/**    * Returns {@link DocValuesType} of the docValues; this is    * {@code DocValuesType.NONE} if the field has no docvalues.    */
 DECL|method|getDocValuesType
 specifier|public
 name|DocValuesType
@@ -778,7 +778,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 operator|&&
 name|indexOptions
 operator|.
@@ -829,7 +829,7 @@ operator|==
 literal|false
 return|;
 block|}
-comment|/**    * Returns true if this field is indexed ({@link #getIndexOptions} is not IndexOptions.NO).    */
+comment|/**    * Returns true if this field is indexed ({@link #getIndexOptions} is not IndexOptions.NONE).    */
 DECL|method|isIndexed
 specifier|public
 name|boolean
@@ -841,7 +841,7 @@ name|indexOptions
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 return|;
 block|}
 comment|/**    * Returns true if any payloads exist for this field.    */

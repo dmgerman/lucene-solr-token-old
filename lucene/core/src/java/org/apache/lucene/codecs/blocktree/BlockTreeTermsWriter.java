@@ -3561,7 +3561,7 @@ argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 assert|;
 name|docsSeen
 operator|=
@@ -4308,7 +4308,7 @@ argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 assert|;
 if|if
 condition|(

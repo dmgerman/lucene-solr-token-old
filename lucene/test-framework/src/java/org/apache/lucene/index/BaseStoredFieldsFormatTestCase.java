@@ -2491,7 +2491,7 @@ name|assertEquals
 argument_list|(
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 argument_list|,
 name|r
 operator|.
@@ -4000,7 +4000,7 @@ name|setIndexOptions
 argument_list|(
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 argument_list|)
 expr_stmt|;
 name|type
@@ -4699,7 +4699,7 @@ name|setIndexOptions
 argument_list|(
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 argument_list|)
 expr_stmt|;
 specifier|final

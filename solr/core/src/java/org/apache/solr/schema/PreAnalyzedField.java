@@ -1398,7 +1398,7 @@ name|setIndexOptions
 argument_list|(
 name|IndexOptions
 operator|.
-name|NO
+name|NONE
 argument_list|)
 expr_stmt|;
 name|f
