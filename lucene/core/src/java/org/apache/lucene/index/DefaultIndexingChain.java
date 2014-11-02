@@ -711,10 +711,12 @@ name|perField
 operator|.
 name|fieldInfo
 operator|.
-name|hasDocValues
+name|getDocValuesType
 argument_list|()
 operator|==
-literal|false
+name|DocValuesType
+operator|.
+name|NONE
 condition|)
 block|{
 comment|// BUG
@@ -805,8 +807,12 @@ name|perField
 operator|.
 name|fieldInfo
 operator|.
-name|hasDocValues
+name|getDocValuesType
 argument_list|()
+operator|!=
+name|DocValuesType
+operator|.
+name|NONE
 condition|)
 block|{
 comment|// BUG
@@ -1059,8 +1065,12 @@ literal|false
 operator|&&
 name|fi
 operator|.
-name|isIndexed
+name|getIndexOptions
 argument_list|()
+operator|!=
+name|IndexOptions
+operator|.
+name|NONE
 condition|)
 block|{
 assert|assert
@@ -1929,21 +1939,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|hasDocValues
-init|=
+if|if
+condition|(
 name|fp
 operator|.
 name|fieldInfo
 operator|.
-name|hasDocValues
+name|getDocValuesType
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|hasDocValues
 operator|==
-literal|false
+name|DocValuesType
+operator|.
+name|NONE
 condition|)
 block|{
 comment|// This will throw an exc if the caller tried to
