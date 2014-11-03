@@ -612,7 +612,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toString
 argument_list|()
@@ -655,7 +655,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toString
 argument_list|()
@@ -688,7 +688,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toString
 argument_list|()
@@ -701,7 +701,7 @@ literal|"property"
 argument_list|,
 literal|"property.newunique"
 argument_list|,
-literal|"sliceUnique"
+literal|"shardUnique"
 argument_list|,
 literal|"true"
 argument_list|)
@@ -727,7 +727,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toString
 argument_list|()
@@ -740,7 +740,7 @@ literal|"property"
 argument_list|,
 literal|"whatever"
 argument_list|,
-literal|"sliceUnique"
+literal|"shardUnique"
 argument_list|,
 literal|"false"
 argument_list|)
@@ -770,7 +770,7 @@ name|contains
 argument_list|(
 literal|"Balancing properties amongst replicas in a slice requires that the "
 operator|+
-literal|"property be pre-defined as a unique property (e.g. 'preferredLeader') or that 'sliceUnique' be set to 'true'"
+literal|"property be pre-defined as a unique property (e.g. 'preferredLeader') or that 'shardUnique' be set to 'true'"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -954,7 +954,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toString
 argument_list|()
@@ -967,7 +967,7 @@ literal|"property"
 argument_list|,
 literal|"bogus1"
 argument_list|,
-literal|"sliceUnique"
+literal|"shardUnique"
 argument_list|,
 literal|"false"
 argument_list|)
@@ -997,12 +997,12 @@ name|contains
 argument_list|(
 literal|"Balancing properties amongst replicas in a slice requires that the property be "
 operator|+
-literal|"pre-defined as a unique property (e.g. 'preferredLeader') or that 'sliceUnique' be set to 'true'"
+literal|"pre-defined as a unique property (e.g. 'preferredLeader') or that 'shardUnique' be set to 'true'"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Should have no effect despite the "sliceUnique" param being set.
+comment|// Should have no effect despite the "shardUnique" param being set.
 name|doPropertyAction
 argument_list|(
 name|client
@@ -1013,7 +1013,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toString
 argument_list|()
@@ -1026,7 +1026,7 @@ literal|"property"
 argument_list|,
 literal|"property.bogus1"
 argument_list|,
-literal|"sliceUnique"
+literal|"shardUnique"
 argument_list|,
 literal|"true"
 argument_list|)

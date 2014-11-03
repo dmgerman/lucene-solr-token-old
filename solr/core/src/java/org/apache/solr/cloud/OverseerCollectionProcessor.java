@@ -221,7 +221,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 import|;
 end_import
 begin_import
@@ -1428,14 +1428,14 @@ name|ONLY_IF_DOWN
 init|=
 literal|"onlyIfDown"
 decl_stmt|;
-DECL|field|SLICE_UNIQUE
+DECL|field|SHARD_UNIQUE
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 init|=
-literal|"sliceUnique"
+literal|"shardUnique"
 decl_stmt|;
 DECL|field|ONLY_ACTIVE_NODES
 specifier|public
@@ -4231,7 +4231,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 case|:
 name|balanceProperty
 argument_list|(
@@ -5047,7 +5047,7 @@ literal|"' and '"
 operator|+
 name|PROPERTY_PROP
 operator|+
-literal|"' parameters are required for the BALANCESLICEUNIQUE operation, no action taken"
+literal|"' parameters are required for the BALANCESHARDUNIQUE operation, no action taken"
 argument_list|)
 throw|;
 block|}
@@ -5090,7 +5090,7 @@ name|Overseer
 operator|.
 name|QUEUE_OPERATION
 argument_list|,
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toLower
 argument_list|()

@@ -88,7 +88,7 @@ name|cloud
 operator|.
 name|OverseerCollectionProcessor
 operator|.
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 import|;
 end_import
 begin_import
@@ -505,7 +505,7 @@ name|CollectionParams
 operator|.
 name|CollectionAction
 operator|.
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 import|;
 end_import
 begin_import
@@ -1918,12 +1918,12 @@ expr_stmt|;
 break|break;
 block|}
 case|case
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 case|:
 block|{
 name|this
 operator|.
-name|handleBalanceSliceUnique
+name|handleBalanceShardUnique
 argument_list|(
 name|req
 argument_list|,
@@ -3271,7 +3271,7 @@ name|REPLICA_PROP
 argument_list|,
 name|PROPERTY_PROP
 argument_list|,
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 argument_list|,
 name|PROPERTY_VALUE_PROP
 argument_list|)
@@ -3326,7 +3326,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3345,7 +3345,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 argument_list|)
 argument_list|)
 operator|&&
@@ -3386,7 +3386,7 @@ name|property
 operator|+
 literal|" with the "
 operator|+
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 operator|+
 literal|" parameter set to something other than 'true'. No action taken."
 argument_list|)
@@ -3501,10 +3501,10 @@ name|rsp
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handleBalanceSliceUnique
+DECL|method|handleBalanceShardUnique
 specifier|private
 name|void
-name|handleBalanceSliceUnique
+name|handleBalanceShardUnique
 parameter_list|(
 name|SolrQueryRequest
 name|req
@@ -3533,7 +3533,7 @@ name|PROPERTY_PROP
 argument_list|)
 expr_stmt|;
 name|Boolean
-name|sliceUnique
+name|shardUnique
 init|=
 name|Boolean
 operator|.
@@ -3546,7 +3546,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3597,7 +3597,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|sliceUnique
+name|shardUnique
 operator|==
 literal|false
 operator|&&
@@ -3623,19 +3623,19 @@ name|BAD_REQUEST
 argument_list|,
 literal|"Balancing properties amongst replicas in a slice requires that"
 operator|+
-literal|" the property be pre-defined as a unique property (e.g. 'preferredLeader') or that 'sliceUnique' be set to 'true'. "
+literal|" the property be pre-defined as a unique property (e.g. 'preferredLeader') or that 'shardUnique' be set to 'true'. "
 operator|+
 literal|" Property: "
 operator|+
 name|prop
 operator|+
-literal|" sliceUnique: "
+literal|" shardUnique: "
 operator|+
 name|Boolean
 operator|.
 name|toString
 argument_list|(
-name|sliceUnique
+name|shardUnique
 argument_list|)
 argument_list|)
 throw|;
@@ -3656,7 +3656,7 @@ name|Overseer
 operator|.
 name|QUEUE_OPERATION
 argument_list|,
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toLower
 argument_list|()
@@ -3677,12 +3677,12 @@ name|PROPERTY_PROP
 argument_list|,
 name|ONLY_ACTIVE_NODES
 argument_list|,
-name|SLICE_UNIQUE
+name|SHARD_UNIQUE
 argument_list|)
 expr_stmt|;
 name|handleResponse
 argument_list|(
-name|BALANCESLICEUNIQUE
+name|BALANCESHARDUNIQUE
 operator|.
 name|toLower
 argument_list|()
