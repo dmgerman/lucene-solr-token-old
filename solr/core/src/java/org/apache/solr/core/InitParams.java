@@ -515,8 +515,6 @@ parameter_list|)
 block|{
 name|merge
 argument_list|(
-name|defaults
-argument_list|,
 operator|(
 name|NamedList
 operator|)
@@ -528,6 +526,8 @@ name|PluginInfo
 operator|.
 name|DEFAULTS
 argument_list|)
+argument_list|,
+name|defaults
 argument_list|,
 name|initArgs
 argument_list|,
