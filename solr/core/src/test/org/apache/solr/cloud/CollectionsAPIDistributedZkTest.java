@@ -2546,7 +2546,7 @@ name|coresStatus
 operator|.
 name|get
 argument_list|(
-literal|"conf1_shard1_0_replica1"
+literal|"conf1_shard1_1_replica1"
 argument_list|)
 operator|.
 name|get
