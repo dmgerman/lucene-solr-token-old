@@ -256,10 +256,11 @@ begin_comment
 comment|/**  * Tests primitive queries (ie: that rewrite to themselves) to  * insure they match the expected set of docs, and that the score of each  * match is equal to the value of the scores explanation.  *  *<p>  * The assumption is that if all of the "primitive" queries work well,  * then anything that rewrites to a primitive will work well also.  *</p>  *  * @see "Subclasses for actual tests"  */
 end_comment
 begin_class
-DECL|class|TestExplanations
+DECL|class|BaseExplanationTestCase
 specifier|public
+specifier|abstract
 class|class
-name|TestExplanations
+name|BaseExplanationTestCase
 extends|extends
 name|LuceneTestCase
 block|{
@@ -1246,15 +1247,6 @@ expr_stmt|;
 return|return
 name|bq
 return|;
-block|}
-comment|/**    * Placeholder: JUnit freaks if you don't have one test ... making    * class abstract doesn't help    */
-DECL|method|testNoop
-specifier|public
-name|void
-name|testNoop
-parameter_list|()
-block|{
-comment|/* NOOP */
 block|}
 block|}
 end_class

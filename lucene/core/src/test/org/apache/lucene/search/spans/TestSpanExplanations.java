@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|TestSpanExplanations
 extends|extends
-name|TestExplanations
+name|BaseExplanationTestCase
 block|{
 comment|/* simple SpanTermQueries */
 DECL|method|testST1
