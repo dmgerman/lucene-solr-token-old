@@ -27,17 +27,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
@@ -116,7 +105,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Operations
+name|Automaton
 import|;
 end_import
 begin_import
@@ -131,7 +120,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Automaton
+name|Operations
 import|;
 end_import
 begin_import
@@ -1065,6 +1054,10 @@ operator|.
 name|determinize
 argument_list|(
 name|automaton
+argument_list|,
+name|Operations
+operator|.
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|)
 decl_stmt|;

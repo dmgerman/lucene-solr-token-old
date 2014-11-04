@@ -211,6 +211,23 @@ operator|.
 name|Util
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
+name|Operations
+operator|.
+name|DEFAULT_MAX_DETERMINIZED_STATES
+import|;
+end_import
 begin_class
 DECL|class|TestAutomaton
 specifier|public
@@ -765,6 +782,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -856,6 +875,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -941,6 +962,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1017,6 +1040,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1075,6 +1100,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1093,6 +1120,8 @@ name|removeDeadStates
 argument_list|(
 name|a
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|,
 name|aMin
@@ -1141,6 +1170,8 @@ name|reverse
 argument_list|(
 name|ra
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1191,6 +1222,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a2
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1273,6 +1306,8 @@ name|repeat
 argument_list|(
 name|a
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1357,6 +1392,8 @@ name|a
 argument_list|,
 literal|2
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -1443,6 +1480,8 @@ literal|0
 argument_list|,
 literal|2
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1529,6 +1568,8 @@ literal|2
 argument_list|,
 literal|4
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -1634,7 +1675,11 @@ operator|.
 name|complement
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1711,6 +1756,8 @@ literal|100
 argument_list|,
 literal|3
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -1847,6 +1894,8 @@ operator|.
 name|getCommonSuffixBytesRef
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 operator|.
 name|length
@@ -1931,6 +1980,8 @@ name|removeDeadStates
 argument_list|(
 name|a
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|,
 name|Operations
@@ -1943,6 +1994,8 @@ name|removeDeadStates
 argument_list|(
 name|rra
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2029,6 +2082,8 @@ operator|.
 name|determinize
 argument_list|(
 name|ra
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 if|if
@@ -2194,6 +2249,8 @@ name|Automata
 operator|.
 name|makeAnyString
 argument_list|()
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -2592,6 +2649,8 @@ name|removeDeadStates
 argument_list|(
 name|a
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|,
 name|Operations
@@ -2607,6 +2666,8 @@ operator|.
 name|finish
 argument_list|()
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2749,6 +2810,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2808,6 +2871,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2894,6 +2959,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -2914,6 +2981,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -2942,7 +3011,11 @@ argument_list|(
 name|a
 argument_list|,
 name|a2
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -3003,7 +3076,11 @@ argument_list|(
 name|a4
 argument_list|,
 name|a1
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -3062,7 +3139,11 @@ argument_list|(
 name|a4
 argument_list|,
 name|a3
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -3136,6 +3217,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3204,6 +3287,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3389,6 +3474,8 @@ name|max
 argument_list|,
 name|digits
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 if|if
@@ -3407,6 +3494,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -3714,6 +3803,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|,
 operator|-
@@ -4347,6 +4438,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 return|;
 case|case
@@ -4383,6 +4476,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 return|;
 block|}
@@ -5138,6 +5233,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -5185,6 +5282,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -5528,6 +5627,8 @@ argument_list|(
 name|a
 argument_list|,
 name|a2
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -5784,6 +5885,8 @@ argument_list|(
 name|a
 argument_list|,
 name|a2
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -6008,6 +6111,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a2
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -6028,6 +6133,8 @@ operator|.
 name|minimize
 argument_list|(
 name|a2
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -6468,6 +6575,8 @@ name|Automata
 operator|.
 name|makeEmptyString
 argument_list|()
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 name|terms
@@ -6905,6 +7014,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 comment|// Make sure all terms are accepted:
@@ -7136,6 +7247,8 @@ name|unionTerms
 argument_list|(
 name|terms
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -7156,6 +7269,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 argument_list|)
 argument_list|)

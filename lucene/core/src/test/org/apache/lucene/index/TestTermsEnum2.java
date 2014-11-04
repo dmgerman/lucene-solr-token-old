@@ -245,6 +245,23 @@ operator|.
 name|*
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
+name|Operations
+operator|.
+name|DEFAULT_MAX_DETERMINIZED_STATES
+import|;
+end_import
 begin_class
 DECL|class|TestTermsEnum2
 specifier|public
@@ -563,6 +580,8 @@ argument_list|)
 operator|.
 name|toAutomaton
 argument_list|()
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -753,6 +772,8 @@ argument_list|)
 operator|.
 name|toAutomaton
 argument_list|()
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|TermsEnum
@@ -1102,6 +1123,8 @@ name|termsAutomaton
 argument_list|,
 name|automaton
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|TreeSet
@@ -1154,6 +1177,8 @@ name|makeStringUnion
 argument_list|(
 name|found
 argument_list|)
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 decl_stmt|;
 name|assertTrue

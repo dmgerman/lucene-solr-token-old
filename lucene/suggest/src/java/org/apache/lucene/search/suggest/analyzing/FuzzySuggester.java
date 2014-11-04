@@ -31,17 +31,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Arrays
@@ -188,7 +177,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Operations
+name|Automaton
 import|;
 end_import
 begin_import
@@ -218,7 +207,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Automaton
+name|Operations
 import|;
 end_import
 begin_import
@@ -266,6 +255,23 @@ operator|.
 name|PairOutputs
 operator|.
 name|Pair
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
+name|Operations
+operator|.
+name|DEFAULT_MAX_DETERMINIZED_STATES
 import|;
 end_import
 begin_comment
@@ -686,6 +692,8 @@ operator|.
 name|determinize
 argument_list|(
 name|utf8automaton
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 return|return
@@ -976,6 +984,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 return|;
 block|}

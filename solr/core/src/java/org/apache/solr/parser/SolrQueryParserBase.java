@@ -309,7 +309,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Operations
+name|Automaton
 import|;
 end_import
 begin_import
@@ -324,7 +324,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Automaton
+name|Operations
 import|;
 end_import
 begin_import
@@ -3593,6 +3593,10 @@ argument_list|(
 name|automaton
 argument_list|,
 name|falsePositives
+argument_list|,
+name|Operations
+operator|.
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}

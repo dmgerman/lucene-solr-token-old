@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|BitSet
+name|ArrayList
 import|;
 end_import
 begin_import
@@ -31,7 +31,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|BitSet
 import|;
 end_import
 begin_import
@@ -67,7 +67,7 @@ specifier|private
 name|MinimizationOperations
 parameter_list|()
 block|{}
-comment|/**    * Minimizes (and determinizes if not already deterministic) the given    * automaton.    */
+comment|/**    * Minimizes (and determinizes if not already deterministic) the given    * automaton using Hopcroft's algorighm.    * @param maxDeterminizedStates maximum number of states determinizing the    *  automaton can result in.  Set higher to allow more complex queries and    *  lower to prevent memory exhaustion.    */
 DECL|method|minimize
 specifier|public
 specifier|static
@@ -76,24 +76,9 @@ name|minimize
 parameter_list|(
 name|Automaton
 name|a
-parameter_list|)
-block|{
-return|return
-name|minimizeHopcroft
-argument_list|(
-name|a
-argument_list|)
-return|;
-block|}
-comment|/**    * Minimizes the given automaton using Hopcroft's algorithm.    */
-DECL|method|minimizeHopcroft
-specifier|public
-specifier|static
-name|Automaton
-name|minimizeHopcroft
-parameter_list|(
-name|Automaton
-name|a
+parameter_list|,
+name|int
+name|maxDeterminizedStates
 parameter_list|)
 block|{
 if|if
@@ -140,6 +125,8 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|maxDeterminizedStates
 argument_list|)
 expr_stmt|;
 comment|//a.writeDot("adet");

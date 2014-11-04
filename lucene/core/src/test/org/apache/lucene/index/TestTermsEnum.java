@@ -160,8 +160,6 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
-operator|.
-name|SuppressCodecs
 import|;
 end_import
 begin_import
@@ -175,6 +173,8 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+operator|.
+name|SuppressCodecs
 import|;
 end_import
 begin_import
@@ -217,7 +217,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|CompiledAutomaton
+name|Automaton
 import|;
 end_import
 begin_import
@@ -232,7 +232,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Automaton
+name|CompiledAutomaton
 import|;
 end_import
 begin_import
@@ -1759,6 +1759,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+literal|1000000
 argument_list|)
 decl_stmt|;
 specifier|final

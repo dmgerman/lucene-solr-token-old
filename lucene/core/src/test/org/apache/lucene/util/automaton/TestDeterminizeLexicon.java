@@ -244,6 +244,8 @@ operator|.
 name|determinize
 argument_list|(
 name|lex
+argument_list|,
+literal|1000000
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -285,6 +287,10 @@ operator|new
 name|ByteRunAutomaton
 argument_list|(
 name|lex
+argument_list|,
+literal|false
+argument_list|,
+literal|1000000
 argument_list|)
 decl_stmt|;
 for|for

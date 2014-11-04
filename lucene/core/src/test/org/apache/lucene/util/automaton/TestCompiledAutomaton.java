@@ -135,6 +135,9 @@ specifier|private
 name|CompiledAutomaton
 name|build
 parameter_list|(
+name|int
+name|maxDeterminizedStates
+parameter_list|,
 name|String
 modifier|...
 name|strings
@@ -199,6 +202,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+name|maxDeterminizedStates
 argument_list|)
 return|;
 block|}
@@ -297,6 +302,9 @@ specifier|private
 name|void
 name|testTerms
 parameter_list|(
+name|int
+name|maxDeterminizedStates
+parameter_list|,
 name|String
 index|[]
 name|terms
@@ -310,6 +318,8 @@ name|c
 init|=
 name|build
 argument_list|(
+name|maxDeterminizedStates
+argument_list|,
 name|terms
 argument_list|)
 decl_stmt|;
@@ -620,6 +630,10 @@ expr_stmt|;
 block|}
 name|testTerms
 argument_list|(
+name|numTerms
+operator|*
+literal|100
+argument_list|,
 name|terms
 operator|.
 name|toArray
@@ -666,6 +680,10 @@ name|c
 init|=
 name|build
 argument_list|(
+name|Operations
+operator|.
+name|DEFAULT_MAX_DETERMINIZED_STATES
+argument_list|,
 literal|"fob"
 argument_list|,
 literal|"foo"

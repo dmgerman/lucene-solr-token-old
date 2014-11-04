@@ -41,6 +41,10 @@ argument_list|(
 name|a
 argument_list|,
 literal|false
+argument_list|,
+name|Operations
+operator|.
+name|DEFAULT_MAX_DETERMINIZED_STATES
 argument_list|)
 expr_stmt|;
 block|}
@@ -54,6 +58,9 @@ name|a
 parameter_list|,
 name|boolean
 name|utf8
+parameter_list|,
+name|int
+name|maxDeterminizedStates
 parameter_list|)
 block|{
 name|super
@@ -74,6 +81,8 @@ argument_list|,
 literal|256
 argument_list|,
 literal|true
+argument_list|,
+name|maxDeterminizedStates
 argument_list|)
 expr_stmt|;
 block|}
