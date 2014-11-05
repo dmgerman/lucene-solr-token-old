@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BroadWord
+name|BitUtil
 import|;
 end_import
 begin_comment
@@ -1263,7 +1263,7 @@ operator|<=
 literal|8
 operator|)
 condition|?
-name|BroadWord
+name|BitUtil
 operator|.
 name|selectNaive
 argument_list|(
@@ -1272,7 +1272,7 @@ argument_list|,
 name|rank
 argument_list|)
 else|:
-name|BroadWord
+name|BitUtil
 operator|.
 name|select
 argument_list|(
@@ -1283,14 +1283,17 @@ argument_list|)
 decl_stmt|;
 assert|assert
 name|clearBitForValue
+operator|>=
+literal|0
+assert|;
+assert|assert
+name|clearBitForValue
 operator|<=
-operator|(
 name|Long
 operator|.
 name|SIZE
 operator|-
 literal|1
-operator|)
 assert|;
 name|setBitForIndex
 operator|+=
