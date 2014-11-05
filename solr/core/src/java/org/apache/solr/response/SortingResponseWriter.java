@@ -837,7 +837,7 @@ name|writer
 operator|.
 name|write
 argument_list|(
-literal|"{\"numFound\":"
+literal|"{\"responseHeader\": {\"status\": 0}, \"response\":{\"numFound\":"
 operator|+
 name|totalHits
 operator|+
@@ -909,6 +909,11 @@ index|[
 name|queueSize
 index|]
 decl_stmt|;
+name|boolean
+name|commaNeeded
+init|=
+literal|false
+decl_stmt|;
 while|while
 condition|(
 name|count
@@ -917,11 +922,6 @@ name|totalHits
 condition|)
 block|{
 comment|//long begin = System.nanoTime();
-name|boolean
-name|commaNeeded
-init|=
-literal|false
-decl_stmt|;
 name|queue
 operator|.
 name|reset
@@ -1257,7 +1257,7 @@ name|writer
 operator|.
 name|write
 argument_list|(
-literal|"]}"
+literal|"]}}"
 argument_list|)
 expr_stmt|;
 name|writer
