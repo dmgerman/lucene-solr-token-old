@@ -290,7 +290,7 @@ name|MessageFormat
 operator|.
 name|format
 argument_list|(
-literal|"The command {0} should have the values as a json object {key:val} format"
+literal|"The command ''{0}'' should have the values as a json object {key:val} format"
 argument_list|,
 name|name
 argument_list|)
@@ -323,7 +323,7 @@ name|MessageFormat
 operator|.
 name|format
 argument_list|(
-literal|"The value has to be a string for command : {1}"
+literal|"The value has to be a string for command : ''{0}'' "
 argument_list|,
 name|name
 argument_list|)
@@ -498,11 +498,34 @@ block|{
 name|Object
 name|v
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|ROOT_OBJ
+operator|.
+name|equals
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+name|v
+operator|=
+name|getRootPrimitive
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|v
+operator|=
 name|getMapVal
 argument_list|(
 name|key
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|v
