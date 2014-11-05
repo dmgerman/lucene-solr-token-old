@@ -4439,7 +4439,9 @@ name|determinize
 argument_list|(
 name|a
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 return|;
 case|case
@@ -5234,7 +5236,9 @@ name|determinize
 argument_list|(
 name|a
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -7248,7 +7252,9 @@ argument_list|(
 name|terms
 argument_list|)
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -7270,7 +7276,9 @@ name|determinize
 argument_list|(
 name|a
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|)
 argument_list|)

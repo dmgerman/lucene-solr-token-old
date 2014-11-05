@@ -81,6 +81,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|TokenStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|document
 operator|.
 name|BinaryDocValuesField
@@ -110,6 +123,8 @@ operator|.
 name|document
 operator|.
 name|Field
+operator|.
+name|Store
 import|;
 end_import
 begin_import
@@ -123,8 +138,6 @@ operator|.
 name|document
 operator|.
 name|Field
-operator|.
-name|Store
 import|;
 end_import
 begin_import
