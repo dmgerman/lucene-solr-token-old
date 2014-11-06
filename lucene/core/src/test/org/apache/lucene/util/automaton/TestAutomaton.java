@@ -1981,7 +1981,9 @@ argument_list|(
 name|a
 argument_list|)
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|,
 name|Operations
@@ -1995,7 +1997,9 @@ argument_list|(
 name|rra
 argument_list|)
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2083,7 +2087,9 @@ name|determinize
 argument_list|(
 name|ra
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 decl_stmt|;
 if|if
@@ -2650,7 +2656,9 @@ argument_list|(
 name|a
 argument_list|)
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|,
 name|Operations
@@ -2667,7 +2675,9 @@ name|finish
 argument_list|()
 argument_list|)
 argument_list|,
-name|DEFAULT_MAX_DETERMINIZED_STATES
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|)
 argument_list|)
