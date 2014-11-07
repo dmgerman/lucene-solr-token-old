@@ -850,7 +850,7 @@ operator|(
 name|zkSolrResourceLoader
 operator|)
 operator|.
-name|getCollectionZkPath
+name|getConfigSetZkPath
 argument_list|()
 operator|+
 literal|"/"
@@ -961,7 +961,7 @@ name|registerConfListenerForCore
 argument_list|(
 name|zkSolrResourceLoader
 operator|.
-name|getCollectionZkPath
+name|getConfigSetZkPath
 argument_list|()
 argument_list|,
 name|core

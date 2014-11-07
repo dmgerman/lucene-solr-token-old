@@ -172,11 +172,11 @@ name|ZkSolrResourceLoader
 extends|extends
 name|SolrResourceLoader
 block|{
-DECL|field|collectionZkPath
+DECL|field|configSetZkPath
 specifier|private
 specifier|final
 name|String
-name|collectionZkPath
+name|configSetZkPath
 decl_stmt|;
 DECL|field|zkController
 specifier|private
@@ -196,7 +196,7 @@ name|String
 name|instanceDir
 parameter_list|,
 name|String
-name|collection
+name|configSet
 parameter_list|,
 name|ZkController
 name|zooKeeperController
@@ -213,7 +213,7 @@ name|zkController
 operator|=
 name|zooKeeperController
 expr_stmt|;
-name|collectionZkPath
+name|configSetZkPath
 operator|=
 name|ZkController
 operator|.
@@ -221,13 +221,13 @@ name|CONFIGS_ZKNODE
 operator|+
 literal|"/"
 operator|+
-name|collection
+name|configSet
 expr_stmt|;
 name|zkController
 operator|.
 name|watchZKConfDir
 argument_list|(
-name|collectionZkPath
+name|configSetZkPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -240,7 +240,7 @@ name|String
 name|instanceDir
 parameter_list|,
 name|String
-name|collection
+name|configSet
 parameter_list|,
 name|ClassLoader
 name|parent
@@ -267,7 +267,7 @@ name|zkController
 operator|=
 name|zooKeeperController
 expr_stmt|;
-name|collectionZkPath
+name|configSetZkPath
 operator|=
 name|ZkController
 operator|.
@@ -275,13 +275,13 @@ name|CONFIGS_ZKNODE
 operator|+
 literal|"/"
 operator|+
-name|collection
+name|configSet
 expr_stmt|;
 name|zkController
 operator|.
 name|watchZKConfDir
 argument_list|(
-name|collectionZkPath
+name|configSetZkPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -307,7 +307,7 @@ decl_stmt|;
 name|String
 name|file
 init|=
-name|collectionZkPath
+name|configSetZkPath
 operator|+
 literal|"/"
 operator|+
@@ -438,7 +438,7 @@ name|resource
 operator|+
 literal|"' in classpath or '"
 operator|+
-name|collectionZkPath
+name|configSetZkPath
 operator|+
 literal|"', cwd="
 operator|+
@@ -584,7 +584,7 @@ argument_list|()
 operator|.
 name|getChildren
 argument_list|(
-name|collectionZkPath
+name|configSetZkPath
 argument_list|,
 literal|null
 argument_list|,
@@ -676,14 +676,14 @@ index|]
 argument_list|)
 return|;
 block|}
-DECL|method|getCollectionZkPath
+DECL|method|getConfigSetZkPath
 specifier|public
 name|String
-name|getCollectionZkPath
+name|getConfigSetZkPath
 parameter_list|()
 block|{
 return|return
-name|collectionZkPath
+name|configSetZkPath
 return|;
 block|}
 DECL|method|getZkController

@@ -6534,7 +6534,7 @@ name|getResourceLoader
 argument_list|()
 operator|)
 operator|.
-name|getCollectionZkPath
+name|getConfigSetZkPath
 argument_list|()
 operator|.
 name|equals
@@ -11670,7 +11670,7 @@ name|resourceLocation
 init|=
 name|zkLoader
 operator|.
-name|getCollectionZkPath
+name|getConfigSetZkPath
 argument_list|()
 operator|+
 literal|"/"
