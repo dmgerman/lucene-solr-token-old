@@ -1589,10 +1589,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testHugeAutomaton
+DECL|method|testBiggishAutomaton
 specifier|public
 name|void
-name|testHugeAutomaton
+name|testBiggishAutomaton
 parameter_list|()
 block|{
 name|List
@@ -1613,7 +1613,7 @@ operator|.
 name|size
 argument_list|()
 operator|<
-literal|10000
+literal|3000
 condition|)
 block|{
 name|terms
