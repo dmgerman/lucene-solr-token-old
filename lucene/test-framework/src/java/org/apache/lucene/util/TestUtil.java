@@ -6628,7 +6628,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 decl_stmt|;
 specifier|final

@@ -1189,7 +1189,7 @@ name|field
 operator|.
 name|type
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 operator|!=
 name|DocValuesType

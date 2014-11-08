@@ -555,7 +555,7 @@ expr_stmt|;
 comment|//Solr's default
 name|fieldType
 operator|.
-name|setDocValueType
+name|setDocValuesType
 argument_list|(
 name|DocValuesType
 operator|.

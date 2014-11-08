@@ -1720,7 +1720,7 @@ name|dvType
 init|=
 name|fieldType
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 decl_stmt|;
 if|if
@@ -1734,7 +1734,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"docValueType cannot be null (field: \""
+literal|"docValuesType cannot be null (field: \""
 operator|+
 name|fieldName
 operator|+
@@ -2385,13 +2385,24 @@ name|fi
 init|=
 name|fieldInfos
 operator|.
-name|addOrUpdate
+name|getOrAdd
 argument_list|(
 name|name
-argument_list|,
-name|fieldType
 argument_list|)
 decl_stmt|;
+comment|// Messy: must set this here because e.g. FreqProxTermsWriterPerField looks at the initial
+comment|// IndexOptions to decide what arrays it must create).  Then, we also must set it in
+comment|// PerField.invert to allow for later downgrading of the index options:
+name|fi
+operator|.
+name|setIndexOptions
+argument_list|(
+name|fieldType
+operator|.
+name|indexOptions
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|fp
 operator|=
 operator|new
@@ -2488,17 +2499,7 @@ name|newFields
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
-name|fp
-operator|.
-name|fieldInfo
-operator|.
-name|update
-argument_list|(
-name|fieldType
-argument_list|)
-expr_stmt|;
+elseif|else
 if|if
 condition|(
 name|invert
@@ -2510,12 +2511,26 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// Messy: must set this here because e.g. FreqProxTermsWriterPerField looks at the initial
+comment|// IndexOptions to decide what arrays it must create).  Then, we also must set it in
+comment|// PerField.invert to allow for later downgrading of the index options:
+name|fp
+operator|.
+name|fieldInfo
+operator|.
+name|setIndexOptions
+argument_list|(
+name|fieldType
+operator|.
+name|indexOptions
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|fp
 operator|.
 name|setInvertState
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 return|return
 name|fp
@@ -2579,6 +2594,10 @@ comment|// reused
 DECL|field|tokenStream
 name|TokenStream
 name|tokenStream
+decl_stmt|;
+DECL|field|indexOptions
+name|IndexOptions
+name|indexOptions
 decl_stmt|;
 DECL|method|PerField
 specifier|public
@@ -2782,6 +2801,35 @@ operator|.
 name|fieldType
 argument_list|()
 decl_stmt|;
+name|IndexOptions
+name|indexOptions
+init|=
+name|fieldType
+operator|.
+name|indexOptions
+argument_list|()
+decl_stmt|;
+name|fieldInfo
+operator|.
+name|setIndexOptions
+argument_list|(
+name|indexOptions
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|fieldType
+operator|.
+name|omitNorms
+argument_list|()
+condition|)
+block|{
+name|fieldInfo
+operator|.
+name|setOmitsNorms
+argument_list|()
+expr_stmt|;
+block|}
 specifier|final
 name|boolean
 name|analyzed
@@ -2803,10 +2851,7 @@ specifier|final
 name|boolean
 name|checkOffsets
 init|=
-name|fieldType
-operator|.
 name|indexOptions
-argument_list|()
 operator|==
 name|IndexOptions
 operator|.
