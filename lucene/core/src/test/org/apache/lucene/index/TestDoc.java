@@ -240,6 +240,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|FSLockFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IOContext
 import|;
 end_import
@@ -578,8 +591,6 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|indexDir
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -810,8 +821,6 @@ operator|=
 name|newFSDirectory
 argument_list|(
 name|indexDir
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 if|if

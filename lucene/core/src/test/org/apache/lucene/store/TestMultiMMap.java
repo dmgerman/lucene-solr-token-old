@@ -164,8 +164,6 @@ name|MMapDirectory
 argument_list|(
 name|path
 argument_list|,
-literal|null
-argument_list|,
 literal|1
 operator|<<
 name|TestUtil
@@ -969,8 +967,6 @@ argument_list|(
 literal|"testSeekZero"
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1
 operator|<<
 name|i
@@ -1065,8 +1061,6 @@ name|createTempDir
 argument_list|(
 literal|"testSeekSliceZero"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1
 operator|<<
@@ -1181,8 +1175,6 @@ name|createTempDir
 argument_list|(
 literal|"testSeekEnd"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1
 operator|<<
@@ -1351,8 +1343,6 @@ name|createTempDir
 argument_list|(
 literal|"testSeekSliceEnd"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1
 operator|<<
@@ -1542,8 +1532,6 @@ name|createTempDir
 argument_list|(
 literal|"testSeeking"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1
 operator|<<
@@ -1803,8 +1791,6 @@ argument_list|(
 literal|"testSlicedSeeking"
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1
 operator|<<
 name|i
@@ -2045,8 +2031,6 @@ name|createTempDir
 argument_list|(
 literal|"testSliceOfSlice"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1
 operator|<<
@@ -2422,6 +2406,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|assertChunking
 argument_list|(
 name|random
@@ -2440,6 +2425,7 @@ literal|100
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|assertChunking
 specifier|private
@@ -2472,8 +2458,6 @@ operator|new
 name|MMapDirectory
 argument_list|(
 name|path
-argument_list|,
-literal|null
 argument_list|,
 name|chunkSize
 argument_list|)
@@ -2749,8 +2733,6 @@ name|createTempDir
 argument_list|(
 literal|"testImplementations"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 name|chunkSize
 argument_list|)
