@@ -1500,6 +1500,13 @@ block|}
 decl_stmt|;
 name|puller
 operator|.
+name|setDaemon
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|puller
+operator|.
 name|start
 argument_list|()
 expr_stmt|;
