@@ -6325,6 +6325,30 @@ string|"'PATH'"
 op|']'
 op|')'
 newline|'\n'
+comment|"# Stop Solr running on port 8983 (in case a previous run didn't shutdown cleanly)"
+nl|'\n'
+name|'subprocess'
+op|'.'
+name|'call'
+op|'('
+op|'['
+string|"'bin/solr'"
+op|','
+string|"'stop'"
+op|','
+string|"'-p'"
+op|','
+string|"'8983'"
+op|']'
+op|')'
+newline|'\n'
+name|'print'
+op|'('
+string|"'      starting Solr on port 8983 from %s'"
+op|'%'
+name|'unpackPath'
+op|')'
+newline|'\n'
 name|'server'
 op|'='
 name|'subprocess'
@@ -6335,6 +6359,10 @@ op|'['
 string|"'bin/solr'"
 op|','
 string|"'-f'"
+op|','
+string|"'-p'"
+op|','
+string|"'8983'"
 op|']'
 op|','
 name|'stdout'
@@ -6534,8 +6562,6 @@ op|'('
 string|"'      index example docs...'"
 op|')'
 newline|'\n'
-comment|'# "$JAVA" -Durl=http://localhost:$SOLR_PORT/solr/$EXAMPLE/update -jar $SOLR_TIP/example/exampledocs/post.jar $SOLR_TIP/example/exampledocs/*.xml'
-nl|'\n'
 name|'run'
 op|'('
 string|"'java -Durl=http://localhost:8983/solr/techproducts/update -jar ./exampledocs/post.jar ./exampledocs/*.xml'"
@@ -6543,8 +6569,6 @@ op|','
 string|"'post-example-docs.log'"
 op|')'
 newline|'\n'
-comment|"#run('sh ./exampledocs/post.sh ./exampledocs/*.xml', 'post-example-docs.log')"
-nl|'\n'
 name|'print'
 op|'('
 string|"'      run query...'"
@@ -6609,8 +6633,6 @@ op|'('
 string|"'      stop server using: bin/solr stop -p 8983'"
 op|')'
 newline|'\n'
-comment|'#os.kill(server.pid, signal.SIGINT)'
-nl|'\n'
 name|'if'
 name|'isSrc'
 op|':'
