@@ -171,9 +171,6 @@ end_import
 begin_comment
 comment|/**  * Testcase for {@link SimpleNaiveBayesClassifier}  */
 end_comment
-begin_comment
-comment|// TODO : eventually remove this if / when fallback methods exist for all un-supportable codec methods (see LUCENE-4872)
-end_comment
 begin_class
 DECL|class|SimpleNaiveBayesClassifierTest
 specifier|public
