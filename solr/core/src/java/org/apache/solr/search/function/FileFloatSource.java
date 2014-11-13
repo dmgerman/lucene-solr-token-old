@@ -674,7 +674,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Refreshing FlaxFileFloatSource cache for field {}"
+literal|"Refreshing FileFloatSource cache for field {}"
 argument_list|,
 name|this
 operator|.
@@ -701,7 +701,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"FlaxFileFloatSource cache for field {} reloaded"
+literal|"FileFloatSource cache for field {} reloaded"
 argument_list|,
 name|this
 operator|.
