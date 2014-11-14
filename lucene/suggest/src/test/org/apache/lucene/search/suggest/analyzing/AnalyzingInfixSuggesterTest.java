@@ -489,7 +489,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -499,6 +499,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -535,7 +549,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -545,6 +559,20 @@ literal|1
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -614,7 +642,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -624,6 +652,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -693,7 +735,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>pen</b>ny saved is a<b>pen</b>ny earned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -703,6 +745,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>pen</b>ny saved is a<b>pen</b>ny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -772,7 +828,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>p</b>enny saved is a<b>p</b>enny earned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -782,6 +838,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>p</b>enny saved is a<b>p</b>enny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -995,7 +1065,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -1005,6 +1075,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1892,6 +1976,20 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|key
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|doHighlight
@@ -1908,24 +2006,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|key
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-literal|"a penny saved is a penny earned"
-argument_list|,
-name|results
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|key
+name|highlightKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -1941,6 +2022,20 @@ literal|0
 argument_list|)
 operator|.
 name|value
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your ear"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|key
 argument_list|)
 expr_stmt|;
 if|if
@@ -1959,24 +2054,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|key
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-literal|"lend me your ear"
-argument_list|,
-name|results
-operator|.
-name|get
-argument_list|(
-literal|1
-argument_list|)
-operator|.
-name|key
+name|highlightKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -2063,6 +2141,20 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your ear"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|key
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|doHighlight
@@ -2079,24 +2171,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|key
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-literal|"lend me your ear"
-argument_list|,
-name|results
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|key
+name|highlightKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -2165,6 +2240,20 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|key
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|doHighlight
@@ -2181,24 +2270,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|key
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-literal|"a penny saved is a penny earned"
-argument_list|,
-name|results
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|key
+name|highlightKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -2267,6 +2339,20 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|key
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|doHighlight
@@ -2283,24 +2369,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|key
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-literal|"a penny saved is a penny earned"
-argument_list|,
-name|results
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|key
+name|highlightKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -2484,7 +2553,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>penn</b>y saved is a<b>penn</b>y earned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -2494,6 +2563,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>penn</b>y saved is a<b>penn</b>y earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|suggester
@@ -2617,7 +2700,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>Penn</b>y saved is a<b>penn</b>y earned"
+literal|"a Penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -2627,6 +2710,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>Penn</b>y saved is a<b>penn</b>y earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|suggester
@@ -2742,7 +2839,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>Penny</b> saved is a<b>penny</b> earned"
+literal|"a Penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -2752,6 +2849,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>Penny</b> saved is a<b>penny</b> earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|suggester
@@ -3041,7 +3152,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a bob for<b>a</b>pples"
+literal|"a bob for apples"
 argument_list|,
 name|results
 operator|.
@@ -3051,6 +3162,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a bob for<b>a</b>pples"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|suggester
@@ -3202,7 +3327,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -3212,6 +3337,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3248,7 +3387,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -3258,6 +3397,20 @@ literal|1
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3327,7 +3480,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -3337,6 +3490,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3406,7 +3573,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>pen</b>ny saved is a<b>pen</b>ny earned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -3416,6 +3583,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>pen</b>ny saved is a<b>pen</b>ny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3485,7 +3666,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>p</b>enny saved is a<b>p</b>enny earned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -3495,6 +3676,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>p</b>enny saved is a<b>p</b>enny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3657,7 +3852,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"the<b>pen</b> is<b>p</b>retty"
+literal|"the pen is pretty"
 argument_list|,
 name|results
 operator|.
@@ -3667,6 +3862,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"the<b>pen</b> is<b>p</b>retty"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -5242,6 +5451,38 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|doHilite
+condition|)
+block|{
+name|assertEquals
+argument_list|(
+name|expected
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|term
+operator|.
+name|utf8ToString
+argument_list|()
+argument_list|,
+name|actual
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|highlightKey
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|assertEquals
 argument_list|(
 name|expected
@@ -5264,11 +5505,9 @@ name|i
 argument_list|)
 operator|.
 name|key
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 name|expected
@@ -5694,7 +5933,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -5704,6 +5943,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -5801,7 +6054,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -5811,6 +6064,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -5847,7 +6114,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -5857,6 +6124,20 @@ literal|1
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -5926,7 +6207,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -5936,6 +6217,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6005,7 +6300,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>pen</b>ny saved is a<b>pen</b>ny earned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -6015,6 +6310,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>pen</b>ny saved is a<b>pen</b>ny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6084,7 +6393,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a<b>p</b>enny saved is a<b>p</b>enny earned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -6094,6 +6403,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a<b>p</b>enny saved is a<b>p</b>enny earned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6191,7 +6514,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|results
 operator|.
@@ -6201,6 +6524,20 @@ literal|0
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6237,7 +6574,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|results
 operator|.
@@ -6247,6 +6584,20 @@ literal|1
 argument_list|)
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|results
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6967,11 +7318,20 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7058,11 +7418,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7188,11 +7557,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7279,11 +7657,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7409,11 +7796,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7626,11 +8022,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7758,11 +8163,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7849,11 +8263,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7981,11 +8404,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -8072,11 +8504,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -8238,11 +8679,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -8559,11 +9009,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -8650,11 +9109,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"lend me your<b>ear</b>"
+literal|"lend me your ear"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"lend me your<b>ear</b>"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -8816,11 +9284,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a penny saved is a penny<b>ear</b>ned"
+literal|"a penny saved is a penny earned"
 argument_list|,
 name|result
 operator|.
 name|key
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"a penny saved is a penny<b>ear</b>ned"
+argument_list|,
+name|result
+operator|.
+name|highlightKey
 argument_list|)
 expr_stmt|;
 name|assertEquals
