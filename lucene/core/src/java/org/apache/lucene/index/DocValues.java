@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -581,7 +590,98 @@ return|;
 block|}
 comment|// some helpers, for transition from fieldcache apis.
 comment|// as opposed to the LeafReader apis (which must be strict for consistency), these are lenient
-comment|/**    * Returns NumericDocValues for the reader, or {@link #emptyNumeric()} if it has none.     */
+comment|// helper method: to give a nice error when LeafReader.getXXXDocValues returns null.
+DECL|method|checkField
+specifier|private
+specifier|static
+name|void
+name|checkField
+parameter_list|(
+name|LeafReader
+name|in
+parameter_list|,
+name|String
+name|field
+parameter_list|,
+name|DocValuesType
+modifier|...
+name|expected
+parameter_list|)
+block|{
+name|FieldInfo
+name|fi
+init|=
+name|in
+operator|.
+name|getFieldInfos
+argument_list|()
+operator|.
+name|fieldInfo
+argument_list|(
+name|field
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|fi
+operator|!=
+literal|null
+condition|)
+block|{
+name|DocValuesType
+name|actual
+init|=
+name|fi
+operator|.
+name|getDocValuesType
+argument_list|()
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"unexpected docvalues type "
+operator|+
+name|actual
+operator|+
+literal|" for field '"
+operator|+
+name|field
+operator|+
+literal|"' "
+operator|+
+operator|(
+name|expected
+operator|.
+name|length
+operator|==
+literal|1
+condition|?
+literal|"(expected="
+operator|+
+name|expected
+index|[
+literal|0
+index|]
+else|:
+literal|"(expected one of "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|expected
+argument_list|)
+operator|)
+operator|+
+literal|"). "
+operator|+
+literal|"Use UninvertingReader or index with docvalues."
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**    * Returns NumericDocValues for the field, or {@link #emptyNumeric()} if it has none.     * @return docvalues instance, or an empty instance if {@code field} does not exist in this reader.    * @throws IllegalStateException if {@code field} exists, but was not indexed with docvalues.    * @throws IllegalStateException if {@code field} has docvalues, but the type is not {@link DocValuesType#NUMERIC}.    * @throws IOException if an I/O error occurs.    */
 DECL|method|getNumeric
 specifier|public
 specifier|static
@@ -589,7 +689,7 @@ name|NumericDocValues
 name|getNumeric
 parameter_list|(
 name|LeafReader
-name|in
+name|reader
 parameter_list|,
 name|String
 name|field
@@ -600,7 +700,7 @@ block|{
 name|NumericDocValues
 name|dv
 init|=
-name|in
+name|reader
 operator|.
 name|getNumericDocValues
 argument_list|(
@@ -614,6 +714,17 @@ operator|==
 literal|null
 condition|)
 block|{
+name|checkField
+argument_list|(
+name|reader
+argument_list|,
+name|field
+argument_list|,
+name|DocValuesType
+operator|.
+name|NUMERIC
+argument_list|)
+expr_stmt|;
 return|return
 name|emptyNumeric
 argument_list|()
@@ -626,7 +737,7 @@ name|dv
 return|;
 block|}
 block|}
-comment|/**    * Returns BinaryDocValues for the reader, or {@link #emptyBinary} if it has none.     */
+comment|/**    * Returns BinaryDocValues for the field, or {@link #emptyBinary} if it has none.     * @return docvalues instance, or an empty instance if {@code field} does not exist in this reader.    * @throws IllegalStateException if {@code field} exists, but was not indexed with docvalues.    * @throws IllegalStateException if {@code field} has docvalues, but the type is not {@link DocValuesType#BINARY}    *                               or {@link DocValuesType#SORTED}.    * @throws IOException if an I/O error occurs.    */
 DECL|method|getBinary
 specifier|public
 specifier|static
@@ -634,7 +745,7 @@ name|BinaryDocValues
 name|getBinary
 parameter_list|(
 name|LeafReader
-name|in
+name|reader
 parameter_list|,
 name|String
 name|field
@@ -645,7 +756,7 @@ block|{
 name|BinaryDocValues
 name|dv
 init|=
-name|in
+name|reader
 operator|.
 name|getBinaryDocValues
 argument_list|(
@@ -661,7 +772,7 @@ condition|)
 block|{
 name|dv
 operator|=
-name|in
+name|reader
 operator|.
 name|getSortedDocValues
 argument_list|(
@@ -675,6 +786,21 @@ operator|==
 literal|null
 condition|)
 block|{
+name|checkField
+argument_list|(
+name|reader
+argument_list|,
+name|field
+argument_list|,
+name|DocValuesType
+operator|.
+name|BINARY
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED
+argument_list|)
+expr_stmt|;
 return|return
 name|emptyBinary
 argument_list|()
@@ -685,7 +811,7 @@ return|return
 name|dv
 return|;
 block|}
-comment|/**    * Returns SortedDocValues for the reader, or {@link #emptySorted} if it has none.     */
+comment|/**    * Returns SortedDocValues for the field, or {@link #emptySorted} if it has none.     * @return docvalues instance, or an empty instance if {@code field} does not exist in this reader.    * @throws IllegalStateException if {@code field} exists, but was not indexed with docvalues.    * @throws IllegalStateException if {@code field} has docvalues, but the type is not {@link DocValuesType#SORTED}.    * @throws IOException if an I/O error occurs.    */
 DECL|method|getSorted
 specifier|public
 specifier|static
@@ -693,7 +819,7 @@ name|SortedDocValues
 name|getSorted
 parameter_list|(
 name|LeafReader
-name|in
+name|reader
 parameter_list|,
 name|String
 name|field
@@ -704,7 +830,7 @@ block|{
 name|SortedDocValues
 name|dv
 init|=
-name|in
+name|reader
 operator|.
 name|getSortedDocValues
 argument_list|(
@@ -718,6 +844,17 @@ operator|==
 literal|null
 condition|)
 block|{
+name|checkField
+argument_list|(
+name|reader
+argument_list|,
+name|field
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED
+argument_list|)
+expr_stmt|;
 return|return
 name|emptySorted
 argument_list|()
@@ -730,7 +867,7 @@ name|dv
 return|;
 block|}
 block|}
-comment|/**    * Returns SortedNumericDocValues for the reader, or {@link #emptySortedNumeric} if it has none.     */
+comment|/**    * Returns SortedNumericDocValues for the field, or {@link #emptySortedNumeric} if it has none.     * @return docvalues instance, or an empty instance if {@code field} does not exist in this reader.    * @throws IllegalStateException if {@code field} exists, but was not indexed with docvalues.    * @throws IllegalStateException if {@code field} has docvalues, but the type is not {@link DocValuesType#SORTED_NUMERIC}    *                               or {@link DocValuesType#NUMERIC}.    * @throws IOException if an I/O error occurs.    */
 DECL|method|getSortedNumeric
 specifier|public
 specifier|static
@@ -738,7 +875,7 @@ name|SortedNumericDocValues
 name|getSortedNumeric
 parameter_list|(
 name|LeafReader
-name|in
+name|reader
 parameter_list|,
 name|String
 name|field
@@ -749,7 +886,7 @@ block|{
 name|SortedNumericDocValues
 name|dv
 init|=
-name|in
+name|reader
 operator|.
 name|getSortedNumericDocValues
 argument_list|(
@@ -766,7 +903,7 @@ block|{
 name|NumericDocValues
 name|single
 init|=
-name|in
+name|reader
 operator|.
 name|getNumericDocValues
 argument_list|(
@@ -780,10 +917,25 @@ operator|==
 literal|null
 condition|)
 block|{
+name|checkField
+argument_list|(
+name|reader
+argument_list|,
+name|field
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED_NUMERIC
+argument_list|,
+name|DocValuesType
+operator|.
+name|NUMERIC
+argument_list|)
+expr_stmt|;
 return|return
 name|emptySortedNumeric
 argument_list|(
-name|in
+name|reader
 operator|.
 name|maxDoc
 argument_list|()
@@ -793,7 +945,7 @@ block|}
 name|Bits
 name|bits
 init|=
-name|in
+name|reader
 operator|.
 name|getDocsWithField
 argument_list|(
@@ -813,7 +965,7 @@ return|return
 name|dv
 return|;
 block|}
-comment|/**    * Returns SortedSetDocValues for the reader, or {@link #emptySortedSet} if it has none.     */
+comment|/**    * Returns SortedSetDocValues for the field, or {@link #emptySortedSet} if it has none.     * @return docvalues instance, or an empty instance if {@code field} does not exist in this reader.    * @throws IllegalStateException if {@code field} exists, but was not indexed with docvalues.    * @throws IllegalStateException if {@code field} has docvalues, but the type is not {@link DocValuesType#SORTED_SET}    *                               or {@link DocValuesType#SORTED}.    * @throws IOException if an I/O error occurs.    */
 DECL|method|getSortedSet
 specifier|public
 specifier|static
@@ -821,7 +973,7 @@ name|SortedSetDocValues
 name|getSortedSet
 parameter_list|(
 name|LeafReader
-name|in
+name|reader
 parameter_list|,
 name|String
 name|field
@@ -832,7 +984,7 @@ block|{
 name|SortedSetDocValues
 name|dv
 init|=
-name|in
+name|reader
 operator|.
 name|getSortedSetDocValues
 argument_list|(
@@ -849,7 +1001,7 @@ block|{
 name|SortedDocValues
 name|sorted
 init|=
-name|in
+name|reader
 operator|.
 name|getSortedDocValues
 argument_list|(
@@ -863,6 +1015,21 @@ operator|==
 literal|null
 condition|)
 block|{
+name|checkField
+argument_list|(
+name|reader
+argument_list|,
+name|field
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED_SET
+argument_list|)
+expr_stmt|;
 return|return
 name|emptySortedSet
 argument_list|()
@@ -879,7 +1046,7 @@ return|return
 name|dv
 return|;
 block|}
-comment|/**    * Returns Bits for the reader, or {@link Bits} matching nothing if it has none.     */
+comment|/**    * Returns Bits for the field, or {@link Bits} matching nothing if it has none.     * @return bits instance, or an empty instance if {@code field} does not exist in this reader.    * @throws IllegalStateException if {@code field} exists, but was not indexed with docvalues.    * @throws IOException if an I/O error occurs.    */
 DECL|method|getDocsWithField
 specifier|public
 specifier|static
@@ -887,7 +1054,7 @@ name|Bits
 name|getDocsWithField
 parameter_list|(
 name|LeafReader
-name|in
+name|reader
 parameter_list|,
 name|String
 name|field
@@ -898,7 +1065,7 @@ block|{
 name|Bits
 name|dv
 init|=
-name|in
+name|reader
 operator|.
 name|getDocsWithField
 argument_list|(
@@ -912,13 +1079,51 @@ operator|==
 literal|null
 condition|)
 block|{
+assert|assert
+name|DocValuesType
+operator|.
+name|values
+argument_list|()
+operator|.
+name|length
+operator|==
+literal|6
+assert|;
+comment|// we just don't want NONE
+name|checkField
+argument_list|(
+name|reader
+argument_list|,
+name|field
+argument_list|,
+name|DocValuesType
+operator|.
+name|BINARY
+argument_list|,
+name|DocValuesType
+operator|.
+name|NUMERIC
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED_NUMERIC
+argument_list|,
+name|DocValuesType
+operator|.
+name|SORTED_SET
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|Bits
 operator|.
 name|MatchNoBits
 argument_list|(
-name|in
+name|reader
 operator|.
 name|maxDoc
 argument_list|()

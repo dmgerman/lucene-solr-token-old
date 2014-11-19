@@ -1199,7 +1199,7 @@ block|{
 operator|new
 name|SortField
 argument_list|(
-literal|"docid_int"
+literal|"docid_intDV"
 argument_list|,
 name|SortField
 operator|.
@@ -1231,7 +1231,7 @@ block|{
 operator|new
 name|SortField
 argument_list|(
-literal|"title"
+literal|"titleDV"
 argument_list|,
 name|SortField
 operator|.
