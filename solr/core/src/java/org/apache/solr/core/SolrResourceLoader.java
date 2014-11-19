@@ -3639,6 +3639,19 @@ range|:
 name|arr
 control|)
 block|{
+comment|// Too slow? I suspect not, but we may need
+comment|// to start tracking this in a Set.
+if|if
+condition|(
+operator|!
+name|infoRegistry
+operator|.
+name|containsValue
+argument_list|(
+name|bean
+argument_list|)
+condition|)
+block|{
 try|try
 block|{
 name|infoRegistry
@@ -3676,6 +3689,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
