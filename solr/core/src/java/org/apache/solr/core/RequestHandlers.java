@@ -1275,8 +1275,6 @@ operator|.
 name|apply
 argument_list|(
 name|info
-operator|.
-name|initArgs
 argument_list|)
 expr_stmt|;
 block|}

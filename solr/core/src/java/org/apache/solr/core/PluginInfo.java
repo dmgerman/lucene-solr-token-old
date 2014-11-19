@@ -144,6 +144,12 @@ name|PluginInfo
 argument_list|>
 name|children
 decl_stmt|;
+DECL|field|isFromSolrConfig
+specifier|public
+specifier|final
+name|boolean
+name|isFromSolrConfig
+decl_stmt|;
 DECL|method|PluginInfo
 specifier|public
 name|PluginInfo
@@ -230,6 +236,10 @@ name|unmodifiableList
 argument_list|(
 name|children
 argument_list|)
+expr_stmt|;
+name|isFromSolrConfig
+operator|=
+literal|false
 expr_stmt|;
 block|}
 DECL|method|PluginInfo
@@ -320,6 +330,10 @@ name|loadSubPlugins
 argument_list|(
 name|node
 argument_list|)
+expr_stmt|;
+name|isFromSolrConfig
+operator|=
+literal|true
 expr_stmt|;
 block|}
 DECL|method|loadSubPlugins
