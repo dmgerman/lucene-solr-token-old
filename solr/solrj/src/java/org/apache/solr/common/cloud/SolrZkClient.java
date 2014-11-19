@@ -891,7 +891,10 @@ name|zkServerAddress
 argument_list|,
 name|zkClientTimeout
 argument_list|,
+name|wrapWatcher
+argument_list|(
 name|connManager
+argument_list|)
 argument_list|,
 operator|new
 name|ZkUpdate
