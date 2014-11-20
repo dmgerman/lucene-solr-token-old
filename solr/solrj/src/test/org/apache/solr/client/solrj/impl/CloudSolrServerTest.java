@@ -2119,7 +2119,7 @@ name|set
 argument_list|(
 literal|"key"
 argument_list|,
-literal|"org.apache.solr.handler.StandardRequestHandler"
+literal|"standard"
 argument_list|)
 expr_stmt|;
 name|params
@@ -2166,7 +2166,7 @@ literal|"solr-mbeans"
 argument_list|,
 literal|"QUERYHANDLER"
 argument_list|,
-literal|"org.apache.solr.handler.StandardRequestHandler"
+literal|"standard"
 argument_list|,
 literal|"stats"
 argument_list|,
