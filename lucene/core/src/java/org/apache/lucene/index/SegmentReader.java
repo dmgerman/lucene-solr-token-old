@@ -2222,15 +2222,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|core
-operator|.
-name|fields
-operator|!=
-literal|null
-condition|)
-block|{
 name|resources
 operator|.
 name|add
@@ -2247,7 +2238,6 @@ name|fields
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|core

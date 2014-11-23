@@ -232,13 +232,6 @@ index|[
 name|readerIndex
 index|]
 decl_stmt|;
-if|if
-condition|(
-name|f
-operator|!=
-literal|null
-condition|)
-block|{
 name|f
 operator|.
 name|checkIntegrity
@@ -266,7 +259,6 @@ argument_list|(
 name|f
 argument_list|)
 expr_stmt|;
-block|}
 name|docBase
 operator|+=
 name|maxDoc

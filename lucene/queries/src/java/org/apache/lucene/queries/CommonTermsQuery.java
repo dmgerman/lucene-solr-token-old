@@ -1122,16 +1122,6 @@ operator|.
 name|fields
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|fields
-operator|==
-literal|null
-condition|)
-block|{
-comment|// reader has no fields
-continue|continue;
-block|}
 for|for
 control|(
 name|int
