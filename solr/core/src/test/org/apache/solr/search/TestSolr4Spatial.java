@@ -282,6 +282,10 @@ block|,
 block|{
 literal|"pointvector"
 block|}
+block|,
+block|{
+literal|"bbox"
+block|}
 block|}
 argument_list|)
 return|;
@@ -1061,7 +1065,7 @@ literal|"1000"
 argument_list|,
 literal|"fq"
 argument_list|,
-literal|"{!geofilt sfield="
+literal|"{!bbox sfield="
 operator|+
 name|fieldName
 operator|+
@@ -1174,6 +1178,21 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
+if|if
+condition|(
+name|exact
+operator|&&
+name|fieldName
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"bbox"
+argument_list|)
+condition|)
+block|{
+return|return;
+comment|// bbox field only supports rectangular query
+block|}
 name|String
 index|[]
 name|tests
@@ -1942,6 +1961,13 @@ block|{
 comment|//Choose between the Solr/Geofilt syntax, and the Lucene spatial module syntax
 if|if
 condition|(
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"bbox"
+argument_list|)
+operator|||
 name|random
 argument_list|()
 operator|.
@@ -1949,8 +1975,28 @@ name|nextBoolean
 argument_list|()
 condition|)
 block|{
+comment|//we cheat for bbox strategy which doesn't do radius, only rect.
+specifier|final
+name|String
+name|qparser
+init|=
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"bbox"
+argument_list|)
+condition|?
+literal|"bbox"
+else|:
+literal|"geofilt"
+decl_stmt|;
 return|return
-literal|"{!geofilt "
+literal|"{!"
+operator|+
+name|qparser
+operator|+
+literal|" "
 operator|+
 literal|"sfield="
 operator|+
@@ -2081,6 +2127,13 @@ operator|.
 name|equals
 argument_list|(
 literal|"pointvector"
+argument_list|)
+operator|||
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"bbox"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2274,6 +2327,17 @@ name|rect
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"bbox"
+argument_list|)
+condition|)
+block|{
 name|assertU
 argument_list|(
 name|adoc
@@ -2294,6 +2358,7 @@ name|commit
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|//only testing no error
 name|assertJQ
 argument_list|(
@@ -2313,6 +2378,17 @@ literal|")"
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"bbox"
+argument_list|)
+condition|)
+block|{
 name|assertJQ
 argument_list|(
 name|req
@@ -2329,6 +2405,47 @@ name|circ
 operator|+
 literal|")"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Test
+DECL|method|testBadScoreParam
+specifier|public
+name|void
+name|testBadScoreParam
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertQEx
+argument_list|(
+literal|"expect friendly error message"
+argument_list|,
+literal|"none"
+argument_list|,
+name|req
+argument_list|(
+name|radiusQuery
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|"bogus"
+argument_list|,
+literal|"false"
+argument_list|)
+argument_list|)
+argument_list|,
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|)
 expr_stmt|;
 block|}
