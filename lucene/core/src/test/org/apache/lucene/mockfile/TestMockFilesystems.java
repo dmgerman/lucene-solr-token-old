@@ -150,6 +150,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Constants
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|InfoStream
 import|;
 end_import
@@ -820,6 +833,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assumeFalse
+argument_list|(
+literal|"windows is not supported"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|Path
 name|dir
 init|=
@@ -960,6 +982,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assumeFalse
+argument_list|(
+literal|"windows is not supported"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|Path
 name|dir
 init|=
@@ -1100,6 +1131,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assumeFalse
+argument_list|(
+literal|"windows is not supported"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|Path
 name|dir
 init|=
