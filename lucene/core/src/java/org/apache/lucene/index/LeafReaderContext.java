@@ -223,6 +223,30 @@ return|return
 name|reader
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"LeafReaderContext("
+operator|+
+name|reader
+operator|+
+literal|" docBase="
+operator|+
+name|docBase
+operator|+
+literal|" ord="
+operator|+
+name|ord
+operator|+
+literal|")"
+return|;
+block|}
 block|}
 end_class
 end_unit

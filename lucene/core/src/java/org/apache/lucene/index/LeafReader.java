@@ -117,6 +117,8 @@ parameter_list|(
 name|Object
 name|ownerCoreCacheKey
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 DECL|class|CoreClosedListenerWrapper
@@ -157,6 +159,8 @@ parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|listener
 operator|.
