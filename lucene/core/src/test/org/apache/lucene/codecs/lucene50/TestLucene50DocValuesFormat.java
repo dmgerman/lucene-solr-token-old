@@ -386,6 +386,8 @@ return|;
 block|}
 comment|// TODO: these big methods can easily blow up some of the other ram-hungry codecs...
 comment|// for now just keep them here, as we want to test this for this format.
+annotation|@
+name|Slow
 DECL|method|testSortedSetVariableLengthBigVsStoredFields
 specifier|public
 name|void
@@ -489,6 +491,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Slow
 DECL|method|testSortedVariableLengthBigVsStoredFields
 specifier|public
 name|void
@@ -588,6 +592,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Slow
 DECL|method|testTermsEnumFixedWidth
 specifier|public
 name|void
@@ -640,6 +646,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Slow
 DECL|method|testTermsEnumVariableWidth
 specifier|public
 name|void
