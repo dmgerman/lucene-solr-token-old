@@ -1803,7 +1803,7 @@ name|message
 argument_list|,
 name|operation
 argument_list|,
-name|workQueue
+name|stateUpdateQueue
 operator|.
 name|getStats
 argument_list|()
