@@ -2219,7 +2219,7 @@ argument_list|()
 argument_list|,
 name|a
 argument_list|,
-literal|1000
+literal|200
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
@@ -2379,7 +2379,7 @@ argument_list|()
 argument_list|,
 name|a
 argument_list|,
-literal|100
+literal|20
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
