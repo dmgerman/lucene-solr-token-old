@@ -5260,7 +5260,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|20000
 else|:
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|int
@@ -5854,7 +5854,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|20000
 else|:
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|int
@@ -7104,7 +7104,11 @@ name|numDocs
 init|=
 name|atLeast
 argument_list|(
-literal|3000
+name|TEST_NIGHTLY
+condition|?
+literal|20000
+else|:
+literal|1000
 argument_list|)
 decl_stmt|;
 name|int
@@ -7116,6 +7120,11 @@ name|int
 name|refreshEveryNumDocs
 init|=
 literal|100
+decl_stmt|;
+name|int
+name|commitCloseNumDocs
+init|=
+literal|1000
 decl_stmt|;
 for|for
 control|(
@@ -7455,7 +7464,7 @@ argument_list|()
 operator|.
 name|nextInt
 argument_list|(
-literal|1000
+name|commitCloseNumDocs
 argument_list|)
 operator|==
 literal|17
@@ -7487,6 +7496,17 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
+name|commitCloseNumDocs
+operator|=
+call|(
+name|int
+call|)
+argument_list|(
+literal|1.25
+operator|*
+name|commitCloseNumDocs
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Sometimes close& reopen writer/manager, to confirm the parallel segments persist:
 if|if
@@ -7496,7 +7516,7 @@ argument_list|()
 operator|.
 name|nextInt
 argument_list|(
-literal|1000
+name|commitCloseNumDocs
 argument_list|)
 operator|==
 literal|17
@@ -7531,6 +7551,17 @@ expr_stmt|;
 name|reindexer
 operator|=
 literal|null
+expr_stmt|;
+name|commitCloseNumDocs
+operator|=
+call|(
+name|int
+call|)
+argument_list|(
+literal|1.25
+operator|*
+name|commitCloseNumDocs
+argument_list|)
 expr_stmt|;
 block|}
 block|}
