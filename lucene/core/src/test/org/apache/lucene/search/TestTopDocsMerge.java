@@ -462,12 +462,18 @@ specifier|final
 name|int
 name|numDocs
 init|=
+name|TEST_NIGHTLY
+condition|?
 name|atLeast
 argument_list|(
 literal|1000
 argument_list|)
+else|:
+name|atLeast
+argument_list|(
+literal|100
+argument_list|)
 decl_stmt|;
-comment|//final int numDocs = atLeast(50);
 specifier|final
 name|String
 index|[]
@@ -1214,6 +1220,14 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|int
+name|numIters
+init|=
+name|atLeast
+argument_list|(
+literal|300
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1223,9 +1237,7 @@ literal|0
 init|;
 name|iter
 operator|<
-literal|1000
-operator|*
-name|RANDOM_MULTIPLIER
+name|numIters
 condition|;
 name|iter
 operator|++

@@ -6830,6 +6830,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|TEST_NIGHTLY
+operator|&&
 name|rarely
 argument_list|(
 name|random

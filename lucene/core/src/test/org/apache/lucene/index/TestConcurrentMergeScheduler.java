@@ -1236,6 +1236,15 @@ literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|int
+name|numIters
+init|=
+name|TEST_NIGHTLY
+condition|?
+literal|10
+else|:
+literal|3
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1245,7 +1254,7 @@ literal|0
 init|;
 name|iter
 operator|<
-literal|10
+name|numIters
 condition|;
 name|iter
 operator|++
