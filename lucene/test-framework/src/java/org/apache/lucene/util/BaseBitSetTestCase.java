@@ -1294,6 +1294,8 @@ specifier|final
 name|int
 name|iters
 init|=
+name|TEST_NIGHTLY
+condition|?
 literal|50
 operator|+
 name|random
@@ -1302,6 +1304,16 @@ operator|.
 name|nextInt
 argument_list|(
 literal|50
+argument_list|)
+else|:
+literal|10
+operator|+
+name|random
+argument_list|()
+operator|.
+name|nextInt
+argument_list|(
+literal|10
 argument_list|)
 decl_stmt|;
 for|for
