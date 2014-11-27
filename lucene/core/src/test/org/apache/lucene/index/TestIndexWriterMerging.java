@@ -2148,6 +2148,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Slow
 DECL|method|testNoWaitClose
 specifier|public
 name|void
