@@ -1343,7 +1343,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** cost -> weight */
+comment|/** cost -&gt; weight */
 DECL|method|decodeWeight
 specifier|private
 specifier|static
@@ -1367,7 +1367,7 @@ name|encoded
 argument_list|)
 return|;
 block|}
-comment|/** weight -> cost */
+comment|/** weight -&gt; cost */
 DECL|method|encodeWeight
 specifier|private
 specifier|static
