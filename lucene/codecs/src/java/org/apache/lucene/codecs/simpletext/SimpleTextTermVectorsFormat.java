@@ -117,7 +117,7 @@ name|IOContext
 import|;
 end_import
 begin_comment
-comment|/**  * plain text term vectors format.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  * @lucene.experimental  */
+comment|/**  * plain text term vectors format.  *<p>  *<b>FOR RECREATIONAL USE ONLY</b>  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SimpleTextTermVectorsFormat

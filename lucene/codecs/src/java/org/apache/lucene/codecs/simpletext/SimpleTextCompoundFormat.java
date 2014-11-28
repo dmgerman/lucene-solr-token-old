@@ -271,7 +271,7 @@ name|StringHelper
 import|;
 end_import
 begin_comment
-comment|/**  * plain text compound format.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  * @lucene.experimental  */
+comment|/**  * plain text compound format.  *<p>  *<b>FOR RECREATIONAL USE ONLY</b>  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SimpleTextCompoundFormat

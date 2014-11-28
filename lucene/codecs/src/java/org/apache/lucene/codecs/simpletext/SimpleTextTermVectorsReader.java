@@ -387,7 +387,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Reads plain-text term vectors.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  * @lucene.experimental  */
+comment|/**  * Reads plain-text term vectors.  *<p>  *<b>FOR RECREATIONAL USE ONLY</b>  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SimpleTextTermVectorsReader
