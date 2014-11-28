@@ -226,7 +226,7 @@ operator|new
 name|WordDelimiterFilter
 argument_list|(
 operator|new
-name|SingleTokenTokenStream
+name|CannedTokenStream
 argument_list|(
 operator|new
 name|Token
@@ -290,7 +290,7 @@ operator|new
 name|WordDelimiterFilter
 argument_list|(
 operator|new
-name|SingleTokenTokenStream
+name|CannedTokenStream
 argument_list|(
 operator|new
 name|Token
@@ -381,7 +381,7 @@ operator|new
 name|WordDelimiterFilter
 argument_list|(
 operator|new
-name|SingleTokenTokenStream
+name|CannedTokenStream
 argument_list|(
 operator|new
 name|Token
@@ -460,7 +460,7 @@ operator|new
 name|WordDelimiterFilter
 argument_list|(
 operator|new
-name|SingleTokenTokenStream
+name|CannedTokenStream
 argument_list|(
 operator|new
 name|Token
@@ -539,7 +539,7 @@ operator|new
 name|WordDelimiterFilter
 argument_list|(
 operator|new
-name|SingleTokenTokenStream
+name|CannedTokenStream
 argument_list|(
 operator|new
 name|Token
@@ -618,7 +618,7 @@ operator|new
 name|WordDelimiterFilter
 argument_list|(
 operator|new
-name|SingleTokenTokenStream
+name|CannedTokenStream
 argument_list|(
 operator|new
 name|Token

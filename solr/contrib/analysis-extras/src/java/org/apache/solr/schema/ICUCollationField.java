@@ -1016,10 +1016,6 @@ operator|=
 operator|new
 name|ICUCollationKeyAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LATEST
-argument_list|,
 name|collator
 argument_list|)
 expr_stmt|;
