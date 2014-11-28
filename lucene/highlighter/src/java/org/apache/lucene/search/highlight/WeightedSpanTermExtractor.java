@@ -586,7 +586,7 @@ name|defaultField
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Fills a<code>Map</code> with<@link WeightedSpanTerm>s using the terms from the supplied<code>Query</code>.    *     * @param query    *          Query to extract Terms from    * @param terms    *          Map to place created WeightedSpanTerms in    * @throws IOException If there is a low-level I/O error    */
+comment|/**    * Fills a<code>Map</code> with {@link WeightedSpanTerm}s using the terms from the supplied<code>Query</code>.    *     * @param query    *          Query to extract Terms from    * @param terms    *          Map to place created WeightedSpanTerms in    * @throws IOException If there is a low-level I/O error    */
 DECL|method|extract
 specifier|protected
 name|void
@@ -1595,7 +1595,7 @@ name|IOException
 block|{
 comment|// for sub-classing to extract custom queries
 block|}
-comment|/**    * Fills a<code>Map</code> with<@link WeightedSpanTerm>s using the terms from the supplied<code>SpanQuery</code>.    *     * @param terms    *          Map to place created WeightedSpanTerms in    * @param spanQuery    *          SpanQuery to extract Terms from    * @throws IOException If there is a low-level I/O error    */
+comment|/**    * Fills a<code>Map</code> with {@link WeightedSpanTerm}s using the terms from the supplied<code>SpanQuery</code>.    *     * @param terms    *          Map to place created WeightedSpanTerms in    * @param spanQuery    *          SpanQuery to extract Terms from    * @throws IOException If there is a low-level I/O error    */
 DECL|method|extractWeightedSpanTerms
 specifier|protected
 name|void
@@ -2056,7 +2056,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**    * Fills a<code>Map</code> with<@link WeightedSpanTerm>s using the terms from the supplied<code>Query</code>.    *     * @param terms    *          Map to place created WeightedSpanTerms in    * @param query    *          Query to extract Terms from    * @throws IOException If there is a low-level I/O error    */
+comment|/**    * Fills a<code>Map</code> with {@link WeightedSpanTerm}s using the terms from the supplied<code>Query</code>.    *     * @param terms    *          Map to place created WeightedSpanTerms in    * @param query    *          Query to extract Terms from    * @throws IOException If there is a low-level I/O error    */
 DECL|method|extractWeightedTerms
 specifier|protected
 name|void

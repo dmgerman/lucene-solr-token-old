@@ -265,7 +265,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** Subclass& implement this if you need to change the    *  token (such as escaping certain bytes) before it's    *  turned into a graph. */
+comment|/** Subclass and implement this if you need to change the    *  token (such as escaping certain bytes) before it's    *  turned into a graph. */
 DECL|method|changeToken
 specifier|protected
 name|BytesRef

@@ -91,7 +91,7 @@ name|Random
 import|;
 end_import
 begin_comment
-comment|/**  * Simple standalone tool that forever acquires& releases a  * lock using a specific LockFactory.  Run without any args  * to see usage.  *  * @see VerifyingLockFactory  * @see LockVerifyServer  */
+comment|/**  * Simple standalone tool that forever acquires and releases a  * lock using a specific LockFactory.  Run without any args  * to see usage.  *  * @see VerifyingLockFactory  * @see LockVerifyServer  */
 end_comment
 begin_class
 DECL|class|LockStressTest
