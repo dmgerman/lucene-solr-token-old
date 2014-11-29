@@ -520,6 +520,15 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|// don't try to emulate windows on windows: they don't get along
+if|if
+condition|(
+operator|!
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
+block|{
 name|fs
 operator|=
 operator|new
@@ -533,6 +542,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
