@@ -342,8 +342,6 @@ name|prevState
 operator|.
 name|copyWith
 argument_list|(
-name|singletonMap
-argument_list|(
 name|cmd
 operator|.
 name|name
@@ -352,7 +350,6 @@ operator|(
 name|DocCollection
 operator|)
 literal|null
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|updates
@@ -408,8 +405,6 @@ name|prevState
 operator|.
 name|copyWith
 argument_list|(
-name|singletonMap
-argument_list|(
 name|cmd
 operator|.
 name|name
@@ -417,7 +412,6 @@ argument_list|,
 name|cmd
 operator|.
 name|collection
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -691,12 +685,9 @@ name|clusterState
 operator|.
 name|copyWith
 argument_list|(
-name|singletonMap
-argument_list|(
 name|name
 argument_list|,
 name|newCollection
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -763,12 +754,9 @@ name|clusterState
 operator|.
 name|copyWith
 argument_list|(
-name|singletonMap
-argument_list|(
 name|name
 argument_list|,
 name|newCollection
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|isClusterStateModified

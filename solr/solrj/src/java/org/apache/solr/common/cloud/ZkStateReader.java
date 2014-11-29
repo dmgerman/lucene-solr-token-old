@@ -4885,17 +4885,12 @@ name|clusterState
 operator|.
 name|copyWith
 argument_list|(
-name|Collections
-operator|.
-name|singletonMap
-argument_list|(
 name|newState
 operator|.
 name|getName
 argument_list|()
 argument_list|,
 name|newState
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
