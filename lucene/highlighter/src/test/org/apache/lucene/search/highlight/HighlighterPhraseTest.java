@@ -674,8 +674,6 @@ literal|0
 argument_list|,
 name|FIELD
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1111,8 +1109,6 @@ name|position
 argument_list|,
 name|FIELD
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1410,8 +1406,6 @@ literal|0
 argument_list|,
 name|FIELD
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1699,8 +1693,6 @@ literal|0
 argument_list|,
 name|FIELD
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1988,8 +1980,6 @@ literal|0
 argument_list|,
 name|FIELD
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
