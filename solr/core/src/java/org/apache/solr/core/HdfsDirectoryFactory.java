@@ -1349,6 +1349,8 @@ argument_list|(
 name|bufferSize
 argument_list|,
 name|bufferCount
+argument_list|,
+name|metrics
 argument_list|)
 expr_stmt|;
 name|long
