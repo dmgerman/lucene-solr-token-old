@@ -28,27 +28,9 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|ClusterState
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|cloud
-operator|.
 name|DocCollection
 import|;
 end_import
-begin_comment
-comment|/** * Created by shalin on 29/10/14. */
-end_comment
 begin_class
 DECL|class|ZkWriteCommand
 specifier|public
@@ -67,7 +49,6 @@ specifier|final
 name|DocCollection
 name|collection
 decl_stmt|;
-comment|//  public final ClusterState state;
 DECL|field|noop
 specifier|public
 specifier|final
@@ -97,7 +78,6 @@ name|collection
 operator|=
 name|collection
 expr_stmt|;
-comment|//    this.state = state;
 name|this
 operator|.
 name|noop
@@ -107,7 +87,7 @@ expr_stmt|;
 block|}
 comment|/**    * Returns a no-op    */
 DECL|method|ZkWriteCommand
-specifier|public
+specifier|protected
 name|ZkWriteCommand
 parameter_list|()
 block|{
@@ -129,7 +109,19 @@ name|collection
 operator|=
 literal|null
 expr_stmt|;
-comment|//    this.state = null;
+block|}
+DECL|method|noop
+specifier|public
+specifier|static
+name|ZkWriteCommand
+name|noop
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ZkWriteCommand
+argument_list|()
+return|;
 block|}
 block|}
 end_class
