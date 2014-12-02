@@ -98,6 +98,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -813,6 +822,11 @@ argument_list|,
 name|info
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;

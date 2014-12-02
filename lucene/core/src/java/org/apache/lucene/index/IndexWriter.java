@@ -7977,6 +7977,11 @@ name|StringHelper
 operator|.
 name|randomId
 argument_list|()
+argument_list|,
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SegmentMerger
@@ -8413,6 +8418,13 @@ operator|.
 name|info
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+name|info
+operator|.
+name|info
+operator|.
+name|getAttributes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -13377,6 +13389,11 @@ argument_list|,
 name|StringHelper
 operator|.
 name|randomId
+argument_list|()
+argument_list|,
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;
