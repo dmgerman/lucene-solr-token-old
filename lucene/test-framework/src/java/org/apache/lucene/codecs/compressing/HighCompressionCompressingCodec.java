@@ -35,6 +35,9 @@ parameter_list|(
 name|int
 name|chunkSize
 parameter_list|,
+name|int
+name|maxDocsPerChunk
+parameter_list|,
 name|boolean
 name|withSegmentSuffix
 parameter_list|)
@@ -54,6 +57,8 @@ operator|.
 name|HIGH_COMPRESSION
 argument_list|,
 name|chunkSize
+argument_list|,
+name|maxDocsPerChunk
 argument_list|)
 expr_stmt|;
 block|}
@@ -63,11 +68,13 @@ specifier|public
 name|HighCompressionCompressingCodec
 parameter_list|()
 block|{
+comment|// no need to have a higher block length than 32KB since deflate splits
+comment|// into blocks of 32KB anyway, and this is a lower bound (try to avoid> 32KB)
 name|this
 argument_list|(
-literal|1
-operator|<<
-literal|14
+literal|24576
+argument_list|,
+literal|512
 argument_list|,
 literal|false
 argument_list|)
