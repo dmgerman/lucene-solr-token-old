@@ -75,7 +75,6 @@ implements|implements
 name|FilterCachingPolicy
 block|{
 DECL|method|isCostly
-specifier|private
 specifier|static
 name|boolean
 name|isCostly
@@ -94,7 +93,6 @@ name|MultiTermQueryWrapperFilter
 return|;
 block|}
 DECL|method|isCheapToCache
-specifier|private
 specifier|static
 name|boolean
 name|isCheapToCache
@@ -107,6 +105,10 @@ comment|// the produced doc set is already cacheable, so caching has no
 comment|// overhead at all. TODO: extend this to sets whose iterators have a low
 comment|// cost?
 return|return
+name|set
+operator|==
+literal|null
+operator|||
 name|set
 operator|.
 name|isCacheable
