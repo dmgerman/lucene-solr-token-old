@@ -1027,8 +1027,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|AlreadySetException
-name|e
+name|IllegalStateException
+name|ise
 parameter_list|)
 block|{
 comment|// expected

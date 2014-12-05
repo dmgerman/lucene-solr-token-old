@@ -1116,9 +1116,7 @@ operator|=
 name|docWriter
 operator|.
 name|flushAllThreads
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1197,13 +1195,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|AbortingException
+decl||
 name|OutOfMemoryError
-name|oom
+name|tragedy
 parameter_list|)
 block|{
 name|tragicEvent
 argument_list|(
-name|oom
+name|tragedy
 argument_list|,
 literal|"getReader"
 argument_list|)
@@ -3695,13 +3695,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|AbortingException
+decl||
 name|OutOfMemoryError
-name|oom
+name|tragedy
 parameter_list|)
 block|{
 name|tragicEvent
 argument_list|(
-name|oom
+name|tragedy
 argument_list|,
 literal|"updateDocuments"
 argument_list|)
@@ -4212,13 +4214,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|AbortingException
+decl||
 name|OutOfMemoryError
-name|oom
+name|tragedy
 parameter_list|)
 block|{
 name|tragicEvent
 argument_list|(
-name|oom
+name|tragedy
 argument_list|,
 literal|"updateDocument"
 argument_list|)
@@ -8754,9 +8758,7 @@ operator|=
 name|docWriter
 operator|.
 name|flushAllThreads
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -8890,13 +8892,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|AbortingException
+decl||
 name|OutOfMemoryError
-name|oom
+name|tragedy
 parameter_list|)
 block|{
 name|tragicEvent
 argument_list|(
-name|oom
+name|tragedy
 argument_list|,
 literal|"prepareCommit"
 argument_list|)
@@ -9690,9 +9694,7 @@ operator|=
 name|docWriter
 operator|.
 name|flushAllThreads
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|flushSuccess
 operator|=
@@ -9754,13 +9756,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|AbortingException
+decl||
 name|OutOfMemoryError
-name|oom
+name|tragedy
 parameter_list|)
 block|{
 name|tragicEvent
 argument_list|(
-name|oom
+name|tragedy
 argument_list|,
 literal|"doFlush"
 argument_list|)
@@ -16208,7 +16212,6 @@ name|IOException
 function_decl|;
 block|}
 DECL|method|tragicEvent
-specifier|private
 name|void
 name|tragicEvent
 parameter_list|(
@@ -16218,7 +16221,25 @@ parameter_list|,
 name|String
 name|location
 parameter_list|)
+throws|throws
+name|IOException
 block|{
+comment|// unbox our internal AbortingException
+if|if
+condition|(
+name|tragedy
+operator|instanceof
+name|AbortingException
+condition|)
+block|{
+name|tragedy
+operator|=
+name|tragedy
+operator|.
+name|getCause
+argument_list|()
+expr_stmt|;
+block|}
 comment|// We cannot hold IW's lock here else it can lead to deadlock:
 assert|assert
 name|Thread
@@ -16229,6 +16250,12 @@ name|this
 argument_list|)
 operator|==
 literal|false
+assert|;
+comment|// How can it be a tragedy when nothing happened?
+assert|assert
+name|tragedy
+operator|!=
+literal|null
 assert|;
 if|if
 condition|(
@@ -16246,7 +16273,7 @@ name|message
 argument_list|(
 literal|"IW"
 argument_list|,
-literal|"hit "
+literal|"hit tragic "
 operator|+
 name|tragedy
 operator|.
@@ -16267,7 +16294,7 @@ init|(
 name|this
 init|)
 block|{
-comment|// its possible you could have a really bad day
+comment|// it's possible you could have a really bad day
 if|if
 condition|(
 name|this
@@ -16317,7 +16344,7 @@ block|}
 block|}
 name|IOUtils
 operator|.
-name|reThrowUnchecked
+name|reThrow
 argument_list|(
 name|tragedy
 argument_list|)
@@ -16915,13 +16942,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Event
-name|event
-decl_stmt|;
 name|boolean
 name|processed
 init|=
 literal|false
+decl_stmt|;
+if|if
+condition|(
+name|tragedy
+operator|==
+literal|null
+condition|)
+block|{
+name|Event
+name|event
 decl_stmt|;
 while|while
 condition|(
@@ -16952,6 +16986,7 @@ argument_list|,
 name|forcePurge
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|processed
