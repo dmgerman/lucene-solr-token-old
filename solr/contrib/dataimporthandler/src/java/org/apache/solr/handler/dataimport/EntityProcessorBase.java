@@ -150,7 +150,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|field|zipper
-specifier|protected
+specifier|private
 name|Zipper
 name|zipper
 decl_stmt|;
