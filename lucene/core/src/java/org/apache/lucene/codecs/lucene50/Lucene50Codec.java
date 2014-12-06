@@ -18,6 +18,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -169,6 +178,23 @@ name|lucene
 operator|.
 name|codecs
 operator|.
+name|lucene50
+operator|.
+name|Lucene50StoredFieldsFormat
+operator|.
+name|Mode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
 name|perfield
 operator|.
 name|PerFieldDocValuesFormat
@@ -200,16 +226,6 @@ name|Lucene50Codec
 extends|extends
 name|Codec
 block|{
-DECL|field|fieldsFormat
-specifier|private
-specifier|final
-name|StoredFieldsFormat
-name|fieldsFormat
-init|=
-operator|new
-name|Lucene50StoredFieldsFormat
-argument_list|()
-decl_stmt|;
 DECL|field|vectorsFormat
 specifier|private
 specifier|final
@@ -326,15 +342,53 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/** Sole constructor. */
+DECL|field|storedFieldsFormat
+specifier|private
+specifier|final
+name|StoredFieldsFormat
+name|storedFieldsFormat
+decl_stmt|;
+comment|/**     * Instantiates a new codec.    */
 DECL|method|Lucene50Codec
 specifier|public
 name|Lucene50Codec
 parameter_list|()
 block|{
+name|this
+argument_list|(
+name|Mode
+operator|.
+name|BEST_SPEED
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**     * Instantiates a new codec, specifying the stored fields compression    * mode to use.    * @param mode stored fields compression mode to use for newly     *             flushed/merged segments.    */
+DECL|method|Lucene50Codec
+specifier|public
+name|Lucene50Codec
+parameter_list|(
+name|Mode
+name|mode
+parameter_list|)
+block|{
 name|super
 argument_list|(
 literal|"Lucene50"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|storedFieldsFormat
+operator|=
+operator|new
+name|Lucene50StoredFieldsFormat
+argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|mode
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -348,7 +402,7 @@ name|storedFieldsFormat
 parameter_list|()
 block|{
 return|return
-name|fieldsFormat
+name|storedFieldsFormat
 return|;
 block|}
 annotation|@
@@ -429,7 +483,7 @@ return|return
 name|compoundFormat
 return|;
 block|}
-comment|/** Returns the postings format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene50"    */
+comment|/** Returns the postings format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene50".    *<p>    *<b>WARNING:</b> if you subclass, you are responsible for index     *  backwards compatibility: future version of Lucene are only     *  guaranteed to be able to read the default implementation.     */
 DECL|method|getPostingsFormatForField
 specifier|public
 name|PostingsFormat
@@ -443,7 +497,7 @@ return|return
 name|defaultFormat
 return|;
 block|}
-comment|/** Returns the docvalues format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene50"    */
+comment|/** Returns the docvalues format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene50".    *<p>    *<b>WARNING:</b> if you subclass, you are responsible for index     *  backwards compatibility: future version of Lucene are only     *  guaranteed to be able to read the default implementation.     */
 DECL|method|getDocValuesFormatForField
 specifier|public
 name|DocValuesFormat
