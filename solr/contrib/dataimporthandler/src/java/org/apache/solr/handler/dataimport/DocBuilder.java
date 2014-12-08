@@ -1072,9 +1072,10 @@ argument_list|)
 decl_stmt|;
 name|ctx
 operator|.
+name|setLastException
+argument_list|(
 name|lastException
-operator|=
-name|lastException
+argument_list|)
 expr_stmt|;
 name|listener
 operator|.

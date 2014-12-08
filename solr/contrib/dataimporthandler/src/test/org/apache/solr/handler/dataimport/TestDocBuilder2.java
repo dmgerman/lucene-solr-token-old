@@ -1977,7 +1977,8 @@ operator|)
 name|ctx
 operator|)
 operator|.
-name|lastException
+name|getLastException
+argument_list|()
 expr_stmt|;
 block|}
 block|}
