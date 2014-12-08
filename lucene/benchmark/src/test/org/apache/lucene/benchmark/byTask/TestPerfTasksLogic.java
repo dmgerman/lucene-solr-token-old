@@ -2403,8 +2403,6 @@ literal|"ResetInputs "
 block|,
 literal|"{ [ AddDoc]: 4} : * "
 block|,
-literal|"WaitForMerges"
-block|,
 literal|"CloseIndex"
 block|,     }
 decl_stmt|;
@@ -2507,8 +2505,6 @@ block|,
 literal|"  CreateIndex"
 block|,
 literal|"  { \"AddDocs\"  AddDoc> : * "
-block|,
-literal|"  WaitForMerges"
 block|,
 literal|"  CloseIndex"
 block|,
