@@ -532,7 +532,7 @@ name|doc
 operator|.
 name|getFieldValue
 argument_list|(
-literal|"_src"
+literal|"_src_"
 argument_list|)
 decl_stmt|;
 name|Map
@@ -593,7 +593,7 @@ name|doc
 operator|.
 name|getFieldValue
 argument_list|(
-literal|"_src"
+literal|"_src_"
 argument_list|)
 expr_stmt|;
 name|m
