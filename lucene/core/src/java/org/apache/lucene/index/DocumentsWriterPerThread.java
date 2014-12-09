@@ -2321,8 +2321,9 @@ name|abort
 argument_list|()
 expr_stmt|;
 throw|throw
-operator|new
 name|AbortingException
+operator|.
+name|wrap
 argument_list|(
 name|th
 argument_list|)
