@@ -166,7 +166,7 @@ extends|extends
 name|LuceneTestCase
 block|{
 comment|// Make sure we don't clone IndexInputs too frequently
-comment|// during merging:
+comment|// during merging and searching:
 DECL|method|test
 specifier|public
 name|void
@@ -346,15 +346,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-specifier|final
-name|int
-name|cloneCount
-init|=
-name|dir
-operator|.
-name|getInputCloneCount
-argument_list|()
-decl_stmt|;
 comment|//System.out.println("merge clone count=" + cloneCount);
 name|assertTrue
 argument_list|(
@@ -365,7 +356,10 @@ operator|.
 name|getInputCloneCount
 argument_list|()
 argument_list|,
-name|cloneCount
+name|dir
+operator|.
+name|getInputCloneCount
+argument_list|()
 operator|<
 literal|500
 argument_list|)
@@ -379,6 +373,17 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
+comment|// important: set this after newSearcher, it might have run checkindex
+specifier|final
+name|int
+name|cloneCount
+init|=
+name|dir
+operator|.
+name|getInputCloneCount
+argument_list|()
+decl_stmt|;
+comment|// dir.setVerboseClone(true);
 comment|// MTQ that matches all terms so the AUTO_REWRITE should
 comment|// cutover to filter rewrite and reuse a single DocsEnum
 comment|// across all terms;
