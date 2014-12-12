@@ -38,15 +38,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Locale
 import|;
 end_import
@@ -61,19 +52,6 @@ operator|.
 name|rules
 operator|.
 name|SystemPropertiesRestoreRule
-import|;
-end_import
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Charsets
 import|;
 end_import
 begin_import
@@ -484,13 +462,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"zk host port"
+literal|"solr host port"
 argument_list|,
 literal|"44"
 argument_list|,
 name|cfg
 operator|.
-name|getZkHostPort
+name|getSolrHostPort
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -789,13 +767,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"zk host port"
+literal|"solr host port"
 argument_list|,
 literal|"8888"
 argument_list|,
 name|cfg
 operator|.
-name|getZkHostPort
+name|getSolrHostPort
 argument_list|()
 argument_list|)
 expr_stmt|;

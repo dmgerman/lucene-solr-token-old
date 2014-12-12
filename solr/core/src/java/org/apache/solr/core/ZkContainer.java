@@ -359,7 +359,7 @@ argument_list|()
 argument_list|,
 name|config
 operator|.
-name|getZkHostPort
+name|getSolrHostPort
 argument_list|()
 argument_list|,
 name|config
@@ -408,7 +408,7 @@ name|int
 name|zkClientTimeout
 parameter_list|,
 name|String
-name|hostPort
+name|solrHostPort
 parameter_list|,
 name|String
 name|hostContext
@@ -485,7 +485,7 @@ if|if
 condition|(
 literal|null
 operator|==
-name|hostPort
+name|solrHostPort
 condition|)
 block|{
 throw|throw
@@ -587,7 +587,7 @@ name|zkDataHome
 argument_list|,
 name|zkConfHome
 argument_list|,
-name|hostPort
+name|solrHostPort
 argument_list|)
 expr_stmt|;
 name|zkServer
@@ -757,7 +757,7 @@ name|zkClientConnectTimeout
 argument_list|,
 name|host
 argument_list|,
-name|hostPort
+name|solrHostPort
 argument_list|,
 name|hostContext
 argument_list|,

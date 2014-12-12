@@ -658,7 +658,7 @@ literal|"Should have gotten a new port the xml file sent to ZK, overrides the co
 argument_list|,
 name|cfg
 operator|.
-name|getZkHostPort
+name|getSolrHostPort
 argument_list|()
 argument_list|,
 literal|"9045"
@@ -697,7 +697,7 @@ literal|"Should have gotten a new port the xml file sent to ZK"
 argument_list|,
 name|cfg
 operator|.
-name|getZkHostPort
+name|getSolrHostPort
 argument_list|()
 argument_list|,
 literal|"9045"
@@ -871,7 +871,7 @@ literal|"Should have gotten the default port"
 argument_list|,
 name|cfg
 operator|.
-name|getZkHostPort
+name|getSolrHostPort
 argument_list|()
 argument_list|,
 literal|"8983"
