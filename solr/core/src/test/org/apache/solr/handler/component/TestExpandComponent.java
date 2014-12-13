@@ -153,6 +153,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|String
+name|group
+init|=
+operator|(
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|?
+literal|"group_s"
+else|:
+literal|"group_s_dv"
+operator|)
+decl_stmt|;
 name|String
 index|[]
 name|doc
@@ -166,7 +182,7 @@ literal|"term_s"
 block|,
 literal|"YYYY"
 block|,
-literal|"group_s"
+name|group
 block|,
 literal|"group1"
 block|,
@@ -214,7 +230,7 @@ literal|"term_s"
 block|,
 literal|"YYYY"
 block|,
-literal|"group_s"
+name|group
 block|,
 literal|"group1"
 block|,
@@ -330,7 +346,7 @@ literal|"term_s"
 block|,
 literal|"YYYY"
 block|,
-literal|"group_s"
+name|group
 block|,
 literal|"group2"
 block|,
@@ -378,7 +394,7 @@ literal|"term_s"
 block|,
 literal|"YYYY"
 block|,
-literal|"group_s"
+name|group
 block|,
 literal|"group2"
 block|,
@@ -426,7 +442,7 @@ literal|"term_s"
 block|,
 literal|"YYYY"
 block|,
-literal|"group_s"
+name|group
 block|,
 literal|"group1"
 block|,
@@ -474,7 +490,7 @@ literal|"term_s"
 block|,
 literal|"YYYY"
 block|,
-literal|"group_s"
+name|group
 block|,
 literal|"group2"
 block|,
@@ -532,7 +548,11 @@ name|add
 argument_list|(
 literal|"fq"
 argument_list|,
-literal|"{!collapse field=group_s}"
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -608,7 +628,11 @@ name|add
 argument_list|(
 literal|"fq"
 argument_list|,
-literal|"{!collapse field=group_s}"
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -696,7 +720,11 @@ name|add
 argument_list|(
 literal|"fq"
 argument_list|,
-literal|"{!collapse field=group_s}"
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -783,7 +811,11 @@ name|add
 argument_list|(
 literal|"fq"
 argument_list|,
-literal|"{!collapse field=group_s nullPolicy=collapse}"
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|" nullPolicy=collapse}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -906,7 +938,7 @@ name|add
 argument_list|(
 literal|"expand.field"
 argument_list|,
-literal|"group_s"
+name|group
 argument_list|)
 expr_stmt|;
 name|params
@@ -1009,7 +1041,7 @@ name|add
 argument_list|(
 literal|"expand.field"
 argument_list|,
-literal|"group_s"
+name|group
 argument_list|)
 expr_stmt|;
 name|params
@@ -1121,7 +1153,7 @@ name|add
 argument_list|(
 literal|"expand.field"
 argument_list|,
-literal|"group_s"
+name|group
 argument_list|)
 expr_stmt|;
 name|params
@@ -1179,7 +1211,11 @@ name|add
 argument_list|(
 literal|"fq"
 argument_list|,
-literal|"{!collapse field=group_s}"
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1273,7 +1309,11 @@ name|add
 argument_list|(
 literal|"fq"
 argument_list|,
-literal|"{!collapse field=group_s}"
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1355,7 +1395,11 @@ name|add
 argument_list|(
 literal|"fq"
 argument_list|,
-literal|"{!collapse field=group_s}"
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1413,6 +1457,95 @@ argument_list|,
 literal|"*[count(/response/result/doc)=0]"
 argument_list|,
 literal|"*[count(/response/lst[@name='expanded']/result)=0]"
+argument_list|)
+expr_stmt|;
+comment|//Test key-only fl
+name|params
+operator|=
+operator|new
+name|ModifiableSolrParams
+argument_list|()
+expr_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"*:*"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+literal|"fq"
+argument_list|,
+literal|"{!collapse field="
+operator|+
+name|group
+operator|+
+literal|"}"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+literal|"defType"
+argument_list|,
+literal|"edismax"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+literal|"bf"
+argument_list|,
+literal|"field(test_ti)"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+literal|"expand"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+literal|"fl"
+argument_list|,
+literal|"id"
+argument_list|)
+expr_stmt|;
+name|assertQ
+argument_list|(
+name|req
+argument_list|(
+name|params
+argument_list|)
+argument_list|,
+literal|"*[count(/response/result/doc)=2]"
+argument_list|,
+literal|"*[count(/response/lst[@name='expanded']/result)=2]"
+argument_list|,
+literal|"/response/result/doc[1]/float[@name='id'][.='2.0']"
+argument_list|,
+literal|"/response/result/doc[2]/float[@name='id'][.='6.0']"
+argument_list|,
+literal|"/response/lst[@name='expanded']/result[@name='group1']/doc[1]/float[@name='id'][.='1.0']"
+argument_list|,
+literal|"/response/lst[@name='expanded']/result[@name='group1']/doc[2]/float[@name='id'][.='7.0']"
+argument_list|,
+literal|"/response/lst[@name='expanded']/result[@name='group2']/doc[1]/float[@name='id'][.='5.0']"
+argument_list|,
+literal|"/response/lst[@name='expanded']/result[@name='group2']/doc[2]/float[@name='id'][.='8.0']"
 argument_list|)
 expr_stmt|;
 block|}
