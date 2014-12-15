@@ -3194,6 +3194,8 @@ name|put
 argument_list|(
 name|filter
 argument_list|,
+literal|1
+operator|+
 name|expectedCounts
 operator|.
 name|getOrDefault
@@ -3366,6 +3368,8 @@ index|[
 name|idx
 index|]
 argument_list|,
+literal|1
+operator|+
 name|actualCounts
 operator|.
 name|getOrDefault
