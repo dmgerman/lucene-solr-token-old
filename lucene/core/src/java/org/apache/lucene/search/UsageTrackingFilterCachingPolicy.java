@@ -320,10 +320,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onCache
+DECL|method|onUse
 specifier|public
 name|void
-name|onCache
+name|onUse
 parameter_list|(
 name|Filter
 name|filter
