@@ -64,6 +64,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1178,8 +1187,6 @@ DECL|method|getChildResources
 specifier|public
 name|Iterable
 argument_list|<
-name|?
-extends|extends
 name|Accountable
 argument_list|>
 name|getChildResources
@@ -1281,7 +1288,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|resources
+argument_list|)
 return|;
 block|}
 annotation|@
