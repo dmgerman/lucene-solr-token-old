@@ -454,8 +454,6 @@ parameter_list|,
 specifier|final
 name|Iterable
 argument_list|<
-name|?
-extends|extends
 name|Accountable
 argument_list|>
 name|children
@@ -492,12 +490,6 @@ name|getChildResources
 parameter_list|()
 block|{
 return|return
-operator|(
-name|Iterable
-argument_list|<
-name|Accountable
-argument_list|>
-operator|)
 name|children
 return|;
 block|}
