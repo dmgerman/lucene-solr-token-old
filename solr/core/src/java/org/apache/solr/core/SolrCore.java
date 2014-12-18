@@ -8498,13 +8498,6 @@ condition|(
 name|currSearcher
 operator|==
 literal|null
-operator|&&
-name|firstSearcherListeners
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|future
@@ -8592,13 +8585,6 @@ condition|(
 name|currSearcher
 operator|!=
 literal|null
-operator|&&
-name|newSearcherListeners
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|future
