@@ -115,6 +115,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|isOpen
+condition|)
+block|{
 name|isOpen
 operator|=
 literal|false
@@ -140,6 +145,7 @@ argument_list|,
 name|crossCheckTermVectorsOnClose
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|super
 operator|.
