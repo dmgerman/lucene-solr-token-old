@@ -2889,39 +2889,6 @@ comment|// ok
 block|}
 catch|catch
 parameter_list|(
-name|AssertionError
-name|expected
-parameter_list|)
-block|{
-comment|// ok: MockTokenizer
-name|assertTrue
-argument_list|(
-name|expected
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|expected
-operator|.
-name|getMessage
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|expected
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"wrong state"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|Exception
 name|unexpected
 parameter_list|)
@@ -5193,8 +5160,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|AssertionError
-name|ae
+name|IllegalStateException
+name|ise
 parameter_list|)
 block|{
 comment|// Catch& ignore MockTokenizer's
@@ -5205,7 +5172,7 @@ literal|"end() called before incrementToken() returned false!"
 operator|.
 name|equals
 argument_list|(
-name|ae
+name|ise
 operator|.
 name|getMessage
 argument_list|()
@@ -5217,7 +5184,7 @@ block|}
 else|else
 block|{
 throw|throw
-name|ae
+name|ise
 throw|;
 block|}
 block|}
@@ -5352,8 +5319,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|AssertionError
-name|ae
+name|IllegalStateException
+name|ise
 parameter_list|)
 block|{
 comment|// Catch& ignore MockTokenizer's
@@ -5364,7 +5331,7 @@ literal|"end() called before incrementToken() returned false!"
 operator|.
 name|equals
 argument_list|(
-name|ae
+name|ise
 operator|.
 name|getMessage
 argument_list|()
@@ -5376,7 +5343,7 @@ block|}
 else|else
 block|{
 throw|throw
-name|ae
+name|ise
 throw|;
 block|}
 block|}

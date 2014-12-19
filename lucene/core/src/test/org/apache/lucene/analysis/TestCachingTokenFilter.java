@@ -681,13 +681,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|assumeTrue
-argument_list|(
-literal|"We want MockAnalyzer to detect double-reset"
-argument_list|,
-name|TEST_ASSERTS_ENABLED
-argument_list|)
-expr_stmt|;
 name|Analyzer
 name|analyzer
 init|=
@@ -726,11 +719,6 @@ name|reset
 argument_list|()
 expr_stmt|;
 comment|//ok
-name|boolean
-name|madeIt
-init|=
-literal|false
-decl_stmt|;
 try|try
 block|{
 name|buffer
@@ -739,24 +727,29 @@ name|reset
 argument_list|()
 expr_stmt|;
 comment|//bad (this used to work which we don't want)
-name|madeIt
-operator|=
-literal|true
+name|fail
+argument_list|(
+literal|"didn't get expected exception"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{
-comment|//ignore
-block|}
-name|assertFalse
+name|assertEquals
 argument_list|(
-name|madeIt
+literal|"double reset()"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|checkTokens
 specifier|private
