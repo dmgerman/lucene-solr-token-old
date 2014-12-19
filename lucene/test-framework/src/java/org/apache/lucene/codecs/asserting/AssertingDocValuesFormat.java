@@ -1343,6 +1343,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|in
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|// close again
 block|}
 block|}
 DECL|class|AssertingDocValuesProducer
@@ -1748,6 +1754,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|in
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|// close again
 block|}
 annotation|@
 name|Override
