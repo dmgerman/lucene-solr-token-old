@@ -896,7 +896,7 @@ operator|==
 literal|7
 condition|)
 block|{
-comment|// NOTE: not best practice to call maybeReopen
+comment|// NOTE: not best practice to call maybeRefresh
 comment|// synchronous to your search threads, but still we
 comment|// test as apps will presumably do this for
 comment|// simplicity:
@@ -1454,7 +1454,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"NOW call maybeReopen"
+literal|"NOW call maybeRefresh"
 argument_list|)
 expr_stmt|;
 block|}
