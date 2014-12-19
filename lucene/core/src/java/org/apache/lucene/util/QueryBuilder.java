@@ -780,13 +780,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-comment|// rewind the buffer stream
-name|buffer
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-comment|//will never through on subsequent reset calls
 block|}
 block|}
 catch|catch
@@ -801,6 +794,38 @@ name|RuntimeException
 argument_list|(
 literal|"Error analyzing query text"
 argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// rewind the buffer stream
+try|try
+block|{
+if|if
+condition|(
+name|numTokens
+operator|>
+literal|0
+condition|)
+block|{
+name|buffer
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+comment|//will never throw; the buffer is cached
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
 name|e
 argument_list|)
 throw|;
@@ -825,9 +850,11 @@ name|numTokens
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 literal|null
 return|;
+block|}
 elseif|else
 if|if
 condition|(
