@@ -1083,6 +1083,14 @@ operator|.
 name|info
 argument_list|(
 literal|"SolrDispatchFilter.init()"
+operator|+
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
