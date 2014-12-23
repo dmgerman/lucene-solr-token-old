@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.sorter
+DECL|package|org.apache.lucene.index
 package|package
 name|org
 operator|.
@@ -9,8 +9,6 @@ operator|.
 name|lucene
 operator|.
 name|index
-operator|.
-name|sorter
 package|;
 end_package
 begin_comment
@@ -186,6 +184,19 @@ operator|.
 name|index
 operator|.
 name|Term
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|BlockJoinComparatorSource
 import|;
 end_import
 begin_import
