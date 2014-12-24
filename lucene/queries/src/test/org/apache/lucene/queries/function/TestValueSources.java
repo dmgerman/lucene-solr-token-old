@@ -2867,7 +2867,7 @@ literal|0f
 block|}
 argument_list|)
 expr_stmt|;
-comment|// regardless of wether norms exist, value source exists == 0
+comment|// regardless of whether norms exist, value source exists == 0
 name|assertAllExist
 argument_list|(
 name|vs
@@ -3839,7 +3839,7 @@ argument_list|(
 name|vs
 argument_list|)
 expr_stmt|;
-comment|// regardless of wether norms exist, value source exists == 0
+comment|// regardless of whether norms exist, value source exists == 0
 name|vs
 operator|=
 operator|new
@@ -4009,7 +4009,7 @@ argument_list|(
 name|vs
 argument_list|)
 expr_stmt|;
-comment|// regardless of wether norms exist, value source exists == 0
+comment|// regardless of whether norms exist, value source exists == 0
 name|vs
 operator|=
 operator|new

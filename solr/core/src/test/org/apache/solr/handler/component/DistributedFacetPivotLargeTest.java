@@ -1079,7 +1079,7 @@ control|(
 name|SolrParams
 name|facetParams
 range|:
-comment|// results should be the same regardless of wether local params are used
+comment|// results should be the same regardless of whether local params are used
 operator|new
 name|SolrParams
 index|[]
@@ -2848,7 +2848,7 @@ control|(
 name|SolrParams
 name|facetParams
 range|:
-comment|// results should be the same regardless of wether facet.limit is global,
+comment|// results should be the same regardless of whether facet.limit is global,
 comment|// a local param, or specified as a per-field override for both fields
 operator|new
 name|SolrParams
@@ -3036,7 +3036,7 @@ control|(
 name|SolrParams
 name|facetParams
 range|:
-comment|// results should be the same regardless of wether per-field facet.limit is
+comment|// results should be the same regardless of whether per-field facet.limit is
 comment|// a global or a local param
 operator|new
 name|SolrParams
@@ -3185,7 +3185,7 @@ control|(
 name|SolrParams
 name|facetParams
 range|:
-comment|// results should be the same regardless of wether per-field facet.limit is
+comment|// results should be the same regardless of whether per-field facet.limit is
 comment|// a global or a local param
 operator|new
 name|SolrParams

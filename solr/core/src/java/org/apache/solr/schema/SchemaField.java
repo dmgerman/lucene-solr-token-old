@@ -324,7 +324,7 @@ name|defaultValue
 operator|=
 name|defaultValue
 expr_stmt|;
-comment|// initalize with the required property flag
+comment|// initialize with the required property flag
 name|required
 operator|=
 operator|(

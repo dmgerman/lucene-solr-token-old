@@ -3944,7 +3944,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// no slowness for intialization
+comment|// no slowness for initialization
 name|TaxonomyWriter
 name|tw
 init|=

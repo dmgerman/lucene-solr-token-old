@@ -443,7 +443,7 @@ name|ex
 parameter_list|)
 block|{
 comment|// expected...
-comment|//System.out.println( "unable to initalize: "+clazz );
+comment|//System.out.println( "unable to initialize: "+clazz );
 block|}
 block|}
 block|}

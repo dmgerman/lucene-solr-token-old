@@ -235,10 +235,10 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|initalized
+DECL|field|initialized
 specifier|private
 name|boolean
-name|initalized
+name|initialized
 init|=
 literal|false
 decl_stmt|;
@@ -253,7 +253,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|initalized
+name|initialized
 condition|)
 block|{
 throw|throw
@@ -505,7 +505,7 @@ operator|=
 name|DEFAULT_DICTIONARY_NAME
 expr_stmt|;
 block|}
-name|initalized
+name|initialized
 operator|=
 literal|true
 expr_stmt|;
