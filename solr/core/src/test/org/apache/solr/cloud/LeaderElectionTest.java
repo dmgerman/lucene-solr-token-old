@@ -1276,7 +1276,7 @@ literal|"slice1"
 argument_list|,
 literal|"collection2"
 argument_list|,
-literal|"dummynode1"
+literal|"dummynode2"
 argument_list|,
 name|props
 argument_list|,
