@@ -110,6 +110,53 @@ name|AssertingLeafReader
 extends|extends
 name|FilterLeafReader
 block|{
+DECL|method|assertThread
+specifier|private
+specifier|static
+name|void
+name|assertThread
+parameter_list|(
+name|String
+name|object
+parameter_list|,
+name|Thread
+name|creationThread
+parameter_list|)
+block|{
+if|if
+condition|(
+name|creationThread
+operator|!=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|object
+operator|+
+literal|" are only supposed to be consumed in "
+operator|+
+literal|"the thread in which they have been acquired. But was acquired in "
+operator|+
+name|creationThread
+operator|+
+literal|" and consumed in "
+operator|+
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|+
+literal|"."
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|AssertingLeafReader
 specifier|public
 name|AssertingLeafReader
@@ -561,6 +608,17 @@ name|AssertingTermsEnum
 extends|extends
 name|FilterTermsEnum
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|enum|State
 DECL|enum constant|INITIAL
 DECL|enum constant|POSITIONED
@@ -636,6 +694,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -713,6 +778,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -783,6 +855,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -849,6 +928,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -875,6 +961,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -901,6 +994,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -927,6 +1027,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -971,6 +1078,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|seekExact
@@ -998,6 +1112,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|term
 operator|.
@@ -1056,6 +1177,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|text
 operator|.
@@ -1127,6 +1255,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|==
@@ -1159,6 +1294,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Terms enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|term
 operator|.
@@ -1224,6 +1366,17 @@ name|AssertingDocsEnum
 extends|extends
 name|FilterDocsEnum
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|state
 specifier|private
 name|DocsEnumState
@@ -1328,6 +1481,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -1414,6 +1574,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -1506,6 +1673,13 @@ name|int
 name|docID
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|doc
 operator|==
@@ -1546,6 +1720,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -1589,6 +1770,17 @@ name|AssertingDocsAndPositionsEnum
 extends|extends
 name|FilterDocsAndPositionsEnum
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|state
 specifier|private
 name|DocsEnumState
@@ -1664,6 +1856,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -1761,6 +1960,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -1868,6 +2074,13 @@ name|int
 name|docID
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|doc
 operator|==
@@ -1908,6 +2121,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -1953,6 +2173,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -2017,6 +2244,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -2059,6 +2293,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -2101,6 +2342,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertThread
+argument_list|(
+literal|"Docs enums"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|state
 operator|!=
@@ -2166,6 +2414,17 @@ name|AssertingNumericDocValues
 extends|extends
 name|NumericDocValues
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|in
 specifier|private
 specifier|final
@@ -2213,6 +2472,13 @@ name|int
 name|docID
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|docID
 operator|>=
@@ -2241,6 +2507,17 @@ name|AssertingBinaryDocValues
 extends|extends
 name|BinaryDocValues
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|in
 specifier|private
 specifier|final
@@ -2288,6 +2565,13 @@ name|int
 name|docID
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Binary doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|docID
 operator|>=
@@ -2328,6 +2612,17 @@ name|AssertingSortedDocValues
 extends|extends
 name|SortedDocValues
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|in
 specifier|private
 specifier|final
@@ -2399,6 +2694,13 @@ name|int
 name|docID
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|docID
 operator|>=
@@ -2443,6 +2745,13 @@ name|int
 name|ord
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|ord
 operator|>=
@@ -2481,6 +2790,13 @@ name|int
 name|getValueCount
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 name|int
 name|valueCount
 init|=
@@ -2512,6 +2828,13 @@ name|int
 name|docID
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|docID
 operator|>=
@@ -2553,6 +2876,13 @@ name|BytesRef
 name|key
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|key
 operator|.
@@ -2594,6 +2924,17 @@ name|AssertingSortedNumericDocValues
 extends|extends
 name|SortedNumericDocValues
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|in
 specifier|private
 specifier|final
@@ -2641,6 +2982,13 @@ name|int
 name|doc
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|doc
 operator|>=
@@ -2715,6 +3063,13 @@ name|int
 name|index
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|index
 operator|<
@@ -2740,6 +3095,13 @@ name|int
 name|count
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -2757,6 +3119,17 @@ name|AssertingRandomAccessOrds
 extends|extends
 name|RandomAccessOrds
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|in
 specifier|private
 specifier|final
@@ -2827,6 +3200,13 @@ name|long
 name|nextOrd
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|lastOrd
 operator|!=
@@ -2873,6 +3253,13 @@ name|int
 name|docID
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|docID
 operator|>=
@@ -2914,6 +3301,13 @@ name|long
 name|ord
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|ord
 operator|>=
@@ -2952,6 +3346,13 @@ name|long
 name|getValueCount
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 name|long
 name|valueCount
 init|=
@@ -2983,6 +3384,13 @@ name|BytesRef
 name|key
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|key
 operator|.
@@ -3025,6 +3433,13 @@ name|int
 name|index
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|index
 operator|<
@@ -3064,6 +3479,13 @@ name|int
 name|cardinality
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 name|int
 name|cardinality
 init|=
@@ -3091,6 +3513,17 @@ name|AssertingSortedSetDocValues
 extends|extends
 name|SortedSetDocValues
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|in
 specifier|private
 specifier|final
@@ -3161,6 +3594,13 @@ name|long
 name|nextOrd
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|lastOrd
 operator|!=
@@ -3207,6 +3647,13 @@ name|int
 name|docID
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|docID
 operator|>=
@@ -3248,6 +3695,13 @@ name|long
 name|ord
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|ord
 operator|>=
@@ -3286,6 +3740,13 @@ name|long
 name|getValueCount
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 name|long
 name|valueCount
 init|=
@@ -3317,6 +3778,13 @@ name|BytesRef
 name|key
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Sorted numeric doc values"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|key
 operator|.
@@ -3904,6 +4372,17 @@ name|AssertingBits
 implements|implements
 name|Bits
 block|{
+DECL|field|creationThread
+specifier|private
+specifier|final
+name|Thread
+name|creationThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 DECL|field|in
 specifier|final
 name|Bits
@@ -3935,6 +4414,13 @@ name|int
 name|index
 parameter_list|)
 block|{
+name|assertThread
+argument_list|(
+literal|"Bits"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 assert|assert
 name|index
 operator|>=
@@ -3962,6 +4448,13 @@ name|int
 name|length
 parameter_list|()
 block|{
+name|assertThread
+argument_list|(
+literal|"Bits"
+argument_list|,
+name|creationThread
+argument_list|)
+expr_stmt|;
 return|return
 name|in
 operator|.
