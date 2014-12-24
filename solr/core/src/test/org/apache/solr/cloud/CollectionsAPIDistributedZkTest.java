@@ -2015,7 +2015,7 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// now try to remove a collection when a couple of it's nodes are down
+comment|// now try to remove a collection when a couple of its nodes are down
 if|if
 condition|(
 name|secondConfigSet

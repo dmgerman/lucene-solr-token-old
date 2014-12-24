@@ -111,7 +111,7 @@ name|DocSet
 name|other
 parameter_list|)
 function_decl|;
-comment|/**    * Returns the number of documents of the intersection of this set with another set.    * May be more efficient than actually creating the intersection and then getting it's size.    */
+comment|/**    * Returns the number of documents of the intersection of this set with another set.    * May be more efficient than actually creating the intersection and then getting its size.    */
 DECL|method|intersectionSize
 specifier|public
 name|int
@@ -141,7 +141,7 @@ name|DocSet
 name|other
 parameter_list|)
 function_decl|;
-comment|/**    * Returns the number of documents of the union of this set with another set.    * May be more efficient than actually creating the union and then getting it's size.    */
+comment|/**    * Returns the number of documents of the union of this set with another set.    * May be more efficient than actually creating the union and then getting its size.    */
 DECL|method|unionSize
 specifier|public
 name|int

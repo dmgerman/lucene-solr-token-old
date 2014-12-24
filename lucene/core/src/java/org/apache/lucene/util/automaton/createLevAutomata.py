@@ -1986,7 +1986,7 @@ op|']'
 op|')'
 op|')'
 newline|'\n'
-comment|'# we replace t-notation as its not relevant here'
+comment|"# we replace t-notation as it's not relevant here"
 nl|'\n'
 name|'st'
 op|'='

@@ -49,7 +49,7 @@ name|ValueSource
 import|;
 end_import
 begin_comment
-comment|/**  *<code>MinFloatFunction</code> returns the min of it's components.  */
+comment|/**  *<code>MinFloatFunction</code> returns the min of its components.  */
 end_comment
 begin_class
 DECL|class|MinFloatFunction

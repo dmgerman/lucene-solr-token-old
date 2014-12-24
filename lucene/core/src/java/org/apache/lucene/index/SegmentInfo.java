@@ -163,7 +163,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/**  * Information about a segment such as it's name, directory, and files related  * to the segment.  *  * @lucene.experimental  */
+comment|/**  * Information about a segment such as its name, directory, and files related  * to the segment.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SegmentInfo

@@ -924,7 +924,7 @@ name|published
 operator|=
 literal|true
 expr_stmt|;
-comment|// its a global ticket - no segment to publish
+comment|// it's a global ticket - no segment to publish
 name|finishFlush
 argument_list|(
 name|writer

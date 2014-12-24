@@ -1552,7 +1552,7 @@ block|{
 comment|// ok
 block|}
 comment|// Test Similarity:
-comment|// we shouldnt assert what the default is, just that its not null.
+comment|// we shouldnt assert what the default is, just that it's not null.
 name|assertTrue
 argument_list|(
 name|IndexSearcher

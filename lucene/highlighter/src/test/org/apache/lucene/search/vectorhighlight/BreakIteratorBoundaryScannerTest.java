@@ -288,7 +288,7 @@ argument_list|(
 name|TEXT
 argument_list|)
 decl_stmt|;
-comment|// we test this with default locale, its randomized by LuceneTestCase
+comment|// we test this with default locale, it's randomized by LuceneTestCase
 name|BreakIterator
 name|bi
 init|=
@@ -380,7 +380,7 @@ argument_list|(
 name|TEXT
 argument_list|)
 decl_stmt|;
-comment|// we test this with default locale, its randomized by LuceneTestCase
+comment|// we test this with default locale, it's randomized by LuceneTestCase
 name|BreakIterator
 name|bi
 init|=

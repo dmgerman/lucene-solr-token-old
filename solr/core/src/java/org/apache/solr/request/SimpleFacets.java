@@ -989,7 +989,7 @@ name|DefaultSolrThreadFactory
 import|;
 end_import
 begin_comment
-comment|/**  * A class that generates simple Facet information for a request.  *  * More advanced facet implementations may compose or subclass this class   * to leverage any of it's functionality.  */
+comment|/**  * A class that generates simple Facet information for a request.  *  * More advanced facet implementations may compose or subclass this class   * to leverage any of its functionality.  */
 end_comment
 begin_class
 DECL|class|SimpleFacets
@@ -3128,8 +3128,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// its a single-valued numeric field: we must currently create insanity :(
-comment|// there isnt a GroupedFacetCollector that works on numerics right now...
+comment|// it's a single-valued numeric field: we must currently create insanity :(
+comment|// there isn't a GroupedFacetCollector that works on numerics right now...
 name|searcher
 operator|.
 name|search

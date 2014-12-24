@@ -169,7 +169,7 @@ argument_list|()
 operator|>
 literal|2
 condition|)
-comment|// if its not an empty sentence
+comment|// if it's not an empty sentence
 name|result
 operator|=
 name|segTokenList

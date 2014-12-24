@@ -141,7 +141,7 @@ name|CharArraySet
 import|;
 end_import
 begin_comment
-comment|/**  * Test the Czech Stemmer.  *   * Note: its algorithmic, so some stems are nonsense  *  */
+comment|/**  * Test the Czech Stemmer.  *   * Note: it's algorithmic, so some stems are nonsense  *  */
 end_comment
 begin_class
 DECL|class|TestCzechStemmer

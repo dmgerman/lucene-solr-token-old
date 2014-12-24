@@ -195,7 +195,7 @@ begin_comment
 comment|/**  * Simple test that adds numeric terms, where each term has the   * totalTermFreq of its integer value, and checks that the totalTermFreq is correct.   */
 end_comment
 begin_comment
-comment|// TODO: somehow factor this with BagOfPostings? its almost the same
+comment|// TODO: somehow factor this with BagOfPostings? it's almost the same
 end_comment
 begin_class
 annotation|@

@@ -1512,7 +1512,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// note: this might not be the most efficient... but its fairly simple
+comment|// note: this might not be the most efficient... but it's fairly simple
 annotation|@
 name|Override
 DECL|method|addSortedSetField

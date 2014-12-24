@@ -4484,7 +4484,7 @@ literal|"classname"
 argument_list|)
 decl_stmt|;
 comment|// TODO: this is a little bit sneaky: warn if class isnt supplied
-comment|// so that its mandatory in a future release?
+comment|// so that it's mandatory in a future release?
 if|if
 condition|(
 name|className

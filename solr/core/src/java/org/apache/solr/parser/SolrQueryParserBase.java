@@ -3609,7 +3609,7 @@ argument_list|,
 name|automaton
 argument_list|)
 block|{
-comment|// override toString so its completely transparent
+comment|// override toString so it's completely transparent
 annotation|@
 name|Override
 specifier|public

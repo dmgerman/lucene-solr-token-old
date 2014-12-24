@@ -4151,7 +4151,7 @@ name|KeeperException
 name|e
 parameter_list|)
 block|{
-comment|// its okay if the node already exists
+comment|// it's okay if the node already exists
 if|if
 condition|(
 name|e
@@ -7233,7 +7233,7 @@ name|KeeperException
 name|e
 parameter_list|)
 block|{
-comment|// its okay if the node already exists
+comment|// it's okay if the node already exists
 if|if
 condition|(
 name|e
@@ -7271,7 +7271,7 @@ name|KeeperException
 name|e
 parameter_list|)
 block|{
-comment|// its okay if another beats us creating the node
+comment|// it's okay if another beats us creating the node
 if|if
 condition|(
 name|e
@@ -9510,7 +9510,7 @@ name|KeeperException
 name|e2
 parameter_list|)
 block|{
-comment|// its okay if the node already exists
+comment|// it's okay if the node already exists
 if|if
 condition|(
 name|e2
@@ -9926,7 +9926,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Utility method for trimming and leading and/or trailing slashes from     * it's input.  May return the empty string.  May return null if and only     * if the input is null.    */
+comment|/**    * Utility method for trimming and leading and/or trailing slashes from     * its input.  May return the empty string.  May return null if and only     * if the input is null.    */
 DECL|method|trimLeadingAndTrailingSlashes
 specifier|public
 specifier|static
@@ -11342,7 +11342,7 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
-comment|// only update the createdBy value if its not set
+comment|// only update the createdBy value if it's not set
 if|if
 condition|(
 name|stateObj

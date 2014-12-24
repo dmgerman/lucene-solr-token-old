@@ -49,7 +49,7 @@ name|ValueSource
 import|;
 end_import
 begin_comment
-comment|/**  *<code>SumFloatFunction</code> returns the sum of it's components.  */
+comment|/**  *<code>SumFloatFunction</code> returns the sum of its components.  */
 end_comment
 begin_class
 DECL|class|SumFloatFunction

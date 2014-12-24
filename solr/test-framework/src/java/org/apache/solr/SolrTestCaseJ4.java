@@ -2747,7 +2747,7 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
-comment|// if its TestReplicationHandler, ignore it. the test is broken and gets no love
+comment|// if it's TestReplicationHandler, ignore it. the test is broken and gets no love
 if|if
 condition|(
 literal|"TestReplicationHandler"

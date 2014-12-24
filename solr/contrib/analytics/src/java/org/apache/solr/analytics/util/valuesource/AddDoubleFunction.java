@@ -64,7 +64,7 @@ name|AnalyticsParams
 import|;
 end_import
 begin_comment
-comment|/**  *<code>AddDoubleFunction</code> returns the sum of it's components.  */
+comment|/**  *<code>AddDoubleFunction</code> returns the sum of its components.  */
 end_comment
 begin_class
 DECL|class|AddDoubleFunction

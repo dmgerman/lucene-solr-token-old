@@ -1526,7 +1526,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Its ok to boost a field if it has norms    */
+comment|/**    * It's ok to boost a field if it has norms    */
 DECL|method|testBoost
 specifier|public
 name|void
@@ -2633,7 +2633,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Its ok to supply a document boost even if a field omits norms    */
+comment|/**    * It's ok to supply a document boost even if a field omits norms    */
 DECL|method|testDocumentBoostOmitNorms
 specifier|public
 name|void

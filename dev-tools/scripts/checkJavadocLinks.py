@@ -179,7 +179,7 @@ op|':'
 newline|'\n'
 comment|"# NOTE: I don't think 'a' should be in here. But try debugging "
 nl|'\n'
-comment|'# NumericRangeQuery.html. (Could be javadocs bug, its a generic type...)'
+comment|"# NumericRangeQuery.html. (Could be javadocs bug, it's a generic type...)"
 nl|'\n'
 indent|'    '
 name|'if'

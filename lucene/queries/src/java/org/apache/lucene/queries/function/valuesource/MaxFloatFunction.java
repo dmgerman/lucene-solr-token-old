@@ -49,7 +49,7 @@ name|ValueSource
 import|;
 end_import
 begin_comment
-comment|/**  *<code>MaxFloatFunction</code> returns the max of it's components.  */
+comment|/**  *<code>MaxFloatFunction</code> returns the max of its components.  */
 end_comment
 begin_class
 DECL|class|MaxFloatFunction

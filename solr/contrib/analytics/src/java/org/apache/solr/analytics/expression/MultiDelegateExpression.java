@@ -85,7 +85,7 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/**  *<code>AddExpression</code> returns the sum of it's components' values.  */
+comment|/**  *<code>AddExpression</code> returns the sum of its components' values.  */
 end_comment
 begin_class
 DECL|class|AddExpression
@@ -206,7 +206,7 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/**  *<code>MultiplyExpression</code> returns the product of it's delegates' values.  */
+comment|/**  *<code>MultiplyExpression</code> returns the product of its delegates' values.  */
 end_comment
 begin_class
 DECL|class|MultiplyExpression
@@ -436,7 +436,7 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/**  *<code>ConcatenateExpression</code> returns the concatenation of it's delegates' values in the order given.  */
+comment|/**  *<code>ConcatenateExpression</code> returns the concatenation of its delegates' values in the order given.  */
 end_comment
 begin_class
 DECL|class|ConcatenateExpression

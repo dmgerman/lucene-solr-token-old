@@ -260,7 +260,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// its a term-inmap style map, where the inmap contains class-hit pairs to the
+comment|// it's a term-inmap style map, where the inmap contains class-hit pairs to the
 comment|// upper term
 DECL|field|termCClassHitCache
 specifier|private
@@ -915,7 +915,7 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// if we dont get the answer, but its relevant we must search it and insert to the cache
+comment|// if we dont get the answer, but it's relevant we must search it and insert to the cache
 if|if
 condition|(
 name|insertPoint
