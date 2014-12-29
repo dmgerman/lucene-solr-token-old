@@ -809,6 +809,8 @@ comment|// try to clean up
 try|try
 block|{
 name|CollectionAdminRequest
+operator|.
+name|Delete
 name|req
 init|=
 operator|new
