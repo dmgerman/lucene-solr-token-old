@@ -144,6 +144,11 @@ begin_comment
 comment|/**  * Test algorithm, as read from file  */
 end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"try"
+argument_list|)
 DECL|class|Algorithm
 specifier|public
 class|class

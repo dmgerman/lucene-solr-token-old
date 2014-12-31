@@ -454,11 +454,6 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
