@@ -1064,6 +1064,9 @@ name|getOverlay
 argument_list|()
 expr_stmt|;
 comment|//just in case it is not initialized
+name|getRequestParams
+argument_list|()
+expr_stmt|;
 name|initLibs
 argument_list|()
 expr_stmt|;
