@@ -158,7 +158,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 import|;
 end_import
 begin_import
@@ -787,7 +787,7 @@ expr_stmt|;
 block|}
 comment|//Create new SolrServer to configure new HttpClient w/ SSL config
 operator|new
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 argument_list|(
 name|urls
 operator|.

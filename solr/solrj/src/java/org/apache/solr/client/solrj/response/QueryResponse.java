@@ -93,7 +93,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -477,19 +477,19 @@ init|=
 literal|null
 decl_stmt|;
 comment|// utility variable used for automatic binding -- it should not be serialized
-DECL|field|solrServer
+DECL|field|solrClient
 specifier|private
 specifier|transient
 specifier|final
-name|SolrServer
-name|solrServer
+name|SolrClient
+name|solrClient
 decl_stmt|;
 DECL|method|QueryResponse
 specifier|public
 name|QueryResponse
 parameter_list|()
 block|{
-name|solrServer
+name|solrClient
 operator|=
 literal|null
 expr_stmt|;
@@ -505,8 +505,8 @@ name|Object
 argument_list|>
 name|res
 parameter_list|,
-name|SolrServer
-name|solrServer
+name|SolrClient
+name|solrClient
 parameter_list|)
 block|{
 name|this
@@ -518,9 +518,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|solrServer
+name|solrClient
 operator|=
-name|solrServer
+name|solrClient
 expr_stmt|;
 block|}
 annotation|@
@@ -3442,7 +3442,7 @@ name|type
 parameter_list|)
 block|{
 return|return
-name|solrServer
+name|solrClient
 operator|==
 literal|null
 condition|?
@@ -3457,7 +3457,7 @@ argument_list|,
 name|_results
 argument_list|)
 else|:
-name|solrServer
+name|solrClient
 operator|.
 name|getBinder
 argument_list|()

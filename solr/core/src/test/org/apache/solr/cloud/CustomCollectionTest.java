@@ -328,7 +328,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CloudSolrServer
+name|CloudSolrClient
 import|;
 end_import
 begin_import
@@ -345,7 +345,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -963,7 +963,7 @@ operator|*
 name|replicationFactor
 operator|)
 operator|/
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -982,7 +982,7 @@ operator|)
 operator|+
 literal|1
 decl_stmt|;
-name|CloudSolrServer
+name|CloudSolrClient
 name|client
 init|=
 literal|null
@@ -1164,7 +1164,7 @@ name|url
 init|=
 name|getUrlFromZk
 argument_list|(
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -1176,11 +1176,11 @@ argument_list|,
 name|collection
 argument_list|)
 decl_stmt|;
-name|HttpSolrServer
+name|HttpSolrClient
 name|collectionClient
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -1200,7 +1200,7 @@ block|}
 name|ZkStateReader
 name|zkStateReader
 init|=
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -1364,7 +1364,7 @@ name|url
 init|=
 name|getUrlFromZk
 argument_list|(
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -1376,11 +1376,11 @@ argument_list|,
 name|collectionName
 argument_list|)
 decl_stmt|;
-name|HttpSolrServer
+name|HttpSolrClient
 name|collectionClient
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -1839,14 +1839,14 @@ argument_list|(
 literal|"/admin/collections"
 argument_list|)
 expr_stmt|;
-name|createNewSolrServer
+name|createNewSolrClient
 argument_list|(
 literal|""
 argument_list|,
 name|getBaseUrl
 argument_list|(
 operator|(
-name|HttpSolrServer
+name|HttpSolrClient
 operator|)
 name|clients
 operator|.
@@ -2066,7 +2066,7 @@ operator|*
 name|replicationFactor
 operator|)
 operator|/
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -2085,7 +2085,7 @@ operator|)
 operator|+
 literal|1
 decl_stmt|;
-name|CloudSolrServer
+name|CloudSolrClient
 name|client
 init|=
 literal|null
@@ -2197,7 +2197,7 @@ name|url
 operator|=
 name|getUrlFromZk
 argument_list|(
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -2217,7 +2217,7 @@ expr_stmt|;
 name|collectionClient
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2236,7 +2236,7 @@ expr_stmt|;
 name|collectionClient
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2455,7 +2455,7 @@ operator|*
 name|replicationFactor
 operator|)
 operator|/
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -2490,7 +2490,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|CloudSolrServer
+name|CloudSolrClient
 name|client
 init|=
 literal|null
@@ -2591,7 +2591,7 @@ name|url
 init|=
 name|getUrlFromZk
 argument_list|(
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -2603,11 +2603,11 @@ argument_list|,
 name|collectionName
 argument_list|)
 decl_stmt|;
-name|HttpSolrServer
+name|HttpSolrClient
 name|collectionClient
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2626,7 +2626,7 @@ expr_stmt|;
 name|collectionClient
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2873,7 +2873,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|CloudSolrServer
+name|CloudSolrClient
 name|client
 init|=
 literal|null
@@ -2949,7 +2949,7 @@ block|}
 name|ZkStateReader
 name|zkStateReader
 init|=
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|getZkStateReader
@@ -3019,14 +3019,14 @@ argument_list|(
 literal|"/admin/collections"
 argument_list|)
 expr_stmt|;
-name|createNewSolrServer
+name|createNewSolrClient
 argument_list|(
 literal|""
 argument_list|,
 name|getBaseUrl
 argument_list|(
 operator|(
-name|HttpSolrServer
+name|HttpSolrClient
 operator|)
 name|clients
 operator|.
@@ -3179,7 +3179,7 @@ expr_stmt|;
 name|QueryResponse
 name|rsp
 init|=
-name|getCommonCloudSolrServer
+name|getCommonCloudSolrClient
 argument_list|()
 operator|.
 name|query

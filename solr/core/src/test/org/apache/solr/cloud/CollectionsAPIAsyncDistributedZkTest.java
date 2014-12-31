@@ -41,7 +41,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -73,7 +73,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -340,17 +340,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SolrServer
-name|server
+name|SolrClient
+name|client
 init|=
-name|createNewSolrServer
+name|createNewSolrClient
 argument_list|(
 literal|""
 argument_list|,
 name|getBaseUrl
 argument_list|(
 operator|(
-name|HttpSolrServer
+name|HttpSolrClient
 operator|)
 name|clients
 operator|.
@@ -400,7 +400,7 @@ name|createCollectionRequest
 operator|.
 name|process
 argument_list|(
-name|server
+name|client
 argument_list|)
 expr_stmt|;
 name|String
@@ -412,7 +412,7 @@ literal|"1001"
 argument_list|,
 name|MAX_TIMEOUT_SECONDS
 argument_list|,
-name|server
+name|client
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -462,7 +462,7 @@ name|createCollectionRequest
 operator|.
 name|process
 argument_list|(
-name|server
+name|client
 argument_list|)
 expr_stmt|;
 name|state
@@ -473,7 +473,7 @@ literal|"1002"
 argument_list|,
 name|MAX_TIMEOUT_SECONDS
 argument_list|,
-name|server
+name|client
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -517,7 +517,7 @@ argument_list|(
 literal|"1003"
 argument_list|)
 expr_stmt|;
-name|server
+name|client
 operator|.
 name|request
 argument_list|(
@@ -532,7 +532,7 @@ literal|"1003"
 argument_list|,
 name|MAX_TIMEOUT_SECONDS
 argument_list|,
-name|server
+name|client
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -576,7 +576,7 @@ name|splitShardRequest
 operator|.
 name|process
 argument_list|(
-name|server
+name|client
 argument_list|)
 expr_stmt|;
 name|state
@@ -589,7 +589,7 @@ name|MAX_TIMEOUT_SECONDS
 operator|*
 literal|2
 argument_list|,
-name|server
+name|client
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -615,8 +615,8 @@ parameter_list|,
 name|int
 name|waitForSeconds
 parameter_list|,
-name|SolrServer
-name|server
+name|SolrClient
+name|client
 parameter_list|)
 throws|throws
 name|IOException
@@ -642,7 +642,7 @@ name|getRequestState
 argument_list|(
 name|requestId
 argument_list|,
-name|server
+name|client
 argument_list|)
 expr_stmt|;
 if|if
@@ -693,8 +693,8 @@ parameter_list|(
 name|String
 name|requestId
 parameter_list|,
-name|SolrServer
-name|server
+name|SolrClient
+name|client
 parameter_list|)
 throws|throws
 name|IOException
@@ -722,7 +722,7 @@ name|request
 operator|.
 name|process
 argument_list|(
-name|server
+name|client
 argument_list|)
 decl_stmt|;
 name|NamedList

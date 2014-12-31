@@ -41,7 +41,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -261,7 +261,7 @@ operator|.
 name|getNodeName
 argument_list|()
 decl_stmt|;
-name|SolrServer
+name|SolrClient
 name|shard3Client
 init|=
 name|getClient

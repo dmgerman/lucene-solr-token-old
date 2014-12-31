@@ -140,7 +140,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -172,7 +172,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -2185,11 +2185,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|HttpSolrServer
+name|HttpSolrClient
 name|solr
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|coreUrl
 argument_list|)
@@ -2217,7 +2217,7 @@ condition|)
 block|{
 try|try
 block|{
-name|HttpSolrServer
+name|HttpSolrClient
 operator|.
 name|HttpUriRequestResponse
 name|mrr
@@ -2360,7 +2360,7 @@ specifier|public
 name|SolrResponse
 name|process
 parameter_list|(
-name|SolrServer
+name|SolrClient
 name|server
 parameter_list|)
 throws|throws

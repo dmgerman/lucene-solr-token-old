@@ -71,7 +71,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -88,7 +88,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -105,7 +105,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 import|;
 end_import
 begin_import
@@ -944,11 +944,11 @@ argument_list|(
 name|url
 argument_list|)
 expr_stmt|;
-name|SolrServer
-name|server
+name|SolrClient
+name|client
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|,
@@ -961,7 +961,7 @@ name|ssr
 operator|.
 name|nl
 operator|=
-name|server
+name|client
 operator|.
 name|request
 argument_list|(
@@ -971,7 +971,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|server
+name|client
 operator|.
 name|shutdown
 argument_list|()
@@ -980,7 +980,7 @@ block|}
 block|}
 else|else
 block|{
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Rsp
 name|rsp

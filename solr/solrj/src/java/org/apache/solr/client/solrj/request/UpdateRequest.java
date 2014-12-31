@@ -142,7 +142,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 import|;
 end_import
 begin_import
@@ -876,7 +876,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Req
 argument_list|>
@@ -943,7 +943,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Req
 argument_list|>
@@ -1085,13 +1085,13 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Req
 name|request
 init|=
 operator|(
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Req
 operator|)
@@ -1150,7 +1150,7 @@ expr_stmt|;
 name|request
 operator|=
 operator|new
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Req
 argument_list|(
@@ -1350,7 +1350,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Req
 name|request
@@ -1418,7 +1418,7 @@ expr_stmt|;
 name|request
 operator|=
 operator|new
-name|LBHttpSolrServer
+name|LBHttpSolrClient
 operator|.
 name|Req
 argument_list|(

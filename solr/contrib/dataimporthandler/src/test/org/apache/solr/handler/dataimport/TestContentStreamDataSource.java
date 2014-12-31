@@ -78,7 +78,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -353,11 +353,11 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
-name|HttpSolrServer
+name|HttpSolrClient
 name|solrServer
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|buildUrl
 argument_list|(
@@ -525,11 +525,11 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
-name|HttpSolrServer
+name|HttpSolrClient
 name|solrServer
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|buildUrl
 argument_list|(

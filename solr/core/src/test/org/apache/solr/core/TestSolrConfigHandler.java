@@ -186,7 +186,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CloudSolrServer
+name|CloudSolrClient
 import|;
 end_import
 begin_import
@@ -550,7 +550,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-name|server
+name|client
 operator|=
 literal|null
 expr_stmt|;
@@ -1109,7 +1109,7 @@ parameter_list|,
 name|String
 name|testServerBaseUrl
 parameter_list|,
-name|CloudSolrServer
+name|CloudSolrClient
 name|cloudSolrServer
 parameter_list|)
 throws|throws
@@ -1358,7 +1358,7 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|,
-name|CloudSolrServer
+name|CloudSolrClient
 name|cloudSolrServer
 parameter_list|,
 name|List

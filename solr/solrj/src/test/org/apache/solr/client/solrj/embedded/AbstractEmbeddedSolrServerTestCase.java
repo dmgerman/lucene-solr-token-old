@@ -50,7 +50,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -384,7 +384,7 @@ parameter_list|()
 block|{    }
 DECL|method|getSolrCore0
 specifier|protected
-name|SolrServer
+name|SolrClient
 name|getSolrCore0
 parameter_list|()
 block|{
@@ -397,7 +397,7 @@ return|;
 block|}
 DECL|method|getSolrCore1
 specifier|protected
-name|SolrServer
+name|SolrClient
 name|getSolrCore1
 parameter_list|()
 block|{
@@ -410,7 +410,7 @@ return|;
 block|}
 DECL|method|getSolrCore
 specifier|protected
-name|SolrServer
+name|SolrClient
 name|getSolrCore
 parameter_list|(
 name|String

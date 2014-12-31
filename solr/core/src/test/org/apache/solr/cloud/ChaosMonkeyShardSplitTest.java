@@ -41,7 +41,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -489,8 +489,8 @@ init|=
 literal|null
 decl_stmt|;
 specifier|final
-name|SolrServer
-name|solrServer
+name|SolrClient
+name|solrClient
 init|=
 name|clients
 operator|.
@@ -801,11 +801,11 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|solrServer
+name|solrClient
 operator|!=
 literal|null
 condition|)
-name|solrServer
+name|solrClient
 operator|.
 name|commit
 argument_list|()

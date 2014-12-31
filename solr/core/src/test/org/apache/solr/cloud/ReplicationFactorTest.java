@@ -169,7 +169,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -1080,7 +1080,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|HttpSolrServer
+name|HttpSolrClient
 name|solrServer
 init|=
 literal|null
@@ -1111,7 +1111,7 @@ decl_stmt|;
 name|solrServer
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)

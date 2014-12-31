@@ -52,19 +52,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|SentinelIntSet
 import|;
 end_import
@@ -77,21 +64,6 @@ operator|.
 name|solr
 operator|.
 name|CursorPagingTest
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|client
-operator|.
-name|solrj
-operator|.
-name|SolrServer
 import|;
 end_import
 begin_import
@@ -4225,7 +4197,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * numFound on the doc list matches the expectation    * @see SolrServer#query    */
+comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * numFound on the doc list matches the expectation    * @see org.apache.solr.client.solrj.SolrClient#query    */
 DECL|method|assertNumFound
 specifier|private
 name|void
@@ -4252,7 +4224,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * start on the doc list matches the expectation    * @see SolrServer#query    */
+comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * start on the doc list matches the expectation    * @see org.apache.solr.client.solrj.SolrClient#query    */
 DECL|method|assertStartsAt
 specifier|private
 name|void
@@ -4279,7 +4251,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * "id" of the list of documents returned matches the expected list    * @see SolrServer#query    */
+comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * "id" of the list of documents returned matches the expected list    * @see org.apache.solr.client.solrj.SolrClient#query    */
 DECL|method|assertDocList
 specifier|private
 name|void
@@ -4355,7 +4327,7 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * response does include {@link #CURSOR_MARK_NEXT} key and returns it    * @see SolrServer#query    */
+comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * response does include {@link #CURSOR_MARK_NEXT} key and returns it    * @see org.apache.solr.client.solrj.SolrClient#query    */
 DECL|method|assertHashNextCursorMark
 specifier|private
 name|String

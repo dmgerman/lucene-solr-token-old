@@ -70,7 +70,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -893,7 +893,7 @@ block|}
 block|}
 DECL|method|getSolrCore
 specifier|protected
-name|SolrServer
+name|SolrClient
 name|getSolrCore
 parameter_list|()
 block|{

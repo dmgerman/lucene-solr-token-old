@@ -993,7 +993,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -6002,11 +6002,11 @@ argument_list|(
 name|leaderProps
 argument_list|)
 decl_stmt|;
-name|HttpSolrServer
+name|HttpSolrClient
 name|server
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|nodeProps
 operator|.

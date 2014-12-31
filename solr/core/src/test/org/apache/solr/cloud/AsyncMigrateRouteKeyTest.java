@@ -58,7 +58,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -586,7 +586,7 @@ name|baseUrl
 init|=
 operator|(
 operator|(
-name|HttpSolrServer
+name|HttpSolrClient
 operator|)
 name|shardToJetty
 operator|.
@@ -627,7 +627,7 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|HttpSolrServer
+name|HttpSolrClient
 name|baseServer
 init|=
 literal|null
@@ -637,7 +637,7 @@ block|{
 name|baseServer
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)

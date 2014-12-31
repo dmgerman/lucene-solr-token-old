@@ -24,21 +24,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|client
-operator|.
-name|solrj
-operator|.
-name|ResponseParser
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|SolrJettyTestBase
 import|;
 end_import
@@ -54,7 +39,22 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|ResponseParser
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -116,9 +116,7 @@ name|solr
 operator|.
 name|common
 operator|.
-name|util
-operator|.
-name|NamedList
+name|SolrException
 import|;
 end_import
 begin_import
@@ -131,20 +129,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|SolrException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|util
 operator|.
-name|ExternalPaths
+name|NamedList
 import|;
 end_import
 begin_import
@@ -263,10 +250,10 @@ parameter_list|()
 throws|throws
 name|SolrServerException
 block|{
-name|SolrServer
-name|server
+name|SolrClient
+name|client
 init|=
-name|getSolrServer
+name|getSolrClient
 argument_list|()
 decl_stmt|;
 name|QueryRequest
@@ -299,7 +286,7 @@ name|request
 operator|.
 name|process
 argument_list|(
-name|server
+name|client
 argument_list|)
 decl_stmt|;
 name|fail
@@ -455,10 +442,10 @@ parameter_list|()
 throws|throws
 name|SolrServerException
 block|{
-name|SolrServer
-name|server
+name|SolrClient
+name|client
 init|=
-name|getSolrServer
+name|getSolrClient
 argument_list|()
 decl_stmt|;
 comment|//assertQ(req("qt", "/admin/file")); TODO file bug that SolrJettyTestBase extends SolrTestCaseJ4
@@ -483,7 +470,7 @@ name|request
 operator|.
 name|process
 argument_list|(
-name|server
+name|client
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -531,10 +518,10 @@ name|SolrServerException
 throws|,
 name|IOException
 block|{
-name|SolrServer
-name|server
+name|SolrClient
+name|client
 init|=
-name|getSolrServer
+name|getSolrClient
 argument_list|()
 decl_stmt|;
 comment|//assertQ(req("qt", "/admin/file")); TODO file bug that SolrJettyTestBase extends SolrTestCaseJ4
@@ -665,7 +652,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|server
+name|client
 operator|.
 name|request
 argument_list|(
@@ -673,7 +660,7 @@ name|request
 argument_list|)
 expr_stmt|;
 comment|//runs request
-comment|//request.process(server); but we don't have a NamedList response
+comment|//request.process(client); but we don't have a NamedList response
 name|assertTrue
 argument_list|(
 name|readFile

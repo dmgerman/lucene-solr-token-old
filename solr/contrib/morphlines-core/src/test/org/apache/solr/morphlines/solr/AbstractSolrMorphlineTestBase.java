@@ -199,7 +199,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -231,7 +231,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -524,10 +524,10 @@ specifier|protected
 name|Command
 name|morphline
 decl_stmt|;
-DECL|field|solrServer
+DECL|field|solrClient
 specifier|protected
-name|SolrServer
-name|solrServer
+name|SolrClient
+name|solrClient
 decl_stmt|;
 DECL|field|testServer
 specifier|protected
@@ -794,19 +794,19 @@ condition|)
 block|{
 comment|//solrServer = new ConcurrentUpdateSolrServer(EXTERNAL_SOLR_SERVER_URL, 2, 2);
 comment|//solrServer = new SafeConcurrentUpdateSolrServer(EXTERNAL_SOLR_SERVER_URL, 2, 2);
-name|solrServer
+name|solrClient
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|EXTERNAL_SOLR_SERVER_URL
 argument_list|)
 expr_stmt|;
 operator|(
 operator|(
-name|HttpSolrServer
+name|HttpSolrClient
 operator|)
-name|solrServer
+name|solrClient
 operator|)
 operator|.
 name|setParser
@@ -824,7 +824,7 @@ condition|(
 name|TEST_WITH_EMBEDDED_SOLR_SERVER
 condition|)
 block|{
-name|solrServer
+name|solrClient
 operator|=
 operator|new
 name|EmbeddedTestSolrServer
@@ -847,7 +847,7 @@ argument_list|(
 literal|"Not yet implemented"
 argument_list|)
 throw|;
-comment|//solrServer = new TestSolrServer(getSolrServer());
+comment|//solrServer = new TestSolrServer(getSolrClient());
 block|}
 block|}
 name|int
@@ -870,9 +870,9 @@ comment|//SolrInspector.DEFAULT_SOLR_SERVER_BATCH_SIZE : 1;
 name|testServer
 operator|=
 operator|new
-name|SolrServerDocumentLoader
+name|SolrClientDocumentLoader
 argument_list|(
-name|solrServer
+name|solrClient
 argument_list|,
 name|batchSize
 argument_list|)
@@ -906,12 +906,12 @@ name|collector
 operator|=
 literal|null
 expr_stmt|;
-name|solrServer
+name|solrClient
 operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
-name|solrServer
+name|solrClient
 operator|=
 literal|null
 expr_stmt|;
@@ -1363,7 +1363,7 @@ operator|.
 name|commitTransaction
 argument_list|()
 expr_stmt|;
-name|solrServer
+name|solrClient
 operator|.
 name|commit
 argument_list|(
@@ -1377,7 +1377,7 @@ expr_stmt|;
 name|QueryResponse
 name|rsp
 init|=
-name|solrServer
+name|solrClient
 operator|.
 name|query
 argument_list|(
@@ -1478,10 +1478,10 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|SolrServer
+name|SolrClient
 name|s
 init|=
-name|solrServer
+name|solrClient
 decl_stmt|;
 name|s
 operator|.
@@ -1720,7 +1720,7 @@ block|{
 name|QueryResponse
 name|rsp
 init|=
-name|solrServer
+name|solrClient
 operator|.
 name|query
 argument_list|(

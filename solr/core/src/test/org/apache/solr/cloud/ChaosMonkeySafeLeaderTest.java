@@ -102,7 +102,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CloudSolrServer
+name|CloudSolrClient
 import|;
 end_import
 begin_import
@@ -883,7 +883,7 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
-name|CloudSolrServer
+name|CloudSolrClient
 name|client
 init|=
 name|createCloudClient

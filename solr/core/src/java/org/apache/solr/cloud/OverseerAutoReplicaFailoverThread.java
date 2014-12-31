@@ -142,7 +142,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -2405,7 +2405,7 @@ name|String
 name|coreName
 parameter_list|)
 block|{
-name|HttpSolrServer
+name|HttpSolrClient
 name|server
 init|=
 literal|null
@@ -2424,7 +2424,7 @@ expr_stmt|;
 name|server
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|createUrl
 argument_list|)

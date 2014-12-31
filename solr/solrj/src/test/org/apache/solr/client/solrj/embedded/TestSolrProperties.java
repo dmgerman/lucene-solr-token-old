@@ -69,7 +69,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -338,7 +338,7 @@ return|;
 block|}
 DECL|method|getSolrAdmin
 specifier|protected
-name|SolrServer
+name|SolrClient
 name|getSolrAdmin
 parameter_list|()
 block|{
@@ -354,7 +354,7 @@ return|;
 block|}
 DECL|method|getRenamedSolrAdmin
 specifier|protected
-name|SolrServer
+name|SolrClient
 name|getRenamedSolrAdmin
 parameter_list|()
 block|{
@@ -750,7 +750,7 @@ name|name
 init|=
 literal|"core0"
 decl_stmt|;
-name|SolrServer
+name|SolrClient
 name|coreadmin
 init|=
 name|getSolrAdmin

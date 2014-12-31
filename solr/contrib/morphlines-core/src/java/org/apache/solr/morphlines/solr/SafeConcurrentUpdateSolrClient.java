@@ -43,7 +43,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 import|;
 end_import
 begin_import
@@ -68,12 +68,12 @@ begin_comment
 comment|/**  * ConcurrentUpdateSolrServer that propagates exceptions up to the submitter of  * requests on blockUntilFinished()  */
 end_comment
 begin_class
-DECL|class|SafeConcurrentUpdateSolrServer
+DECL|class|SafeConcurrentUpdateSolrClient
 specifier|final
 class|class
-name|SafeConcurrentUpdateSolrServer
+name|SafeConcurrentUpdateSolrClient
 extends|extends
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 block|{
 DECL|field|currentException
 specifier|private
@@ -103,14 +103,14 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|SafeConcurrentUpdateSolrServer
+name|SafeConcurrentUpdateSolrClient
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|SafeConcurrentUpdateSolrServer
+DECL|method|SafeConcurrentUpdateSolrClient
 specifier|public
-name|SafeConcurrentUpdateSolrServer
+name|SafeConcurrentUpdateSolrClient
 parameter_list|(
 name|String
 name|solrServerUrl
@@ -134,9 +134,9 @@ name|threadCount
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SafeConcurrentUpdateSolrServer
+DECL|method|SafeConcurrentUpdateSolrClient
 specifier|public
-name|SafeConcurrentUpdateSolrServer
+name|SafeConcurrentUpdateSolrClient
 parameter_list|(
 name|String
 name|solrServerUrl

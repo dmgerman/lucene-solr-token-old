@@ -151,19 +151,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|util
-operator|.
-name|ExternalPaths
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|BeforeClass
@@ -221,7 +208,7 @@ argument_list|()
 operator|.
 name|addServletWithMapping
 argument_list|(
-name|BasicHttpSolrServerTest
+name|BasicHttpSolrClientTest
 operator|.
 name|SlowServlet
 operator|.
@@ -231,7 +218,7 @@ literal|"/slow/*"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * The internal client created by HttpSolrServer is a SystemDefaultHttpClient    * which takes care of merging request level params (such as timeout) with the    * configured defaults.    *    * However, if an external HttpClient is passed to HttpSolrServer,    * the logic in InternalHttpClient.executeMethod replaces the configured defaults    * by request level params if they exist. That is why we must test a setting such    * as timeout with an external client to assert that the defaults are indeed being    * used    *    * See SOLR-6245 for more details    */
+comment|/**    * The internal client created by HttpSolrClient is a SystemDefaultHttpClient    * which takes care of merging request level params (such as timeout) with the    * configured defaults.    *    * However, if an external HttpClient is passed to HttpSolrClient,    * the logic in InternalHttpClient.executeMethod replaces the configured defaults    * by request level params if they exist. That is why we must test a setting such    * as timeout with an external client to assert that the defaults are indeed being    * used    *    * See SOLR-6245 for more details    */
 annotation|@
 name|Test
 DECL|method|testTimeoutWithExternalClient
@@ -273,8 +260,8 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-name|HttpSolrServer
-name|server
+name|HttpSolrClient
+name|solrClient
 init|=
 literal|null
 decl_stmt|;
@@ -289,10 +276,10 @@ name|build
 argument_list|()
 init|)
 block|{
-name|server
+name|solrClient
 operator|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|jetty
 operator|.
@@ -321,7 +308,7 @@ block|{
 name|QueryResponse
 name|response
 init|=
-name|server
+name|solrClient
 operator|.
 name|query
 argument_list|(
@@ -365,12 +352,12 @@ finally|finally
 block|{
 if|if
 condition|(
-name|server
+name|solrClient
 operator|!=
 literal|null
 condition|)
 block|{
-name|server
+name|solrClient
 operator|.
 name|shutdown
 argument_list|()

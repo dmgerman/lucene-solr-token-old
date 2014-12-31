@@ -465,7 +465,7 @@ argument_list|)
 expr_stmt|;
 name|assertDocExists
 argument_list|(
-name|getHttpSolrServer
+name|getHttpSolrClient
 argument_list|(
 name|leader
 argument_list|,
@@ -479,7 +479,7 @@ argument_list|)
 expr_stmt|;
 name|assertDocExists
 argument_list|(
-name|getHttpSolrServer
+name|getHttpSolrClient
 argument_list|(
 name|notLeaders
 operator|.

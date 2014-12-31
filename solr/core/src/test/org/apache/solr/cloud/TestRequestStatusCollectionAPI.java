@@ -58,7 +58,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 begin_import
@@ -1147,7 +1147,7 @@ name|baseUrl
 init|=
 operator|(
 operator|(
-name|HttpSolrServer
+name|HttpSolrClient
 operator|)
 name|shardToJetty
 operator|.
@@ -1188,16 +1188,16 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|HttpSolrServer
-name|baseServer
+name|HttpSolrClient
+name|baseClient
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)
 decl_stmt|;
-name|baseServer
+name|baseClient
 operator|.
 name|setConnectionTimeout
 argument_list|(
@@ -1205,7 +1205,7 @@ literal|15000
 argument_list|)
 expr_stmt|;
 return|return
-name|baseServer
+name|baseClient
 operator|.
 name|request
 argument_list|(

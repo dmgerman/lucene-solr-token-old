@@ -26,24 +26,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|client
-operator|.
-name|solrj
-operator|.
-name|embedded
-operator|.
-name|JettySolrRunner
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -104,21 +87,6 @@ operator|.
 name|common
 operator|.
 name|SolrException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|params
-operator|.
-name|ShardParams
 import|;
 end_import
 begin_import
@@ -363,7 +331,7 @@ literal|"### STARTING doTestHardFail"
 argument_list|)
 expr_stmt|;
 comment|// use a leader so we test both forwarding and non-forwarding logic
-name|ss
+name|solrClient
 operator|=
 name|shardToLeaderJetty
 operator|.
@@ -376,7 +344,7 @@ name|client
 operator|.
 name|solrClient
 expr_stmt|;
-comment|// ss = cloudClient;   CloudSolrServer doesn't currently support propagating error codes
+comment|// solrClient = cloudClient;   CloudSolrServer doesn't currently support propagating error codes
 name|doTestHardFail
 argument_list|(
 literal|"p!doc1"
@@ -519,7 +487,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ss
+name|solrClient
 operator|=
 name|cloudClient
 expr_stmt|;
@@ -697,7 +665,7 @@ comment|//
 comment|// now test with a non-smart client
 comment|//
 comment|// use a leader so we test both forwarding and non-forwarding logic
-name|ss
+name|solrClient
 operator|=
 name|shardToLeaderJetty
 operator|.
@@ -930,9 +898,9 @@ literal|"live_b:false"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|ss
-name|SolrServer
-name|ss
+DECL|field|solrClient
+name|SolrClient
+name|solrClient
 decl_stmt|;
 DECL|method|vdelete
 name|void
@@ -1015,7 +983,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|ss
+name|solrClient
 operator|.
 name|request
 argument_list|(
@@ -1100,7 +1068,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|ss
+name|solrClient
 operator|.
 name|request
 argument_list|(
@@ -1544,7 +1512,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ss
+name|solrClient
 operator|.
 name|query
 argument_list|(
@@ -1644,7 +1612,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ss
+name|solrClient
 operator|.
 name|query
 argument_list|(

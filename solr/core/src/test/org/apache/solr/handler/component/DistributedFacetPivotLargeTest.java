@@ -66,7 +66,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -4866,7 +4866,7 @@ init|=
 literal|50
 decl_stmt|;
 specifier|final
-name|SolrServer
+name|SolrClient
 name|zeroShard
 init|=
 name|clients
@@ -4877,7 +4877,7 @@ literal|0
 argument_list|)
 decl_stmt|;
 specifier|final
-name|SolrServer
+name|SolrClient
 name|oneShard
 init|=
 name|clients
@@ -4888,7 +4888,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 specifier|final
-name|SolrServer
+name|SolrClient
 name|twoShard
 init|=
 name|clients
@@ -4899,7 +4899,7 @@ literal|2
 argument_list|)
 decl_stmt|;
 specifier|final
-name|SolrServer
+name|SolrClient
 name|threeShard
 init|=
 name|clients
@@ -5662,13 +5662,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Builds up a SolrInputDocument using the specified fields, then adds it to the     * specified client as well as the control client     * @see #indexDoc(SolrServer,SolrParams,SolrInputDocument...)    * @see #sdoc    */
+comment|/**    * Builds up a SolrInputDocument using the specified fields, then adds it to the     * specified client as well as the control client     * @see #indexDoc(org.apache.solr.client.solrj.SolrClient,SolrParams,SolrInputDocument...)    * @see #sdoc    */
 DECL|method|addPivotDoc
 specifier|private
 name|void
 name|addPivotDoc
 parameter_list|(
-name|SolrServer
+name|SolrClient
 name|client
 parameter_list|,
 name|Object

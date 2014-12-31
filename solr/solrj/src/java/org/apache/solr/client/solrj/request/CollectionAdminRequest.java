@@ -45,7 +45,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 begin_import
@@ -418,7 +418,7 @@ specifier|public
 name|CollectionAdminResponse
 name|process
 parameter_list|(
-name|SolrServer
+name|SolrClient
 name|server
 parameter_list|)
 throws|throws
