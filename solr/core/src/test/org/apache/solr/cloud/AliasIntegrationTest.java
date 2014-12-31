@@ -1435,7 +1435,7 @@ argument_list|()
 expr_stmt|;
 name|res
 operator|=
-name|client
+name|httpclient
 operator|.
 name|query
 argument_list|(
