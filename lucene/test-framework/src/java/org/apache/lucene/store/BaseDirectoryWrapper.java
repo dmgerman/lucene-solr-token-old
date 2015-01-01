@@ -216,15 +216,16 @@ return|return
 name|crossCheckTermVectorsOnClose
 return|;
 block|}
+comment|// why does this class override this method?
 annotation|@
 name|Override
-DECL|method|copy
+DECL|method|copyFrom
 specifier|public
 name|void
-name|copy
+name|copyFrom
 parameter_list|(
 name|Directory
-name|to
+name|from
 parameter_list|,
 name|String
 name|src
@@ -240,9 +241,9 @@ name|IOException
 block|{
 name|in
 operator|.
-name|copy
+name|copyFrom
 argument_list|(
-name|to
+name|from
 argument_list|,
 name|src
 argument_list|,

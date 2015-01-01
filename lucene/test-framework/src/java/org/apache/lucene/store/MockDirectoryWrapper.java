@@ -5040,16 +5040,18 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|// TODO: why does this class override this method?
+comment|// we should use the default implementation so all of our checks work?
 annotation|@
 name|Override
-DECL|method|copy
+DECL|method|copyFrom
 specifier|public
 specifier|synchronized
 name|void
-name|copy
+name|copyFrom
 parameter_list|(
 name|Directory
-name|to
+name|from
 parameter_list|,
 name|String
 name|src
@@ -5069,9 +5071,9 @@ expr_stmt|;
 comment|// randomize the IOContext here?
 name|in
 operator|.
-name|copy
+name|copyFrom
 argument_list|(
-name|to
+name|from
 argument_list|,
 name|src
 argument_list|,
