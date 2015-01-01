@@ -40,6 +40,9 @@ name|maxDocsPerChunk
 parameter_list|,
 name|boolean
 name|withSegmentSuffix
+parameter_list|,
+name|int
+name|blockSize
 parameter_list|)
 block|{
 name|super
@@ -59,6 +62,8 @@ argument_list|,
 name|chunkSize
 argument_list|,
 name|maxDocsPerChunk
+argument_list|,
+name|blockSize
 argument_list|)
 expr_stmt|;
 block|}
@@ -77,6 +82,8 @@ argument_list|,
 literal|128
 argument_list|,
 literal|false
+argument_list|,
+literal|1024
 argument_list|)
 expr_stmt|;
 block|}

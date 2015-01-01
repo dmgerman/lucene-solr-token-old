@@ -506,6 +506,8 @@ operator|<<
 literal|14
 argument_list|,
 literal|128
+argument_list|,
+literal|1024
 argument_list|)
 return|;
 case|case
@@ -524,6 +526,8 @@ argument_list|,
 literal|61440
 argument_list|,
 literal|512
+argument_list|,
+literal|1024
 argument_list|)
 return|;
 default|default:
