@@ -31,7 +31,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Collection
 import|;
 end_import
 begin_import
@@ -75,7 +75,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|BinaryDocValues
 import|;
 end_import
 begin_import
@@ -88,7 +88,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|BinaryDocValues
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -727,7 +727,7 @@ name|Override
 DECL|method|getChildResources
 specifier|public
 specifier|synchronized
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>

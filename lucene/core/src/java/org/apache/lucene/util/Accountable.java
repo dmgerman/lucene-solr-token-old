@@ -20,6 +20,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -41,7 +50,7 @@ function_decl|;
 comment|/**    * Returns nested resources of this class.     * The result should be a point-in-time snapshot (to avoid race conditions).    * @see Accountables    */
 DECL|method|getChildResources
 specifier|default
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>

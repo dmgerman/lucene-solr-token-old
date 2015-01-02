@@ -47,7 +47,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Collection
 import|;
 end_import
 begin_import
@@ -3569,7 +3569,7 @@ annotation|@
 name|Override
 DECL|method|getChildResources
 specifier|public
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>

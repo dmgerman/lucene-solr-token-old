@@ -71,6 +71,24 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -726,26 +744,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|Lookup
-operator|.
-name|LookupResult
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|DataInput
@@ -842,6 +840,9 @@ operator|.
 name|RamUsageEstimator
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_comment
 comment|// TODO:
 end_comment
@@ -3262,7 +3263,7 @@ return|return
 name|in
 return|;
 block|}
-comment|/** Override this method to customize the Object    *  representing a single highlighted suggestions; the    *  result is set on each {@link    *  LookupResult#highlightKey} member. */
+comment|/** Override this method to customize the Object    *  representing a single highlighted suggestions; the    *  result is set on each {@link    *  org.apache.lucene.search.suggest.Lookup.LookupResult#highlightKey} member. */
 DECL|method|highlight
 specifier|protected
 name|Object
@@ -3881,7 +3882,7 @@ annotation|@
 name|Override
 DECL|method|getChildResources
 specifier|public
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>
@@ -3984,7 +3985,12 @@ expr_stmt|;
 block|}
 block|}
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|resources
+argument_list|)
 return|;
 block|}
 catch|catch
