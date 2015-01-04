@@ -5241,6 +5241,16 @@ argument_list|)
 argument_list|,
 name|f
 argument_list|(
+literal|"store3_price"
+argument_list|,
+operator|(
+name|Object
+operator|)
+literal|null
+argument_list|)
+argument_list|,
+name|f
+argument_list|(
 literal|"list_price"
 argument_list|,
 literal|1000
