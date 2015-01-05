@@ -2214,7 +2214,7 @@ init|=
 literal|null
 decl_stmt|;
 name|DocsEnum
-name|docs
+name|docsEnum
 init|=
 literal|null
 decl_stmt|;
@@ -2331,6 +2331,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no terms in this field
 continue|continue;
 block|}
 assert|assert
@@ -2354,9 +2355,8 @@ argument_list|)
 condition|)
 block|{
 comment|// we don't need term frequencies for this
-name|DocsEnum
 name|docsEnum
-init|=
+operator|=
 name|termsEnum
 operator|.
 name|docs
@@ -2366,21 +2366,19 @@ operator|.
 name|getLiveDocs
 argument_list|()
 argument_list|,
-name|docs
+name|docsEnum
 argument_list|,
 name|DocsEnum
 operator|.
 name|FLAG_NONE
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//System.out.println("BDS: got docsEnum=" + docsEnum);
-if|if
-condition|(
+assert|assert
 name|docsEnum
 operator|!=
 literal|null
-condition|)
-block|{
+assert|;
 while|while
 condition|(
 literal|true
@@ -2441,7 +2439,6 @@ block|{
 name|delCount
 operator|++
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2513,7 +2510,7 @@ init|=
 literal|null
 decl_stmt|;
 name|DocsEnum
-name|docs
+name|docsEnum
 init|=
 literal|null
 decl_stmt|;
@@ -2605,8 +2602,6 @@ name|termsEnum
 operator|=
 literal|null
 expr_stmt|;
-continue|continue;
-comment|// no terms in that field
 block|}
 block|}
 if|if
@@ -2616,6 +2611,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no terms in this field
 continue|continue;
 block|}
 comment|// System.out.println("  term=" + term);
@@ -2633,9 +2629,8 @@ argument_list|)
 condition|)
 block|{
 comment|// we don't need term frequencies for this
-name|DocsEnum
 name|docsEnum
-init|=
+operator|=
 name|termsEnum
 operator|.
 name|docs
@@ -2645,13 +2640,13 @@ operator|.
 name|getLiveDocs
 argument_list|()
 argument_list|,
-name|docs
+name|docsEnum
 argument_list|,
 name|DocsEnum
 operator|.
 name|FLAG_NONE
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//System.out.println("BDS: got docsEnum=" + docsEnum);
 name|DocValuesFieldUpdates
 name|dvUpdates
