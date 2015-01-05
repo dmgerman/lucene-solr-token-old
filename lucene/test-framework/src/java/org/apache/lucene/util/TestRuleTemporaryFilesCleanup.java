@@ -960,7 +960,7 @@ name|resolve
 argument_list|(
 name|prefix
 operator|+
-literal|"-"
+literal|" "
 operator|+
 name|ctx
 operator|.
