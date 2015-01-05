@@ -5009,8 +5009,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|sourceIsDynamicFieldReference
-operator|||
 name|sourceIsGlob
 condition|)
 block|{
@@ -5021,7 +5019,7 @@ operator|!=
 name|destDynamicField
 condition|)
 block|{
-comment|// source: glob or no-asterisk dynamic field ref; dest: dynamic field ref
+comment|// source: glob ; dest: dynamic field ref
 name|registerDynamicCopyField
 argument_list|(
 operator|new
@@ -5047,7 +5045,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// source: glob or no-asterisk dynamic field ref; dest: explicit field
+comment|// source: glob ; dest: explicit field
 name|destDynamicField
 operator|=
 operator|new
@@ -5080,6 +5078,66 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|sourceIsDynamicFieldReference
+condition|)
+block|{
+if|if
+condition|(
+literal|null
+operator|!=
+name|destDynamicField
+condition|)
+block|{
+comment|// source: no-asterisk dynamic field ref ; dest: dynamic field ref
+name|registerDynamicCopyField
+argument_list|(
+operator|new
+name|DynamicCopy
+argument_list|(
+name|source
+argument_list|,
+name|destDynamicField
+argument_list|,
+name|maxChars
+argument_list|,
+name|sourceDynamicBase
+argument_list|,
+name|destDynamicBase
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|incrementCopyFieldTargetCount
+argument_list|(
+name|destSchemaField
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// source: no-asterisk dynamic field ref ; dest: explicit field
+name|sourceSchemaField
+operator|=
+name|getField
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+name|registerExplicitSrcAndDestFields
+argument_list|(
+name|source
+argument_list|,
+name|maxChars
+argument_list|,
+name|destSchemaField
+argument_list|,
+name|sourceSchemaField
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 else|else
 block|{
 if|if
@@ -5089,7 +5147,7 @@ operator|!=
 name|destDynamicField
 condition|)
 block|{
-comment|// source: explicit field; dest: dynamic field reference
+comment|// source: explicit field ; dest: dynamic field reference
 if|if
 condition|(
 name|destDynamicField
@@ -5129,6 +5187,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// source: explicit field ; dest: dynamic field with an asterisk
 name|String
 name|msg
 init|=
@@ -5152,6 +5211,38 @@ block|}
 else|else
 block|{
 comment|// source& dest: explicit fields
+name|registerExplicitSrcAndDestFields
+argument_list|(
+name|source
+argument_list|,
+name|maxChars
+argument_list|,
+name|destSchemaField
+argument_list|,
+name|sourceSchemaField
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+DECL|method|registerExplicitSrcAndDestFields
+specifier|private
+name|void
+name|registerExplicitSrcAndDestFields
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|int
+name|maxChars
+parameter_list|,
+name|SchemaField
+name|destSchemaField
+parameter_list|,
+name|SchemaField
+name|sourceSchemaField
+parameter_list|)
+block|{
 name|List
 argument_list|<
 name|CopyField
@@ -5209,8 +5300,6 @@ argument_list|(
 name|destSchemaField
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 DECL|method|incrementCopyFieldTargetCount
 specifier|private
