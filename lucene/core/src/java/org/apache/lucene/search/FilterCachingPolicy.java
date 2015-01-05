@@ -76,7 +76,7 @@ name|TieredMergePolicy
 import|;
 end_import
 begin_comment
-comment|/**  * A policy defining which filters should be cached.  *  * Implementations of this class must be thread-safe.  *  * @lucene.experimental  */
+comment|/**  * A policy defining which filters should be cached.  *  * Implementations of this class must be thread-safe.  *  * @see UsageTrackingFilterCachingPolicy  * @see LRUFilterCache  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// TODO: add APIs for integration with IndexWriter.IndexReaderWarmer
