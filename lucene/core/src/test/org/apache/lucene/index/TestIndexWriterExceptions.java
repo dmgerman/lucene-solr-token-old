@@ -502,8 +502,6 @@ operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
-operator|.
-name|FakeIOException
 import|;
 end_import
 begin_import
@@ -517,6 +515,8 @@ operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
+operator|.
+name|FakeIOException
 import|;
 end_import
 begin_import
@@ -594,7 +594,9 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TestUtil
+name|LuceneTestCase
+operator|.
+name|SuppressCodecs
 import|;
 end_import
 begin_import
@@ -607,9 +609,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
-operator|.
-name|SuppressCodecs
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -11988,6 +11988,9 @@ specifier|protected
 name|void
 name|handleMergeException
 parameter_list|(
+name|Directory
+name|dir
+parameter_list|,
 name|Throwable
 name|exc
 parameter_list|)
@@ -12007,6 +12010,8 @@ name|super
 operator|.
 name|handleMergeException
 argument_list|(
+name|dir
+argument_list|,
 name|exc
 argument_list|)
 expr_stmt|;
@@ -12035,16 +12040,6 @@ argument_list|,
 name|cms
 operator|.
 name|getMaxThreadCount
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|suppressFakeIOE
-operator|.
-name|setMergeThreadPriority
-argument_list|(
-name|cms
-operator|.
-name|getMergeThreadPriority
 argument_list|()
 argument_list|)
 expr_stmt|;

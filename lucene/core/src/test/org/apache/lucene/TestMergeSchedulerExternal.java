@@ -317,14 +317,6 @@ argument_list|)
 decl_stmt|;
 name|thread
 operator|.
-name|setThreadPriority
-argument_list|(
-name|getMergeThreadPriority
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|thread
-operator|.
 name|setDaemon
 argument_list|(
 literal|true
@@ -348,6 +340,9 @@ specifier|protected
 name|void
 name|handleMergeException
 parameter_list|(
+name|Directory
+name|dir
+parameter_list|,
 name|Throwable
 name|t
 parameter_list|)
@@ -357,6 +352,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+empty_stmt|;
 annotation|@
 name|Override
 DECL|method|doMerge
@@ -364,6 +360,9 @@ specifier|protected
 name|void
 name|doMerge
 parameter_list|(
+name|IndexWriter
+name|writer
+parameter_list|,
 name|MergePolicy
 operator|.
 name|OneMerge
@@ -380,6 +379,8 @@ name|super
 operator|.
 name|doMerge
 argument_list|(
+name|writer
+argument_list|,
 name|merge
 argument_list|)
 expr_stmt|;
@@ -704,12 +705,7 @@ operator|+
 name|merge
 operator|.
 name|segString
-argument_list|(
-name|writer
-operator|.
-name|getDirectory
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

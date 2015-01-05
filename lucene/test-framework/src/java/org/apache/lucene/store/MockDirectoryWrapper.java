@@ -2905,13 +2905,6 @@ argument_list|)
 operator|==
 literal|0
 operator|)
-operator|&&
-operator|!
-operator|(
-name|in
-operator|instanceof
-name|RateLimitedDirectoryWrapper
-operator|)
 condition|)
 block|{
 if|if

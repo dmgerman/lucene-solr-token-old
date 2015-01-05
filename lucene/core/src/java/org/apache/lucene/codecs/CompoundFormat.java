@@ -42,21 +42,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MergeState
-operator|.
-name|CheckAbort
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|SegmentInfo
 import|;
 end_import
@@ -124,7 +109,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**    * Packs the provided files into a compound format.    */
-comment|// TODO: get checkAbort out of here, and everywhere, and have iw do it at a higher level
 DECL|method|write
 specifier|public
 specifier|abstract
@@ -142,9 +126,6 @@ argument_list|<
 name|String
 argument_list|>
 name|files
-parameter_list|,
-name|CheckAbort
-name|checkAbort
 parameter_list|,
 name|IOContext
 name|context

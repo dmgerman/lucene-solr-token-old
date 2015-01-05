@@ -2462,12 +2462,6 @@ name|infoStream
 argument_list|,
 name|directory
 argument_list|,
-name|MergeState
-operator|.
-name|CheckAbort
-operator|.
-name|NONE
-argument_list|,
 name|newSegment
 operator|.
 name|info

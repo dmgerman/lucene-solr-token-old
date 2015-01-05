@@ -2634,6 +2634,9 @@ specifier|protected
 name|void
 name|handleMergeException
 parameter_list|(
+name|Directory
+name|dir
+parameter_list|,
 name|Throwable
 name|exc
 parameter_list|)
@@ -2700,6 +2703,8 @@ name|super
 operator|.
 name|handleMergeException
 argument_list|(
+name|dir
+argument_list|,
 name|exc
 argument_list|)
 expr_stmt|;
@@ -2728,16 +2733,6 @@ argument_list|,
 name|cms
 operator|.
 name|getMaxThreadCount
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|suppressFakeFail
-operator|.
-name|setMergeThreadPriority
-argument_list|(
-name|cms
-operator|.
-name|getMergeThreadPriority
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -134,8 +134,6 @@ operator|.
 name|analysis
 operator|.
 name|Analyzer
-operator|.
-name|TokenStreamComponents
 import|;
 end_import
 begin_import
@@ -149,6 +147,8 @@ operator|.
 name|analysis
 operator|.
 name|Analyzer
+operator|.
+name|TokenStreamComponents
 import|;
 end_import
 begin_import
@@ -2563,6 +2563,9 @@ specifier|protected
 name|void
 name|handleMergeException
 parameter_list|(
+name|Directory
+name|dir
+parameter_list|,
 name|Throwable
 name|exc
 parameter_list|)

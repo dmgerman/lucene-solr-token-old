@@ -28,6 +28,7 @@ comment|/**  * A {@link RateLimiter rate limiting} {@link IndexOutput}  *   * @l
 end_comment
 begin_class
 DECL|class|RateLimitedIndexOutput
+specifier|public
 specifier|final
 class|class
 name|RateLimitedIndexOutput
@@ -59,6 +60,7 @@ name|long
 name|currentMinPauseCheckBytes
 decl_stmt|;
 DECL|method|RateLimitedIndexOutput
+specifier|public
 name|RateLimitedIndexOutput
 parameter_list|(
 specifier|final
@@ -220,6 +222,8 @@ specifier|private
 name|void
 name|checkRate
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

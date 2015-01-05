@@ -249,7 +249,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FSLockFactory
+name|IOContext
 import|;
 end_import
 begin_import
@@ -262,7 +262,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IOContext
+name|MergeInfo
 import|;
 end_import
 begin_import
@@ -372,7 +372,7 @@ name|Path
 argument_list|>
 name|files
 decl_stmt|;
-comment|/** Set the test case. This test case needs      *  a few text files created in the current working directory.      */
+comment|/** Set the test case. This test case needs    *  a few text files created in the current working directory.    */
 annotation|@
 name|Override
 DECL|method|setUp
@@ -567,7 +567,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** This test executes a number of merges and compares the contents of      *  the segments created when using compound file or not using one.      *      *  TODO: the original test used to print the segment contents to System.out      *        for visual validation. To have the same effect, a new method      *        checkSegment(String name, ...) should be created that would      *        assert various things about the segment.      */
+comment|/** This test executes a number of merges and compares the contents of    *  the segments created when using compound file or not using one.    *    *  TODO: the original test used to print the segment contents to System.out    *        for visual validation. To have the same effect, a new method    *        checkSegment(String name, ...) should be created that would    *        assert various things about the segment.    */
 DECL|method|testIndexAndMerge
 specifier|public
 name|void
@@ -1156,6 +1156,25 @@ name|newIOContext
 argument_list|(
 name|random
 argument_list|()
+argument_list|,
+operator|new
+name|IOContext
+argument_list|(
+operator|new
+name|MergeInfo
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|false
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|SegmentReader
@@ -1268,12 +1287,6 @@ argument_list|()
 argument_list|,
 name|trackingDir
 argument_list|,
-name|MergeState
-operator|.
-name|CheckAbort
-operator|.
-name|NONE
-argument_list|,
 operator|new
 name|FieldInfos
 operator|.
@@ -1338,12 +1351,6 @@ name|getDefault
 argument_list|()
 argument_list|,
 name|dir
-argument_list|,
-name|MergeState
-operator|.
-name|CheckAbort
-operator|.
-name|NONE
 argument_list|,
 name|si
 argument_list|,
