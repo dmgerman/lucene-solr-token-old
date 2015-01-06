@@ -358,7 +358,7 @@ control|)
 block|{
 name|group
 operator|.
-name|collector
+name|leafCollector
 operator|.
 name|setScorer
 argument_list|(
@@ -406,7 +406,7 @@ operator|++
 expr_stmt|;
 name|group
 operator|.
-name|collector
+name|leafCollector
 operator|.
 name|collect
 argument_list|(
@@ -459,6 +459,10 @@ name|values
 argument_list|()
 control|)
 block|{
+name|group
+operator|.
+name|leafCollector
+operator|=
 name|group
 operator|.
 name|collector
@@ -688,6 +692,11 @@ argument_list|<
 name|?
 argument_list|>
 name|collector
+decl_stmt|;
+DECL|field|leafCollector
+specifier|public
+name|LeafCollector
+name|leafCollector
 decl_stmt|;
 DECL|method|SearchGroupDocs
 specifier|public

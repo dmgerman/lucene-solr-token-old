@@ -83,7 +83,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FieldComparator
+name|SimpleFieldComparator
 import|;
 end_import
 begin_import
@@ -124,7 +124,7 @@ specifier|final
 class|class
 name|SlowCollatedStringComparator
 extends|extends
-name|FieldComparator
+name|SimpleFieldComparator
 argument_list|<
 name|String
 argument_list|>
@@ -441,13 +441,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|setNextReader
-specifier|public
-name|FieldComparator
-argument_list|<
-name|String
-argument_list|>
-name|setNextReader
+DECL|method|doSetNextReader
+specifier|protected
+name|void
+name|doSetNextReader
 parameter_list|(
 name|LeafReaderContext
 name|context
@@ -483,9 +480,6 @@ argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override

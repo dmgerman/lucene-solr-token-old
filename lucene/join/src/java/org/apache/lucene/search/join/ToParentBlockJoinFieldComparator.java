@@ -72,6 +72,32 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|LeafFieldComparator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SimpleFieldComparator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BitDocIdSet
@@ -100,11 +126,14 @@ specifier|abstract
 class|class
 name|ToParentBlockJoinFieldComparator
 extends|extends
-name|FieldComparator
+name|SimpleFieldComparator
 argument_list|<
 name|Object
 argument_list|>
+implements|implements
+name|LeafFieldComparator
 block|{
+comment|// repeat LeafFieldComparator for javadocs
 DECL|field|parentFilter
 specifier|private
 specifier|final
@@ -128,6 +157,10 @@ argument_list|<
 name|Object
 argument_list|>
 name|wrappedComparator
+decl_stmt|;
+DECL|field|wrappedLeafComparator
+name|LeafFieldComparator
+name|wrappedLeafComparator
 decl_stmt|;
 DECL|field|parentDocuments
 name|BitSet
@@ -217,7 +250,7 @@ name|int
 name|slot
 parameter_list|)
 block|{
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|setBottom
 argument_list|(
@@ -246,13 +279,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setNextReader
-specifier|public
-name|FieldComparator
-argument_list|<
-name|Object
-argument_list|>
-name|setNextReader
+DECL|method|doSetNextReader
+specifier|protected
+name|void
+name|doSetNextReader
 parameter_list|(
 name|LeafReaderContext
 name|context
@@ -324,18 +354,15 @@ name|bits
 argument_list|()
 expr_stmt|;
 block|}
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|=
 name|wrappedComparator
 operator|.
-name|setNextReader
+name|getLeafComparator
 argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override
@@ -366,8 +393,10 @@ class|class
 name|Lowest
 extends|extends
 name|ToParentBlockJoinFieldComparator
+implements|implements
+name|LeafFieldComparator
 block|{
-comment|/**      * Create ToParentBlockJoinFieldComparator.Lowest      *      * @param wrappedComparator The {@link FieldComparator} on the child / nested level.      * @param parentFilter Filter that identifies the parent documents.      * @param childFilter Filter that defines which child / nested documents participates in sorting.      * @param spareSlot The extra slot inside the wrapped comparator that is used to compare which nested document      *                  inside the parent document scope is most competitive.      */
+comment|/**      * Create ToParentBlockJoinFieldComparator.Lowest      *      * @param wrappedComparator The {@link LeafFieldComparator} on the child / nested level.      * @param parentFilter Filter that identifies the parent documents.      * @param childFilter Filter that defines which child / nested documents participates in sorting.      * @param spareSlot The extra slot inside the wrapped comparator that is used to compare which nested document      *                  inside the parent document scope is most competitive.      */
 DECL|method|Lowest
 specifier|public
 name|Lowest
@@ -478,7 +507,7 @@ comment|// We only need to emit a single cmp value for any matching child doc
 name|int
 name|cmp
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareBottom
 argument_list|(
@@ -532,7 +561,7 @@ block|}
 name|int
 name|cmp1
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareBottom
 argument_list|(
@@ -640,7 +669,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -649,7 +678,7 @@ argument_list|,
 name|childDoc
 argument_list|)
 expr_stmt|;
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -689,7 +718,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -712,7 +741,7 @@ operator|<
 literal|0
 condition|)
 block|{
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -726,11 +755,6 @@ block|}
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|compareTop
 specifier|public
 name|int
@@ -807,7 +831,7 @@ comment|// We only need to emit a single cmp value for any matching child doc
 name|int
 name|cmp
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareBottom
 argument_list|(
@@ -861,7 +885,7 @@ block|}
 name|int
 name|cmp1
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareTop
 argument_list|(
@@ -906,8 +930,10 @@ class|class
 name|Highest
 extends|extends
 name|ToParentBlockJoinFieldComparator
+implements|implements
+name|LeafFieldComparator
 block|{
-comment|/**      * Create ToParentBlockJoinFieldComparator.Highest      *      * @param wrappedComparator The {@link FieldComparator} on the child / nested level.      * @param parentFilter Filter that identifies the parent documents.      * @param childFilter Filter that defines which child / nested documents participates in sorting.      * @param spareSlot The extra slot inside the wrapped comparator that is used to compare which nested document      *                  inside the parent document scope is most competitive.      */
+comment|/**      * Create ToParentBlockJoinFieldComparator.Highest      *      * @param wrappedComparator The {@link LeafFieldComparator} on the child / nested level.      * @param parentFilter Filter that identifies the parent documents.      * @param childFilter Filter that defines which child / nested documents participates in sorting.      * @param spareSlot The extra slot inside the wrapped comparator that is used to compare which nested document      *                  inside the parent document scope is most competitive.      */
 DECL|method|Highest
 specifier|public
 name|Highest
@@ -1016,7 +1042,7 @@ block|}
 name|int
 name|cmp
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareBottom
 argument_list|(
@@ -1070,7 +1096,7 @@ block|}
 name|int
 name|cmp1
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareBottom
 argument_list|(
@@ -1177,7 +1203,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -1186,7 +1212,7 @@ argument_list|,
 name|childDoc
 argument_list|)
 expr_stmt|;
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -1226,7 +1252,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -1249,7 +1275,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|copy
 argument_list|(
@@ -1263,11 +1289,6 @@ block|}
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|compareTop
 specifier|public
 name|int
@@ -1342,7 +1363,7 @@ block|}
 name|int
 name|cmp
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareBottom
 argument_list|(
@@ -1396,7 +1417,7 @@ block|}
 name|int
 name|cmp1
 init|=
-name|wrappedComparator
+name|wrappedLeafComparator
 operator|.
 name|compareTop
 argument_list|(

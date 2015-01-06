@@ -449,7 +449,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FieldComparator
+name|SimpleFieldComparator
 argument_list|<
 name|Integer
 argument_list|>
@@ -587,9 +587,9 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-specifier|public
-name|FieldComparator
-name|setNextReader
+specifier|protected
+name|void
+name|doSetNextReader
 parameter_list|(
 name|LeafReaderContext
 name|context
@@ -604,9 +604,6 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override
