@@ -2875,14 +2875,6 @@ decl_stmt|;
 if|if
 condition|(
 name|indexDirChange
-operator|||
-operator|!
-name|coreConfig
-operator|.
-name|getSolrConfig
-argument_list|()
-operator|.
-name|nrtMode
 condition|)
 block|{
 comment|// the directory is changing, don't pass on state
@@ -2970,43 +2962,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|core
-return|;
-block|}
-comment|// gets a non-caching searcher
-DECL|method|newSearcher
-specifier|public
-name|SolrIndexSearcher
-name|newSearcher
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|SolrIndexSearcher
-argument_list|(
-name|this
-argument_list|,
-name|getNewIndexDir
-argument_list|()
-argument_list|,
-name|getLatestSchema
-argument_list|()
-argument_list|,
-name|getSolrConfig
-argument_list|()
-operator|.
-name|indexConfig
-argument_list|,
-name|name
-argument_list|,
-literal|false
-argument_list|,
-name|directoryFactory
-argument_list|)
 return|;
 block|}
 DECL|method|initDirectoryFactory
@@ -5028,15 +4983,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|getSolrConfig
-argument_list|()
-operator|.
-name|nrtMode
-condition|)
-block|{
-comment|// if in NRT mode, need to open from the previous writer
 return|return
 name|indexReaderFactory
 operator|.
@@ -5047,24 +4993,6 @@ argument_list|,
 name|core
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-comment|// if not NRT, need to create a new reader from the directory
-return|return
-name|indexReaderFactory
-operator|.
-name|newReader
-argument_list|(
-name|iw
-operator|.
-name|getDirectory
-argument_list|()
-argument_list|,
-name|core
-argument_list|)
-return|;
-block|}
 block|}
 block|}
 expr_stmt|;
@@ -7637,15 +7565,6 @@ name|newestSearcher
 init|=
 literal|null
 decl_stmt|;
-name|boolean
-name|nrt
-init|=
-name|solrConfig
-operator|.
-name|nrtMode
-operator|&&
-name|updateHandlerReopens
-decl_stmt|;
 name|openSearcherLock
 operator|.
 name|lock
@@ -7673,7 +7592,7 @@ comment|// if it's not a normal near-realtime update, check that paths haven't c
 if|if
 condition|(
 operator|!
-name|nrt
+name|updateHandlerReopens
 condition|)
 block|{
 name|indexDirFile
@@ -7729,7 +7648,7 @@ operator|!=
 literal|null
 operator|&&
 operator|(
-name|nrt
+name|updateHandlerReopens
 operator|||
 name|indexDirFile
 operator|.
@@ -7779,10 +7698,6 @@ condition|(
 name|writer
 operator|!=
 literal|null
-operator|&&
-name|solrConfig
-operator|.
-name|nrtMode
 condition|)
 block|{
 comment|// if in NRT mode, open from the writer
@@ -7806,7 +7721,6 @@ block|}
 else|else
 block|{
 comment|// verbose("start reopen without writer, reader=", currentReader);
-comment|// if not in NRT mode, just re-open the reader
 name|newReader
 operator|=
 name|DirectoryReader
@@ -8017,13 +7931,7 @@ name|directoryFactory
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|solrConfig
-operator|.
-name|nrtMode
-condition|)
+else|else
 block|{
 name|RefCounted
 argument_list|<
@@ -8104,36 +8012,6 @@ argument_list|,
 name|directoryFactory
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// normal open that happens at startup
-comment|// verbose("non-reopen START:");
-name|tmp
-operator|=
-operator|new
-name|SolrIndexSearcher
-argument_list|(
-name|this
-argument_list|,
-name|newIndexDir
-argument_list|,
-name|getLatestSchema
-argument_list|()
-argument_list|,
-name|getSolrConfig
-argument_list|()
-operator|.
-name|indexConfig
-argument_list|,
-literal|"main"
-argument_list|,
-literal|true
-argument_list|,
-name|directoryFactory
-argument_list|)
-expr_stmt|;
-comment|// verbose("non-reopen DONE: searcher=",tmp);
 block|}
 block|}
 name|List
