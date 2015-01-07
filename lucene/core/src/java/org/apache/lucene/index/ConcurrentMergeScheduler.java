@@ -1671,6 +1671,9 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|updateMergeThreads
+argument_list|()
+expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -2394,7 +2397,7 @@ name|void
 name|updateIOThrottle
 parameter_list|(
 name|OneMerge
-name|merge
+name|newMerge
 parameter_list|)
 throws|throws
 name|IOException
@@ -2413,7 +2416,7 @@ name|mergeMB
 init|=
 name|bytesToMB
 argument_list|(
-name|merge
+name|newMerge
 operator|.
 name|estimatedMergeBytes
 argument_list|)
@@ -2447,7 +2450,7 @@ name|isBacklog
 argument_list|(
 name|now
 argument_list|,
-name|merge
+name|newMerge
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -2689,10 +2692,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|targetMBPerSecChanged
-argument_list|()
+name|newMerge
+operator|.
+name|rateLimiter
+operator|.
+name|setMBPerSec
+argument_list|(
+name|targetMBPerSec
+argument_list|)
 expr_stmt|;
-name|updateMergeThreads
+name|targetMBPerSecChanged
 argument_list|()
 expr_stmt|;
 block|}
