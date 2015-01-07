@@ -501,7 +501,7 @@ literal|false
 return|;
 block|}
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|method|apply
