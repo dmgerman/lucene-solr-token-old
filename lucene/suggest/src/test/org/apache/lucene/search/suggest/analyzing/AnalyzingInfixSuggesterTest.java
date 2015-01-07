@@ -1127,7 +1127,7 @@ operator|.
 name|highlightKey
 argument_list|)
 expr_stmt|;
-name|testConstructorDefatuls
+name|testConstructorDefaults
 argument_list|(
 name|suggester
 argument_list|,
@@ -1140,7 +1140,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|testConstructorDefatuls
+name|testConstructorDefaults
 argument_list|(
 name|suggester
 argument_list|,
@@ -1153,7 +1153,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|testConstructorDefatuls
+name|testConstructorDefaults
 argument_list|(
 name|suggester
 argument_list|,
@@ -1166,7 +1166,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|testConstructorDefatuls
+name|testConstructorDefaults
 argument_list|(
 name|suggester
 argument_list|,
@@ -1185,10 +1185,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testConstructorDefatuls
+DECL|method|testConstructorDefaults
 specifier|private
 name|void
-name|testConstructorDefatuls
+name|testConstructorDefaults
 parameter_list|(
 name|AnalyzingInfixSuggester
 name|suggester
