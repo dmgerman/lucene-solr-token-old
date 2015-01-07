@@ -2653,7 +2653,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|readers
-name|IndexReader
+name|DirectoryReader
 index|[]
 name|readers
 decl_stmt|;
@@ -2789,7 +2789,7 @@ expr_stmt|;
 name|readers
 operator|=
 operator|new
-name|IndexReader
+name|DirectoryReader
 index|[
 name|numDirs
 index|]
@@ -3190,10 +3190,12 @@ break|break;
 case|case
 literal|2
 case|:
-name|mainWriter
+name|TestUtil
 operator|.
-name|addIndexes
+name|addIndexesSlowly
 argument_list|(
+name|mainWriter
+argument_list|,
 name|readers
 argument_list|)
 expr_stmt|;

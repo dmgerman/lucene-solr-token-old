@@ -6029,7 +6029,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r1
 init|=
 name|DirectoryReader
@@ -6039,10 +6039,12 @@ argument_list|(
 name|dir2
 argument_list|)
 decl_stmt|;
-name|writer
+name|TestUtil
 operator|.
-name|addIndexes
+name|addIndexesSlowly
 argument_list|(
+name|writer
+argument_list|,
 name|r1
 argument_list|,
 name|r1

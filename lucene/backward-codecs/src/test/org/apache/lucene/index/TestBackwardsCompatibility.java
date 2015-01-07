@@ -3275,7 +3275,7 @@ range|:
 name|oldNames
 control|)
 block|{
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|DirectoryReader
@@ -3315,10 +3315,12 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|w
+name|TestUtil
 operator|.
-name|addIndexes
+name|addIndexesSlowly
 argument_list|(
+name|w
+argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;

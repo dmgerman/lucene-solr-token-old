@@ -460,7 +460,7 @@ literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|LeafReader
 name|reader
 init|=
 name|SortingLeafReader
