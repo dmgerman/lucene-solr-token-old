@@ -1527,6 +1527,7 @@ condition|(
 name|isDir
 condition|)
 block|{
+comment|// TODO: LUCENE-6169 - Fix this assert once Java 9 problems are solved!
 assert|assert
 operator|(
 name|Constants
@@ -1539,6 +1540,10 @@ name|MAC_OS_X
 operator|)
 operator|==
 literal|false
+operator|||
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
 operator|:
 literal|"On Linux and MacOSX fsyncing a directory should not throw IOException, "
 operator|+
