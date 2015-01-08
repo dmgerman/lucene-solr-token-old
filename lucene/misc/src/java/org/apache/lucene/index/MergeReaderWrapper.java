@@ -161,7 +161,7 @@ name|fields
 init|=
 name|in
 operator|.
-name|fields
+name|getPostingsReader
 argument_list|()
 decl_stmt|;
 if|if

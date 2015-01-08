@@ -363,10 +363,6 @@ name|splitter
 operator|.
 name|split
 argument_list|(
-name|Version
-operator|.
-name|LATEST
-argument_list|,
 name|input
 argument_list|,
 name|dirs
@@ -764,10 +760,6 @@ name|splitter
 operator|.
 name|split
 argument_list|(
-name|Version
-operator|.
-name|LATEST
-argument_list|,
 name|input
 argument_list|,
 name|dirs

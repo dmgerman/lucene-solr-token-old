@@ -527,7 +527,7 @@ parameter_list|,
 name|Directory
 name|target
 parameter_list|,
-name|IndexReader
+name|DirectoryReader
 name|reader
 parameter_list|,
 name|Filter
@@ -571,12 +571,12 @@ name|leaves
 argument_list|()
 decl_stmt|;
 specifier|final
-name|LeafReader
+name|CodecReader
 index|[]
 name|subReaders
 init|=
 operator|new
-name|LeafReader
+name|CodecReader
 index|[
 name|leaves
 operator|.
@@ -658,7 +658,7 @@ specifier|static
 class|class
 name|DocumentFilteredLeafIndexReader
 extends|extends
-name|FilterLeafReader
+name|FilterCodecReader
 block|{
 DECL|field|liveDocs
 specifier|final
@@ -686,8 +686,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// our cast is ok, since we open the Directory.
 name|super
 argument_list|(
+operator|(
+name|CodecReader
+operator|)
 name|context
 operator|.
 name|reader

@@ -7286,7 +7286,7 @@ operator|.
 name|addIndexes
 argument_list|(
 operator|new
-name|LeafReader
+name|CodecReader
 index|[
 literal|0
 index|]
@@ -7432,7 +7432,12 @@ name|w
 operator|.
 name|addIndexes
 argument_list|(
+name|SlowCodecReaderWrapper
+operator|.
+name|wrap
+argument_list|(
 name|allDeletedReader
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|w

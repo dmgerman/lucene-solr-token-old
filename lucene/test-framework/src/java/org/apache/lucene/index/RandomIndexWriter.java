@@ -1131,7 +1131,7 @@ specifier|public
 name|void
 name|addIndexes
 parameter_list|(
-name|LeafReader
+name|CodecReader
 modifier|...
 name|readers
 parameter_list|)
