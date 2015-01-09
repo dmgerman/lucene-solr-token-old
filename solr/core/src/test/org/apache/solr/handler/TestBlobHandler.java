@@ -497,6 +497,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|CollectionAdminResponse
 name|response1
 decl_stmt|;
@@ -883,6 +885,15 @@ argument_list|,
 name|bytarr
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|client
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|createSysColl
 specifier|public

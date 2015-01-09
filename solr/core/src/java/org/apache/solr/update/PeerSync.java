@@ -1805,6 +1805,11 @@ name|getShardAddress
 argument_list|()
 operator|+
 literal|", counting as success"
+argument_list|,
+name|srsp
+operator|.
+name|getException
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1860,6 +1865,11 @@ name|getShardAddress
 argument_list|()
 operator|+
 literal|", counting as success"
+argument_list|,
+name|srsp
+operator|.
+name|getException
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1916,6 +1926,11 @@ operator|+
 literal|", counting as success. "
 operator|+
 literal|"Perhaps /get is not registered?"
+argument_list|,
+name|srsp
+operator|.
+name|getException
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

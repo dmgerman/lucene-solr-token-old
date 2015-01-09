@@ -444,6 +444,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 for|for
 control|(
 name|int
@@ -666,6 +668,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
+name|client
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|testTaskExclusivity
 specifier|private
 name|void
@@ -697,6 +708,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|Create
 name|createCollectionRequest
 init|=
@@ -990,6 +1003,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
+name|client
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|testDeduplicationOfSubmittedTasks
 specifier|private
 name|void
@@ -1021,6 +1043,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|Create
 name|createCollectionRequest
 init|=
@@ -1241,6 +1265,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
+name|client
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|testLongAndShortRunningParallelApiCalls
 specifier|private
 name|void
@@ -1336,8 +1369,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 name|SolrClient
 name|client
 init|=
@@ -1359,6 +1390,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|SplitShard
 name|splitShardRequest
 init|=
@@ -1553,6 +1586,14 @@ name|warn
 argument_list|(
 literal|"Indexing thread interrupted."
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|client
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 block|}

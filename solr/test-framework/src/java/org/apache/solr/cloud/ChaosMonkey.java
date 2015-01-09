@@ -1225,6 +1225,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|cores
+operator|.
+name|isZooKeeperAware
+argument_list|()
+condition|)
+block|{
 name|int
 name|zklocalport
 init|=
@@ -1257,6 +1265,7 @@ argument_list|(
 name|zklocalport
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -3033,6 +3042,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|cores
+operator|.
+name|isZooKeeperAware
+argument_list|()
+condition|)
+block|{
 name|int
 name|zklocalport
 init|=
@@ -3065,6 +3082,7 @@ argument_list|(
 name|zklocalport
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
