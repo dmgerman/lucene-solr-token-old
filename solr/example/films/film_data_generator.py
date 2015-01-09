@@ -663,45 +663,6 @@ op|'='
 op|'['
 op|']'
 newline|'\n'
-comment|'#Adding 1 entry manually to play nice with schemaless mode'
-nl|'\n'
-DECL|variable|firstFilm
-name|'firstFilm'
-op|'='
-op|'{'
-string|"'directed_by'"
-op|':'
-op|'['
-string|"'Wes Anderson'"
-op|']'
-op|','
-string|"'initial_release_date'"
-op|':'
-string|"'2014-03-28'"
-op|','
-string|"'genre'"
-op|':'
-op|'['
-string|"'Comedy'"
-op|']'
-op|','
-nl|'\n'
-string|"'name'"
-op|':'
-string|"'The Grand Budapest Hotel'"
-op|','
-string|"'id'"
-op|':'
-string|"'/en/001'"
-op|'}'
-newline|'\n'
-name|'filmlist'
-op|'.'
-name|'append'
-op|'('
-name|'firstFilm'
-op|')'
-newline|'\n'
 DECL|variable|cursor
 name|'cursor'
 op|'='
