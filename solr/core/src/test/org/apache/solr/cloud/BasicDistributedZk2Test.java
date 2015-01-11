@@ -2061,7 +2061,7 @@ argument_list|)
 expr_stmt|;
 name|waitForThingsToLevelOut
 argument_list|(
-literal|45
+literal|60
 argument_list|)
 expr_stmt|;
 name|Thread
