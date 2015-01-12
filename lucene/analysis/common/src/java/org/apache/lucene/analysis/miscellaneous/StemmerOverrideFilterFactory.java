@@ -227,9 +227,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|assureMatchVersion
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|String

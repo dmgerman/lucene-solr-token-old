@@ -452,9 +452,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|assureMatchVersion
-argument_list|()
-expr_stmt|;
 name|tokArgs
 operator|.
 name|put
