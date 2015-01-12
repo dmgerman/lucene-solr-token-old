@@ -811,7 +811,7 @@ name|put
 argument_list|(
 literal|"xml"
 argument_list|,
-literal|"text/xml"
+literal|"application/xml"
 argument_list|)
 expr_stmt|;
 name|mimeMap
@@ -4337,7 +4337,7 @@ name|type
 operator|.
 name|equals
 argument_list|(
-literal|"text/xml"
+literal|"application/xml"
 argument_list|)
 operator|||
 name|type
