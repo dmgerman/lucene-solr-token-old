@@ -6301,11 +6301,11 @@ string|"'bin/solr'"
 op|','
 string|"'create_core'"
 op|','
-string|"'-n'"
+string|"'-c'"
 op|','
 string|"'techproducts'"
 op|','
-string|"'-c'"
+string|"'-d'"
 op|','
 string|"'sample_techproducts_configs'"
 op|']'
