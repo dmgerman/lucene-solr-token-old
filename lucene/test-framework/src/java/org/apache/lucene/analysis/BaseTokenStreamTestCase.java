@@ -1494,9 +1494,6 @@ operator|+
 literal|"); extra token="
 operator|+
 name|termAtt
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
