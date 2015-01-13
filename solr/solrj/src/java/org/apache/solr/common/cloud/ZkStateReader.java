@@ -2590,11 +2590,6 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
-assert|assert
-name|live
-operator|!=
-literal|null
-assert|;
 if|if
 condition|(
 name|live
