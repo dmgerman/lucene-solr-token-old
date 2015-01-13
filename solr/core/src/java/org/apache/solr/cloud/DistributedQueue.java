@@ -645,13 +645,10 @@ condition|)
 block|{
 try|try
 block|{
-name|ZkNodeProps
-name|message
+name|byte
+index|[]
+name|data
 init|=
-name|ZkNodeProps
-operator|.
-name|load
-argument_list|(
 name|zookeeper
 operator|.
 name|getData
@@ -668,6 +665,22 @@ literal|null
 argument_list|,
 literal|true
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|data
+operator|!=
+literal|null
+condition|)
+block|{
+name|ZkNodeProps
+name|message
+init|=
+name|ZkNodeProps
+operator|.
+name|load
+argument_list|(
+name|data
 argument_list|)
 decl_stmt|;
 if|if
@@ -684,7 +697,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|">>>> {}"
 argument_list|,
@@ -717,6 +730,7 @@ condition|)
 return|return
 literal|true
 return|;
+block|}
 block|}
 block|}
 catch|catch
