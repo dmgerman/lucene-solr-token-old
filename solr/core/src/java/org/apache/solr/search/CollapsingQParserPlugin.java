@@ -10774,7 +10774,7 @@ block|}
 block|}
 block|}
 DECL|class|MergeBoost
-specifier|private
+specifier|static
 class|class
 name|MergeBoost
 block|{
