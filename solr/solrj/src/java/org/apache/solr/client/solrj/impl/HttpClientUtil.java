@@ -1149,6 +1149,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// if the request is not fully sent, we retry
+comment|// streaming updates are not a problem, because they are not retryable
 name|httpClient
 operator|.
 name|setHttpRequestRetryHandler
@@ -1156,6 +1158,24 @@ argument_list|(
 operator|new
 name|DefaultHttpRequestRetryHandler
 argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|handleAsIdempotent
+parameter_list|(
+specifier|final
+name|HttpRequest
+name|request
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+comment|// we can't tell if a Solr request is idempotent
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
