@@ -1441,7 +1441,7 @@ expr_stmt|;
 block|}
 DECL|method|assertNumFound
 specifier|protected
-name|void
+name|QueryResponse
 name|assertNumFound
 parameter_list|(
 name|String
@@ -1508,6 +1508,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|rsp
+return|;
 block|}
 block|}
 end_class
