@@ -264,17 +264,6 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|scoresDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
 name|float
 name|getValueForNormalization
 parameter_list|()
@@ -536,9 +525,6 @@ parameter_list|(
 name|LeafReaderContext
 name|context
 parameter_list|,
-name|boolean
-name|scoreDocsInOrder
-parameter_list|,
 name|Bits
 name|acceptDocs
 parameter_list|)
@@ -582,8 +568,6 @@ argument_list|(
 name|context
 argument_list|,
 name|weight
-argument_list|,
-name|scoreDocsInOrder
 argument_list|,
 name|filterDocIdSet
 argument_list|)
@@ -1743,9 +1727,6 @@ parameter_list|,
 name|Weight
 name|weight
 parameter_list|,
-name|boolean
-name|scoreDocsInOrder
-parameter_list|,
 name|DocIdSet
 name|docIdSet
 parameter_list|)
@@ -2185,10 +2166,6 @@ parameter_list|,
 name|Weight
 name|weight
 parameter_list|,
-name|boolean
-name|scoreDocsInOrder
-parameter_list|,
-comment|// ignored (we always top-score in order)
 name|DocIdSet
 name|docIdSet
 parameter_list|)
@@ -2220,8 +2197,6 @@ argument_list|(
 name|context
 argument_list|,
 name|weight
-argument_list|,
-name|scoreDocsInOrder
 argument_list|,
 name|docIdSet
 argument_list|)

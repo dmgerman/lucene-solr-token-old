@@ -576,19 +576,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|scoresDocsOutOfOrder
-parameter_list|()
-block|{
-comment|// TODO: would be nice if AssertingIndexSearcher
-comment|// confirmed this for us
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
 name|Scorer
 name|scorer
 parameter_list|(
@@ -616,9 +603,6 @@ name|bulkScorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|boolean
-name|scoreDocsInOrder
 parameter_list|,
 name|Bits
 name|acceptDocs

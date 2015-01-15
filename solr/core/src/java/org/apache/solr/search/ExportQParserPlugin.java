@@ -723,17 +723,6 @@ name|docId
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 return|;
 block|}

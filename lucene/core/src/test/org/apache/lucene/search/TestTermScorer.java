@@ -477,8 +477,6 @@ name|bulkScorer
 argument_list|(
 name|context
 argument_list|,
-literal|true
-argument_list|,
 name|context
 operator|.
 name|reader
@@ -626,17 +624,6 @@ name|context
 operator|.
 name|docBase
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 block|}
 argument_list|)

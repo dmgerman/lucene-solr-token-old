@@ -1233,8 +1233,6 @@ operator|.
 name|create
 argument_list|(
 name|maxDocsPerGroup
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1256,8 +1254,6 @@ argument_list|,
 name|needsScores
 argument_list|,
 name|needsScores
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1929,18 +1925,6 @@ name|doc
 expr_stmt|;
 comment|//System.out.println("        doc competes w/ top groups");
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|acceptsDocsOutOfOrder
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 annotation|@
 name|Override

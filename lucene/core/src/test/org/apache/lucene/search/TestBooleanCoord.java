@@ -5737,15 +5737,7 @@ argument_list|,
 literal|0.0001f
 argument_list|)
 expr_stmt|;
-comment|// test out-of-order (if supported)
-if|if
-condition|(
-name|weight
-operator|.
-name|scoresDocsOutOfOrder
-argument_list|()
-condition|)
-block|{
+comment|// test bulk scorer
 specifier|final
 name|AtomicBoolean
 name|seen
@@ -5772,8 +5764,6 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|null
 argument_list|)
@@ -5860,17 +5850,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 argument_list|,
 literal|1
@@ -5884,7 +5863,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// test the explanation
 name|Explanation
 name|expl

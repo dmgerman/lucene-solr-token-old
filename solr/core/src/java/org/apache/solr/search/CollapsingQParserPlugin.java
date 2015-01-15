@@ -2467,19 +2467,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|acceptsDocsOutOfOrder
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-comment|//Documents must be sent in order to this collector.
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|doSetNextReader
 specifier|protected
 name|void
@@ -3646,19 +3633,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|acceptsDocsOutOfOrder
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-comment|//Documents must be sent in order to this collector.
-return|return
-literal|false
-return|;
 block|}
 annotation|@
 name|Override

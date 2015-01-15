@@ -4358,8 +4358,6 @@ operator|.
 name|create
 argument_list|(
 name|groupDocsToCollect
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
@@ -4384,8 +4382,6 @@ argument_list|,
 name|needScores
 argument_list|,
 name|needScores
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

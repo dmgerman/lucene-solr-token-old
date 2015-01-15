@@ -10377,6 +10377,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|IndexSearcher
+name|searcher
+init|=
+operator|new
+name|ToParentBlockJoinIndexSearcher
+argument_list|(
+name|r
+argument_list|)
+decl_stmt|;
 name|Query
 name|childQuery
 init|=
@@ -10498,10 +10507,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|newSearcher
-argument_list|(
-name|r
-argument_list|)
+name|searcher
 operator|.
 name|search
 argument_list|(
@@ -10918,6 +10924,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|IndexSearcher
+name|searcher
+init|=
+operator|new
+name|ToParentBlockJoinIndexSearcher
+argument_list|(
+name|r
+argument_list|)
+decl_stmt|;
 comment|// never matches:
 name|Query
 name|childQuery
@@ -11040,10 +11055,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|newSearcher
-argument_list|(
-name|r
-argument_list|)
+name|searcher
 operator|.
 name|search
 argument_list|(
