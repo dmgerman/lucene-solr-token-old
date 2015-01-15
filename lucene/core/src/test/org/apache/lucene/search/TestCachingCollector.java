@@ -584,8 +584,6 @@ name|CachingCollector
 operator|.
 name|create
 argument_list|(
-literal|true
-argument_list|,
 name|cacheScores
 argument_list|,
 literal|50
