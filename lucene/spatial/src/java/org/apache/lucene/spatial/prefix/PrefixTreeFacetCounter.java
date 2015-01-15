@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.spatial.prefix.tree
+DECL|package|org.apache.lucene.spatial.prefix
 package|package
 name|org
 operator|.
@@ -11,8 +11,6 @@ operator|.
 name|spatial
 operator|.
 name|prefix
-operator|.
-name|tree
 package|;
 end_package
 begin_comment
@@ -130,7 +128,9 @@ name|spatial
 operator|.
 name|prefix
 operator|.
-name|AbstractVisitingPrefixTreeFilter
+name|tree
+operator|.
+name|Cell
 import|;
 end_import
 begin_import
@@ -145,7 +145,9 @@ name|spatial
 operator|.
 name|prefix
 operator|.
-name|PrefixTreeStrategy
+name|tree
+operator|.
+name|SpatialPrefixTree
 import|;
 end_import
 begin_import
