@@ -3772,6 +3772,15 @@ return|return
 name|numDirtyChunks
 return|;
 block|}
+DECL|method|getPackedIntsVersion
+name|int
+name|getPackedIntsVersion
+parameter_list|()
+block|{
+return|return
+name|packedIntsVersion
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|ramBytesUsed
