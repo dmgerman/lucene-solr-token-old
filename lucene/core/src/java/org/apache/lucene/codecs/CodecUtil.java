@@ -1363,7 +1363,7 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"codec footer mismatch: actual footer="
+literal|"codec footer mismatch (file truncated?): actual footer="
 operator|+
 name|magic
 operator|+
