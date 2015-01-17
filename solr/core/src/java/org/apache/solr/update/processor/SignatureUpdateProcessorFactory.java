@@ -678,7 +678,7 @@ decl_stmt|;
 name|boolean
 name|isPartialUpdate
 init|=
-name|DistributedUpdateProcessor
+name|AtomicUpdateDocumentMerger
 operator|.
 name|isAtomicUpdate
 argument_list|(

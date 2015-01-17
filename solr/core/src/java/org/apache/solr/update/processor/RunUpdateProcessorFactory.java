@@ -208,7 +208,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|DistributedUpdateProcessor
+name|AtomicUpdateDocumentMerger
 operator|.
 name|isAtomicUpdate
 argument_list|(
