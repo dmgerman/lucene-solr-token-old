@@ -3336,9 +3336,6 @@ decl_stmt|;
 name|UpdateShardHandler
 name|updateShardHandler
 decl_stmt|;
-name|String
-name|adminPath
-decl_stmt|;
 name|shardHandler
 operator|=
 name|cc
@@ -3354,13 +3351,6 @@ operator|=
 name|cc
 operator|.
 name|getUpdateShardHandler
-argument_list|()
-expr_stmt|;
-name|adminPath
-operator|=
-name|cc
-operator|.
-name|getAdminPath
 argument_list|()
 expr_stmt|;
 if|if
@@ -3388,7 +3378,9 @@ name|shardHandler
 argument_list|,
 name|updateShardHandler
 argument_list|,
-name|adminPath
+name|CoreContainer
+operator|.
+name|CORES_HANDLER_PATH
 argument_list|,
 name|zkStateReader
 argument_list|,
