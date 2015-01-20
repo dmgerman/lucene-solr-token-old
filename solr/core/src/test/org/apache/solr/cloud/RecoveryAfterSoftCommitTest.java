@@ -40,6 +40,17 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|client
 operator|.
 name|solrj
@@ -133,6 +144,10 @@ begin_comment
 comment|// See SOLR-6640
 end_comment
 begin_class
+annotation|@
+name|SolrTestCaseJ4
+operator|.
+name|SuppressSSL
 DECL|class|RecoveryAfterSoftCommitTest
 specifier|public
 class|class
