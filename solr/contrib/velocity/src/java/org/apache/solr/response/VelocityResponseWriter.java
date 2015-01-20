@@ -121,9 +121,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|hadoop
+name|commons
 operator|.
-name|util
+name|lang
 operator|.
 name|StringUtils
 import|;
@@ -1687,9 +1687,9 @@ name|StringUtils
 operator|.
 name|join
 argument_list|(
-literal|","
-argument_list|,
 name|loaders
+argument_list|,
+literal|','
 argument_list|)
 argument_list|)
 expr_stmt|;
