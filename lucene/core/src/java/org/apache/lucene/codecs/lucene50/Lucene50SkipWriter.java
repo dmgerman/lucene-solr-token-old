@@ -581,11 +581,7 @@ name|curDoc
 expr_stmt|;
 name|skipBuffer
 operator|.
-name|writeVInt
-argument_list|(
-call|(
-name|int
-call|)
+name|writeVLong
 argument_list|(
 name|curDocPointer
 operator|-
@@ -593,7 +589,6 @@ name|lastSkipDocPointer
 index|[
 name|level
 index|]
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|lastSkipDocPointer
@@ -610,11 +605,7 @@ condition|)
 block|{
 name|skipBuffer
 operator|.
-name|writeVInt
-argument_list|(
-call|(
-name|int
-call|)
+name|writeVLong
 argument_list|(
 name|curPosPointer
 operator|-
@@ -622,7 +613,6 @@ name|lastSkipPosPointer
 index|[
 name|level
 index|]
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|lastSkipPosPointer
@@ -661,11 +651,7 @@ condition|)
 block|{
 name|skipBuffer
 operator|.
-name|writeVInt
-argument_list|(
-call|(
-name|int
-call|)
+name|writeVLong
 argument_list|(
 name|curPayPointer
 operator|-
@@ -673,7 +659,6 @@ name|lastSkipPayPointer
 index|[
 name|level
 index|]
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|lastSkipPayPointer
