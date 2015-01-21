@@ -1105,15 +1105,9 @@ block|}
 catch|catch
 parameter_list|(
 name|IndexOutOfBoundsException
-name|e1
-parameter_list|)
-block|{
-comment|// Ignored.
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IllegalArgumentException
-name|e2
+name|e1
 parameter_list|)
 block|{
 comment|// Ignored.

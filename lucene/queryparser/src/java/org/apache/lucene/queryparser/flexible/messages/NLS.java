@@ -690,13 +690,7 @@ block|}
 catch|catch
 parameter_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// should not happen
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IllegalAccessException
 name|e
 parameter_list|)
