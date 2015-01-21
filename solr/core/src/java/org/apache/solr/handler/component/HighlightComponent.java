@@ -658,16 +658,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|highlighter
-operator|.
-name|initalize
-argument_list|(
-name|core
-operator|.
-name|getSolrConfig
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{

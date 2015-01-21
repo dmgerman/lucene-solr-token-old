@@ -72,32 +72,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|schema
-operator|.
-name|SchemaField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|search
-operator|.
-name|SortSpec
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|common
 operator|.
 name|SolrException
@@ -114,6 +88,19 @@ operator|.
 name|request
 operator|.
 name|SolrQueryRequest
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|schema
+operator|.
+name|SchemaField
 import|;
 end_import
 begin_import
@@ -324,12 +311,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"score desc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
@@ -391,12 +381,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"score aSc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|SortField
 index|[]
@@ -523,12 +516,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight dEsC"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -701,12 +697,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight desc,bday ASC"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -806,12 +805,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight top,bday asc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -910,12 +912,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight top,bday bottom"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1015,12 +1020,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight         DESC,            bday         asc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1094,12 +1102,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight desc,"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1143,12 +1154,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"pow(weight, 2) desc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1194,12 +1208,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"sum(product(r_f1,sum(d_f1,t_f1,1.0)),a_f1) asc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1242,12 +1259,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"pow(weight,                 2.0)         desc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1496,12 +1516,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight desc,"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1545,12 +1568,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"strdist(foo_s1, \"junk\", jw) desc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|flds
 operator|=
@@ -1594,12 +1620,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|""
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
@@ -1662,12 +1691,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight, desc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1689,12 +1721,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"w"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1716,12 +1751,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"weight desc, bday"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1742,12 +1780,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"pow(weight,,2) desc, bday asc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1768,12 +1809,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"pow() desc, bday asc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -1794,12 +1838,15 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 literal|"pow((weight,2) desc, bday asc"
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
