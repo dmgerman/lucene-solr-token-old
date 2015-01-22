@@ -4776,7 +4776,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|// flush (and commit if ac)
+comment|// flush
 if|if
 condition|(
 name|VERBOSE
@@ -4875,7 +4875,7 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
-comment|// add a doc (needed for the !ac case; see below)
+comment|// add a doc
 comment|// doc remains buffered
 if|if
 condition|(
