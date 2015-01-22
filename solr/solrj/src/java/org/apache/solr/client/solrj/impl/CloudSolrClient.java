@@ -5703,6 +5703,10 @@ name|locks
 operator|.
 name|get
 argument_list|(
+name|Math
+operator|.
+name|abs
+argument_list|(
 name|Hash
 operator|.
 name|murmurhash3_x86_32
@@ -5723,6 +5727,7 @@ name|locks
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 synchronized|synchronized
