@@ -5429,10 +5429,6 @@ name|CollectionThread
 extends|extends
 name|Thread
 block|{
-specifier|private
-name|String
-name|name
-decl_stmt|;
 specifier|public
 name|CollectionThread
 parameter_list|(
@@ -5440,11 +5436,10 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|name
-operator|=
-name|name
+argument_list|)
 expr_stmt|;
 block|}
 specifier|public
@@ -5506,7 +5501,8 @@ name|collectionName
 init|=
 literal|"awholynewstresscollection_"
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"_"
 operator|+
