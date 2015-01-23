@@ -55,6 +55,15 @@ operator|.
 name|CommonParams
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
 begin_class
 annotation|@
 name|SuppressSSL
@@ -84,11 +93,11 @@ argument_list|()
 return|;
 block|}
 annotation|@
-name|Override
-DECL|method|doTest
+name|Test
+DECL|method|test
 specifier|public
 name|void
-name|doTest
+name|test
 parameter_list|()
 throws|throws
 name|Exception
@@ -205,7 +214,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-comment|// destroy is not needed because tearDown method of base class does it.
+comment|// destroy is not needed because distribTearDown method of base class does it.
 comment|//destroyServers();
 block|}
 block|}

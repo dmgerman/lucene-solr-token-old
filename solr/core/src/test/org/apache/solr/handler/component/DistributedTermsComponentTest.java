@@ -27,6 +27,15 @@ operator|.
 name|BaseDistributedSearchTestCase
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
 begin_comment
 comment|/**  * Test for TermsComponent distributed querying  *  *  * @since solr 1.5  */
 end_comment
@@ -39,11 +48,11 @@ extends|extends
 name|BaseDistributedSearchTestCase
 block|{
 annotation|@
-name|Override
-DECL|method|doTest
+name|Test
+DECL|method|test
 specifier|public
 name|void
-name|doTest
+name|test
 parameter_list|()
 throws|throws
 name|Exception
