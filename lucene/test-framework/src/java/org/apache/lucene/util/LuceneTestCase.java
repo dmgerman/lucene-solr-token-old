@@ -839,6 +839,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|MergeTrigger
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|MismatchedDirectoryReader
 import|;
 end_import
@@ -8077,12 +8090,11 @@ throw|;
 comment|// dummy to prevent compiler failure
 block|}
 block|}
-comment|/**    * Sometimes wrap the IndexReader as slow, parallel or filter reader (or    * combinations of that)    */
-DECL|method|maybeWrapReader
+DECL|method|wrapReader
 specifier|public
 specifier|static
 name|IndexReader
-name|maybeWrapReader
+name|wrapReader
 parameter_list|(
 name|IndexReader
 name|r
@@ -8096,12 +8108,6 @@ init|=
 name|random
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|rarely
-argument_list|()
-condition|)
-block|{
 comment|// TODO: remove this, and fix those tests to wrap before putting slow around:
 specifier|final
 name|boolean
@@ -8486,12 +8492,42 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"maybeWrapReader wrapped: "
+literal|"wrapReader wrapped: "
 operator|+
 name|r
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|r
+return|;
+block|}
+comment|/**    * Sometimes wrap the IndexReader as slow, parallel or filter reader (or    * combinations of that)    */
+DECL|method|maybeWrapReader
+specifier|public
+specifier|static
+name|IndexReader
+name|maybeWrapReader
+parameter_list|(
+name|IndexReader
+name|r
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|rarely
+argument_list|()
+condition|)
+block|{
+name|r
+operator|=
+name|wrapReader
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|r
