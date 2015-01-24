@@ -580,27 +580,70 @@ return|return
 name|maxMergeCount
 return|;
 block|}
+comment|/** Removes the calling thread from the active merge threads. */
 DECL|method|removeMergeThread
 specifier|synchronized
 name|void
 name|removeMergeThread
-parameter_list|(
-name|MergeThread
-name|thread
-parameter_list|)
+parameter_list|()
 block|{
-name|boolean
-name|result
+name|Thread
+name|currentThread
 init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
+comment|// Paranoia: don't trust Thread.equals:
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|mergeThreads
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|mergeThreads
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+operator|==
+name|currentThread
+condition|)
+block|{
 name|mergeThreads
 operator|.
 name|remove
 argument_list|(
-name|thread
+name|i
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+return|return;
+block|}
+block|}
 assert|assert
-name|result
+literal|false
+operator|:
+literal|"merge thread "
+operator|+
+name|currentThread
+operator|+
+literal|" was not found"
 assert|;
 block|}
 comment|/**    * Called whenever the running merges have changed, to set merge IO limits.    * This method sorts the merge threads by their merge size in    * descending order and then pauses/unpauses threads from first to last --    * that way, smaller merges are guaranteed to run before larger ones.    */
@@ -1424,7 +1467,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Returns the number of merge threads that are alive. Note that this number    * is&le; {@link #mergeThreads} size.    *    * @lucene.internal    */
+comment|/**    * Returns the number of merge threads that are alive, ignoring the calling thread    * if it is a merge thread.  Note that this number is&le; {@link #mergeThreads} size.    *    * @lucene.internal    */
 DECL|method|mergeThreadCount
 specifier|public
 specifier|synchronized
@@ -1432,6 +1475,14 @@ name|int
 name|mergeThreadCount
 parameter_list|()
 block|{
+name|Thread
+name|currentThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 name|int
 name|count
 init|=
@@ -1447,6 +1498,10 @@ control|)
 block|{
 if|if
 condition|(
+name|currentThread
+operator|!=
+name|mergeThread
+operator|&&
 name|mergeThread
 operator|.
 name|isAlive
@@ -1560,11 +1615,18 @@ condition|(
 literal|true
 condition|)
 block|{
+if|if
+condition|(
 name|maybeStall
 argument_list|(
 name|writer
 argument_list|)
-expr_stmt|;
+operator|==
+literal|false
+condition|)
+block|{
+break|break;
+block|}
 name|OneMerge
 name|merge
 init|=
@@ -1698,11 +1760,11 @@ block|}
 block|}
 block|}
 block|}
-comment|/** This is invoked by {@link #merge} to possibly stall the incoming    *  thread when there are too many merges running or pending.  The     *  default behavior is to force this thread, which is producing too    *  many segments for merging to keep up, to wait until merges catch    *  up. Applications that can take other less drastic measures, such    *  as limiting how many threads are allowed to index, can do nothing    *  here and throttle elsewhere. */
+comment|/** This is invoked by {@link #merge} to possibly stall the incoming    *  thread when there are too many merges running or pending.  The     *  default behavior is to force this thread, which is producing too    *  many segments for merging to keep up, to wait until merges catch    *  up. Applications that can take other less drastic measures, such    *  as limiting how many threads are allowed to index, can do nothing    *  here and throttle elsewhere.    *    *  If this method wants to stall but the calling thread is a merge    *  thread, it should return false to tell caller not to kick off    *  any new merges. */
 DECL|method|maybeStall
 specifier|protected
 specifier|synchronized
-name|void
+name|boolean
 name|maybeStall
 parameter_list|(
 name|IndexWriter
@@ -1738,6 +1800,26 @@ comment|// thread to prevent creation of new segments,
 comment|// until merging has caught up:
 if|if
 condition|(
+name|mergeThreads
+operator|.
+name|contains
+argument_list|(
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// Never stall a merge thread since this blocks the thread from
+comment|// finishing and calling updateMergeThreads, and blocking it
+comment|// accomplishes nothing anyway (it's not really a segment producer):
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
 name|verbose
 argument_list|()
 operator|&&
@@ -1759,38 +1841,15 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 expr_stmt|;
-try|try
-block|{
-comment|// Only wait 0.25 seconds, so if all merges are aborted (by IW.rollback) we notice:
-name|wait
-argument_list|(
-literal|250
-argument_list|)
+name|doStall
+argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ie
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ThreadInterruptedException
-argument_list|(
-name|ie
-argument_list|)
-throw|;
-block|}
 block|}
 if|if
 condition|(
 name|verbose
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|startStallTime
 operator|!=
 literal|0
@@ -1813,6 +1872,40 @@ literal|" msec"
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|true
+return|;
+block|}
+comment|/** Called from {@link #maybeStall} to pause the calling thread for a bit. */
+DECL|method|doStall
+specifier|protected
+specifier|synchronized
+name|void
+name|doStall
+parameter_list|()
+block|{
+try|try
+block|{
+comment|// Defensively wait for only .25 seconds in case we are missing a .notify/All somewhere:
+name|wait
+argument_list|(
+literal|250
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ie
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ThreadInterruptedException
+argument_list|(
+name|ie
+argument_list|)
+throw|;
 block|}
 block|}
 comment|/** Does the actual merge, by calling {@link IndexWriter#merge} */
@@ -2005,11 +2098,6 @@ literal|"  merge thread: done"
 argument_list|)
 expr_stmt|;
 block|}
-name|removeMergeThread
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 comment|// Let CMS run new merges if necessary:
 try|try
 block|{
@@ -2096,6 +2184,9 @@ operator|.
 name|this
 init|)
 block|{
+name|removeMergeThread
+argument_list|()
+expr_stmt|;
 name|updateMergeThreads
 argument_list|()
 expr_stmt|;

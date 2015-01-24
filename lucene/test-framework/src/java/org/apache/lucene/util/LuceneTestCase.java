@@ -420,6 +420,8 @@ operator|.
 name|document
 operator|.
 name|Field
+operator|.
+name|Store
 import|;
 end_import
 begin_import
@@ -433,8 +435,6 @@ operator|.
 name|document
 operator|.
 name|Field
-operator|.
-name|Store
 import|;
 end_import
 begin_import
@@ -682,6 +682,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|ReaderClosedListener
 import|;
 end_import
 begin_import
@@ -695,8 +697,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-operator|.
-name|ReaderClosedListener
 import|;
 end_import
 begin_import
@@ -1074,6 +1074,8 @@ operator|.
 name|index
 operator|.
 name|TermsEnum
+operator|.
+name|SeekStatus
 import|;
 end_import
 begin_import
@@ -1087,8 +1089,6 @@ operator|.
 name|index
 operator|.
 name|TermsEnum
-operator|.
-name|SeekStatus
 import|;
 end_import
 begin_import
@@ -1312,6 +1312,8 @@ operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
+operator|.
+name|Throttling
 import|;
 end_import
 begin_import
@@ -1325,8 +1327,6 @@ operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
-operator|.
-name|Throttling
 import|;
 end_import
 begin_import
@@ -1621,19 +1621,6 @@ operator|.
 name|annotations
 operator|.
 name|ThreadLeakAction
-import|;
-end_import
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|ThreadLeakAction
 operator|.
 name|Action
 import|;
@@ -1648,7 +1635,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakFilters
+name|ThreadLeakAction
 import|;
 end_import
 begin_import
@@ -1661,7 +1648,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakGroup
+name|ThreadLeakFilters
 import|;
 end_import
 begin_import
@@ -1689,7 +1676,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakLingering
+name|ThreadLeakGroup
 import|;
 end_import
 begin_import
@@ -1702,7 +1689,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakScope
+name|ThreadLeakLingering
 import|;
 end_import
 begin_import
@@ -1730,7 +1717,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakZombies
+name|ThreadLeakScope
 import|;
 end_import
 begin_import
@@ -1746,6 +1733,19 @@ operator|.
 name|ThreadLeakZombies
 operator|.
 name|Consequence
+import|;
+end_import
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|ThreadLeakZombies
 import|;
 end_import
 begin_import
@@ -4302,13 +4302,17 @@ annotation|@
 name|Override
 specifier|protected
 specifier|synchronized
-name|void
+name|boolean
 name|maybeStall
 parameter_list|(
 name|IndexWriter
 name|writer
 parameter_list|)
-block|{             }
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 expr_stmt|;
 block|}
