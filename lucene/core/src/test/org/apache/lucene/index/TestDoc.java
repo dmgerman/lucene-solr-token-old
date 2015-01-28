@@ -1341,6 +1341,11 @@ name|String
 argument_list|>
 name|filesToDelete
 init|=
+name|si
+operator|.
+name|files
+argument_list|()
+decl_stmt|;
 name|IndexWriter
 operator|.
 name|createCompoundFile
@@ -1350,7 +1355,11 @@ operator|.
 name|getDefault
 argument_list|()
 argument_list|,
+operator|new
+name|TrackingDirectoryWrapper
+argument_list|(
 name|dir
+argument_list|)
 argument_list|,
 name|si
 argument_list|,
@@ -1360,7 +1369,7 @@ name|random
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|si
 operator|.
 name|setUseCompoundFile
