@@ -1584,6 +1584,8 @@ name|sd
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
 name|HttpSolrClient
 name|solrServer
 init|=
@@ -1593,8 +1595,7 @@ argument_list|(
 name|getSourceUrl
 argument_list|()
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|solrServer
 operator|.
@@ -1625,14 +1626,6 @@ literal|true
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|solrServer
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 block|}

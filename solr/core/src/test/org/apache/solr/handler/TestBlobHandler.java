@@ -467,6 +467,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|SolrClient
 name|client
 init|=
@@ -487,8 +489,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|CollectionAdminResponse
 name|response1
@@ -875,14 +876,6 @@ literal|"/.system/blob/test/1?wt=filestream"
 argument_list|,
 name|bytarr
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 block|}

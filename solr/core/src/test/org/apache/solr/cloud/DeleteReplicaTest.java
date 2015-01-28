@@ -480,7 +480,7 @@ argument_list|()
 expr_stmt|;
 name|client
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -530,6 +530,8 @@ name|collectionName
 init|=
 literal|"delLiveColl"
 decl_stmt|;
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -537,8 +539,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|createCollection
 argument_list|(
@@ -665,6 +666,13 @@ argument_list|(
 literal|"no active replicas found"
 argument_list|)
 expr_stmt|;
+name|String
+name|dataDir
+init|=
+literal|null
+decl_stmt|;
+try|try
+init|(
 name|HttpSolrClient
 name|replica1Client
 init|=
@@ -678,13 +686,7 @@ argument_list|(
 literal|"base_url"
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|String
-name|dataDir
-init|=
-literal|null
-decl_stmt|;
-try|try
+init|)
 block|{
 name|CoreAdminResponse
 name|status
@@ -732,14 +734,6 @@ name|get
 argument_list|(
 literal|"dataDir"
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|replica1Client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 try|try
@@ -856,14 +850,6 @@ operator|.
 name|exists
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 block|}

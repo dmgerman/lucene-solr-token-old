@@ -282,6 +282,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -289,7 +291,8 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|String
 name|collectionName
 init|=
@@ -695,6 +698,8 @@ argument_list|,
 literal|"status"
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|SolrClient
 name|queryClient
 init|=
@@ -710,7 +715,8 @@ operator|.
 name|BASE_URL_PROP
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|NamedList
 argument_list|<
 name|Object
@@ -759,15 +765,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|queryClient
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-name|queryClient
-operator|=
-literal|null
-expr_stmt|;
+block|}
 name|Exception
 name|exp
 init|=
@@ -881,11 +879,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class

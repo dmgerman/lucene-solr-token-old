@@ -1411,6 +1411,8 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -1418,8 +1420,7 @@ name|createCloudClient
 argument_list|(
 literal|"collection1"
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|createCollection
 argument_list|(
@@ -1439,14 +1440,6 @@ literal|null
 argument_list|,
 literal|"conf1"
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 name|List

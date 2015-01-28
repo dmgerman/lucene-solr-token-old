@@ -1003,7 +1003,7 @@ argument_list|)
 expr_stmt|;
 name|cloudClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}

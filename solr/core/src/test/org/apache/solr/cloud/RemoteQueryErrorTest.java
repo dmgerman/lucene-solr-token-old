@@ -310,7 +310,7 @@ finally|finally
 block|{
 name|solrClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}

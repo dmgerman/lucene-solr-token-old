@@ -119,10 +119,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|shutdown
+DECL|method|close
 specifier|public
 name|void
-name|shutdown
+name|close
 parameter_list|()
 block|{
 empty_stmt|;

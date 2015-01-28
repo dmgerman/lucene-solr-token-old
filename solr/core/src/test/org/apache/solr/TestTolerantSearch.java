@@ -485,6 +485,8 @@ literal|""
 argument_list|)
 expr_stmt|;
 comment|//create second core
+try|try
+init|(
 name|HttpSolrClient
 name|nodeClient
 init|=
@@ -493,8 +495,7 @@ name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|CoreAdminRequest
 operator|.
@@ -527,14 +528,6 @@ name|request
 argument_list|(
 name|req
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|nodeClient
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 name|SolrInputDocument
@@ -672,12 +665,12 @@ name|Exception
 block|{
 name|collection1
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|collection2
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|collection1

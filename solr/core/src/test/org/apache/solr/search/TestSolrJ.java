@@ -932,6 +932,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|HttpSolrClient
 name|client
 init|=
@@ -940,7 +942,8 @@ name|HttpSolrClient
 argument_list|(
 literal|"http://127.0.0.1:8983/solr"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|long
 name|start
 init|=
@@ -1014,11 +1017,6 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
 name|System
 operator|.
 name|out
@@ -1034,6 +1032,7 @@ name|start
 operator|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

@@ -243,21 +243,6 @@ name|Test
 import|;
 end_import
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|cloud
-operator|.
-name|OverseerCollectionProcessor
-operator|.
-name|SHARD_UNIQUE
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
@@ -309,6 +294,21 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|cloud
+operator|.
+name|OverseerCollectionProcessor
+operator|.
+name|SHARD_UNIQUE
 import|;
 end_import
 begin_class
@@ -385,6 +385,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -392,8 +394,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|createCollection
 argument_list|(
@@ -432,15 +433,6 @@ literal|null
 argument_list|,
 literal|"conf1"
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|//remove collections
-name|client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 name|waitForCollection
@@ -516,6 +508,8 @@ name|IOException
 throws|,
 name|SolrServerException
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -523,8 +517,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ModifiableSolrParams
 name|params
@@ -753,15 +746,6 @@ name|selectedShardStatus
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-comment|//remove collections
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|listCollection
 specifier|private
@@ -773,6 +757,8 @@ name|IOException
 throws|,
 name|SolrServerException
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -780,8 +766,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ModifiableSolrParams
 name|params
@@ -909,15 +894,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-comment|//remove collections
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|clusterStatusNoCollection
 specifier|private
@@ -927,6 +903,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -934,8 +912,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ModifiableSolrParams
 name|params
@@ -1096,15 +1073,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-comment|//remove collections
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|clusterStatusWithCollection
 specifier|private
@@ -1116,6 +1084,8 @@ name|IOException
 throws|,
 name|SolrServerException
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -1123,8 +1093,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ModifiableSolrParams
 name|params
@@ -1260,15 +1229,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-comment|//remove collections
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|clusterStatusWithRouteKey
 specifier|private
@@ -1280,6 +1240,8 @@ name|IOException
 throws|,
 name|SolrServerException
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -1287,8 +1249,7 @@ name|createCloudClient
 argument_list|(
 name|DEFAULT_COLLECTION
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|SolrInputDocument
 name|doc
@@ -1548,15 +1509,6 @@ name|selectedShardStatus
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-comment|//remove collections
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|clusterStatusAliasTest
 specifier|private
@@ -1566,6 +1518,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -1573,8 +1527,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ModifiableSolrParams
 name|params
@@ -1870,14 +1823,6 @@ name|collAlias
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|clusterStatusRolesTest
 specifier|private
@@ -1887,6 +1832,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -1894,8 +1841,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|client
 operator|.
@@ -2147,14 +2093,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|replicaPropTest
 specifier|private
@@ -2164,6 +2102,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|CloudSolrClient
 name|client
 init|=
@@ -2171,8 +2111,7 @@ name|createCloudClient
 argument_list|(
 literal|null
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|client
 operator|.
@@ -3936,14 +3875,6 @@ name|c1_s1_r1
 argument_list|,
 literal|"property.base_url"
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 block|}

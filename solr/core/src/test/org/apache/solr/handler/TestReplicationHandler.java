@@ -970,12 +970,12 @@ literal|null
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -1732,6 +1732,8 @@ argument_list|(
 name|params
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|HttpSolrClient
 name|adminClient
 init|=
@@ -1739,8 +1741,7 @@ name|adminClient
 argument_list|(
 name|s
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|NamedList
 argument_list|<
@@ -1765,14 +1766,6 @@ expr_stmt|;
 return|return
 name|res
 return|;
-block|}
-finally|finally
-block|{
-name|adminClient
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|adminClient
@@ -2192,7 +2185,7 @@ literal|null
 condition|)
 name|repeaterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2913,7 +2906,7 @@ argument_list|)
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -3049,7 +3042,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -3484,7 +3477,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -4310,7 +4303,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -4348,7 +4341,7 @@ argument_list|)
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -4995,7 +4988,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -5060,7 +5053,7 @@ condition|)
 block|{
 name|repeaterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -5320,7 +5313,7 @@ condition|)
 block|{
 name|repeaterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -5763,7 +5756,7 @@ argument_list|)
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -5877,7 +5870,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -6015,7 +6008,7 @@ argument_list|)
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -6145,7 +6138,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -6277,7 +6270,7 @@ argument_list|)
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -6398,7 +6391,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -6868,7 +6861,7 @@ argument_list|)
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -6917,7 +6910,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -7237,7 +7230,7 @@ argument_list|)
 expr_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterClient
@@ -7320,7 +7313,7 @@ argument_list|()
 decl_stmt|;
 name|masterClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|masterJetty
@@ -7448,7 +7441,7 @@ argument_list|)
 expr_stmt|;
 name|slaveClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|slaveClient
@@ -7924,6 +7917,8 @@ name|timeSlept
 init|=
 literal|0
 decl_stmt|;
+try|try
+init|(
 name|HttpSolrClient
 name|adminClient
 init|=
@@ -7931,8 +7926,7 @@ name|adminClient
 argument_list|(
 name|client
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|SolrParams
 name|p
@@ -8110,14 +8104,6 @@ return|return
 name|min
 return|;
 comment|// compilation neccessity
-block|}
-finally|finally
-block|{
-name|adminClient
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|buildUrl

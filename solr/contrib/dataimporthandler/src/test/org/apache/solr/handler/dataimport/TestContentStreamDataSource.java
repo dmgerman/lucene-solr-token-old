@@ -364,6 +364,8 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|HttpSolrClient
 name|solrClient
 init|=
@@ -380,8 +382,7 @@ argument_list|,
 literal|"/solr/collection1"
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|solrClient
 operator|.
@@ -479,14 +480,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-name|solrClient
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Test
@@ -542,6 +535,8 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|HttpSolrClient
 name|solrServer
 init|=
@@ -558,7 +553,8 @@ argument_list|,
 literal|"/solr/collection1"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|solrServer
 operator|.
 name|request
@@ -659,11 +655,6 @@ name|getNumFound
 argument_list|()
 condition|)
 block|{
-name|solrServer
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
 return|return;
 block|}
 name|Thread
@@ -673,6 +664,7 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|fail
 argument_list|(

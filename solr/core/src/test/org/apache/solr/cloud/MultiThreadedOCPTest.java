@@ -420,6 +420,8 @@ name|IOException
 throws|,
 name|SolrServerException
 block|{
+try|try
+init|(
 name|SolrClient
 name|client
 init|=
@@ -440,8 +442,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 for|for
 control|(
@@ -665,14 +666,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|testTaskExclusivity
 specifier|private
@@ -684,6 +677,8 @@ name|IOException
 throws|,
 name|SolrServerException
 block|{
+try|try
+init|(
 name|SolrClient
 name|client
 init|=
@@ -704,8 +699,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|Create
 name|createCollectionRequest
@@ -1000,14 +994,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|testDeduplicationOfSubmittedTasks
 specifier|private
@@ -1019,6 +1005,8 @@ name|IOException
 throws|,
 name|SolrServerException
 block|{
+try|try
+init|(
 name|SolrClient
 name|client
 init|=
@@ -1039,8 +1027,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|Create
 name|createCollectionRequest
@@ -1262,14 +1249,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|testLongAndShortRunningParallelApiCalls
 specifier|private
@@ -1366,6 +1345,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|SolrClient
 name|client
 init|=
@@ -1386,8 +1367,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|SplitShard
 name|splitShardRequest
@@ -1583,14 +1563,6 @@ name|warn
 argument_list|(
 literal|"Indexing thread interrupted."
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 block|}

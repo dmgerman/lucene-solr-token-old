@@ -944,6 +944,8 @@ argument_list|(
 name|url
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|SolrClient
 name|client
 init|=
@@ -954,8 +956,7 @@ name|url
 argument_list|,
 name|httpClient
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ssr
 operator|.
@@ -967,14 +968,6 @@ name|request
 argument_list|(
 name|req
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|client
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 block|}

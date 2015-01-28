@@ -529,6 +529,8 @@ specifier|public
 name|void
 name|shutdown
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|LOGGER
 operator|.
@@ -539,7 +541,7 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
