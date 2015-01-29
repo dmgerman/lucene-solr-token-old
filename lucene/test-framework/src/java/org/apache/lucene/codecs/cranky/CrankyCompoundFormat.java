@@ -31,15 +31,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Random
 import|;
 end_import
@@ -178,12 +169,6 @@ parameter_list|,
 name|SegmentInfo
 name|si
 parameter_list|,
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|files
-parameter_list|,
 name|IOContext
 name|context
 parameter_list|)
@@ -217,8 +202,6 @@ argument_list|(
 name|dir
 argument_list|,
 name|si
-argument_list|,
-name|files
 argument_list|,
 name|context
 argument_list|)
