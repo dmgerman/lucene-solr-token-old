@@ -78,6 +78,19 @@ name|solr
 operator|.
 name|handler
 operator|.
+name|TestSolrConfigHandlerCloud
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|handler
+operator|.
 name|TestSolrConfigHandlerConcurrent
 import|;
 end_import
@@ -299,6 +312,17 @@ import|;
 end_import
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+operator|.
+name|asList
+import|;
+end_import
+begin_import
+import|import static
 name|org
 operator|.
 name|apache
@@ -325,6 +349,21 @@ operator|.
 name|TestBlobHandler
 operator|.
 name|getAsString
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|handler
+operator|.
+name|TestSolrConfigHandlerCloud
+operator|.
+name|compareValues
 import|;
 end_import
 begin_class
@@ -2027,7 +2066,9 @@ literal|"  'set' : {'y':{\n"
 operator|+
 literal|"                'c':'CY val',\n"
 operator|+
-literal|"                'b': 'BY val'}\n"
+literal|"                'b': 'BY val', "
+operator|+
+literal|"                'd': ['val 1', 'val 2']}\n"
 operator|+
 literal|"             }\n"
 operator|+
@@ -2148,6 +2189,39 @@ literal|"a"
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+literal|5
+argument_list|)
+expr_stmt|;
+name|TestSolrConfigHandler
+operator|.
+name|testForResponseElement
+argument_list|(
+name|harness
+argument_list|,
+literal|null
+argument_list|,
+literal|"/dump1?wt=json&useParams=y"
+argument_list|,
+literal|null
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"params"
+argument_list|,
+literal|"d"
+argument_list|)
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"val 1"
+argument_list|,
+literal|"val 2"
+argument_list|)
 argument_list|,
 literal|5
 argument_list|)
