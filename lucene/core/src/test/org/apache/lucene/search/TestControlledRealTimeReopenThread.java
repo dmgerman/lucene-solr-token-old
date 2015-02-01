@@ -2345,9 +2345,6 @@ name|term
 parameter_list|,
 name|IndexDocument
 name|doc
-parameter_list|,
-name|Analyzer
-name|analyzer
 parameter_list|)
 throws|throws
 name|IOException
@@ -2359,8 +2356,6 @@ argument_list|(
 name|term
 argument_list|,
 name|doc
-argument_list|,
-name|analyzer
 argument_list|)
 expr_stmt|;
 try|try

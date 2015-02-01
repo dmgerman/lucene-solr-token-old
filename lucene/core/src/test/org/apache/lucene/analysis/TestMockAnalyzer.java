@@ -2033,6 +2033,8 @@ argument_list|()
 argument_list|,
 name|newDirectory
 argument_list|()
+argument_list|,
+name|a
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2123,8 +2125,6 @@ operator|.
 name|addDocument
 argument_list|(
 name|doc
-argument_list|,
-name|a
 argument_list|)
 expr_stmt|;
 specifier|final

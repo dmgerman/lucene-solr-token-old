@@ -659,7 +659,10 @@ name|sic
 operator|.
 name|toIndexWriterConfig
 argument_list|(
-name|indexSchema
+name|h
+operator|.
+name|getCore
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertNotNull

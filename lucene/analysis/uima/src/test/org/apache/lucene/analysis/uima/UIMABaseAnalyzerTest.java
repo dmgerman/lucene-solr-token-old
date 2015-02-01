@@ -454,8 +454,6 @@ operator|.
 name|addDocument
 argument_list|(
 name|doc
-argument_list|,
-name|analyzer
 argument_list|)
 expr_stmt|;
 name|writer
@@ -637,8 +635,6 @@ operator|.
 name|addDocument
 argument_list|(
 name|doc
-argument_list|,
-name|analyzer
 argument_list|)
 expr_stmt|;
 name|writer

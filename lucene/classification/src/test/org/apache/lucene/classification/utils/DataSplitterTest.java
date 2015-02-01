@@ -368,16 +368,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|Analyzer
-name|analyzer
-init|=
-operator|new
-name|MockAnalyzer
-argument_list|(
-name|random
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|Document
 name|doc
 decl_stmt|;
@@ -477,8 +467,6 @@ operator|.
 name|addDocument
 argument_list|(
 name|doc
-argument_list|,
-name|analyzer
 argument_list|)
 expr_stmt|;
 block|}

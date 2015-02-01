@@ -3345,6 +3345,8 @@ name|SolrIndexWriter
 operator|.
 name|create
 argument_list|(
+name|this
+argument_list|,
 literal|"SolrCore.initIndex"
 argument_list|,
 name|indexDir

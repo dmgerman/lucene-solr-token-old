@@ -1181,6 +1181,8 @@ name|SolrIndexWriter
 operator|.
 name|create
 argument_list|(
+name|core
+argument_list|,
 name|name
 argument_list|,
 name|core
