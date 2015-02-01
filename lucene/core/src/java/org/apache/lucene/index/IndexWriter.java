@@ -1176,16 +1176,16 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-synchronized|synchronized
-init|(
-name|fullFlushLock
-init|)
-block|{
 name|boolean
 name|success
 init|=
 literal|false
 decl_stmt|;
+synchronized|synchronized
+init|(
+name|fullFlushLock
+init|)
+block|{
 try|try
 block|{
 name|anyChanges
@@ -1209,10 +1209,6 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
-name|success
-operator|=
-literal|true
-expr_stmt|;
 comment|// Prevent segmentInfos from changing while opening the
 comment|// reader; in theory we could instead do similar retry logic,
 comment|// just like we do when loading segments_N
@@ -1271,34 +1267,40 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|AbortingException
-decl||
-name|OutOfMemoryError
-name|tragedy
-parameter_list|)
-block|{
-name|tragicEvent
-argument_list|(
-name|tragedy
-argument_list|,
-literal|"getReader"
-argument_list|)
+name|success
+operator|=
+literal|true
 expr_stmt|;
-comment|// never reached but javac disagrees:
-return|return
-literal|null
-return|;
 block|}
 finally|finally
 block|{
+comment|// Done: finish the full flush!
+name|docWriter
+operator|.
+name|finishFullFlush
+argument_list|(
+name|this
+argument_list|,
+name|success
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-operator|!
 name|success
 condition|)
+block|{
+name|processEvents
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|doAfterFlush
+argument_list|()
+expr_stmt|;
+block|}
+else|else
 block|{
 if|if
 condition|(
@@ -1320,32 +1322,6 @@ literal|"hit exception during NRT reader"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|tragedy
-operator|==
-literal|null
-condition|)
-block|{
-comment|// Done: finish the full flush! (unless we hit OOM or something)
-name|docWriter
-operator|.
-name|finishFullFlush
-argument_list|(
-name|success
-argument_list|)
-expr_stmt|;
-name|processEvents
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-name|doAfterFlush
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -1404,6 +1380,26 @@ name|success2
 operator|=
 literal|true
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AbortingException
+decl||
+name|OutOfMemoryError
+name|tragedy
+parameter_list|)
+block|{
+name|tragicEvent
+argument_list|(
+name|tragedy
+argument_list|,
+literal|"getReader"
+argument_list|)
+expr_stmt|;
+comment|// never reached but javac disagrees:
+return|return
+literal|null
+return|;
 block|}
 finally|finally
 block|{
@@ -2033,6 +2029,12 @@ name|boolean
 name|create
 parameter_list|)
 block|{
+comment|// Make sure no new readers can be opened if another thread just closed us:
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 assert|assert
 name|info
 operator|.
@@ -6387,13 +6389,13 @@ init|=
 literal|false
 decl_stmt|;
 comment|/* hold the full flush lock to prevent concurrency commits / NRT reopens to      * get in our way and do unnecessary work. -- if we don't lock this here we might      * get in trouble if */
+comment|/*      * We first abort and trash everything we have in-memory      * and keep the thread-states locked, the lockAndAbortAll operation      * also guarantees "point in time semantics" ie. the checkpoint that we need in terms      * of logical happens-before relationship in the DW. So we do      * abort all in memory structures       * We also drop global field numbering before during abort to make      * sure it's just like a fresh index.      */
+try|try
+block|{
 synchronized|synchronized
 init|(
 name|fullFlushLock
 init|)
-block|{
-comment|/*        * We first abort and trash everything we have in-memory        * and keep the thread-states locked, the lockAndAbortAll operation        * also guarantees "point in time semantics" ie. the checkpoint that we need in terms        * of logical happens-before relationship in the DW. So we do        * abort all in memory structures         * We also drop global field numbering before during abort to make        * sure it's just like a fresh index.        */
-try|try
 block|{
 name|docWriter
 operator|.
@@ -6466,6 +6468,13 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+name|docWriter
+operator|.
+name|unlockAllAfterAbortAll
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -6496,6 +6505,7 @@ block|}
 block|}
 block|}
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|OutOfMemoryError
@@ -6509,17 +6519,6 @@ argument_list|,
 literal|"deleteAll"
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|docWriter
-operator|.
-name|unlockAllAfterAbortAll
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** Aborts running merges.  Be careful when using this    *  method: when you abort a long-running merge, you lose    *  a lot of work that must later be redone. */
@@ -8837,6 +8836,8 @@ name|docWriter
 operator|.
 name|finishFullFlush
 argument_list|(
+name|this
+argument_list|,
 name|flushSuccess
 argument_list|)
 expr_stmt|;
@@ -9678,6 +9679,8 @@ name|docWriter
 operator|.
 name|finishFullFlush
 argument_list|(
+name|this
+argument_list|,
 name|flushSuccess
 argument_list|)
 expr_stmt|;
