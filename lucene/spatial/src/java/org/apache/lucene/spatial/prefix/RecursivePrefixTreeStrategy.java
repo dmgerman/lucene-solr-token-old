@@ -787,8 +787,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|pointsOnly
-operator|||
 name|op
 operator|==
 name|SpatialOperation
@@ -840,6 +838,9 @@ argument_list|,
 name|detailLevel
 argument_list|,
 name|prefixGridScanLevel
+argument_list|,
+operator|!
+name|pointsOnly
 argument_list|,
 operator|-
 literal|1

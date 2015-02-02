@@ -509,6 +509,12 @@ argument_list|,
 name|facetLevel
 argument_list|,
 name|scanLevel
+argument_list|,
+operator|!
+name|strategy
+operator|.
+name|isPointsOnly
+argument_list|()
 argument_list|)
 block|{
 annotation|@
@@ -534,16 +540,6 @@ operator|.
 name|detailLevel
 assert|;
 comment|//same thing, FYI. (constant)
-specifier|final
-name|boolean
-name|hasIndexedLeaves
-init|=
-operator|!
-name|strategy
-operator|.
-name|isPointsOnly
-argument_list|()
-decl_stmt|;
 return|return
 operator|new
 name|VisitorTemplate
@@ -551,8 +547,6 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
-argument_list|,
-name|hasIndexedLeaves
 argument_list|)
 block|{
 annotation|@
