@@ -6578,6 +6578,17 @@ argument_list|,
 name|ZkStateReader
 operator|.
 name|CONFIGS_ZKNODE
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|createNodeIfNotExists
+argument_list|(
+name|zk
+argument_list|,
+name|ZkStateReader
+operator|.
+name|CONFIGS_ZKNODE
 operator|+
 literal|"/"
 operator|+
