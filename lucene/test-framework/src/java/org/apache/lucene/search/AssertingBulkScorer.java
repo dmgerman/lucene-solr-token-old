@@ -178,6 +178,21 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|cost
+specifier|public
+name|long
+name|cost
+parameter_list|()
+block|{
+return|return
+name|in
+operator|.
+name|cost
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|void
@@ -308,7 +323,7 @@ name|max
 assert|;
 assert|assert
 name|min
-operator|<
+operator|<=
 name|max
 operator|:
 literal|"max must be greater than min, got min="
