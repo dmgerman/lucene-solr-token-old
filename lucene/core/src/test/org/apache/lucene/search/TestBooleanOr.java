@@ -1267,6 +1267,8 @@ literal|0
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1329,6 +1331,17 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 decl_stmt|;

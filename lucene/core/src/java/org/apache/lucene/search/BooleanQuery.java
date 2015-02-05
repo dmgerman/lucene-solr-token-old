@@ -896,6 +896,8 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 operator|==
 literal|null
@@ -1286,6 +1288,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -1340,6 +1345,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+name|needsScores
 argument_list|)
 decl_stmt|;
 if|if
@@ -1466,6 +1473,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -1479,6 +1489,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+name|needsScores
 argument_list|)
 decl_stmt|;
 if|if
@@ -1554,6 +1566,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -1569,6 +1583,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -1651,6 +1668,15 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+name|needsScores
+operator|&&
+name|c
+operator|.
+name|isProhibited
+argument_list|()
+operator|==
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -1782,6 +1808,30 @@ comment|// no documents will be matched by the query
 return|return
 literal|null
 return|;
+block|}
+comment|// we don't need scores, so if we have required clauses, drop optional clauses completely
+if|if
+condition|(
+operator|!
+name|needsScores
+operator|&&
+name|minShouldMatch
+operator|==
+literal|0
+operator|&&
+name|required
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|optional
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 comment|// three cases: conjunction, disjunction, or mix
 comment|// pure conjunction

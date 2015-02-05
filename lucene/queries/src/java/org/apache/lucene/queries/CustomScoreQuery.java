@@ -1148,6 +1148,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -1162,6 +1165,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+name|needsScores
 argument_list|)
 decl_stmt|;
 if|if
@@ -1219,6 +1224,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+name|needsScores
 argument_list|)
 expr_stmt|;
 block|}

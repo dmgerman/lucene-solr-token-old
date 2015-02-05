@@ -555,6 +555,9 @@ name|readerContext
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -570,6 +573,8 @@ argument_list|(
 name|readerContext
 argument_list|,
 literal|null
+argument_list|,
+name|needsScores
 argument_list|)
 decl_stmt|;
 if|if

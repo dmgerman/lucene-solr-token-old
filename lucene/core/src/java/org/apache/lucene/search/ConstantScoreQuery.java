@@ -542,6 +542,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -570,6 +573,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -594,6 +599,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -632,6 +639,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -704,6 +714,8 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -761,6 +773,8 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final

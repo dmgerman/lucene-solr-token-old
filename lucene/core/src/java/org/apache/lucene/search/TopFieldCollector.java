@@ -520,6 +520,9 @@ DECL|method|NonScoringCollector
 specifier|public
 name|NonScoringCollector
 parameter_list|(
+name|Sort
+name|sort
+parameter_list|,
 name|FieldValueHitQueue
 argument_list|<
 name|Entry
@@ -540,6 +543,11 @@ argument_list|,
 name|numHits
 argument_list|,
 name|fillFields
+argument_list|,
+name|sort
+operator|.
+name|needsScores
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -876,6 +884,9 @@ DECL|method|ScoringNoMaxScoreCollector
 specifier|public
 name|ScoringNoMaxScoreCollector
 parameter_list|(
+name|Sort
+name|sort
+parameter_list|,
 name|FieldValueHitQueue
 argument_list|<
 name|Entry
@@ -896,6 +907,8 @@ argument_list|,
 name|numHits
 argument_list|,
 name|fillFields
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|this
@@ -1272,6 +1285,9 @@ DECL|method|ScoringMaxScoreCollector
 specifier|public
 name|ScoringMaxScoreCollector
 parameter_list|(
+name|Sort
+name|sort
+parameter_list|,
 name|FieldValueHitQueue
 argument_list|<
 name|Entry
@@ -1292,6 +1308,8 @@ argument_list|,
 name|numHits
 argument_list|,
 name|fillFields
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|this
@@ -1693,6 +1711,9 @@ DECL|method|PagingFieldCollector
 specifier|public
 name|PagingFieldCollector
 parameter_list|(
+name|Sort
+name|sort
+parameter_list|,
 name|FieldValueHitQueue
 argument_list|<
 name|Entry
@@ -1722,6 +1743,15 @@ argument_list|,
 name|numHits
 argument_list|,
 name|fillFields
+argument_list|,
+name|trackDocScores
+operator|||
+name|trackMaxScore
+operator|||
+name|sort
+operator|.
+name|needsScores
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -2151,6 +2181,11 @@ DECL|field|docBase
 name|int
 name|docBase
 decl_stmt|;
+DECL|field|needsScores
+specifier|final
+name|boolean
+name|needsScores
+decl_stmt|;
 comment|// Declaring the constructor private prevents extending this class by anyone
 comment|// else. Note that the class cannot be final since it's extended by the
 comment|// internal versions. If someone will define a constructor with any other
@@ -2171,6 +2206,9 @@ name|numHits
 parameter_list|,
 name|boolean
 name|fillFields
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 block|{
 name|super
@@ -2180,6 +2218,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|needsScores
+operator|=
+name|needsScores
+expr_stmt|;
+name|this
+operator|.
 name|numHits
 operator|=
 name|numHits
@@ -2190,6 +2234,18 @@ name|fillFields
 operator|=
 name|fillFields
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|needsScores
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+name|needsScores
+return|;
 block|}
 comment|/**    * Creates a new {@link TopFieldCollector} from the given    * arguments.    *    *<p><b>NOTE</b>: The instances returned by this method    * pre-allocate a full array of length    *<code>numHits</code>.    *    * @param sort    *          the sort criteria (SortFields).    * @param numHits    *          the number of results to collect.    * @param fillFields    *          specifies whether the actual field values should be returned on    *          the results (FieldDoc).    * @param trackDocScores    *          specifies whether document scores should be tracked and set on the    *          results. Note that if set to false, then the results' scores will    *          be set to Float.NaN. Setting this to true affects performance, as    *          it incurs the score computation on each competitive result.    *          Therefore if document scores are not required by the application,    *          it is recommended to set it to false.    * @param trackMaxScore    *          specifies whether the query's maxScore should be tracked and set    *          on the resulting {@link TopDocs}. Note that if set to false,    *          {@link TopDocs#getMaxScore()} returns Float.NaN. Setting this to    *          true affects performance as it incurs the score computation on    *          each result. Also, setting this true automatically sets    *<code>trackDocScores</code> to true as well.    * @return a {@link TopFieldCollector} instance which will sort the results by    *         the sort criteria.    * @throws IOException if there is a low-level I/O error    */
 DECL|method|create
@@ -2328,6 +2384,8 @@ return|return
 operator|new
 name|ScoringMaxScoreCollector
 argument_list|(
+name|sort
+argument_list|,
 name|queue
 argument_list|,
 name|numHits
@@ -2346,6 +2404,8 @@ return|return
 operator|new
 name|ScoringNoMaxScoreCollector
 argument_list|(
+name|sort
+argument_list|,
 name|queue
 argument_list|,
 name|numHits
@@ -2360,6 +2420,8 @@ return|return
 operator|new
 name|NonScoringCollector
 argument_list|(
+name|sort
+argument_list|,
 name|queue
 argument_list|,
 name|numHits
@@ -2431,6 +2493,8 @@ return|return
 operator|new
 name|PagingFieldCollector
 argument_list|(
+name|sort
+argument_list|,
 name|queue
 argument_list|,
 name|after

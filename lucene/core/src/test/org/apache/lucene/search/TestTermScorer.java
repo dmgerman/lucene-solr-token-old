@@ -484,6 +484,8 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// we have 2 documents with the term all in them, one document for all the
@@ -624,6 +626,17 @@ name|context
 operator|.
 name|docBase
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 argument_list|)
@@ -785,6 +798,8 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -929,6 +944,8 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue

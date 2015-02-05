@@ -1203,6 +1203,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|needsScores
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 comment|/** checks that no scores or freqs are infinite */
 DECL|method|assertSaneScoring
@@ -1287,6 +1299,17 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 argument_list|)

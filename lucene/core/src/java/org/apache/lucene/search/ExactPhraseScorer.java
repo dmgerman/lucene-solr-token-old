@@ -212,6 +212,12 @@ operator|.
 name|SimScorer
 name|docScorer
 decl_stmt|;
+DECL|field|needsScores
+specifier|private
+specifier|final
+name|boolean
+name|needsScores
+decl_stmt|;
 DECL|method|ExactPhraseScorer
 name|ExactPhraseScorer
 parameter_list|(
@@ -228,6 +234,9 @@ name|Similarity
 operator|.
 name|SimScorer
 name|docScorer
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -242,6 +251,12 @@ operator|.
 name|docScorer
 operator|=
 name|docScorer
+expr_stmt|;
+name|this
+operator|.
+name|needsScores
+operator|=
+name|needsScores
 expr_stmt|;
 name|chunkStates
 operator|=
@@ -1052,6 +1067,17 @@ block|{
 name|freq
 operator|++
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|needsScores
+condition|)
+block|{
+return|return
+name|freq
+return|;
+comment|// we determined there was a match.
+block|}
 block|}
 block|}
 if|if
