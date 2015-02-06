@@ -5673,6 +5673,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|query
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Scorer
@@ -5693,8 +5695,6 @@ literal|0
 argument_list|)
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -5768,8 +5768,6 @@ literal|0
 argument_list|)
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertNotNull

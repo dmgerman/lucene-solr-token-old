@@ -391,6 +391,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

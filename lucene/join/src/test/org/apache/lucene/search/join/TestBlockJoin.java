@@ -1999,12 +1999,6 @@ argument_list|(
 name|parentQuery
 argument_list|,
 name|parentsFilter
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|BooleanQuery
@@ -3173,12 +3167,6 @@ argument_list|(
 name|us
 argument_list|,
 name|parentsFilter
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 argument_list|,
 literal|10
@@ -3203,12 +3191,6 @@ argument_list|(
 name|us
 argument_list|,
 name|parentsFilter
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 argument_list|,
 name|skill
@@ -3287,12 +3269,6 @@ argument_list|(
 name|us
 argument_list|,
 name|parentsFilter
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 argument_list|,
 operator|new
@@ -7614,12 +7590,6 @@ argument_list|(
 name|parentQuery2
 argument_list|,
 name|parentsFilter
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// To run against the block-join index:
@@ -9537,6 +9507,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|q
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|DocIdSetIterator
@@ -9560,8 +9532,6 @@ literal|0
 argument_list|)
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -9857,6 +9827,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|q
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|DocIdSetIterator
@@ -9880,8 +9852,6 @@ literal|0
 argument_list|)
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -12463,12 +12433,6 @@ argument_list|(
 name|parentQuery
 argument_list|,
 name|parentsFilter
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|TopDocs

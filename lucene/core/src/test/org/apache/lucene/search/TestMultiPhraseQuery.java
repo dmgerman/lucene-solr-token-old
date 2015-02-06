@@ -2280,6 +2280,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals

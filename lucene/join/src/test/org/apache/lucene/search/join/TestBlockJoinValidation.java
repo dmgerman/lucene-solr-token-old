@@ -756,8 +756,6 @@ argument_list|(
 name|parentQueryWithRandomChild
 argument_list|,
 name|parentsFilter
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|thrown
@@ -813,8 +811,6 @@ argument_list|(
 name|parentQueryWithRandomChild
 argument_list|,
 name|parentsFilter
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Filter
@@ -911,8 +907,6 @@ argument_list|(
 name|parentQueryWithRandomChild
 argument_list|,
 name|parentsFilter
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// advance() method is used by ConjunctionScorer, so we need to create Boolean conjunction query

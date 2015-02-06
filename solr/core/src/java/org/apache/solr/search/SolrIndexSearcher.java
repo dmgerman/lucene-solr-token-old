@@ -6070,6 +6070,8 @@ argument_list|(
 name|createNormalizedWeight
 argument_list|(
 name|qq
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12497,8 +12499,6 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if

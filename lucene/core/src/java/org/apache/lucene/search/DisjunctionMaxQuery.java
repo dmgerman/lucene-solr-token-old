@@ -316,10 +316,20 @@ name|DisjunctionMaxWeight
 parameter_list|(
 name|IndexSearcher
 name|searcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+argument_list|(
+name|DisjunctionMaxQuery
+operator|.
+name|this
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Query
@@ -337,25 +347,12 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/** Return our associated DisjunctionMaxQuery */
-annotation|@
-name|Override
-DECL|method|getQuery
-specifier|public
-name|Query
-name|getQuery
-parameter_list|()
-block|{
-return|return
-name|DisjunctionMaxQuery
-operator|.
-name|this
-return|;
 block|}
 comment|/** Compute the sub of squared weights of us applied to our subqueries.  Used for normalization. */
 annotation|@
@@ -490,9 +487,6 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
-parameter_list|,
-name|boolean
-name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -527,8 +521,6 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
-argument_list|,
-name|needsScores
 argument_list|)
 decl_stmt|;
 if|if
@@ -780,6 +772,9 @@ name|createWeight
 parameter_list|(
 name|IndexSearcher
 name|searcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -789,6 +784,8 @@ operator|new
 name|DisjunctionMaxWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}

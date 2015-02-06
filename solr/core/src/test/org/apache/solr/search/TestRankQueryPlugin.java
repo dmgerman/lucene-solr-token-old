@@ -833,6 +833,9 @@ name|createWeight
 parameter_list|(
 name|IndexSearcher
 name|indexSearcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -843,6 +846,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|indexSearcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}

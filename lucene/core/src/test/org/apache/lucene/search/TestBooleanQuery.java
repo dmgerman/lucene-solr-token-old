@@ -1862,6 +1862,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|q
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Scorer
@@ -1881,8 +1883,6 @@ literal|0
 argument_list|)
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// First pass: just use .nextDoc() to gather all hits
@@ -1976,6 +1976,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|q
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|scorer
@@ -1994,8 +1996,6 @@ literal|0
 argument_list|)
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 if|if

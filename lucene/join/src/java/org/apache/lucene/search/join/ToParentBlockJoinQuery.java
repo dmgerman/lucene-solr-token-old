@@ -421,6 +421,9 @@ name|createWeight
 parameter_list|(
 name|IndexSearcher
 name|searcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -436,6 +439,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 argument_list|,
 name|parentsFilter
@@ -505,7 +510,9 @@ name|scoreMode
 parameter_list|)
 block|{
 name|super
-argument_list|()
+argument_list|(
+name|joinQuery
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -531,18 +538,6 @@ name|scoreMode
 operator|=
 name|scoreMode
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getQuery
-specifier|public
-name|Query
-name|getQuery
-parameter_list|()
-block|{
-return|return
-name|joinQuery
-return|;
 block|}
 annotation|@
 name|Override
@@ -614,9 +609,6 @@ name|readerContext
 parameter_list|,
 name|Bits
 name|acceptDocs
-parameter_list|,
-name|boolean
-name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -638,8 +630,6 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
-argument_list|,
-name|needsScores
 argument_list|)
 decl_stmt|;
 if|if
@@ -756,8 +746,6 @@ argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if

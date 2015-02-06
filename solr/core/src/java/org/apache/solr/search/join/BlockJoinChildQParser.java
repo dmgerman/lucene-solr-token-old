@@ -131,8 +131,6 @@ name|getFilter
 argument_list|(
 name|parentListQuery
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}

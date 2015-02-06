@@ -602,7 +602,7 @@ name|sf
 argument_list|)
 decl_stmt|;
 specifier|final
-name|TopDocs
+name|TopFieldDocs
 name|docs1
 init|=
 name|searcher
@@ -649,7 +649,7 @@ name|docs1
 argument_list|)
 expr_stmt|;
 specifier|final
-name|TopDocs
+name|TopFieldDocs
 name|docs2
 init|=
 name|searcher
@@ -696,7 +696,7 @@ name|docs2
 argument_list|)
 expr_stmt|;
 specifier|final
-name|TopDocs
+name|TopFieldDocs
 name|docs
 init|=
 name|TopDocs
@@ -720,7 +720,7 @@ argument_list|)
 operator|)
 argument_list|,
 operator|new
-name|TopDocs
+name|TopFieldDocs
 index|[]
 block|{
 name|docs1
