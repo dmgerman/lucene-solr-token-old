@@ -705,6 +705,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/** Returns {@link PostingsEnum} for the specified term    *  with {@link PostingsEnum#FLAG_FREQS}. */
 DECL|method|termDocsEnum
 specifier|public
 specifier|final
