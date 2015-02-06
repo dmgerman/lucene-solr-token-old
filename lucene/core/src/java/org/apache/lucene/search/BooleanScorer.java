@@ -51,8 +51,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanQuery
-operator|.
 name|BooleanWeight
 import|;
 end_import
