@@ -2345,9 +2345,6 @@ block|}
 block|}
 comment|// Merge:
 return|return
-operator|(
-name|TopFieldDocs
-operator|)
 name|TopDocs
 operator|.
 name|merge
