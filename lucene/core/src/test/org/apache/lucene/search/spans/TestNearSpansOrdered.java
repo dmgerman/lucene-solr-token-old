@@ -65,6 +65,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|PostingsEnum
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|LeafReaderContext
 import|;
 end_import
@@ -91,7 +104,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomIndexWriter
+name|IndexReaderContext
 import|;
 end_import
 begin_import
@@ -104,7 +117,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReaderContext
+name|RandomIndexWriter
 import|;
 end_import
 begin_import
@@ -169,7 +182,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Weight
+name|Scorer
 import|;
 end_import
 begin_import
@@ -182,7 +195,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Scorer
+name|Weight
 import|;
 end_import
 begin_import

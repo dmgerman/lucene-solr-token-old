@@ -864,7 +864,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|postings
 init|=
 name|MultiFields
@@ -1918,11 +1918,11 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|DocsEnum
+name|PostingsEnum
 name|docs
 decl_stmt|;
 specifier|final
-name|DocsEnum
+name|PostingsEnum
 name|postings
 decl_stmt|;
 if|if
@@ -1957,7 +1957,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_NONE
 argument_list|)
@@ -1994,7 +1994,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 argument_list|)

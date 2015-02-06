@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -401,7 +401,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Operations
+name|Automaton
 import|;
 end_import
 begin_import
@@ -446,7 +446,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Automaton
+name|Operations
 import|;
 end_import
 begin_comment
@@ -1522,7 +1522,7 @@ block|}
 comment|/**     * Returns a "fake" DocsAndPositionsEnum over the tokenstream, returning offsets where {@code matchers}    * matches tokens.    *<p>    * This is solely used internally by PostingsHighlighter:<b>DO NOT USE THIS METHOD!</b>    */
 DECL|method|getDocsEnum
 specifier|static
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|getDocsEnum
 parameter_list|(
 specifier|final
@@ -1574,7 +1574,7 @@ comment|// would only serve to make this method less bogus.
 comment|// instead, we always return freq() = Integer.MAX_VALUE and let PH terminate based on offset...
 return|return
 operator|new
-name|DocsAndPositionsEnum
+name|PostingsEnum
 argument_list|()
 block|{
 name|int

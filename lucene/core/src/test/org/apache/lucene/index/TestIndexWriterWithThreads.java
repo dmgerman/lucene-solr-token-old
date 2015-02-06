@@ -1353,7 +1353,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|tdocs
 init|=
 name|TestUtil

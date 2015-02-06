@@ -47,21 +47,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|analysis
-operator|.
-name|standard
-operator|.
-name|ClassicAnalyzer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|document
 operator|.
 name|Document
@@ -116,7 +101,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -1835,7 +1820,7 @@ argument_list|)
 expr_stmt|;
 comment|// Make sure position is still incremented when
 comment|// massive term is skipped:
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|tps
 init|=
 name|MultiFields

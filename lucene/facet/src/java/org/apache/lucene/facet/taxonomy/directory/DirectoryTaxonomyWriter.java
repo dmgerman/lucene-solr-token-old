@@ -369,7 +369,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -1419,7 +1419,7 @@ init|=
 literal|null
 decl_stmt|;
 comment|// reuse
-name|DocsEnum
+name|PostingsEnum
 name|docs
 init|=
 literal|null
@@ -1482,7 +1482,7 @@ name|docs
 operator|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 literal|null
 argument_list|,
@@ -2426,8 +2426,8 @@ name|termsEnum
 init|=
 literal|null
 decl_stmt|;
-name|DocsEnum
-name|docsEnum
+name|PostingsEnum
+name|postingsEnum
 init|=
 literal|null
 decl_stmt|;
@@ -2523,17 +2523,17 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|docsEnum
+name|postingsEnum
 operator|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 literal|null
 argument_list|,
-name|docsEnum
+name|postingsEnum
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_NONE
 argument_list|)
@@ -2547,7 +2547,7 @@ name|put
 argument_list|(
 name|cp
 argument_list|,
-name|docsEnum
+name|postingsEnum
 operator|.
 name|nextDoc
 argument_list|()
@@ -2834,7 +2834,7 @@ name|te
 init|=
 literal|null
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|docs
 init|=
 literal|null
@@ -2925,13 +2925,13 @@ name|docs
 operator|=
 name|te
 operator|.
-name|docs
+name|postings
 argument_list|(
 literal|null
 argument_list|,
 name|docs
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_NONE
 argument_list|)

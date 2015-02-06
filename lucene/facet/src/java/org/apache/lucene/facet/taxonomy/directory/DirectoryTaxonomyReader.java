@@ -167,7 +167,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -1075,7 +1075,7 @@ name|TaxonomyReader
 operator|.
 name|INVALID_ORDINAL
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|docs
 init|=
 name|MultiFields

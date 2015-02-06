@@ -943,7 +943,7 @@ argument_list|(
 name|KEY_FIELD
 argument_list|)
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|td
 init|=
 name|TestUtil
@@ -1099,7 +1099,7 @@ argument_list|(
 name|KEY_FIELD
 argument_list|)
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|td
 init|=
 name|TestUtil

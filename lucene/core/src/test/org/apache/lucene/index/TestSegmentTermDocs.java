@@ -293,7 +293,7 @@ literal|"field"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|termDocs
 init|=
 name|TestUtil
@@ -312,7 +312,7 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 argument_list|)
@@ -398,7 +398,7 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|termDocs
 init|=
 name|TestUtil
@@ -463,7 +463,7 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|termDocs
 init|=
 name|TestUtil
@@ -663,7 +663,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|tdocs
 init|=
 name|TestUtil
@@ -698,7 +698,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 argument_list|)
@@ -1015,7 +1015,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 argument_list|)
@@ -1229,7 +1229,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 argument_list|)
@@ -1380,7 +1380,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 argument_list|)

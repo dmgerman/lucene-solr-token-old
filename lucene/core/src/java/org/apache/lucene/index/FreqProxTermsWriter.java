@@ -210,8 +210,8 @@ name|termsEnum
 init|=
 literal|null
 decl_stmt|;
-name|DocsEnum
-name|docsEnum
+name|PostingsEnum
+name|postingsEnum
 init|=
 literal|null
 decl_stmt|;
@@ -297,15 +297,15 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|docsEnum
+name|postingsEnum
 operator|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 literal|null
 argument_list|,
-name|docsEnum
+name|postingsEnum
 argument_list|,
 literal|0
 argument_list|)
@@ -323,7 +323,7 @@ decl_stmt|;
 assert|assert
 name|delDocLimit
 operator|<
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|NO_MORE_DOCS
 assert|;
@@ -335,7 +335,7 @@ block|{
 name|int
 name|doc
 init|=
-name|docsEnum
+name|postingsEnum
 operator|.
 name|nextDoc
 argument_list|()

@@ -185,7 +185,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -651,7 +651,7 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|pos
 init|=
 name|MultiFields
@@ -1540,12 +1540,12 @@ argument_list|(
 name|readerFromWriter
 argument_list|)
 decl_stmt|;
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|tp
 init|=
 name|r
 operator|.
-name|termPositionsEnum
+name|termDocsEnum
 argument_list|(
 operator|new
 name|Term
@@ -1554,6 +1554,10 @@ literal|"content"
 argument_list|,
 literal|"a"
 argument_list|)
+argument_list|,
+name|PostingsEnum
+operator|.
+name|FLAG_ALL
 argument_list|)
 decl_stmt|;
 name|int

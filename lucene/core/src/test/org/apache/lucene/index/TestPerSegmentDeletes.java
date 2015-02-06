@@ -941,8 +941,8 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|DocsEnum
-name|docsEnum
+name|PostingsEnum
+name|postingsEnum
 init|=
 name|TestUtil
 operator|.
@@ -957,7 +957,7 @@ name|bits
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_NONE
 argument_list|)
@@ -965,7 +965,7 @@ decl_stmt|;
 return|return
 name|toArray
 argument_list|(
-name|docsEnum
+name|postingsEnum
 argument_list|)
 return|;
 block|}
@@ -980,8 +980,8 @@ name|int
 index|[]
 name|toArray
 parameter_list|(
-name|DocsEnum
-name|docsEnum
+name|PostingsEnum
+name|postingsEnum
 parameter_list|)
 throws|throws
 name|IOException
@@ -999,7 +999,7 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
-name|docsEnum
+name|postingsEnum
 operator|.
 name|nextDoc
 argument_list|()
@@ -1012,7 +1012,7 @@ block|{
 name|int
 name|docID
 init|=
-name|docsEnum
+name|postingsEnum
 operator|.
 name|docID
 argument_list|()

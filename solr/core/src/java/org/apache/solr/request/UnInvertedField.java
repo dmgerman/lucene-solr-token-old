@@ -752,9 +752,9 @@ expr_stmt|;
 comment|// TODO: check for MultiTermsEnum in SolrIndexSearcher could now fail?
 name|deState
 operator|.
-name|docsEnum
+name|postingsEnum
 operator|=
-name|docsEnum
+name|postingsEnum
 expr_stmt|;
 name|deState
 operator|.
@@ -763,11 +763,11 @@ operator|=
 name|maxTermDocFreq
 expr_stmt|;
 block|}
-name|docsEnum
+name|postingsEnum
 operator|=
 name|deState
 operator|.
-name|docsEnum
+name|postingsEnum
 expr_stmt|;
 name|DocSet
 name|set

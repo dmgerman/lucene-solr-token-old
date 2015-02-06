@@ -817,7 +817,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|DocsEnum
+name|PostingsEnum
 name|termDocs
 init|=
 name|TestUtil
@@ -910,7 +910,7 @@ operator|.
 name|NO_MORE_DOCS
 argument_list|)
 expr_stmt|;
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|positions
 init|=
 name|MultiFields

@@ -24,22 +24,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|OrdTermState
 import|;
 end_import
@@ -57,7 +41,7 @@ name|TermState
 import|;
 end_import
 begin_comment
-comment|/**  * Holds all state required for {@link PostingsReaderBase}  * to produce a {@link DocsEnum} without re-seeking the  * terms dict.  */
+comment|/**  * Holds all state required for {@link PostingsReaderBase}  * to produce a {@link org.apache.lucene.index.PostingsEnum} without re-seeking the  * terms dict.  */
 end_comment
 begin_class
 DECL|class|BlockTermState

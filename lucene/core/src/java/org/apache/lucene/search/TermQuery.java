@@ -42,20 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|DocsEnum
+name|IndexReaderContext
 import|;
 end_import
 begin_import
@@ -81,7 +68,20 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReaderContext
+name|LeafReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -162,8 +162,6 @@ operator|.
 name|similarities
 operator|.
 name|Similarity
-operator|.
-name|SimScorer
 import|;
 end_import
 begin_import
@@ -179,6 +177,8 @@ operator|.
 name|similarities
 operator|.
 name|Similarity
+operator|.
+name|SimScorer
 import|;
 end_import
 begin_import
@@ -208,7 +208,7 @@ name|ToStringUtils
 import|;
 end_import
 begin_comment
-comment|/** A Query that matches documents containing a term.   This may be combined with other terms with a {@link BooleanQuery}.   */
+comment|/**  * A Query that matches documents containing a term. This may be combined with  * other terms with a {@link BooleanQuery}.  */
 end_comment
 begin_class
 DECL|class|TermQuery
@@ -467,12 +467,12 @@ return|return
 literal|null
 return|;
 block|}
-name|DocsEnum
+name|PostingsEnum
 name|docs
 init|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 name|acceptDocs
 argument_list|,
@@ -480,11 +480,11 @@ literal|null
 argument_list|,
 name|needsScores
 condition|?
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 else|:
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_NONE
 argument_list|)
@@ -565,7 +565,8 @@ return|return
 literal|null
 return|;
 block|}
-comment|//System.out.println("LD=" + reader.getLiveDocs() + " set?=" + (reader.getLiveDocs() != null ? reader.getLiveDocs().get(0) : "null"));
+comment|// System.out.println("LD=" + reader.getLiveDocs() + " set?=" +
+comment|// (reader.getLiveDocs() != null ? reader.getLiveDocs().get(0) : "null"));
 specifier|final
 name|TermsEnum
 name|termsEnum
@@ -619,7 +620,8 @@ throws|throws
 name|IOException
 block|{
 comment|// only called from assert
-comment|//System.out.println("TQ.termNotInReader reader=" + reader + " term=" + field + ":" + bytes.utf8ToString());
+comment|// System.out.println("TQ.termNotInReader reader=" + reader + " term=" +
+comment|// field + ":" + bytes.utf8ToString());
 return|return
 name|reader
 operator|.
@@ -822,7 +824,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Expert: constructs a TermQuery that will use the    *  provided docFreq instead of looking up the docFreq    *  against the searcher. */
+comment|/**    * Expert: constructs a TermQuery that will use the provided docFreq instead    * of looking up the docFreq against the searcher.    */
 DECL|method|TermQuery
 specifier|public
 name|TermQuery
@@ -849,7 +851,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/** Expert: constructs a TermQuery that will use the    *  provided docFreq instead of looking up the docFreq    *  against the searcher. */
+comment|/**    * Expert: constructs a TermQuery that will use the provided docFreq instead    * of looking up the docFreq against the searcher.    */
 DECL|method|TermQuery
 specifier|public
 name|TermQuery
@@ -932,7 +934,8 @@ operator|!=
 name|context
 condition|)
 block|{
-comment|// make TermQuery single-pass if we don't have a PRTS or if the context differs!
+comment|// make TermQuery single-pass if we don't have a PRTS or if the context
+comment|// differs!
 name|termState
 operator|=
 name|TermContext
@@ -1141,7 +1144,7 @@ name|term
 argument_list|)
 return|;
 block|}
-comment|/** Returns a hash code value for this object.*/
+comment|/** Returns a hash code value for this object. */
 annotation|@
 name|Override
 DECL|method|hashCode

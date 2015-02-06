@@ -147,7 +147,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -1946,7 +1946,7 @@ expr_stmt|;
 block|}
 comment|// we are processing in increasing docid order, so we only need to reinitialize stuff on segment changes
 comment|// otherwise, we will just advance() existing enums to the new document in the same segment.
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|postings
 index|[]
 init|=
@@ -2089,7 +2089,7 @@ expr_stmt|;
 name|postings
 operator|=
 operator|new
-name|DocsAndPositionsEnum
+name|PostingsEnum
 index|[
 name|terms
 operator|.
@@ -2118,7 +2118,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|dp
 init|=
 name|MultiTermHighlighting
@@ -2276,7 +2276,7 @@ parameter_list|,
 name|TermsEnum
 name|termsEnum
 parameter_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 index|[]
 name|postings
 parameter_list|,
@@ -2350,7 +2350,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|de
 init|=
 name|postings
@@ -2412,13 +2412,13 @@ index|]
 operator|=
 name|termsEnum
 operator|.
-name|docsAndPositions
+name|postings
 argument_list|(
 literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_OFFSETS
 argument_list|)
@@ -2645,7 +2645,7 @@ literal|null
 condition|)
 block|{
 specifier|final
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|dp
 init|=
 name|off
@@ -3244,7 +3244,7 @@ name|OffsetsEnum
 argument_list|>
 block|{
 DECL|field|dp
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|dp
 decl_stmt|;
 DECL|field|pos
@@ -3258,7 +3258,7 @@ decl_stmt|;
 DECL|method|OffsetsEnum
 name|OffsetsEnum
 parameter_list|(
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|dp
 parameter_list|,
 name|int
@@ -3366,11 +3366,11 @@ DECL|field|EMPTY
 specifier|private
 specifier|static
 specifier|final
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|EMPTY
 init|=
 operator|new
-name|DocsAndPositionsEnum
+name|PostingsEnum
 argument_list|()
 block|{
 annotation|@
@@ -3383,7 +3383,8 @@ throws|throws
 name|IOException
 block|{
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 annotation|@

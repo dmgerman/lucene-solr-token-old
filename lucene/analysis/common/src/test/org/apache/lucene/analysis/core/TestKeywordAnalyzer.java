@@ -141,7 +141,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
+name|PostingsEnum
 import|;
 end_import
 begin_import
@@ -547,7 +547,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|td
 init|=
 name|TestUtil

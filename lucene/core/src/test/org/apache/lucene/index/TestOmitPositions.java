@@ -309,7 +309,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|de
 init|=
 name|TestUtil
@@ -333,7 +333,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
 name|FLAG_FREQS
 argument_list|)
