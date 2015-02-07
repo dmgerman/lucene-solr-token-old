@@ -450,7 +450,7 @@ name|Query
 import|;
 end_import
 begin_comment
-comment|/**  * This query tree builder only defines the necessary map to build a  * {@link Query} tree object. It should be used to generate a {@link Query} tree  * object from a query node tree processed by a  * {@link StandardQueryNodeProcessorPipeline}.<br/>  *   * @see QueryTreeBuilder  * @see StandardQueryNodeProcessorPipeline  */
+comment|/**  * This query tree builder only defines the necessary map to build a  * {@link Query} tree object. It should be used to generate a {@link Query} tree  * object from a query node tree processed by a  * {@link StandardQueryNodeProcessorPipeline}.  *   * @see QueryTreeBuilder  * @see StandardQueryNodeProcessorPipeline  */
 end_comment
 begin_class
 DECL|class|StandardQueryTreeBuilder

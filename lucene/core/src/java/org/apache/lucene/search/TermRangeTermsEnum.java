@@ -54,7 +54,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Subclass of FilteredTermEnum for enumerating all terms that match the  * specified range parameters.  Each term in the enumeration is  * greater than all that precede it.</p>  */
+comment|/**  * Subclass of FilteredTermEnum for enumerating all terms that match the  * specified range parameters.  Each term in the enumeration is  * greater than all that precede it.  */
 end_comment
 begin_class
 DECL|class|TermRangeTermsEnum

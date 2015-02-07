@@ -81,7 +81,7 @@ name|AttributeSource
 import|;
 end_import
 begin_comment
-comment|/**  * Attempts to parse the {@link CharTermAttribute#buffer()} as a Date using a {@link java.text.DateFormat}.  * If the value is a Date, it will add it to the sink.  *<p/>   *  **/
+comment|/**  * Attempts to parse the {@link CharTermAttribute#buffer()} as a Date using a {@link java.text.DateFormat}.  * If the value is a Date, it will add it to the sink.  *  **/
 end_comment
 begin_class
 DECL|class|DateRecognizerSinkFilter

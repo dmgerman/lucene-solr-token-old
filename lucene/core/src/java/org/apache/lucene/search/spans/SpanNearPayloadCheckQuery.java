@@ -57,7 +57,7 @@ name|Collection
 import|;
 end_import
 begin_comment
-comment|/**  * Only return those matches that have a specific payload at  * the given position.  *<p/>  *   */
+comment|/**  * Only return those matches that have a specific payload at  * the given position.  */
 end_comment
 begin_class
 DECL|class|SpanNearPayloadCheckQuery

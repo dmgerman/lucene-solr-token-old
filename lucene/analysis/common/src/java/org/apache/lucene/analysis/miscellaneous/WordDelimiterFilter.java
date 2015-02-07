@@ -284,7 +284,7 @@ name|ALPHANUM
 init|=
 literal|0x07
 decl_stmt|;
-comment|/**    * Causes parts of words to be generated:    *<p/>    * "PowerShot" =&gt; "Power" "Shot"    */
+comment|/**    * Causes parts of words to be generated:    *<p>    * "PowerShot" =&gt; "Power" "Shot"    */
 DECL|field|GENERATE_WORD_PARTS
 specifier|public
 specifier|static
@@ -294,7 +294,7 @@ name|GENERATE_WORD_PARTS
 init|=
 literal|1
 decl_stmt|;
-comment|/**    * Causes number subwords to be generated:    *<p/>    * "500-42" =&gt; "500" "42"    */
+comment|/**    * Causes number subwords to be generated:    *<p>    * "500-42" =&gt; "500" "42"    */
 DECL|field|GENERATE_NUMBER_PARTS
 specifier|public
 specifier|static
@@ -304,7 +304,7 @@ name|GENERATE_NUMBER_PARTS
 init|=
 literal|2
 decl_stmt|;
-comment|/**    * Causes maximum runs of word parts to be catenated:    *<p/>    * "wi-fi" =&gt; "wifi"    */
+comment|/**    * Causes maximum runs of word parts to be catenated:    *<p>    * "wi-fi" =&gt; "wifi"    */
 DECL|field|CATENATE_WORDS
 specifier|public
 specifier|static
@@ -314,7 +314,7 @@ name|CATENATE_WORDS
 init|=
 literal|4
 decl_stmt|;
-comment|/**    * Causes maximum runs of word parts to be catenated:    *<p/>    * "wi-fi" =&gt; "wifi"    */
+comment|/**    * Causes maximum runs of word parts to be catenated:    *<p>    * "wi-fi" =&gt; "wifi"    */
 DECL|field|CATENATE_NUMBERS
 specifier|public
 specifier|static
@@ -324,7 +324,7 @@ name|CATENATE_NUMBERS
 init|=
 literal|8
 decl_stmt|;
-comment|/**    * Causes all subword parts to be catenated:    *<p/>    * "wi-fi-4000" =&gt; "wifi4000"    */
+comment|/**    * Causes all subword parts to be catenated:    *<p>    * "wi-fi-4000" =&gt; "wifi4000"    */
 DECL|field|CATENATE_ALL
 specifier|public
 specifier|static
@@ -334,7 +334,7 @@ name|CATENATE_ALL
 init|=
 literal|16
 decl_stmt|;
-comment|/**    * Causes original words are preserved and added to the subword list (Defaults to false)    *<p/>    * "500-42" =&gt; "500" "42" "500-42"    */
+comment|/**    * Causes original words are preserved and added to the subword list (Defaults to false)    *<p>    * "500-42" =&gt; "500" "42" "500-42"    */
 DECL|field|PRESERVE_ORIGINAL
 specifier|public
 specifier|static
@@ -364,7 +364,7 @@ name|SPLIT_ON_NUMERICS
 init|=
 literal|128
 decl_stmt|;
-comment|/**    * Causes trailing "'s" to be removed for each subword    *<p/>    * "O'Neil's" =&gt; "O", "Neil"    */
+comment|/**    * Causes trailing "'s" to be removed for each subword    *<p>    * "O'Neil's" =&gt; "O", "Neil"    */
 DECL|field|STEM_ENGLISH_POSSESSIVE
 specifier|public
 specifier|static

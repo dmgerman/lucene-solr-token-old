@@ -45,7 +45,7 @@ name|CharArraySet
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link org.apache.lucene.analysis.TokenFilter} that decomposes compound words found in many Germanic languages.  *<p>  * "Donaudampfschiff" becomes Donau, dampf, schiff so that you can find  * "Donaudampfschiff" even when you only enter "schiff".  *  It uses a brute-force algorithm to achieve this.  *<p>  */
+comment|/**  * A {@link org.apache.lucene.analysis.TokenFilter} that decomposes compound words found in many Germanic languages.  *<p>  * "Donaudampfschiff" becomes Donau, dampf, schiff so that you can find  * "Donaudampfschiff" even when you only enter "schiff".  *  It uses a brute-force algorithm to achieve this.  */
 end_comment
 begin_class
 DECL|class|DictionaryCompoundWordTokenFilter

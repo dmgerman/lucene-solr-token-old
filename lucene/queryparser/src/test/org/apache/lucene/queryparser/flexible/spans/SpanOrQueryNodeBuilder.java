@@ -151,7 +151,7 @@ name|SpanQuery
 import|;
 end_import
 begin_comment
-comment|/**  * This builder creates {@link SpanOrQuery}s from a {@link BooleanQueryNode}.<br/>  *<br/>  *   * It assumes that the {@link BooleanQueryNode} instance has at least one child.  */
+comment|/**  * This builder creates {@link SpanOrQuery}s from a {@link BooleanQueryNode}.<br>  *<br>  *   * It assumes that the {@link BooleanQueryNode} instance has at least one child.  */
 end_comment
 begin_class
 DECL|class|SpanOrQueryNodeBuilder

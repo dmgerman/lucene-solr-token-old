@@ -158,7 +158,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Extension of StandardTokenizer that is aware of Wikipedia syntax.  It is based off of the  * Wikipedia tutorial available at http://en.wikipedia.org/wiki/Wikipedia:Tutorial, but it may not be complete.  *<p/>  *<p/>  * @lucene.experimental  */
+comment|/**  * Extension of StandardTokenizer that is aware of Wikipedia syntax.  It is based off of the  * Wikipedia tutorial available at http://en.wikipedia.org/wiki/Wikipedia:Tutorial, but it may not be complete.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|WikipediaTokenizer

@@ -52,7 +52,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Links two {@link PrefixAwareTokenFilter}.  *<p/>  *<b>NOTE:</b> This filter might not behave correctly if used with custom Attributes, i.e. Attributes other than  * the ones located in org.apache.lucene.analysis.tokenattributes.   */
+comment|/**  * Links two {@link PrefixAwareTokenFilter}.  *<p>  *<b>NOTE:</b> This filter might not behave correctly if used with custom Attributes, i.e. Attributes other than  * the ones located in org.apache.lucene.analysis.tokenattributes.   */
 end_comment
 begin_class
 DECL|class|PrefixAndSuffixAwareTokenFilter

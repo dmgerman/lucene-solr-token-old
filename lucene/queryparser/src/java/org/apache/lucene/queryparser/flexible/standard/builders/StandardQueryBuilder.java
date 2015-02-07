@@ -108,7 +108,7 @@ name|Query
 import|;
 end_import
 begin_comment
-comment|/**  * This interface should be implemented by every class that wants to build  * {@link Query} objects from {@link QueryNode} objects.<br/>  *   * @see QueryBuilder  * @see QueryTreeBuilder  */
+comment|/**  * This interface should be implemented by every class that wants to build  * {@link Query} objects from {@link QueryNode} objects.  *   * @see QueryBuilder  * @see QueryTreeBuilder  */
 end_comment
 begin_interface
 DECL|interface|StandardQueryBuilder

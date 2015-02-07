@@ -74,7 +74,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * A collector that collects all groups that match the  * query. Only the group value is collected, and the order  * is undefined.  This collector does not determine  * the most relevant document of a group.  *  *<p/>  * This is an abstract version. Concrete implementations define  * what a group actually is and how it is internally collected.  *  * @lucene.experimental  */
+comment|/**  * A collector that collects all groups that match the  * query. Only the group value is collected, and the order  * is undefined.  This collector does not determine  * the most relevant document of a group.  *<p>  * This is an abstract version. Concrete implementations define  * what a group actually is and how it is internally collected.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|AbstractAllGroupsCollector
@@ -103,7 +103,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns the group values    *<p/>    * This is an unordered collections of group values. For each group that matched the query there is a {@link BytesRef}    * representing a group value.    *    * @return the group values    */
+comment|/**    * Returns the group values    *<p>    * This is an unordered collections of group values. For each group that matched the query there is a {@link BytesRef}    * representing a group value.    *    * @return the group values    */
 DECL|method|getGroups
 specifier|public
 specifier|abstract
