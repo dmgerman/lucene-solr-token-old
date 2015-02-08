@@ -5171,7 +5171,7 @@ name|equal
 operator|||
 name|downloadCompleteIndex
 operator|||
-name|filesToAlwaysDownloadIfChecksumFails
+name|filesToAlwaysDownloadIfNoChecksums
 argument_list|(
 name|filename
 argument_list|,
@@ -5248,10 +5248,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|filesToAlwaysDownloadIfChecksumFails
+DECL|method|filesToAlwaysDownloadIfNoChecksums
 specifier|private
 name|boolean
-name|filesToAlwaysDownloadIfChecksumFails
+name|filesToAlwaysDownloadIfNoChecksums
 parameter_list|(
 name|String
 name|filename
