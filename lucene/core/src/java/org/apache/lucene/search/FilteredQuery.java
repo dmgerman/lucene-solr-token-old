@@ -242,8 +242,8 @@ specifier|final
 name|IndexSearcher
 name|searcher
 parameter_list|,
-name|boolean
-name|needsScores
+name|int
+name|postingsFlags
 parameter_list|)
 throws|throws
 name|IOException
@@ -258,7 +258,7 @@ name|createWeight
 argument_list|(
 name|searcher
 argument_list|,
-name|needsScores
+name|postingsFlags
 argument_list|)
 decl_stmt|;
 return|return
