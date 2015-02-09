@@ -477,8 +477,8 @@ parameter_list|(
 name|IndexSearcher
 name|searcher
 parameter_list|,
-name|int
-name|postingsFlags
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -491,7 +491,7 @@ name|this
 argument_list|,
 name|searcher
 argument_list|,
-name|postingsFlags
+name|needsScores
 argument_list|,
 name|disableCoord
 argument_list|)

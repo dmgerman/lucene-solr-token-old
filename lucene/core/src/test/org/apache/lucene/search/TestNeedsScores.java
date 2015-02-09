@@ -107,19 +107,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|PostingsEnum
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|RandomIndexWriter
 import|;
 end_import
@@ -391,9 +378,7 @@ name|AssertNeedsScores
 argument_list|(
 name|required
 argument_list|,
-name|PostingsEnum
-operator|.
-name|FLAG_FREQS
+literal|true
 argument_list|)
 argument_list|,
 name|BooleanClause
@@ -412,9 +397,7 @@ name|AssertNeedsScores
 argument_list|(
 name|prohibited
 argument_list|,
-name|PostingsEnum
-operator|.
-name|FLAG_NONE
+literal|false
 argument_list|)
 argument_list|,
 name|BooleanClause
@@ -477,9 +460,7 @@ name|AssertNeedsScores
 argument_list|(
 name|term
 argument_list|,
-name|PostingsEnum
-operator|.
-name|FLAG_NONE
+literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -542,9 +523,7 @@ name|AssertNeedsScores
 argument_list|(
 name|term
 argument_list|,
-name|PostingsEnum
-operator|.
-name|FLAG_NONE
+literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -586,9 +565,7 @@ operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
-name|PostingsEnum
-operator|.
-name|FLAG_NONE
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -631,9 +608,7 @@ operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
-name|PostingsEnum
-operator|.
-name|FLAG_FREQS
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -657,7 +632,7 @@ name|totalHits
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**     * Wraps a query, checking that the postingsFlags param    * passed to Weight.scorer is the expected value.    */
+comment|/**     * Wraps a query, checking that the needsScores param     * passed to Weight.scorer is the expected value.    */
 DECL|class|AssertNeedsScores
 specifier|static
 class|class
@@ -672,7 +647,7 @@ name|in
 decl_stmt|;
 DECL|field|value
 specifier|final
-name|int
+name|boolean
 name|value
 decl_stmt|;
 DECL|method|AssertNeedsScores
@@ -681,7 +656,7 @@ parameter_list|(
 name|Query
 name|in
 parameter_list|,
-name|int
+name|boolean
 name|value
 parameter_list|)
 block|{
@@ -708,8 +683,8 @@ parameter_list|(
 name|IndexSearcher
 name|searcher
 parameter_list|,
-name|int
-name|postingsFlags
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -724,7 +699,7 @@ name|createWeight
 argument_list|(
 name|searcher
 argument_list|,
-name|postingsFlags
+name|needsScores
 argument_list|)
 decl_stmt|;
 return|return
@@ -824,7 +799,7 @@ name|in
 argument_list|,
 name|value
 argument_list|,
-name|postingsFlags
+name|needsScores
 argument_list|)
 expr_stmt|;
 return|return
@@ -961,8 +936,10 @@ name|result
 operator|+
 operator|(
 name|value
-operator|*
-literal|37
+condition|?
+literal|1231
+else|:
+literal|1237
 operator|)
 expr_stmt|;
 return|return
