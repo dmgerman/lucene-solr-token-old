@@ -28,7 +28,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Extra lucene sorting utilities& convenience methods  *  *  *  */
+comment|/**  * Extra lucene sorting utilities&amp; convenience methods  *  *  *  */
 end_comment
 begin_class
 DECL|class|Sorting

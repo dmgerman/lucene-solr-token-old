@@ -222,6 +222,21 @@ name|common
 operator|.
 name|params
 operator|.
+name|CursorMarkParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
 name|GroupParams
 import|;
 end_import
@@ -408,7 +423,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Distributed tests of deep paging using {@link CursorMark} and {@link #CURSOR_MARK_PARAM}.  *   * NOTE: this class Reuses some utilities from {@link CursorPagingTest} that assume the same schema and configs.  *  * @see CursorPagingTest   */
+comment|/**  * Distributed tests of deep paging using {@link CursorMark} and {@link CursorMarkParams#CURSOR_MARK_PARAM}.  *   * NOTE: this class Reuses some utilities from {@link CursorPagingTest} that assume the same schema and configs.  *  * @see CursorPagingTest   */
 end_comment
 begin_class
 annotation|@
@@ -4362,7 +4377,7 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * response does include {@link #CURSOR_MARK_NEXT} key and returns it    * @see org.apache.solr.client.solrj.SolrClient#query    */
+comment|/**    * Given a QueryResponse returned by SolrServer.query, asserts that the    * response does include {@link CursorMarkParams#CURSOR_MARK_NEXT} key and returns it    * @see org.apache.solr.client.solrj.SolrClient#query    */
 DECL|method|assertHashNextCursorMark
 specifier|private
 name|String
@@ -4421,7 +4436,7 @@ return|return
 name|docs
 return|;
 block|}
-comment|/**    *<p>    * Given a set of params, executes a cursor query using {@link #CURSOR_MARK_START}     * and then continuously walks the results using {@link #CURSOR_MARK_START} as long     * as a non-0 number of docs ar returned.  This method records the the set of all id's    * (must be postive ints) encountered and throws an assertion failure if any id is     * encountered more then once, or if the set grows above maxSize    *</p>    *    *<p>    * Note that this method explicily uses the "cloudClient" for executing the queries,     * instead of relying on the test infrastructure to execute the queries redundently    * aainst both the cloud client as well as a control client.  This is because term stat     * differences in a sharded setup can result in differnent scores for documents compared     * to the control index -- which can affect the sorting in some cases and cause false     * negatives in the response comparisons (even if we don't include "score" in the "fl")    *</p>    */
+comment|/**    *<p>    * Given a set of params, executes a cursor query using {@link CursorMarkParams#CURSOR_MARK_START}     * and then continuously walks the results using {@link CursorMarkParams#CURSOR_MARK_START} as long     * as a non-0 number of docs ar returned.  This method records the the set of all id's    * (must be postive ints) encountered and throws an assertion failure if any id is     * encountered more then once, or if the set grows above maxSize    *</p>    *    *<p>    * Note that this method explicily uses the "cloudClient" for executing the queries,     * instead of relying on the test infrastructure to execute the queries redundently    * aainst both the cloud client as well as a control client.  This is because term stat     * differences in a sharded setup can result in differnent scores for documents compared     * to the control index -- which can affect the sorting in some cases and cause false     * negatives in the response comparisons (even if we don't include "score" in the "fl")    *</p>    */
 DECL|method|assertFullWalkNoDups
 specifier|public
 name|SentinelIntSet

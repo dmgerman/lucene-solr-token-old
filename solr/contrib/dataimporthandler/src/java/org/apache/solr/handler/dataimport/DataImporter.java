@@ -495,7 +495,7 @@ name|ReentrantLock
 import|;
 end_import
 begin_comment
-comment|/**  *<p> Stores all configuration information for pulling and indexing data.</p>  *<p/>  *<b>This API is experimental and subject to change</b>  *  * @since solr 1.3  */
+comment|/**  *<p> Stores all configuration information for pulling and indexing data.</p>  *<p>  *<b>This API is experimental and subject to change</b>  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|DataImporter

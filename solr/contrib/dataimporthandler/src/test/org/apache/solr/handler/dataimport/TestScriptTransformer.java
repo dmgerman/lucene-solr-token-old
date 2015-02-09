@@ -160,7 +160,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * Test for ScriptTransformer  *</p>  *<p/>  *  *  * @since solr 1.3  */
+comment|/**  * Test for ScriptTransformer  *  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|TestScriptTransformer

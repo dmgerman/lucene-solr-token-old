@@ -17,7 +17,7 @@ name|dataimport
 package|;
 end_package
 begin_comment
-comment|/**  *<p> Exception class for all DataImportHandler exceptions</p>  *<p/>  *<b>This API is experimental and subject to change</b>  *<p/>  *  * @since solr 1.3  */
+comment|/**  *<p> Exception class for all DataImportHandler exceptions</p>  *<p>  *<b>This API is experimental and subject to change</b>  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|DataImportHandlerException

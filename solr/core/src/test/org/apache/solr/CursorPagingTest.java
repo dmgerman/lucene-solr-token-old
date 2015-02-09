@@ -91,6 +91,21 @@ name|common
 operator|.
 name|params
 operator|.
+name|CursorMarkParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
 name|SolrParams
 import|;
 end_import
@@ -341,7 +356,7 @@ name|After
 import|;
 end_import
 begin_comment
-comment|/**  * Tests of deep paging using {@link CursorMark} and {@link #CURSOR_MARK_PARAM}.  */
+comment|/**  * Tests of deep paging using {@link CursorMark} and {@link CursorMarkParams#CURSOR_MARK_PARAM}.  */
 end_comment
 begin_class
 DECL|class|CursorPagingTest
@@ -3433,7 +3448,7 @@ name|names
 argument_list|)
 return|;
 block|}
-comment|/**    * Given a set of params, executes a cursor query using {@link #CURSOR_MARK_START}    * and then continuously walks the results using {@link #CURSOR_MARK_START} as long    * as a non-0 number of docs ar returned.  This method records the the set of all id's    * (must be positive ints) encountered and throws an assertion failure if any id is    * encountered more than once, or if the set grows above maxSize    */
+comment|/**    * Given a set of params, executes a cursor query using {@link CursorMarkParams#CURSOR_MARK_START}    * and then continuously walks the results using {@link CursorMarkParams#CURSOR_MARK_START} as long    * as a non-0 number of docs ar returned.  This method records the the set of all id's    * (must be positive ints) encountered and throws an assertion failure if any id is    * encountered more than once, or if the set grows above maxSize    */
 DECL|method|assertFullWalkNoDups
 specifier|public
 name|SentinelIntSet
@@ -4036,7 +4051,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Given a set of params, executes a cursor query using {@link #CURSOR_MARK_START}    * and then continuously walks the results using {@link #CURSOR_MARK_START} as long    * as a non-0 number of docs ar returned.  This method records the the set of all id's    * (must be positive ints) encountered and throws an assertion failure if any id is    * encountered more than once, or if the set grows above maxSize.    *    * Also checks that facets are the same with each page, and that they are correct.    */
+comment|/**    * Given a set of params, executes a cursor query using {@link CursorMarkParams#CURSOR_MARK_START}    * and then continuously walks the results using {@link CursorMarkParams#CURSOR_MARK_START} as long    * as a non-0 number of docs ar returned.  This method records the the set of all id's    * (must be positive ints) encountered and throws an assertion failure if any id is    * encountered more than once, or if the set grows above maxSize.    *    * Also checks that facets are the same with each page, and that they are correct.    */
 DECL|method|assertFullWalkNoDupsWithFacets
 specifier|public
 name|SentinelIntSet
@@ -4699,7 +4714,7 @@ return|return
 name|ids
 return|;
 block|}
-comment|/**    * Asserts that the query matches the specified JSON patterns and then returns the    * {@link #CURSOR_MARK_NEXT} value from the response    *    * @see #assertJQ    */
+comment|/**    * Asserts that the query matches the specified JSON patterns and then returns the    * {@link CursorMarkParams#CURSOR_MARK_NEXT} value from the response    *    * @see #assertJQ    */
 DECL|method|assertCursor
 specifier|public
 name|String

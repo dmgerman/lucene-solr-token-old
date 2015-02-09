@@ -257,7 +257,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Handler for rich documents like PDF or Word or any other file format that Tika handles that need the text to be extracted  * first from the document.  *<p/>  */
+comment|/**  * Handler for rich documents like PDF or Word or any other file format that Tika handles that need the text to be extracted  * first from the document.  */
 end_comment
 begin_class
 DECL|class|ExtractingRequestHandler
