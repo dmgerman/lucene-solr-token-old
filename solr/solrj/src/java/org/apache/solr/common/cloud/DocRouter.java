@@ -1120,6 +1120,9 @@ parameter_list|,
 name|SolrInputDocument
 name|sdoc
 parameter_list|,
+name|String
+name|route
+parameter_list|,
 name|SolrParams
 name|params
 parameter_list|,
