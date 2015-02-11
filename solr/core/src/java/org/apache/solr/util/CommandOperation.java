@@ -36,6 +36,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|text
 operator|.
 name|MessageFormat
@@ -90,6 +99,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|cloud
+operator|.
+name|ZkStateReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|noggit
 operator|.
 name|JSONParser
@@ -124,6 +161,17 @@ operator|.
 name|Collections
 operator|.
 name|singletonList
+import|;
+end_import
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
 import|;
 end_import
 begin_import
@@ -476,7 +524,7 @@ name|REQD
 init|=
 literal|"''{0}'' is a required field"
 decl_stmt|;
-comment|/**Get collection of values for a key. If only one val is present a    * single value collection is returned    */
+comment|/**    * Get collection of values for a key. If only one val is present a    * single value collection is returned    */
 DECL|method|getStrs
 specifier|public
 name|List
@@ -611,7 +659,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**Get a required field. If missing it adds to the errors    */
+comment|/**    * Get a required field. If missing it adds to the errors    */
 DECL|method|getStr
 specifier|public
 name|String
@@ -768,7 +816,7 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**Get all the values from the metadata for the command    * without the specified keys    */
+comment|/**    * Get all the values from the metadata for the command    * without the specified keys    */
 DECL|method|getValuesExcluding
 specifier|public
 name|Map
@@ -936,7 +984,7 @@ return|return
 name|errors
 return|;
 block|}
-comment|/**Parse the command operations into command objects    */
+comment|/**    * Parse the command operations into command objects    */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -1193,6 +1241,50 @@ operator|(
 name|Map
 operator|)
 name|o
+return|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|new
+name|String
+argument_list|(
+name|ZkStateReader
+operator|.
+name|toJSON
+argument_list|(
+name|singletonMap
+argument_list|(
+name|name
+argument_list|,
+name|commandData
+argument_list|)
+argument_list|)
+argument_list|,
+name|IOUtils
+operator|.
+name|UTF_8
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+comment|//should not happen
+return|return
+literal|""
 return|;
 block|}
 block|}
