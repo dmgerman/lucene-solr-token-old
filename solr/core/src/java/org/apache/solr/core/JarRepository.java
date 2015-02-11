@@ -429,7 +429,7 @@ operator|=
 name|coreContainer
 expr_stmt|;
 block|}
-comment|/**    * Returns the contents of a jar and increments a reference count. Please return the same object to decerease the refcount    *     * @param key    *          it is a combination of blobname and version like blobName/version    * @return The reference of a jar    */
+comment|/**    * Returns the contents of a jar and increments a reference count. Please return the same object to decerease the refcount    *    * @param key it is a combination of blobname and version like blobName/version    * @return The reference of a jar    */
 DECL|method|getJarIncRef
 specifier|public
 name|JarContentRef
@@ -767,7 +767,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**    * This is to decrement a ref count    *     * @param ref    *          The reference that is already there. Doing multiple calls with same ref will not matter    */
+comment|/**    * This is to decrement a ref count    *    * @param ref The reference that is already there. Doing multiple calls with same ref will not matter    */
 DECL|method|decrementJarRefCount
 specifier|public
 name|void
