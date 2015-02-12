@@ -311,7 +311,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// prune the last seperator
+comment|// prune the last separator
 return|return
 name|out
 operator|.
@@ -370,9 +370,7 @@ name|out
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|rawvals
 operator|.
@@ -624,7 +622,7 @@ name|pivotList
 argument_list|)
 return|;
 block|}
-comment|/**    * Given a mapping of keys to {@link StatsValues} representing the currently     * known "merged" stats (which may be null if none exist yet), and a     * {@link NamedList} containing the "stats" response block returned by an individual     * shard, this method accumulates the stasts for each {@link StatsField} found in     * the shard response with the existing mergeStats    *    * @return the original<code>merged</code> Map after modifying, or a new Map if the<code>merged</code> param was originally null.    * @see StatsInfo#getStatsField    * @see StatsValuesFactory#createStatsValues    * @see StatsValues#accumulate(NamedList)    */
+comment|/**    * Given a mapping of keys to {@link StatsValues} representing the currently     * known "merged" stats (which may be null if none exist yet), and a     * {@link NamedList} containing the "stats" response block returned by an individual     * shard, this method accumulates the stats for each {@link StatsField} found in    * the shard response with the existing mergeStats    *    * @return the original<code>merged</code> Map after modifying, or a new Map if the<code>merged</code> param was originally null.    * @see StatsInfo#getStatsField    * @see StatsValuesFactory#createStatsValues    * @see StatsValues#accumulate(NamedList)    */
 DECL|method|mergeStats
 specifier|public
 specifier|static
@@ -670,11 +668,7 @@ name|merged
 operator|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|StatsValues
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|NamedList
@@ -730,7 +724,7 @@ literal|null
 condition|)
 block|{
 name|StatsField
-name|recievingStatsField
+name|receivingStatsField
 init|=
 name|statsInfo
 operator|.
@@ -746,7 +740,7 @@ if|if
 condition|(
 literal|null
 operator|==
-name|recievingStatsField
+name|receivingStatsField
 condition|)
 block|{
 throw|throw
@@ -757,7 +751,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|"No stats.field found corrisponding to pivot stats recieved from shard: "
+literal|"No stats.field found corresponding to pivot stats received from shard: "
 operator|+
 name|entry
 operator|.
@@ -772,7 +766,7 @@ name|StatsValuesFactory
 operator|.
 name|createStatsValues
 argument_list|(
-name|recievingStatsField
+name|receivingStatsField
 argument_list|)
 expr_stmt|;
 name|merged

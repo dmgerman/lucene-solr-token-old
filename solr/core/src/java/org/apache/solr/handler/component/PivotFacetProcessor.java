@@ -985,9 +985,7 @@ name|facetCounts
 operator|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|facetCounts
@@ -1544,9 +1542,7 @@ name|facetCounts
 operator|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|facetCounts
@@ -1719,7 +1715,7 @@ return|return
 name|values
 return|;
 block|}
-comment|/**    * Given a base docset, computes the size of the subset of documents corresponding to the specified pivotValue    *    * @param base the set of documents to evalute relative to    * @param field the field type used by the pivotValue    * @param pivotValue String representation of the value, may be null (ie: "missing")    */
+comment|/**    * Given a base docset, computes the size of the subset of documents corresponding to the specified pivotValue    *    * @param base the set of documents to evaluate relative to    * @param field the field type used by the pivotValue    * @param pivotValue String representation of the value, may be null (ie: "missing")    */
 DECL|method|getSubsetSize
 specifier|private
 name|int
