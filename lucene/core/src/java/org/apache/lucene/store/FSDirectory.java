@@ -310,7 +310,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Lists all files (not subdirectories) in the    *  directory.    *    *  @throws IOException if there was an I/O error during listing */
+comment|/** Lists all files (including subdirectories) in the    *  directory.    *    *  @throws IOException if there was an I/O error during listing */
 DECL|method|listAll
 specifier|public
 specifier|static
@@ -348,40 +348,6 @@ operator|.
 name|newDirectoryStream
 argument_list|(
 name|dir
-argument_list|,
-operator|new
-name|DirectoryStream
-operator|.
-name|Filter
-argument_list|<
-name|Path
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|accept
-parameter_list|(
-name|Path
-name|entry
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|!
-name|Files
-operator|.
-name|isDirectory
-argument_list|(
-name|entry
-argument_list|)
-return|;
-comment|// filter out entries that are definitely directories.
-block|}
-block|}
 argument_list|)
 init|)
 block|{
@@ -424,7 +390,6 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** Lists all files (not subdirectories) in the    * directory.    * @see #listAll(Path) */
 annotation|@
 name|Override
 DECL|method|listAll

@@ -1017,15 +1017,6 @@ range|:
 name|listStatus
 control|)
 block|{
-if|if
-condition|(
-operator|!
-name|status
-operator|.
-name|isDirectory
-argument_list|()
-condition|)
-block|{
 name|files
 operator|.
 name|add
@@ -1039,7 +1030,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|getNormalNames

@@ -798,7 +798,7 @@ literal|"subdir"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Directory
+name|FSDirectory
 name|fsDir
 init|=
 operator|new

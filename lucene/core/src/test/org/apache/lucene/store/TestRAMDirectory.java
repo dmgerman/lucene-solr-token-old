@@ -393,7 +393,7 @@ argument_list|(
 literal|"testsubdir"
 argument_list|)
 decl_stmt|;
-name|Directory
+name|FSDirectory
 name|fsDir
 init|=
 literal|null
@@ -414,7 +414,8 @@ argument_list|)
 expr_stmt|;
 name|fsDir
 operator|=
-name|newFSDirectory
+operator|new
+name|SimpleFSDirectory
 argument_list|(
 name|path
 argument_list|)
@@ -474,10 +475,11 @@ init|=
 name|buildIndex
 argument_list|()
 decl_stmt|;
-name|Directory
+name|FSDirectory
 name|dir
 init|=
-name|newFSDirectory
+operator|new
+name|SimpleFSDirectory
 argument_list|(
 name|indexDir
 argument_list|)
@@ -632,10 +634,11 @@ init|=
 name|buildIndex
 argument_list|()
 decl_stmt|;
-name|Directory
+name|FSDirectory
 name|dir
 init|=
-name|newFSDirectory
+operator|new
+name|SimpleFSDirectory
 argument_list|(
 name|indexDir
 argument_list|)

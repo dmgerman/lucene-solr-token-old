@@ -622,12 +622,11 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|FileNotFoundException
-decl||
-name|NoSuchFileException
+name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// could be a race, file no longer exists, access denied, is a directory, etc.
 return|return
 literal|0
 return|;
