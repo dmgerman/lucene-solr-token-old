@@ -494,10 +494,6 @@ literal|"qt"
 argument_list|,
 name|tv
 argument_list|,
-literal|"shards.qt"
-argument_list|,
-name|tv
-argument_list|,
 literal|"q"
 argument_list|,
 name|q
@@ -523,10 +519,6 @@ argument_list|,
 literal|"id asc"
 argument_list|,
 literal|"qt"
-argument_list|,
-name|tv
-argument_list|,
-literal|"shards.qt"
 argument_list|,
 name|tv
 argument_list|,
@@ -563,10 +555,6 @@ argument_list|,
 literal|"id asc"
 argument_list|,
 literal|"qt"
-argument_list|,
-name|tv
-argument_list|,
-literal|"shards.qt"
 argument_list|,
 name|tv
 argument_list|,
@@ -610,10 +598,6 @@ literal|"qt"
 argument_list|,
 name|tv
 argument_list|,
-literal|"shards.qt"
-argument_list|,
-name|tv
-argument_list|,
 literal|"q"
 argument_list|,
 name|q
@@ -646,10 +630,6 @@ literal|"qt"
 argument_list|,
 name|tv
 argument_list|,
-literal|"shards.qt"
-argument_list|,
-name|tv
-argument_list|,
 literal|"q"
 argument_list|,
 name|q
@@ -679,10 +659,6 @@ argument_list|,
 literal|"id desc"
 argument_list|,
 literal|"qt"
-argument_list|,
-name|tv
-argument_list|,
-literal|"shards.qt"
 argument_list|,
 name|tv
 argument_list|,
@@ -719,10 +695,6 @@ argument_list|,
 literal|"id asc"
 argument_list|,
 literal|"qt"
-argument_list|,
-name|tv
-argument_list|,
-literal|"shards.qt"
 argument_list|,
 name|tv
 argument_list|,
@@ -777,10 +749,6 @@ literal|"qt"
 argument_list|,
 name|tv
 argument_list|,
-literal|"shards.qt"
-argument_list|,
-name|tv
-argument_list|,
 literal|"q"
 argument_list|,
 name|q
@@ -806,10 +774,6 @@ argument_list|,
 literal|"id desc"
 argument_list|,
 literal|"qt"
-argument_list|,
-name|tv
-argument_list|,
-literal|"shards.qt"
 argument_list|,
 name|tv
 argument_list|,
