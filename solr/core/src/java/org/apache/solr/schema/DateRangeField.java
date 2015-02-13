@@ -108,6 +108,8 @@ name|lucene
 operator|.
 name|spatial
 operator|.
+name|prefix
+operator|.
 name|NumberRangePrefixTreeStrategy
 import|;
 end_import
