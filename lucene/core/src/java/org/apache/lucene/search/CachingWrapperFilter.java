@@ -535,7 +535,10 @@ DECL|method|toString
 specifier|public
 name|String
 name|toString
-parameter_list|()
+parameter_list|(
+name|String
+name|field
+parameter_list|)
 block|{
 return|return
 name|getClass
@@ -547,6 +550,11 @@ operator|+
 literal|"("
 operator|+
 name|filter
+operator|.
+name|toString
+argument_list|(
+name|field
+argument_list|)
 operator|+
 literal|")"
 return|;
