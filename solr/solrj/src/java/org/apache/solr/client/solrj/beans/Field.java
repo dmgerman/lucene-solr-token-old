@@ -45,6 +45,25 @@ name|RUNTIME
 import|;
 end_import
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
+name|beans
+operator|.
+name|DocumentObjectBinder
+operator|.
+name|DEFAULT
+import|;
+end_import
+begin_import
 import|import
 name|java
 operator|.
@@ -67,7 +86,7 @@ name|Retention
 import|;
 end_import
 begin_comment
-comment|/**  *  * @since solr 1.3  */
+comment|/**  * This class can be used to annotate a field or a setter an any class  * and SlrJ would help you convert to SolrInputDocument and from SolrDocument  *  * @since solr 1.3  */
 end_comment
 begin_annotation_defn
 annotation|@
@@ -89,15 +108,13 @@ specifier|public
 annotation_defn|@interface
 name|Field
 block|{
-DECL|field|DEFAULT
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT
-init|=
-literal|"#default"
-decl_stmt|;
+DECL|field|false
+name|boolean
+name|child
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 DECL|field|DEFAULT
 name|String
 name|value
