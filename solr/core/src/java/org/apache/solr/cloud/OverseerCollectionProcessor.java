@@ -3930,6 +3930,14 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+comment|// force update the cluster state
+name|zkStateReader
+operator|.
+name|updateClusterState
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|CollectionParams
 operator|.
 name|CollectionAction
