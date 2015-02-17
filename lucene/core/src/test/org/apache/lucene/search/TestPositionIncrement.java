@@ -1545,7 +1545,7 @@ name|tp
 init|=
 name|r
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 operator|new
 name|Term
@@ -1557,7 +1557,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 decl_stmt|;
 name|int

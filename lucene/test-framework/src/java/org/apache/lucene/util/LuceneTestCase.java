@@ -9701,7 +9701,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -9716,7 +9716,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9736,7 +9736,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -9751,7 +9751,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9778,7 +9778,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -9793,7 +9793,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9820,7 +9820,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -9835,7 +9835,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9915,7 +9915,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -9930,7 +9930,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -9952,7 +9952,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -9967,7 +9967,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -10070,7 +10070,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -10085,7 +10085,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -10114,7 +10114,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -10129,7 +10129,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 literal|false

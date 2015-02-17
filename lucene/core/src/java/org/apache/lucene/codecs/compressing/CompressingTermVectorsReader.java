@@ -6272,12 +6272,12 @@ name|flags
 operator|&
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 operator|)
 operator|>=
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 condition|)
 block|{
 if|if

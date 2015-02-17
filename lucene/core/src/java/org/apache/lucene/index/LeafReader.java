@@ -612,11 +612,11 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns {@link PostingsEnum} for the specified term.    *  This will return null if either the field or    *  term does not exist.    *  @see TermsEnum#postings(Bits, PostingsEnum) */
-DECL|method|termDocsEnum
+DECL|method|postings
 specifier|public
 specifier|final
 name|PostingsEnum
-name|termDocsEnum
+name|postings
 parameter_list|(
 name|Term
 name|term
@@ -705,12 +705,12 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** Returns {@link PostingsEnum} for the specified term    *  with {@link PostingsEnum#FLAG_FREQS}. */
-DECL|method|termDocsEnum
+comment|/** Returns {@link PostingsEnum} for the specified term    *  with {@link PostingsEnum#FREQS}. */
+DECL|method|postings
 specifier|public
 specifier|final
 name|PostingsEnum
-name|termDocsEnum
+name|postings
 parameter_list|(
 name|Term
 name|term
@@ -719,13 +719,13 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|termDocsEnum
+name|postings
 argument_list|(
 name|term
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 return|;
 block|}

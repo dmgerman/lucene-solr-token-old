@@ -2289,7 +2289,7 @@ name|postingsEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -4821,7 +4821,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -4855,7 +4855,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -4889,7 +4889,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -4946,7 +4946,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -4980,7 +4980,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -5037,7 +5037,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -5071,7 +5071,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -5388,7 +5388,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -5422,7 +5422,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -5456,7 +5456,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -5514,7 +5514,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 operator|.
 name|nextDoc
@@ -5850,7 +5850,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -5898,7 +5898,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -5970,7 +5970,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|assertEquals

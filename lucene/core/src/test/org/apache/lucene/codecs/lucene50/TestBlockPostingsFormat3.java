@@ -2207,7 +2207,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2222,7 +2222,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2240,7 +2240,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2255,7 +2255,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2278,7 +2278,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2293,7 +2293,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2316,7 +2316,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2331,7 +2331,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2350,7 +2350,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2365,7 +2365,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2383,7 +2383,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2398,7 +2398,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2421,7 +2421,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2436,7 +2436,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2459,7 +2459,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2474,7 +2474,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2493,7 +2493,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2508,7 +2508,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2526,7 +2526,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2541,7 +2541,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2564,7 +2564,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2579,7 +2579,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2602,7 +2602,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2617,7 +2617,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2636,7 +2636,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2651,7 +2651,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2669,7 +2669,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2684,7 +2684,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2707,7 +2707,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2722,7 +2722,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2745,7 +2745,7 @@ name|leftPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|,
 name|rightPositions
@@ -2760,7 +2760,7 @@ name|rightPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2830,7 +2830,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -2845,7 +2845,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2863,7 +2863,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -2878,7 +2878,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2963,7 +2963,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -2978,7 +2978,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3001,7 +3001,7 @@ name|leftDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -3016,7 +3016,7 @@ name|rightDocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|)
 expr_stmt|;

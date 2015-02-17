@@ -2371,7 +2371,7 @@ name|docsAndPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -2488,7 +2488,7 @@ name|docsAndPositions
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|assertNotNull

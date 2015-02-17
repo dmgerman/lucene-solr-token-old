@@ -2316,7 +2316,7 @@ name|docs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 while|while

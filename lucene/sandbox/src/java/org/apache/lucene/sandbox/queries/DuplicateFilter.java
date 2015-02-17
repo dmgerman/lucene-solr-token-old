@@ -464,7 +464,7 @@ name|docs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|int
@@ -682,7 +682,7 @@ name|docs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|int

@@ -719,7 +719,7 @@ name|tdocs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 while|while

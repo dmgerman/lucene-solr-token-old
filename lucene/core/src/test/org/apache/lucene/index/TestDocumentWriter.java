@@ -1531,7 +1531,7 @@ name|termPositions
 init|=
 name|reader
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 operator|new
 name|Term
@@ -1543,7 +1543,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1582,7 +1582,7 @@ name|termPositions
 operator|=
 name|reader
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 operator|new
 name|Term
@@ -1594,7 +1594,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1643,7 +1643,7 @@ name|termPositions
 operator|=
 name|reader
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 operator|new
 name|Term
@@ -1655,7 +1655,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|assertTrue

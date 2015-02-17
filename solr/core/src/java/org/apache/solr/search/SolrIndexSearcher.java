@@ -4471,7 +4471,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 decl_stmt|;
 if|if
@@ -4624,7 +4624,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 decl_stmt|;
 name|int
@@ -6404,7 +6404,7 @@ name|postingsEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 decl_stmt|;
 if|if

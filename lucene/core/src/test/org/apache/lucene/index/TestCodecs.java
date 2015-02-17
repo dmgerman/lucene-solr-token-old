@@ -1580,7 +1580,7 @@ name|postingsEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2697,7 +2697,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -2728,7 +2728,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 literal|true
@@ -2871,7 +2871,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -2902,7 +2902,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|,
 literal|true
@@ -3294,7 +3294,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 if|if
@@ -3328,7 +3328,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 block|}
@@ -3356,7 +3356,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 block|}
@@ -4851,7 +4851,7 @@ operator|.
 name|reader
 argument_list|()
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 name|term
 argument_list|)

@@ -1545,7 +1545,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 decl_stmt|;
 name|PostingsEnum
@@ -1561,7 +1561,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 decl_stmt|;
 while|while
@@ -2317,7 +2317,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 decl_stmt|;
 name|int
@@ -2390,7 +2390,7 @@ name|disi
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|docid
@@ -2604,7 +2604,7 @@ name|disi
 init|=
 name|reader
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 operator|new
 name|Term
@@ -2616,7 +2616,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 decl_stmt|;
 name|int
@@ -3193,7 +3193,7 @@ name|assertNull
 argument_list|(
 name|reader
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 operator|new
 name|Term
@@ -3209,7 +3209,7 @@ name|assertNull
 argument_list|(
 name|reader
 operator|.
-name|termDocsEnum
+name|postings
 argument_list|(
 operator|new
 name|Term
@@ -3221,7 +3221,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3951,7 +3951,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 decl_stmt|;
 name|PostingsEnum
@@ -3967,7 +3967,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 argument_list|)
 decl_stmt|;
 name|String

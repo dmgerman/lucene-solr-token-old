@@ -314,7 +314,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 decl_stmt|;
 if|if
@@ -700,7 +700,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 decl_stmt|;
 comment|// without optimization (assumption skipInterval == 16)
@@ -1017,7 +1017,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1231,7 +1231,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1382,7 +1382,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 name|assertTrue

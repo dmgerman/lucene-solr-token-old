@@ -7504,7 +7504,7 @@ name|posFlags
 operator|=
 name|PostingsEnum
 operator|.
-name|FLAG_POSITIONS
+name|POSITIONS
 expr_stmt|;
 break|break;
 case|case
@@ -7514,7 +7514,7 @@ name|posFlags
 operator|=
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 expr_stmt|;
 break|break;
 case|case
@@ -7524,7 +7524,7 @@ name|posFlags
 operator|=
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 expr_stmt|;
 break|break;
 default|default:
@@ -7532,11 +7532,11 @@ name|posFlags
 operator|=
 name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 operator||
 name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 expr_stmt|;
 break|break;
 block|}
@@ -7570,7 +7570,7 @@ name|flags
 operator||=
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 expr_stmt|;
 block|}
 return|return

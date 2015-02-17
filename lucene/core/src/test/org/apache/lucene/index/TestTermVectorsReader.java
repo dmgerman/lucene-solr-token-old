@@ -1484,7 +1484,7 @@ name|postingsEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -1700,7 +1700,7 @@ name|dpEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -1812,7 +1812,7 @@ name|dpEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|doc
@@ -2068,7 +2068,7 @@ literal|null
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2232,7 +2232,7 @@ name|dpEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -2328,7 +2328,7 @@ name|dpEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|assertTrue

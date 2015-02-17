@@ -2193,7 +2193,7 @@ name|docs
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 while|while
@@ -2277,7 +2277,7 @@ name|termDocs1
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 if|if
@@ -2307,7 +2307,7 @@ name|termDocs2
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 block|}
@@ -2674,7 +2674,7 @@ name|dpEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 if|if
@@ -2773,7 +2773,7 @@ name|dEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -2958,7 +2958,7 @@ name|dpEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 if|if
@@ -3057,7 +3057,7 @@ name|dEnum
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -3338,7 +3338,7 @@ name|docs1
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 while|while
@@ -3506,7 +3506,7 @@ name|docs2
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 while|while
@@ -4121,7 +4121,7 @@ name|dpEnum1
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 name|dpEnum2
@@ -4136,7 +4136,7 @@ name|dpEnum2
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_ALL
+name|ALL
 argument_list|)
 expr_stmt|;
 if|if
@@ -4367,7 +4367,7 @@ name|dEnum1
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 name|dEnum2
@@ -4387,7 +4387,7 @@ name|dEnum2
 argument_list|,
 name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 argument_list|)
 expr_stmt|;
 name|assertNotNull
