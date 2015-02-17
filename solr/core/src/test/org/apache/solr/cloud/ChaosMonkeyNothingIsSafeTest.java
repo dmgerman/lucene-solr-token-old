@@ -710,6 +710,8 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// we make sure that there's at least one shard with more than one replica
+comment|// so that the ChaosMonkey has something to kill
 name|numShards
 operator|=
 name|sliceCount
@@ -725,6 +727,8 @@ literal|12
 else|:
 literal|2
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 block|}
 name|fixShardCount
@@ -1954,11 +1958,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"FT added docs:"
 operator|+
