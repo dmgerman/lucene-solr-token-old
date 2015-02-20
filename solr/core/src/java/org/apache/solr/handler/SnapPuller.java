@@ -3655,8 +3655,6 @@ name|infos
 operator|.
 name|files
 argument_list|(
-name|indexDir
-argument_list|,
 literal|true
 argument_list|)
 argument_list|)

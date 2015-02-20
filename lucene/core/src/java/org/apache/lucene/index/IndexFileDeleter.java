@@ -2478,8 +2478,6 @@ name|segmentInfos
 operator|.
 name|files
 argument_list|(
-name|directory
-argument_list|,
 literal|false
 argument_list|)
 argument_list|)
@@ -2553,8 +2551,6 @@ name|segmentInfos
 operator|.
 name|files
 argument_list|(
-name|directory
-argument_list|,
 name|isCommit
 argument_list|)
 control|)
@@ -2872,8 +2868,6 @@ name|segmentInfos
 operator|.
 name|files
 argument_list|(
-name|directory
-argument_list|,
 literal|false
 argument_list|)
 argument_list|)
@@ -3466,8 +3460,6 @@ name|segmentInfos
 operator|.
 name|files
 argument_list|(
-name|directory
-argument_list|,
 literal|true
 argument_list|)
 argument_list|)

@@ -1190,11 +1190,6 @@ name|readLatestCommit
 argument_list|(
 name|indexDir
 argument_list|)
-operator|.
-name|toString
-argument_list|(
-name|indexDir
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/*       DirectoryReader r = mgr.acquire();       try {         TestUtil.checkReader(r);       } finally {         mgr.release(r);       }       */

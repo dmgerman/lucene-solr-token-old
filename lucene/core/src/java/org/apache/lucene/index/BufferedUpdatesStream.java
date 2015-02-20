@@ -1616,11 +1616,6 @@ argument_list|,
 literal|"prune sis="
 operator|+
 name|segmentInfos
-operator|.
-name|toString
-argument_list|(
-name|dir
-argument_list|)
 operator|+
 literal|" minGen="
 operator|+

@@ -2446,9 +2446,12 @@ name|dir
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Returns all file names referenced by SegmentInfo    *  instances matching the provided Directory (ie files    *  associated with any "external" segments are skipped).    *  The returned collection is recomputed on each    *  invocation.  */
+comment|/**    * Returns all file names referenced by SegmentInfo.    * @deprecated Use {@link #files(boolean)} instead.    */
+annotation|@
+name|Deprecated
 DECL|method|files
 specifier|public
+specifier|final
 name|Collection
 argument_list|<
 name|String
@@ -2458,6 +2461,28 @@ parameter_list|(
 name|Directory
 name|dir
 parameter_list|,
+name|boolean
+name|includeSegmentsFile
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|files
+argument_list|(
+name|includeSegmentsFile
+argument_list|)
+return|;
+block|}
+comment|/** Returns all file names referenced by SegmentInfo.    *  The returned collection is recomputed on each    *  invocation.  */
+DECL|method|files
+specifier|public
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|files
+parameter_list|(
 name|boolean
 name|includeSegmentsFile
 parameter_list|)
@@ -2534,26 +2559,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-assert|assert
-name|info
-operator|.
-name|info
-operator|.
-name|dir
-operator|==
-name|dir
-assert|;
-if|if
-condition|(
-name|info
-operator|.
-name|info
-operator|.
-name|dir
-operator|==
-name|dir
-condition|)
-block|{
 name|files
 operator|.
 name|addAll
@@ -2564,7 +2569,6 @@ name|files
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|files
@@ -2705,15 +2709,31 @@ name|dir
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Returns readable description of this segment. */
+comment|/**     * Returns readable description of this segment.     * @deprecated Use {@link #toString()} instead.    */
+annotation|@
+name|Deprecated
 DECL|method|toString
 specifier|public
 name|String
 name|toString
 parameter_list|(
 name|Directory
-name|directory
+name|dir
 parameter_list|)
+block|{
+return|return
+name|toString
+argument_list|()
+return|;
+block|}
+comment|/** Returns readable description of this segment. */
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
 block|{
 name|StringBuilder
 name|buffer
@@ -2789,8 +2809,6 @@ name|info
 operator|.
 name|toString
 argument_list|(
-name|directory
-argument_list|,
 literal|0
 argument_list|)
 argument_list|)
