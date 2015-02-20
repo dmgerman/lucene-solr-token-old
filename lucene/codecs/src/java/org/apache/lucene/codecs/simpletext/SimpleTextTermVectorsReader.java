@@ -2359,9 +2359,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-assert|assert
-literal|false
-assert|;
 return|return
 operator|-
 literal|1

@@ -7579,11 +7579,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-assert|assert
-literal|false
-operator|:
-literal|"Shouldn't be calling nextPosition() if you haven't asked for positions"
-assert|;
 return|return
 operator|-
 literal|1
@@ -7903,11 +7898,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-assert|assert
-literal|false
-operator|:
-literal|"Shouldn't be calling nextPosition() if you haven't asked for positions"
-assert|;
 return|return
 operator|-
 literal|1
@@ -8301,11 +8291,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-assert|assert
-literal|false
-operator|:
-literal|"should be using LowFreqDocsAndPositionsEnum"
-assert|;
 return|return
 operator|-
 literal|1
