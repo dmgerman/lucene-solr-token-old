@@ -165,6 +165,21 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
+name|SuppressFileSystems
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
 name|SuppressSysoutChecks
 import|;
 end_import
@@ -1138,6 +1153,12 @@ name|bugUrl
 operator|=
 literal|"Solr dumps tons of logs to console."
 argument_list|)
+annotation|@
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
+comment|// might be ok, the failures with e.g. nightly runs might be "normal"
 DECL|class|SolrTestCaseJ4
 specifier|public
 specifier|abstract
