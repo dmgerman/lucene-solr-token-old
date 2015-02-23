@@ -693,15 +693,6 @@ operator|.
 name|BeforeClass
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
 begin_comment
 comment|/*   Verify we can read the pre-5.0 file format, do searches   against it, and add documents to it. */
 end_comment
@@ -714,7 +705,7 @@ extends|extends
 name|LuceneTestCase
 block|{
 comment|// To generate backcompat indexes with the current default codec, run the following ant command:
-comment|//  ant test -Dtestcase=TestBackwardsCompatibility -Dbwc.indexdir=/path/to/store/indexes
+comment|//  ant test -Dtestcase=TestBackwardsCompatibility -Dtests.bwcdir=/path/to/store/indexes
 comment|//           -Dtests.codec=default -Dtests.useSecurityManager=false
 comment|// Also add testmethod with one of the index creation methods below, for example:
 comment|//    -Dtestmethod=testCreateCFS
@@ -1723,7 +1714,11 @@ name|String
 index|[]
 name|oldSingleSegmentNames
 init|=
-block|{   }
+block|{
+literal|"5.0.0.singlesegment-cfs"
+block|,
+literal|"5.0.0.singlesegment-nocfs"
+block|}
 decl_stmt|;
 DECL|field|oldIndexDirs
 specifier|static
@@ -8248,11 +8243,6 @@ name|moreTermsIndex
 init|=
 literal|"moreterms.5.0.0.zip"
 decl_stmt|;
-annotation|@
-name|Ignore
-argument_list|(
-literal|"needs a 5.0 index once released"
-argument_list|)
 DECL|method|testMoreTerms
 specifier|public
 name|void
@@ -8554,11 +8544,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"needs a 5.0 index once released"
-argument_list|)
 DECL|method|testDocValuesUpdates
 specifier|public
 name|void
