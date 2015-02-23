@@ -153,7 +153,7 @@ op|')'
 newline|'\n'
 name|'module'
 op|'='
-string|"'lucene/backward-codecs'"
+string|"'backward-codecs'"
 newline|'\n'
 name|'index_dir'
 op|'='
@@ -163,6 +163,8 @@ name|'path'
 op|'.'
 name|'join'
 op|'('
+string|"'lucene'"
+op|','
 name|'module'
 op|','
 string|"'src/test/org/apache/lucene/index'"
