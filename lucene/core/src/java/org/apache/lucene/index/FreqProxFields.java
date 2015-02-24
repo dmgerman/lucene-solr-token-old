@@ -1009,17 +1009,16 @@ name|terms
 operator|.
 name|hasOffsets
 operator|&&
-operator|(
+name|PostingsEnum
+operator|.
+name|featureRequested
+argument_list|(
 name|flags
-operator|&
+argument_list|,
 name|PostingsEnum
 operator|.
 name|OFFSETS
-operator|)
-operator|==
-name|PostingsEnum
-operator|.
-name|OFFSETS
+argument_list|)
 condition|)
 block|{
 comment|// Caller wants offsets but we didn't index them;
@@ -1104,15 +1103,16 @@ name|terms
 operator|.
 name|hasFreq
 operator|&&
-operator|(
+name|PostingsEnum
+operator|.
+name|featureRequested
+argument_list|(
 name|flags
-operator|&
+argument_list|,
 name|PostingsEnum
 operator|.
 name|FREQS
-operator|)
-operator|!=
-literal|0
+argument_list|)
 condition|)
 block|{
 comment|// Caller wants freqs but we didn't index them;

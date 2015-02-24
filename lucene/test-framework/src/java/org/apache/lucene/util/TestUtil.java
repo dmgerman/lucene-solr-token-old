@@ -7482,11 +7482,7 @@ name|posFlags
 operator|=
 name|PostingsEnum
 operator|.
-name|OFFSETS
-operator||
-name|PostingsEnum
-operator|.
-name|PAYLOADS
+name|ALL
 expr_stmt|;
 break|break;
 block|}

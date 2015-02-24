@@ -718,11 +718,7 @@ name|term
 argument_list|,
 name|PostingsEnum
 operator|.
-name|OFFSETS
-operator||
-name|PostingsEnum
-operator|.
-name|PAYLOADS
+name|ALL
 argument_list|)
 return|;
 block|}

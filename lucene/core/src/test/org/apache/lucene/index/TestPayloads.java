@@ -3997,7 +3997,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|POSITIONS
+name|PAYLOADS
 argument_list|)
 decl_stmt|;
 name|de
@@ -4308,7 +4308,7 @@ argument_list|)
 argument_list|,
 name|PostingsEnum
 operator|.
-name|POSITIONS
+name|PAYLOADS
 argument_list|)
 decl_stmt|;
 name|de
