@@ -840,8 +840,6 @@ literal|"aaa"
 argument_list|)
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1
 argument_list|)
 operator|.

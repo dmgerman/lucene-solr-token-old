@@ -176,6 +176,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -191,6 +194,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -215,6 +219,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -230,6 +237,7 @@ argument_list|,
 name|T
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -256,6 +264,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -271,6 +282,7 @@ argument_list|,
 name|F
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -297,6 +309,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -312,6 +327,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -338,6 +354,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -353,6 +372,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -381,6 +401,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -396,6 +419,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -425,6 +449,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -440,6 +467,7 @@ argument_list|,
 name|T
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -464,6 +492,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -479,6 +510,7 @@ argument_list|,
 name|F
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -503,6 +535,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -518,6 +553,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -544,6 +580,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -559,6 +598,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -585,6 +625,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -600,6 +643,7 @@ argument_list|,
 name|T
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -626,6 +670,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -641,6 +688,7 @@ argument_list|,
 name|F
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -668,6 +716,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -683,6 +734,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -707,6 +759,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -722,6 +777,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -746,6 +802,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -761,6 +820,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -785,6 +845,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -800,6 +863,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -824,6 +888,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -839,6 +906,7 @@ argument_list|,
 name|F
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -863,6 +931,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -878,6 +949,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -902,6 +974,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -917,6 +992,7 @@ argument_list|,
 name|T
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -941,6 +1017,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -956,6 +1035,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1065,6 +1145,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1080,6 +1163,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1104,6 +1188,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1119,6 +1206,7 @@ argument_list|,
 name|T
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1145,6 +1233,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1160,6 +1251,7 @@ argument_list|,
 name|F
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1186,6 +1278,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1201,6 +1296,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1228,6 +1324,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1243,6 +1342,7 @@ argument_list|,
 name|T
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1267,6 +1367,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1282,6 +1385,7 @@ argument_list|,
 name|F
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1306,6 +1410,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1321,6 +1428,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1347,6 +1455,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1362,6 +1473,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1389,6 +1501,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1404,6 +1519,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1428,6 +1544,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1443,6 +1562,7 @@ argument_list|,
 name|F
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1467,6 +1587,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1482,6 +1605,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1506,6 +1630,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1521,6 +1648,7 @@ argument_list|,
 name|F
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1545,6 +1673,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1560,6 +1691,7 @@ argument_list|,
 name|T
 argument_list|,
 name|T
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs
@@ -1584,6 +1716,9 @@ name|search
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 name|TermRangeFilter
@@ -1599,6 +1734,7 @@ argument_list|,
 name|T
 argument_list|,
 name|F
+argument_list|)
 argument_list|)
 argument_list|,
 name|numDocs

@@ -209,6 +209,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|FilteredQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -530,6 +543,9 @@ name|searcher
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|query
 argument_list|,
 operator|new
@@ -544,6 +560,7 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|)
 argument_list|)
 argument_list|,
 literal|1
@@ -568,6 +585,9 @@ name|searcher
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|query
 argument_list|,
 operator|new
@@ -582,6 +602,7 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|)
 argument_list|)
 argument_list|,
 literal|1
@@ -743,8 +764,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|1000
 argument_list|)
 operator|.
@@ -784,8 +803,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|1000
 argument_list|)
@@ -965,8 +982,6 @@ name|search
 argument_list|(
 name|csrq
 argument_list|,
-literal|null
-argument_list|,
 literal|1000
 argument_list|)
 operator|.
@@ -1006,8 +1021,6 @@ operator|.
 name|search
 argument_list|(
 name|csrq
-argument_list|,
-literal|null
 argument_list|,
 literal|1000
 argument_list|)
@@ -1067,8 +1080,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|1000
 argument_list|,

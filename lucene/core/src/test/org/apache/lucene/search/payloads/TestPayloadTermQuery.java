@@ -972,8 +972,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
@@ -1250,8 +1248,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|100
 argument_list|)
@@ -1546,8 +1542,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
@@ -1803,8 +1797,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
@@ -1946,8 +1938,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|100
 argument_list|)

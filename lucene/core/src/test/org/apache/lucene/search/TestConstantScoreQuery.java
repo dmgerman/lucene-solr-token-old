@@ -1024,9 +1024,13 @@ name|s
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|query
 argument_list|,
 name|filterB
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -1074,9 +1078,13 @@ name|s
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|query
 argument_list|,
 name|filterB
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)

@@ -50,7 +50,7 @@ name|PriorityQueue
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: A hit queue for sorting by hits by terms in more than one field.  *   * @lucene.experimental  * @since 2.9  * @see IndexSearcher#search(Query,Filter,int,Sort)  */
+comment|/**  * Expert: A hit queue for sorting by hits by terms in more than one field.  *   * @lucene.experimental  * @since 2.9  * @see IndexSearcher#search(Query,int,Sort)  */
 end_comment
 begin_class
 DECL|class|FieldValueHitQueue
@@ -754,7 +754,7 @@ name|Entry
 name|b
 parameter_list|)
 function_decl|;
-comment|/**    * Given a queue Entry, creates a corresponding FieldDoc    * that contains the values used to sort the given document.    * These values are not the raw values out of the index, but the internal    * representation of them. This is so the given search hit can be collated by    * a MultiSearcher with other search hits.    *     * @param entry The Entry used to create a FieldDoc    * @return The newly created FieldDoc    * @see IndexSearcher#search(Query,Filter,int,Sort)    */
+comment|/**    * Given a queue Entry, creates a corresponding FieldDoc    * that contains the values used to sort the given document.    * These values are not the raw values out of the index, but the internal    * representation of them. This is so the given search hit can be collated by    * a MultiSearcher with other search hits.    *     * @param entry The Entry used to create a FieldDoc    * @return The newly created FieldDoc    * @see IndexSearcher#search(Query,int,Sort)    */
 DECL|method|fillFields
 name|FieldDoc
 name|fillFields

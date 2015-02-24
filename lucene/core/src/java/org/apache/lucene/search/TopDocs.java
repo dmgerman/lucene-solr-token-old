@@ -37,7 +37,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** Represents hits returned by {@link  * IndexSearcher#search(Query,Filter,int)} and {@link  * IndexSearcher#search(Query,int)}. */
+comment|/** Represents hits returned by {@link  * IndexSearcher#search(Query,int)}. */
 end_comment
 begin_class
 DECL|class|TopDocs

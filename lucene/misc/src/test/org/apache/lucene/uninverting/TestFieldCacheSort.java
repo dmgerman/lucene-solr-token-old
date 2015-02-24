@@ -8947,8 +8947,6 @@ literal|"1"
 argument_list|)
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 operator|new
@@ -9210,8 +9208,6 @@ argument_list|(
 operator|new
 name|MatchAllDocsQuery
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|500
 argument_list|,
@@ -9493,8 +9489,6 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-literal|null
-argument_list|,
 literal|3
 argument_list|,
 name|Sort
@@ -9526,8 +9520,6 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-literal|null
-argument_list|,
 literal|3
 argument_list|,
 name|Sort
@@ -9558,8 +9550,6 @@ operator|.
 name|search
 argument_list|(
 name|q
-argument_list|,
-literal|null
 argument_list|,
 literal|3
 argument_list|,
@@ -9610,8 +9600,6 @@ operator|.
 name|search
 argument_list|(
 name|q
-argument_list|,
-literal|null
 argument_list|,
 literal|3
 argument_list|,
@@ -9721,8 +9709,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 name|sort
@@ -9757,8 +9743,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|10
 argument_list|,
@@ -9806,8 +9790,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|10
 argument_list|,
@@ -9858,8 +9840,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 name|sort
@@ -9908,8 +9888,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|10
 argument_list|,
@@ -9965,8 +9943,6 @@ operator|.
 name|search
 argument_list|(
 name|query
-argument_list|,
-literal|null
 argument_list|,
 literal|10
 argument_list|,
@@ -10333,8 +10309,6 @@ argument_list|,
 literal|"foo"
 argument_list|)
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|10
 argument_list|,

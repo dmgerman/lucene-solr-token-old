@@ -321,8 +321,6 @@ argument_list|(
 name|searchTerm
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1000
 argument_list|)
 operator|.
@@ -438,8 +436,6 @@ argument_list|(
 name|searchTerm
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1000
 argument_list|)
 operator|.
@@ -516,8 +512,6 @@ name|TermQuery
 argument_list|(
 name|searchTerm
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1000
 argument_list|)
@@ -682,8 +676,6 @@ argument_list|(
 name|searchTerm
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1000
 argument_list|)
 operator|.
@@ -794,8 +786,6 @@ argument_list|(
 name|searchTerm
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1000
 argument_list|)
 operator|.
@@ -859,8 +849,6 @@ name|TermQuery
 argument_list|(
 name|searchTerm
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1000
 argument_list|)
@@ -1004,8 +992,6 @@ argument_list|(
 name|searchTerm
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 literal|1000
 argument_list|)
 operator|.
@@ -1061,8 +1047,6 @@ name|TermQuery
 argument_list|(
 name|searchTerm
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|1000
 argument_list|)

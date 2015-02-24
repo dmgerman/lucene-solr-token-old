@@ -358,6 +358,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|FilteredQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|LeafCollector
 import|;
 end_import
@@ -1759,6 +1772,9 @@ operator|.
 name|search
 argument_list|(
 operator|new
+name|FilteredQuery
+argument_list|(
+operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
@@ -1766,6 +1782,7 @@ name|base
 operator|.
 name|getTopFilter
 argument_list|()
+argument_list|)
 argument_list|,
 name|allGroupHeadsCollector
 argument_list|)
@@ -2165,9 +2182,13 @@ name|searcher
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|facetQuery
 argument_list|,
 name|mainQueryFilter
+argument_list|)
 argument_list|,
 name|collector
 argument_list|)
@@ -3162,6 +3183,9 @@ operator|.
 name|search
 argument_list|(
 operator|new
+name|FilteredQuery
+argument_list|(
+operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
@@ -3169,6 +3193,7 @@ name|base
 operator|.
 name|getTopFilter
 argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|FilterCollector
@@ -3226,6 +3251,9 @@ operator|.
 name|search
 argument_list|(
 operator|new
+name|FilteredQuery
+argument_list|(
+operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
@@ -3233,6 +3261,7 @@ name|base
 operator|.
 name|getTopFilter
 argument_list|()
+argument_list|)
 argument_list|,
 name|collector
 argument_list|)

@@ -1175,8 +1175,6 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-literal|null
-argument_list|,
 name|noDocs
 argument_list|,
 name|Sort
@@ -1209,8 +1207,6 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-literal|null
-argument_list|,
 name|noDocs
 argument_list|,
 name|Sort
@@ -1233,10 +1229,14 @@ operator|.
 name|search
 argument_list|(
 operator|new
+name|FilteredQuery
+argument_list|(
+operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
 name|f
+argument_list|)
 argument_list|,
 name|noDocs
 argument_list|,
@@ -1727,8 +1727,6 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-literal|null
-argument_list|,
 name|noDocs
 argument_list|,
 name|Sort
@@ -1867,8 +1865,6 @@ operator|.
 name|search
 argument_list|(
 name|q
-argument_list|,
-literal|null
 argument_list|,
 name|noDocs
 argument_list|,
@@ -2118,8 +2114,6 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-literal|null
-argument_list|,
 name|noDocs
 argument_list|,
 name|Sort
@@ -2264,8 +2258,6 @@ operator|.
 name|search
 argument_list|(
 name|q
-argument_list|,
-literal|null
 argument_list|,
 name|noDocs
 argument_list|,
@@ -4654,10 +4646,14 @@ operator|.
 name|search
 argument_list|(
 operator|new
+name|FilteredQuery
+argument_list|(
+operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
 name|tf
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)

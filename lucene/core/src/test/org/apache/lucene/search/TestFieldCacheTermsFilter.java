@@ -319,6 +319,9 @@ name|searcher
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 operator|new
@@ -335,6 +338,7 @@ name|String
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -374,6 +378,9 @@ name|searcher
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 operator|new
@@ -390,6 +397,7 @@ name|String
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -436,6 +444,9 @@ name|searcher
 operator|.
 name|search
 argument_list|(
+operator|new
+name|FilteredQuery
+argument_list|(
 name|q
 argument_list|,
 operator|new
@@ -452,6 +463,7 @@ name|String
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
