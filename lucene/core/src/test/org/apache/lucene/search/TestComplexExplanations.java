@@ -311,7 +311,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -321,6 +324,7 @@ literal|1
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -348,7 +352,7 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|ItemizedFilter
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -888,7 +892,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -898,6 +905,7 @@ literal|1
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -925,7 +933,7 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|ItemizedFilter
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -1460,7 +1468,10 @@ argument_list|(
 name|query
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -1470,6 +1481,7 @@ literal|1
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1497,7 +1509,7 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|ItemizedFilter
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int

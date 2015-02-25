@@ -664,7 +664,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -678,6 +681,7 @@ literal|2
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -722,7 +726,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -734,6 +741,7 @@ literal|2
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -776,7 +784,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -786,6 +797,7 @@ literal|1
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -836,7 +848,10 @@ argument_list|(
 name|termQuery
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -846,6 +861,7 @@ literal|1
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -885,7 +901,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|ItemizedFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -895,6 +914,7 @@ literal|1
 block|,
 literal|3
 block|}
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -934,7 +954,7 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|ItemizedFilter
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -985,7 +1005,7 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|ItemizedFilter
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
@@ -1028,7 +1048,7 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|ItemizedFilter
+name|ItemizedQuery
 argument_list|(
 operator|new
 name|int
