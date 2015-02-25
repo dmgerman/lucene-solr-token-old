@@ -418,6 +418,9 @@ argument_list|,
 name|docMap
 argument_list|,
 name|indexOptions
+argument_list|,
+name|hasPositions
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -453,6 +456,9 @@ argument_list|,
 name|docMap
 argument_list|,
 name|indexOptions
+argument_list|,
+name|hasPositions
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -479,6 +485,12 @@ specifier|final
 name|IndexOptions
 name|indexOptions
 decl_stmt|;
+DECL|field|hasPositions
+specifier|private
+specifier|final
+name|boolean
+name|hasPositions
+decl_stmt|;
 DECL|method|SortingTermsEnum
 specifier|public
 name|SortingTermsEnum
@@ -494,6 +506,9 @@ name|docMap
 parameter_list|,
 name|IndexOptions
 name|indexOptions
+parameter_list|,
+name|boolean
+name|hasPositions
 parameter_list|)
 block|{
 name|super
@@ -512,6 +527,12 @@ operator|.
 name|indexOptions
 operator|=
 name|indexOptions
+expr_stmt|;
+name|this
+operator|.
+name|hasPositions
+operator|=
+name|hasPositions
 expr_stmt|;
 block|}
 DECL|method|newToOld
@@ -602,6 +623,8 @@ name|IOException
 block|{
 if|if
 condition|(
+name|hasPositions
+operator|&&
 name|PostingsEnum
 operator|.
 name|featureRequested
@@ -679,17 +702,6 @@ argument_list|,
 name|flags
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|inDocsAndPositions
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 comment|// we ignore the fact that offsets may be stored but not asked for,
 comment|// since this code is expected to be used during addIndexes which will
 comment|// ask for everything. if that assumption changes in the future, we can

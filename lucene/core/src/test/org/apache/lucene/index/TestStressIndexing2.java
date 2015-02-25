@@ -2677,6 +2677,7 @@ operator|.
 name|ALL
 argument_list|)
 expr_stmt|;
+comment|// nocommit: check
 if|if
 condition|(
 name|dpEnum
@@ -4139,6 +4140,7 @@ operator|.
 name|ALL
 argument_list|)
 expr_stmt|;
+comment|// nocommit: check
 if|if
 condition|(
 name|dpEnum1

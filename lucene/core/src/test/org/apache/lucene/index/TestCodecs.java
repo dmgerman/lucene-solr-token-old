@@ -3246,6 +3246,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// nocommit: check
 name|docs
 operator|=
 name|TestUtil

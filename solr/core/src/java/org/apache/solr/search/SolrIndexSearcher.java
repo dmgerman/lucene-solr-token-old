@@ -4469,6 +4469,7 @@ operator|.
 name|NONE
 argument_list|)
 decl_stmt|;
+comment|// nocommit: check
 if|if
 condition|(
 name|docs
@@ -6426,6 +6427,7 @@ operator|.
 name|NONE
 argument_list|)
 decl_stmt|;
+comment|// nocommit: check
 if|if
 condition|(
 name|deState

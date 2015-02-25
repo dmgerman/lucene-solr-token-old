@@ -1765,13 +1765,11 @@ argument_list|,
 name|flags
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+assert|assert
 name|subPostingsEnum
 operator|!=
 literal|null
-condition|)
-block|{
+assert|;
 name|docsEnum
 operator|.
 name|subPostingsEnums
@@ -1807,28 +1805,6 @@ name|upto
 operator|++
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// should this be an error?
-return|return
-literal|null
-return|;
-comment|// We can't support what is being asked for
-block|}
-block|}
-if|if
-condition|(
-name|upto
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-else|else
-block|{
 return|return
 name|docsEnum
 operator|.
@@ -1839,7 +1815,6 @@ argument_list|,
 name|upto
 argument_list|)
 return|;
-block|}
 block|}
 DECL|class|TermsEnumWithSlice
 specifier|final

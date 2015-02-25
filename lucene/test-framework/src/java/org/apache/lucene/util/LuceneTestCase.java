@@ -10233,6 +10233,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// nocommit: this should now only be for term or field not existing, is this assert used in that way?
 name|assertNull
 argument_list|(
 name|leftDocs

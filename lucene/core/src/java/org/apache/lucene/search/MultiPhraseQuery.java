@@ -1199,6 +1199,7 @@ operator|.
 name|POSITIONS
 argument_list|)
 expr_stmt|;
+comment|// nocommit: check
 if|if
 condition|(
 name|postingsEnum
@@ -2709,6 +2710,7 @@ operator|.
 name|POSITIONS
 argument_list|)
 decl_stmt|;
+comment|// nocommit: check
 if|if
 condition|(
 name|postings

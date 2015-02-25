@@ -9134,6 +9134,7 @@ name|POSITIONS
 argument_list|)
 expr_stmt|;
 block|}
+comment|// nocommit: can we remove the noPositions and always ask for positions here?
 name|int
 name|docFreq
 init|=
