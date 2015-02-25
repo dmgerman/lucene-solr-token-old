@@ -567,7 +567,7 @@ decl_stmt|;
 DECL|field|cfg
 specifier|protected
 specifier|final
-name|ConfigSolr
+name|NodeConfig
 name|cfg
 decl_stmt|;
 DECL|field|loader
@@ -731,7 +731,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|fromSolrHome
 argument_list|(
@@ -769,7 +769,7 @@ DECL|method|CoreContainer
 specifier|public
 name|CoreContainer
 parameter_list|(
-name|ConfigSolr
+name|NodeConfig
 name|config
 parameter_list|)
 block|{
@@ -777,10 +777,14 @@ name|this
 argument_list|(
 name|config
 argument_list|,
+operator|new
+name|CorePropertiesLocator
+argument_list|(
 name|config
 operator|.
-name|getCoresLocator
+name|getCoreRootDirectory
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -788,7 +792,7 @@ DECL|method|CoreContainer
 specifier|public
 name|CoreContainer
 parameter_list|(
-name|ConfigSolr
+name|NodeConfig
 name|config
 parameter_list|,
 name|CoresLocator
@@ -884,7 +888,7 @@ init|=
 operator|new
 name|CoreContainer
 argument_list|(
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|fromFile
 argument_list|(
@@ -1034,6 +1038,9 @@ operator|new
 name|UpdateShardHandler
 argument_list|(
 name|cfg
+operator|.
+name|getUpdateShardHandlerConfig
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|solrCores
@@ -1066,14 +1073,14 @@ name|hostName
 operator|=
 name|cfg
 operator|.
-name|getHost
+name|getNodeName
 argument_list|()
 expr_stmt|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Host Name: "
+literal|"Node Name: "
 operator|+
 name|hostName
 argument_list|)
@@ -1087,6 +1094,9 @@ argument_list|,
 name|solrHome
 argument_list|,
 name|cfg
+operator|.
+name|getCloudConfig
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|collectionsHandler
@@ -1160,16 +1170,17 @@ argument_list|)
 expr_stmt|;
 name|coreConfigService
 operator|=
-name|cfg
+name|ConfigSetService
 operator|.
-name|createCoreConfigService
+name|createConfigSetService
 argument_list|(
+name|cfg
+argument_list|,
 name|loader
 argument_list|,
 name|zkSys
 operator|.
-name|getZkController
-argument_list|()
+name|zkController
 argument_list|)
 expr_stmt|;
 name|containerProperties
@@ -3694,7 +3705,7 @@ return|;
 block|}
 DECL|method|getConfig
 specifier|public
-name|ConfigSolr
+name|NodeConfig
 name|getConfig
 parameter_list|()
 block|{
@@ -3751,7 +3762,7 @@ name|SolrCores
 name|solrCores
 decl_stmt|;
 DECL|field|cfg
-name|ConfigSolr
+name|NodeConfig
 name|cfg
 decl_stmt|;
 DECL|method|CloserThread
@@ -3763,7 +3774,7 @@ parameter_list|,
 name|SolrCores
 name|solrCores
 parameter_list|,
-name|ConfigSolr
+name|NodeConfig
 name|cfg
 parameter_list|)
 block|{

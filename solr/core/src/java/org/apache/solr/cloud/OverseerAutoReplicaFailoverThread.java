@@ -189,7 +189,7 @@ name|solr
 operator|.
 name|core
 operator|.
-name|ConfigSolr
+name|CloudConfig
 import|;
 end_import
 begin_import
@@ -462,7 +462,7 @@ DECL|method|OverseerAutoReplicaFailoverThread
 specifier|public
 name|OverseerAutoReplicaFailoverThread
 parameter_list|(
-name|ConfigSolr
+name|CloudConfig
 name|config
 parameter_list|,
 name|ZkStateReader

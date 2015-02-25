@@ -223,7 +223,7 @@ name|solr
 operator|.
 name|core
 operator|.
-name|ConfigSolr
+name|PluginInfo
 import|;
 end_import
 begin_import
@@ -234,9 +234,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
+name|update
 operator|.
-name|PluginInfo
+name|UpdateShardHandlerConfig
 import|;
 end_import
 begin_import
@@ -484,7 +484,7 @@ DECL|field|soTimeout
 name|int
 name|soTimeout
 init|=
-name|ConfigSolr
+name|UpdateShardHandlerConfig
 operator|.
 name|DEFAULT_DISTRIBUPDATESOTIMEOUT
 decl_stmt|;
@@ -492,7 +492,7 @@ DECL|field|connectionTimeout
 name|int
 name|connectionTimeout
 init|=
-name|ConfigSolr
+name|UpdateShardHandlerConfig
 operator|.
 name|DEFAULT_DISTRIBUPDATECONNTIMEOUT
 decl_stmt|;

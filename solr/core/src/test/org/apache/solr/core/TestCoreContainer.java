@@ -460,7 +460,7 @@ init|=
 operator|new
 name|CoreContainer
 argument_list|(
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|fromString
 argument_list|(
@@ -1055,7 +1055,7 @@ init|=
 operator|new
 name|CoreContainer
 argument_list|(
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|fromString
 argument_list|(
@@ -2362,7 +2362,7 @@ init|=
 operator|new
 name|CoreContainer
 argument_list|(
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|fromString
 argument_list|(
