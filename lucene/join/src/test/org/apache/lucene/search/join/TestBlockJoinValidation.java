@@ -174,6 +174,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|CachingWrapperFilter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Filter
 import|;
 end_import
@@ -830,6 +843,9 @@ name|Filter
 name|childFilter
 init|=
 operator|new
+name|CachingWrapperFilter
+argument_list|(
+operator|new
 name|QueryWrapperFilter
 argument_list|(
 operator|new
@@ -841,6 +857,7 @@ argument_list|(
 literal|"common_field"
 argument_list|,
 literal|"1"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
