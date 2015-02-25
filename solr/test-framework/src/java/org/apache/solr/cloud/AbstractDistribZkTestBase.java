@@ -872,7 +872,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|waitForRecoveriesToFinish
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|waitForRecoveriesToFinish
 parameter_list|(
@@ -1213,7 +1214,12 @@ argument_list|(
 literal|"Gave up waiting for recovery to finish.  THREAD DUMP:"
 argument_list|)
 expr_stmt|;
-name|printLayout
+name|zkStateReader
+operator|.
+name|getZkClient
+argument_list|()
+operator|.
+name|printLayoutToStdOut
 argument_list|()
 expr_stmt|;
 name|fail
