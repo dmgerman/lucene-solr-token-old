@@ -4118,6 +4118,7 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
+comment|//to avoid an O(n) operation we always add STATE_VERSION to the last and try to read it from there
 name|Object
 name|o
 init|=
@@ -4146,6 +4147,19 @@ operator|instanceof
 name|Map
 condition|)
 block|{
+comment|//remove this because no one else needs this and tests would fail if they are comparing responses
+name|resp
+operator|.
+name|remove
+argument_list|(
+name|resp
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 name|Map
 name|invalidStates
 init|=
