@@ -6405,11 +6405,22 @@ init|(
 name|fullFlushLock
 init|)
 block|{
+name|long
+name|abortedDocCount
+init|=
 name|docWriter
 operator|.
 name|lockAndAbortAll
 argument_list|(
 name|this
+argument_list|)
+decl_stmt|;
+name|pendingNumDocs
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|abortedDocCount
 argument_list|)
 expr_stmt|;
 name|processEvents
@@ -6431,6 +6442,17 @@ name|abortMerges
 argument_list|()
 expr_stmt|;
 comment|// Remove all segments
+name|pendingNumDocs
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|segmentInfos
+operator|.
+name|totalDocCount
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|segmentInfos
 operator|.
 name|clear
@@ -6468,13 +6490,6 @@ name|globalFieldNumberMap
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|pendingNumDocs
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
 expr_stmt|;
 name|success
 operator|=
@@ -7482,9 +7497,8 @@ name|sis
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Make sure adding the new documents to this index won't
-comment|// exceed the limit:
-name|reserveDocs
+comment|// Best-effort up front check:
+name|testReserveDocs
 argument_list|(
 name|totalDocCount
 argument_list|)
@@ -7710,6 +7724,12 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+comment|// Now reserve the docs, just before we update SIS:
+name|reserveDocs
+argument_list|(
+name|totalDocCount
+argument_list|)
+expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -7895,9 +7915,8 @@ name|numDocs
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Make sure adding the new documents to this index won't
-comment|// exceed the limit:
-name|reserveDocs
+comment|// Best-effort up front check:
+name|testReserveDocs
 argument_list|(
 name|numDocs
 argument_list|)
@@ -8322,6 +8341,12 @@ return|return;
 block|}
 name|ensureOpen
 argument_list|()
+expr_stmt|;
+comment|// Now reserve the docs, just before we update SIS:
+name|reserveDocs
+argument_list|(
+name|numDocs
+argument_list|)
 expr_stmt|;
 name|segmentInfos
 operator|.
@@ -17313,30 +17338,90 @@ name|void
 name|reserveDocs
 parameter_list|(
 name|long
-name|numDocs
+name|addedNumDocs
 parameter_list|)
 block|{
+assert|assert
+name|addedNumDocs
+operator|>=
+literal|0
+assert|;
 if|if
 condition|(
 name|pendingNumDocs
 operator|.
 name|addAndGet
 argument_list|(
-name|numDocs
+name|addedNumDocs
 argument_list|)
 operator|>
 name|actualMaxDocs
 condition|)
 block|{
-comment|// Reserve failed
+comment|// Reserve failed: put the docs back and throw exc:
 name|pendingNumDocs
 operator|.
 name|addAndGet
 argument_list|(
 operator|-
-name|numDocs
+name|addedNumDocs
 argument_list|)
 expr_stmt|;
+name|tooManyDocs
+argument_list|(
+name|addedNumDocs
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/** Does a best-effort check, that the current index would accept this many additional docs, but does not actually reserve them.    *    * @throws IllegalArgumentException if there would be too many docs */
+DECL|method|testReserveDocs
+specifier|private
+name|void
+name|testReserveDocs
+parameter_list|(
+name|long
+name|addedNumDocs
+parameter_list|)
+block|{
+assert|assert
+name|addedNumDocs
+operator|>=
+literal|0
+assert|;
+if|if
+condition|(
+name|pendingNumDocs
+operator|.
+name|get
+argument_list|()
+operator|+
+name|addedNumDocs
+operator|>
+name|actualMaxDocs
+condition|)
+block|{
+name|tooManyDocs
+argument_list|(
+name|addedNumDocs
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|tooManyDocs
+specifier|private
+name|void
+name|tooManyDocs
+parameter_list|(
+name|long
+name|addedNumDocs
+parameter_list|)
+block|{
+assert|assert
+name|addedNumDocs
+operator|>=
+literal|0
+assert|;
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -17354,12 +17439,11 @@ argument_list|()
 operator|+
 literal|"; added numDocs is "
 operator|+
-name|numDocs
+name|addedNumDocs
 operator|+
 literal|")"
 argument_list|)
 throw|;
-block|}
 block|}
 comment|/** Wraps the incoming {@link Directory} so that we assign a per-thread    *  {@link MergeRateLimiter} to all created {@link IndexOutput}s. */
 DECL|method|addMergeRateLimiters
