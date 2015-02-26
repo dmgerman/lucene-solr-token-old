@@ -52,6 +52,8 @@ name|IndexReader
 modifier|...
 name|subReaders
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|this
 argument_list|(
@@ -73,6 +75,8 @@ parameter_list|,
 name|boolean
 name|closeSubReaders
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(

@@ -604,6 +604,8 @@ operator|.
 name|common
 operator|.
 name|SolrException
+operator|.
+name|ErrorCode
 import|;
 end_import
 begin_import
@@ -617,8 +619,6 @@ operator|.
 name|common
 operator|.
 name|SolrException
-operator|.
-name|ErrorCode
 import|;
 end_import
 begin_import
@@ -677,6 +677,8 @@ operator|.
 name|core
 operator|.
 name|DirectoryFactory
+operator|.
+name|DirContext
 import|;
 end_import
 begin_import
@@ -690,8 +692,6 @@ operator|.
 name|core
 operator|.
 name|DirectoryFactory
-operator|.
-name|DirContext
 import|;
 end_import
 begin_import
@@ -1293,6 +1293,8 @@ parameter_list|,
 name|DirectoryReader
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|reader
