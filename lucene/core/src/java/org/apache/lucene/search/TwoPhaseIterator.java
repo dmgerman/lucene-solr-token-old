@@ -27,20 +27,20 @@ begin_comment
 comment|/**  * An approximation of a {@link DocIdSetIterator}. When the {@link #approximation()}'s  * {@link DocIdSetIterator#nextDoc()} or {@link DocIdSetIterator#advance(int)}  * return, {@link #matches()} needs to be checked in order to know whether the  * returned doc ID actually matches.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|TwoPhaseDocIdSetIterator
+DECL|class|TwoPhaseIterator
 specifier|public
 specifier|abstract
 class|class
-name|TwoPhaseDocIdSetIterator
+name|TwoPhaseIterator
 block|{
-comment|/** Return a {@link DocIdSetIterator} view of the provided    *  {@link TwoPhaseDocIdSetIterator}. */
+comment|/** Return a {@link DocIdSetIterator} view of the provided    *  {@link TwoPhaseIterator}. */
 DECL|method|asDocIdSetIterator
 specifier|public
 specifier|static
 name|DocIdSetIterator
 name|asDocIdSetIterator
 parameter_list|(
-name|TwoPhaseDocIdSetIterator
+name|TwoPhaseIterator
 name|twoPhaseIterator
 parameter_list|)
 block|{

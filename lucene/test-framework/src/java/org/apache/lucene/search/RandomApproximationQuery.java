@@ -579,7 +579,7 @@ annotation|@
 name|Override
 DECL|method|asTwoPhaseIterator
 specifier|public
-name|TwoPhaseDocIdSetIterator
+name|TwoPhaseIterator
 name|asTwoPhaseIterator
 parameter_list|()
 block|{
@@ -697,7 +697,7 @@ specifier|static
 class|class
 name|RandomTwoPhaseView
 extends|extends
-name|TwoPhaseDocIdSetIterator
+name|TwoPhaseIterator
 block|{
 DECL|field|disi
 specifier|private
