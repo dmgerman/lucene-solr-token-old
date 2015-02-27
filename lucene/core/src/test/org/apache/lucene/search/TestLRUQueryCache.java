@@ -1933,6 +1933,10 @@ block|}
 if|if
 condition|(
 name|o
+operator|instanceof
+name|IndexReader
+operator|||
+name|o
 operator|.
 name|getClass
 argument_list|()
@@ -1946,7 +1950,7 @@ literal|"SegmentCoreReaders"
 argument_list|)
 condition|)
 block|{
-comment|// do not take core cache keys into account
+comment|// do not take readers or core cache keys into account
 return|return
 literal|0
 return|;
