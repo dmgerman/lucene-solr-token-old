@@ -3024,6 +3024,8 @@ name|params
 parameter_list|)
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 comment|// query a random server
 name|int
@@ -3391,6 +3393,8 @@ block|}
 catch|catch
 parameter_list|(
 name|SolrServerException
+decl||
+name|IOException
 name|e
 parameter_list|)
 block|{
@@ -3448,6 +3452,8 @@ name|clients
 parameter_list|)
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 return|return
 name|queryAndCompare
@@ -3482,6 +3488,8 @@ name|clients
 parameter_list|)
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|QueryResponse
 name|first

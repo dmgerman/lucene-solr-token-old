@@ -249,6 +249,8 @@ name|test404ViaHttp
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|SolrClient
 name|client
@@ -441,6 +443,8 @@ name|testDirList
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|SolrClient
 name|client

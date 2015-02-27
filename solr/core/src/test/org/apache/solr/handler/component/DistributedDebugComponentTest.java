@@ -242,6 +242,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1955,6 +1964,8 @@ name|client
 parameter_list|)
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|query
 operator|.
@@ -2515,6 +2526,8 @@ name|testCompareWithNonDistributedRequest
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|SolrQuery
 name|query
@@ -2777,6 +2790,8 @@ name|testTolerantSearch
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|String
 name|badShard

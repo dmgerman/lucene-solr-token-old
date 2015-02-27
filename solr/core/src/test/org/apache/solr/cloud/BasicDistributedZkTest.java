@@ -8262,6 +8262,8 @@ name|params
 parameter_list|)
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 if|if
 condition|(
