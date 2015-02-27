@@ -3420,7 +3420,7 @@ name|assertEquals
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|,
 operator|(
 operator|(
@@ -3461,14 +3461,14 @@ name|setMultiTermRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|SCORING_BOOLEAN_QUERY_REWRITE
+name|SCORING_BOOLEAN_REWRITE
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|SCORING_BOOLEAN_QUERY_REWRITE
+name|SCORING_BOOLEAN_REWRITE
 argument_list|,
 operator|(
 operator|(
@@ -5752,7 +5752,7 @@ name|setMultiTermRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|SCORING_BOOLEAN_QUERY_REWRITE
+name|SCORING_BOOLEAN_REWRITE
 argument_list|)
 expr_stmt|;
 name|q
@@ -5761,7 +5761,7 @@ name|setRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|SCORING_BOOLEAN_QUERY_REWRITE
+name|SCORING_BOOLEAN_REWRITE
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -5780,7 +5780,7 @@ name|assertEquals
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|SCORING_BOOLEAN_QUERY_REWRITE
+name|SCORING_BOOLEAN_REWRITE
 argument_list|,
 operator|(
 operator|(
@@ -5816,7 +5816,7 @@ name|setMultiTermRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 expr_stmt|;
 name|Query

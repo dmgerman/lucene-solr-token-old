@@ -135,19 +135,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MultiTermQueryWrapperFilter
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -478,10 +465,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|MultiTermQueryWrapperFilter
-argument_list|<
-name|AutomatonQuery
-argument_list|>
+name|QueryWrapperFilter
 argument_list|(
 operator|new
 name|AutomatonQuery
@@ -495,7 +479,6 @@ argument_list|,
 name|union
 argument_list|)
 argument_list|)
-block|{         }
 return|;
 block|}
 block|}
@@ -504,7 +487,6 @@ DECL|enum constant|docValuesTermsFilter
 name|docValuesTermsFilter
 block|{
 comment|//on 4x this is FieldCacheTermsFilter but we use the 5x name any way
-comment|//note: limited to one val per doc
 annotation|@
 name|Override
 name|Filter

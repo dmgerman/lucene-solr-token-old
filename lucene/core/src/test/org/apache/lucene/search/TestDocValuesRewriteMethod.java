@@ -250,13 +250,13 @@ name|UnicodeUtil
 import|;
 end_import
 begin_comment
-comment|/**  * Tests the DocTermOrdsRewriteMethod  */
+comment|/**  * Tests the DocValuesRewriteMethod  */
 end_comment
 begin_class
-DECL|class|TestDocTermOrdsRewriteMethod
+DECL|class|TestDocValuesRewriteMethod
 specifier|public
 class|class
-name|TestDocTermOrdsRewriteMethod
+name|TestDocValuesRewriteMethod
 extends|extends
 name|LuceneTestCase
 block|{
@@ -774,7 +774,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|DocTermOrdsRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -924,7 +924,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|DocTermOrdsRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -933,7 +933,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|DocTermOrdsRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -942,7 +942,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|DocTermOrdsRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;

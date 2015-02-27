@@ -2458,7 +2458,7 @@ comment|// some tests before, if the used queries and filters work:
 name|assertEquals
 argument_list|(
 operator|new
-name|PrefixFilter
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2470,7 +2470,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2485,7 +2485,7 @@ expr_stmt|;
 name|assertFalse
 argument_list|(
 operator|new
-name|PrefixFilter
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2499,7 +2499,7 @@ operator|.
 name|equals
 argument_list|(
 operator|new
-name|PrefixFilter
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2579,7 +2579,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2587,6 +2590,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2612,7 +2616,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2620,6 +2627,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2640,7 +2648,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2648,6 +2659,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2673,7 +2685,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2681,6 +2696,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"a"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2701,7 +2717,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2709,6 +2728,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2789,7 +2809,10 @@ argument_list|(
 literal|null
 argument_list|,
 operator|new
-name|PrefixFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -2797,6 +2820,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3063,7 +3087,13 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|CachingWrapperFilter
+argument_list|(
+operator|new
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -3071,6 +3101,8 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3101,7 +3133,13 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|CachingWrapperFilter
+argument_list|(
+operator|new
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -3109,6 +3147,8 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3153,7 +3193,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|PrefixFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -3161,6 +3204,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"o"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,

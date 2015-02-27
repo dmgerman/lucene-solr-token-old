@@ -418,19 +418,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeFilter
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|NumericRangeQuery
 import|;
 end_import
@@ -1330,7 +1317,7 @@ name|f
 operator|.
 name|add
 argument_list|(
-name|NumericRangeFilter
+name|NumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1461,7 +1448,7 @@ name|f
 operator|.
 name|add
 argument_list|(
-name|NumericRangeFilter
+name|NumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
