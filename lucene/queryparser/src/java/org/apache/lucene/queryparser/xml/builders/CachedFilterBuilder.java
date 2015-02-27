@@ -43,7 +43,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|CachingWrapperFilter
+name|CachingWrapperQuery
 import|;
 end_import
 begin_import
@@ -137,7 +137,7 @@ name|LRUCache
 argument_list|<
 name|Object
 argument_list|,
-name|Filter
+name|Query
 argument_list|>
 name|filterCache
 decl_stmt|;
@@ -288,7 +288,7 @@ operator|=
 name|f
 expr_stmt|;
 block|}
-name|Filter
+name|Query
 name|cachedFilter
 init|=
 name|filterCache
@@ -306,7 +306,11 @@ literal|null
 condition|)
 block|{
 return|return
+operator|new
+name|QueryWrapperFilter
+argument_list|(
 name|cachedFilter
+argument_list|)
 return|;
 comment|// cache hit
 block|}
@@ -332,7 +336,7 @@ block|{
 name|cachedFilter
 operator|=
 operator|new
-name|CachingWrapperFilter
+name|CachingWrapperQuery
 argument_list|(
 name|f
 argument_list|)
@@ -348,7 +352,11 @@ name|cachedFilter
 argument_list|)
 expr_stmt|;
 return|return
+operator|new
+name|QueryWrapperFilter
+argument_list|(
 name|cachedFilter
+argument_list|)
 return|;
 block|}
 DECL|class|LRUCache

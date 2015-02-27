@@ -76,27 +76,27 @@ name|TieredMergePolicy
 import|;
 end_import
 begin_comment
-comment|/**  * A policy defining which filters should be cached.  *  * Implementations of this class must be thread-safe.  *  * @see UsageTrackingFilterCachingPolicy  * @see LRUFilterCache  * @lucene.experimental  */
+comment|/**  * A policy defining which filters should be cached.  *  * Implementations of this class must be thread-safe.  *  * @see UsageTrackingQueryCachingPolicy  * @see LRUQueryCache  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// TODO: add APIs for integration with IndexWriter.IndexReaderWarmer
 end_comment
 begin_interface
-DECL|interface|FilterCachingPolicy
+DECL|interface|QueryCachingPolicy
 specifier|public
 interface|interface
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 block|{
 comment|/** A simple policy that caches all the provided filters on all segments. */
 DECL|field|ALWAYS_CACHE
 specifier|public
 specifier|static
 specifier|final
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|ALWAYS_CACHE
 init|=
 operator|new
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 argument_list|()
 block|{
 annotation|@
@@ -105,8 +105,8 @@ specifier|public
 name|void
 name|onUse
 parameter_list|(
-name|Filter
-name|filter
+name|Query
+name|query
 parameter_list|)
 block|{}
 annotation|@
@@ -115,14 +115,11 @@ specifier|public
 name|boolean
 name|shouldCache
 parameter_list|(
-name|Filter
-name|filter
+name|Query
+name|query
 parameter_list|,
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|DocIdSet
-name|set
 parameter_list|)
 throws|throws
 name|IOException
@@ -140,9 +137,9 @@ specifier|static
 class|class
 name|CacheOnLargeSegments
 implements|implements
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 block|{
-comment|/** {@link CacheOnLargeSegments} instance that only caches on segments that      *  account for more than 3% of the total index size. This should guarantee      *  that all segments from the upper {@link TieredMergePolicy tier} will be      *  cached while ensuring that at most<tt>33</tt> segments can make it to      *  the cache (given that some implementations such as {@link LRUFilterCache}      *  perform better when the number of cached segments is low). */
+comment|/** {@link CacheOnLargeSegments} instance that only caches on segments that      *  account for more than 3% of the total index size. This should guarantee      *  that all segments from the upper {@link TieredMergePolicy tier} will be      *  cached while ensuring that at most<tt>33</tt> segments can make it to      *  the cache (given that some implementations such as {@link LRUQueryCache}      *  perform better when the number of cached segments is low). */
 DECL|field|DEFAULT
 specifier|public
 specifier|static
@@ -206,8 +203,8 @@ specifier|public
 name|void
 name|onUse
 parameter_list|(
-name|Filter
-name|filter
+name|Query
+name|query
 parameter_list|)
 block|{}
 annotation|@
@@ -217,14 +214,11 @@ specifier|public
 name|boolean
 name|shouldCache
 parameter_list|(
-name|Filter
-name|filter
+name|Query
+name|query
 parameter_list|,
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|DocIdSet
-name|set
 parameter_list|)
 throws|throws
 name|IOException
@@ -276,8 +270,8 @@ DECL|method|onUse
 name|void
 name|onUse
 parameter_list|(
-name|Filter
-name|filter
+name|Query
+name|query
 parameter_list|)
 function_decl|;
 comment|/** Whether the given {@link DocIdSet} should be cached on a given segment.    *  This method will be called on each leaf context to know if the filter    *  should be cached on this particular leaf. The filter cache will first    *  attempt to load a {@link DocIdSet} from the cache. If it is not cached    *  yet and this method returns<tt>true</tt> then a cache entry will be    *  generated. Otherwise an uncached set will be returned. */
@@ -285,14 +279,11 @@ DECL|method|shouldCache
 name|boolean
 name|shouldCache
 parameter_list|(
-name|Filter
-name|filter
+name|Query
+name|query
 parameter_list|,
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|DocIdSet
-name|set
 parameter_list|)
 throws|throws
 name|IOException
