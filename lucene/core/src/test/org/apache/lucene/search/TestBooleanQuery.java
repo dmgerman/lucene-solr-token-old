@@ -4980,6 +4980,10 @@ argument_list|(
 name|scorer
 operator|instanceof
 name|BoostedScorer
+operator|||
+name|scorer
+operator|instanceof
+name|ExactPhraseScorer
 argument_list|)
 expr_stmt|;
 name|assertNotNull
