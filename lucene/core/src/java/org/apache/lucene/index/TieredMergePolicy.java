@@ -2510,7 +2510,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 if|if

@@ -186,9 +186,9 @@ specifier|final
 name|Bits
 name|liveDocs
 decl_stmt|;
-comment|// Normally set to si.docCount - si.delDocCount, unless we
+comment|// Normally set to si.maxDoc - si.delDocCount, unless we
 comment|// were created as an NRT reader from IW, in which case IW
-comment|// tells us the docCount:
+comment|// tells us the number of live docs:
 DECL|field|numDocs
 specifier|private
 specifier|final
@@ -328,7 +328,7 @@ name|si
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|si
@@ -418,7 +418,7 @@ name|si
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|si
@@ -828,7 +828,7 @@ name|si
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 return|;
 block|}
@@ -940,7 +940,7 @@ name|si
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|numDocs

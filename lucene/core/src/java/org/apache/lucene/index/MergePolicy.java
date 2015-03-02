@@ -249,7 +249,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|/** OneMerge provides the information necessary to perform    *  an individual primitive merge operation, resulting in    *  a single new segment.  The merge spec includes the    *  subset of segments to be merged as well as whether the    *  new segment should use the compound file format. */
+comment|/** OneMerge provides the information necessary to perform    *  an individual primitive merge operation, resulting in    *  a single new segment.  The merge spec includes the    *  subset of segments to be merged as well as whether the    *  new segment should use the compound file format.    *    * @lucene.experimental */
 DECL|class|OneMerge
 specifier|public
 specifier|static
@@ -332,11 +332,11 @@ operator|-
 literal|1
 decl_stmt|;
 comment|/** Total number of documents in segments to be merged, not accounting for deletions. */
-DECL|field|totalDocCount
+DECL|field|totalMaxDoc
 specifier|public
 specifier|final
 name|int
-name|totalDocCount
+name|totalMaxDoc
 decl_stmt|;
 DECL|field|error
 name|Throwable
@@ -403,11 +403,11 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 expr_stmt|;
 block|}
-name|totalDocCount
+name|totalMaxDoc
 operator|=
 name|count
 expr_stmt|;
@@ -767,7 +767,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 expr_stmt|;
 block|}
@@ -786,7 +786,7 @@ return|return
 operator|new
 name|MergeInfo
 argument_list|(
-name|totalDocCount
+name|totalMaxDoc
 argument_list|,
 name|estimatedMergeBytes
 argument_list|,
@@ -1317,7 +1317,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|<=
 literal|0
@@ -1336,7 +1336,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 assert|assert
@@ -1350,7 +1350,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|<=
 literal|0

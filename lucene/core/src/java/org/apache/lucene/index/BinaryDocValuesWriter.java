@@ -620,7 +620,7 @@ name|state
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 name|bytes

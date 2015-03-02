@@ -976,7 +976,7 @@ name|commitInfo
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|!=
 name|oldReader
@@ -986,7 +986,7 @@ argument_list|()
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 name|boolean

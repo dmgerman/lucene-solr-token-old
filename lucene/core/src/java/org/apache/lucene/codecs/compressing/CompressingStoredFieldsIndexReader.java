@@ -286,7 +286,7 @@ name|maxDoc
 operator|=
 name|si
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 expr_stmt|;
 name|int

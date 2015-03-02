@@ -299,7 +299,7 @@ name|mergeState
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|>
 literal|0
@@ -415,20 +415,20 @@ name|mergeState
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|:
 literal|"numMerged="
 operator|+
 name|numMerged
 operator|+
-literal|" vs mergeState.segmentInfo.getDocCount()="
+literal|" vs mergeState.segmentInfo.maxDoc()="
 operator|+
 name|mergeState
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 assert|;
 specifier|final
@@ -780,7 +780,7 @@ name|mergeState
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 assert|;
 block|}
