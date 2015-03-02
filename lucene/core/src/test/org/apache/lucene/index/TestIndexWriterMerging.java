@@ -1971,7 +1971,7 @@ argument_list|)
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|<
 literal|20

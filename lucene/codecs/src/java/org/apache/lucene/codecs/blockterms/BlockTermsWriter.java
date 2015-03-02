@@ -610,7 +610,7 @@ name|state
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 expr_stmt|;
 name|out

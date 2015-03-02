@@ -1312,7 +1312,7 @@ name|docCount
 init|=
 name|writer
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|(
 name|i
 argument_list|)

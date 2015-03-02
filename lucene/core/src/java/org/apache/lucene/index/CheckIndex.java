@@ -592,10 +592,10 @@ name|Codec
 name|codec
 decl_stmt|;
 comment|/** Document count (does not take deletions into account). */
-DECL|field|docCount
+DECL|field|maxDoc
 specifier|public
 name|int
-name|docCount
+name|maxDoc
 decl_stmt|;
 comment|/** True if segment is compound file format. */
 DECL|field|compound
@@ -2090,13 +2090,13 @@ name|info
 operator|.
 name|name
 operator|+
-literal|" docCount="
+literal|" maxDoc="
 operator|+
 name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2112,13 +2112,13 @@ name|name
 expr_stmt|;
 name|segInfoStat
 operator|.
-name|docCount
+name|maxDoc
 operator|=
 name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -2138,7 +2138,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|<=
 literal|0
@@ -2154,7 +2154,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 throw|;
@@ -2166,7 +2166,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 name|SegmentReader
@@ -2545,7 +2545,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 condition|)
 block|{
@@ -2560,13 +2560,13 @@ operator|.
 name|maxDoc
 argument_list|()
 operator|+
-literal|" != SegmentInfos.docCount "
+literal|" != SegmentInfo.maxDoc "
 operator|+
 name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 throw|;
@@ -2603,7 +2603,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|info
@@ -2623,7 +2623,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|info
@@ -2648,7 +2648,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|reader
@@ -2681,7 +2681,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|reader
@@ -2698,7 +2698,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|reader
@@ -2730,7 +2730,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|reader
@@ -2772,7 +2772,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|reader

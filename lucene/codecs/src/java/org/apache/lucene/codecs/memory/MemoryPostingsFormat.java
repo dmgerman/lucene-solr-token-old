@@ -1833,7 +1833,7 @@ name|state
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 decl_stmt|;
