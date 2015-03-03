@@ -3824,6 +3824,7 @@ expr_stmt|;
 block|}
 comment|/**    * Utility function to throw an exception if the class is invalid    */
 DECL|method|assertAwareCompatibility
+specifier|static
 name|void
 name|assertAwareCompatibility
 parameter_list|(
