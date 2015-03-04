@@ -1201,13 +1201,6 @@ name|SolrServerException
 throws|,
 name|IOException
 block|{
-name|NamedList
-name|res
-init|=
-operator|new
-name|SimpleOrderedMap
-argument_list|()
-decl_stmt|;
 name|ModifiableSolrParams
 name|params
 init|=
@@ -1243,15 +1236,11 @@ argument_list|(
 name|params
 argument_list|)
 decl_stmt|;
-name|res
-operator|=
+return|return
 name|qres
 operator|.
 name|getResponse
 argument_list|()
-expr_stmt|;
-return|return
-name|res
 return|;
 block|}
 comment|/** will sleep up to 30 seconds, looking for expectedDocCount */
@@ -1935,7 +1924,7 @@ operator|)
 operator|.
 name|get
 argument_list|(
-name|SnapPuller
+name|IndexFetcher
 operator|.
 name|TIMES_FAILED
 argument_list|)
@@ -3012,7 +3001,7 @@ name|getLocalPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//add a doc with new field and commit on master to trigger snappull from slave.
+comment|//add a doc with new field and commit on master to trigger index fetch from slave.
 name|index
 argument_list|(
 name|masterClient
@@ -3399,10 +3388,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|doTestSnapPullWithMasterUrl
+DECL|method|doTestIndexFetchWithMasterUrl
 specifier|public
 name|void
-name|doTestSnapPullWithMasterUrl
+name|doTestIndexFetchWithMasterUrl
 parameter_list|()
 throws|throws
 name|Exception
@@ -3541,7 +3530,7 @@ name|getNumFound
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// snappull
+comment|// index fetch
 name|String
 name|masterUrl
 init|=
@@ -3657,7 +3646,7 @@ argument_list|,
 name|cmp
 argument_list|)
 expr_stmt|;
-comment|// snappull from the slave to the master
+comment|// index fetch from the slave to the master
 for|for
 control|(
 name|int
@@ -4503,7 +4492,7 @@ name|getNumFound
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// snappull
+comment|// index fetch
 name|Date
 name|slaveCoreStart
 init|=
@@ -6913,7 +6902,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|//add a doc with new field and commit on master to trigger snappull from slave.
+comment|//add a doc with new field and commit on master to trigger index fetch from slave.
 name|index
 argument_list|(
 name|masterClient
