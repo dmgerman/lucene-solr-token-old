@@ -636,6 +636,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testIllegalByteDuringBuild
 specifier|public
@@ -666,18 +671,23 @@ literal|50
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|FreeTextSuggester
-name|sug
+name|Analyzer
+name|analyzer
 init|=
-operator|new
-name|FreeTextSuggester
-argument_list|(
 operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|FreeTextSuggester
+name|sug
+init|=
+operator|new
+name|FreeTextSuggester
+argument_list|(
+name|analyzer
 argument_list|)
 decl_stmt|;
 try|try
@@ -707,6 +717,11 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testIllegalByteDuringQuery
 specifier|public
@@ -737,18 +752,23 @@ literal|50
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|FreeTextSuggester
-name|sug
+name|Analyzer
+name|analyzer
 init|=
-operator|new
-name|FreeTextSuggester
-argument_list|(
 operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|FreeTextSuggester
+name|sug
+init|=
+operator|new
+name|FreeTextSuggester
+argument_list|(
+name|analyzer
 argument_list|)
 decl_stmt|;
 name|sug
@@ -787,6 +807,11 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Ignore
@@ -818,18 +843,23 @@ operator|.
 name|nextDoc
 argument_list|()
 expr_stmt|;
-name|FreeTextSuggester
-name|sug
+name|Analyzer
+name|analyzer
 init|=
-operator|new
-name|FreeTextSuggester
-argument_list|(
 operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|FreeTextSuggester
+name|sug
+init|=
+operator|new
+name|FreeTextSuggester
+argument_list|(
+name|analyzer
 argument_list|)
 decl_stmt|;
 name|sug
@@ -1039,6 +1069,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// Make sure you can suggest based only on unigram model:
 DECL|method|testUnigrams
@@ -1125,6 +1160,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// Make sure the last token is not duplicated
 DECL|method|testNoDupsAcrossGrams
@@ -1209,6 +1249,11 @@ literal|10
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|// Lookup of just empty string produces unicode only matches:
@@ -1303,6 +1348,11 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// With one ending hole, ShingleFilter produces "of _" and
 comment|// we should properly predict from that:
@@ -1451,6 +1501,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// If the number of ending holes exceeds the ngrams window
 comment|// then there are no predictions, because ShingleFilter
@@ -1580,6 +1635,11 @@ literal|10
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|field|byScoreThenKey
@@ -3390,6 +3450,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getZipfToken
 specifier|private

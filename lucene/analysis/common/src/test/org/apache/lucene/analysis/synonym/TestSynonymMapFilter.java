@@ -237,19 +237,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|CharsRefBuilder
 import|;
 end_import
@@ -1131,6 +1118,11 @@ argument_list|,
 literal|"a b c"
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testDoKeepOrig
 specifier|public
@@ -1306,6 +1298,11 @@ literal|false
 argument_list|,
 literal|"a b c"
 argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testBasic
@@ -3358,6 +3355,11 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 comment|// NOTE: this is an invalid test... SynFilter today can't
@@ -3550,6 +3552,11 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|testEmptyTerm
@@ -3718,6 +3725,11 @@ argument_list|()
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -3913,6 +3925,11 @@ argument_list|,
 literal|1024
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 comment|// LUCENE-3375
@@ -3931,6 +3948,16 @@ literal|"aaa => aaaa1 aaaa2 aaaa3\n"
 operator|+
 literal|"bbb => bbbb1 bbbb2\n"
 decl_stmt|;
+name|Analyzer
+name|synAnalyzer
+init|=
+operator|new
+name|MockAnalyzer
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|SolrSynonymParser
 name|parser
 init|=
@@ -3941,12 +3968,7 @@ literal|true
 argument_list|,
 literal|true
 argument_list|,
-operator|new
-name|MockAnalyzer
-argument_list|(
-name|random
-argument_list|()
-argument_list|)
+name|synAnalyzer
 argument_list|)
 decl_stmt|;
 name|parser
@@ -3969,6 +3991,11 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|synAnalyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|Analyzer
 name|analyzer
 init|=
@@ -4071,6 +4098,11 @@ block|,
 literal|"gold"
 block|}
 argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testBasic2
@@ -4555,6 +4587,11 @@ literal|1
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testRepeatsOff
 specifier|public
@@ -4686,6 +4723,11 @@ block|{
 literal|1
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testRepeatsOn
@@ -4827,6 +4869,11 @@ literal|0
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testRecursion
 specifier|public
@@ -4952,6 +4999,11 @@ block|,
 literal|1
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testRecursion2
@@ -5112,6 +5164,11 @@ block|,
 literal|1
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testOutputHangsOffEnd
@@ -5701,6 +5758,11 @@ literal|1
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testRecursion3
 specifier|public
@@ -5830,6 +5892,11 @@ block|,
 literal|1
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testRecursion4
@@ -5977,6 +6044,11 @@ block|,
 literal|1
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testMultiwordOffsets
@@ -6129,6 +6201,11 @@ block|,
 literal|1
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testEmpty

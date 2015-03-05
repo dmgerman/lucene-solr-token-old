@@ -864,6 +864,11 @@ argument_list|,
 name|num
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// LUCENE-3642: normalize BMP->SMP and check that offsets are correct
 DECL|method|testCrossPlaneNormalization2
@@ -1109,6 +1114,11 @@ name|analyzer
 argument_list|,
 name|num
 argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

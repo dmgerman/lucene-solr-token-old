@@ -184,19 +184,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1301,6 +1288,11 @@ literal|0
 block|}
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings
@@ -1422,6 +1414,11 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|testEmptyTerm
@@ -1495,6 +1492,11 @@ argument_list|()
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testSupplementaryCharacters

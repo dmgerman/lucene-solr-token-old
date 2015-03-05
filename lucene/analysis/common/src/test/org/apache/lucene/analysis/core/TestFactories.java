@@ -269,6 +269,9 @@ end_comment
 begin_comment
 comment|// currently the only way to do this is via eclipse etc (LUCENE-3974)
 end_comment
+begin_comment
+comment|// TODO: fix this to use CustomAnalyzer instead of its own FactoryAnalyzer
+end_comment
 begin_class
 DECL|class|TestFactories
 specifier|public
@@ -419,11 +422,9 @@ expr_stmt|;
 block|}
 comment|// beast it just a little, it shouldnt throw exceptions:
 comment|// (it should have thrown them in initialize)
-name|checkRandomData
-argument_list|(
-name|random
-argument_list|()
-argument_list|,
+name|Analyzer
+name|a
+init|=
 operator|new
 name|FactoryAnalyzer
 argument_list|(
@@ -433,6 +434,13 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
+decl_stmt|;
+name|checkRandomData
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|a
 argument_list|,
 literal|20
 argument_list|,
@@ -442,6 +450,11 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -527,11 +540,9 @@ expr_stmt|;
 block|}
 comment|// beast it just a little, it shouldnt throw exceptions:
 comment|// (it should have thrown them in initialize)
-name|checkRandomData
-argument_list|(
-name|random
-argument_list|()
-argument_list|,
+name|Analyzer
+name|a
+init|=
 operator|new
 name|FactoryAnalyzer
 argument_list|(
@@ -541,6 +552,13 @@ name|factory
 argument_list|,
 literal|null
 argument_list|)
+decl_stmt|;
+name|checkRandomData
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|a
 argument_list|,
 literal|20
 argument_list|,
@@ -550,6 +568,11 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -635,11 +658,9 @@ expr_stmt|;
 block|}
 comment|// beast it just a little, it shouldnt throw exceptions:
 comment|// (it should have thrown them in initialize)
-name|checkRandomData
-argument_list|(
-name|random
-argument_list|()
-argument_list|,
+name|Analyzer
+name|a
+init|=
 operator|new
 name|FactoryAnalyzer
 argument_list|(
@@ -649,6 +670,13 @@ literal|null
 argument_list|,
 name|factory
 argument_list|)
+decl_stmt|;
+name|checkRandomData
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|a
 argument_list|,
 literal|20
 argument_list|,
@@ -658,6 +686,11 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

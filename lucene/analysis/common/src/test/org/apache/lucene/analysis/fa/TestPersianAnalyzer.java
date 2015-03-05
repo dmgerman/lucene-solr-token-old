@@ -78,6 +78,9 @@ block|{
 operator|new
 name|PersianAnalyzer
 argument_list|()
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * This test shows how the combination of tokenization (breaking on zero-width    * non-joiner), normalization (such as treating arabic YEH and farsi YEH the    * same), and stopwords creates a light-stemming effect for verbs.    *     * These verb forms are from http://en.wikipedia.org/wiki/Persian_grammar    */
@@ -546,6 +549,11 @@ literal|"Ø¨Ø®ÙØ±Ø¯"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * This test shows how the combination of tokenization and stopwords creates a    * light-stemming effect for verbs.    *     * In this case, these forms are presented with alternative orthography, using    * arabic yeh and whitespace. This yeh phenomenon is common for legacy text    * due to some previous bugs in Microsoft Windows.    *     * These verb forms are from http://en.wikipedia.org/wiki/Persian_grammar    */
 DECL|method|testBehaviorVerbsDefective
@@ -1013,6 +1021,11 @@ literal|"Ø¨Ø®ÙØ±Ø¯"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * This test shows how the combination of tokenization (breaking on zero-width    * non-joiner or space) and stopwords creates a light-stemming effect for    * nouns, removing the plural -ha.    */
 DECL|method|testBehaviorNouns
@@ -1058,6 +1071,11 @@ literal|"Ø¨Ø±Ú¯"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test showing that non-persian text is treated very much like SimpleAnalyzer    * (lowercased, etc)    */
 DECL|method|testBehaviorNonPersian
@@ -1090,6 +1108,11 @@ block|,
 literal|"test"
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Basic test ensuring that tokenStream works correctly.    */
@@ -1135,6 +1158,11 @@ block|{
 literal|"Ø¨Ø±Ú¯"
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Test that custom stopwords work, and are not case-sensitive.    */
@@ -1186,6 +1214,11 @@ literal|"fox"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings
@@ -1196,19 +1229,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|PersianAnalyzer
+name|a
+init|=
+operator|new
+name|PersianAnalyzer
+argument_list|()
+decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
 argument_list|()
 argument_list|,
-operator|new
-name|PersianAnalyzer
-argument_list|()
+name|a
 argument_list|,
 literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

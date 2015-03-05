@@ -742,6 +742,11 @@ literal|"Ð±ÑÐ°Ñ"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test showing how feminine noun forms conflate    */
 DECL|method|testFeminineNouns
@@ -814,6 +819,11 @@ block|{
 literal|"Ð²ÐµÑÑ"
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Test showing how neuter noun forms conflate an example noun for each common    * plural pattern is listed    */
@@ -1032,6 +1042,11 @@ literal|"Ð¸Ð·ÐºÐ»ÑÑÐ½"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test showing how adjectival forms conflate    */
 DECL|method|testAdjectives
@@ -1174,6 +1189,11 @@ block|{
 literal|"ÐºÑÐ°ÑÐ¸Ð²"
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Test some exceptional rules, implemented as rewrites.    */
@@ -1665,6 +1685,11 @@ literal|"ÑÑÑ"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testWithKeywordAttribute
 specifier|public
@@ -1802,6 +1827,11 @@ literal|""
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

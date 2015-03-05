@@ -2206,6 +2206,11 @@ literal|12
 block|}
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings
@@ -2299,6 +2304,11 @@ operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|InputSource
 name|is
 init|=
@@ -2393,6 +2403,11 @@ operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
 expr_stmt|;
+name|b
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testEmptyTerm
 specifier|public
@@ -2475,6 +2490,11 @@ literal|""
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|InputSource
 name|is
@@ -2560,6 +2580,11 @@ literal|""
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|b
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

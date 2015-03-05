@@ -554,6 +554,11 @@ argument_list|,
 literal|"wmgddzunizdomqyj"
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|field|wrappedStream
 name|CharFilter
@@ -1373,6 +1378,11 @@ argument_list|,
 literal|2000
 argument_list|)
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testCuriousWikipediaString
 specifier|public
@@ -1765,6 +1775,11 @@ literal|false
 argument_list|,
 literal|"B\u28c3\ue0f8[ \ud800\udfc2</p> jb"
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

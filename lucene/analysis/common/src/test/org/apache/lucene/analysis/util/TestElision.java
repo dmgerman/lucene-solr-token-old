@@ -31,15 +31,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringReader
 import|;
 end_import
@@ -443,6 +434,11 @@ literal|""
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
