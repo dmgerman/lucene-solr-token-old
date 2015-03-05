@@ -778,6 +778,29 @@ argument_list|(
 name|config
 argument_list|,
 operator|new
+name|Properties
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|CoreContainer
+specifier|public
+name|CoreContainer
+parameter_list|(
+name|NodeConfig
+name|config
+parameter_list|,
+name|Properties
+name|properties
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|config
+argument_list|,
+name|properties
+argument_list|,
+operator|new
 name|CorePropertiesLocator
 argument_list|(
 name|config
@@ -794,6 +817,9 @@ name|CoreContainer
 parameter_list|(
 name|NodeConfig
 name|config
+parameter_list|,
+name|Properties
+name|properties
 parameter_list|,
 name|CoresLocator
 name|locator
@@ -832,6 +858,16 @@ name|coresLocator
 operator|=
 name|locator
 expr_stmt|;
+name|this
+operator|.
+name|containerProperties
+operator|=
+operator|new
+name|Properties
+argument_list|(
+name|properties
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**    * This method allows subclasses to construct a CoreContainer    * without any default init behavior.    *     * @param testConstructor pass (Object)null.    * @lucene.experimental    */
 DECL|method|CoreContainer
@@ -855,6 +891,10 @@ operator|=
 literal|null
 expr_stmt|;
 name|cfg
+operator|=
+literal|null
+expr_stmt|;
+name|containerProperties
 operator|=
 literal|null
 expr_stmt|;
@@ -1184,11 +1224,14 @@ name|zkController
 argument_list|)
 expr_stmt|;
 name|containerProperties
-operator|=
+operator|.
+name|putAll
+argument_list|(
 name|cfg
 operator|.
 name|getSolrProperties
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// setup executor to load cores in parallel
 comment|// do not limit the size of the executor in zk mode since cores may try and wait for each other.
