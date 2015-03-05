@@ -310,6 +310,9 @@ name|request
 parameter_list|(
 name|SolrRequest
 name|request
+parameter_list|,
+name|String
+name|collection
 parameter_list|)
 throws|throws
 name|SolrServerException

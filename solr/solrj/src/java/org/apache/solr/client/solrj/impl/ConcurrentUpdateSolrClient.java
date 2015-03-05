@@ -1704,6 +1704,9 @@ parameter_list|(
 specifier|final
 name|SolrRequest
 name|request
+parameter_list|,
+name|String
+name|collection
 parameter_list|)
 throws|throws
 name|SolrServerException
@@ -1726,6 +1729,8 @@ operator|.
 name|request
 argument_list|(
 name|request
+argument_list|,
+name|collection
 argument_list|)
 return|;
 block|}
@@ -1816,6 +1821,8 @@ operator|.
 name|request
 argument_list|(
 name|request
+argument_list|,
+name|collection
 argument_list|)
 return|;
 block|}
@@ -1852,6 +1859,8 @@ operator|.
 name|request
 argument_list|(
 name|request
+argument_list|,
+name|collection
 argument_list|)
 return|;
 block|}
@@ -1903,6 +1912,8 @@ operator|.
 name|request
 argument_list|(
 name|request
+argument_list|,
+name|collection
 argument_list|)
 return|;
 block|}
