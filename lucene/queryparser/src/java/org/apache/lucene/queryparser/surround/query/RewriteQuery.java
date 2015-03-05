@@ -193,8 +193,7 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|getClass
-argument_list|()
+name|super
 operator|.
 name|hashCode
 argument_list|()
@@ -261,6 +260,13 @@ operator|)
 name|obj
 decl_stmt|;
 return|return
+name|super
+operator|.
+name|equals
+argument_list|(
+name|obj
+argument_list|)
+operator|&&
 name|fieldName
 operator|.
 name|equals
