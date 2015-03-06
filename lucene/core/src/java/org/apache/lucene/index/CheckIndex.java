@@ -1230,6 +1230,37 @@ specifier|private
 name|boolean
 name|verbose
 decl_stmt|;
+comment|/** See {@link #getChecksumsOnly}. */
+DECL|method|getChecksumsOnly
+specifier|public
+name|boolean
+name|getChecksumsOnly
+parameter_list|()
+block|{
+return|return
+name|checksumsOnly
+return|;
+block|}
+comment|/**     * If true, only validate physical integrity for all files.     * Note that the returned nested status objects (e.g. storedFieldStatus) will be null.  */
+DECL|method|setChecksumsOnly
+specifier|public
+name|void
+name|setChecksumsOnly
+parameter_list|(
+name|boolean
+name|v
+parameter_list|)
+block|{
+name|checksumsOnly
+operator|=
+name|v
+expr_stmt|;
+block|}
+DECL|field|checksumsOnly
+specifier|private
+name|boolean
+name|checksumsOnly
+decl_stmt|;
 comment|/** Set infoStream where messages should go.  If null, no    *  messages are printed.  If verbose is true then more    *  details are printed. */
 DECL|method|setInfoStream
 specifier|public
@@ -2849,6 +2880,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+if|if
+condition|(
+name|checksumsOnly
+operator|==
+literal|false
+condition|)
+block|{
 comment|// Test Livedocs
 name|segInfoStat
 operator|.
@@ -2939,6 +2977,7 @@ argument_list|,
 name|failFast
 argument_list|)
 expr_stmt|;
+comment|// Test Docvalues
 name|segInfoStat
 operator|.
 name|docValuesStatus
@@ -3092,6 +3131,7 @@ argument_list|(
 literal|"DocValues test failed"
 argument_list|)
 throw|;
+block|}
 block|}
 name|msg
 argument_list|(
@@ -11273,6 +11313,11 @@ name|verbose
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|doChecksumsOnly
+init|=
+literal|false
+decl_stmt|;
 name|List
 argument_list|<
 name|String
@@ -11316,6 +11361,22 @@ index|[
 name|i
 index|]
 decl_stmt|;
+if|if
+condition|(
+literal|"-fast"
+operator|.
+name|equals
+argument_list|(
+name|arg
+argument_list|)
+condition|)
+block|{
+name|doChecksumsOnly
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 literal|"-exorcise"
@@ -11527,6 +11588,8 @@ literal|"\n"
 operator|+
 literal|"  -exorcise: actually write a new segments_N file, removing any problematic segments\n"
 operator|+
+literal|"  -fast: just verify file checksums, omitting logical integrity checks\n"
+operator|+
 literal|"  -crossCheckTermVectors: verifies that term vectors match postings; THIS IS VERY SLOW!\n"
 operator|+
 literal|"  -codec X: when exorcising, codec to write the new segments_N file with\n"
@@ -11638,6 +11701,26 @@ operator|.
 name|println
 argument_list|(
 literal|"ERROR: cannot specify both -exorcise and -segment"
+argument_list|)
+expr_stmt|;
+return|return
+literal|1
+return|;
+block|}
+if|if
+condition|(
+name|doChecksumsOnly
+operator|&&
+name|doCrossCheckTermVectors
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"ERROR: cannot specify both -fast and -crossCheckTermVectors"
 argument_list|)
 expr_stmt|;
 return|return
@@ -11760,6 +11843,13 @@ operator|.
 name|setCrossCheckTermVectors
 argument_list|(
 name|doCrossCheckTermVectors
+argument_list|)
+expr_stmt|;
+name|checker
+operator|.
+name|setChecksumsOnly
+argument_list|(
+name|doChecksumsOnly
 argument_list|)
 expr_stmt|;
 name|checker
