@@ -1680,7 +1680,8 @@ name|getVersions
 argument_list|(
 name|ulog
 operator|.
-name|numRecordsToKeep
+name|getNumRecordsToKeep
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2303,7 +2304,8 @@ argument_list|)
 argument_list|,
 name|ulog
 operator|.
-name|numRecordsToKeep
+name|getNumRecordsToKeep
+argument_list|()
 argument_list|,
 literal|false
 argument_list|,
