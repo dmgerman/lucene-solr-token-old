@@ -233,25 +233,14 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonList
-import|;
-end_import
 begin_comment
 comment|/**  * This manages the lifecycle of a set of plugin of the same type .  */
 end_comment
 begin_class
-DECL|class|PluginRegistry
+DECL|class|PluginBag
 specifier|public
 class|class
-name|PluginRegistry
+name|PluginBag
 parameter_list|<
 name|T
 parameter_list|>
@@ -268,7 +257,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|PluginRegistry
+name|PluginBag
 operator|.
 name|class
 argument_list|)
@@ -333,9 +322,9 @@ operator|.
 name|SolrPluginInfo
 name|meta
 decl_stmt|;
-DECL|method|PluginRegistry
+DECL|method|PluginBag
 specifier|public
-name|PluginRegistry
+name|PluginBag
 parameter_list|(
 name|Class
 argument_list|<

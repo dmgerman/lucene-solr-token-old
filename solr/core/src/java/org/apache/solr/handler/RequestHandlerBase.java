@@ -95,7 +95,7 @@ name|solr
 operator|.
 name|core
 operator|.
-name|PluginRegistry
+name|PluginBag
 import|;
 end_import
 begin_import
@@ -241,15 +241,6 @@ operator|.
 name|net
 operator|.
 name|URL
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 begin_import
@@ -953,7 +944,7 @@ parameter_list|(
 name|String
 name|handlerName
 parameter_list|,
-name|PluginRegistry
+name|PluginBag
 argument_list|<
 name|SolrRequestHandler
 argument_list|>

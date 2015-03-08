@@ -70,7 +70,7 @@ name|solr
 operator|.
 name|core
 operator|.
-name|PluginRegistry
+name|PluginBag
 import|;
 end_import
 begin_import
@@ -436,7 +436,7 @@ name|void
 name|testLazy
 parameter_list|()
 block|{
-name|PluginRegistry
+name|PluginBag
 operator|.
 name|PluginHolder
 argument_list|<
@@ -466,7 +466,7 @@ literal|"Should be a lazy class"
 argument_list|,
 name|qrw
 operator|instanceof
-name|PluginRegistry
+name|PluginBag
 operator|.
 name|LazyPluginHolder
 argument_list|)
@@ -508,7 +508,7 @@ operator|.
 name|getClass
 argument_list|()
 operator|==
-name|PluginRegistry
+name|PluginBag
 operator|.
 name|PluginHolder
 operator|.

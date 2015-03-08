@@ -625,14 +625,14 @@ literal|"/admin/info"
 decl_stmt|;
 DECL|field|containerHandlers
 specifier|private
-name|PluginRegistry
+name|PluginBag
 argument_list|<
 name|SolrRequestHandler
 argument_list|>
 name|containerHandlers
 init|=
 operator|new
-name|PluginRegistry
+name|PluginBag
 argument_list|<>
 argument_list|(
 name|SolrRequestHandler
@@ -664,7 +664,7 @@ return|;
 block|}
 DECL|method|getRequestHandlers
 specifier|public
-name|PluginRegistry
+name|PluginBag
 argument_list|<
 name|SolrRequestHandler
 argument_list|>
