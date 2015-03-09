@@ -1748,24 +1748,6 @@ name|getUpdateLock
 argument_list|()
 init|)
 block|{
-name|cmdExecutor
-operator|.
-name|ensureExists
-argument_list|(
-name|CLUSTER_STATE
-argument_list|,
-name|zkClient
-argument_list|)
-expr_stmt|;
-name|cmdExecutor
-operator|.
-name|ensureExists
-argument_list|(
-name|ALIASES
-argument_list|,
-name|zkClient
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
@@ -1773,6 +1755,9 @@ argument_list|(
 literal|"Updating cluster state from ZooKeeper... "
 argument_list|)
 expr_stmt|;
+name|Stat
+name|stat
+init|=
 name|zkClient
 operator|.
 name|exists
@@ -1993,7 +1978,31 @@ block|}
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|stat
+operator|==
+literal|null
+condition|)
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|,
+literal|"Cannot connect to cluster at "
+operator|+
+name|zkClient
+operator|.
+name|getZkServerAddress
+argument_list|()
+operator|+
+literal|": cluster not found/not ready"
+argument_list|)
+throw|;
 block|}
 synchronized|synchronized
 init|(
