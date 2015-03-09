@@ -1513,17 +1513,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|statusMessages
-operator|.
-name|remove
-argument_list|(
-name|DataImporter
-operator|.
-name|MSG
-operator|.
-name|TOTAL_DOC_PROCESSED
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(
