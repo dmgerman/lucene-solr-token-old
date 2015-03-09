@@ -311,6 +311,11 @@ operator|.
 name|loadJar
 argument_list|()
 expr_stmt|;
+name|lib
+operator|.
+name|verify
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -686,7 +691,8 @@ name|set
 argument_list|(
 name|lib
 operator|.
-name|name
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 break|break;
