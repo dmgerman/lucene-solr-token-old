@@ -16501,16 +16501,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ClusterStateMutator
-operator|.
-name|getShardNames
-argument_list|(
-name|numSlices
-argument_list|,
-name|shardNames
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|numSlices
@@ -16531,6 +16521,16 @@ operator|+
 literal|" is a required param (when using CompositeId router)."
 argument_list|)
 throw|;
+block|}
+name|ClusterStateMutator
+operator|.
+name|getShardNames
+argument_list|(
+name|numSlices
+argument_list|,
+name|shardNames
+argument_list|)
+expr_stmt|;
 block|}
 name|int
 name|maxShardsPerNode
