@@ -6671,6 +6671,12 @@ literal|"stats.field"
 argument_list|,
 literal|"{!key=k min=false}a_i"
 argument_list|)
+comment|// section of stats for this field should exist ...
+argument_list|,
+name|XPRE
+operator|+
+literal|"lst[@name='stats_fields']/lst[@name='k']"
+comment|// ...but be empty
 argument_list|,
 literal|"count("
 operator|+
