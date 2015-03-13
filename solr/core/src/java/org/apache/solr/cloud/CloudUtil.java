@@ -686,7 +686,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"Error fetching key names"
 argument_list|)

@@ -1543,7 +1543,11 @@ name|log
 operator|.
 name|error
 argument_list|(
+literal|"$ERROR$"
+argument_list|,
 name|response
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|fail
