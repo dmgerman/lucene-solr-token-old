@@ -312,6 +312,21 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -400,6 +415,13 @@ operator|.
 name|HOUR
 argument_list|)
 comment|// effectively no limit
+annotation|@
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Stuff gets printed"
+argument_list|)
 DECL|class|Test2BTerms
 specifier|public
 class|class
