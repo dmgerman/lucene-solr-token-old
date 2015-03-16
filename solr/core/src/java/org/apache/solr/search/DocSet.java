@@ -16,6 +16,15 @@ package|;
 end_package
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -48,6 +57,8 @@ DECL|interface|DocSet
 specifier|public
 interface|interface
 name|DocSet
+extends|extends
+name|Closeable
 comment|/* extends Collection<Integer> */
 block|{
 comment|/**    * Adds the specified document if it is not currently in the DocSet    * (optional operation).    *    * @see #addUnique    * @throws SolrException if the implementation does not allow modifications    */
