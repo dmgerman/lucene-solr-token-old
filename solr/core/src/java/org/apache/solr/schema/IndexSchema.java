@@ -4126,7 +4126,7 @@ return|;
 block|}
 comment|/** Returns true if the given name has exactly one asterisk either at the start or end of the name */
 DECL|method|isValidFieldGlob
-specifier|private
+specifier|protected
 specifier|static
 name|boolean
 name|isValidFieldGlob
@@ -5226,7 +5226,7 @@ block|}
 block|}
 block|}
 DECL|method|registerExplicitSrcAndDestFields
-specifier|private
+specifier|protected
 name|void
 name|registerExplicitSrcAndDestFields
 parameter_list|(
@@ -6244,6 +6244,16 @@ operator|=
 name|destDynamicBase
 expr_stmt|;
 block|}
+DECL|method|getDestination
+specifier|public
+name|DynamicField
+name|getDestination
+parameter_list|()
+block|{
+return|return
+name|destination
+return|;
+block|}
 DECL|method|getDestFieldName
 specifier|public
 name|String
@@ -6798,7 +6808,6 @@ return|return
 literal|null
 return|;
 block|}
-empty_stmt|;
 comment|/**    * Get all copy fields, both the static and the dynamic ones.    * @return Array of fields copied into this field    */
 DECL|method|getCopySources
 specifier|public
@@ -7485,6 +7494,15 @@ name|values
 argument_list|()
 control|)
 block|{
+name|copyFields
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|copyFields
+argument_list|)
+expr_stmt|;
 name|Collections
 operator|.
 name|sort
@@ -7511,7 +7529,7 @@ name|CopyField
 name|cf2
 parameter_list|)
 block|{
-comment|// sources are all be the same, just sorting by destination here
+comment|// sources are all the same, just sorting by destination here
 return|return
 name|cf1
 operator|.
@@ -7986,7 +8004,7 @@ operator|=
 name|loader
 expr_stmt|;
 block|}
-comment|/**    * Copies this schema, adds the given field to the copy    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param newField the SchemaField to add     * @param persist to persist the schema or not or not    * @return a new IndexSchema based on this schema with newField added    * @see #newField(String, String, Map)    */
+comment|/**    * Copies this schema, adds the given field to the copy    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param newField the SchemaField to add     * @param persist to persist the schema or not    * @return a new IndexSchema based on this schema with newField added    * @see #newField(String, String, Map)    */
 DECL|method|addField
 specifier|public
 name|IndexSchema
@@ -8011,7 +8029,8 @@ argument_list|)
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|,
 name|persist
 argument_list|)
@@ -8159,7 +8178,89 @@ name|msg
 argument_list|)
 throw|;
 block|}
-comment|/**    * Copies this schema, adds the given dynamic fields to the copy,    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param newDynamicFields the SchemaFields to add    * @param copyFieldNames 0 or more names of targets to copy this field to.  The target fields must already exist.    * @param persist to persist the schema or not or not    * @return a new IndexSchema based on this schema with newDynamicFields added    * @see #newDynamicField(String, String, Map)    */
+comment|/**    * Copies this schema, deletes the named fields from the copy.    *<p>    * The schema will not be persisted.    *<p>    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param names the names of the fields to delete    * @return a new IndexSchema based on this schema with the named fields deleted    */
+DECL|method|deleteFields
+specifier|public
+name|IndexSchema
+name|deleteFields
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|names
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|"This IndexSchema is not mutable."
+decl_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+name|msg
+argument_list|)
+throw|;
+block|}
+comment|/**    * Copies this schema, deletes the named field from the copy, creates a new field     * with the same name using the given args, then rebinds any referring copy fields    * to the replacement field.    *    *<p>    * The schema will not be persisted.    *<p>    * Requires synchronizing on the object returned by {@link #getSchemaUpdateLock()}.    *    * @param fieldName The name of the field to be replaced    * @param replacementFieldType  The field type of the replacement field                                       * @param replacementArgs Initialization params for the replacement field    * @return a new IndexSchema based on this schema with the named field replaced    */
+DECL|method|replaceField
+specifier|public
+name|IndexSchema
+name|replaceField
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|,
+name|FieldType
+name|replacementFieldType
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
+name|replacementArgs
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|"This IndexSchema is not mutable."
+decl_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+name|msg
+argument_list|)
+throw|;
+block|}
+comment|/**    * Copies this schema, adds the given dynamic fields to the copy,    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param newDynamicFields the SchemaFields to add    * @param copyFieldNames 0 or more names of targets to copy this field to.  The target fields must already exist.    * @param persist to persist the schema or not    * @return a new IndexSchema based on this schema with newDynamicFields added    * @see #newDynamicField(String, String, Map)    */
 DECL|method|addDynamicFields
 specifier|public
 name|IndexSchema
@@ -8210,7 +8311,89 @@ name|msg
 argument_list|)
 throw|;
 block|}
-comment|/**    * Copies this schema and adds the new copy fields to the copy    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param copyFields Key is the name of the source field name, value is a collection of target field names.  Fields must exist.    * @param persist to persist the schema or not or not    * @return The new Schema with the copy fields added    */
+comment|/**    * Copies this schema, deletes the named dynamic fields from the copy.    *<p>    * The schema will not be persisted.    *<p>    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param fieldNamePatterns the names of the dynamic fields to delete    * @return a new IndexSchema based on this schema with the named dynamic fields deleted    */
+DECL|method|deleteDynamicFields
+specifier|public
+name|IndexSchema
+name|deleteDynamicFields
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|fieldNamePatterns
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|"This IndexSchema is not mutable."
+decl_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+name|msg
+argument_list|)
+throw|;
+block|}
+comment|/**    * Copies this schema, deletes the named dynamic field from the copy, creates a new dynamic    * field with the same field name pattern using the given args, then rebinds any referring    * dynamic copy fields to the replacement dynamic field.    *    *<p>    * The schema will not be persisted.    *<p>    * Requires synchronizing on the object returned by {@link #getSchemaUpdateLock()}.    *    * @param fieldNamePattern The glob for the dynamic field to be replaced    * @param replacementFieldType  The field type of the replacement dynamic field                                       * @param replacementArgs Initialization params for the replacement dynamic field    * @return a new IndexSchema based on this schema with the named dynamic field replaced    */
+DECL|method|replaceDynamicField
+specifier|public
+name|ManagedIndexSchema
+name|replaceDynamicField
+parameter_list|(
+name|String
+name|fieldNamePattern
+parameter_list|,
+name|FieldType
+name|replacementFieldType
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
+name|replacementArgs
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|"This IndexSchema is not mutable."
+decl_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+name|msg
+argument_list|)
+throw|;
+block|}
+comment|/**      * Copies this schema and adds the new copy fields to the copy      * Requires synchronizing on the object returned by      * {@link #getSchemaUpdateLock()}.      *      * @param copyFields Key is the name of the source field name, value is a collection of target field names.  Fields must exist.      * @param persist to persist the schema or not      * @return The new Schema with the copy fields added      */
 DECL|method|addCopyFields
 specifier|public
 name|IndexSchema
@@ -8229,6 +8412,48 @@ name|copyFields
 parameter_list|,
 name|boolean
 name|persist
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|"This IndexSchema is not mutable."
+decl_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+name|msg
+argument_list|)
+throw|;
+block|}
+comment|/**    * Copies this schema and deletes the given copy fields from the copy.    *<p>    * The schema will not be persisted.    *<p>    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param copyFields Key is the name of the source field name, value is a collection of target field names.     *                   Each corresponding copy field directives must exist.    * @return The new Schema with the copy fields deleted    */
+DECL|method|deleteCopyFields
+specifier|public
+name|IndexSchema
+name|deleteCopyFields
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|copyFields
 parameter_list|)
 block|{
 name|String
@@ -8345,7 +8570,7 @@ name|msg
 argument_list|)
 throw|;
 block|}
-comment|/**    * Returns the schema update lock that should be synchronzied on    * to update the schema.  Only applicable to mutable schemas.    *    * @return the schema update lock object to synchronize on    */
+comment|/**    * Returns the schema update lock that should be synchronized on    * to update the schema.  Only applicable to mutable schemas.    *    * @return the schema update lock object to synchronize on    */
 DECL|method|getSchemaUpdateLock
 specifier|public
 name|Object
@@ -8376,7 +8601,7 @@ name|msg
 argument_list|)
 throw|;
 block|}
-comment|/**    * Copies this schema, adds the given field type to the copy,    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param fieldTypeList a list of FieldTypes to add    * @param persist to persist the schema or not or not    * @return a new IndexSchema based on this schema with the new types added    * @see #newFieldType(String, String, Map)    */
+comment|/**    * Copies this schema, adds the given field type to the copy,    * Requires synchronizing on the object returned by    * {@link #getSchemaUpdateLock()}.    *    * @param fieldTypeList a list of FieldTypes to add    * @param persist to persist the schema or not    * @return a new IndexSchema based on this schema with the new types added    * @see #newFieldType(String, String, Map)    */
 DECL|method|addFieldTypes
 specifier|public
 name|IndexSchema
@@ -8390,6 +8615,88 @@ name|fieldTypeList
 parameter_list|,
 name|boolean
 name|persist
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|"This IndexSchema is not mutable."
+decl_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+name|msg
+argument_list|)
+throw|;
+block|}
+comment|/**    * Copies this schema, deletes the named field types from the copy.    *<p>    * The schema will not be persisted.    *<p>    * Requires synchronizing on the object returned by {@link #getSchemaUpdateLock()}.    *    * @param names the names of the field types to delete    * @return a new IndexSchema based on this schema with the named field types deleted    */
+DECL|method|deleteFieldTypes
+specifier|public
+name|IndexSchema
+name|deleteFieldTypes
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|names
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|"This IndexSchema is not mutable."
+decl_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+name|msg
+argument_list|)
+throw|;
+block|}
+comment|/**    * Copies this schema, deletes the named field type from the copy, creates a new field type     * with the same name using the given args, rebuilds fields and dynamic fields of the given    * type, then rebinds any referring copy fields to the rebuilt fields.    *     *<p>    * The schema will not be persisted.    *<p>    * Requires synchronizing on the object returned by {@link #getSchemaUpdateLock()}.    *      * @param typeName The name of the field type to be replaced    * @param replacementClassName The class name of the replacement field type    * @param replacementArgs Initialization params for the replacement field type    * @return a new IndexSchema based on this schema with the named field type replaced    */
+DECL|method|replaceFieldType
+specifier|public
+name|IndexSchema
+name|replaceFieldType
+parameter_list|(
+name|String
+name|typeName
+parameter_list|,
+name|String
+name|replacementClassName
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|replacementArgs
 parameter_list|)
 block|{
 name|String
