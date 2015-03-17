@@ -159,6 +159,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|StrUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|handler
 operator|.
 name|RequestHandlerBase
@@ -2549,9 +2564,9 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"runtimelib {0} should be signed with one of the keys in ZK /keys/exe "
 argument_list|,

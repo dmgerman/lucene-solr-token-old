@@ -16,17 +16,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import static
-name|java
-operator|.
-name|text
-operator|.
-name|MessageFormat
-operator|.
-name|format
-import|;
-end_import
-begin_import
-import|import static
 name|org
 operator|.
 name|apache
@@ -204,6 +193,21 @@ operator|.
 name|cloud
 operator|.
 name|ZkStateReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|StrUtils
 import|;
 end_import
 begin_import
@@ -979,7 +983,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"field {0} not created"
 argument_list|,
@@ -1008,7 +1014,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"dynamic field {0} not created"
 argument_list|,
@@ -1042,7 +1050,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"CopyField source={0},dest={1} not created"
 argument_list|,
@@ -1073,7 +1083,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"new type {0}  not created"
 argument_list|,
@@ -1431,7 +1443,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"field {0} no longer present"
 argument_list|,
@@ -1460,7 +1474,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"dynamic field {0} no longer present"
 argument_list|,
@@ -1494,7 +1510,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"CopyField source={0},dest={1} no longer present"
 argument_list|,
@@ -1525,7 +1543,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"new type {0} no longer present"
 argument_list|,
@@ -1876,7 +1896,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"field {0} still exists"
 argument_list|,
@@ -1905,7 +1927,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"dynamic field {0} still exists"
 argument_list|,
@@ -1938,7 +1962,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"CopyField source={0},dest={1} still exists"
 argument_list|,
@@ -1969,7 +1995,9 @@ name|errmessages
 operator|.
 name|add
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"new type {0} still exists"
 argument_list|,

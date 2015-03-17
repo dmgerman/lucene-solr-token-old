@@ -63,15 +63,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
-operator|.
-name|MessageFormat
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Date
@@ -1087,9 +1078,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"inserting new blob {0} ,size {1}, md5 {2}"
 argument_list|,
@@ -1268,9 +1259,9 @@ name|QParser
 operator|.
 name|getParser
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 name|q
 argument_list|,
@@ -1474,20 +1465,15 @@ name|ErrorCode
 operator|.
 name|NOT_FOUND
 argument_list|,
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"Invalid combination of blobName {0} and version {1}"
 argument_list|,
 name|blobName
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
 name|version
-argument_list|)
 argument_list|)
 argument_list|)
 throw|;
@@ -1542,9 +1528,9 @@ name|makeMap
 argument_list|(
 literal|"q"
 argument_list|,
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 name|q
 argument_list|,

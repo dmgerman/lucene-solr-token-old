@@ -429,17 +429,6 @@ begin_import
 import|import static
 name|java
 operator|.
-name|text
-operator|.
-name|MessageFormat
-operator|.
-name|format
-import|;
-end_import
-begin_import
-import|import static
-name|java
-operator|.
 name|util
 operator|.
 name|Collections
@@ -1889,9 +1878,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"can't delete . No such params ''{0}'' exist"
 argument_list|,
@@ -2171,9 +2160,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"Unknown operation ''{0}'' "
 argument_list|,
@@ -2294,9 +2283,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"Unknown operation ''{0}'' "
 argument_list|,
@@ -2533,9 +2522,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"NO such {0} ''{1}'' "
 argument_list|,
@@ -2694,9 +2683,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|" ''{0}'' already exists . Do an ''{1}'' , if you want to change it "
 argument_list|,
@@ -2769,9 +2758,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|" ''{0}'' does not exist . Do an ''{1}'' , if you want to create it "
 argument_list|,
@@ -3049,7 +3038,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 literal|"No such property ''{0}''"
 argument_list|,
@@ -3139,7 +3130,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 name|NOT_EDITABLE
 argument_list|,
@@ -3253,7 +3246,9 @@ name|op
 operator|.
 name|addError
 argument_list|(
-name|format
+name|StrUtils
+operator|.
+name|formatString
 argument_list|(
 name|NOT_EDITABLE
 argument_list|,
@@ -3366,9 +3361,9 @@ continue|continue;
 else|else
 block|{
 return|return
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"''{0}'' name should only have chars [a-zA-Z_-.0-9] "
 argument_list|,

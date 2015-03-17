@@ -127,6 +127,21 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|StrUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|noggit
 operator|.
 name|JSONParser
@@ -342,9 +357,9 @@ return|;
 block|}
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"The command ''{0}'' should have the values as a json object {key:val} format"
 argument_list|,
@@ -376,9 +391,9 @@ name|errors
 operator|.
 name|add
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"The value has to be a string for command : ''{0}'' "
 argument_list|,
@@ -510,9 +525,9 @@ name|errors
 operator|.
 name|add
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 name|REQD
 argument_list|,
@@ -705,9 +720,9 @@ name|errors
 operator|.
 name|add
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 name|REQD
 argument_list|,
@@ -751,9 +766,9 @@ name|errors
 operator|.
 name|add
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 name|REQD
 argument_list|,
@@ -1239,9 +1254,9 @@ condition|)
 block|{
 name|addError
 argument_list|(
-name|MessageFormat
+name|StrUtils
 operator|.
-name|format
+name|formatString
 argument_list|(
 literal|"''{0}'' must be a map"
 argument_list|,
