@@ -213,6 +213,7 @@ name|core
 operator|=
 name|core
 expr_stmt|;
+comment|// we need a thread safe registry since methods like register are currently documented to be thread safe.
 name|handlers
 operator|=
 operator|new
@@ -224,6 +225,8 @@ operator|.
 name|class
 argument_list|,
 name|core
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
