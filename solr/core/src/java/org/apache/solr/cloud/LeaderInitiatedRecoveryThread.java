@@ -1250,7 +1250,6 @@ argument_list|,
 name|replicaCoreNodeName
 argument_list|)
 expr_stmt|;
-comment|// force republish state to "down"
 name|zkController
 operator|.
 name|ensureReplicaInLeaderInitiatedRecovery
@@ -1261,9 +1260,13 @@ name|shardId
 argument_list|,
 name|nodeProps
 argument_list|,
-literal|true
-argument_list|,
 name|leaderCoreNodeName
+argument_list|,
+literal|true
+comment|/* forcePublishState */
+argument_list|,
+literal|true
+comment|/* retryOnConnLoss */
 argument_list|)
 expr_stmt|;
 block|}
