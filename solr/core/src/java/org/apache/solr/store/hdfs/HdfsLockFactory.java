@@ -366,7 +366,7 @@ name|fs
 init|=
 name|FileSystem
 operator|.
-name|newInstance
+name|get
 argument_list|(
 name|lockPath
 operator|.
@@ -586,7 +586,7 @@ name|fs
 init|=
 name|FileSystem
 operator|.
-name|newInstance
+name|get
 argument_list|(
 name|lockPath
 operator|.
@@ -676,7 +676,7 @@ name|fs
 init|=
 name|FileSystem
 operator|.
-name|newInstance
+name|get
 argument_list|(
 name|lockPath
 operator|.
