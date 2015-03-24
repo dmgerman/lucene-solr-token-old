@@ -391,6 +391,10 @@ argument_list|,
 literal|true
 argument_list|,
 name|maxDoc
+argument_list|,
+literal|1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|indexThread
@@ -412,6 +416,10 @@ argument_list|,
 literal|true
 argument_list|,
 name|maxDoc
+argument_list|,
+literal|1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|indexThread2
