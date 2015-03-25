@@ -561,7 +561,7 @@ argument_list|()
 expr_stmt|;
 name|List
 argument_list|<
-name|StopableIndexingThread
+name|StoppableIndexingThread
 argument_list|>
 name|threads
 init|=
@@ -662,11 +662,11 @@ name|i
 operator|++
 control|)
 block|{
-name|StopableIndexingThread
+name|StoppableIndexingThread
 name|indexThread
 init|=
 operator|new
-name|StopableIndexingThread
+name|StoppableIndexingThread
 argument_list|(
 name|controlClient
 argument_list|,
@@ -820,7 +820,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|StopableIndexingThread
+name|StoppableIndexingThread
 name|indexThread
 range|:
 name|threads
@@ -835,7 +835,7 @@ block|}
 comment|// wait for stop...
 for|for
 control|(
-name|StopableIndexingThread
+name|StoppableIndexingThread
 name|indexThread
 range|:
 name|threads
@@ -849,7 +849,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|StopableIndexingThread
+name|StoppableIndexingThread
 name|indexThread
 range|:
 name|threads
