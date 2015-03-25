@@ -1154,7 +1154,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|" collections:"
+literal|"collections:"
 operator|+
 name|collectionStates
 argument_list|)
@@ -2192,12 +2192,26 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|coll
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|coll
 operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|"null DocCollection ref"
+return|;
+block|}
 block|}
 block|}
 block|}
