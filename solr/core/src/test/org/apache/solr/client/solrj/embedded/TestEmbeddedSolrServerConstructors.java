@@ -141,10 +141,10 @@ name|Paths
 import|;
 end_import
 begin_class
-DECL|class|TestEmbeddedSolrServer
+DECL|class|TestEmbeddedSolrServerConstructors
 specifier|public
 class|class
-name|TestEmbeddedSolrServer
+name|TestEmbeddedSolrServerConstructors
 extends|extends
 name|SolrTestCaseJ4
 block|{
