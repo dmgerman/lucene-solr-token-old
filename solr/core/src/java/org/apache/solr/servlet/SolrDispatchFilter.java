@@ -2449,6 +2449,13 @@ argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|core
+operator|!=
+literal|null
+condition|)
+block|{
 name|addMDCValues
 argument_list|(
 name|cores
@@ -2456,6 +2463,7 @@ argument_list|,
 name|core
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// With a valid core...
