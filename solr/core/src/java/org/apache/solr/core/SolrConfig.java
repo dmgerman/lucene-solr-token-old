@@ -646,6 +646,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|UUID
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Matcher
@@ -747,6 +756,23 @@ operator|.
 name|REQUIRE_NAME
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|core
+operator|.
+name|SolrConfig
+operator|.
+name|PluginOpts
+operator|.
+name|REQUIRE_NAME_IN_OVERLAY
+import|;
+end_import
 begin_comment
 comment|/**  * Provides a static reference to a Config object modeling the main  * configuration data for a a Solr instance -- typically found in  * "solrconfig.xml".  */
 end_comment
@@ -802,6 +828,9 @@ block|,
 DECL|enum constant|REQUIRE_NAME
 name|REQUIRE_NAME
 block|,
+DECL|enum constant|REQUIRE_NAME_IN_OVERLAY
+name|REQUIRE_NAME_IN_OVERLAY
+block|,
 DECL|enum constant|REQUIRE_CLASS
 name|REQUIRE_CLASS
 block|,
@@ -844,7 +873,7 @@ specifier|final
 name|SolrRequestParsers
 name|solrRequestParsers
 decl_stmt|;
-comment|/** Creates a default instance from the solrconfig.xml. */
+comment|/**    * Creates a default instance from the solrconfig.xml.    */
 DECL|method|SolrConfig
 specifier|public
 name|SolrConfig
@@ -869,7 +898,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Creates a configuration instance from a configuration name.    * A default resource loader will be created (@see SolrResourceLoader)    *@param name the configuration name used by the loader    */
+comment|/**    * Creates a configuration instance from a configuration name.    * A default resource loader will be created (@see SolrResourceLoader)    *    * @param name the configuration name used by the loader    */
 DECL|method|SolrConfig
 specifier|public
 name|SolrConfig
@@ -897,7 +926,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Creates a configuration instance from a configuration name and stream.    * A default resource loader will be created (@see SolrResourceLoader).    * If the stream is null, the resource loader will open the configuration stream.    * If the stream is not null, no attempt to load the resource will occur (the name is not used).    *@param name the configuration name    *@param is the configuration stream    */
+comment|/**    * Creates a configuration instance from a configuration name and stream.    * A default resource loader will be created (@see SolrResourceLoader).    * If the stream is null, the resource loader will open the configuration stream.    * If the stream is not null, no attempt to load the resource will occur (the name is not used).    *    * @param name the configuration name    * @param is   the configuration stream    */
 DECL|method|SolrConfig
 specifier|public
 name|SolrConfig
@@ -928,7 +957,7 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Creates a configuration instance from an instance directory, configuration name and stream.    *@param instanceDir the directory used to create the resource loader    *@param name the configuration name used by the loader if the stream is null    *@param is the configuration stream     */
+comment|/**    * Creates a configuration instance from an instance directory, configuration name and stream.    *    * @param instanceDir the directory used to create the resource loader    * @param name        the configuration name used by the loader if the stream is null    * @param is          the configuration stream    */
 DECL|method|SolrConfig
 specifier|public
 name|SolrConfig
@@ -1040,7 +1069,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** Creates a configuration instance from a resource loader, a configuration name and a stream.    * If the stream is null, the resource loader will open the configuration stream.    * If the stream is not null, no attempt to load the resource will occur (the name is not used).    *@param loader the resource loader    *@param name the configuration name    *@param is the configuration stream    */
+comment|/**    * Creates a configuration instance from a resource loader, a configuration name and a stream.    * If the stream is null, the resource loader will open the configuration stream.    * If the stream is not null, no attempt to load the resource will occur (the name is not used).    *    * @param loader the resource loader    * @param name   the configuration name    * @param is     the configuration stream    */
 DECL|method|SolrConfig
 specifier|public
 name|SolrConfig
@@ -1664,9 +1693,7 @@ name|PluginInfo
 argument_list|>
 name|argsInfos
 init|=
-name|pluginStore
-operator|.
-name|get
+name|getPluginInfos
 argument_list|(
 name|InitParams
 operator|.
@@ -1979,6 +2006,25 @@ argument_list|(
 operator|new
 name|SolrPluginInfo
 argument_list|(
+name|InitParams
+operator|.
+name|class
+argument_list|,
+name|InitParams
+operator|.
+name|TYPE
+argument_list|,
+name|MULTI_OK
+argument_list|,
+name|REQUIRE_NAME_IN_OVERLAY
+argument_list|)
+argument_list|)
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SolrPluginInfo
+argument_list|(
 name|SolrEventListener
 operator|.
 name|class
@@ -1988,6 +2034,8 @@ argument_list|,
 name|REQUIRE_CLASS
 argument_list|,
 name|MULTI_OK
+argument_list|,
+name|REQUIRE_NAME_IN_OVERLAY
 argument_list|)
 argument_list|)
 operator|.
@@ -2104,23 +2152,6 @@ operator|.
 name|class
 argument_list|,
 literal|"restManager"
-argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
-operator|new
-name|SolrPluginInfo
-argument_list|(
-name|InitParams
-operator|.
-name|class
-argument_list|,
-name|InitParams
-operator|.
-name|TYPE
-argument_list|,
-name|MULTI_OK
 argument_list|)
 argument_list|)
 operator|.
@@ -2275,6 +2306,41 @@ argument_list|,
 name|opts
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getCleanTag
+specifier|public
+name|String
+name|getCleanTag
+parameter_list|()
+block|{
+return|return
+name|tag
+operator|.
+name|replaceAll
+argument_list|(
+literal|"/"
+argument_list|,
+literal|""
+argument_list|)
+return|;
+block|}
+DECL|method|getTagCleanLower
+specifier|public
+name|String
+name|getTagCleanLower
+parameter_list|()
+block|{
+return|return
+name|getCleanTag
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+return|;
 block|}
 block|}
 DECL|method|getConfigOverlay
@@ -2629,7 +2695,8 @@ literal|"1 is allowed matching expression: "
 operator|+
 name|pluginInfo
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3115,7 +3182,7 @@ name|HttpCachingConfig
 implements|implements
 name|MapSerializable
 block|{
-comment|/** config xpath prefix for getting HTTP Caching options */
+comment|/**      * config xpath prefix for getting HTTP Caching options      */
 DECL|field|CACHE_PRE
 specifier|private
 specifier|final
@@ -3125,7 +3192,7 @@ name|CACHE_PRE
 init|=
 literal|"requestDispatcher/httpCaching/"
 decl_stmt|;
-comment|/** For extracting Expires "ttl" from<cacheControl> config */
+comment|/**      * For extracting Expires "ttl" from<cacheControl> config      */
 DECL|field|MAX_AGE
 specifier|private
 specifier|final
@@ -3201,7 +3268,7 @@ name|DIRLASTMOD
 block|,
 name|BOGUS
 block|;
-comment|/** Input must not be null */
+comment|/**        * Input must not be null        */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -3463,7 +3530,7 @@ return|return
 name|etagSeed
 return|;
 block|}
-comment|/** null if no Cache-Control header */
+comment|/**      * null if no Cache-Control header      */
 DECL|method|getCacheControlHeader
 specifier|public
 name|String
@@ -3474,7 +3541,7 @@ return|return
 name|cacheControlHeader
 return|;
 block|}
-comment|/** null if no max age limitation */
+comment|/**      * null if no max age limitation      */
 DECL|method|getMaxAge
 specifier|public
 name|Long
@@ -3547,7 +3614,7 @@ specifier|final
 name|boolean
 name|commitWithinSoftCommit
 decl_stmt|;
-comment|/**      * @param autoCommmitMaxDocs set -1 as default      * @param autoCommmitMaxTime set -1 as default      * @param commitIntervalLowerBound set -1 as default      */
+comment|/**      * @param autoCommmitMaxDocs       set -1 as default      * @param autoCommmitMaxTime       set -1 as default      * @param commitIntervalLowerBound set -1 as default      */
 DECL|method|UpdateHandlerInfo
 specifier|public
 name|UpdateHandlerInfo
@@ -3779,7 +3846,7 @@ return|return
 name|dataDir
 return|;
 block|}
-comment|/**SolrConfig keeps a repository of plugins by the type. The known interfaces are the types.    * @param type The key is FQN of the plugin class there are a few  known types : SolrFormatter, SolrFragmenter    * SolrRequestHandler,QParserPlugin, QueryResponseWriter,ValueSourceParser,    * SearchComponent, QueryConverter, SolrEventListener, DirectoryFactory,    * IndexDeletionPolicy, IndexReaderFactory, {@link TransformerFactory}    */
+comment|/**    * SolrConfig keeps a repository of plugins by the type. The known interfaces are the types.    *    * @param type The key is FQN of the plugin class there are a few  known types : SolrFormatter, SolrFragmenter    *             SolrRequestHandler,QParserPlugin, QueryResponseWriter,ValueSourceParser,    *             SearchComponent, QueryConverter, SolrEventListener, DirectoryFactory,    *             IndexDeletionPolicy, IndexReaderFactory, {@link TransformerFactory}    */
 DECL|method|getPluginInfos
 specifier|public
 name|List
@@ -3821,6 +3888,7 @@ name|info
 operator|!=
 literal|null
 operator|&&
+operator|(
 name|info
 operator|.
 name|options
@@ -3829,6 +3897,16 @@ name|contains
 argument_list|(
 name|REQUIRE_NAME
 argument_list|)
+operator|||
+name|info
+operator|.
+name|options
+operator|.
+name|contains
+argument_list|(
+name|REQUIRE_NAME_IN_OVERLAY
+argument_list|)
+operator|)
 condition|)
 block|{
 name|Map
@@ -3845,7 +3923,8 @@ name|getNamedPlugins
 argument_list|(
 name|info
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -3883,17 +3962,46 @@ name|pluginInfo
 range|:
 name|result
 control|)
+block|{
+comment|//just create a UUID for the time being so that map key is not null
+name|String
+name|name
+init|=
+name|pluginInfo
+operator|.
+name|name
+operator|==
+literal|null
+condition|?
+name|UUID
+operator|.
+name|randomUUID
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+else|:
+name|pluginInfo
+operator|.
+name|name
+decl_stmt|;
 name|map
 operator|.
 name|put
 argument_list|(
-name|pluginInfo
-operator|.
 name|name
 argument_list|,
 name|pluginInfo
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|Map
@@ -3926,7 +4034,8 @@ name|PluginInfo
 argument_list|(
 name|info
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 name|e
 operator|.
@@ -4362,16 +4471,6 @@ name|def
 parameter_list|)
 block|{
 name|Object
-name|v
-init|=
-name|overlay
-operator|.
-name|getXPathProperty
-argument_list|(
-name|path
-argument_list|)
-decl_stmt|;
-name|Object
 name|val
 init|=
 name|overlay
@@ -4454,6 +4553,93 @@ return|return
 name|super
 operator|.
 name|getBool
+argument_list|(
+name|path
+argument_list|,
+name|def
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|get
+specifier|public
+name|String
+name|get
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+name|Object
+name|val
+init|=
+name|overlay
+operator|.
+name|getXPathProperty
+argument_list|(
+name|path
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+return|return
+name|val
+operator|!=
+literal|null
+condition|?
+name|val
+operator|.
+name|toString
+argument_list|()
+else|:
+name|super
+operator|.
+name|get
+argument_list|(
+name|path
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|get
+specifier|public
+name|String
+name|get
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|String
+name|def
+parameter_list|)
+block|{
+name|Object
+name|val
+init|=
+name|overlay
+operator|.
+name|getXPathProperty
+argument_list|(
+name|path
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+return|return
+name|val
+operator|!=
+literal|null
+condition|?
+name|val
+operator|.
+name|toString
+argument_list|()
+else|:
+name|super
+operator|.
+name|get
 argument_list|(
 name|path
 argument_list|,
@@ -4582,6 +4768,24 @@ argument_list|,
 name|booleanQueryMaxClauseCount
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|jmxConfig
+operator|!=
+literal|null
+condition|)
+name|result
+operator|.
+name|put
+argument_list|(
+literal|"jmx"
+argument_list|,
+name|jmxConfig
+operator|.
+name|toMap
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|SolrPluginInfo
@@ -4623,7 +4827,8 @@ name|tag
 init|=
 name|plugin
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 decl_stmt|;
 name|tag
 operator|=

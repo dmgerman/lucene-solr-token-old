@@ -36,15 +36,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
-operator|.
-name|MessageFormat
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -375,7 +366,7 @@ operator|.
 name|SolrPluginInfo
 name|meta
 decl_stmt|;
-comment|/** Pass needThreadSafety=true if plugins can be added and removed concurrently with lookups. */
+comment|/**    * Pass needThreadSafety=true if plugins can be added and removed concurrently with lookups.    */
 DECL|method|PluginBag
 specifier|public
 name|PluginBag
@@ -476,7 +467,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** Constructs a non-threadsafe plugin registry */
+comment|/**    * Constructs a non-threadsafe plugin registry    */
 DECL|method|PluginBag
 specifier|public
 name|PluginBag
@@ -511,9 +502,6 @@ name|inst
 parameter_list|,
 name|PluginInfo
 name|info
-parameter_list|,
-name|SolrCore
-name|core
 parameter_list|)
 block|{
 if|if
@@ -634,9 +622,6 @@ name|createPlugin
 parameter_list|(
 name|PluginInfo
 name|info
-parameter_list|,
-name|SolrCore
-name|core
 parameter_list|)
 block|{
 if|if
@@ -669,7 +654,8 @@ literal|" {} : '{}'  created with runtimeLib=true "
 argument_list|,
 name|meta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 name|info
 operator|.
@@ -733,7 +719,8 @@ literal|"{} : '{}' created with startup=lazy "
 argument_list|,
 name|meta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 name|info
 operator|.
@@ -785,7 +772,8 @@ name|clazz
 argument_list|,
 name|meta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -800,8 +788,6 @@ argument_list|(
 name|inst
 argument_list|,
 name|info
-argument_list|,
-name|core
 argument_list|)
 expr_stmt|;
 return|return
@@ -1153,7 +1139,8 @@ literal|"Multiple defaults for : "
 operator|+
 name|meta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -1323,8 +1310,6 @@ init|=
 name|createPlugin
 argument_list|(
 name|info
-argument_list|,
-name|solrCore
 argument_list|)
 decl_stmt|;
 name|String
@@ -1385,7 +1370,8 @@ literal|"Multiple entries of {} with name {}"
 argument_list|,
 name|meta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 name|name
 argument_list|)
@@ -1612,7 +1598,8 @@ literal|" of type : "
 operator|+
 name|meta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 name|exp
 argument_list|)
@@ -2013,7 +2000,8 @@ literal|"Going to create a new {} with {} "
 argument_list|,
 name|pluginMeta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 name|pluginInfo
 operator|.
@@ -2073,7 +2061,8 @@ name|clazz
 argument_list|,
 name|pluginMeta
 operator|.
-name|tag
+name|getCleanTag
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -2085,8 +2074,6 @@ argument_list|(
 name|localInst
 argument_list|,
 name|pluginInfo
-argument_list|,
-name|core
 argument_list|)
 expr_stmt|;
 if|if
