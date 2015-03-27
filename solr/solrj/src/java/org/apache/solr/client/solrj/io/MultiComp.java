@@ -37,7 +37,7 @@ name|Comparator
 import|;
 end_import
 begin_comment
-comment|/**  *  Wraps multiple Comparators to provide sub sorting.  **/
+comment|/**  *  Wraps multiple Comparators to provide sub-sorting.  **/
 end_comment
 begin_class
 DECL|class|MultiComp

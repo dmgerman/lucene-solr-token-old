@@ -120,7 +120,7 @@ name|SolrParams
 import|;
 end_import
 begin_comment
-comment|/** *  Queries a Solr instance, and maps SolrDocs to a Stream of Tuples. **/
+comment|/** *  Queries a single Solr instance and maps SolrDocs to a Stream of Tuples. **/
 end_comment
 begin_class
 DECL|class|SolrStream
@@ -366,6 +366,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**    *  Setting trace to true will include the "_CORE_" field in each Tuple emitted by the stream.    **/
 DECL|method|setTrace
 specifier|public
 name|void
