@@ -1469,6 +1469,17 @@ name|slot
 index|]
 return|;
 block|}
+comment|// internal and expert
+DECL|method|getCountArray
+name|int
+index|[]
+name|getCountArray
+parameter_list|()
+block|{
+return|return
+name|result
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|reset
