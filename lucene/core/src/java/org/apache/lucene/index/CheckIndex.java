@@ -10295,6 +10295,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// This is the term vectors:
 name|postings
 operator|=
 name|termsEnum
@@ -10344,6 +10345,7 @@ name|j
 argument_list|)
 throw|;
 block|}
+comment|// This is the inverted index ("real" postings):
 name|postingsDocs2
 operator|=
 name|postingsTermsEnum
@@ -10491,6 +10493,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+comment|// Term vectors has prox?
 if|if
 condition|(
 name|hasProx
@@ -10596,7 +10599,24 @@ argument_list|()
 decl_stmt|;
 comment|// TODO: these are too anal...?
 comment|/*                         if (endOffset< startOffset) {                         throw new RuntimeException("vector startOffset=" + startOffset + " is> endOffset=" + endOffset);                         }                         if (startOffset< lastStartOffset) {                         throw new RuntimeException("vector startOffset=" + startOffset + " is< prior startOffset=" + lastStartOffset);                         }                         lastStartOffset = startOffset;                          */
-specifier|final
+if|if
+condition|(
+name|startOffset
+operator|!=
+operator|-
+literal|1
+operator|&&
+name|endOffset
+operator|!=
+operator|-
+literal|1
+operator|&&
+name|postingsTerms
+operator|.
+name|hasOffsets
+argument_list|()
+condition|)
+block|{
 name|int
 name|postingsStartOffset
 init|=
@@ -10605,7 +10625,6 @@ operator|.
 name|startOffset
 argument_list|()
 decl_stmt|;
-specifier|final
 name|int
 name|postingsEndOffset
 init|=
@@ -10616,16 +10635,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|startOffset
-operator|!=
-operator|-
-literal|1
-operator|&&
-name|postingsStartOffset
-operator|!=
-operator|-
-literal|1
-operator|&&
 name|startOffset
 operator|!=
 name|postingsStartOffset
@@ -10661,16 +10670,6 @@ if|if
 condition|(
 name|endOffset
 operator|!=
-operator|-
-literal|1
-operator|&&
-name|postingsEndOffset
-operator|!=
-operator|-
-literal|1
-operator|&&
-name|endOffset
-operator|!=
 name|postingsEndOffset
 condition|)
 block|{
@@ -10699,6 +10698,7 @@ operator|+
 name|postingsEndOffset
 argument_list|)
 throw|;
+block|}
 block|}
 name|BytesRef
 name|payload
