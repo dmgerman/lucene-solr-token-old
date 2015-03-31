@@ -4258,11 +4258,6 @@ init|=
 literal|0
 decl_stmt|;
 name|PostingsEnum
-name|docs
-init|=
-literal|null
-decl_stmt|;
-name|PostingsEnum
 name|postings
 init|=
 literal|null
@@ -5058,18 +5053,6 @@ name|sumDocFreq
 operator|+=
 name|docFreq
 expr_stmt|;
-name|docs
-operator|=
-name|termsEnum
-operator|.
-name|postings
-argument_list|(
-name|liveDocs
-argument_list|,
-name|docs
-argument_list|)
-expr_stmt|;
-comment|// nocommit: check null
 name|postings
 operator|=
 name|termsEnum
@@ -5197,29 +5180,6 @@ throw|;
 block|}
 block|}
 block|}
-specifier|final
-name|PostingsEnum
-name|docs2
-decl_stmt|;
-if|if
-condition|(
-name|postings
-operator|!=
-literal|null
-condition|)
-block|{
-name|docs2
-operator|=
-name|postings
-expr_stmt|;
-block|}
-else|else
-block|{
-name|docs2
-operator|=
-name|docs
-expr_stmt|;
-block|}
 name|int
 name|lastDoc
 init|=
@@ -5245,7 +5205,7 @@ specifier|final
 name|int
 name|doc
 init|=
-name|docs2
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
@@ -5286,7 +5246,7 @@ condition|)
 block|{
 name|freq
 operator|=
-name|docs2
+name|postings
 operator|.
 name|freq
 argument_list|()
@@ -5336,7 +5296,7 @@ comment|// consistently "lie" and pretend that freq was
 comment|// 1:
 if|if
 condition|(
-name|docs2
+name|postings
 operator|.
 name|freq
 argument_list|()
@@ -5801,7 +5761,7 @@ condition|(
 name|hasFreqs
 condition|)
 block|{
-name|docs
+name|postings
 operator|=
 name|termsEnum
 operator|.
@@ -5809,7 +5769,7 @@ name|postings
 argument_list|(
 literal|null
 argument_list|,
-name|docs
+name|postings
 argument_list|)
 expr_stmt|;
 name|docCount
@@ -5822,7 +5782,7 @@ literal|0
 expr_stmt|;
 while|while
 condition|(
-name|docs
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
@@ -5836,7 +5796,7 @@ name|visitedDocs
 operator|.
 name|set
 argument_list|(
-name|docs
+name|postings
 operator|.
 name|docID
 argument_list|()
@@ -5847,7 +5807,7 @@ operator|++
 expr_stmt|;
 name|totalTermFreq
 operator|+=
-name|docs
+name|postings
 operator|.
 name|freq
 argument_list|()
@@ -5856,7 +5816,7 @@ block|}
 block|}
 else|else
 block|{
-name|docs
+name|postings
 operator|=
 name|termsEnum
 operator|.
@@ -5864,7 +5824,7 @@ name|postings
 argument_list|(
 literal|null
 argument_list|,
-name|docs
+name|postings
 argument_list|,
 name|PostingsEnum
 operator|.
@@ -5882,7 +5842,7 @@ literal|1
 expr_stmt|;
 while|while
 condition|(
-name|docs
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
@@ -5896,7 +5856,7 @@ name|visitedDocs
 operator|.
 name|set
 argument_list|(
-name|docs
+name|postings
 operator|.
 name|docID
 argument_list|()
@@ -6468,7 +6428,7 @@ operator|/
 literal|8
 argument_list|)
 decl_stmt|;
-name|docs
+name|postings
 operator|=
 name|termsEnum
 operator|.
@@ -6476,7 +6436,7 @@ name|postings
 argument_list|(
 name|liveDocs
 argument_list|,
-name|docs
+name|postings
 argument_list|,
 name|PostingsEnum
 operator|.
@@ -6487,7 +6447,7 @@ specifier|final
 name|int
 name|docID
 init|=
-name|docs
+name|postings
 operator|.
 name|advance
 argument_list|(
@@ -6536,7 +6496,7 @@ specifier|final
 name|int
 name|nextDocID
 init|=
-name|docs
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
@@ -7199,7 +7159,7 @@ literal|" failed"
 argument_list|)
 throw|;
 block|}
-name|docs
+name|postings
 operator|=
 name|termsEnum
 operator|.
@@ -7207,17 +7167,16 @@ name|postings
 argument_list|(
 name|liveDocs
 argument_list|,
-name|docs
+name|postings
 argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
 argument_list|)
 expr_stmt|;
-comment|// nocommit: null check still needed? how to replace?
 if|if
 condition|(
-name|docs
+name|postings
 operator|==
 literal|null
 condition|)
@@ -7237,7 +7196,7 @@ throw|;
 block|}
 while|while
 condition|(
-name|docs
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
@@ -7313,7 +7272,7 @@ operator|.
 name|docFreq
 argument_list|()
 expr_stmt|;
-name|docs
+name|postings
 operator|=
 name|termsEnum
 operator|.
@@ -7321,17 +7280,16 @@ name|postings
 argument_list|(
 literal|null
 argument_list|,
-name|docs
+name|postings
 argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
 argument_list|)
 expr_stmt|;
-comment|// nocommit: null check still needed? how to replace?
 if|if
 condition|(
-name|docs
+name|postings
 operator|==
 literal|null
 condition|)
@@ -7351,7 +7309,7 @@ throw|;
 block|}
 while|while
 condition|(
-name|docs
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
