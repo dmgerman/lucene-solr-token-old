@@ -1361,7 +1361,7 @@ specifier|static
 class|class
 name|AssertingPostingsEnum
 extends|extends
-name|FilterDocsEnum
+name|FilterPostingsEnum
 block|{
 DECL|field|creationThread
 specifier|private
