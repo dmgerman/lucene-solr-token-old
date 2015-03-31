@@ -297,6 +297,13 @@ condition|(
 name|vector
 operator|==
 literal|null
+operator|||
+name|vector
+operator|.
+name|hasPositions
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 comment|// null snippet
@@ -380,7 +387,6 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|// nocommit: check
 name|dpEnum
 operator|=
 name|termsEnum
@@ -396,16 +402,6 @@ operator|.
 name|POSITIONS
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|dpEnum
-operator|==
-literal|null
-condition|)
-block|{
-comment|// null snippet
-return|return;
-block|}
 name|dpEnum
 operator|.
 name|nextDoc
