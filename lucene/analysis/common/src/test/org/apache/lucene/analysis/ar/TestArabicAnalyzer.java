@@ -74,6 +74,9 @@ block|{
 operator|new
 name|ArabicAnalyzer
 argument_list|()
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Some simple tests showing some features of the analyzer, how some regular forms will conflate    */
@@ -242,6 +245,11 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// stopwords
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Simple tests to show things are getting reset correctly, etc.    */
 DECL|method|testReusableTokenStream
@@ -288,6 +296,11 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// feminine marker
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Non-arabic text gets treated in a similar way as SimpleAnalyzer.    */
 DECL|method|testEnglishInput
@@ -298,11 +311,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertAnalyzesTo
-argument_list|(
+name|ArabicAnalyzer
+name|a
+init|=
 operator|new
 name|ArabicAnalyzer
 argument_list|()
+decl_stmt|;
+name|assertAnalyzesTo
+argument_list|(
+name|a
 argument_list|,
 literal|"English text."
 argument_list|,
@@ -315,6 +333,11 @@ block|,
 literal|"text"
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Test that custom stopwords work, and are not case-sensitive.    */
@@ -370,6 +393,11 @@ block|,
 literal|"fox"
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testWithStemExclusionSet
@@ -448,6 +476,11 @@ block|}
 argument_list|)
 expr_stmt|;
 name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|a
 operator|=
 operator|new
 name|ArabicAnalyzer
@@ -501,6 +534,11 @@ literal|"Ø³Ø§ÙØ¯"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings
@@ -511,19 +549,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ArabicAnalyzer
+name|a
+init|=
+operator|new
+name|ArabicAnalyzer
+argument_list|()
+decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
 argument_list|()
 argument_list|,
-operator|new
-name|ArabicAnalyzer
-argument_list|()
+name|a
 argument_list|,
 literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

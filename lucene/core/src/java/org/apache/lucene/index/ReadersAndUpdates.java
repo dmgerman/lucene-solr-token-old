@@ -165,32 +165,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|BinaryDocValuesField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|NumericDocValuesField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -527,7 +501,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 condition|;
 name|docID
@@ -558,7 +532,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 expr_stmt|;
 block|}
@@ -567,7 +541,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|info
@@ -579,13 +553,13 @@ name|pendingDeleteCount
 operator|==
 name|count
 operator|:
-literal|"info.docCount="
+literal|"info.maxDoc="
 operator|+
 name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|+
 literal|" info.getDelCount()="
@@ -743,13 +717,13 @@ name|info
 operator|.
 name|name
 operator|+
-literal|" docCount="
+literal|" maxDoc="
 operator|+
 name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 assert|;
 assert|assert
@@ -787,7 +761,7 @@ expr_stmt|;
 name|pendingDeleteCount
 operator|++
 expr_stmt|;
-comment|//System.out.println("  new del seg=" + info + " docID=" + docID + " pendingDelCount=" + pendingDeleteCount + " totDelCount=" + (info.docCount-liveDocs.count()));
+comment|//System.out.println("  new del seg=" + info + " docID=" + docID + " pendingDelCount=" + pendingDeleteCount + " totDelCount=" + (info.info.maxDoc()-liveDocs.count()));
 block|}
 return|return
 name|didDelete
@@ -896,7 +870,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|info
@@ -951,7 +925,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|>
 literal|0
@@ -997,7 +971,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1134,7 +1108,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 assert|;
 comment|// Do this so we can delete any created files on
@@ -1380,7 +1354,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1397,7 +1371,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|,
 name|estUpdatesSize
@@ -1861,7 +1835,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1878,7 +1852,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|,
 name|estUpdatesSize
@@ -2303,7 +2277,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|,
 name|estInfosSize
@@ -2512,16 +2486,6 @@ name|fi
 argument_list|)
 decl_stmt|;
 comment|// copy the stuff FieldInfos.Builder doesn't copy
-if|if
-condition|(
-name|fi
-operator|.
-name|attributes
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|Entry
@@ -2556,7 +2520,6 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|clone
 operator|.
@@ -3032,7 +2995,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|info

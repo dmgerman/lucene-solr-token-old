@@ -1690,6 +1690,11 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random large strings through the analyzer */
 DECL|method|testRandomHugeStrings
@@ -1774,6 +1779,11 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

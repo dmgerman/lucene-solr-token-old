@@ -90,6 +90,7 @@ name|AssertingScorer
 extends|extends
 name|Scorer
 block|{
+comment|// TODO: add asserts for two-phase intersection
 DECL|enum|IteratorState
 DECL|enum constant|START
 DECL|enum constant|ITERATING
@@ -405,15 +406,10 @@ name|isNaN
 argument_list|(
 name|score
 argument_list|)
-assert|;
-assert|assert
-operator|!
-name|Float
-operator|.
-name|isNaN
-argument_list|(
-name|score
-argument_list|)
+operator|:
+literal|"NaN score for in="
+operator|+
+name|in
 assert|;
 return|return
 name|score

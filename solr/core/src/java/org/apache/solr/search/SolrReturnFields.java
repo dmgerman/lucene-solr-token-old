@@ -885,6 +885,8 @@ block|}
 block|}
 comment|// like getId, but also accepts dashes for legacy fields
 DECL|method|getFieldName
+specifier|public
+specifier|static
 name|String
 name|getFieldName
 parameter_list|(

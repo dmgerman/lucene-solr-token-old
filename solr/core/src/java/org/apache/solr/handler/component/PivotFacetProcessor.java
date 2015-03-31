@@ -1676,7 +1676,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// for pivots, we *always* include requested stats - even if 'empty'
 name|pivot
 operator|.
 name|add
@@ -1687,8 +1686,6 @@ name|StatsComponent
 operator|.
 name|convertToResponse
 argument_list|(
-literal|true
-argument_list|,
 name|stv
 argument_list|)
 argument_list|)

@@ -179,9 +179,6 @@ name|detailLevel
 parameter_list|,
 name|int
 name|prefixGridScanLevel
-parameter_list|,
-name|boolean
-name|hasIndexedLeaves
 parameter_list|)
 block|{
 name|super
@@ -195,8 +192,6 @@ argument_list|,
 name|detailLevel
 argument_list|,
 name|prefixGridScanLevel
-argument_list|,
-name|hasIndexedLeaves
 argument_list|)
 expr_stmt|;
 block|}
@@ -265,7 +260,7 @@ annotation|@
 name|Override
 specifier|protected
 name|boolean
-name|visit
+name|visitPrefix
 parameter_list|(
 name|Cell
 name|cell
@@ -343,10 +338,15 @@ block|{
 return|return
 literal|"IntersectsPrefixTreeFilter("
 operator|+
-comment|// TODO: print something about the shape?
 literal|"fieldName="
 operator|+
 name|fieldName
+operator|+
+literal|","
+operator|+
+literal|"queryShape="
+operator|+
+name|queryShape
 operator|+
 literal|","
 operator|+
@@ -359,12 +359,6 @@ operator|+
 literal|"prefixGridScanLevel="
 operator|+
 name|prefixGridScanLevel
-operator|+
-literal|","
-operator|+
-literal|"hasIndexedLeaves="
-operator|+
-name|hasIndexedLeaves
 operator|+
 literal|")"
 return|;

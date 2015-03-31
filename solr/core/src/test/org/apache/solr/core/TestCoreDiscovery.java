@@ -289,7 +289,7 @@ name|File
 argument_list|(
 name|solrHomeDirectory
 argument_list|,
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|SOLR_XML_FILE
 argument_list|)
@@ -2453,10 +2453,10 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ConfigSolr
+name|NodeConfig
 name|config
 init|=
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|fromString
 argument_list|(
@@ -2481,10 +2481,10 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ConfigSolr
+name|NodeConfig
 name|absConfig
 init|=
-name|ConfigSolr
+name|SolrXmlConfig
 operator|.
 name|fromString
 argument_list|(

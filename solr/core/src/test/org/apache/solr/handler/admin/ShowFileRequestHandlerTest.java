@@ -235,10 +235,6 @@ name|createJetty
 argument_list|(
 name|legacyExampleCollection1SolrHome
 argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -249,6 +245,8 @@ name|test404ViaHttp
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|SolrClient
 name|client
@@ -441,6 +439,8 @@ name|testDirList
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|SolrClient
 name|client

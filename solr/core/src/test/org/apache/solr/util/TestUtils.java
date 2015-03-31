@@ -65,11 +65,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|solr
 operator|.
-name|util
-operator|.
-name|LuceneTestCase
+name|SolrTestCaseJ4
 import|;
 end_import
 begin_import
@@ -120,7 +118,7 @@ specifier|public
 class|class
 name|TestUtils
 extends|extends
-name|LuceneTestCase
+name|SolrTestCaseJ4
 block|{
 DECL|method|testJoin
 specifier|public
@@ -1081,7 +1079,7 @@ block|}
 catch|catch
 parameter_list|(
 name|UnsupportedOperationException
-name|ex
+name|ignored
 parameter_list|)
 block|{}
 block|}

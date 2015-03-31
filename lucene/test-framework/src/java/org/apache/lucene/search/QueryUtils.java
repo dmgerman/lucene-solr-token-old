@@ -735,6 +735,8 @@ name|IndexReader
 modifier|...
 name|readers
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -1175,7 +1177,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** alternate scorer skipTo(),skipTo(),next(),next(),skipTo(),skipTo(), etc    * and ensure a hitcollector receives same docs and scores    */
+comment|/** alternate scorer advance(),advance(),next(),next(),advance(),advance(), etc    * and ensure a hitcollector receives same docs and scores    */
 DECL|method|checkSkipTo
 specifier|public
 specifier|static
@@ -1909,7 +1911,7 @@ index|[
 literal|0
 index|]
 operator|+
-literal|" but skipTo("
+literal|" but advance("
 operator|+
 operator|(
 name|lastDoc
@@ -2097,7 +2099,7 @@ index|[
 literal|0
 index|]
 operator|+
-literal|" but skipTo("
+literal|" but advance("
 operator|+
 operator|(
 name|lastDoc
@@ -2307,7 +2309,7 @@ literal|"query collected "
 operator|+
 name|doc
 operator|+
-literal|" but skipTo("
+literal|" but advance("
 operator|+
 name|i
 operator|+
@@ -2333,7 +2335,7 @@ literal|"query collected "
 operator|+
 name|doc
 operator|+
-literal|" but skipTo("
+literal|" but advance("
 operator|+
 name|i
 operator|+
@@ -2353,7 +2355,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|float
-name|skipToScore
+name|advanceScore
 init|=
 name|scorer
 operator|.
@@ -2364,13 +2366,13 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"unstable skipTo("
+literal|"unstable advance("
 operator|+
 name|i
 operator|+
 literal|") score!"
 argument_list|,
-name|skipToScore
+name|advanceScore
 argument_list|,
 name|scorer
 operator|.
@@ -2392,19 +2394,19 @@ literal|" a score of<"
 operator|+
 name|score
 operator|+
-literal|"> but skipTo("
+literal|"> but advance("
 operator|+
 name|i
 operator|+
 literal|") has<"
 operator|+
-name|skipToScore
+name|advanceScore
 operator|+
 literal|">!"
 argument_list|,
 name|score
 argument_list|,
-name|skipToScore
+name|advanceScore
 argument_list|,
 name|maxDiff
 argument_list|)
@@ -2593,7 +2595,7 @@ index|[
 literal|0
 index|]
 operator|+
-literal|" but skipTo("
+literal|" but advance("
 operator|+
 operator|(
 name|lastDoc
@@ -2762,7 +2764,7 @@ index|[
 literal|0
 index|]
 operator|+
-literal|" but skipTo("
+literal|" but advance("
 operator|+
 operator|(
 name|lastDoc

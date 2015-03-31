@@ -7219,6 +7219,11 @@ operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random large strings through the analyzer */
 DECL|method|testRandomHugeStrings
@@ -7294,6 +7299,11 @@ argument_list|,
 literal|8192
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testEmptyTerm
 specifier|public
@@ -7351,6 +7361,11 @@ literal|""
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testTrailingHole1

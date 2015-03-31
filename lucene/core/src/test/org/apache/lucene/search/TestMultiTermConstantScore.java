@@ -556,7 +556,7 @@ name|setRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 expr_stmt|;
 if|if
@@ -683,7 +683,7 @@ name|setRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 expr_stmt|;
 return|return
@@ -716,7 +716,7 @@ name|setRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 expr_stmt|;
 return|return
@@ -1017,7 +1017,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_BOOLEAN_QUERY_REWRITE
+name|CONSTANT_SCORE_BOOLEAN_REWRITE
 argument_list|)
 argument_list|,
 literal|1000
@@ -1096,7 +1096,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 literal|1000
@@ -1354,7 +1354,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_BOOLEAN_QUERY_REWRITE
+name|CONSTANT_SCORE_BOOLEAN_REWRITE
 argument_list|)
 argument_list|,
 name|BooleanClause
@@ -1467,7 +1467,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|BooleanClause
@@ -1857,7 +1857,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_BOOLEAN_QUERY_REWRITE
+name|CONSTANT_SCORE_BOOLEAN_REWRITE
 argument_list|)
 expr_stmt|;
 comment|// matches document #0
@@ -1884,7 +1884,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_BOOLEAN_QUERY_REWRITE
+name|CONSTANT_SCORE_BOOLEAN_REWRITE
 argument_list|)
 expr_stmt|;
 comment|// matches document #1
@@ -2444,7 +2444,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -2520,7 +2520,7 @@ name|F
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -2598,7 +2598,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -2676,7 +2676,7 @@ name|F
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -2756,7 +2756,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -2838,7 +2838,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3136,7 +3136,7 @@ name|F
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3210,7 +3210,7 @@ name|F
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3284,7 +3284,7 @@ name|F
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3358,7 +3358,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3432,7 +3432,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3506,7 +3506,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3580,7 +3580,7 @@ name|F
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs
@@ -3654,7 +3654,7 @@ name|T
 argument_list|,
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 argument_list|,
 name|numDocs

@@ -321,6 +321,11 @@ literal|"i"
 block|}
 argument_list|)
 expr_stmt|;
+name|fa
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testReusableTokenStream
 specifier|public
@@ -381,6 +386,11 @@ literal|"captif"
 block|}
 argument_list|)
 expr_stmt|;
+name|fa
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testExclusionTableViaCtor
 specifier|public
@@ -438,6 +448,11 @@ block|}
 argument_list|)
 expr_stmt|;
 name|fa
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|fa
 operator|=
 operator|new
 name|FrenchAnalyzer
@@ -464,6 +479,11 @@ block|,
 literal|"chist"
 block|}
 argument_list|)
+expr_stmt|;
+name|fa
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testElision
@@ -497,6 +517,11 @@ literal|"embrouil"
 block|}
 argument_list|)
 expr_stmt|;
+name|fa
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test that stopwords are not case sensitive    */
 DECL|method|testStopwordsCasing
@@ -526,6 +551,11 @@ index|[]
 block|{ }
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings
@@ -536,19 +566,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Analyzer
+name|a
+init|=
+operator|new
+name|FrenchAnalyzer
+argument_list|()
+decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
 argument_list|()
 argument_list|,
-operator|new
-name|FrenchAnalyzer
-argument_list|()
+name|a
 argument_list|,
 literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** test accent-insensitive */
@@ -584,6 +624,11 @@ literal|"securitaires"
 argument_list|,
 literal|"securitair"
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -453,6 +453,11 @@ operator|=
 literal|null
 expr_stmt|;
 name|anlzr
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|anlzr
 operator|=
 literal|null
 expr_stmt|;

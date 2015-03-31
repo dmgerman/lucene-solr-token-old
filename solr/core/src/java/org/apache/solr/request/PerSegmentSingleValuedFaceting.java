@@ -196,6 +196,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|StringHelper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|UnicodeUtil
 import|;
 end_import
@@ -336,6 +349,14 @@ DECL|field|prefix
 name|String
 name|prefix
 decl_stmt|;
+DECL|field|containsBR
+name|BytesRef
+name|containsBR
+decl_stmt|;
+DECL|field|ignoreCase
+name|boolean
+name|ignoreCase
+decl_stmt|;
 DECL|field|baseSet
 name|Filter
 name|baseSet
@@ -374,6 +395,12 @@ name|sort
 parameter_list|,
 name|String
 name|prefix
+parameter_list|,
+name|String
+name|contains
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|)
 block|{
 name|this
@@ -429,6 +456,28 @@ operator|.
 name|prefix
 operator|=
 name|prefix
+expr_stmt|;
+name|this
+operator|.
+name|containsBR
+operator|=
+name|contains
+operator|!=
+literal|null
+condition|?
+operator|new
+name|BytesRef
+argument_list|(
+name|contains
+argument_list|)
+else|:
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|ignoreCase
+operator|=
+name|ignoreCase
 expr_stmt|;
 block|}
 DECL|method|setNumThreads
@@ -991,9 +1040,35 @@ operator|.
 name|top
 argument_list|()
 decl_stmt|;
+comment|// if facet.contains specified, only actually collect the count if substring contained
+name|boolean
+name|collect
+init|=
+name|containsBR
+operator|==
+literal|null
+operator|||
+name|StringHelper
+operator|.
+name|contains
+argument_list|(
+name|seg
+operator|.
+name|tempBR
+argument_list|,
+name|containsBR
+argument_list|,
+name|ignoreCase
+argument_list|)
+decl_stmt|;
 comment|// we will normally end up advancing the term enum for this segment
 comment|// while still using "val", so we need to make a copy since the BytesRef
 comment|// may be shared across calls.
+if|if
+condition|(
+name|collect
+condition|)
+block|{
 name|val
 operator|.
 name|copyBytes
@@ -1003,12 +1078,18 @@ operator|.
 name|tempBR
 argument_list|)
 expr_stmt|;
+block|}
 name|int
 name|count
 init|=
 literal|0
 decl_stmt|;
 do|do
+block|{
+if|if
+condition|(
+name|collect
+condition|)
 block|{
 name|count
 operator|+=
@@ -1025,6 +1106,7 @@ operator|.
 name|startTermIndex
 index|]
 expr_stmt|;
+block|}
 comment|// TODO: OPTIMIZATION...
 comment|// if mincount>0 then seg.pos++ can skip ahead to the next non-zero entry.
 name|seg
@@ -1099,6 +1181,11 @@ operator|==
 literal|0
 condition|)
 do|;
+if|if
+condition|(
+name|collect
+condition|)
+block|{
 name|boolean
 name|stop
 init|=
@@ -1119,6 +1206,7 @@ condition|(
 name|stop
 condition|)
 break|break;
+block|}
 block|}
 name|NamedList
 argument_list|<
@@ -1413,10 +1501,10 @@ decl_stmt|;
 if|if
 condition|(
 name|nTerms
-operator|>
+operator|==
 literal|0
 condition|)
-block|{
+return|return;
 comment|// count collection array only needs to be as big as the number of terms we are
 comment|// going to collect counts for.
 specifier|final
@@ -1455,10 +1543,6 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-comment|////
-name|int
-name|doc
-decl_stmt|;
 if|if
 condition|(
 name|prefix
@@ -1467,6 +1551,9 @@ literal|null
 condition|)
 block|{
 comment|// specialized version when collecting counts for all terms
+name|int
+name|doc
+decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -1501,6 +1588,9 @@ block|}
 else|else
 block|{
 comment|// version that adjusts term numbers because we aren't collecting the full range
+name|int
+name|doc
+decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -1550,7 +1640,6 @@ name|arrIdx
 index|]
 operator|++
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

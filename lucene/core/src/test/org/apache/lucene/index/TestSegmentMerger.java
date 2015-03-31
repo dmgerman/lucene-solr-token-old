@@ -38,6 +38,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -500,7 +509,10 @@ literal|false
 argument_list|,
 name|codec
 argument_list|,
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 name|StringHelper
 operator|.
@@ -587,7 +599,7 @@ name|mergeState
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 name|assertTrue

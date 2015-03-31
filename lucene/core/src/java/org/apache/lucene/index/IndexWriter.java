@@ -631,7 +631,7 @@ name|TwoPhaseCommit
 implements|,
 name|Accountable
 block|{
-comment|/** Hard limit on maximum number of documents that may be added to the    *  index.  If you try to add more than this you'll hit {@code IllegalStateException}. */
+comment|/** Hard limit on maximum number of documents that may be added to the    *  index.  If you try to add more than this you'll hit {@code IllegalArgumentException}. */
 comment|// We defensively subtract 128 to be well below the lowest
 comment|// ArrayUtil.MAX_ARRAY_LENGTH on "typical" JVMs.  We don't just use
 comment|// ArrayUtil.MAX_ARRAY_LENGTH here because this can vary across JVMs:
@@ -2739,6 +2739,16 @@ operator|.
 name|createBackupSegmentInfos
 argument_list|()
 expr_stmt|;
+name|pendingNumDocs
+operator|.
+name|set
+argument_list|(
+name|segmentInfos
+operator|.
+name|totalMaxDoc
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// start with previous field numbers, but new FieldInfos
 name|globalFieldNumberMap
 operator|=
@@ -3443,7 +3453,7 @@ argument_list|()
 operator|+
 name|segmentInfos
 operator|.
-name|totalDocCount
+name|totalMaxDoc
 argument_list|()
 return|;
 block|}
@@ -3481,7 +3491,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|numDeletedDocs
@@ -3932,7 +3942,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 condition|)
 block|{
@@ -4712,11 +4722,11 @@ argument_list|)
 return|;
 block|}
 comment|// for test purpose
-DECL|method|getDocCount
+DECL|method|maxDoc
 specifier|final
 specifier|synchronized
 name|int
-name|getDocCount
+name|maxDoc
 parameter_list|(
 name|int
 name|i
@@ -4746,7 +4756,7 @@ argument_list|)
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 return|;
 block|}
@@ -6395,11 +6405,22 @@ init|(
 name|fullFlushLock
 init|)
 block|{
+name|long
+name|abortedDocCount
+init|=
 name|docWriter
 operator|.
 name|lockAndAbortAll
 argument_list|(
 name|this
+argument_list|)
+decl_stmt|;
+name|pendingNumDocs
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|abortedDocCount
 argument_list|)
 expr_stmt|;
 name|processEvents
@@ -6421,6 +6442,17 @@ name|abortMerges
 argument_list|()
 expr_stmt|;
 comment|// Remove all segments
+name|pendingNumDocs
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|segmentInfos
+operator|.
+name|totalMaxDoc
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|segmentInfos
 operator|.
 name|clear
@@ -7311,7 +7343,7 @@ return|return
 name|locks
 return|;
 block|}
-comment|/**    * Adds all segments from an array of indexes into this index.    *    *<p>This may be used to parallelize batch indexing. A large document    * collection can be broken into sub-collections. Each sub-collection can be    * indexed in parallel, on a different thread, process or machine. The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p>    *<b>NOTE:</b> this method acquires the write lock in    * each directory, to ensure that no {@code IndexWriter}    * is currently open or tries to open while this is    * running.    *    *<p>This method is transactional in how Exceptions are    * handled: it does not commit a new segments_N file until    * all indexes are added.  This means if an Exception    * occurs (for example disk full), then either no indexes    * will have been added or they all will have been.    *    *<p>Note that this requires temporary free space in the    * {@link Directory} up to 2X the sum of all input indexes    * (including the starting index). If readers/searchers    * are open against the starting index, then temporary    * free space required will be higher by the size of the    * starting index (see {@link #forceMerge(int)} for details).    *    *<p>This requires this index not be among those to be added.    *    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @throws LockObtainFailedException if we were unable to    *   acquire the write lock in at least one directory    */
+comment|/**    * Adds all segments from an array of indexes into this index.    *    *<p>This may be used to parallelize batch indexing. A large document    * collection can be broken into sub-collections. Each sub-collection can be    * indexed in parallel, on a different thread, process or machine. The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p>    *<b>NOTE:</b> this method acquires the write lock in    * each directory, to ensure that no {@code IndexWriter}    * is currently open or tries to open while this is    * running.    *    *<p>This method is transactional in how Exceptions are    * handled: it does not commit a new segments_N file until    * all indexes are added.  This means if an Exception    * occurs (for example disk full), then either no indexes    * will have been added or they all will have been.    *    *<p>Note that this requires temporary free space in the    * {@link Directory} up to 2X the sum of all input indexes    * (including the starting index). If readers/searchers    * are open against the starting index, then temporary    * free space required will be higher by the size of the    * starting index (see {@link #forceMerge(int)} for details).    *    *<p>This requires this index not be among those to be added.    *    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @throws LockObtainFailedException if we were unable to    *   acquire the write lock in at least one directory    * @throws IllegalArgumentException if addIndexes would cause    *   the index to exceed {@link #MAX_DOCS}    */
 DECL|method|addIndexes
 specifier|public
 name|void
@@ -7388,18 +7420,27 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|int
-name|totalDocCount
+comment|// long so we can detect int overflow:
+name|long
+name|totalMaxDoc
 init|=
 literal|0
 decl_stmt|;
-name|boolean
-name|success
+name|List
+argument_list|<
+name|SegmentInfos
+argument_list|>
+name|commits
 init|=
-literal|false
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|dirs
+operator|.
+name|length
+argument_list|)
 decl_stmt|;
-try|try
-block|{
 for|for
 control|(
 name|Directory
@@ -7441,13 +7482,42 @@ name|dir
 argument_list|)
 decl_stmt|;
 comment|// read infos from dir
-name|totalDocCount
+name|totalMaxDoc
 operator|+=
 name|sis
 operator|.
-name|totalDocCount
+name|totalMaxDoc
 argument_list|()
 expr_stmt|;
+name|commits
+operator|.
+name|add
+argument_list|(
+name|sis
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Best-effort up front check:
+name|testReserveDocs
+argument_list|(
+name|totalMaxDoc
+argument_list|)
+expr_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+for|for
+control|(
+name|SegmentInfos
+name|sis
+range|:
+name|commits
+control|)
+block|{
 for|for
 control|(
 name|SegmentCommitInfo
@@ -7534,7 +7604,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|,
 name|info
@@ -7616,34 +7686,27 @@ range|:
 name|infos
 control|)
 block|{
-for|for
-control|(
-name|String
-name|file
-range|:
+name|IOUtils
+operator|.
+name|deleteFilesIgnoringExceptions
+argument_list|(
+name|directory
+argument_list|,
 name|sipc
 operator|.
 name|files
 argument_list|()
-control|)
-block|{
-try|try
-block|{
-name|directory
 operator|.
-name|deleteFile
+name|toArray
 argument_list|(
-name|file
+operator|new
+name|String
+index|[
+literal|0
+index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{               }
-block|}
 block|}
 block|}
 block|}
@@ -7661,11 +7724,10 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-comment|// Make sure adding the new documents to this index won't
-comment|// exceed the limit:
+comment|// Now reserve the docs, just before we update SIS:
 name|reserveDocs
 argument_list|(
-name|totalDocCount
+name|totalMaxDoc
 argument_list|)
 expr_stmt|;
 name|success
@@ -7780,7 +7842,7 @@ name|maybeMerge
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Merges the provided indexes into this index.    *     *<p>    * The provided IndexReaders are not closed.    *     *<p>    * See {@link #addIndexes} for details on transactional semantics, temporary    * free space required in the Directory, and non-CFS segments on an Exception.    *     *<p>    *<b>NOTE:</b> empty segments are dropped by this method and not added to this    * index.    *     *<p>    *<b>NOTE:</b> this method merges all given {@link LeafReader}s in one    * merge. If you intend to merge a large number of readers, it may be better    * to call this method multiple times, each time with a small set of readers.    * In principle, if you use a merge policy with a {@code mergeFactor} or    * {@code maxMergeAtOnce} parameter, you should pass that many readers in one    * call.    *     * @throws CorruptIndexException    *           if the index is corrupt    * @throws IOException    *           if there is a low-level IO error    */
+comment|/**    * Merges the provided indexes into this index.    *     *<p>    * The provided IndexReaders are not closed.    *     *<p>    * See {@link #addIndexes} for details on transactional semantics, temporary    * free space required in the Directory, and non-CFS segments on an Exception.    *     *<p>    *<b>NOTE:</b> empty segments are dropped by this method and not added to this    * index.    *     *<p>    *<b>NOTE:</b> this method merges all given {@link LeafReader}s in one    * merge. If you intend to merge a large number of readers, it may be better    * to call this method multiple times, each time with a small set of readers.    * In principle, if you use a merge policy with a {@code mergeFactor} or    * {@code maxMergeAtOnce} parameter, you should pass that many readers in one    * call.    *     * @throws CorruptIndexException    *           if the index is corrupt    * @throws IOException    *           if there is a low-level IO error    * @throws IllegalArgumentException    *           if addIndexes would cause the index to exceed {@link #MAX_DOCS}    */
 DECL|method|addIndexes
 specifier|public
 name|void
@@ -7796,7 +7858,8 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|int
+comment|// long so we can detect int overflow:
+name|long
 name|numDocs
 init|=
 literal|0
@@ -7852,9 +7915,8 @@ name|numDocs
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Make sure adding the new documents to this index won't
-comment|// exceed the limit:
-name|reserveDocs
+comment|// Best-effort up front check:
+name|testReserveDocs
 argument_list|(
 name|numDocs
 argument_list|)
@@ -7869,7 +7931,12 @@ argument_list|(
 operator|new
 name|MergeInfo
 argument_list|(
+name|Math
+operator|.
+name|toIntExact
+argument_list|(
 name|numDocs
+argument_list|)
 argument_list|,
 operator|-
 literal|1
@@ -7913,7 +7980,10 @@ literal|false
 argument_list|,
 name|codec
 argument_list|,
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 name|StringHelper
 operator|.
@@ -8275,6 +8345,12 @@ block|}
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+comment|// Now reserve the docs, just before we update SIS:
+name|reserveDocs
+argument_list|(
+name|numDocs
+argument_list|)
+expr_stmt|;
 name|segmentInfos
 operator|.
 name|add
@@ -8297,7 +8373,7 @@ name|tragicEvent
 argument_list|(
 name|oom
 argument_list|,
-literal|"addIndexes(IndexReader...)"
+literal|"addIndexes(CodecReader...)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -8346,7 +8422,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|,
 name|info
@@ -9889,7 +9965,7 @@ argument_list|()
 operator|+
 name|segmentInfos
 operator|.
-name|totalDocCount
+name|totalMaxDoc
 argument_list|()
 operator|)
 argument_list|)
@@ -10000,7 +10076,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -10274,7 +10350,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 assert|;
@@ -10626,13 +10702,13 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|int
-name|docCount
+name|maxDoc
 init|=
 name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -10865,7 +10941,7 @@ name|mergeState
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -10915,7 +10991,7 @@ operator|.
 name|length
 argument_list|()
 operator|==
-name|docCount
+name|maxDoc
 assert|;
 assert|assert
 name|currentLiveDocs
@@ -10923,7 +10999,7 @@ operator|.
 name|length
 argument_list|()
 operator|==
-name|docCount
+name|maxDoc
 assert|;
 comment|// There were deletes on this segment when the merge
 comment|// started.  The merge has collapsed away those
@@ -10955,7 +11031,7 @@ literal|0
 init|;
 name|j
 operator|<
-name|docCount
+name|maxDoc
 condition|;
 name|j
 operator|++
@@ -11108,7 +11184,7 @@ literal|0
 init|;
 name|j
 operator|<
-name|docCount
+name|maxDoc
 condition|;
 name|j
 operator|++
@@ -11170,7 +11246,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|info
@@ -11199,7 +11275,7 @@ operator|.
 name|length
 argument_list|()
 operator|==
-name|docCount
+name|maxDoc
 assert|;
 comment|// This segment had no deletes before but now it
 comment|// does:
@@ -11212,7 +11288,7 @@ literal|0
 init|;
 name|j
 operator|<
-name|docCount
+name|maxDoc
 condition|;
 name|j
 operator|++
@@ -11341,7 +11417,7 @@ literal|0
 init|;
 name|j
 operator|<
-name|docCount
+name|maxDoc
 condition|;
 name|j
 operator|++
@@ -11381,7 +11457,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 expr_stmt|;
 block|}
@@ -11395,7 +11471,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 assert|;
 if|if
@@ -11712,7 +11788,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|==
 literal|0
@@ -11761,7 +11837,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|==
 literal|0
@@ -11782,7 +11858,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|)
 decl_stmt|;
@@ -11856,7 +11932,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|!=
 literal|0
@@ -11952,7 +12028,7 @@ name|delDocCount
 init|=
 name|merge
 operator|.
-name|totalDocCount
+name|totalMaxDoc
 operator|-
 name|merge
 operator|.
@@ -11960,7 +12036,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 assert|assert
@@ -12562,7 +12638,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|+
 literal|" docs"
@@ -13011,7 +13087,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|>
 literal|0
@@ -13033,7 +13109,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 assert|;
 specifier|final
@@ -13051,7 +13127,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 decl_stmt|;
 name|merge
@@ -13362,7 +13438,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -13438,7 +13514,10 @@ literal|false
 argument_list|,
 name|codec
 argument_list|,
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 name|StringHelper
 operator|.
@@ -14394,7 +14473,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|-
 name|delCount
@@ -14456,20 +14535,20 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|:
 literal|"delCount="
 operator|+
 name|delCount
 operator|+
-literal|" info.docCount="
+literal|" info.maxDoc="
 operator|+
 name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|+
 literal|" rld.pendingDeleteCount="
@@ -14718,7 +14797,7 @@ literal|"merge codec="
 operator|+
 name|codec
 operator|+
-literal|" docCount="
+literal|" maxDoc="
 operator|+
 name|merge
 operator|.
@@ -14726,7 +14805,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|+
 literal|"; merged segment has "
@@ -14862,7 +14941,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|==
 literal|0
@@ -14885,7 +14964,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|>
 literal|0
@@ -15454,7 +15533,7 @@ name|info
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 return|;
 block|}
@@ -17258,47 +17337,119 @@ literal|false
 return|;
 block|}
 block|}
-comment|/** Anything that will add N docs to the index should reserve first to    *  make sure it's allowed.  This will throw {@code    *  IllegalStateException} if it's not allowed. */
+comment|/** Anything that will add N docs to the index should reserve first to    *  make sure it's allowed.  This will throw {@code    *  IllegalArgumentException} if it's not allowed. */
 DECL|method|reserveDocs
 specifier|private
 name|void
 name|reserveDocs
 parameter_list|(
-name|int
-name|numDocs
+name|long
+name|addedNumDocs
 parameter_list|)
 block|{
+assert|assert
+name|addedNumDocs
+operator|>=
+literal|0
+assert|;
 if|if
 condition|(
 name|pendingNumDocs
 operator|.
 name|addAndGet
 argument_list|(
-name|numDocs
+name|addedNumDocs
 argument_list|)
 operator|>
 name|actualMaxDocs
 condition|)
 block|{
-comment|// Reserve failed
+comment|// Reserve failed: put the docs back and throw exc:
 name|pendingNumDocs
 operator|.
 name|addAndGet
 argument_list|(
 operator|-
-name|numDocs
+name|addedNumDocs
 argument_list|)
 expr_stmt|;
+name|tooManyDocs
+argument_list|(
+name|addedNumDocs
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/** Does a best-effort check, that the current index would accept this many additional docs, but does not actually reserve them.    *    * @throws IllegalArgumentException if there would be too many docs */
+DECL|method|testReserveDocs
+specifier|private
+name|void
+name|testReserveDocs
+parameter_list|(
+name|long
+name|addedNumDocs
+parameter_list|)
+block|{
+assert|assert
+name|addedNumDocs
+operator|>=
+literal|0
+assert|;
+if|if
+condition|(
+name|pendingNumDocs
+operator|.
+name|get
+argument_list|()
+operator|+
+name|addedNumDocs
+operator|>
+name|actualMaxDocs
+condition|)
+block|{
+name|tooManyDocs
+argument_list|(
+name|addedNumDocs
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|tooManyDocs
+specifier|private
+name|void
+name|tooManyDocs
+parameter_list|(
+name|long
+name|addedNumDocs
+parameter_list|)
+block|{
+assert|assert
+name|addedNumDocs
+operator|>=
+literal|0
+assert|;
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"number of documents in the index cannot exceed "
 operator|+
 name|actualMaxDocs
+operator|+
+literal|" (current document count is "
+operator|+
+name|pendingNumDocs
+operator|.
+name|get
+argument_list|()
+operator|+
+literal|"; added numDocs is "
+operator|+
+name|addedNumDocs
+operator|+
+literal|")"
 argument_list|)
 throw|;
-block|}
 block|}
 comment|/** Wraps the incoming {@link Directory} so that we assign a per-thread    *  {@link MergeRateLimiter} to all created {@link IndexOutput}s. */
 DECL|method|addMergeRateLimiters

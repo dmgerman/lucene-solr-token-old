@@ -636,7 +636,7 @@ name|setRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|SCORING_BOOLEAN_QUERY_REWRITE
+name|SCORING_BOOLEAN_REWRITE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -655,7 +655,7 @@ name|setRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_FILTER_REWRITE
+name|CONSTANT_SCORE_REWRITE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -674,7 +674,7 @@ name|setRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_BOOLEAN_QUERY_REWRITE
+name|CONSTANT_SCORE_BOOLEAN_REWRITE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1284,18 +1284,6 @@ argument_list|,
 name|FN
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|aq
-operator|.
-name|getTermsEnum
-argument_list|(
-name|terms
-argument_list|)
-operator|instanceof
-name|PrefixTermsEnum
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|3

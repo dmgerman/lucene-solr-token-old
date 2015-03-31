@@ -102,12 +102,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeFilter
+name|NumericRangeQuery
 import|;
 end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_comment
 comment|/** Base class for a single labeled range.  *  *  @lucene.experimental */
 end_comment
@@ -156,7 +153,7 @@ operator|=
 name|label
 expr_stmt|;
 block|}
-comment|/** Returns a new {@link Filter} accepting only documents    *  in this range.  This filter is not general-purpose;    *  you should either use it with {@link DrillSideways} by    *  adding it to {@link DrillDownQuery#add}, or pass it to    *  {@link FilteredQuery} using its {@link    *  FilteredQuery#QUERY_FIRST_FILTER_STRATEGY}.  If the    *  {@link ValueSource} is static, e.g. an indexed numeric    *  field, then it may be more efficient to use {@link    *  NumericRangeFilter}.  The provided fastMatchFilter,    *  if non-null, will first be consulted, and only if    *  that is set for each document will the range then be    *  checked. */
+comment|/** Returns a new {@link Filter} accepting only documents    *  in this range.  This filter is not general-purpose;    *  you should either use it with {@link DrillSideways} by    *  adding it to {@link DrillDownQuery#add}, or pass it to    *  {@link FilteredQuery} using its {@link    *  FilteredQuery#QUERY_FIRST_FILTER_STRATEGY}.  If the    *  {@link ValueSource} is static, e.g. an indexed numeric    *  field, then it may be more efficient to use {@link    *  NumericRangeQuery}.  The provided fastMatchFilter,    *  if non-null, will first be consulted, and only if    *  that is set for each document will the range then be    *  checked. */
 DECL|method|getFilter
 specifier|public
 specifier|abstract
@@ -170,7 +167,7 @@ name|ValueSource
 name|valueSource
 parameter_list|)
 function_decl|;
-comment|/** Returns a new {@link Filter} accepting only documents    *  in this range.  This filter is not general-purpose;    *  you should either use it with {@link DrillSideways} by    *  adding it to {@link DrillDownQuery#add}, or pass it to    *  {@link FilteredQuery} using its {@link    *  FilteredQuery#QUERY_FIRST_FILTER_STRATEGY}.  If the    *  {@link ValueSource} is static, e.g. an indexed numeric    *  field, then it may be more efficient to use {@link NumericRangeFilter}. */
+comment|/** Returns a new {@link Filter} accepting only documents    *  in this range.  This filter is not general-purpose;    *  you should either use it with {@link DrillSideways} by    *  adding it to {@link DrillDownQuery#add}, or pass it to    *  {@link FilteredQuery} using its {@link    *  FilteredQuery#QUERY_FIRST_FILTER_STRATEGY}.  If the    *  {@link ValueSource} is static, e.g. an indexed numeric    *  field, then it may be more efficient to use {@link NumericRangeQuery}. */
 DECL|method|getFilter
 specifier|public
 name|Filter

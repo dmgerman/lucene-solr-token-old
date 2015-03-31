@@ -2583,11 +2583,7 @@ name|createNormalizedWeight
 argument_list|(
 name|q1
 argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
+literal|true
 argument_list|)
 decl_stmt|;
 name|Scorer
@@ -2650,11 +2646,7 @@ name|createNormalizedWeight
 argument_list|(
 name|q2
 argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 name|s

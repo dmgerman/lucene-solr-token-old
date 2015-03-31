@@ -2029,15 +2029,12 @@ operator|)
 name|o
 decl_stmt|;
 return|return
-name|this
+name|super
 operator|.
-name|getBoost
-argument_list|()
-operator|==
-name|other
-operator|.
-name|getBoost
-argument_list|()
+name|equals
+argument_list|(
+name|o
+argument_list|)
 operator|&&
 name|this
 operator|.
@@ -2080,13 +2077,10 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|Float
+name|super
 operator|.
-name|floatToIntBits
-argument_list|(
-name|getBoost
+name|hashCode
 argument_list|()
-argument_list|)
 operator|^
 name|slop
 operator|^
@@ -2097,8 +2091,6 @@ name|positions
 operator|.
 name|hashCode
 argument_list|()
-operator|^
-literal|0x4AC65113
 return|;
 block|}
 comment|// Breakout calculation of the termArrays hashcode

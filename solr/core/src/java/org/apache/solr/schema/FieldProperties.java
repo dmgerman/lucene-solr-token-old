@@ -20,7 +20,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 begin_import
@@ -29,7 +29,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 begin_comment
@@ -189,6 +189,15 @@ name|DOC_VALUES
 init|=
 literal|0x00008000
 decl_stmt|;
+DECL|field|STORE_TERMPAYLOADS
+specifier|protected
+specifier|final
+specifier|static
+name|int
+name|STORE_TERMPAYLOADS
+init|=
+literal|0x00010000
+decl_stmt|;
 DECL|field|propertyNames
 specifier|static
 specifier|final
@@ -228,6 +237,8 @@ block|,
 literal|"storeOffsetsWithPositions"
 block|,
 literal|"docValues"
+block|,
+literal|"termPayloads"
 block|}
 decl_stmt|;
 DECL|field|propertyMap

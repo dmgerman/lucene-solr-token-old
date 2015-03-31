@@ -132,15 +132,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|BeforeClass
 import|;
 end_import
@@ -596,6 +587,17 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+comment|// document indexing shouldn't stop immediately after a ZK disconnect
+name|assertU
+argument_list|(
+name|adoc
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"201"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Thread
 operator|.
 name|sleep
@@ -974,15 +976,6 @@ return|return
 name|req
 return|;
 block|}
-annotation|@
-name|AfterClass
-DECL|method|afterClass
-specifier|public
-specifier|static
-name|void
-name|afterClass
-parameter_list|()
-block|{    }
 block|}
 end_class
 end_unit

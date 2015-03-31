@@ -395,10 +395,6 @@ name|solrHome
 operator|.
 name|getAbsolutePath
 argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|String
@@ -706,6 +702,8 @@ name|testGetFieldsPhaseError
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|BadResponseWriter
 operator|.
@@ -1090,6 +1088,8 @@ name|testGetTopIdsPhaseError
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|BadResponseWriter
 operator|.

@@ -1236,6 +1236,21 @@ name|zkClient
 argument_list|,
 name|solrhome
 argument_list|,
+literal|"enumsConfig.xml"
+argument_list|,
+literal|"enumsConfig.xml"
+argument_list|)
+expr_stmt|;
+name|AbstractZkTestCase
+operator|.
+name|putConfig
+argument_list|(
+literal|"conf2"
+argument_list|,
+name|zkClient
+argument_list|,
+name|solrhome
+argument_list|,
 literal|"solrconfig.snippet.randomindexconfig.xml"
 argument_list|)
 expr_stmt|;
@@ -4158,6 +4173,13 @@ argument_list|(
 name|jetty
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"============ Restarting jetty"
+argument_list|)
+expr_stmt|;
 name|ChaosMonkey
 operator|.
 name|start
@@ -4252,6 +4274,13 @@ name|zkServer
 operator|.
 name|shutdown
 argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"============ Restarting zookeeper"
+argument_list|)
 expr_stmt|;
 name|zkServer
 operator|=
@@ -7281,6 +7310,8 @@ name|params
 parameter_list|)
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 if|if
 condition|(

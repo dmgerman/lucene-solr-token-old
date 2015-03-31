@@ -123,6 +123,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -1733,6 +1746,17 @@ literal|1
 block|}
 argument_list|)
 expr_stmt|;
+name|IOUtils
+operator|.
+name|close
+argument_list|(
+name|a
+argument_list|,
+name|a2
+argument_list|,
+name|a3
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** concat numbers + words + all */
 DECL|method|testLotsOfConcatenating
@@ -1896,6 +1920,11 @@ block|,
 literal|1
 block|}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** concat numbers + words + all + preserve original */
@@ -2071,6 +2100,11 @@ literal|1
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings
@@ -2229,6 +2263,11 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2390,6 +2429,11 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|testEmptyTerm
@@ -2529,6 +2573,11 @@ argument_list|()
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -604,6 +604,8 @@ operator|.
 name|common
 operator|.
 name|SolrException
+operator|.
+name|ErrorCode
 import|;
 end_import
 begin_import
@@ -617,8 +619,6 @@ operator|.
 name|common
 operator|.
 name|SolrException
-operator|.
-name|ErrorCode
 import|;
 end_import
 begin_import
@@ -677,6 +677,8 @@ operator|.
 name|core
 operator|.
 name|DirectoryFactory
+operator|.
+name|DirContext
 import|;
 end_import
 begin_import
@@ -690,8 +692,6 @@ operator|.
 name|core
 operator|.
 name|DirectoryFactory
-operator|.
-name|DirContext
 import|;
 end_import
 begin_import
@@ -780,7 +780,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|request
+name|search
+operator|.
+name|facet
 operator|.
 name|UnInvertedField
 import|;
@@ -1293,6 +1295,8 @@ parameter_list|,
 name|DirectoryReader
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|reader
@@ -2125,6 +2129,12 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|// We already have our own filter cache
+name|setQueryCache
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 comment|// do this at the end since an exception in the constructor means we won't close
 name|numOpens
 operator|.
@@ -4342,6 +4352,16 @@ name|SolrCache
 argument_list|<
 name|String
 argument_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
+name|facet
+operator|.
 name|UnInvertedField
 argument_list|>
 name|getFieldValueCache

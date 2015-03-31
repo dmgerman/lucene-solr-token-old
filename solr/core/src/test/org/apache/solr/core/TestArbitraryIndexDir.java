@@ -234,7 +234,7 @@ name|solr
 operator|.
 name|handler
 operator|.
-name|SnapPuller
+name|IndexFetcher
 import|;
 end_import
 begin_import
@@ -537,7 +537,7 @@ operator|.
 name|getDataDir
 argument_list|()
 operator|+
-name|SnapPuller
+name|IndexFetcher
 operator|.
 name|INDEX_PROPERTIES
 argument_list|)
@@ -634,7 +634,7 @@ name|SERVER_ERROR
 argument_list|,
 literal|"Unable to write "
 operator|+
-name|SnapPuller
+name|IndexFetcher
 operator|.
 name|INDEX_PROPERTIES
 argument_list|,

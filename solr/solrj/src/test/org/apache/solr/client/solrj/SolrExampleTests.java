@@ -10743,6 +10743,8 @@ name|testQueryWithParams
 parameter_list|()
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|SolrClient
 name|client

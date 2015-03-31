@@ -851,21 +851,6 @@ name|cloud
 operator|.
 name|OverseerCollectionProcessor
 operator|.
-name|ROUTER
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|cloud
-operator|.
-name|OverseerCollectionProcessor
-operator|.
 name|SHARDS_PROP
 import|;
 end_import
@@ -882,6 +867,23 @@ operator|.
 name|OverseerCollectionProcessor
 operator|.
 name|SHARD_UNIQUE
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|cloud
+operator|.
+name|DocCollection
+operator|.
+name|DOC_ROUTER
 import|;
 end_import
 begin_import
@@ -6918,7 +6920,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-name|ROUTER
+name|DOC_ROUTER
 argument_list|)
 operator|)
 operator|.

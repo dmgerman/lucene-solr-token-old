@@ -284,6 +284,11 @@ literal|"accent"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testFilterTokens
 specifier|public
@@ -765,6 +770,11 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|testRandomStrings
@@ -855,6 +865,11 @@ literal|100
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

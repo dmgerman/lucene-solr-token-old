@@ -84,6 +84,9 @@ block|{
 operator|new
 name|PolishAnalyzer
 argument_list|()
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** test stopwords and stemming */
@@ -133,6 +136,11 @@ name|String
 index|[]
 block|{}
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** test use of exclusion set */
@@ -191,6 +199,11 @@ argument_list|,
 literal|"student"
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings
@@ -201,19 +214,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Analyzer
+name|analyzer
+init|=
+operator|new
+name|PolishAnalyzer
+argument_list|()
+decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
 argument_list|()
 argument_list|,
-operator|new
-name|PolishAnalyzer
-argument_list|()
+name|analyzer
 argument_list|,
 literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

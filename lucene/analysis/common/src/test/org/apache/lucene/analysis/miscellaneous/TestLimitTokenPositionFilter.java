@@ -422,6 +422,11 @@ else|:
 literal|null
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|testMaxPosition3WithSynomyms

@@ -85,19 +85,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -316,6 +303,21 @@ operator|.
 name|jar
 operator|.
 name|JarOutputStream
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|core
+operator|.
+name|SolrResourceLoader
+operator|.
+name|assertAwareCompatibility
 import|;
 end_import
 begin_class
@@ -577,8 +579,6 @@ operator|.
 name|class
 decl_stmt|;
 comment|// Check ResourceLoaderAware valid objects
-name|loader
-operator|.
 name|assertAwareCompatibility
 argument_list|(
 name|clazz
@@ -588,17 +588,11 @@ name|NGramFilterFactory
 argument_list|(
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|loader
-operator|.
 name|assertAwareCompatibility
 argument_list|(
 name|clazz
@@ -608,11 +602,7 @@ name|KeywordTokenizerFactory
 argument_list|(
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 argument_list|)
@@ -654,8 +644,6 @@ control|)
 block|{
 try|try
 block|{
-name|loader
-operator|.
 name|assertAwareCompatibility
 argument_list|(
 name|clazz
@@ -692,8 +680,6 @@ operator|.
 name|class
 expr_stmt|;
 comment|// Check ResourceLoaderAware valid objects
-name|loader
-operator|.
 name|assertAwareCompatibility
 argument_list|(
 name|clazz
@@ -703,8 +689,6 @@ name|LukeRequestHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|loader
-operator|.
 name|assertAwareCompatibility
 argument_list|(
 name|clazz
@@ -714,8 +698,6 @@ name|FacetComponent
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|loader
-operator|.
 name|assertAwareCompatibility
 argument_list|(
 name|clazz
@@ -737,11 +719,7 @@ name|NGramFilterFactory
 argument_list|(
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 block|,
@@ -758,11 +736,7 @@ name|KeywordTokenizerFactory
 argument_list|(
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 block|}
@@ -777,8 +751,6 @@ control|)
 block|{
 try|try
 block|{
-name|loader
-operator|.
 name|assertAwareCompatibility
 argument_list|(
 name|clazz

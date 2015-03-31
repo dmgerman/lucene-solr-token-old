@@ -38,6 +38,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -978,7 +987,10 @@ literal|false
 argument_list|,
 name|codec
 argument_list|,
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 name|StringHelper
 operator|.
@@ -1100,10 +1112,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Anything that will add N docs to the index should reserve first to    *  make sure it's allowed. */
-DECL|method|reserveDoc
+DECL|method|reserveOneDoc
 specifier|private
 name|void
-name|reserveDoc
+name|reserveOneDoc
 parameter_list|()
 block|{
 if|if
@@ -1119,7 +1131,7 @@ name|getActualMaxDocs
 argument_list|()
 condition|)
 block|{
-comment|// Reserve failed
+comment|// Reserve failed: put the one doc back and throw exc:
 name|pendingNumDocs
 operator|.
 name|decrementAndGet
@@ -1127,7 +1139,7 @@ argument_list|()
 expr_stmt|;
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"number of documents in the index cannot exceed "
 operator|+
@@ -1168,6 +1180,9 @@ name|deleteQueue
 operator|!=
 literal|null
 assert|;
+name|reserveOneDoc
+argument_list|()
+expr_stmt|;
 name|docState
 operator|.
 name|doc
@@ -1236,9 +1251,6 @@ comment|// Aborting exceptions will actually "lose" more than one
 comment|// document, so the counter will be "wrong" in that case, but
 comment|// it's very hard to fix (we can't easily distinguish aborting
 comment|// vs non-aborting exceptions):
-name|reserveDoc
-argument_list|()
-expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -1404,7 +1416,7 @@ comment|// Aborting exceptions will actually "lose" more than one
 comment|// document, so the counter will be "wrong" in that case, but
 comment|// it's very hard to fix (we can't easily distinguish aborting
 comment|// vs non-aborting exceptions):
-name|reserveDoc
+name|reserveOneDoc
 argument_list|()
 expr_stmt|;
 name|docState
@@ -1782,7 +1794,7 @@ literal|"all deletes must be applied in prepareFlush"
 assert|;
 name|segmentInfo
 operator|.
-name|setDocCount
+name|setMaxDoc
 argument_list|(
 name|numDocsInRAM
 argument_list|)
@@ -2285,7 +2297,7 @@ name|flushState
 operator|.
 name|segmentInfo
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 operator|/
 name|newSegmentSize
@@ -2425,7 +2437,7 @@ name|newSegment
 operator|.
 name|info
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|,
 name|newSegment

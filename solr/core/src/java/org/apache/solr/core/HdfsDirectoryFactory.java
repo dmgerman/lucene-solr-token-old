@@ -1629,7 +1629,7 @@ name|fileSystem
 operator|=
 name|FileSystem
 operator|.
-name|newInstance
+name|get
 argument_list|(
 name|hdfsDirPath
 operator|.
@@ -1715,6 +1715,15 @@ argument_list|,
 name|confDir
 argument_list|)
 expr_stmt|;
+name|conf
+operator|.
+name|setBoolean
+argument_list|(
+literal|"fs.hdfs.impl.disable.cache"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -1748,7 +1757,7 @@ name|fileSystem
 operator|=
 name|FileSystem
 operator|.
-name|newInstance
+name|get
 argument_list|(
 operator|new
 name|URI

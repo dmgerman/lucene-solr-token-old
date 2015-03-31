@@ -854,7 +854,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"New transaction log already exists:"
 operator|+
@@ -868,12 +868,8 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
-assert|assert
-name|start
-operator|==
-literal|0
-assert|;
 if|if
 condition|(
 name|start

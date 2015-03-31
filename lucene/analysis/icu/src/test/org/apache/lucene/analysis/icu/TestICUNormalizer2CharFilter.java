@@ -882,6 +882,11 @@ name|normalized
 argument_list|)
 expr_stmt|;
 block|}
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testNFC
 specifier|public
@@ -1340,6 +1345,11 @@ argument_list|,
 literal|8192
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 comment|// nfkd
 name|a
 operator|=
@@ -1437,6 +1447,11 @@ name|RANDOM_MULTIPLIER
 argument_list|,
 literal|8192
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testCuriousString
@@ -1551,6 +1566,11 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testCuriousMassiveString
 specifier|public
@@ -2006,6 +2026,11 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

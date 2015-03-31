@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -356,6 +347,11 @@ name|dataDirectory
 operator|+
 literal|"/output.txt"
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

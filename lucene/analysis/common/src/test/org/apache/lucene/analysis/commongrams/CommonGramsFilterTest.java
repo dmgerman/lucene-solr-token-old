@@ -876,6 +876,11 @@ literal|"the_of"
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testCommonGramsFilter
 specifier|public
@@ -1637,6 +1642,11 @@ literal|1
 block|}
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test that CommonGramsFilter works correctly in case-insensitive mode    */
 DECL|method|testCaseSensitive
@@ -2171,6 +2181,11 @@ operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|Analyzer
 name|b
 init|=
@@ -2239,6 +2254,11 @@ literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
+expr_stmt|;
+name|b
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

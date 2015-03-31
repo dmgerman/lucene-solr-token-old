@@ -31,15 +31,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringReader
 import|;
 end_import
@@ -859,6 +850,11 @@ literal|"soudk"
 block|}
 argument_list|)
 expr_stmt|;
+name|cz
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test showing how feminine noun forms conflate    */
 DECL|method|testFeminineNouns
@@ -1273,6 +1269,11 @@ literal|"Å¾n"
 block|}
 argument_list|)
 expr_stmt|;
+name|cz
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test showing how neuter noun forms conflate    */
 DECL|method|testNeuterNouns
@@ -1686,6 +1687,11 @@ literal|"stavn"
 block|}
 argument_list|)
 expr_stmt|;
+name|cz
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test showing how adjectival forms conflate    */
 DECL|method|testAdjectives
@@ -1943,6 +1949,11 @@ literal|"jarn"
 block|}
 argument_list|)
 expr_stmt|;
+name|cz
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test some possessive suffixes    */
 DECL|method|testPossessive
@@ -1987,6 +1998,11 @@ block|{
 literal|"jazyk"
 block|}
 argument_list|)
+expr_stmt|;
+name|cz
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Test some exceptional rules, implemented as rewrites.    */
@@ -2251,6 +2267,11 @@ literal|"desk"
 block|}
 argument_list|)
 expr_stmt|;
+name|cz
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test that very short words are not stemmed.    */
 DECL|method|testDontStem
@@ -2295,6 +2316,11 @@ block|{
 literal|"zi"
 block|}
 argument_list|)
+expr_stmt|;
+name|cz
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testWithKeywordAttribute
@@ -2434,6 +2460,11 @@ literal|""
 argument_list|,
 literal|""
 argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
