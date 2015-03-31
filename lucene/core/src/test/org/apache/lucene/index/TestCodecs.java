@@ -3218,10 +3218,6 @@ condition|)
 block|{
 specifier|final
 name|PostingsEnum
-name|docs
-decl_stmt|;
-specifier|final
-name|PostingsEnum
 name|postings
 decl_stmt|;
 if|if
@@ -3232,6 +3228,8 @@ operator|.
 name|omitTF
 condition|)
 block|{
+comment|// TODO: we should randomize which postings features are available, but
+comment|// need to coordinate this with the checks below that rely on such features
 name|postings
 operator|=
 name|termsEnum
@@ -3247,22 +3245,10 @@ operator|.
 name|ALL
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|postings
-operator|!=
-literal|null
-condition|)
-block|{
-name|docs
-operator|=
-name|postings
-expr_stmt|;
 block|}
 else|else
 block|{
-comment|// nocommit: check
-name|docs
+name|postings
 operator|=
 name|TestUtil
 operator|.
@@ -3283,37 +3269,9 @@ name|FREQS
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-name|postings
-operator|=
-literal|null
-expr_stmt|;
-name|docs
-operator|=
-name|TestUtil
-operator|.
-name|docs
-argument_list|(
-name|random
-argument_list|()
-argument_list|,
-name|termsEnum
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
-name|PostingsEnum
-operator|.
-name|NONE
-argument_list|)
-expr_stmt|;
-block|}
 name|assertNotNull
 argument_list|(
-name|docs
+name|postings
 argument_list|)
 expr_stmt|;
 name|int
@@ -3408,7 +3366,7 @@ condition|)
 block|{
 name|doc
 operator|=
-name|docs
+name|postings
 operator|.
 name|advance
 argument_list|(
@@ -3437,7 +3395,7 @@ else|else
 block|{
 name|doc
 operator|=
-name|docs
+name|postings
 operator|.
 name|advance
 argument_list|(
@@ -3517,7 +3475,7 @@ else|else
 block|{
 name|doc
 operator|=
-name|docs
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
@@ -3554,6 +3512,7 @@ operator|.
 name|omitTF
 condition|)
 block|{
+comment|// nocommit: asking for freq() here, but above when field.omitTF == false, PostingsEnum.NONE flag is passed?
 name|assertEquals
 argument_list|(
 name|term
@@ -3613,7 +3572,7 @@ name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 argument_list|,
-name|docs
+name|postings
 operator|.
 name|nextDoc
 argument_list|()
