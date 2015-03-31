@@ -292,7 +292,7 @@ annotation|@
 name|Override
 DECL|method|createWeight
 specifier|public
-name|Weight
+name|SpanWeight
 name|createWeight
 parameter_list|(
 name|IndexSearcher

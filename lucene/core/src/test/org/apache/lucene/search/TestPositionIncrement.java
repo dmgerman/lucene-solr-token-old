@@ -1711,7 +1711,7 @@ name|wrap
 argument_list|(
 name|is
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|snq
@@ -1721,8 +1721,24 @@ while|while
 condition|(
 name|pspans
 operator|.
-name|next
+name|nextDoc
 argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_DOCS
+condition|)
+block|{
+while|while
+condition|(
+name|pspans
+operator|.
+name|nextStartPosition
+argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_POSITIONS
 condition|)
 block|{
 if|if
@@ -1740,21 +1756,21 @@ literal|"doc "
 operator|+
 name|pspans
 operator|.
-name|doc
+name|docID
 argument_list|()
 operator|+
 literal|": span "
 operator|+
 name|pspans
 operator|.
-name|start
+name|startPosition
 argument_list|()
 operator|+
 literal|" to "
 operator|+
 name|pspans
 operator|.
-name|end
+name|endPosition
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1775,7 +1791,7 @@ name|sawZero
 operator||=
 name|pspans
 operator|.
-name|start
+name|startPosition
 argument_list|()
 operator|==
 literal|0
@@ -1819,6 +1835,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 name|assertTrue
 argument_list|(
 name|sawZero
@@ -1841,7 +1858,7 @@ name|wrap
 argument_list|(
 name|is
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|snq
@@ -1859,8 +1876,24 @@ while|while
 condition|(
 name|spans
 operator|.
-name|next
+name|nextDoc
 argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_DOCS
+condition|)
+block|{
+while|while
+condition|(
+name|spans
+operator|.
+name|nextStartPosition
+argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_POSITIONS
 condition|)
 block|{
 name|count
@@ -1870,13 +1903,14 @@ name|sawZero
 operator||=
 name|spans
 operator|.
-name|start
+name|startPosition
 argument_list|()
 operator|==
 literal|0
 expr_stmt|;
 comment|// System.out.println(spans.doc() + " - " + spans.start() + " - " +
 comment|// spans.end());
+block|}
 block|}
 name|assertEquals
 argument_list|(
@@ -1890,7 +1924,6 @@ argument_list|(
 name|sawZero
 argument_list|)
 expr_stmt|;
-comment|// System.out.println("\nPayloadSpanUtil test");
 name|sawZero
 operator|=
 literal|false
