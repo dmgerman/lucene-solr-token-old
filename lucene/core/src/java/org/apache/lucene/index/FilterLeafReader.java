@@ -686,7 +686,7 @@ specifier|final
 name|PostingsEnum
 name|in
 decl_stmt|;
-comment|/**      * Create a new FilterDocsEnum      * @param in the underlying PostingsEnum instance.      */
+comment|/**      * Create a new FilterPostingsEnum      * @param in the underlying PostingsEnum instance.      */
 DECL|method|FilterPostingsEnum
 specifier|public
 name|FilterPostingsEnum
