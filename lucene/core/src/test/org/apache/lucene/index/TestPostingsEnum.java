@@ -612,8 +612,7 @@ operator|.
 name|POSITIONS
 argument_list|)
 decl_stmt|;
-comment|// nocommit: check
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
@@ -641,8 +640,7 @@ operator|.
 name|PAYLOADS
 argument_list|)
 expr_stmt|;
-comment|// nocommit: check
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
@@ -670,8 +668,7 @@ operator|.
 name|OFFSETS
 argument_list|)
 expr_stmt|;
-comment|// nocommit: check
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
@@ -699,8 +696,7 @@ operator|.
 name|ALL
 argument_list|)
 expr_stmt|;
-comment|// nocommit: check
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
@@ -1174,7 +1170,7 @@ operator|.
 name|POSITIONS
 argument_list|)
 decl_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
@@ -1202,7 +1198,7 @@ operator|.
 name|PAYLOADS
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
@@ -1230,7 +1226,7 @@ operator|.
 name|OFFSETS
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
@@ -1258,7 +1254,7 @@ operator|.
 name|ALL
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|docsAndPositionsEnum
 argument_list|)
