@@ -9097,6 +9097,7 @@ operator|.
 name|term
 argument_list|()
 decl_stmt|;
+comment|// TODO: also sometimes ask for payloads/offsets?
 name|boolean
 name|noPositions
 init|=
@@ -9145,7 +9146,6 @@ name|POSITIONS
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit: can we remove the noPositions and always ask for positions here?
 name|int
 name|docFreq
 init|=
@@ -9379,6 +9379,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+comment|// TODO: also sometimes ask for payloads/offsets?
 name|boolean
 name|noPositions
 init|=
