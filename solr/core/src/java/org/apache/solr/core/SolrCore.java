@@ -878,6 +878,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|logging
+operator|.
+name|MDCUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|request
 operator|.
 name|SolrQueryRequest
@@ -4284,6 +4297,14 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|MDCUtils
+operator|.
+name|setCore
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+comment|// show the core name in the error logs
 name|resourceLoader
 operator|=
 name|config
