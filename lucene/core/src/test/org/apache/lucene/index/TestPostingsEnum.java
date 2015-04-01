@@ -325,7 +325,7 @@ name|TestUtil
 operator|.
 name|getPostingsFormat
 argument_list|(
-literal|"foo"
+name|field
 argument_list|)
 argument_list|)
 condition|)
