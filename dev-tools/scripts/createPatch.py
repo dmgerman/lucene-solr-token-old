@@ -506,6 +506,8 @@ op|','
 string|"'idea-build'"
 op|','
 string|"'eclipse-build'"
+op|','
+string|"'.settings'"
 op|')'
 op|':'
 newline|'\n'
