@@ -532,6 +532,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|Lock
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|LockObtainFailedException
 import|;
 end_import
@@ -855,6 +868,19 @@ operator|.
 name|component
 operator|.
 name|SearchComponent
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|logging
+operator|.
+name|MDCUtils
 import|;
 end_import
 begin_import
@@ -1438,19 +1464,6 @@ operator|.
 name|processor
 operator|.
 name|UpdateRequestProcessorFactory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|util
-operator|.
-name|ConcurrentLRUCache
 import|;
 end_import
 begin_import
@@ -4284,6 +4297,14 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|MDCUtils
+operator|.
+name|setCore
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+comment|// show the core name in the error logs
 name|resourceLoader
 operator|=
 name|config
@@ -10033,7 +10054,9 @@ name|m
 operator|.
 name|put
 argument_list|(
-literal|"json"
+name|CommonParams
+operator|.
+name|JSON
 argument_list|,
 operator|new
 name|JSONResponseWriter
@@ -10099,7 +10122,9 @@ name|m
 operator|.
 name|put
 argument_list|(
-literal|"javabin"
+name|CommonParams
+operator|.
+name|JAVABIN
 argument_list|,
 operator|new
 name|BinaryResponseWriter
@@ -12000,7 +12025,7 @@ argument_list|()
 argument_list|,
 name|this
 argument_list|,
-name|getListener
+name|getConfListener
 argument_list|(
 name|this
 argument_list|,
@@ -12009,11 +12034,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getListener
-specifier|private
+DECL|method|getConfListener
+specifier|public
 specifier|static
 name|Runnable
-name|getListener
+name|getConfListener
 parameter_list|(
 name|SolrCore
 name|core
@@ -12328,8 +12353,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|//some files in conf directoy has changed other than schema.xml,
-comment|// solrconfig.xml. so fire event listeners
+comment|//some files in conf directory may have  other than managedschema, overlay, params
 try|try
 init|(
 name|SolrCore

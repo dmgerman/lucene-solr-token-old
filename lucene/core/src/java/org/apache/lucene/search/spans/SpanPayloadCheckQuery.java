@@ -66,7 +66,7 @@ name|Iterator
 import|;
 end_import
 begin_comment
-comment|/**  * Only return those matches that have a specific payload at  * the given position.  *<p>  * Do not use this with an SpanQuery that contains a {@link org.apache.lucene.search.spans.SpanNearQuery}.  Instead, use  * {@link SpanNearPayloadCheckQuery} since it properly handles the fact that payloads  * aren't ordered by {@link org.apache.lucene.search.spans.SpanNearQuery}.  */
+comment|/**  * Only return those matches that have a specific payload at  * the given position.  *<p>  * Do not use this with a SpanQuery that contains a {@link org.apache.lucene.search.spans.SpanNearQuery}.  * Instead, use {@link SpanNearPayloadCheckQuery} since it properly handles the fact that payloads  * aren't ordered by {@link org.apache.lucene.search.spans.SpanNearQuery}.  */
 end_comment
 begin_class
 DECL|class|SpanPayloadCheckQuery
@@ -86,7 +86,7 @@ index|[]
 argument_list|>
 name|payloadToMatch
 decl_stmt|;
-comment|/**    *    * @param match The underlying {@link org.apache.lucene.search.spans.SpanQuery} to check    * @param payloadToMatch The {@link java.util.Collection} of payloads to match    */
+comment|/**    * @param match The underlying {@link org.apache.lucene.search.spans.SpanQuery} to check    * @param payloadToMatch The {@link java.util.Collection} of payloads to match    */
 DECL|method|SpanPayloadCheckQuery
 specifier|public
 name|SpanPayloadCheckQuery
@@ -473,6 +473,12 @@ name|int
 name|h
 init|=
 name|match
+operator|.
+name|hashCode
+argument_list|()
+operator|^
+name|getClass
+argument_list|()
 operator|.
 name|hashCode
 argument_list|()

@@ -107,19 +107,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|Weight
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|Bits
@@ -137,7 +124,7 @@ name|SpanQuery
 extends|extends
 name|Query
 block|{
-comment|/** Expert: Returns the matches for this query in an index.  Used internally    * to search for spans. */
+comment|/** Expert: Returns the matches for this query in an index.      *  Used internally to search for spans.    *  This may return null to indicate that the SpanQuery has no results.    */
 DECL|method|getSpans
 specifier|public
 specifier|abstract
@@ -161,7 +148,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**     * Returns the name of the field matched by this query.    *<p>    * Note that this may return null if the query matches no terms.    */
+comment|/**    * Returns the name of the field matched by this query.    *<p>    * Note that this may return null if the query matches no terms.    */
 DECL|method|getField
 specifier|public
 specifier|abstract
@@ -173,7 +160,7 @@ annotation|@
 name|Override
 DECL|method|createWeight
 specifier|public
-name|Weight
+name|SpanWeight
 name|createWeight
 parameter_list|(
 name|IndexSearcher

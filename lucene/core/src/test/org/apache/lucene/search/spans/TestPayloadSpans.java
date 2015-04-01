@@ -516,9 +516,6 @@ operator|.
 name|wrap
 argument_list|(
 name|indexReader
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|stq
 argument_list|)
@@ -568,9 +565,6 @@ operator|.
 name|wrap
 argument_list|(
 name|indexReader
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|stq
 argument_list|)
@@ -646,9 +640,6 @@ operator|.
 name|wrap
 argument_list|(
 name|indexReader
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|sfq
 argument_list|)
@@ -744,9 +735,6 @@ operator|.
 name|wrap
 argument_list|(
 name|indexReader
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|sfq
 argument_list|)
@@ -789,9 +777,6 @@ operator|.
 name|wrap
 argument_list|(
 name|indexReader
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|sfq
 argument_list|)
@@ -982,9 +967,6 @@ operator|.
 name|wrap
 argument_list|(
 name|reader
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|snq
 argument_list|)
@@ -1054,28 +1036,15 @@ name|wrap
 argument_list|(
 name|searcher
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|stq
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"spans is null and it shouldn't be"
-argument_list|,
-name|spans
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
-name|checkSpans
+name|assertNull
 argument_list|(
 name|spans
-argument_list|,
-literal|0
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|SpanQuery
@@ -1166,7 +1135,7 @@ name|wrap
 argument_list|(
 name|searcher
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|spanNearQuery
@@ -1274,7 +1243,7 @@ name|wrap
 argument_list|(
 name|searcher
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|spanNearQuery
@@ -1420,7 +1389,7 @@ name|wrap
 argument_list|(
 name|searcher
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|nestedSpanNearQuery
@@ -1665,7 +1634,7 @@ name|wrap
 argument_list|(
 name|searcher
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|nestedSpanNearQuery
@@ -1993,7 +1962,7 @@ name|wrap
 argument_list|(
 name|searcher
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|nestedSpanNearQuery
@@ -2182,7 +2151,7 @@ name|wrap
 argument_list|(
 name|is
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|snq
@@ -2234,8 +2203,24 @@ while|while
 condition|(
 name|spans
 operator|.
-name|next
+name|nextDoc
 argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_DOCS
+condition|)
+block|{
+while|while
+condition|(
+name|spans
+operator|.
+name|nextStartPosition
+argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_POSITIONS
 condition|)
 block|{
 name|Collection
@@ -2275,6 +2260,7 @@ name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -2466,7 +2452,7 @@ name|wrap
 argument_list|(
 name|is
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|snq
@@ -2518,8 +2504,24 @@ while|while
 condition|(
 name|spans
 operator|.
-name|next
+name|nextDoc
 argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_DOCS
+condition|)
+block|{
+while|while
+condition|(
+name|spans
+operator|.
+name|nextStartPosition
+argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_POSITIONS
 condition|)
 block|{
 name|Collection
@@ -2559,6 +2561,7 @@ name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -2750,7 +2753,7 @@ name|wrap
 argument_list|(
 name|is
 operator|.
-name|getTopReaderContext
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|snq
@@ -2802,8 +2805,24 @@ while|while
 condition|(
 name|spans
 operator|.
-name|next
+name|nextDoc
 argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_DOCS
+condition|)
+block|{
+while|while
+condition|(
+name|spans
+operator|.
+name|nextStartPosition
+argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_POSITIONS
 condition|)
 block|{
 name|Collection
@@ -2843,6 +2862,7 @@ name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -3145,61 +3165,40 @@ while|while
 condition|(
 name|spans
 operator|.
-name|next
+name|nextDoc
 argument_list|()
-operator|==
-literal|true
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_DOCS
 condition|)
 block|{
-comment|//if we expect payloads, then isPayloadAvailable should be true
-if|if
+while|while
 condition|(
-name|expectedNumPayloads
-operator|>
-literal|0
+name|spans
+operator|.
+name|nextStartPosition
+argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_POSITIONS
 condition|)
 block|{
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"isPayloadAvailable is not returning the correct value: "
-operator|+
-name|spans
-operator|.
-name|isPayloadAvailable
-argument_list|()
-operator|+
-literal|" and it should be: "
-operator|+
-operator|(
+literal|"isPayloadAvailable should return true/false as payloads are expected"
+argument_list|,
 name|expectedNumPayloads
 operator|>
 literal|0
-operator|)
 argument_list|,
 name|spans
 operator|.
 name|isPayloadAvailable
 argument_list|()
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|assertTrue
-argument_list|(
-literal|"isPayloadAvailable should be false"
-argument_list|,
-name|spans
-operator|.
-name|isPayloadAvailable
-argument_list|()
-operator|==
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 comment|//See payload helper, for the PayloadHelper.FIELD field, there is a single byte payload at every token
 if|if
 condition|(
@@ -3221,25 +3220,16 @@ operator|.
 name|getPayload
 argument_list|()
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"payload Size: "
-operator|+
-name|payload
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|" is not: "
-operator|+
+literal|"payload size"
+argument_list|,
 name|expectedNumPayloads
 argument_list|,
 name|payload
 operator|.
 name|size
 argument_list|()
-operator|==
-name|expectedNumPayloads
 argument_list|)
 expr_stmt|;
 for|for
@@ -3252,42 +3242,27 @@ range|:
 name|payload
 control|)
 block|{
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"payload[0] Size: "
-operator|+
-name|thePayload
-operator|.
-name|length
-operator|+
-literal|" is not: "
-operator|+
+literal|"payload length"
+argument_list|,
 name|expectedPayloadLength
 argument_list|,
 name|thePayload
 operator|.
 name|length
-operator|==
-name|expectedPayloadLength
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
-name|thePayload
-index|[
-literal|0
-index|]
-operator|+
-literal|" does not equal: "
-operator|+
+literal|"payload first byte"
+argument_list|,
 name|expectedFirstByte
 argument_list|,
 name|thePayload
 index|[
 literal|0
 index|]
-operator|==
-name|expectedFirstByte
 argument_list|)
 expr_stmt|;
 block|}
@@ -3296,17 +3271,14 @@ name|seen
 operator|++
 expr_stmt|;
 block|}
-name|assertTrue
+block|}
+name|assertEquals
 argument_list|(
-name|seen
-operator|+
-literal|" does not equal: "
-operator|+
+literal|"expectedNumSpans"
+argument_list|,
 name|expectedNumSpans
 argument_list|,
 name|seen
-operator|==
-name|expectedNumSpans
 argument_list|)
 expr_stmt|;
 block|}
@@ -3481,10 +3453,24 @@ while|while
 condition|(
 name|spans
 operator|.
-name|next
+name|nextDoc
 argument_list|()
-operator|==
-literal|true
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_DOCS
+condition|)
+block|{
+while|while
+condition|(
+name|spans
+operator|.
+name|nextStartPosition
+argument_list|()
+operator|!=
+name|Spans
+operator|.
+name|NO_MORE_POSITIONS
 condition|)
 block|{
 if|if
@@ -3559,21 +3545,21 @@ literal|"doc:"
 operator|+
 name|spans
 operator|.
-name|doc
+name|docID
 argument_list|()
 operator|+
 literal|" s:"
 operator|+
 name|spans
 operator|.
-name|start
+name|startPosition
 argument_list|()
 operator|+
 literal|" e:"
 operator|+
 name|spans
 operator|.
-name|end
+name|endPosition
 argument_list|()
 operator|+
 literal|" "
@@ -3593,6 +3579,8 @@ block|}
 block|}
 name|assertEquals
 argument_list|(
+literal|"payload size"
+argument_list|,
 name|numPayloads
 index|[
 name|cnt
@@ -3607,6 +3595,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// no payload available
 name|assertFalse
 argument_list|(
 literal|"Expected spans:"
@@ -3637,8 +3626,11 @@ name|cnt
 operator|++
 expr_stmt|;
 block|}
+block|}
 name|assertEquals
 argument_list|(
+literal|"expected numSpans"
+argument_list|,
 name|numSpans
 argument_list|,
 name|cnt
