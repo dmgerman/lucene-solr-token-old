@@ -147,6 +147,8 @@ name|writer
 argument_list|,
 name|applyAllDeletes
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -196,6 +198,8 @@ name|open
 argument_list|(
 name|dir
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -242,6 +246,8 @@ argument_list|(
 name|searcherFactory
 argument_list|,
 name|reader
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -331,6 +337,8 @@ argument_list|(
 name|searcherFactory
 argument_list|,
 name|newReader
+argument_list|,
+name|r
 argument_list|)
 return|;
 block|}
@@ -446,6 +454,9 @@ name|searcherFactory
 parameter_list|,
 name|IndexReader
 name|reader
+parameter_list|,
+name|IndexReader
+name|previousReader
 parameter_list|)
 throws|throws
 name|IOException
@@ -468,6 +479,8 @@ operator|.
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+name|previousReader
 argument_list|)
 expr_stmt|;
 if|if

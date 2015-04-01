@@ -504,6 +504,8 @@ op|','
 string|"'.idea'"
 op|','
 string|"'idea-build'"
+op|','
+string|"'eclipse-build'"
 op|')'
 op|':'
 newline|'\n'

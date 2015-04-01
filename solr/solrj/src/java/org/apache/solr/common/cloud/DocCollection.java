@@ -530,13 +530,12 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|equals
-argument_list|(
+operator|==
 name|Slice
 operator|.
+name|State
+operator|.
 name|ACTIVE
-argument_list|)
 condition|)
 name|this
 operator|.
