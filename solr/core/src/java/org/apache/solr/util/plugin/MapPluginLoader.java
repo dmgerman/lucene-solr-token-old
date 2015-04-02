@@ -49,6 +49,23 @@ operator|.
 name|Node
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
+operator|.
+name|NAME
+import|;
+end_import
 begin_comment
 comment|/**  *   *  * @since solr 1.3  */
 end_comment
@@ -146,7 +163,7 @@ operator|.
 name|getAttributes
 argument_list|()
 argument_list|,
-literal|"name"
+name|NAME
 argument_list|,
 literal|"class"
 argument_list|)

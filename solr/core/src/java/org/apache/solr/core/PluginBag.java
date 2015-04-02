@@ -285,6 +285,23 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
+operator|.
+name|NAME
+import|;
+end_import
 begin_comment
 comment|/**  * This manages the lifecycle of a set of plugin of the same type .  */
 end_comment
@@ -2237,7 +2254,7 @@ name|attributes
 operator|.
 name|get
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|)
 expr_stmt|;
 name|Object

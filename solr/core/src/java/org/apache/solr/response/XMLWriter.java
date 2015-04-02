@@ -178,6 +178,23 @@ operator|.
 name|SolrReturnFields
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
+operator|.
+name|NAME
+import|;
+end_import
 begin_comment
 comment|/**  * @lucene.internal  */
 end_comment
@@ -722,7 +739,7 @@ condition|)
 block|{
 name|writeAttr
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|,
 name|name
 argument_list|)
@@ -819,7 +836,7 @@ argument_list|)
 expr_stmt|;
 name|writeAttr
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|,
 name|name
 argument_list|)

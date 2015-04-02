@@ -57,7 +57,7 @@ name|Automaton
 name|a
 parameter_list|,
 name|boolean
-name|utf8
+name|isBinary
 parameter_list|,
 name|int
 name|maxDeterminizedStates
@@ -65,7 +65,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|utf8
+name|isBinary
 condition|?
 name|a
 else|:

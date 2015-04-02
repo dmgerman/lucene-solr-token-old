@@ -236,13 +236,19 @@ import|;
 end_import
 begin_import
 import|import static
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Collections
+name|solr
 operator|.
-name|singletonMap
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
+operator|.
+name|NAME
 import|;
 end_import
 begin_class
@@ -306,7 +312,7 @@ name|message
 operator|.
 name|getStr
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|)
 decl_stmt|;
 name|log
@@ -458,7 +464,7 @@ name|routerSpec
 operator|.
 name|get
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|)
 operator|==
 literal|null
@@ -474,7 +480,7 @@ name|routerSpec
 operator|.
 name|get
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|)
 decl_stmt|;
 name|DocRouter
@@ -801,7 +807,7 @@ name|message
 operator|.
 name|getStr
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|)
 decl_stmt|;
 if|if
@@ -813,7 +819,7 @@ name|checkKeyExistence
 argument_list|(
 name|message
 argument_list|,
-literal|"name"
+name|NAME
 argument_list|)
 condition|)
 return|return
