@@ -311,6 +311,23 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
+operator|.
+name|NAME
+import|;
+end_import
 begin_comment
 comment|/**  * This handler returns system info  *   * @since solr 1.2  */
 end_comment
@@ -921,7 +938,7 @@ name|info
 operator|.
 name|add
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|,
 name|os
 operator|.
@@ -1537,7 +1554,7 @@ name|jvm
 operator|.
 name|add
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|,
 name|jreVendor
 operator|+
@@ -1571,7 +1588,7 @@ name|java
 operator|.
 name|add
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|,
 name|javaName
 argument_list|)
@@ -1656,7 +1673,7 @@ name|vm
 operator|.
 name|add
 argument_list|(
-literal|"name"
+name|NAME
 argument_list|,
 name|vmName
 argument_list|)

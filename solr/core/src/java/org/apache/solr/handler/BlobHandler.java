@@ -512,6 +512,23 @@ operator|.
 name|makeMap
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
+operator|.
+name|JSON
+import|;
+end_import
 begin_class
 DECL|class|BlobHandler
 specifier|public
@@ -614,7 +631,7 @@ name|setWt
 argument_list|(
 name|req
 argument_list|,
-literal|"json"
+name|JSON
 argument_list|)
 expr_stmt|;
 name|List
