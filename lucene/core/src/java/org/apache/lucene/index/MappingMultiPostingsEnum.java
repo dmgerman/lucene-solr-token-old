@@ -155,6 +155,11 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+name|doc
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 name|current
 operator|=
 literal|null

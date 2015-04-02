@@ -22,6 +22,24 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|blocktree
+operator|.
+name|BlockTreeTermsReader
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|OrdTermState
@@ -41,7 +59,7 @@ name|TermState
 import|;
 end_import
 begin_comment
-comment|/**  * Holds all state required for {@link PostingsReaderBase}  * to produce a {@link org.apache.lucene.index.PostingsEnum} without re-seeking the  * terms dict.  */
+comment|/**  * Holds all state required for {@link PostingsReaderBase}  * to produce a {@link org.apache.lucene.index.PostingsEnum} without re-seeking the  * terms dict.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|BlockTermState
@@ -75,6 +93,12 @@ DECL|field|blockFilePointer
 specifier|public
 name|long
 name|blockFilePointer
+decl_stmt|;
+comment|/** True if this term is "real" (e.g., not an auto-prefix term or    *  some other "secret" term; currently only {@link BlockTreeTermsReader}    *  sets this). */
+DECL|field|isRealTerm
+specifier|public
+name|boolean
+name|isRealTerm
 decl_stmt|;
 comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
 DECL|method|BlockTermState
@@ -147,6 +171,12 @@ name|other
 operator|.
 name|blockFilePointer
 expr_stmt|;
+name|isRealTerm
+operator|=
+name|other
+operator|.
+name|isRealTerm
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -172,6 +202,10 @@ operator|+
 literal|" blockFP="
 operator|+
 name|blockFilePointer
+operator|+
+literal|" isRealTerm="
+operator|+
+name|isRealTerm
 return|;
 block|}
 block|}

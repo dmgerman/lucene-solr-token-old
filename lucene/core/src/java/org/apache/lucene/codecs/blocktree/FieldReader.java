@@ -232,6 +232,7 @@ name|Terms
 implements|implements
 name|Accountable
 block|{
+comment|// private final boolean DEBUG = BlockTreeTermsWriter.DEBUG;
 DECL|field|BASE_RAM_BYTES_USED
 specifier|private
 specifier|static
@@ -595,6 +596,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// TODO: add auto-prefix terms into stats
 return|return
 operator|new
 name|SegmentTermsEnum
@@ -778,27 +780,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|compiled
-operator|.
-name|type
-operator|!=
-name|CompiledAutomaton
-operator|.
-name|AUTOMATON_TYPE
-operator|.
-name|NORMAL
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"please use CompiledAutomaton.getTermsEnum instead"
-argument_list|)
-throw|;
-block|}
+comment|// if (DEBUG) System.out.println("  FieldReader.intersect startTerm=" + BlockTreeTermsWriter.brToString(startTerm));
+comment|//System.out.println("intersect: " + compiled.type + " a=" + compiled.automaton);
+comment|// TODO: we could push "it's a range" or "it's a prefix" down into IntersectTermsEnum?
+comment|// can we optimize knowing that...?
 return|return
 operator|new
 name|IntersectTermsEnum
@@ -806,8 +791,22 @@ argument_list|(
 name|this
 argument_list|,
 name|compiled
+operator|.
+name|automaton
+argument_list|,
+name|compiled
+operator|.
+name|runAutomaton
+argument_list|,
+name|compiled
+operator|.
+name|commonSuffixRef
 argument_list|,
 name|startTerm
+argument_list|,
+name|compiled
+operator|.
+name|sinkState
 argument_list|)
 return|;
 block|}

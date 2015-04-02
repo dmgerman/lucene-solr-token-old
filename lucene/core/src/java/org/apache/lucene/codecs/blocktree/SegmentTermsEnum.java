@@ -208,7 +208,7 @@ name|Util
 import|;
 end_import
 begin_comment
-comment|/** Iterates through terms in this field */
+comment|/** Iterates through terms in this field.  This implementation skips  *  any auto-prefix terms it encounters. */
 end_comment
 begin_class
 DECL|class|SegmentTermsEnum
@@ -253,7 +253,7 @@ specifier|private
 name|int
 name|targetBeforeCurrentLength
 decl_stmt|;
-comment|// static boolean DEBUG = false;
+comment|//static boolean DEBUG = BlockTreeTermsWriter.DEBUG;
 DECL|field|scratchReader
 specifier|private
 specifier|final
@@ -522,6 +522,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// TODO: add total auto-prefix term count
 name|Stats
 name|stats
 init|=
@@ -712,6 +713,7 @@ operator|.
 name|isLastInFloor
 condition|)
 block|{
+comment|// Advance to next floor block
 name|currentFrame
 operator|.
 name|loadNextFloorBlock
@@ -726,6 +728,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 else|else
 block|{
@@ -814,13 +817,6 @@ expr_stmt|;
 comment|// This is a "next" frame -- even if it's
 comment|// floor'd we must pretend it isn't so we don't
 comment|// try to scan to the right floor frame:
-name|currentFrame
-operator|.
-name|isFloor
-operator|=
-literal|false
-expr_stmt|;
-comment|//currentFrame.hasTerms = true;
 name|currentFrame
 operator|.
 name|loadBlock
@@ -1482,51 +1478,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|// for debugging
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
-DECL|method|brToString
-specifier|static
-name|String
-name|brToString
-parameter_list|(
-name|BytesRef
-name|b
-parameter_list|)
-block|{
-try|try
-block|{
-return|return
-name|b
-operator|.
-name|utf8ToString
-argument_list|()
-operator|+
-literal|" "
-operator|+
-name|b
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-comment|// If BytesRef isn't actually UTF8, or it's eg a
-comment|// prefix of UTF8 that ends mid-unicode-char, we
-comment|// fallback to hex:
-return|return
-name|b
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
-block|}
+comment|/*   // for debugging   @SuppressWarnings("unused")   static String brToString(BytesRef b) {     try {       return b.utf8ToString() + " " + b;     } catch (Throwable t) {       // If BytesRef isn't actually UTF8, or it's eg a       // prefix of UTF8 that ends mid-unicode-char, we       // fallback to hex:       return b.toString();     }   }    // for debugging   @SuppressWarnings("unused")   static String brToString(BytesRefBuilder b) {     return brToString(b.get());   }   */
 annotation|@
 name|Override
 DECL|method|seekExact
@@ -1534,7 +1486,6 @@ specifier|public
 name|boolean
 name|seekExact
 parameter_list|(
-specifier|final
 name|BytesRef
 name|target
 parameter_list|)
@@ -2457,7 +2408,6 @@ specifier|public
 name|SeekStatus
 name|seekCeil
 parameter_list|(
-specifier|final
 name|BytesRef
 name|target
 parameter_list|)
@@ -2497,7 +2447,7 @@ name|clearEOF
 argument_list|()
 assert|;
 comment|// if (DEBUG) {
-comment|//   System.out.println("\nBTTR.seekCeil seg=" + fr.parent.segment + " target=" + fr.fieldInfo.name + ":" + target.utf8ToString() + " " + target + " current=" + brToString(term) + " (exists?=" + termExists + ") validIndexPrefix=  " + validIndexPrefix);
+comment|//   System.out.println("\nBTTR.seekCeil seg=" + fr.parent.segment + " target=" + fr.fieldInfo.name + ":" + brToString(target) + " " + target + " current=" + brToString(term) + " (exists?=" + termExists + ") validIndexPrefix=  " + validIndexPrefix);
 comment|//   printSeekState(System.out);
 comment|// }
 name|FST
@@ -2634,7 +2584,7 @@ literal|0xFF
 operator|)
 expr_stmt|;
 comment|//if (DEBUG) {
-comment|//System.out.println("    cycle targetUpto=" + targetUpto + " (vs limit=" + targetLimit + ") cmp=" + cmp + " (targetLabel=" + (char) (target.bytes[target.offset + targetUpto]) + " vs termLabel=" + (char) (term.bytes[targetUpto]) + ")"   + " arc.output=" + arc.output + " output=" + output);
+comment|//System.out.println("    cycle targetUpto=" + targetUpto + " (vs limit=" + targetLimit + ") cmp=" + cmp + " (targetLabel=" + (char) (target.bytes[target.offset + targetUpto]) + " vs termLabel=" + (char) (term.byteAt(targetUpto)) + ")"   + " arc.output=" + arc.output + " output=" + output);
 comment|//}
 if|if
 condition|(
@@ -2828,7 +2778,7 @@ literal|0xFF
 operator|)
 expr_stmt|;
 comment|//if (DEBUG) {
-comment|//System.out.println("    cycle2 targetUpto=" + targetUpto + " (vs limit=" + targetLimit + ") cmp=" + cmp + " (targetLabel=" + (char) (target.bytes[target.offset + targetUpto]) + " vs termLabel=" + (char) (term.bytes[targetUpto]) + ")");
+comment|//System.out.println("    cycle2 targetUpto=" + targetUpto + " (vs limit=" + targetLimit + ") cmp=" + cmp + " (targetLabel=" + (char) (target.bytes[target.offset + targetUpto]) + " vs termLabel=" + (char) (term.byteAt(targetUpto)) + ")");
 comment|//}
 if|if
 condition|(
@@ -3093,7 +3043,7 @@ condition|)
 block|{
 comment|// Index is exhausted
 comment|// if (DEBUG) {
-comment|//   System.out.println("    index: index exhausted label=" + ((char) targetLabel) + " " + toHex(targetLabel));
+comment|//   System.out.println("    index: index exhausted label=" + ((char) targetLabel) + " " + targetLabel);
 comment|// }
 name|validIndexPrefix
 operator|=
@@ -3114,6 +3064,7 @@ operator|.
 name|loadBlock
 argument_list|()
 expr_stmt|;
+comment|//if (DEBUG) System.out.println("  now scanToTerm");
 specifier|final
 name|SeekStatus
 name|result
@@ -3156,7 +3107,7 @@ literal|null
 condition|)
 block|{
 comment|//if (DEBUG) {
-comment|//System.out.println("  return NOT_FOUND term=" + brToString(term) + " " + term);
+comment|//System.out.println("  return NOT_FOUND term=" + brToString(term));
 comment|//}
 return|return
 name|SeekStatus
@@ -3179,7 +3130,7 @@ block|}
 else|else
 block|{
 comment|//if (DEBUG) {
-comment|//System.out.println("  return " + result + " term=" + brToString(term) + " " + term);
+comment|//System.out.println("  return " + result + " term=" + brToString(term));
 comment|//}
 return|return
 name|result
@@ -3241,7 +3192,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//if (DEBUG) {
-comment|//System.out.println("    index: follow label=" + toHex(target.bytes[target.offset + targetUpto]&0xff) + " arc.output=" + arc.output + " arc.nfo=" + arc.nextFinalOutput);
+comment|//System.out.println("    index: follow label=" + (target.bytes[target.offset + targetUpto]&0xff) + " arc.output=" + arc.output + " arc.nfo=" + arc.nextFinalOutput);
 comment|//}
 name|targetUpto
 operator|++
@@ -3342,7 +3293,7 @@ literal|null
 condition|)
 block|{
 comment|//if (DEBUG) {
-comment|//System.out.println("  return NOT_FOUND term=" + term.utf8ToString() + " " + term);
+comment|//System.out.println("  return NOT_FOUND term=" + term.get().utf8ToString() + " " + term);
 comment|//}
 return|return
 name|SeekStatus
@@ -4197,11 +4148,13 @@ operator|.
 name|isLastInFloor
 condition|)
 block|{
+comment|// Advance to next floor block
 name|currentFrame
 operator|.
 name|loadNextFloorBlock
 argument_list|()
 expr_stmt|;
+break|break;
 block|}
 else|else
 block|{
@@ -4358,20 +4311,13 @@ comment|// floor'd we must pretend it isn't so we don't
 comment|// try to scan to the right floor frame:
 name|currentFrame
 operator|.
-name|isFloor
-operator|=
-literal|false
-expr_stmt|;
-comment|//currentFrame.hasTerms = true;
-name|currentFrame
-operator|.
 name|loadBlock
 argument_list|()
 expr_stmt|;
 block|}
 else|else
 block|{
-comment|//if (DEBUG) System.out.println("  return term=" + term.utf8ToString() + " " + term + " currentFrame.ord=" + currentFrame.ord);
+comment|//if (DEBUG) System.out.println("  return term=" + brToString(term) + " currentFrame.ord=" + currentFrame.ord);
 return|return
 name|term
 operator|.
