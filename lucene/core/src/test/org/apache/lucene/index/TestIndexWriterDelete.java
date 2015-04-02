@@ -6550,6 +6550,12 @@ name|setReaderPooling
 argument_list|(
 literal|false
 argument_list|)
+comment|// always use CFS so we don't use tons of file handles in the test
+operator|.
+name|setUseCompoundFile
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 block|{
 annotation|@
