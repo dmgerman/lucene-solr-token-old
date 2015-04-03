@@ -4489,16 +4489,6 @@ operator|.
 name|NONE
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|docs
-operator|==
-literal|null
-condition|)
-return|return
-operator|-
-literal|1
-return|;
 name|int
 name|id
 init|=

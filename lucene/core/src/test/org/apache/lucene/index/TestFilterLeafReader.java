@@ -385,7 +385,7 @@ literal|null
 else|:
 operator|(
 operator|(
-name|FilterDocsEnum
+name|FilterPostingsEnum
 operator|)
 name|reuse
 operator|)
@@ -405,7 +405,7 @@ specifier|static
 class|class
 name|TestPositions
 extends|extends
-name|FilterDocsEnum
+name|FilterPostingsEnum
 block|{
 DECL|method|TestPositions
 specifier|public
@@ -1072,7 +1072,7 @@ name|checkOverrideMethods
 argument_list|(
 name|FilterLeafReader
 operator|.
-name|FilterDocsEnum
+name|FilterPostingsEnum
 operator|.
 name|class
 argument_list|)

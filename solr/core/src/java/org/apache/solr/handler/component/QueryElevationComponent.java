@@ -4759,13 +4759,6 @@ operator|.
 name|NONE
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|postingsEnum
-operator|!=
-literal|null
-condition|)
-block|{
 name|int
 name|docId
 init|=
@@ -4816,7 +4809,6 @@ name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 assert|;
-block|}
 block|}
 block|}
 block|}

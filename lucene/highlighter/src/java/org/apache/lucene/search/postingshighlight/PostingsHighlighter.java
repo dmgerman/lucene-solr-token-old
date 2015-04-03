@@ -2094,6 +2094,28 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|t
+operator|.
+name|hasOffsets
+argument_list|()
+condition|)
+block|{
+comment|// no offsets available
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"field '"
+operator|+
+name|field
+operator|+
+literal|"' was indexed without offsets, cannot highlight"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|t
 operator|!=
 literal|null
@@ -2445,26 +2467,11 @@ operator|.
 name|OFFSETS
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+assert|assert
 name|de
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-comment|// no positions available
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"field '"
-operator|+
-name|field
-operator|+
-literal|"' was indexed without offsets, cannot highlight"
-argument_list|)
-throw|;
-block|}
+assert|;
 name|pDoc
 operator|=
 name|de
@@ -2682,26 +2689,11 @@ operator|.
 name|startOffset
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+assert|assert
 name|start
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"field '"
-operator|+
-name|field
-operator|+
-literal|"' was indexed without offsets, cannot highlight"
-argument_list|)
-throw|;
-block|}
+operator|>=
+literal|0
+assert|;
 name|int
 name|end
 init|=

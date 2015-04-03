@@ -289,7 +289,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|MultiFields
 operator|.

@@ -1377,6 +1377,19 @@ name|rightTerms
 argument_list|)
 expr_stmt|;
 comment|// NOTE: we don't assert hasOffsets/hasPositions/hasPayloads because they are allowed to be different
+name|boolean
+name|bothHavePositions
+init|=
+name|leftTerms
+operator|.
+name|hasPositions
+argument_list|()
+operator|&&
+name|rightTerms
+operator|.
+name|hasPositions
+argument_list|()
+decl_stmt|;
 name|TermsEnum
 name|leftTermsEnum
 init|=
@@ -1404,6 +1417,8 @@ argument_list|,
 name|rightTermsEnum
 argument_list|,
 literal|true
+argument_list|,
+name|bothHavePositions
 argument_list|)
 expr_stmt|;
 name|assertTermsSeeking
@@ -1518,6 +1533,8 @@ name|rightIntersection
 argument_list|,
 name|rarely
 argument_list|()
+argument_list|,
+name|bothHavePositions
 argument_list|)
 expr_stmt|;
 block|}
@@ -2111,6 +2128,9 @@ name|rightTermsEnum
 parameter_list|,
 name|boolean
 name|deep
+parameter_list|,
+name|boolean
+name|hasPositions
 parameter_list|)
 throws|throws
 name|Exception
@@ -2190,6 +2210,11 @@ expr_stmt|;
 if|if
 condition|(
 name|deep
+condition|)
+block|{
+if|if
+condition|(
+name|hasPositions
 condition|)
 block|{
 comment|// with payloads + off
@@ -2764,6 +2789,7 @@ name|POSITIONS
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 comment|// with freqs:
 name|assertDocsEnum
 argument_list|(
@@ -3108,29 +3134,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|leftDocs
-operator|==
-literal|null
-operator|||
-name|rightDocs
-operator|==
-literal|null
-condition|)
-block|{
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|leftDocs
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|rightDocs
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|assertEquals
 argument_list|(
 operator|-
