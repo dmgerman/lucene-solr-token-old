@@ -546,7 +546,7 @@ annotation|@
 name|Override
 DECL|method|setFreqCurrentDoc
 specifier|protected
-name|boolean
+name|void
 name|setFreqCurrentDoc
 parameter_list|()
 throws|throws
@@ -633,11 +633,6 @@ operator|.
 name|NO_MORE_POSITIONS
 condition|)
 do|;
-return|return
-name|freq
-operator|!=
-literal|0
-return|;
 block|}
 DECL|method|processPayload
 specifier|protected
@@ -687,7 +682,8 @@ name|function
 operator|.
 name|currentScore
 argument_list|(
-name|doc
+name|docID
+argument_list|()
 argument_list|,
 name|term
 operator|.
@@ -712,7 +708,8 @@ name|docScorer
 operator|.
 name|computePayloadFactor
 argument_list|(
-name|doc
+name|docID
+argument_list|()
 argument_list|,
 name|spans
 operator|.
@@ -737,7 +734,8 @@ name|function
 operator|.
 name|currentScore
 argument_list|(
-name|doc
+name|docID
+argument_list|()
 argument_list|,
 name|term
 operator|.
@@ -774,10 +772,10 @@ block|}
 comment|/**        *         * @return {@link #getSpanScore()} * {@link #getPayloadScore()}        * @throws IOException if there is a low-level I/O error        */
 annotation|@
 name|Override
-DECL|method|score
+DECL|method|scoreCurrentDoc
 specifier|public
 name|float
-name|score
+name|scoreCurrentDoc
 parameter_list|()
 throws|throws
 name|IOException
@@ -807,7 +805,7 @@ block|{
 return|return
 name|super
 operator|.
-name|score
+name|scoreCurrentDoc
 argument_list|()
 return|;
 block|}
@@ -823,7 +821,8 @@ name|function
 operator|.
 name|docScore
 argument_list|(
-name|doc
+name|docID
+argument_list|()
 argument_list|,
 name|term
 operator|.

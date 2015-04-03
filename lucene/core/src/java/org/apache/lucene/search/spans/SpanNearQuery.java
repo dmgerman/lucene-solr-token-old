@@ -130,6 +130,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|Terms
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|Query
@@ -660,6 +673,31 @@ return|;
 comment|// all required
 block|}
 block|}
+name|Terms
+name|terms
+init|=
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|terms
+argument_list|(
+name|field
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|terms
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+comment|// field does not exist
+block|}
 comment|// all NearSpans require at least two subSpans
 return|return
 operator|(
@@ -676,6 +714,11 @@ name|subSpans
 argument_list|)
 else|:
 name|collectPayloads
+operator|&&
+name|terms
+operator|.
+name|hasPayloads
+argument_list|()
 condition|?
 operator|new
 name|NearSpansPayloadOrdered
