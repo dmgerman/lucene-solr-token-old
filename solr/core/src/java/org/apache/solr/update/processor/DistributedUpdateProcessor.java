@@ -2381,7 +2381,9 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-name|ZkStateReader
+name|Replica
+operator|.
+name|State
 operator|.
 name|DOWN
 argument_list|)
@@ -2471,7 +2473,9 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-name|ZkStateReader
+name|Replica
+operator|.
+name|State
 operator|.
 name|DOWN
 argument_list|)
@@ -8535,7 +8539,9 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-name|ZkStateReader
+name|Replica
+operator|.
+name|State
 operator|.
 name|DOWN
 argument_list|)

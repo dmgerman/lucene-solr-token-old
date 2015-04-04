@@ -309,7 +309,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|Slice
+name|Replica
 import|;
 end_import
 begin_import
@@ -324,7 +324,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|ZkStateReader
+name|Slice
 import|;
 end_import
 begin_import
@@ -3317,7 +3317,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
 name|rb
 operator|.
 name|req
@@ -3333,13 +3332,12 @@ argument_list|()
 operator|.
 name|getLastPublished
 argument_list|()
+operator|!=
+name|Replica
 operator|.
-name|equals
-argument_list|(
-name|ZkStateReader
+name|State
 operator|.
 name|ACTIVE
-argument_list|)
 condition|)
 block|{
 name|log
