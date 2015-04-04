@@ -830,9 +830,13 @@ decl_stmt|;
 comment|// how to analyze text
 DECL|field|changeCount
 specifier|private
-specifier|volatile
-name|long
+specifier|final
+name|AtomicLong
 name|changeCount
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 comment|// increments every time a change is completed
 DECL|field|lastCommitChangeCount
@@ -4855,7 +4859,9 @@ comment|// could close, re-open and re-return the same segment
 comment|// name that was previously returned which can cause
 comment|// problems at least with ConcurrentMergeScheduler.
 name|changeCount
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 name|segmentInfos
 operator|.
@@ -6246,6 +6252,9 @@ expr_stmt|;
 name|lastCommitChangeCount
 operator|=
 name|changeCount
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|deleter
 operator|.
@@ -6518,8 +6527,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// Mark that the index has changed
-operator|++
 name|changeCount
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 name|segmentInfos
 operator|.
@@ -6926,7 +6937,9 @@ throws|throws
 name|IOException
 block|{
 name|changeCount
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 name|deleter
 operator|.
@@ -6946,7 +6959,9 @@ name|changed
 parameter_list|()
 block|{
 name|changeCount
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 name|segmentInfos
 operator|.
@@ -8886,6 +8901,9 @@ expr_stmt|;
 name|pendingCommitChangeCount
 operator|=
 name|changeCount
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 comment|// This protects the segmentInfos we are now going
 comment|// to commit.  This is important in case, eg, while
@@ -9075,8 +9093,10 @@ name|commitUserData
 argument_list|)
 argument_list|)
 expr_stmt|;
-operator|++
 name|changeCount
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Returns the commit user data map that was last committed, or the one that    * was set on {@link #setCommitData(Map)}.    */
@@ -9146,6 +9166,9 @@ parameter_list|()
 block|{
 return|return
 name|changeCount
+operator|.
+name|get
+argument_list|()
 operator|!=
 name|lastCommitChangeCount
 operator|||
@@ -16098,6 +16121,9 @@ condition|(
 name|lastCommitChangeCount
 operator|>
 name|changeCount
+operator|.
+name|get
+argument_list|()
 condition|)
 block|{
 throw|throw
