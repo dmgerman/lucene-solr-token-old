@@ -4350,6 +4350,7 @@ name|maxTerm
 argument_list|)
 throw|;
 block|}
+comment|//System.out.println("      terms=" + termCount);
 return|return
 name|termCount
 return|;
@@ -4473,6 +4474,7 @@ literal|0
 condition|)
 block|{
 comment|// Done!
+comment|//System.out.println("      terms=" + termCount);
 return|return
 name|termCount
 return|;
@@ -4642,7 +4644,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// System.out.println("  check minTerm=" + minTerm + " maxTerm=" + maxTerm);
+comment|//System.out.println("    check minTerm=" + minTerm.utf8ToString() + " maxTerm=" + maxTerm.utf8ToString());
+assert|assert
+name|minTerm
+operator|.
+name|compareTo
+argument_list|(
+name|maxTerm
+argument_list|)
+operator|<=
+literal|0
+assert|;
 name|TermsEnum
 name|termsEnum
 init|=
@@ -4829,6 +4841,7 @@ name|maxTerm
 argument_list|)
 throw|;
 block|}
+comment|//System.out.println("      docs=" + normalTermCount);
 comment|//System.out.println("    " + intersectTermCount + " vs " + normalTermCount);
 return|return
 name|intersectTermCount
@@ -5093,6 +5106,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|//System.out.println("    count=" + termCount);
 if|if
 condition|(
 name|lastTerm
@@ -7593,8 +7607,11 @@ operator|)
 operator|-
 name|termCountStart
 decl_stmt|;
+comment|// LUCENE-5879: this is just too slow for now:
 if|if
 condition|(
+literal|false
+operator|&&
 name|hasFreqs
 operator|==
 literal|false
