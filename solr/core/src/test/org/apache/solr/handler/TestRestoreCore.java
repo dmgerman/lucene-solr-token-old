@@ -100,6 +100,17 @@ name|util
 operator|.
 name|regex
 operator|.
+name|Matcher
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
 name|Pattern
 import|;
 end_import
@@ -1318,14 +1329,19 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|Matcher
+name|matcher
+init|=
 name|pException
 operator|.
 name|matcher
 argument_list|(
 name|response
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|matcher
 operator|.
 name|find
 argument_list|()
@@ -1333,7 +1349,14 @@ condition|)
 block|{
 name|fail
 argument_list|(
-literal|"Failed to complete restore action"
+literal|"Failed to complete restore action with exception "
+operator|+
+name|matcher
+operator|.
+name|group
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
