@@ -759,9 +759,7 @@ name|score
 operator|=
 name|collector
 operator|.
-name|scores
-operator|.
-name|getScore
+name|score
 argument_list|(
 operator|(
 name|int
