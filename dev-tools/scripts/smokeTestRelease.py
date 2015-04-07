@@ -7159,7 +7159,7 @@ newline|'\n'
 indent|'    '
 name|'artifactsURL'
 op|'='
-string|"'%s/%s/maven/org/apache/%s'"
+string|"'%s/%s/maven/org/apache/%s/'"
 op|'%'
 op|'('
 name|'baseURL'
