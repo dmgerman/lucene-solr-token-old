@@ -849,9 +849,7 @@ argument_list|(
 name|vector
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|,
 name|docId
 argument_list|)
@@ -900,9 +898,7 @@ argument_list|(
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|,
 name|num
 argument_list|)

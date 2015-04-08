@@ -1184,9 +1184,7 @@ operator|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-name|termsEnum
-argument_list|)
+argument_list|()
 expr_stmt|;
 assert|assert
 name|termsEnum

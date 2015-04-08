@@ -1504,9 +1504,7 @@ init|=
 name|terms2
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|PostingsEnum
 name|postingsEnum
@@ -2468,9 +2466,7 @@ name|name
 argument_list|)
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|int
 name|upto
@@ -3814,10 +3810,7 @@ DECL|method|iterator
 specifier|public
 name|TermsEnum
 name|iterator
-parameter_list|(
-name|TermsEnum
-name|reuse
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 operator|new

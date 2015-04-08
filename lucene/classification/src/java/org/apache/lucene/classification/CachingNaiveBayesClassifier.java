@@ -1190,9 +1190,7 @@ name|textFieldName
 argument_list|)
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 while|while
 condition|(
@@ -1327,9 +1325,7 @@ init|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 while|while
 condition|(

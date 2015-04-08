@@ -1246,9 +1246,7 @@ init|=
 name|vector
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1408,9 +1406,7 @@ init|=
 name|vector
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|PostingsEnum
 name|postingsEnum
@@ -1629,9 +1625,7 @@ init|=
 name|vector
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|PostingsEnum
 name|dpEnum
@@ -1985,9 +1979,7 @@ operator|=
 name|freqVector
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|assertNotNull
 argument_list|(
@@ -2144,9 +2136,7 @@ init|=
 name|vector
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(

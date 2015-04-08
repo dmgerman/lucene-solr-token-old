@@ -1067,9 +1067,7 @@ argument_list|(
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|)
 block|{
 specifier|final

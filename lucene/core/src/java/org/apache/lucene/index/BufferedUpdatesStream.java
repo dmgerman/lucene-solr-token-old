@@ -2591,11 +2591,7 @@ operator|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-name|state
-operator|.
-name|termsEnum
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|state
 operator|.
@@ -3128,9 +3124,7 @@ operator|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-name|termsEnum
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 else|else

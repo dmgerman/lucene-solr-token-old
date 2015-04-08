@@ -378,9 +378,7 @@ literal|"content"
 argument_list|)
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -516,9 +514,7 @@ literal|"content"
 argument_list|)
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// create enumeration of all terms
 comment|// go to the first term (aaa)

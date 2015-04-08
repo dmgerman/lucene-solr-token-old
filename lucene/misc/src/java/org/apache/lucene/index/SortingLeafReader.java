@@ -396,11 +396,7 @@ DECL|method|iterator
 specifier|public
 name|TermsEnum
 name|iterator
-parameter_list|(
-specifier|final
-name|TermsEnum
-name|reuse
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -411,9 +407,7 @@ argument_list|(
 name|in
 operator|.
 name|iterator
-argument_list|(
-name|reuse
-argument_list|)
+argument_list|()
 argument_list|,
 name|docMap
 argument_list|,

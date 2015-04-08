@@ -6382,9 +6382,7 @@ literal|"content"
 argument_list|)
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|BytesRef
 name|t
@@ -7294,9 +7292,7 @@ argument_list|(
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 while|while
@@ -7359,9 +7355,7 @@ argument_list|(
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 while|while

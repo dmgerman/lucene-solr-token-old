@@ -1154,11 +1154,7 @@ init|=
 name|tv
 operator|.
 name|iterator
-argument_list|(
-name|TermsEnum
-operator|.
-name|EMPTY
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Integer
 name|position

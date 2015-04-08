@@ -2074,9 +2074,7 @@ init|=
 name|terms1
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 specifier|final
 name|Bits
@@ -2208,9 +2206,7 @@ init|=
 name|terms2
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|PostingsEnum
 name|termDocs1
@@ -2605,9 +2601,7 @@ init|=
 name|terms3
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|BytesRef
 name|term2
@@ -2890,9 +2884,7 @@ init|=
 name|terms3
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|BytesRef
 name|term2
@@ -3280,9 +3272,7 @@ operator|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|term1
@@ -3448,9 +3438,7 @@ operator|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|term2
@@ -4001,9 +3989,7 @@ init|=
 name|terms1
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Terms
 name|terms2
@@ -4026,9 +4012,7 @@ init|=
 name|terms2
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|PostingsEnum
 name|dpEnum1
