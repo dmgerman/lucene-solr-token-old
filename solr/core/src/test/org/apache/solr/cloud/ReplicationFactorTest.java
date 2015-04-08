@@ -70,6 +70,19 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 operator|.
 name|Slow
 import|;
@@ -271,9 +284,6 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|//@AwaitsFix(bugUrl = "https://issues.apache.org/jira/browse/SOLR-6157")
-end_comment
-begin_comment
 comment|/**  * Tests a client application's ability to get replication factor  * information back from the cluster after an add or update.  */
 end_comment
 begin_class
@@ -285,6 +295,15 @@ argument_list|(
 name|bugUrl
 operator|=
 literal|"https://issues.apache.org/jira/browse/SOLR-5776"
+argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://issues.apache.org/jira/browse/SOLR-6944"
 argument_list|)
 DECL|class|ReplicationFactorTest
 specifier|public
