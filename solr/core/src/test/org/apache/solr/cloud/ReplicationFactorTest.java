@@ -299,7 +299,7 @@ argument_list|)
 annotation|@
 name|LuceneTestCase
 operator|.
-name|AwaitsFix
+name|BadApple
 argument_list|(
 name|bugUrl
 operator|=
