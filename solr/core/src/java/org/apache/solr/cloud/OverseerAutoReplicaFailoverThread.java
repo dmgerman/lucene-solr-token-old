@@ -796,6 +796,15 @@ range|:
 name|collections
 control|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"look at collection={}"
+argument_list|,
+name|collection
+argument_list|)
+expr_stmt|;
 name|DocCollection
 name|docCollection
 init|=
@@ -815,6 +824,18 @@ name|getAutoAddReplicas
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Collection {} is not setup to use autoAddReplicas, skipping.."
+argument_list|,
+name|docCollection
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 continue|continue;
 block|}
 if|if
@@ -845,7 +866,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Found collection, name={} replicationFactor="
+literal|"Found collection, name={} replicationFactor={}"
 argument_list|,
 name|collection
 argument_list|,
@@ -920,7 +941,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"replicationFactor={} goodReplicaCount={}"
+literal|"collection={} replicationFactor={} goodReplicaCount={}"
+argument_list|,
+name|docCollection
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|docCollection
 operator|.
@@ -1009,7 +1035,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"process down replica {}"
+literal|"process down replica={} from collection={}"
 argument_list|,
 name|badReplica
 operator|.
@@ -1017,6 +1043,8 @@ name|replica
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|collection
 argument_list|)
 expr_stmt|;
 name|String
@@ -1315,7 +1343,7 @@ name|success
 init|=
 name|ClusterStateUtil
 operator|.
-name|waitToSeeLive
+name|waitToSeeLiveReplica
 argument_list|(
 name|zkStateReader
 argument_list|,
@@ -1579,6 +1607,17 @@ name|slice
 operator|!=
 literal|null
 assert|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"getBestCreateUrl for "
+operator|+
+name|badReplica
+operator|.
+name|replica
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -1589,17 +1628,25 @@ name|counts
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|Counts
+argument_list|>
 argument_list|()
 decl_stmt|;
-name|ValueComparator
-name|vc
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|unsuitableHosts
 init|=
 operator|new
-name|ValueComparator
-argument_list|(
-name|counts
-argument_list|)
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
 decl_stmt|;
 name|Set
 argument_list|<
@@ -1712,12 +1759,14 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"look at slice {} as possible create candidate"
+literal|"look at slice {} for collection {} as possible create candidate"
 argument_list|,
 name|slice
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|collection
 argument_list|)
 expr_stmt|;
 name|Collection
@@ -1749,8 +1798,9 @@ name|getNodeName
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|String
+name|baseUrl
+init|=
 name|replica
 operator|.
 name|getStr
@@ -1759,6 +1809,10 @@ name|ZkStateReader
 operator|.
 name|BASE_URL_PROP
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|baseUrl
 operator|.
 name|equals
 argument_list|(
@@ -1777,24 +1831,14 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|String
-name|baseUrl
-init|=
-name|replica
-operator|.
-name|getStr
-argument_list|(
-name|ZkStateReader
-operator|.
-name|BASE_URL_PROP
-argument_list|)
-decl_stmt|;
 comment|// on a live node?
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"nodename={} livenodes={}"
+literal|"collection={} nodename={} livenodes={}"
+argument_list|,
+name|collection
 argument_list|,
 name|replica
 operator|.
@@ -1824,7 +1868,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"look at replica {} as possible create candidate, live={}"
+literal|"collection={} look at replica {} as possible create candidate, live={}"
+argument_list|,
+name|collection
 argument_list|,
 name|replica
 operator|.
@@ -1938,19 +1984,53 @@ expr_stmt|;
 block|}
 comment|// TODO: this is collection wide and we want to take into
 comment|// account cluster wide - use new cluster sys prop
-name|int
+name|Integer
 name|maxShardsPerNode
 init|=
-name|docCollection
+name|badReplica
+operator|.
+name|collection
 operator|.
 name|getMaxShardsPerNode
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|maxShardsPerNode
+operator|==
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"maxShardsPerNode is not defined for collection, name="
+operator|+
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|maxShardsPerNode
+operator|=
+name|Integer
+operator|.
+name|MAX_VALUE
+expr_stmt|;
+block|}
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"max shards per node={} good replicas={}"
+literal|"collection={} node={} max shards per node={} potential hosts={}"
+argument_list|,
+name|collection
+argument_list|,
+name|baseUrl
 argument_list|,
 name|maxShardsPerNode
 argument_list|,
@@ -2037,6 +2117,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|unsuitableHosts
+operator|.
+name|contains
+argument_list|(
+name|baseUrl
+argument_list|)
+operator|||
 name|alreadyExistsOnNode
 operator|||
 name|cnt
@@ -2050,14 +2137,29 @@ name|counts
 operator|.
 name|remove
 argument_list|(
-name|replica
-operator|.
-name|getStr
-argument_list|(
-name|ZkStateReader
-operator|.
-name|BASE_URL_PROP
+name|baseUrl
 argument_list|)
+expr_stmt|;
+name|unsuitableHosts
+operator|.
+name|add
+argument_list|(
+name|baseUrl
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"not a candidate node, collection={} node={} max shards per node={} good replicas={}"
+argument_list|,
+name|collection
+argument_list|,
+name|baseUrl
+argument_list|,
+name|maxShardsPerNode
+argument_list|,
+name|cnt
 argument_list|)
 expr_stmt|;
 block|}
@@ -2067,14 +2169,22 @@ name|counts
 operator|.
 name|put
 argument_list|(
-name|replica
-operator|.
-name|getStr
-argument_list|(
-name|ZkStateReader
-operator|.
-name|BASE_URL_PROP
+name|baseUrl
+argument_list|,
+name|cnt
 argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"is a candidate node, collection={} node={} max shards per node={} good replicas={}"
+argument_list|,
+name|collection
+argument_list|,
+name|baseUrl
+argument_list|,
+name|maxShardsPerNode
 argument_list|,
 name|cnt
 argument_list|)
@@ -2125,10 +2235,33 @@ operator|==
 literal|0
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"no suitable hosts found for getBestCreateUrl for collection={}"
+argument_list|,
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
 block|}
+name|ValueComparator
+name|vc
+init|=
+operator|new
+name|ValueComparator
+argument_list|(
+name|counts
+argument_list|)
+decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -2139,7 +2272,11 @@ name|sortedCounts
 init|=
 operator|new
 name|TreeMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|Counts
+argument_list|>
 argument_list|(
 name|vc
 argument_list|)
@@ -2155,18 +2292,48 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"empty nodes={}"
+literal|"empty nodes={} for collection={}"
 argument_list|,
 name|liveNodes
+argument_list|,
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"sorted hosts={}"
+literal|"sorted hosts={} for collection={}"
 argument_list|,
 name|sortedCounts
+argument_list|,
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"unsuitable hosts={} for collection={}"
+argument_list|,
+name|unsuitableHosts
+argument_list|,
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2215,7 +2382,14 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"check if replica already exists on node using replicas {}"
+literal|"collection={} check if replica already exists on node using replicas {}"
+argument_list|,
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|getNames
 argument_list|(
@@ -2315,7 +2489,14 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"replica already exists on node, bad replica={}, existing replica={}, node name={}"
+literal|"collection={} replica already exists on node, bad replica={}, existing replica={}, node name={}"
+argument_list|,
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|badReplica
 operator|.
@@ -2345,7 +2526,14 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"replica does not yet exist on node: {}"
+literal|"collection={} replica does not yet exist on node: {}"
+argument_list|,
+name|badReplica
+operator|.
+name|collection
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|baseUrl
 argument_list|)
@@ -2728,6 +2916,10 @@ operator|+
 literal|", sameSliceCount="
 operator|+
 name|ourReplicas
+operator|+
+literal|", collectionShardsOnNode="
+operator|+
+name|collectionShardsOnNode
 operator|+
 literal|"]"
 return|;
