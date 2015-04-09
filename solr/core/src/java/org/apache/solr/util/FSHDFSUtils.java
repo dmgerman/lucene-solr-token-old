@@ -323,6 +323,12 @@ comment|// default value for DFS_CLIENT_SOCKET_TIMEOUT_KEY.
 name|long
 name|subsequentPause
 init|=
+name|TimeUnit
+operator|.
+name|NANOSECONDS
+operator|.
+name|convert
+argument_list|(
 name|conf
 operator|.
 name|getInt
@@ -332,6 +338,11 @@ argument_list|,
 literal|61
 operator|*
 literal|1000
+argument_list|)
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 decl_stmt|;
 name|Method
