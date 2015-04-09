@@ -343,7 +343,7 @@ literal|4
 index|]
 argument_list|)
 decl_stmt|;
-name|int
+name|long
 name|ret
 init|=
 literal|0
@@ -949,7 +949,7 @@ name|ret
 operator|+=
 name|res
 operator|.
-name|memSize
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}
