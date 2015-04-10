@@ -381,7 +381,8 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|value
 parameter_list|)
 throws|throws
