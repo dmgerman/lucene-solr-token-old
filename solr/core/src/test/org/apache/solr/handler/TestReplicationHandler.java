@@ -7291,7 +7291,10 @@ operator|.
 name|get
 argument_list|(
 name|dataDir
-argument_list|,
+argument_list|)
+operator|.
+name|resolve
+argument_list|(
 literal|"index"
 argument_list|)
 argument_list|)

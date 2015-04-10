@@ -1100,7 +1100,10 @@ operator|.
 name|get
 argument_list|(
 name|location
-argument_list|,
+argument_list|)
+operator|.
+name|resolve
+argument_list|(
 literal|"snapshot."
 operator|+
 name|snapshotName
