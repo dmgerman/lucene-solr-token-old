@@ -29,6 +29,23 @@ operator|.
 name|*
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|spans
+operator|.
+name|SpanTestUtil
+operator|.
+name|*
+import|;
+end_import
 begin_comment
 comment|/**  * TestExplanations subclass focusing on span queries  */
 end_comment
