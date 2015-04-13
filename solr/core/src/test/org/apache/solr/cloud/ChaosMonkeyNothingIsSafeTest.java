@@ -1896,8 +1896,6 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-comment|//System.err.println("REQUEST FAILED:");
-comment|//e.printStackTrace();
 name|fails
 operator|.
 name|incrementAndGet
@@ -1960,8 +1958,6 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-comment|//System.err.println("REQUEST FAILED:");
-comment|//e.printStackTrace();
 name|fails
 operator|.
 name|incrementAndGet

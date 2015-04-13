@@ -2485,11 +2485,9 @@ name|clientPort
 argument_list|)
 expr_stmt|;
 block|}
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"client port:"
 operator|+

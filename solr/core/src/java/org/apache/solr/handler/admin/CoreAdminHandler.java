@@ -951,9 +951,9 @@ specifier|final
 name|ExecutorService
 name|parallelExecutor
 init|=
-name|Executors
+name|ExecutorUtil
 operator|.
-name|newFixedThreadPool
+name|newMDCAwareFixedThreadPool
 argument_list|(
 literal|50
 argument_list|,

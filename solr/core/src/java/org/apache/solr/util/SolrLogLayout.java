@@ -245,6 +245,23 @@ name|cloud
 operator|.
 name|ZkStateReader
 operator|.
+name|NODE_NAME_PROP
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|cloud
+operator|.
+name|ZkStateReader
+operator|.
 name|REPLICA_PROP
 import|;
 end_import
@@ -814,13 +831,6 @@ name|core
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|zkController
-operator|==
-literal|null
-condition|)
-block|{
 name|zkController
 operator|=
 name|core
@@ -834,7 +844,6 @@ operator|.
 name|getZkController
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|zkController
@@ -1010,6 +1019,7 @@ argument_list|(
 name|sb
 argument_list|)
 expr_stmt|;
+comment|// todo: should be able to get port from core container for non zk tests
 if|if
 condition|(
 name|info
@@ -1032,33 +1042,6 @@ name|shortId
 argument_list|)
 expr_stmt|;
 comment|// core
-block|}
-if|if
-condition|(
-name|zkController
-operator|!=
-literal|null
-condition|)
-block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|" P"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|zkController
-operator|.
-name|getHostPort
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// todo: should be
-comment|// able to get this
-comment|// from core container
-comment|// for non zk tests
 block|}
 if|if
 condition|(
@@ -1959,6 +1942,40 @@ name|StringBuilder
 name|sb
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|StringUtils
+operator|.
+name|isEmpty
+argument_list|(
+name|MDC
+operator|.
+name|get
+argument_list|(
+name|NODE_NAME_PROP
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" N:"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|MDC
+operator|.
+name|get
+argument_list|(
+name|NODE_NAME_PROP
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!

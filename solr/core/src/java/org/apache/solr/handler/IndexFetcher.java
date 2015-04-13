@@ -632,6 +632,21 @@ name|common
 operator|.
 name|util
 operator|.
+name|ExecutorUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|util
+operator|.
 name|FastInputStream
 import|;
 end_import
@@ -2457,9 +2472,9 @@ expr_stmt|;
 comment|// Create the sync service
 name|fsyncService
 operator|=
-name|Executors
+name|ExecutorUtil
 operator|.
-name|newSingleThreadExecutor
+name|newMDCAwareSingleThreadExecutor
 argument_list|(
 operator|new
 name|DefaultSolrThreadFactory
