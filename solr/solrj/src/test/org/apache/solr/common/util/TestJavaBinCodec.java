@@ -2877,6 +2877,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+specifier|final
 name|JavaBinCodec
 operator|.
 name|StringCache
@@ -3030,6 +3031,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
 name|ITERS
 init|=
@@ -3044,8 +3046,16 @@ name|runInThreads
 argument_list|(
 name|THREADS
 argument_list|,
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
 parameter_list|()
-lambda|->
 block|{
 name|JavaBinCodec
 operator|.
@@ -3137,6 +3147,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
 argument_list|)
 expr_stmt|;
 name|printMem
@@ -3173,8 +3184,16 @@ name|runInThreads
 argument_list|(
 name|THREADS
 argument_list|,
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
 parameter_list|()
-lambda|->
 block|{
 name|String
 name|a
@@ -3251,6 +3270,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
@@ -3577,6 +3597,7 @@ operator|++
 index|]
 argument_list|)
 decl_stmt|;
+specifier|final
 name|long
 name|iter
 init|=
@@ -3614,6 +3635,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+specifier|final
 name|byte
 index|[]
 index|[]
@@ -4018,6 +4040,7 @@ else|:
 literal|null
 decl_stmt|;
 comment|// the cache in the first version of the patch was 10000,9000,10000,1000,false,true,null
+specifier|final
 name|JavaBinCodec
 operator|.
 name|StringCache
@@ -4225,16 +4248,6 @@ name|bufnum
 init|=
 operator|-
 literal|1
-decl_stmt|;
-name|byte
-index|[]
-name|tmp
-init|=
-operator|new
-name|byte
-index|[
-literal|8192
-index|]
 decl_stmt|;
 name|InputStream
 name|empty
