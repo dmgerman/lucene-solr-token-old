@@ -1260,6 +1260,8 @@ literal|"      initialSize:20,"
 operator|+
 literal|"      autowarmCount:20,"
 operator|+
+literal|"      maxRamMB:20,"
+operator|+
 literal|"      regenerator:0},"
 operator|+
 literal|"    queryResultCache:{"
@@ -1271,6 +1273,8 @@ operator|+
 literal|"      initialSize:20,"
 operator|+
 literal|"      autowarmCount:20,"
+operator|+
+literal|"      maxRamMB:20,"
 operator|+
 literal|"      regenerator:0},"
 operator|+
