@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -47,6 +56,19 @@ operator|.
 name|index
 operator|.
 name|LeafReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|Term
 import|;
 end_import
 begin_import
@@ -109,6 +131,20 @@ operator|=
 name|query
 expr_stmt|;
 block|}
+comment|/**    * Expert: adds all terms occurring in this query to the terms set. If the    * {@link Weight} was created with {@code needsScores == true} then this    * method will only extract terms which are used for scoring, otherwise it    * will extract all terms which are used for matching.    */
+DECL|method|extractTerms
+specifier|public
+specifier|abstract
+name|void
+name|extractTerms
+parameter_list|(
+name|Set
+argument_list|<
+name|Term
+argument_list|>
+name|terms
+parameter_list|)
+function_decl|;
 comment|/**    * An explanation of the score computation for the named document.    *     * @param context the readers context to create the {@link Explanation} for.    * @param doc the document's id relative to the given context's reader    * @return an Explanation for the score    * @throws IOException if an {@link IOException} occurs    */
 DECL|method|explain
 specifier|public

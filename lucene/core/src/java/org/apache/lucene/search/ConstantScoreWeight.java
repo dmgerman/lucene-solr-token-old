@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -34,6 +43,19 @@ operator|.
 name|index
 operator|.
 name|LeafReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|Term
 import|;
 end_import
 begin_import
@@ -84,6 +106,24 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|extractTerms
+specifier|public
+name|void
+name|extractTerms
+parameter_list|(
+name|Set
+argument_list|<
+name|Term
+argument_list|>
+name|terms
+parameter_list|)
+block|{
+comment|// most constant-score queries don't wrap index terms
+comment|// eg. geo filters, doc values queries, ...
+comment|// override if your constant-score query does wrap terms
 block|}
 annotation|@
 name|Override

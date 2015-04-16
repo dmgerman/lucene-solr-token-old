@@ -3400,6 +3400,19 @@ block|{
 annotation|@
 name|Override
 specifier|public
+name|void
+name|extractTerms
+parameter_list|(
+name|Set
+argument_list|<
+name|Term
+argument_list|>
+name|terms
+parameter_list|)
+block|{         }
+annotation|@
+name|Override
+specifier|public
 name|float
 name|getValueForNormalization
 parameter_list|()
@@ -3611,20 +3624,6 @@ block|}
 block|}
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|extractTerms
-specifier|public
-name|void
-name|extractTerms
-parameter_list|(
-name|Set
-argument_list|<
-name|Term
-argument_list|>
-name|terms
-parameter_list|)
-block|{     }
 annotation|@
 name|Override
 DECL|method|toString

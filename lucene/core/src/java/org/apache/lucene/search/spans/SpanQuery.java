@@ -36,6 +36,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -83,6 +92,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|IndexSearcher
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -96,7 +118,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|IndexSearcher
+name|Weight
 import|;
 end_import
 begin_import
@@ -147,6 +169,20 @@ name|termContexts
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|/**    * Extract terms from these spans.    * @lucene.internal    * @see Weight#extractTerms    */
+DECL|method|extractTerms
+specifier|protected
+specifier|abstract
+name|void
+name|extractTerms
+parameter_list|(
+name|Set
+argument_list|<
+name|Term
+argument_list|>
+name|terms
+parameter_list|)
 function_decl|;
 comment|/**    * Returns the name of the field matched by this query.    *<p>    * Note that this may return null if the query matches no terms.    */
 DECL|method|getField
