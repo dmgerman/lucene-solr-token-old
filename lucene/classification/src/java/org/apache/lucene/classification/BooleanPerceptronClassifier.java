@@ -944,6 +944,38 @@ operator|.
 name|doc
 argument_list|)
 decl_stmt|;
+name|StorableField
+name|textField
+init|=
+name|doc
+operator|.
+name|getField
+argument_list|(
+name|textFieldName
+argument_list|)
+decl_stmt|;
+comment|// get the expected result
+name|StorableField
+name|classField
+init|=
+name|doc
+operator|.
+name|getField
+argument_list|(
+name|classFieldName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|textField
+operator|!=
+literal|null
+operator|&&
+name|classField
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// assign class to the doc
 name|ClassificationResult
 argument_list|<
@@ -953,12 +985,7 @@ name|classificationResult
 init|=
 name|assignClass
 argument_list|(
-name|doc
-operator|.
-name|getField
-argument_list|(
-name|textFieldName
-argument_list|)
+name|textField
 operator|.
 name|stringValue
 argument_list|()
@@ -972,17 +999,6 @@ operator|.
 name|getAssignedClass
 argument_list|()
 decl_stmt|;
-comment|// get the expected result
-name|StorableField
-name|field
-init|=
-name|doc
-operator|.
-name|getField
-argument_list|(
-name|classFieldName
-argument_list|)
-decl_stmt|;
 name|Boolean
 name|correctClass
 init|=
@@ -990,7 +1006,7 @@ name|Boolean
 operator|.
 name|valueOf
 argument_list|(
-name|field
+name|classField
 operator|.
 name|stringValue
 argument_list|()
@@ -1038,6 +1054,7 @@ block|}
 name|batchCount
 operator|++
 expr_stmt|;
+block|}
 block|}
 name|weights
 operator|.
@@ -1372,7 +1389,7 @@ name|List
 argument_list|<
 name|ClassificationResult
 argument_list|<
-name|BytesRef
+name|Boolean
 argument_list|>
 argument_list|>
 name|getClasses
@@ -1383,9 +1400,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"not implemented"
+argument_list|)
+throw|;
 block|}
 comment|/**    * {@inheritDoc}    */
 annotation|@
@@ -1396,7 +1417,7 @@ name|List
 argument_list|<
 name|ClassificationResult
 argument_list|<
-name|BytesRef
+name|Boolean
 argument_list|>
 argument_list|>
 name|getClasses
@@ -1410,9 +1431,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"not implemented"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class
