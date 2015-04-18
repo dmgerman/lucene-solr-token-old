@@ -263,6 +263,21 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
+name|SuppressFsync
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
 name|SuppressTempFileChecks
 import|;
 end_import
@@ -646,14 +661,23 @@ operator|.
 name|getRandom
 argument_list|()
 decl_stmt|;
-comment|// sometimes just use a bare filesystem
+comment|// speed up tests by omitting actual fsync calls to the hardware most of the time.
 if|if
 condition|(
+name|targetClass
+operator|.
+name|isAnnotationPresent
+argument_list|(
+name|SuppressFsync
+operator|.
+name|class
+argument_list|)
+operator|||
 name|random
 operator|.
 name|nextInt
 argument_list|(
-literal|10
+literal|100
 argument_list|)
 operator|>
 literal|0
@@ -685,6 +709,21 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// otherwise, wrap with mockfilesystems for additional checks. some
+comment|// of these have side effects (e.g. concurrency) so it doesn't always happen.
+if|if
+condition|(
+name|random
+operator|.
+name|nextInt
+argument_list|(
+literal|10
+argument_list|)
+operator|>
+literal|0
+condition|)
+block|{
 if|if
 condition|(
 name|allowed
