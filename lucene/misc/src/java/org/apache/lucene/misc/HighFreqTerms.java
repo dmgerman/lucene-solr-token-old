@@ -146,6 +146,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -201,6 +214,13 @@ name|DEFAULT_NUMTERMS
 init|=
 literal|100
 decl_stmt|;
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System.out required: command line tool"
+argument_list|)
 DECL|method|main
 specifier|public
 specifier|static
@@ -441,6 +461,13 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System.out required: command line tool"
+argument_list|)
 DECL|method|usage
 specifier|private
 specifier|static

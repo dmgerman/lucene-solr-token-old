@@ -142,6 +142,19 @@ operator|.
 name|Iterator
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SuppressForbidden
+import|;
+end_import
 begin_comment
 comment|/**    * A {@code FilterPath} contains another   * {@code Path}, which it uses as its basic   * source of data, possibly transforming the data along the   * way or providing additional functionality.   */
 end_comment
@@ -704,6 +717,13 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Abstract API requires to use java.io.File"
+argument_list|)
 DECL|method|toFile
 specifier|public
 name|File

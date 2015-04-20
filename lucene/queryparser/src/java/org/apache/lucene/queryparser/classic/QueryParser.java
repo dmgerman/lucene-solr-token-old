@@ -520,7 +520,9 @@ name|clauses
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|BooleanClause
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|Query
@@ -3130,7 +3132,10 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|int
+index|[]
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|jj_expentry

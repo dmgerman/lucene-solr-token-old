@@ -83,6 +83,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -105,6 +118,13 @@ begin_comment
 comment|/**  * Merges indices specified on the command line into the index  * specified as the first command line argument.  */
 end_comment
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System.out required: command line tool"
+argument_list|)
 DECL|class|IndexMergeTool
 specifier|public
 class|class

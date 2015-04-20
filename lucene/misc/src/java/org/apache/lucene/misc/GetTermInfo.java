@@ -68,6 +68,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|util
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DirectoryReader
@@ -103,6 +116,13 @@ begin_comment
 comment|/**  * Utility to get document frequency and total number of occurrences (sum of the tf for each doc)  of a term.   */
 end_comment
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System.out required: command line tool"
+argument_list|)
 DECL|class|GetTermInfo
 specifier|public
 class|class
