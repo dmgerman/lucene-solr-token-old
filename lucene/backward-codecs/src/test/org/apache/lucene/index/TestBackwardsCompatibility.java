@@ -1719,7 +1719,11 @@ block|,
 literal|"4.10.3-cfs"
 block|,
 literal|"4.10.3-nocfs"
-block|,   }
+block|,
+literal|"4.10.4-cfs"
+block|,
+literal|"4.10.4-nocfs"
+block|}
 decl_stmt|;
 DECL|field|oldSingleSegmentNames
 specifier|final
