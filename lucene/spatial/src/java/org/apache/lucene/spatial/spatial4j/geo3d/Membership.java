@@ -33,6 +33,7 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|Vector
 name|point
 parameter_list|)
@@ -43,12 +44,15 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|double
 name|x
 parameter_list|,
+specifier|final
 name|double
 name|y
 parameter_list|,
+specifier|final
 name|double
 name|z
 parameter_list|)

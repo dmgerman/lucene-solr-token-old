@@ -24,7 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 begin_comment
@@ -65,6 +74,7 @@ specifier|public
 name|void
 name|addShape
 parameter_list|(
+specifier|final
 name|GeoMembershipShape
 name|shape
 parameter_list|)
@@ -84,6 +94,7 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|Vector
 name|point
 parameter_list|)
@@ -120,12 +131,15 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|double
 name|x
 parameter_list|,
+specifier|final
 name|double
 name|y
 parameter_list|,
+specifier|final
 name|double
 name|z
 parameter_list|)
@@ -161,10 +175,11 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getInteriorPoint
+DECL|method|getEdgePoints
 specifier|public
 name|GeoPoint
-name|getInteriorPoint
+index|[]
+name|getEdgePoints
 parameter_list|()
 block|{
 return|return
@@ -175,7 +190,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getInteriorPoint
+name|getEdgePoints
 argument_list|()
 return|;
 block|}
@@ -186,9 +201,11 @@ specifier|public
 name|boolean
 name|intersects
 parameter_list|(
+specifier|final
 name|Plane
 name|p
 parameter_list|,
+specifier|final
 name|Membership
 modifier|...
 name|bounds
@@ -388,7 +405,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"GeoCompositeMembershipShape{"
+literal|"GeoCompositeMembershipShape: {"
 operator|+
 name|shapes
 operator|+

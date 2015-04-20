@@ -26,8 +26,8 @@ DECL|class|GeoDegenerateVerticalLine
 specifier|public
 class|class
 name|GeoDegenerateVerticalLine
-implements|implements
-name|GeoBBox
+extends|extends
+name|GeoBBoxBase
 block|{
 DECL|field|topLat
 specifier|public
@@ -89,17 +89,27 @@ specifier|final
 name|GeoPoint
 name|centerPoint
 decl_stmt|;
+DECL|field|edgePoints
+specifier|public
+specifier|final
+name|GeoPoint
+index|[]
+name|edgePoints
+decl_stmt|;
 comment|/** Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, longitude: {@code -PI -> PI} */
 DECL|method|GeoDegenerateVerticalLine
 specifier|public
 name|GeoDegenerateVerticalLine
 parameter_list|(
+specifier|final
 name|double
 name|topLat
 parameter_list|,
+specifier|final
 name|double
 name|bottomLat
 parameter_list|,
+specifier|final
 name|double
 name|longitude
 parameter_list|)
@@ -210,6 +220,7 @@ name|longitude
 operator|=
 name|longitude
 expr_stmt|;
+specifier|final
 name|double
 name|sinTopLat
 init|=
@@ -220,6 +231,7 @@ argument_list|(
 name|topLat
 argument_list|)
 decl_stmt|;
+specifier|final
 name|double
 name|cosTopLat
 init|=
@@ -230,6 +242,7 @@ argument_list|(
 name|topLat
 argument_list|)
 decl_stmt|;
+specifier|final
 name|double
 name|sinBottomLat
 init|=
@@ -240,6 +253,7 @@ argument_list|(
 name|bottomLat
 argument_list|)
 decl_stmt|;
+specifier|final
 name|double
 name|cosBottomLat
 init|=
@@ -250,6 +264,7 @@ argument_list|(
 name|bottomLat
 argument_list|)
 decl_stmt|;
+specifier|final
 name|double
 name|sinLongitude
 init|=
@@ -260,6 +275,7 @@ argument_list|(
 name|longitude
 argument_list|)
 decl_stmt|;
+specifier|final
 name|double
 name|cosLongitude
 init|=
@@ -315,6 +331,7 @@ argument_list|,
 name|sinLongitude
 argument_list|)
 expr_stmt|;
+specifier|final
 name|double
 name|middleLat
 init|=
@@ -326,6 +343,7 @@ operator|)
 operator|*
 literal|0.5
 decl_stmt|;
+specifier|final
 name|double
 name|sinMiddleLat
 init|=
@@ -336,6 +354,7 @@ argument_list|(
 name|middleLat
 argument_list|)
 decl_stmt|;
+specifier|final
 name|double
 name|cosMiddleLat
 init|=
@@ -346,6 +365,8 @@ argument_list|(
 name|middleLat
 argument_list|)
 decl_stmt|;
+name|this
+operator|.
 name|centerPoint
 operator|=
 operator|new
@@ -399,6 +420,17 @@ argument_list|,
 name|cosLongitude
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|edgePoints
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|centerPoint
+block|}
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -407,10 +439,12 @@ specifier|public
 name|GeoBBox
 name|expand
 parameter_list|(
+specifier|final
 name|double
 name|angle
 parameter_list|)
 block|{
+specifier|final
 name|double
 name|newTopLat
 init|=
@@ -418,6 +452,7 @@ name|topLat
 operator|+
 name|angle
 decl_stmt|;
+specifier|final
 name|double
 name|newBottomLat
 init|=
@@ -497,6 +532,7 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|Vector
 name|point
 parameter_list|)
@@ -540,12 +576,15 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|double
 name|x
 parameter_list|,
+specifier|final
 name|double
 name|y
 parameter_list|,
+specifier|final
 name|double
 name|z
 parameter_list|)
@@ -609,6 +648,7 @@ block|{
 comment|// Here we compute the distance from the middle point to one of the corners.  However, we need to be careful
 comment|// to use the longest of three distances: the distance to a corner on the top; the distnace to a corner on the bottom, and
 comment|// the distance to the right or left edge from the center.
+specifier|final
 name|double
 name|topAngle
 init|=
@@ -619,6 +659,7 @@ argument_list|(
 name|UHC
 argument_list|)
 decl_stmt|;
+specifier|final
 name|double
 name|bottomAngle
 init|=
@@ -642,14 +683,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getInteriorPoint
+DECL|method|getEdgePoints
 specifier|public
 name|GeoPoint
-name|getInteriorPoint
+index|[]
+name|getEdgePoints
 parameter_list|()
 block|{
 return|return
-name|centerPoint
+name|edgePoints
 return|;
 block|}
 annotation|@
@@ -659,9 +701,11 @@ specifier|public
 name|boolean
 name|intersects
 parameter_list|(
+specifier|final
 name|Plane
 name|p
 parameter_list|,
+specifier|final
 name|Membership
 modifier|...
 name|bounds
@@ -738,6 +782,7 @@ specifier|public
 name|int
 name|getRelationship
 parameter_list|(
+specifier|final
 name|GeoShape
 name|path
 parameter_list|)
@@ -856,6 +901,60 @@ argument_list|()
 expr_stmt|;
 return|return
 name|result
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"GeoDegenerateVerticalLine: {longitude="
+operator|+
+name|longitude
+operator|+
+literal|"("
+operator|+
+name|longitude
+operator|*
+literal|180.0
+operator|/
+name|Math
+operator|.
+name|PI
+operator|+
+literal|"), toplat="
+operator|+
+name|topLat
+operator|+
+literal|"("
+operator|+
+name|topLat
+operator|*
+literal|180.0
+operator|/
+name|Math
+operator|.
+name|PI
+operator|+
+literal|"), bottomlat="
+operator|+
+name|bottomLat
+operator|+
+literal|"("
+operator|+
+name|bottomLat
+operator|*
+literal|180.0
+operator|/
+name|Math
+operator|.
+name|PI
+operator|+
+literal|")}"
 return|;
 block|}
 block|}

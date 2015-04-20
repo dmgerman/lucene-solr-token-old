@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 begin_import
@@ -33,7 +33,16 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|BitSet
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 begin_comment
@@ -132,6 +141,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -155,6 +166,9 @@ name|endPointIndex
 parameter_list|,
 name|SidedPlane
 name|startingEdge
+parameter_list|,
+name|boolean
+name|isInternalEdge
 parameter_list|)
 block|{
 comment|// Algorithm as follows:
@@ -162,6 +176,7 @@ comment|// Start with sided edge.  Go through all points in some order.  For eac
 comment|// If not, put it into a list of points for recursion.  If it is within, add new edge and keep going.
 comment|// Once we detect a point that is within, if there are points put aside for recursion, then call recursively.
 comment|// Current composite.  This is what we'll actually be returning.
+specifier|final
 name|GeoCompositeMembershipShape
 name|rval
 init|=
@@ -169,6 +184,7 @@ operator|new
 name|GeoCompositeMembershipShape
 argument_list|()
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|GeoPoint
@@ -182,6 +198,7 @@ name|GeoPoint
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|GeoPoint
@@ -195,6 +212,15 @@ name|GeoPoint
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|final
+name|BitSet
+name|internalEdgeList
+init|=
+operator|new
+name|BitSet
+argument_list|()
+decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|SidedPlane
@@ -231,6 +257,18 @@ name|get
 argument_list|(
 name|endPointIndex
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|internalEdgeList
+operator|.
+name|set
+argument_list|(
+name|currentPlanes
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|isInternalEdge
 argument_list|)
 expr_stmt|;
 name|currentPlanes
@@ -495,14 +533,19 @@ name|pointInside
 condition|)
 block|{
 comment|// Any excluded points?
-if|if
-condition|(
+name|boolean
+name|isInternalBoundary
+init|=
 name|recursionList
 operator|.
 name|size
 argument_list|()
 operator|>
 literal|0
+decl_stmt|;
+if|if
+condition|(
+name|isInternalBoundary
 condition|)
 block|{
 comment|// Handle exclusion
@@ -586,6 +629,8 @@ operator|-
 literal|1
 argument_list|,
 name|otherSideNewBoundary
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -600,6 +645,18 @@ operator|.
 name|add
 argument_list|(
 name|newPoint
+argument_list|)
+expr_stmt|;
+name|internalEdgeList
+operator|.
+name|set
+argument_list|(
+name|currentPlanes
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|isInternalBoundary
 argument_list|)
 expr_stmt|;
 name|currentPlanes
@@ -632,14 +689,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
+name|boolean
+name|returnEdgeInternalBoundary
+init|=
 name|recursionList
 operator|.
 name|size
 argument_list|()
 operator|>
 literal|0
+decl_stmt|;
+if|if
+condition|(
+name|returnEdgeInternalBoundary
 condition|)
 block|{
 comment|// The last step back to the start point had a recursion, so take care of that before we complete our work
@@ -767,6 +829,8 @@ operator|-
 literal|1
 argument_list|,
 name|otherSideNewBoundary
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -777,7 +841,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Now, add in the current shape.
-comment|/*         System.out.println("Creating polygon:");         for (GeoPoint p : currentList) {             System.out.println(" "+p);         }         */
 name|rval
 operator|.
 name|addShape
@@ -786,6 +849,10 @@ operator|new
 name|GeoConvexPolygon
 argument_list|(
 name|currentList
+argument_list|,
+name|internalEdgeList
+argument_list|,
+name|returnEdgeInternalBoundary
 argument_list|)
 argument_list|)
 expr_stmt|;

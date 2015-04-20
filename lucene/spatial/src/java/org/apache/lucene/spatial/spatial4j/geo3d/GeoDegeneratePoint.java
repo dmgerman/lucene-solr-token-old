@@ -43,13 +43,22 @@ specifier|final
 name|double
 name|longitude
 decl_stmt|;
+DECL|field|edgePoints
+specifier|public
+specifier|final
+name|GeoPoint
+index|[]
+name|edgePoints
+decl_stmt|;
 DECL|method|GeoDegeneratePoint
 specifier|public
 name|GeoDegeneratePoint
 parameter_list|(
+specifier|final
 name|double
 name|lat
 parameter_list|,
+specifier|final
 name|double
 name|lon
 parameter_list|)
@@ -73,6 +82,17 @@ name|longitude
 operator|=
 name|lon
 expr_stmt|;
+name|this
+operator|.
+name|edgePoints
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|this
+block|}
+expr_stmt|;
 block|}
 comment|/** Expand box by specified angle.      *@param angle is the angle amount to expand the GeoBBox by.      *@return a new GeoBBox.      */
 annotation|@
@@ -82,10 +102,12 @@ specifier|public
 name|GeoBBox
 name|expand
 parameter_list|(
+specifier|final
 name|double
 name|angle
 parameter_list|)
 block|{
+specifier|final
 name|double
 name|newTopLat
 init|=
@@ -93,6 +115,7 @@ name|latitude
 operator|+
 name|angle
 decl_stmt|;
+specifier|final
 name|double
 name|newBottomLat
 init|=
@@ -100,6 +123,7 @@ name|latitude
 operator|-
 name|angle
 decl_stmt|;
+specifier|final
 name|double
 name|newLeftLon
 init|=
@@ -107,6 +131,7 @@ name|longitude
 operator|-
 name|angle
 decl_stmt|;
+specifier|final
 name|double
 name|newRightLon
 init|=
@@ -129,17 +154,18 @@ name|newRightLon
 argument_list|)
 return|;
 block|}
-comment|/** Return a sample point that is inside the shape.      *@return an interior point.      */
+comment|/** Return a sample point that is on the edge of the shape.      *@return an interior point.      */
 annotation|@
 name|Override
-DECL|method|getInteriorPoint
+DECL|method|getEdgePoints
 specifier|public
 name|GeoPoint
-name|getInteriorPoint
+index|[]
+name|getEdgePoints
 parameter_list|()
 block|{
 return|return
-name|this
+name|edgePoints
 return|;
 block|}
 comment|/** Assess whether a plane, within the provided bounds, intersects      * with the shape.      *@param plane is the plane to assess for intersection with the shape's edges or      *  bounding curves.      *@param bounds are a set of bounds that define an area that an      *  intersection must be within in order to qualify (provided by a GeoArea).      *@return true if there's such an intersection, false if not.      */
@@ -150,9 +176,11 @@ specifier|public
 name|boolean
 name|intersects
 parameter_list|(
+specifier|final
 name|Plane
 name|plane
 parameter_list|,
+specifier|final
 name|Membership
 modifier|...
 name|bounds
@@ -351,6 +379,46 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"GeoDegeneratePoint: {lat="
+operator|+
+name|latitude
+operator|+
+literal|"("
+operator|+
+name|latitude
+operator|*
+literal|180.0
+operator|/
+name|Math
+operator|.
+name|PI
+operator|+
+literal|"), lon="
+operator|+
+name|longitude
+operator|+
+literal|"("
+operator|+
+name|longitude
+operator|*
+literal|180.0
+operator|/
+name|Math
+operator|.
+name|PI
+operator|+
+literal|")}"
+return|;
+block|}
 comment|/** Check if a point is within this shape.      *@param point is the point to check.      *@return true if the point is within this shape      */
 annotation|@
 name|Override
@@ -359,6 +427,7 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|Vector
 name|point
 parameter_list|)
@@ -388,12 +457,15 @@ specifier|public
 name|boolean
 name|isWithin
 parameter_list|(
+specifier|final
 name|double
 name|x
 parameter_list|,
+specifier|final
 name|double
 name|y
 parameter_list|,
+specifier|final
 name|double
 name|z
 parameter_list|)
@@ -439,6 +511,7 @@ specifier|public
 name|int
 name|getRelationship
 parameter_list|(
+specifier|final
 name|GeoShape
 name|shape
 parameter_list|)
