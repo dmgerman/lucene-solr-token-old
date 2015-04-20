@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.util.junitcompat
+DECL|package|org.apache.lucene.util
 package|package
 name|org
 operator|.
@@ -9,8 +9,6 @@ operator|.
 name|lucene
 operator|.
 name|util
-operator|.
-name|junitcompat
 package|;
 end_package
 begin_import
