@@ -302,8 +302,9 @@ name|stats
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Explanation
+operator|.
+name|match
 argument_list|(
 literal|1.0f
 argument_list|,
