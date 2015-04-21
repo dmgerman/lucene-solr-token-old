@@ -1358,7 +1358,7 @@ operator|+
 name|k1
 operator|)
 argument_list|,
-literal|"parameter b (norms omitted for field)"
+literal|"tfNorm, computed from:"
 argument_list|,
 name|subs
 argument_list|)
