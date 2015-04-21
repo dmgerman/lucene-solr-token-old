@@ -4130,7 +4130,7 @@ return|return
 name|docsWithField
 return|;
 block|}
-comment|// this is the same hack as FCInvisible
+comment|// we don't change behavior of the reader: just validate the API.
 annotation|@
 name|Override
 DECL|method|getCoreCacheKey
@@ -4140,7 +4140,10 @@ name|getCoreCacheKey
 parameter_list|()
 block|{
 return|return
-name|cacheKey
+name|in
+operator|.
+name|getCoreCacheKey
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -4152,19 +4155,12 @@ name|getCombinedCoreAndDeletesKey
 parameter_list|()
 block|{
 return|return
-name|cacheKey
+name|in
+operator|.
+name|getCombinedCoreAndDeletesKey
+argument_list|()
 return|;
 block|}
-DECL|field|cacheKey
-specifier|private
-specifier|final
-name|Object
-name|cacheKey
-init|=
-operator|new
-name|Object
-argument_list|()
-decl_stmt|;
 block|}
 end_class
 end_unit
