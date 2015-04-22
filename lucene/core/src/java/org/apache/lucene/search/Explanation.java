@@ -74,6 +74,7 @@ end_comment
 begin_class
 DECL|class|Explanation
 specifier|public
+specifier|final
 class|class
 name|Explanation
 block|{
@@ -175,10 +176,7 @@ literal|0f
 argument_list|,
 name|description
 argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
+name|details
 argument_list|)
 return|;
 block|}
@@ -207,10 +205,12 @@ literal|0f
 argument_list|,
 name|description
 argument_list|,
-name|Collections
+name|Arrays
 operator|.
-name|emptyList
-argument_list|()
+name|asList
+argument_list|(
+name|details
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -355,9 +355,8 @@ return|return
 name|description
 return|;
 block|}
-comment|/**    * A short one line summary which should contain all high level    * information about this Explanation, without the "Details"    */
 DECL|method|getSummary
-specifier|protected
+specifier|private
 name|String
 name|getSummary
 parameter_list|()
@@ -410,7 +409,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|toString
-specifier|protected
+specifier|private
 name|String
 name|toString
 parameter_list|(
