@@ -28,6 +28,21 @@ name|client
 operator|.
 name|solrj
 operator|.
+name|SolrServerException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
 name|response
 operator|.
 name|QueryResponse
@@ -127,6 +142,15 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 begin_import
@@ -240,6 +264,11 @@ argument_list|(
 literal|"*:*"
 argument_list|)
 expr_stmt|;
+name|String
+name|FIELD1
+init|=
+literal|"lowerfilt"
+decl_stmt|;
 name|indexDoc
 argument_list|(
 name|sdoc
@@ -248,7 +277,7 @@ name|id
 argument_list|,
 literal|"1"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"toyota"
 argument_list|)
@@ -262,7 +291,7 @@ name|id
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"chevrolet"
 argument_list|)
@@ -276,7 +305,7 @@ name|id
 argument_list|,
 literal|"3"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"bmw usa"
 argument_list|)
@@ -290,7 +319,7 @@ name|id
 argument_list|,
 literal|"4"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"ford"
 argument_list|)
@@ -304,7 +333,7 @@ name|id
 argument_list|,
 literal|"5"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"ferrari"
 argument_list|)
@@ -318,7 +347,7 @@ name|id
 argument_list|,
 literal|"6"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"jaguar"
 argument_list|)
@@ -332,7 +361,7 @@ name|id
 argument_list|,
 literal|"7"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"mclaren moon or the moon and moon moon shine and the moon but moon was good foxes too"
 argument_list|)
@@ -346,7 +375,7 @@ name|id
 argument_list|,
 literal|"8"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"sonata"
 argument_list|)
@@ -360,7 +389,7 @@ name|id
 argument_list|,
 literal|"9"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quick red fox jumped over the lazy big and large brown dogs."
 argument_list|)
@@ -374,7 +403,7 @@ name|id
 argument_list|,
 literal|"10"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"blue"
 argument_list|)
@@ -388,7 +417,7 @@ name|id
 argument_list|,
 literal|"12"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"glue"
 argument_list|)
@@ -402,7 +431,7 @@ name|id
 argument_list|,
 literal|"13"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quote red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -416,7 +445,7 @@ name|id
 argument_list|,
 literal|"14"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quote red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -430,7 +459,7 @@ name|id
 argument_list|,
 literal|"15"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The fat red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -444,7 +473,7 @@ name|id
 argument_list|,
 literal|"16"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The slim red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -458,7 +487,7 @@ name|id
 argument_list|,
 literal|"17"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quote red fox jumped moon over the lazy brown dogs moon. Of course moon. Foxes and moon come back to the foxes and moon"
 argument_list|)
@@ -472,7 +501,7 @@ name|id
 argument_list|,
 literal|"18"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quote red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -486,7 +515,7 @@ name|id
 argument_list|,
 literal|"19"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The hose red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -500,7 +529,7 @@ name|id
 argument_list|,
 literal|"20"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quote red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -514,7 +543,7 @@ name|id
 argument_list|,
 literal|"21"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The court red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -528,7 +557,7 @@ name|id
 argument_list|,
 literal|"22"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quote red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -542,7 +571,7 @@ name|id
 argument_list|,
 literal|"23"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The quote red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -556,7 +585,7 @@ name|id
 argument_list|,
 literal|"24"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"The file red fox jumped over the lazy brown dogs."
 argument_list|)
@@ -570,7 +599,7 @@ name|id
 argument_list|,
 literal|"25"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"rod fix"
 argument_list|)
@@ -584,7 +613,7 @@ name|id
 argument_list|,
 literal|"26"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"bmw usa 328i"
 argument_list|)
@@ -598,7 +627,7 @@ name|id
 argument_list|,
 literal|"27"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"bmw usa 535i"
 argument_list|)
@@ -612,7 +641,7 @@ name|id
 argument_list|,
 literal|"28"
 argument_list|,
-literal|"lowerfilt"
+name|FIELD1
 argument_list|,
 literal|"bmw 750Li"
 argument_list|)
@@ -994,8 +1023,6 @@ literal|"lowerfilt:over lowerfilt:fox lowerfilt:lazy lowerfilt:brown "
 operator|+
 literal|"lowerfilt:jumped lowerfilt:red lowerfilt:dogs. lowerfilt:quote lowerfilt:the"
 decl_stmt|;
-try|try
-block|{
 name|ArrayList
 argument_list|<
 name|String
@@ -1051,49 +1078,6 @@ argument_list|(
 name|counter
 argument_list|)
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|ClassCastException
-name|ex
-parameter_list|)
-block|{
-comment|// TODO: Adding this to just track a rare test failure.
-comment|// Once SOLR-6755 is resolved, this should be removed.
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"QueryResponse.debugMap: {}"
-argument_list|,
-name|queryResponse
-operator|.
-name|getDebugMap
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"ClusterState: {}"
-argument_list|,
-name|cloudClient
-operator|.
-name|getZkStateReader
-argument_list|()
-operator|.
-name|getClusterState
-argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1200,6 +1184,58 @@ argument_list|,
 name|actualIds
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testInvalidDocument
+specifier|public
+name|void
+name|testInvalidDocument
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|ModifiableSolrParams
+name|params
+init|=
+operator|new
+name|ModifiableSolrParams
+argument_list|()
+decl_stmt|;
+name|params
+operator|.
+name|set
+argument_list|(
+name|CommonParams
+operator|.
+name|Q
+argument_list|,
+literal|"{!mlt qf=lowerfilt}nonexistentdocid"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|cloudClient
+operator|.
+name|query
+argument_list|(
+name|params
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"The above query is supposed to throw an exception."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SolrServerException
+name|e
+parameter_list|)
+block|{
+comment|// Do nothing.
+block|}
 block|}
 DECL|method|compareParsedQueryStrings
 specifier|private
