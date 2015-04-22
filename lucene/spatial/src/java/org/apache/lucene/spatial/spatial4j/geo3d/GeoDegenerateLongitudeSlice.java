@@ -72,6 +72,23 @@ name|GeoPoint
 index|[]
 name|edgePoints
 decl_stmt|;
+DECL|field|planePoints
+specifier|public
+specifier|final
+specifier|static
+name|GeoPoint
+index|[]
+name|planePoints
+init|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|NORTH_POLE
+block|,
+name|SOUTH_POLE
+block|}
+decl_stmt|;
 comment|/** Accepts only values in the following ranges: lon: {@code -PI -> PI} */
 DECL|method|GeoDegenerateLongitudeSlice
 specifier|public
@@ -289,12 +306,10 @@ block|{
 return|return
 name|plane
 operator|.
-name|evaluate
+name|evaluateIsZero
 argument_list|(
 name|point
 argument_list|)
-operator|==
-literal|0.0
 operator|&&
 name|boundingPlane
 operator|.
@@ -327,7 +342,7 @@ block|{
 return|return
 name|plane
 operator|.
-name|evaluate
+name|evaluateIsZero
 argument_list|(
 name|x
 argument_list|,
@@ -335,8 +350,6 @@ name|y
 argument_list|,
 name|z
 argument_list|)
-operator|==
-literal|0.0
 operator|&&
 name|boundingPlane
 operator|.
@@ -391,6 +404,11 @@ name|Plane
 name|p
 parameter_list|,
 specifier|final
+name|GeoPoint
+index|[]
+name|notablePoints
+parameter_list|,
+specifier|final
 name|Membership
 modifier|...
 name|bounds
@@ -402,6 +420,10 @@ operator|.
 name|intersects
 argument_list|(
 name|plane
+argument_list|,
+name|notablePoints
+argument_list|,
+name|planePoints
 argument_list|,
 name|bounds
 argument_list|,
@@ -474,6 +496,8 @@ operator|.
 name|intersects
 argument_list|(
 name|plane
+argument_list|,
+name|planePoints
 argument_list|,
 name|boundingPlane
 argument_list|)

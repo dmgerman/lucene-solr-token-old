@@ -83,6 +83,13 @@ specifier|final
 name|Plane
 name|plane
 decl_stmt|;
+DECL|field|planePoints
+specifier|public
+specifier|final
+name|GeoPoint
+index|[]
+name|planePoints
+decl_stmt|;
 DECL|field|centerPoint
 specifier|public
 specifier|final
@@ -422,6 +429,19 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|planePoints
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|UHC
+block|,
+name|LHC
+block|}
+expr_stmt|;
+name|this
+operator|.
 name|edgePoints
 operator|=
 operator|new
@@ -540,12 +560,10 @@ block|{
 return|return
 name|plane
 operator|.
-name|evaluate
+name|evaluateIsZero
 argument_list|(
 name|point
 argument_list|)
-operator|==
-literal|0.0
 operator|&&
 name|boundingPlane
 operator|.
@@ -592,7 +610,7 @@ block|{
 return|return
 name|plane
 operator|.
-name|evaluate
+name|evaluateIsZero
 argument_list|(
 name|x
 argument_list|,
@@ -600,8 +618,6 @@ name|y
 argument_list|,
 name|z
 argument_list|)
-operator|==
-literal|0.0
 operator|&&
 name|boundingPlane
 operator|.
@@ -706,6 +722,11 @@ name|Plane
 name|p
 parameter_list|,
 specifier|final
+name|GeoPoint
+index|[]
+name|notablePoints
+parameter_list|,
+specifier|final
 name|Membership
 modifier|...
 name|bounds
@@ -717,6 +738,10 @@ operator|.
 name|intersects
 argument_list|(
 name|plane
+argument_list|,
+name|notablePoints
+argument_list|,
+name|planePoints
 argument_list|,
 name|bounds
 argument_list|,
@@ -787,6 +812,7 @@ name|GeoShape
 name|path
 parameter_list|)
 block|{
+comment|//System.err.println(this+" relationship to "+path);
 if|if
 condition|(
 name|path
@@ -795,6 +821,8 @@ name|intersects
 argument_list|(
 name|plane
 argument_list|,
+name|planePoints
+argument_list|,
 name|boundingPlane
 argument_list|,
 name|topPlane
@@ -802,9 +830,12 @@ argument_list|,
 name|bottomPlane
 argument_list|)
 condition|)
+block|{
+comment|//System.err.println(" overlaps");
 return|return
 name|OVERLAPS
 return|;
+block|}
 if|if
 condition|(
 name|path
@@ -814,9 +845,13 @@ argument_list|(
 name|centerPoint
 argument_list|)
 condition|)
+block|{
+comment|//System.err.println(" contains");
 return|return
 name|CONTAINS
 return|;
+block|}
+comment|//System.err.println(" disjoint");
 return|return
 name|DISJOINT
 return|;

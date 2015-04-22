@@ -89,6 +89,15 @@ name|internalEdges
 init|=
 literal|null
 decl_stmt|;
+DECL|field|notableEdgePoints
+specifier|protected
+name|GeoPoint
+index|[]
+index|[]
+name|notableEdgePoints
+init|=
+literal|null
+decl_stmt|;
 DECL|field|edgePoints
 specifier|protected
 name|GeoPoint
@@ -405,6 +414,18 @@ name|size
 argument_list|()
 index|]
 expr_stmt|;
+name|notableEdgePoints
+operator|=
+operator|new
+name|GeoPoint
+index|[
+name|points
+operator|.
+name|size
+argument_list|()
+index|]
+index|[]
+expr_stmt|;
 name|internalEdges
 operator|=
 operator|new
@@ -529,6 +550,20 @@ name|i
 index|]
 operator|=
 name|sp
+expr_stmt|;
+name|notableEdgePoints
+index|[
+name|i
+index|]
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|start
+block|,
+name|end
+block|}
 expr_stmt|;
 name|internalEdges
 index|[
@@ -807,11 +842,17 @@ name|Plane
 name|p
 parameter_list|,
 specifier|final
+name|GeoPoint
+index|[]
+name|notablePoints
+parameter_list|,
+specifier|final
 name|Membership
 modifier|...
 name|bounds
 parameter_list|)
 block|{
+comment|//System.err.println("Checking for polygon intersection with plane "+p+"...");
 for|for
 control|(
 name|int
@@ -838,6 +879,18 @@ index|[
 name|edgeIndex
 index|]
 decl_stmt|;
+specifier|final
+name|GeoPoint
+index|[]
+name|points
+init|=
+name|this
+operator|.
+name|notableEdgePoints
+index|[
+name|edgeIndex
+index|]
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -847,6 +900,7 @@ name|edgeIndex
 index|]
 condition|)
 block|{
+comment|//System.err.println(" non-internal edge "+edge);
 comment|// Edges flagged as 'internal only' are excluded from the matching
 comment|// Construct boundaries
 specifier|final
@@ -914,16 +968,24 @@ name|intersects
 argument_list|(
 name|p
 argument_list|,
+name|notablePoints
+argument_list|,
+name|points
+argument_list|,
 name|bounds
 argument_list|,
 name|membershipBounds
 argument_list|)
 condition|)
+block|{
+comment|//System.err.println(" intersects!");
 return|return
 literal|true
 return|;
 block|}
 block|}
+block|}
+comment|//System.err.println(" no intersection");
 return|return
 literal|false
 return|;
