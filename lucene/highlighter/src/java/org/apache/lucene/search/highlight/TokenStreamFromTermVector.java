@@ -214,6 +214,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|CharsRefBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|Counter
 import|;
 end_import
@@ -242,7 +255,6 @@ name|TokenStreamFromTermVector
 extends|extends
 name|TokenStream
 block|{
-comment|//TODO add a maxStartOffset filter, which highlighters will find handy
 comment|//This attribute factory uses less memory when captureState() is called.
 DECL|field|ATTRIBUTE_FACTORY
 specifier|public
@@ -282,6 +294,12 @@ specifier|final
 name|PositionIncrementAttribute
 name|positionIncrementAttribute
 decl_stmt|;
+DECL|field|maxStartOffset
+specifier|private
+specifier|final
+name|int
+name|maxStartOffset
+decl_stmt|;
 DECL|field|offsetAttribute
 specifier|private
 name|OffsetAttribute
@@ -294,6 +312,12 @@ name|PayloadAttribute
 name|payloadAttribute
 decl_stmt|;
 comment|//maybe null
+DECL|field|termCharsBuilder
+specifier|private
+name|CharsRefBuilder
+name|termCharsBuilder
+decl_stmt|;
+comment|//term data here
 DECL|field|payloadsBytesRefArray
 specifier|private
 name|BytesRefArray
@@ -329,13 +353,16 @@ init|=
 literal|false
 decl_stmt|;
 comment|//lazy
-comment|/**    * Constructor.    *     * @param vector Terms that contains the data for    *        creating the TokenStream. Must have positions and/or offsets.    */
+comment|/**    * Constructor. The uninversion doesn't happen here; it's delayed till the first call to    * {@link #incrementToken}.    *    * @param vector Terms that contains the data for    *        creating the TokenStream. Must have positions and/or offsets.    * @param maxStartOffset if a token's start offset exceeds this then the token is not added. -1 disables the limit.    */
 DECL|method|TokenStreamFromTermVector
 specifier|public
 name|TokenStreamFromTermVector
 parameter_list|(
 name|Terms
 name|vector
+parameter_list|,
+name|int
+name|maxStartOffset
 parameter_list|)
 throws|throws
 name|IOException
@@ -344,6 +371,20 @@ name|super
 argument_list|(
 name|ATTRIBUTE_FACTORY
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|maxStartOffset
+operator|=
+name|maxStartOffset
+operator|<
+literal|0
+condition|?
+name|Integer
+operator|.
+name|MAX_VALUE
+else|:
+name|maxStartOffset
 expr_stmt|;
 assert|assert
 operator|!
@@ -453,6 +494,13 @@ assert|assert
 operator|!
 name|initialized
 assert|;
+name|short
+name|dpEnumFlags
+init|=
+name|PostingsEnum
+operator|.
+name|POSITIONS
+decl_stmt|;
 if|if
 condition|(
 name|vector
@@ -461,6 +509,12 @@ name|hasOffsets
 argument_list|()
 condition|)
 block|{
+name|dpEnumFlags
+operator||=
+name|PostingsEnum
+operator|.
+name|OFFSETS
+expr_stmt|;
 name|offsetAttribute
 operator|=
 name|addAttribute
@@ -486,6 +540,19 @@ name|class
 argument_list|)
 condition|)
 block|{
+name|dpEnumFlags
+operator||=
+operator|(
+name|PostingsEnum
+operator|.
+name|OFFSETS
+operator||
+name|PostingsEnum
+operator|.
+name|PAYLOADS
+operator|)
+expr_stmt|;
+comment|//must ask for offsets too
 name|payloadAttribute
 operator|=
 name|getAttribute
@@ -513,6 +580,31 @@ name|BytesRefBuilder
 argument_list|()
 expr_stmt|;
 block|}
+comment|// We put term data here
+name|termCharsBuilder
+operator|=
+operator|new
+name|CharsRefBuilder
+argument_list|()
+expr_stmt|;
+name|termCharsBuilder
+operator|.
+name|grow
+argument_list|(
+call|(
+name|int
+call|)
+argument_list|(
+name|vector
+operator|.
+name|size
+argument_list|()
+operator|*
+literal|7
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//7 is over-estimate of average term len
 comment|// Step 1: iterate termsEnum and create a token, placing into an array of tokens by position
 name|TokenLL
 index|[]
@@ -544,6 +636,14 @@ name|dpEnum
 init|=
 literal|null
 decl_stmt|;
+name|CharsRefBuilder
+name|tempCharsRefBuilder
+init|=
+operator|new
+name|CharsRefBuilder
+argument_list|()
+decl_stmt|;
+comment|//only for UTF8->UTF16 call
 comment|//int sumFreq = 0;
 while|while
 condition|(
@@ -561,19 +661,15 @@ condition|)
 block|{
 comment|//Grab the term (in same way as BytesRef.utf8ToString() but we don't want a String obj)
 comment|// note: if term vectors supported seek by ord then we might just keep an int and seek by ord on-demand
-specifier|final
-name|char
-index|[]
-name|termChars
-init|=
-operator|new
-name|char
-index|[
+name|tempCharsRefBuilder
+operator|.
+name|grow
+argument_list|(
 name|termBytesRef
 operator|.
 name|length
-index|]
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|termCharsLen
@@ -584,9 +680,35 @@ name|UTF8toUTF16
 argument_list|(
 name|termBytesRef
 argument_list|,
-name|termChars
+name|tempCharsRefBuilder
+operator|.
+name|chars
+argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
+name|int
+name|termCharsOff
+init|=
+name|termCharsBuilder
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
+name|termCharsBuilder
+operator|.
+name|append
+argument_list|(
+name|tempCharsRefBuilder
+operator|.
+name|chars
+argument_list|()
+argument_list|,
+literal|0
+argument_list|,
+name|termCharsLen
+argument_list|)
+expr_stmt|;
 name|dpEnum
 operator|=
 name|termsEnum
@@ -597,9 +719,7 @@ literal|null
 argument_list|,
 name|dpEnum
 argument_list|,
-name|PostingsEnum
-operator|.
-name|POSITIONS
+name|dpEnumFlags
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -655,15 +775,27 @@ argument_list|()
 decl_stmt|;
 name|token
 operator|.
-name|termChars
+name|termCharsOff
 operator|=
-name|termChars
+name|termCharsOff
 expr_stmt|;
 name|token
 operator|.
 name|termCharsLen
 operator|=
+operator|(
+name|short
+operator|)
+name|Math
+operator|.
+name|min
+argument_list|(
 name|termCharsLen
+argument_list|,
+name|Short
+operator|.
+name|MAX_VALUE
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -681,14 +813,42 @@ operator|.
 name|startOffset
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
 name|token
 operator|.
-name|endOffset
+name|startOffset
+operator|>
+name|maxStartOffset
+condition|)
+block|{
+continue|continue;
+comment|//filter this token out; exceeds threshold
+block|}
+name|token
+operator|.
+name|endOffsetInc
 operator|=
+operator|(
+name|short
+operator|)
+name|Math
+operator|.
+name|min
+argument_list|(
 name|dpEnum
 operator|.
 name|endOffset
 argument_list|()
+operator|-
+name|token
+operator|.
+name|startOffset
+argument_list|,
+name|Short
+operator|.
+name|MAX_VALUE
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1028,8 +1188,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Estimate the number of position slots we need. We use some estimation factors taken from Wikipedia
-comment|//  that reduce the likelihood of needing to expand the array.
+comment|// Estimate the number of position slots we need from term stats.  We use some estimation factors taken from
+comment|//  Wikipedia that reduce the likelihood of needing to expand the array.
 name|int
 name|sumTotalTermFreq
 init|=
@@ -1101,11 +1261,40 @@ literal|1.5
 argument_list|)
 decl_stmt|;
 comment|//less than 1 in 10 docs exceed this
+comment|// This estimate is based on maxStartOffset. Err on the side of this being larger than needed.
+specifier|final
+name|int
+name|offsetLimitPositionEstimate
+init|=
+call|(
+name|int
+call|)
+argument_list|(
+name|maxStartOffset
+operator|/
+literal|5.0
+argument_list|)
+decl_stmt|;
+comment|// Take the smaller of the two estimates, but no smaller than 64
 return|return
 operator|new
 name|TokenLL
 index|[
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|64
+argument_list|,
+name|Math
+operator|.
+name|min
+argument_list|(
 name|originalPositionEstimate
+argument_list|,
+name|offsetLimitPositionEstimate
+argument_list|)
+argument_list|)
 index|]
 return|;
 block|}
@@ -1185,11 +1374,14 @@ name|termAttribute
 operator|.
 name|copyBuffer
 argument_list|(
+name|termCharsBuilder
+operator|.
+name|chars
+argument_list|()
+argument_list|,
 name|incrementToken
 operator|.
-name|termChars
-argument_list|,
-literal|0
+name|termCharsOff
 argument_list|,
 name|incrementToken
 operator|.
@@ -1222,7 +1414,11 @@ name|startOffset
 argument_list|,
 name|incrementToken
 operator|.
-name|endOffset
+name|startOffset
+operator|+
+name|incrementToken
+operator|.
+name|endOffsetInc
 argument_list|)
 expr_stmt|;
 block|}
@@ -1281,13 +1477,14 @@ specifier|static
 class|class
 name|TokenLL
 block|{
-DECL|field|termChars
-name|char
-index|[]
-name|termChars
-decl_stmt|;
-DECL|field|termCharsLen
+comment|// This class should weigh 32 bytes, including object header
+DECL|field|termCharsOff
 name|int
+name|termCharsOff
+decl_stmt|;
+comment|// see termCharsBuilder
+DECL|field|termCharsLen
+name|short
 name|termCharsLen
 decl_stmt|;
 DECL|field|positionIncrement
@@ -1298,10 +1495,11 @@ DECL|field|startOffset
 name|int
 name|startOffset
 decl_stmt|;
-DECL|field|endOffset
-name|int
-name|endOffset
+DECL|field|endOffsetInc
+name|short
+name|endOffsetInc
 decl_stmt|;
+comment|// add to startOffset to get endOffset
 DECL|field|payloadIndex
 name|int
 name|payloadIndex
@@ -1443,17 +1641,17 @@ condition|)
 block|{
 name|cmp
 operator|=
-name|Integer
+name|Short
 operator|.
 name|compare
 argument_list|(
 name|this
 operator|.
-name|endOffset
+name|endOffsetInc
 argument_list|,
 name|tokenB
 operator|.
-name|endOffset
+name|endOffsetInc
 argument_list|)
 expr_stmt|;
 block|}
