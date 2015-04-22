@@ -5918,7 +5918,17 @@ name|'line'
 op|'.'
 name|'find'
 op|'('
-string|"b'Started SocketConnector@0.0.0.0:8983'"
+string|"b'Started ServerConnector@'"
+op|')'
+op|'!='
+op|'-'
+number|'1'
+name|'and'
+name|'line'
+op|'.'
+name|'find'
+op|'('
+string|"b'{HTTP/1.1}{0.0.0.0:8983}'"
 op|')'
 op|'!='
 op|'-'
