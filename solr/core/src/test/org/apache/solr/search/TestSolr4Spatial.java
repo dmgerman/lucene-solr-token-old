@@ -302,6 +302,10 @@ literal|"srpt_quad"
 block|}
 block|,
 block|{
+literal|"srpt_packedquad"
+block|}
+block|,
+block|{
 literal|"stqpt_geohash"
 block|}
 block|,

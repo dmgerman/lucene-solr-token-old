@@ -153,7 +153,6 @@ annotation|@
 name|Override
 DECL|method|next
 specifier|public
-specifier|final
 name|Cell
 name|next
 parameter_list|()
