@@ -214,6 +214,57 @@ argument_list|(
 literal|"mixed[23]['key'].sub.sub[1].sub['abc']"
 argument_list|)
 expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method.method()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method.getMethod()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method.METHOD()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method['key'].method()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method['key'].getMethod()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method['key'].METHOD()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method[23][\"key\"].method()"
+argument_list|,
+literal|"method[23]['key'].method()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method[23][\"key\"].getMethod()"
+argument_list|,
+literal|"method[23]['key'].getMethod()"
+argument_list|)
+expr_stmt|;
+name|doTestValidVariable
+argument_list|(
+literal|"method[23][\"key\"].METHOD()"
+argument_list|,
+literal|"method[23]['key'].METHOD()"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|doTestValidVariable
 name|void
@@ -650,7 +701,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"arguments for method call"
+literal|"arguments for function call"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -683,7 +734,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"arguments for method call"
+literal|"arguments for function call"
 argument_list|)
 argument_list|)
 expr_stmt|;
