@@ -106,6 +106,13 @@ name|edgePoints
 init|=
 literal|null
 decl_stmt|;
+DECL|field|fullDistance
+specifier|protected
+name|double
+name|fullDistance
+init|=
+literal|0.0
+decl_stmt|;
 comment|/** Create a convex polygon from a list of points.  The first point must be on the     * external edge.     */
 DECL|method|GeoConvexPolygon
 specifier|public
@@ -403,6 +410,7 @@ literal|"Polygon needs at least three points."
 argument_list|)
 throw|;
 comment|// Time to construct the planes.  If the polygon is truly convex, then any adjacent point
+comment|// to a segment can provide an interior measurement.
 name|edges
 operator|=
 operator|new
@@ -437,7 +445,6 @@ name|size
 argument_list|()
 index|]
 expr_stmt|;
-comment|// to a segment can provide an interior measurement.
 for|for
 control|(
 name|int
@@ -513,6 +520,27 @@ literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
+specifier|final
+name|double
+name|distance
+init|=
+name|start
+operator|.
+name|arcDistance
+argument_list|(
+name|end
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|distance
+operator|>
+name|fullDistance
+condition|)
+name|fullDistance
+operator|=
+name|distance
+expr_stmt|;
 specifier|final
 name|GeoPoint
 name|check
@@ -1124,6 +1152,24 @@ name|membershipBounds
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|fullDistance
+operator|>=
+name|Math
+operator|.
+name|PI
+operator|*
+literal|0.5
+condition|)
+block|{
+comment|// We can't reliably assume that bounds did its longitude calculation right, so we force it to be unbounded.
+name|bounds
+operator|.
+name|noLongitudeBound
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|bounds
 return|;
@@ -1247,10 +1293,76 @@ name|String
 name|toString
 parameter_list|()
 block|{
+name|StringBuilder
+name|edgeString
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
+literal|"{"
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|edges
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|edgeString
+operator|.
+name|append
+argument_list|(
+name|edges
+index|[
+name|i
+index|]
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|" internal? "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|internalEdges
+index|[
+name|i
+index|]
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"; "
+argument_list|)
+expr_stmt|;
+block|}
+name|edgeString
+operator|.
+name|append
+argument_list|(
+literal|"}"
+argument_list|)
+expr_stmt|;
 return|return
-literal|"GeoConvexPolygon: {"
+literal|"GeoConvexPolygon: {points="
 operator|+
 name|points
+operator|+
+literal|" edges="
+operator|+
+name|edgeString
 operator|+
 literal|"}"
 return|;
