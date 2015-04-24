@@ -251,6 +251,8 @@ name|getAbsolutePath
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -319,13 +321,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|URI
+name|String
 name|uri
 init|=
-name|dfsCluster
+name|HdfsTestUtil
 operator|.
 name|getURI
-argument_list|()
+argument_list|(
+name|dfsCluster
+argument_list|)
 decl_stmt|;
 name|Path
 name|path
@@ -334,9 +338,6 @@ operator|new
 name|Path
 argument_list|(
 name|uri
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|Configuration
