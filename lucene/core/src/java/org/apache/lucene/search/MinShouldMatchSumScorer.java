@@ -67,21 +67,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|ScorerPriorityQueue
-operator|.
-name|ScorerWrapper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|PriorityQueue
@@ -97,7 +82,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ScorerPriorityQueue
+name|DisiPriorityQueue
 operator|.
 name|leftNode
 import|;
@@ -112,7 +97,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ScorerPriorityQueue
+name|DisiPriorityQueue
 operator|.
 name|parentNode
 import|;
@@ -127,7 +112,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ScorerPriorityQueue
+name|DisiPriorityQueue
 operator|.
 name|rightNode
 import|;
@@ -290,7 +275,10 @@ decl_stmt|;
 comment|// list of scorers which 'lead' the iteration and are currently
 comment|// positioned on 'doc'
 DECL|field|lead
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|lead
 decl_stmt|;
 DECL|field|doc
@@ -307,14 +295,20 @@ comment|// priority queue of scorers that are too advanced compared to the curre
 comment|// doc. Ordered by doc ID.
 DECL|field|head
 specifier|final
-name|ScorerPriorityQueue
+name|DisiPriorityQueue
+argument_list|<
+name|Scorer
+argument_list|>
 name|head
 decl_stmt|;
 comment|// priority queue of scorers which are behind the current doc.
 comment|// Ordered by cost.
 DECL|field|tail
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 index|[]
 name|tail
 decl_stmt|;
@@ -415,7 +409,10 @@ expr_stmt|;
 name|head
 operator|=
 operator|new
-name|ScorerPriorityQueue
+name|DisiPriorityQueue
+argument_list|<
+name|Scorer
+argument_list|>
 argument_list|(
 name|scorers
 operator|.
@@ -432,7 +429,7 @@ comment|// otherwise we might be skipping over matching documents
 name|tail
 operator|=
 operator|new
-name|ScorerWrapper
+name|DisiWrapper
 index|[
 name|minShouldMatch
 operator|-
@@ -450,7 +447,10 @@ block|{
 name|addLead
 argument_list|(
 operator|new
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 argument_list|(
 name|scorer
 argument_list|)
@@ -556,7 +556,10 @@ comment|// 'tail'. If there is not enough space in 'tail', then we take the leas
 comment|// costly scorers and advance them.
 for|for
 control|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|s
 init|=
 name|lead
@@ -573,7 +576,10 @@ name|next
 control|)
 block|{
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|evicted
 init|=
 name|insertTailWithOverFlow
@@ -603,7 +609,7 @@ name|doc
 operator|=
 name|evicted
 operator|.
-name|scorer
+name|iterator
 operator|.
 name|nextDoc
 argument_list|()
@@ -617,7 +623,7 @@ name|doc
 operator|=
 name|evicted
 operator|.
-name|scorer
+name|iterator
 operator|.
 name|advance
 argument_list|(
@@ -660,7 +666,10 @@ block|{
 comment|// Same logic as in nextDoc
 for|for
 control|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|s
 init|=
 name|lead
@@ -677,7 +686,10 @@ name|next
 control|)
 block|{
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|evicted
 init|=
 name|insertTailWithOverFlow
@@ -698,7 +710,7 @@ name|doc
 operator|=
 name|evicted
 operator|.
-name|scorer
+name|iterator
 operator|.
 name|advance
 argument_list|(
@@ -716,7 +728,10 @@ block|}
 block|}
 comment|// But this time there might also be scorers in 'head' behind the desired
 comment|// target so we need to do the same thing that we did on 'lead' on 'head'
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|headTop
 init|=
 name|head
@@ -734,7 +749,10 @@ name|target
 condition|)
 block|{
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|evicted
 init|=
 name|insertTailWithOverFlow
@@ -751,7 +769,7 @@ name|doc
 operator|=
 name|evicted
 operator|.
-name|scorer
+name|iterator
 operator|.
 name|advance
 argument_list|(
@@ -781,7 +799,10 @@ specifier|private
 name|void
 name|addLead
 parameter_list|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|lead
 parameter_list|)
 block|{
@@ -814,7 +835,10 @@ name|IOException
 block|{
 for|for
 control|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|s
 init|=
 name|lead
@@ -842,7 +866,10 @@ specifier|private
 name|void
 name|advanceTail
 parameter_list|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|top
 parameter_list|)
 throws|throws
@@ -854,7 +881,7 @@ name|doc
 operator|=
 name|top
 operator|.
-name|scorer
+name|iterator
 operator|.
 name|advance
 argument_list|(
@@ -896,7 +923,10 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|top
 init|=
 name|popTail
@@ -1119,7 +1149,10 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|s
 init|=
 name|lead
@@ -1139,7 +1172,7 @@ name|score
 operator|+=
 name|s
 operator|.
-name|scorer
+name|iterator
 operator|.
 name|score
 argument_list|()
@@ -1179,10 +1212,16 @@ block|}
 comment|/** Insert an entry in 'tail' and evict the least-costly scorer if full. */
 DECL|method|insertTailWithOverFlow
 specifier|private
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|insertTailWithOverFlow
 parameter_list|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|s
 parameter_list|)
 block|{
@@ -1215,7 +1254,10 @@ literal|1
 condition|)
 block|{
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|top
 init|=
 name|tail
@@ -1263,7 +1305,10 @@ specifier|private
 name|void
 name|addTail
 parameter_list|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|s
 parameter_list|)
 block|{
@@ -1289,7 +1334,10 @@ block|}
 comment|/** Pop the least-costly scorer from 'tail'. */
 DECL|method|popTail
 specifier|private
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|popTail
 parameter_list|()
 block|{
@@ -1299,7 +1347,10 @@ operator|>
 literal|0
 assert|;
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|result
 init|=
 name|tail
@@ -1336,7 +1387,10 @@ specifier|static
 name|void
 name|upHeapCost
 parameter_list|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 index|[]
 name|heap
 parameter_list|,
@@ -1345,7 +1399,10 @@ name|i
 parameter_list|)
 block|{
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|node
 init|=
 name|heap
@@ -1421,7 +1478,10 @@ specifier|static
 name|void
 name|downHeapCost
 parameter_list|(
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 index|[]
 name|heap
 parameter_list|,
@@ -1435,7 +1495,10 @@ init|=
 literal|0
 decl_stmt|;
 specifier|final
-name|ScorerWrapper
+name|DisiWrapper
+argument_list|<
+name|Scorer
+argument_list|>
 name|node
 init|=
 name|heap
