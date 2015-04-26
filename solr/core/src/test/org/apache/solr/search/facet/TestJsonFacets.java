@@ -1835,7 +1835,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// single valued strings
 name|doStats
 argument_list|(
 name|Client
