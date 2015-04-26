@@ -3864,6 +3864,7 @@ name|bucketList
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: share more merging with field faceting
 DECL|method|mergeBucketList
 specifier|public
 name|void
@@ -3973,7 +3974,6 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO: if we implement mincount for ranges, we'll need to sort buckets (see FacetFieldMerger)
 for|for
 control|(
 name|FacetBucket
@@ -3985,7 +3985,20 @@ name|values
 argument_list|()
 control|)
 block|{
-comment|/***        if (bucket.getCount()< freq.mincount) {        continue;        }        ***/
+if|if
+condition|(
+name|bucket
+operator|.
+name|getCount
+argument_list|()
+operator|<
+name|freq
+operator|.
+name|mincount
+condition|)
+block|{
+continue|continue;
+block|}
 name|resultBuckets
 operator|.
 name|add
