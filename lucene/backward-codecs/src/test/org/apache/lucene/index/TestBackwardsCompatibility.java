@@ -1723,6 +1723,10 @@ block|,
 literal|"4.10.4-cfs"
 block|,
 literal|"4.10.4-nocfs"
+block|,
+literal|"5x-with-4x-segments-cfs"
+block|,
+literal|"5x-with-4x-segments-nocfs"
 block|}
 decl_stmt|;
 DECL|field|oldSingleSegmentNames
@@ -5420,7 +5424,9 @@ argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
-name|mp
+name|NoMergePolicy
+operator|.
+name|INSTANCE
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -5532,7 +5538,9 @@ argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
-name|mp
+name|NoMergePolicy
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|writer
