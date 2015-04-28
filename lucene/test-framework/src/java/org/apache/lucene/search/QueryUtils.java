@@ -276,6 +276,39 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
 begin_comment
 comment|/**  * Utility class for sanity-checking queries.  */
 end_comment
@@ -428,8 +461,6 @@ name|whacky
 argument_list|)
 expr_stmt|;
 comment|// null test
-name|Assert
-operator|.
 name|assertFalse
 argument_list|(
 name|q
@@ -454,8 +485,6 @@ name|Query
 name|q2
 parameter_list|)
 block|{
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|q1
@@ -463,8 +492,6 @@ argument_list|,
 name|q2
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|q1
@@ -492,8 +519,6 @@ name|Query
 name|q2
 parameter_list|)
 block|{
-name|Assert
-operator|.
 name|assertFalse
 argument_list|(
 name|q1
@@ -510,8 +535,6 @@ name|q2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertFalse
 argument_list|(
 name|q2
@@ -530,8 +553,6 @@ argument_list|)
 expr_stmt|;
 comment|// possible this test can fail on a hash collision... if that
 comment|// happens, please change test to use a different example.
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|q1
@@ -1713,22 +1734,81 @@ operator|-
 name|scorerScore
 argument_list|)
 decl_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+name|assertTrue
+argument_list|(
+name|more
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"scorerDoc="
+operator|+
+name|scorerDoc
+operator|+
+literal|",doc="
+operator|+
+name|doc
+argument_list|,
+name|scorerDoc
+argument_list|,
+name|doc
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"score="
+operator|+
+name|score
+operator|+
+literal|", scorerScore="
+operator|+
+name|scorerScore
+argument_list|,
+name|scoreDiff
+operator|<=
+name|maxDiff
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"scorerScorer="
+operator|+
+name|scorerScore
+operator|+
+literal|", scorerScore2="
+operator|+
+name|scorerScore2
+argument_list|,
+name|scorerDiff
+operator|<=
+name|maxDiff
+argument_list|)
+expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 operator|!
-name|more
-operator|||
-name|doc
-operator|!=
-name|scorerDoc
-operator|||
-name|scoreDiff
-operator|>
-name|maxDiff
-operator|||
-name|scorerDiff
-operator|>
-name|maxDiff
+name|success
+condition|)
+block|{
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
 condition|)
 block|{
 name|StringBuilder
@@ -1754,6 +1834,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|sbord
 operator|.
 name|append
@@ -1770,9 +1851,12 @@ else|:
 literal|" next()"
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|RuntimeException
+block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
 argument_list|(
 literal|"ERROR matching docs:"
 operator|+
@@ -1901,7 +1985,9 @@ else|:
 literal|" next()"
 operator|)
 argument_list|)
-throw|;
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 catch|catch
