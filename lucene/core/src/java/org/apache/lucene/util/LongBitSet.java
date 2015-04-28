@@ -11,6 +11,9 @@ operator|.
 name|util
 package|;
 end_package
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 begin_import
 import|import
 name|java
@@ -20,9 +23,6 @@ operator|.
 name|Arrays
 import|;
 end_import
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
 begin_comment
 comment|/**  * BitSet of fixed length (numBits), backed by accessible ({@link #getBits})  * long[], accessed with a long index. Use it only if you intend to store more  * than 2.1B bits, otherwise you should use {@link FixedBitSet}.  *   * @lucene.internal  */
 end_comment
@@ -40,19 +40,22 @@ name|long
 index|[]
 name|bits
 decl_stmt|;
+comment|// Array of longs holding the bits
 DECL|field|numBits
 specifier|private
 specifier|final
 name|long
 name|numBits
 decl_stmt|;
+comment|// The number of bits in use
 DECL|field|numWords
 specifier|private
 specifier|final
 name|int
 name|numWords
 decl_stmt|;
-comment|/**    * If the given {@link LongBitSet} is large enough to hold    * {@code numBits}, returns the given bits, otherwise returns a new    * {@link LongBitSet} which can hold the requested number of bits.    *     *<p>    *<b>NOTE:</b> the returned bitset reuses the underlying {@code long[]} of    * the given {@code bits} if possible. Also, calling {@link #length()} on the    * returned bits may return a value greater than {@code numBits}.    */
+comment|// The exact number of longs needed to hold numBits (<= bits.length)
+comment|/**    * If the given {@link LongBitSet} is large enough to hold    * {@code numBits+1}, returns the given bits, otherwise returns a new    * {@link LongBitSet} which can hold the requested number of bits.    *<p>    *<b>NOTE:</b> the returned bitset reuses the underlying {@code long[]} of    * the given {@code bits} if possible. Also, calling {@link #length()} on the    * returned bits may return a value greater than {@code numBits}.    */
 DECL|method|ensureCapacity
 specifier|public
 specifier|static
@@ -72,8 +75,7 @@ name|numBits
 operator|<
 name|bits
 operator|.
-name|length
-argument_list|()
+name|numBits
 condition|)
 block|{
 return|return
@@ -82,6 +84,8 @@ return|;
 block|}
 else|else
 block|{
+comment|// Depends on the ghost bits being clear!
+comment|// (Otherwise, they may become visible in the new instance)
 name|int
 name|numWords
 init|=
@@ -169,6 +173,7 @@ literal|1
 return|;
 comment|// I.e.: get the word-offset of the last bit and add one (make sure to use>> so 0 returns 0!)
 block|}
+comment|/**    * Creates a new LongBitSet.    * The internally allocated long array will be exactly the size needed to accommodate the numBits specified.    * @param numBits the number of bits needed    */
 DECL|method|LongBitSet
 specifier|public
 name|LongBitSet
@@ -201,6 +206,7 @@ operator|.
 name|length
 expr_stmt|;
 block|}
+comment|/**    * Creates a new LongBitSet using the provided long[] array as backing store.    * The storedBits array must be large enough to accommodate the numBits specified, but may be larger.    * In that case the 'extra' or 'ghost' bits must be clear (or they may provoke spurious side-effects)    * @param storedBits the array to use as backing store    * @param numBits the number of bits actually needed    */
 DECL|method|LongBitSet
 specifier|public
 name|LongBitSet
@@ -255,6 +261,83 @@ name|bits
 operator|=
 name|storedBits
 expr_stmt|;
+assert|assert
+name|verifyGhostBitsClear
+argument_list|()
+assert|;
+block|}
+comment|/**    * Checks if the bits past numBits are clear.    * Some methods rely on this implicit assumption: search for "Depends on the ghost bits being clear!"     * @return true if the bits past numBits are clear.    */
+DECL|method|verifyGhostBitsClear
+specifier|private
+name|boolean
+name|verifyGhostBitsClear
+parameter_list|()
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+name|numWords
+init|;
+name|i
+operator|<
+name|bits
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|bits
+index|[
+name|i
+index|]
+operator|!=
+literal|0
+condition|)
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+operator|(
+name|numBits
+operator|&
+literal|0x3f
+operator|)
+operator|==
+literal|0
+condition|)
+return|return
+literal|true
+return|;
+name|long
+name|mask
+init|=
+operator|-
+literal|1L
+operator|<<
+name|numBits
+decl_stmt|;
+return|return
+operator|(
+name|bits
+index|[
+name|numWords
+operator|-
+literal|1
+index|]
+operator|&
+name|mask
+operator|)
+operator|==
+literal|0
+return|;
 block|}
 comment|/** Returns the number of bits stored in this bitset. */
 DECL|method|length
@@ -279,13 +362,14 @@ return|return
 name|bits
 return|;
 block|}
-comment|/** Returns number of set bits.  NOTE: this visits every    *  long in the backing bits array, and the result is not    *  internally cached! */
+comment|/** Returns number of set bits.  NOTE: this visits every    *  long in the backing bits array, and the result is not    *  internally cached!    */
 DECL|method|cardinality
 specifier|public
 name|long
 name|cardinality
 parameter_list|()
 block|{
+comment|// Depends on the ghost bits being clear!
 return|return
 name|BitUtil
 operator|.
@@ -295,9 +379,7 @@ name|bits
 argument_list|,
 literal|0
 argument_list|,
-name|bits
-operator|.
-name|length
+name|numWords
 argument_list|)
 return|;
 block|}
@@ -322,6 +404,10 @@ operator|:
 literal|"index="
 operator|+
 name|index
+operator|+
+literal|", numBits="
+operator|+
+name|numBits
 assert|;
 name|int
 name|i
@@ -429,6 +515,14 @@ operator|&&
 name|index
 operator|<
 name|numBits
+operator|:
+literal|"index="
+operator|+
+name|index
+operator|+
+literal|", numBits="
+operator|+
+name|numBits
 assert|;
 name|int
 name|wordNum
@@ -492,6 +586,14 @@ operator|&&
 name|index
 operator|<
 name|numBits
+operator|:
+literal|"index="
+operator|+
+name|index
+operator|+
+literal|", numBits="
+operator|+
+name|numBits
 assert|;
 name|int
 name|wordNum
@@ -537,6 +639,14 @@ literal|0
 operator|&&
 name|index
 operator|<
+name|numBits
+operator|:
+literal|"index="
+operator|+
+name|index
+operator|+
+literal|", numBits="
+operator|+
 name|numBits
 assert|;
 name|int
@@ -595,6 +705,7 @@ name|long
 name|index
 parameter_list|)
 block|{
+comment|// Depends on the ghost bits being clear!
 assert|assert
 name|index
 operator|>=
@@ -602,6 +713,14 @@ literal|0
 operator|&&
 name|index
 operator|<
+name|numBits
+operator|:
+literal|"index="
+operator|+
+name|index
+operator|+
+literal|", numBits="
+operator|+
 name|numBits
 assert|;
 name|int
@@ -964,6 +1083,7 @@ name|LongBitSet
 name|other
 parameter_list|)
 block|{
+comment|// Depends on the ghost bits being clear!
 name|int
 name|pos
 init|=
@@ -1104,9 +1224,7 @@ name|numWords
 argument_list|,
 name|other
 operator|.
-name|bits
-operator|.
-name|length
+name|numWords
 argument_list|)
 decl_stmt|;
 while|while
@@ -1132,9 +1250,55 @@ index|]
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: no .isEmpty() here because that's trappy (ie,
-comment|// typically isEmpty is low cost, but this one wouldn't
-comment|// be)
+comment|/**    * Scans the backing store to check if all bits are clear.    * The method is deliberately not called "isEmpty" to emphasize it is not low cost (as isEmpty usually is).    * @return true if all bits are clear.    */
+DECL|method|scanIsEmpty
+specifier|public
+name|boolean
+name|scanIsEmpty
+parameter_list|()
+block|{
+comment|// This 'slow' implementation is still faster than any external one could be
+comment|// (e.g.: (bitSet.length() == 0 || bitSet.nextSetBit(0) == -1))
+comment|// especially for small BitSets
+comment|// Depends on the ghost bits being clear!
+specifier|final
+name|int
+name|count
+init|=
+name|numWords
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|count
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|bits
+index|[
+name|i
+index|]
+operator|!=
+literal|0
+condition|)
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
+block|}
 comment|/** Flips a range of bits    *    * @param startIndex lower index    * @param endIndex one-past the last bit to flip    */
 DECL|method|flip
 specifier|public
@@ -1286,6 +1450,62 @@ operator|^=
 name|endmask
 expr_stmt|;
 block|}
+comment|/** Flip the bit at the provided index. */
+DECL|method|flip
+specifier|public
+name|void
+name|flip
+parameter_list|(
+name|long
+name|index
+parameter_list|)
+block|{
+assert|assert
+name|index
+operator|>=
+literal|0
+operator|&&
+name|index
+operator|<
+name|numBits
+operator|:
+literal|"index="
+operator|+
+name|index
+operator|+
+literal|" numBits="
+operator|+
+name|numBits
+assert|;
+name|int
+name|wordNum
+init|=
+call|(
+name|int
+call|)
+argument_list|(
+name|index
+operator|>>
+literal|6
+argument_list|)
+decl_stmt|;
+comment|// div 64
+name|long
+name|bitmask
+init|=
+literal|1L
+operator|<<
+name|index
+decl_stmt|;
+comment|// mod 64 is implicit
+name|bits
+index|[
+name|wordNum
+index|]
+operator|^=
+name|bitmask
+expr_stmt|;
+block|}
 comment|/** Sets a range of bits    *    * @param startIndex lower index    * @param endIndex one-past the last bit to set    */
 DECL|method|set
 specifier|public
@@ -1307,6 +1527,14 @@ operator|&&
 name|startIndex
 operator|<
 name|numBits
+operator|:
+literal|"startIndex="
+operator|+
+name|startIndex
+operator|+
+literal|", numBits="
+operator|+
+name|numBits
 assert|;
 assert|assert
 name|endIndex
@@ -1315,6 +1543,14 @@ literal|0
 operator|&&
 name|endIndex
 operator|<=
+name|numBits
+operator|:
+literal|"endIndex="
+operator|+
+name|endIndex
+operator|+
+literal|", numBits="
+operator|+
 name|numBits
 assert|;
 if|if
@@ -1444,6 +1680,14 @@ operator|&&
 name|startIndex
 operator|<
 name|numBits
+operator|:
+literal|"startIndex="
+operator|+
+name|startIndex
+operator|+
+literal|", numBits="
+operator|+
+name|numBits
 assert|;
 assert|assert
 name|endIndex
@@ -1452,6 +1696,14 @@ literal|0
 operator|&&
 name|endIndex
 operator|<=
+name|numBits
+operator|:
+literal|"endIndex="
+operator|+
+name|endIndex
+operator|+
+literal|", numBits="
+operator|+
 name|numBits
 assert|;
 if|if
@@ -1606,9 +1858,7 @@ name|bits
 argument_list|,
 literal|0
 argument_list|,
-name|bits
-operator|.
-name|length
+name|numWords
 argument_list|)
 expr_stmt|;
 return|return
@@ -1672,14 +1922,14 @@ name|numBits
 operator|!=
 name|other
 operator|.
-name|length
-argument_list|()
+name|numBits
 condition|)
 block|{
 return|return
 literal|false
 return|;
 block|}
+comment|// Depends on the ghost bits being clear!
 return|return
 name|Arrays
 operator|.
@@ -1701,6 +1951,7 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+comment|// Depends on the ghost bits being clear!
 name|long
 name|h
 init|=
