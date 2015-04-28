@@ -314,6 +314,11 @@ specifier|final
 name|String
 name|confDir
 decl_stmt|;
+DECL|field|tlogDfsReplication
+specifier|private
+name|Integer
+name|tlogDfsReplication
+decl_stmt|;
 comment|// used internally by tests to track total count of failed tran log loads in init
 DECL|field|INIT_FAILED_LOGS_COUNT
 specifier|public
@@ -486,11 +491,35 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+name|tlogDfsReplication
+operator|=
+operator|(
+name|Integer
+operator|)
+name|info
+operator|.
+name|initArgs
+operator|.
+name|get
+argument_list|(
+literal|"tlogDfsReplication"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|tlogDfsReplication
+operator|==
+literal|null
+condition|)
+name|tlogDfsReplication
+operator|=
+literal|1
+expr_stmt|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Initializing HdfsUpdateLog: dataDir={} defaultSyncLevel={} numRecordsToKeep={} maxNumLogsToKeep={}"
+literal|"Initializing HdfsUpdateLog: dataDir={} defaultSyncLevel={} numRecordsToKeep={} maxNumLogsToKeep={} tlogDfsReplication={}"
 argument_list|,
 name|dataDir
 argument_list|,
@@ -499,6 +528,8 @@ argument_list|,
 name|numRecordsToKeep
 argument_list|,
 name|maxNumLogsToKeep
+argument_list|,
+name|tlogDfsReplication
 argument_list|)
 expr_stmt|;
 block|}
@@ -981,6 +1012,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|true
+argument_list|,
+name|tlogDfsReplication
 argument_list|)
 expr_stmt|;
 name|addOldLog
@@ -1587,6 +1620,8 @@ name|newLogName
 argument_list|)
 argument_list|,
 name|globalStrings
+argument_list|,
+name|tlogDfsReplication
 argument_list|)
 decl_stmt|;
 name|tlog
@@ -1746,7 +1781,7 @@ throw|;
 block|}
 block|}
 DECL|method|getLogList
-specifier|private
+specifier|public
 name|String
 index|[]
 name|getLogList
