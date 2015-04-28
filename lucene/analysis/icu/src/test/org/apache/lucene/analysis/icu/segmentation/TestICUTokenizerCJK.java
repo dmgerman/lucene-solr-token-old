@@ -369,6 +369,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** blast some random strings through the analyzer */
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://issues.apache.org/jira/browse/LUCENE-5575"
+argument_list|)
 DECL|method|testRandomStrings
 specifier|public
 name|void
@@ -391,6 +398,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** blast some random large strings through the analyzer */
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://issues.apache.org/jira/browse/LUCENE-5575"
+argument_list|)
 DECL|method|testRandomHugeStrings
 specifier|public
 name|void

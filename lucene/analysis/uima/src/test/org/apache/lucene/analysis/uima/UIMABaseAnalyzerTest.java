@@ -805,6 +805,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://issues.apache.org/jira/browse/LUCENE-3869"
+argument_list|)
 DECL|method|testRandomStrings
 specifier|public
 name|void
@@ -846,6 +853,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://issues.apache.org/jira/browse/LUCENE-3869"
+argument_list|)
 DECL|method|testRandomStringsWithConfigurationParameters
 specifier|public
 name|void
