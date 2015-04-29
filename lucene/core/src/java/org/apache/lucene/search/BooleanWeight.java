@@ -1307,6 +1307,8 @@ name|query
 operator|.
 name|minNrShouldMatch
 argument_list|)
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
