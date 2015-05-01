@@ -151,7 +151,7 @@ name|Tools
 operator|.
 name|safeAcos
 argument_list|(
-name|evaluate
+name|dotProduct
 argument_list|(
 name|v
 argument_list|)
