@@ -418,6 +418,9 @@ name|REQUESTSTATUS
 block|,
 DECL|enum constant|REJOINLEADERELECTION
 name|REJOINLEADERELECTION
+block|,
+DECL|enum constant|INVOKE
+name|INVOKE
 block|;
 DECL|method|get
 specifier|public
