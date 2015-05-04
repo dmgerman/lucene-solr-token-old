@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/** Shapes implemented using 3D planar geometry. */
+comment|/**  * Shapes implemented using 3D planar geometry.  */
 end_comment
 begin_package
 DECL|package|org.apache.lucene.spatial.spatial4j.geo3d

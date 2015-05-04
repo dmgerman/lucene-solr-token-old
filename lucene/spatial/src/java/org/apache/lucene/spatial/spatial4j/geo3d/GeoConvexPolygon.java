@@ -46,7 +46,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/** GeoConvexPolygon objects are generic building blocks of more complex structures. * The only restrictions on these objects are: (1) they must be convex; (2) they must have * a maximum extent no larger than PI.  Violating either one of these limits will * cause the logic to fail. */
+comment|/**  * GeoConvexPolygon objects are generic building blocks of more complex structures.  * The only restrictions on these objects are: (1) they must be convex; (2) they must have  * a maximum extent no larger than PI.  Violating either one of these limits will  * cause the logic to fail.  */
 end_comment
 begin_class
 DECL|class|GeoConvexPolygon
@@ -113,7 +113,7 @@ name|fullDistance
 init|=
 literal|0.0
 decl_stmt|;
-comment|/** Create a convex polygon from a list of points.  The first point must be on the     * external edge.     */
+comment|/**    * Create a convex polygon from a list of points.  The first point must be on the    * external edge.    */
 DECL|method|GeoConvexPolygon
 specifier|public
 name|GeoConvexPolygon
@@ -144,7 +144,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Create a convex polygon from a list of points, keeping track of which boundaries     * are internal.  This is used when creating a polygon as a building block for another shape.     */
+comment|/**    * Create a convex polygon from a list of points, keeping track of which boundaries    * are internal.  This is used when creating a polygon as a building block for another shape.    */
 DECL|method|GeoConvexPolygon
 specifier|public
 name|GeoConvexPolygon
@@ -183,7 +183,7 @@ name|returnEdgeInternal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Create a convex polygon, with a starting latitude and longitude.     * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}     */
+comment|/**    * Create a convex polygon, with a starting latitude and longitude.    * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}    */
 DECL|method|GeoConvexPolygon
 specifier|public
 name|GeoConvexPolygon
@@ -281,7 +281,7 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Add a point to the polygon.      * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}      *@param latitude is the latitude of the next point.      *@param longitude is the longitude of the next point.      *@param isInternalEdge is true if the edge just added should be considered "internal", and not      * intersected as part of the intersects() operation.      */
+comment|/**    * Add a point to the polygon.    * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}    *    * @param latitude       is the latitude of the next point.    * @param longitude      is the longitude of the next point.    * @param isInternalEdge is true if the edge just added should be considered "internal", and not    *                       intersected as part of the intersects() operation.    */
 DECL|method|addPoint
 specifier|public
 name|void
@@ -381,7 +381,7 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Finish the polygon, by connecting the last added point with the starting point.     */
+comment|/**    * Finish the polygon, by connecting the last added point with the starting point.    */
 DECL|method|donePoints
 specifier|public
 name|void
@@ -1018,7 +1018,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** Compute longitude/latitude bounds for the shape.     *@param bounds is the optional input bounds object.  If this is null,     * a bounds object will be created.  Otherwise, the input object will be modified.     *@return a Bounds object describing the shape's bounds.  If the bounds cannot     * be computed, then return a Bounds object with noLongitudeBound,     * noTopLatitudeBound, and noBottomLatitudeBound.     */
+comment|/**    * Compute longitude/latitude bounds for the shape.    *    * @param bounds is the optional input bounds object.  If this is null,    *               a bounds object will be created.  Otherwise, the input object will be modified.    * @return a Bounds object describing the shape's bounds.  If the bounds cannot    * be computed, then return a Bounds object with noLongitudeBound,    * noTopLatitudeBound, and noBottomLatitudeBound.    */
 annotation|@
 name|Override
 DECL|method|getBounds

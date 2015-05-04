@@ -19,7 +19,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/** Bounding box wider than PI but limited on three sides ( * bottom lat, left lon, right lon). */
+comment|/**  * Bounding box wider than PI but limited on three sides (  * bottom lat, left lon, right lon).  */
 end_comment
 begin_class
 DECL|class|GeoWideNorthRectangle
@@ -130,7 +130,7 @@ block|{
 name|NORTH_POLE
 block|}
 decl_stmt|;
-comment|/** Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}.      * Horizontal angle must be greater than or equal to PI.      */
+comment|/**    * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}.    * Horizontal angle must be greater than or equal to PI.    */
 DECL|method|GeoWideNorthRectangle
 specifier|public
 name|GeoWideNorthRectangle
@@ -821,7 +821,7 @@ name|bottomAngle
 argument_list|)
 return|;
 block|}
-comment|/** Returns the center of a circle into which the area will be inscribed.     *@return the center.     */
+comment|/**    * Returns the center of a circle into which the area will be inscribed.    *    * @return the center.    */
 annotation|@
 name|Override
 DECL|method|getCenter
@@ -918,7 +918,7 @@ name|bottomPlane
 argument_list|)
 return|;
 block|}
-comment|/** Compute longitude/latitude bounds for the shape.     *@param bounds is the optional input bounds object.  If this is null,     * a bounds object will be created.  Otherwise, the input object will be modified.     *@return a Bounds object describing the shape's bounds.  If the bounds cannot     * be computed, then return a Bounds object with noLongitudeBound,     * noTopLatitudeBound, and noBottomLatitudeBound.     */
+comment|/**    * Compute longitude/latitude bounds for the shape.    *    * @param bounds is the optional input bounds object.  If this is null,    *               a bounds object will be created.  Otherwise, the input object will be modified.    * @return a Bounds object describing the shape's bounds.  If the bounds cannot    * be computed, then return a Bounds object with noLongitudeBound,    * noTopLatitudeBound, and noBottomLatitudeBound.    */
 annotation|@
 name|Override
 DECL|method|getBounds
@@ -1237,7 +1237,7 @@ DECL|method|EitherBound
 specifier|public
 name|EitherBound
 parameter_list|()
-block|{         }
+block|{     }
 annotation|@
 name|Override
 DECL|method|isWithin

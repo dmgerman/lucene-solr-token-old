@@ -19,7 +19,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/** Circular area with a center and radius. */
+comment|/**  * Circular area with a center and radius.  */
 end_comment
 begin_class
 DECL|class|GeoCircle
@@ -375,7 +375,7 @@ return|return
 name|cutoffAngle
 return|;
 block|}
-comment|/** Returns the center of a circle into which the area will be inscribed.     *@return the center.     */
+comment|/**    * Returns the center of a circle into which the area will be inscribed.    *    * @return the center.    */
 annotation|@
 name|Override
 DECL|method|getCenter
@@ -388,7 +388,7 @@ return|return
 name|center
 return|;
 block|}
-comment|/** Compute an estimate of "distance" to the GeoPoint.     * A return value of Double.MAX_VALUE should be returned for     * points outside of the shape.     */
+comment|/**    * Compute an estimate of "distance" to the GeoPoint.    * A return value of Double.MAX_VALUE should be returned for    * points outside of the shape.    */
 annotation|@
 name|Override
 DECL|method|computeNormalDistance
@@ -428,7 +428,7 @@ return|return
 name|normalDistance
 return|;
 block|}
-comment|/** Compute an estimate of "distance" to the GeoPoint.     * A return value of Double.MAX_VALUE should be returned for     * points outside of the shape.     */
+comment|/**    * Compute an estimate of "distance" to the GeoPoint.    * A return value of Double.MAX_VALUE should be returned for    * points outside of the shape.    */
 annotation|@
 name|Override
 DECL|method|computeNormalDistance
@@ -480,7 +480,7 @@ return|return
 name|normalDistance
 return|;
 block|}
-comment|/** Compute a squared estimate of the "distance" to the     * GeoPoint.  Double.MAX_VALUE indicates a point outside of the     * shape.     */
+comment|/**    * Compute a squared estimate of the "distance" to the    * GeoPoint.  Double.MAX_VALUE indicates a point outside of the    * shape.    */
 annotation|@
 name|Override
 DECL|method|computeSquaredNormalDistance
@@ -522,7 +522,7 @@ return|return
 name|normalDistanceSquared
 return|;
 block|}
-comment|/** Compute a squared estimate of the "distance" to the     * GeoPoint.  Double.MAX_VALUE indicates a point outside of the     * shape.     */
+comment|/**    * Compute a squared estimate of the "distance" to the    * GeoPoint.  Double.MAX_VALUE indicates a point outside of the    * shape.    */
 annotation|@
 name|Override
 DECL|method|computeSquaredNormalDistance
@@ -576,7 +576,7 @@ return|return
 name|normalDistanceSquared
 return|;
 block|}
-comment|/** Compute a linear distance to the vector.     * return Double.MAX_VALUE for points outside the shape.     */
+comment|/**    * Compute a linear distance to the vector.    * return Double.MAX_VALUE for points outside the shape.    */
 annotation|@
 name|Override
 DECL|method|computeLinearDistance
@@ -616,7 +616,7 @@ return|return
 name|linearDistance
 return|;
 block|}
-comment|/** Compute a linear distance to the vector.     * return Double.MAX_VALUE for points outside the shape.     */
+comment|/**    * Compute a linear distance to the vector.    * return Double.MAX_VALUE for points outside the shape.    */
 annotation|@
 name|Override
 DECL|method|computeLinearDistance
@@ -668,7 +668,7 @@ return|return
 name|linearDistance
 return|;
 block|}
-comment|/** Compute a squared linear distance to the vector.     */
+comment|/**    * Compute a squared linear distance to the vector.    */
 annotation|@
 name|Override
 DECL|method|computeSquaredLinearDistance
@@ -710,7 +710,7 @@ return|return
 name|linearDistanceSquared
 return|;
 block|}
-comment|/** Compute a squared linear distance to the vector.     */
+comment|/**    * Compute a squared linear distance to the vector.    */
 annotation|@
 name|Override
 DECL|method|computeSquaredLinearDistance
@@ -764,7 +764,7 @@ return|return
 name|linearDistanceSquared
 return|;
 block|}
-comment|/** Compute a true, accurate, great-circle distance.     * Double.MAX_VALUE indicates a point is outside of the shape.     */
+comment|/**    * Compute a true, accurate, great-circle distance.    * Double.MAX_VALUE indicates a point is outside of the shape.    */
 annotation|@
 name|Override
 DECL|method|computeArcDistance
@@ -910,7 +910,7 @@ name|bounds
 argument_list|)
 return|;
 block|}
-comment|/** Compute longitude/latitude bounds for the shape.     *@param bounds is the optional input bounds object.  If this is null,     * a bounds object will be created.  Otherwise, the input object will be modified.     *@return a Bounds object describing the shape's bounds.  If the bounds cannot     * be computed, then return a Bounds object with noLongitudeBound,     * noTopLatitudeBound, and noBottomLatitudeBound.     */
+comment|/**    * Compute longitude/latitude bounds for the shape.    *    * @param bounds is the optional input bounds object.  If this is null,    *               a bounds object will be created.  Otherwise, the input object will be modified.    * @return a Bounds object describing the shape's bounds.  If the bounds cannot    * be computed, then return a Bounds object with noLongitudeBound,    * noTopLatitudeBound, and noBottomLatitudeBound.    */
 annotation|@
 name|Override
 DECL|method|getBounds
