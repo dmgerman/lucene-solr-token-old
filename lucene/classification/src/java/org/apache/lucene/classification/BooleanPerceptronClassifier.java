@@ -1288,13 +1288,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"not implemented"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 comment|/**    * {@inheritDoc}    */
 annotation|@
@@ -1319,13 +1315,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"not implemented"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class

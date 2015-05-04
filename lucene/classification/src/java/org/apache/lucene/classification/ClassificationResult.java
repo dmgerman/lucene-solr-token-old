@@ -42,6 +42,7 @@ name|assignedClass
 decl_stmt|;
 DECL|field|score
 specifier|private
+specifier|final
 name|double
 name|score
 decl_stmt|;
@@ -91,23 +92,6 @@ block|{
 return|return
 name|score
 return|;
-block|}
-comment|/**    * set the score value    *    * @param score the score for the assignedClass as a<code>double</code>    */
-DECL|method|setScore
-specifier|public
-name|void
-name|setScore
-parameter_list|(
-name|double
-name|score
-parameter_list|)
-block|{
-name|this
-operator|.
-name|score
-operator|=
-name|score
-expr_stmt|;
 block|}
 annotation|@
 name|Override
