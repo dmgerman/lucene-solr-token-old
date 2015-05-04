@@ -37,7 +37,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * GeoSearchableShape representing a path across the surface of the globe,  * with a specified half-width.  Path is described by a series of points.  * Distances are measured from the starting point along the path, and then at right  * angles to the path.  */
+comment|/**  * GeoSearchableShape representing a path across the surface of the globe,  * with a specified half-width.  Path is described by a series of points.  * Distances are measured from the starting point along the path, and then at right  * angles to the path.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|GeoPath

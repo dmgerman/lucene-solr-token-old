@@ -46,7 +46,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * Class which constructs a GeoMembershipShape representing an arbitrary polygon.  */
+comment|/**  * Class which constructs a GeoMembershipShape representing an arbitrary polygon.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|GeoPolygonFactory
