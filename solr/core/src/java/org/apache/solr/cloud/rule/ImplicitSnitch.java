@@ -232,7 +232,7 @@ specifier|final
 name|String
 name|DISK
 init|=
-literal|"disk"
+literal|"freedisk"
 decl_stmt|;
 DECL|field|SYSPROP
 specifier|public
@@ -241,7 +241,7 @@ specifier|final
 name|String
 name|SYSPROP
 init|=
-literal|"D."
+literal|"sysprop."
 decl_stmt|;
 DECL|field|tags
 specifier|public
@@ -634,6 +634,8 @@ name|result
 operator|.
 name|put
 argument_list|(
+name|SYSPROP
+operator|+
 name|prop
 argument_list|,
 name|System
