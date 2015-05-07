@@ -113,6 +113,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|ConstantScoreScorer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|ConstantScoreWeight
 import|;
 end_import
@@ -518,7 +531,7 @@ argument_list|)
 block|{
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|Scorer
 name|scorer
 parameter_list|(
@@ -527,9 +540,6 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
-parameter_list|,
-name|float
-name|score
 parameter_list|)
 throws|throws
 name|IOException
@@ -620,6 +630,7 @@ argument_list|(
 name|this
 argument_list|,
 name|score
+argument_list|()
 argument_list|,
 name|approxDISI
 argument_list|)
@@ -721,6 +732,7 @@ argument_list|(
 name|this
 argument_list|,
 name|score
+argument_list|()
 argument_list|,
 name|twoPhaseIterator
 argument_list|)
