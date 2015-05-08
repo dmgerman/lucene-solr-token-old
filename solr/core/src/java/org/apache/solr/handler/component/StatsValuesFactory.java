@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0   * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
 DECL|package|org.apache.solr.handler.component
@@ -465,6 +465,7 @@ specifier|protected
 name|boolean
 name|computeCalcDistinct
 decl_stmt|;
+comment|// needed for either countDistinct or distinctValues
 DECL|field|computeMin
 specifier|final
 specifier|protected
@@ -625,7 +626,16 @@ name|calculateStats
 argument_list|(
 name|Stat
 operator|.
-name|calcdistinct
+name|countDistinct
+argument_list|)
+operator|||
+name|statsField
+operator|.
+name|calculateStats
+argument_list|(
+name|Stat
+operator|.
+name|distinctValues
 argument_list|)
 expr_stmt|;
 name|this
@@ -1503,7 +1513,7 @@ name|includeInResponse
 argument_list|(
 name|Stat
 operator|.
-name|calcdistinct
+name|distinctValues
 argument_list|)
 condition|)
 block|{
@@ -1516,6 +1526,19 @@ argument_list|,
 name|distinctValues
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|statsField
+operator|.
+name|includeInResponse
+argument_list|(
+name|Stat
+operator|.
+name|countDistinct
+argument_list|)
+condition|)
+block|{
 name|res
 operator|.
 name|add

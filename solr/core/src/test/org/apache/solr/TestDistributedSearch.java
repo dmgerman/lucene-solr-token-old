@@ -5607,6 +5607,49 @@ literal|"{!min=true calcdistinct=true}"
 operator|+
 name|i1
 argument_list|)
+block|,
+name|params
+argument_list|(
+literal|"stats.calcdistinct"
+argument_list|,
+literal|"false"
+argument_list|,
+literal|"f."
+operator|+
+name|i1
+operator|+
+literal|".stats.calcdistinct"
+argument_list|,
+literal|"false"
+argument_list|,
+literal|"stats.field"
+argument_list|,
+literal|"{!min=true countDistinct=true distinctValues=true}"
+operator|+
+name|i1
+argument_list|)
+block|,
+name|params
+argument_list|(
+literal|"stats.field"
+argument_list|,
+literal|"{!min=true countDistinct=true distinctValues=true}"
+operator|+
+name|i1
+argument_list|)
+block|,
+name|params
+argument_list|(
+literal|"yes"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"stats.field"
+argument_list|,
+literal|"{!min=$yes countDistinct=$yes distinctValues=$yes}"
+operator|+
+name|i1
+argument_list|)
 block|,       }
 control|)
 block|{
@@ -5916,6 +5959,27 @@ argument_list|,
 literal|"stats.field"
 argument_list|,
 literal|"{!min=true calcdistinct=false}"
+operator|+
+name|i1
+argument_list|)
+block|,
+name|params
+argument_list|(
+literal|"stats.calcdistinct"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"f."
+operator|+
+name|i1
+operator|+
+literal|".stats.calcdistinct"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"stats.field"
+argument_list|,
+literal|"{!min=true countDistinct=false distinctValues=false}"
 operator|+
 name|i1
 argument_list|)
@@ -6595,7 +6659,7 @@ literal|"Sanity check failed: either test broke, or test changed, or you adjuste
 operator|+
 literal|" (adjust constant accordingly if intentional)"
 argument_list|,
-literal|4235
+literal|5082
 argument_list|,
 name|numTotalStatQueries
 argument_list|)
@@ -8806,6 +8870,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ignoreException
+argument_list|(
+literal|"parameter cannot be negative"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|SolrQuery
@@ -8929,6 +8998,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|resetExceptionIgnores
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
