@@ -55,6 +55,8 @@ name|solrj
 operator|.
 name|io
 operator|.
+name|stream
+operator|.
 name|TupleStream
 import|;
 end_import
