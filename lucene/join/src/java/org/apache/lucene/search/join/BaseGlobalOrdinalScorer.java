@@ -111,11 +111,6 @@ name|BaseGlobalOrdinalScorer
 extends|extends
 name|Scorer
 block|{
-DECL|field|foundOrds
-specifier|final
-name|LongBitSet
-name|foundOrds
-decl_stmt|;
 DECL|field|values
 specifier|final
 name|SortedDocValues
@@ -137,9 +132,6 @@ parameter_list|(
 name|Weight
 name|weight
 parameter_list|,
-name|LongBitSet
-name|foundOrds
-parameter_list|,
 name|SortedDocValues
 name|values
 parameter_list|,
@@ -151,12 +143,6 @@ name|super
 argument_list|(
 name|weight
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|foundOrds
-operator|=
-name|foundOrds
 expr_stmt|;
 name|this
 operator|.
