@@ -4524,6 +4524,8 @@ literal|"/overlay"
 argument_list|,
 literal|"/params"
 argument_list|,
+literal|"/updateHandler"
+argument_list|,
 literal|"/query"
 argument_list|,
 literal|"/jmx"
