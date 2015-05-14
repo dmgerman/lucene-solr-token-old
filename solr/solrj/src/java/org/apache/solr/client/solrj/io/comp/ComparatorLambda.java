@@ -19,6 +19,15 @@ package|;
 end_package
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -45,6 +54,8 @@ DECL|interface|ComparatorLambda
 specifier|public
 interface|interface
 name|ComparatorLambda
+extends|extends
+name|Serializable
 block|{
 DECL|method|compare
 specifier|public
