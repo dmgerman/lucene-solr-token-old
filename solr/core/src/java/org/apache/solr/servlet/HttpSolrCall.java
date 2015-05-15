@@ -5753,6 +5753,13 @@ name|startsWith
 argument_list|(
 literal|"/select"
 argument_list|)
+operator|||
+name|resource
+operator|.
+name|startsWith
+argument_list|(
+literal|"/get"
+argument_list|)
 condition|)
 name|requestType
 operator|=
