@@ -3792,6 +3792,13 @@ argument_list|)
 expr_stmt|;
 name|assertFuncEquals
 argument_list|(
+literal|"agg_hll(foo_i)"
+argument_list|,
+literal|"agg_hll(foo_i)"
+argument_list|)
+expr_stmt|;
+name|assertFuncEquals
+argument_list|(
 literal|"agg_sumsq(foo_i)"
 argument_list|,
 literal|"agg_sumsq(foo_i)"
