@@ -835,6 +835,13 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|waitForOtherReplicasToUpdate
+argument_list|(
+name|timeout
+argument_list|,
+name|startTime
+argument_list|)
+expr_stmt|;
 return|return
 name|Collections
 operator|.
@@ -908,13 +915,6 @@ operator|.
 name|setLatestSchema
 argument_list|(
 name|managedIndexSchema
-argument_list|)
-expr_stmt|;
-name|waitForOtherReplicasToUpdate
-argument_list|(
-name|timeout
-argument_list|,
-name|startTime
 argument_list|)
 expr_stmt|;
 return|return
