@@ -25,6 +25,19 @@ operator|.
 name|Locale
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|SolrException
+import|;
+end_import
 begin_interface
 DECL|interface|CollectionParams
 specifier|public
@@ -123,6 +136,9 @@ name|BALANCESHARDUNIQUE
 block|,
 DECL|enum constant|REBALANCELEADERS
 name|REBALANCELEADERS
+block|,
+DECL|enum constant|MODIFYCOLLECTION
+name|MODIFYCOLLECTION
 block|;
 DECL|method|get
 specifier|public
