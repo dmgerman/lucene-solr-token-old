@@ -883,7 +883,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|spans
+name|payloads
 operator|.
 name|SpanPayloadCheckQuery
 import|;

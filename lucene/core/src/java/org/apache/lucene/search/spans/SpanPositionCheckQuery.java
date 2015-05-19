@@ -268,6 +268,9 @@ argument_list|,
 name|TermContext
 argument_list|>
 name|termContexts
+parameter_list|,
+name|SpanCollector
+name|collector
 parameter_list|)
 throws|throws
 name|IOException
@@ -284,6 +287,8 @@ argument_list|,
 name|acceptDocs
 argument_list|,
 name|termContexts
+argument_list|,
+name|collector
 argument_list|)
 decl_stmt|;
 return|return
