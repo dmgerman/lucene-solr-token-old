@@ -266,12 +266,13 @@ throws|throws
 name|IOException
 block|{
 return|return
-operator|new
-name|SpanWeight
+name|super
+operator|.
+name|createWeight
 argument_list|(
-name|this
-argument_list|,
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|,
 name|PayloadSpanCollector
 operator|.
