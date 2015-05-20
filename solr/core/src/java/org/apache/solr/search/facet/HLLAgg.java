@@ -472,6 +472,9 @@ name|merge
 parameter_list|(
 name|Object
 name|facetResult
+parameter_list|,
+name|Context
+name|mcontext
 parameter_list|)
 block|{
 name|SimpleOrderedMap
