@@ -97,6 +97,9 @@ name|acceptPosition
 parameter_list|(
 name|Spans
 name|spans
+parameter_list|,
+name|SpanCollector
+name|collector
 parameter_list|)
 throws|throws
 name|IOException
