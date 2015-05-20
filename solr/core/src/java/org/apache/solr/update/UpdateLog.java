@@ -1019,6 +1019,12 @@ specifier|protected
 name|int
 name|maxNumLogsToKeep
 decl_stmt|;
+DECL|field|numVersionBuckets
+specifier|protected
+name|int
+name|numVersionBuckets
+decl_stmt|;
+comment|// This should only be used to initialize VersionInfo... the actual number of buckets may be rounded up to a power of two.
 comment|// keep track of deletes only... this is not updated on an add
 DECL|field|oldDeletes
 specifier|protected
@@ -1323,6 +1329,16 @@ return|return
 name|maxNumLogsToKeep
 return|;
 block|}
+DECL|method|getNumVersionBuckets
+specifier|public
+name|int
+name|getNumVersionBuckets
+parameter_list|()
+block|{
+return|return
+name|numVersionBuckets
+return|;
+block|}
 DECL|method|objToInt
 specifier|protected
 specifier|static
@@ -1436,11 +1452,46 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+name|numVersionBuckets
+operator|=
+name|objToInt
+argument_list|(
+name|info
+operator|.
+name|initArgs
+operator|.
+name|get
+argument_list|(
+literal|"numVersionBuckets"
+argument_list|)
+argument_list|,
+literal|256
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|numVersionBuckets
+operator|<=
+literal|0
+condition|)
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+literal|"Number of version buckets must be greater than 0!"
+argument_list|)
+throw|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Initializing UpdateLog: dataDir={} defaultSyncLevel={} numRecordsToKeep={} maxNumLogsToKeep={}"
+literal|"Initializing UpdateLog: dataDir={} defaultSyncLevel={} numRecordsToKeep={} maxNumLogsToKeep={} numVersionBuckets={}"
 argument_list|,
 name|dataDir
 argument_list|,
@@ -1449,6 +1500,8 @@ argument_list|,
 name|numRecordsToKeep
 argument_list|,
 name|maxNumLogsToKeep
+argument_list|,
+name|numVersionBuckets
 argument_list|)
 expr_stmt|;
 block|}
@@ -1689,7 +1742,7 @@ name|VersionInfo
 argument_list|(
 name|this
 argument_list|,
-literal|256
+name|numVersionBuckets
 argument_list|)
 expr_stmt|;
 block|}
