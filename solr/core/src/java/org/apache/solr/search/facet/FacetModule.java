@@ -1223,29 +1223,27 @@ comment|//
 end_comment
 begin_class
 DECL|class|FacetMerger
+specifier|abstract
 class|class
 name|FacetMerger
 block|{
 DECL|method|merge
 specifier|public
+specifier|abstract
 name|void
 name|merge
 parameter_list|(
 name|Object
 name|facetResult
 parameter_list|)
-block|{    }
+function_decl|;
 DECL|method|getMergedResult
 specifier|public
+specifier|abstract
 name|Object
 name|getMergedResult
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-comment|// TODO
-block|}
+function_decl|;
 block|}
 end_class
 begin_class
@@ -1537,6 +1535,7 @@ comment|// base class for facets that create buckets (and can hence have sub-fac
 end_comment
 begin_class
 DECL|class|FacetBucketMerger
+specifier|abstract
 class|class
 name|FacetBucketMerger
 parameter_list|<
@@ -2232,6 +2231,7 @@ DECL|field|merger
 name|FacetSortableMerger
 name|merger
 decl_stmt|;
+comment|// make this class inner and access merger , direction in parent?
 DECL|field|direction
 name|FacetField
 operator|.
