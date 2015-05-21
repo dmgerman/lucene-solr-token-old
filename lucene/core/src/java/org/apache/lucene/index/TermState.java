@@ -79,6 +79,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/** Returns true if this term is real (e.g., not an auto-prefix term).    *  @lucene.internal */
+DECL|method|isRealTerm
+specifier|public
+name|boolean
+name|isRealTerm
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString

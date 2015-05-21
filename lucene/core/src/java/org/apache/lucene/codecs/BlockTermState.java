@@ -99,6 +99,8 @@ DECL|field|isRealTerm
 specifier|public
 name|boolean
 name|isRealTerm
+init|=
+literal|true
 decl_stmt|;
 comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
 DECL|method|BlockTermState
@@ -177,6 +179,18 @@ name|other
 operator|.
 name|isRealTerm
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isRealTerm
+specifier|public
+name|boolean
+name|isRealTerm
+parameter_list|()
+block|{
+return|return
+name|isRealTerm
+return|;
 block|}
 annotation|@
 name|Override
