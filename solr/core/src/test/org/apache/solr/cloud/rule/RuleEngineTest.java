@@ -137,6 +137,19 @@ name|solr
 operator|.
 name|common
 operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|cloud
 operator|.
 name|ZkStateReader
@@ -639,7 +652,7 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|getNodeMappings
+name|getNodeMappings0
 argument_list|()
 expr_stmt|;
 name|assertNull
@@ -713,7 +726,7 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|getNodeMappings
+name|getNodeMappings0
 argument_list|()
 expr_stmt|;
 name|assertNotNull
@@ -867,7 +880,7 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|getNodeMappings
+name|getNodeMappings0
 argument_list|()
 expr_stmt|;
 name|assertNull
@@ -1166,7 +1179,7 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|getNodeMappings
+name|getNodeMappings0
 argument_list|()
 decl_stmt|;
 name|assertNull
