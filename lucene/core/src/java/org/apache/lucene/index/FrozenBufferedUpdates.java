@@ -189,11 +189,6 @@ specifier|final
 name|PrefixCodedTerms
 name|terms
 decl_stmt|;
-DECL|field|termCount
-name|int
-name|termCount
-decl_stmt|;
-comment|// just for debugging
 comment|// Parallel array of deleted query, and the docIDUpto for each
 DECL|field|queries
 specifier|final
@@ -305,12 +300,6 @@ argument_list|()
 index|]
 argument_list|)
 decl_stmt|;
-name|termCount
-operator|=
-name|termsArray
-operator|.
-name|length
-expr_stmt|;
 name|ArrayUtil
 operator|.
 name|timSort
@@ -827,7 +816,10 @@ name|numTermDeletes
 operator|+
 literal|" deleted terms (unique count="
 operator|+
-name|termCount
+name|terms
+operator|.
+name|size
+argument_list|()
 operator|+
 literal|")"
 expr_stmt|;
@@ -876,7 +868,10 @@ name|any
 parameter_list|()
 block|{
 return|return
-name|termCount
+name|terms
+operator|.
+name|size
+argument_list|()
 operator|>
 literal|0
 operator|||
