@@ -15,42 +15,6 @@ name|update
 package|;
 end_package
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|update
-operator|.
-name|processor
-operator|.
-name|DistributedUpdateProcessor
-operator|.
-name|DistribPhase
-operator|.
-name|FROMLEADER
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|update
-operator|.
-name|processor
-operator|.
-name|DistributingUpdateProcessorFactory
-operator|.
-name|DISTRIB_UPDATE_PARAM
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
@@ -558,6 +522,42 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|update
+operator|.
+name|processor
+operator|.
+name|DistributedUpdateProcessor
+operator|.
+name|DistribPhase
+operator|.
+name|FROMLEADER
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|update
+operator|.
+name|processor
+operator|.
+name|DistributingUpdateProcessorFactory
+operator|.
+name|DISTRIB_UPDATE_PARAM
+import|;
+end_import
 begin_comment
 comment|/** @lucene.experimental */
 end_comment
@@ -992,7 +992,7 @@ specifier|protected
 name|TransactionLog
 name|prevMapLog2
 decl_stmt|;
-comment|// the transaction log used to look up entries found in prevMap
+comment|// the transaction log used to look up entries found in prevMap2
 DECL|field|numDeletesToKeep
 specifier|protected
 specifier|final
@@ -1667,8 +1667,7 @@ try|try
 block|{
 name|oldLog
 operator|=
-operator|new
-name|TransactionLog
+name|newTransactionLog
 argument_list|(
 name|f
 argument_list|,
@@ -1982,6 +1981,37 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+comment|/**    * Returns a new {@link org.apache.solr.update.TransactionLog}. Sub-classes can override this method to    * change the implementation of the transaction log.    */
+DECL|method|newTransactionLog
+specifier|public
+name|TransactionLog
+name|newTransactionLog
+parameter_list|(
+name|File
+name|tlogFile
+parameter_list|,
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|globalStrings
+parameter_list|,
+name|boolean
+name|openExisting
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TransactionLog
+argument_list|(
+name|tlogFile
+argument_list|,
+name|globalStrings
+argument_list|,
+name|openExisting
+argument_list|)
+return|;
 block|}
 DECL|method|getLogDir
 specifier|public
@@ -3683,7 +3713,7 @@ argument_list|(
 name|indexedId
 argument_list|)
 expr_stmt|;
-comment|// something found in prevMap will always be found in preMapLog (which could be tlog or prevTlog)
+comment|// something found in prevMap will always be found in prevMapLog (which could be tlog or prevTlog)
 name|lookupLog
 operator|=
 name|prevMapLog
@@ -3710,7 +3740,7 @@ argument_list|(
 name|indexedId
 argument_list|)
 expr_stmt|;
-comment|// something found in prevMap2 will always be found in preMapLog2 (which could be tlog or prevTlog)
+comment|// something found in prevMap2 will always be found in prevMapLog2 (which could be tlog or prevTlog)
 name|lookupLog
 operator|=
 name|prevMapLog2
@@ -3816,7 +3846,7 @@ argument_list|(
 name|indexedId
 argument_list|)
 expr_stmt|;
-comment|// something found in prevMap will always be found in preMapLog (which could be tlog or prevTlog)
+comment|// something found in prevMap will always be found in prevMapLog (which could be tlog or prevTlog)
 name|lookupLog
 operator|=
 name|prevMapLog
@@ -3843,7 +3873,7 @@ argument_list|(
 name|indexedId
 argument_list|)
 expr_stmt|;
-comment|// something found in prevMap2 will always be found in preMapLog2 (which could be tlog or prevTlog)
+comment|// something found in prevMap2 will always be found in prevMapLog2 (which could be tlog or prevTlog)
 name|lookupLog
 operator|=
 name|prevMapLog2
@@ -4192,8 +4222,7 @@ argument_list|)
 decl_stmt|;
 name|tlog
 operator|=
-operator|new
-name|TransactionLog
+name|newTransactionLog
 argument_list|(
 operator|new
 name|File
@@ -4204,6 +4233,8 @@ name|newLogName
 argument_list|)
 argument_list|,
 name|globalStrings
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -7222,7 +7253,7 @@ operator|+
 name|TLOG_NAME
 return|;
 block|}
-comment|/**    * Clears the logs on the file system. Only call before init.    *     * @param core the SolrCore    * @param ulogPluginInfo the init info for the UpdateHandler    */
+comment|/**    * Clears the logs on the file system. Only call before init.    *    * @param core the SolrCore    * @param ulogPluginInfo the init info for the UpdateHandler    */
 DECL|method|clearLog
 specifier|public
 name|void

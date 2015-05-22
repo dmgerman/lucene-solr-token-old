@@ -1436,7 +1436,7 @@ name|String
 name|testServerBaseUrl
 parameter_list|,
 name|CloudSolrClient
-name|cloudSolrServer
+name|cloudSolrClient
 parameter_list|)
 throws|throws
 name|Exception
@@ -1467,7 +1467,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config/overlay?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1512,7 +1512,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config/overlay?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1540,7 +1540,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/x?wt=json&getdefaults=true&json.nl=map"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1641,7 +1641,7 @@ name|testServerBaseUrl
 operator|+
 name|uri
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|)
 decl_stmt|;
 if|if
@@ -1717,7 +1717,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1762,7 +1762,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1807,7 +1807,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1850,7 +1850,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1895,7 +1895,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1940,7 +1940,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -1984,7 +1984,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -2032,7 +2032,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -2077,7 +2077,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -2123,7 +2123,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -2168,7 +2168,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -2218,7 +2218,7 @@ name|testServerBaseUrl
 argument_list|,
 literal|"/config?wt=json"
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|,
 name|Arrays
 operator|.
@@ -2323,7 +2323,7 @@ name|String
 name|uri
 parameter_list|,
 name|CloudSolrClient
-name|cloudSolrServer
+name|cloudSolrClient
 parameter_list|,
 name|List
 argument_list|<
@@ -2404,7 +2404,7 @@ name|testServerBaseUrl
 operator|+
 name|uri
 argument_list|,
-name|cloudSolrServer
+name|cloudSolrClient
 argument_list|)
 expr_stmt|;
 block|}
