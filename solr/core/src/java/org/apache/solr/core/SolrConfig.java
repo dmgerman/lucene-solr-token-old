@@ -3827,15 +3827,6 @@ name|result
 operator|.
 name|put
 argument_list|(
-literal|"openSearcher"
-argument_list|,
-name|openSearcher
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|put
-argument_list|(
 literal|"commitWithin"
 argument_list|,
 name|makeMap
@@ -3861,6 +3852,10 @@ argument_list|,
 literal|"maxTime"
 argument_list|,
 name|autoCommmitMaxTime
+argument_list|,
+literal|"openSearcher"
+argument_list|,
+name|openSearcher
 argument_list|)
 argument_list|)
 expr_stmt|;
