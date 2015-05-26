@@ -633,6 +633,7 @@ name|IOException
 throws|,
 name|Exception
 block|{
+specifier|final
 name|Path
 name|dir
 init|=
@@ -642,6 +643,7 @@ name|createTempDir
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|Path
 name|file
 init|=
@@ -879,7 +881,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"File handle leaked - file is closed but still regeistered"
+literal|"File handle leaked - file is closed but still registered"
 argument_list|,
 literal|0
 argument_list|,
@@ -912,7 +914,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"File handle leaked - file is closed but still regeistered"
+literal|"File handle leaked - file is closed but still registered"
 argument_list|,
 literal|0
 argument_list|,
