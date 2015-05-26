@@ -20,6 +20,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -54,6 +63,17 @@ operator|.
 name|file
 operator|.
 name|Files
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
 import|;
 end_import
 begin_import
@@ -111,6 +131,28 @@ operator|.
 name|Map
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentMap
+import|;
+end_import
 begin_comment
 comment|/**   * FileSystem that (imperfectly) acts like windows.   *<p>  * Currently this filesystem only prevents deletion of open files.  */
 end_comment
@@ -123,7 +165,6 @@ extends|extends
 name|HandleTrackingFS
 block|{
 DECL|field|openFiles
-specifier|private
 specifier|final
 name|Map
 argument_list|<
@@ -215,6 +256,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+synchronized|synchronized
+init|(
+name|openFiles
+init|)
+block|{
+specifier|final
 name|Object
 name|key
 init|=
@@ -223,11 +270,8 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-synchronized|synchronized
-init|(
-name|openFiles
-init|)
-block|{
+comment|// we have to read the key under the lock otherwise me might leak the openFile handle
+comment|// if we concurrently delete or move this file.
 name|Integer
 name|v
 init|=
@@ -312,6 +356,7 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+comment|// here we can read this outside of the lock
 synchronized|synchronized
 init|(
 name|openFiles
@@ -327,6 +372,11 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+assert|assert
+name|v
+operator|!=
+literal|null
+assert|;
 if|if
 condition|(
 name|v
@@ -464,6 +514,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+synchronized|synchronized
+init|(
+name|openFiles
+init|)
+block|{
 name|checkDeleteAccess
 argument_list|(
 name|path
@@ -476,6 +531,7 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -497,6 +553,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+synchronized|synchronized
+init|(
+name|openFiles
+init|)
+block|{
 name|checkDeleteAccess
 argument_list|(
 name|source
@@ -514,6 +575,7 @@ name|options
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|deleteIfExists
@@ -526,6 +588,11 @@ name|path
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+synchronized|synchronized
+init|(
+name|openFiles
+init|)
 block|{
 name|checkDeleteAccess
 argument_list|(
@@ -540,6 +607,7 @@ argument_list|(
 name|path
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 end_class
