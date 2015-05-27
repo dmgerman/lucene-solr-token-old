@@ -27,7 +27,7 @@ specifier|public
 class|class
 name|GeoWideRectangle
 extends|extends
-name|GeoBBoxBase
+name|GeoBaseBBox
 block|{
 DECL|field|topLat
 specifier|public
@@ -160,6 +160,10 @@ specifier|public
 name|GeoWideRectangle
 parameter_list|(
 specifier|final
+name|PlanetModel
+name|planetModel
+parameter_list|,
+specifier|final
 name|double
 name|topLat
 parameter_list|,
@@ -175,6 +179,11 @@ name|double
 name|rightLon
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|planetModel
+argument_list|)
+expr_stmt|;
 comment|// Argument checking
 if|if
 condition|(
@@ -443,6 +452,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinTopLat
 argument_list|,
 name|sinLeftLon
@@ -459,6 +470,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinTopLat
 argument_list|,
 name|sinRightLon
@@ -475,6 +488,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinBottomLat
 argument_list|,
 name|sinRightLon
@@ -491,6 +506,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinBottomLat
 argument_list|,
 name|sinLeftLon
@@ -592,6 +609,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinMiddleLat
 argument_list|,
 name|sinMiddleLon
@@ -610,6 +629,8 @@ name|SidedPlane
 argument_list|(
 name|centerPoint
 argument_list|,
+name|planetModel
+argument_list|,
 name|sinTopLat
 argument_list|)
 expr_stmt|;
@@ -621,6 +642,8 @@ operator|new
 name|SidedPlane
 argument_list|(
 name|centerPoint
+argument_list|,
+name|planetModel
 argument_list|,
 name|sinBottomLat
 argument_list|)
@@ -823,6 +846,8 @@ name|GeoBBoxFactory
 operator|.
 name|makeGeoBBox
 argument_list|(
+name|planetModel
+argument_list|,
 name|newTopLat
 argument_list|,
 name|newBottomLat
@@ -1069,6 +1094,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|topPlane
 argument_list|,
 name|notablePoints
@@ -1086,6 +1113,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|bottomPlane
 argument_list|,
 name|notablePoints
@@ -1103,6 +1132,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|leftPlane
 argument_list|,
 name|notablePoints
@@ -1120,6 +1151,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|rightPlane
 argument_list|,
 name|notablePoints
@@ -1359,6 +1392,13 @@ operator|)
 name|o
 decl_stmt|;
 return|return
+name|super
+operator|.
+name|equals
+argument_list|(
+name|other
+argument_list|)
+operator|&&
 name|other
 operator|.
 name|ULHC
@@ -1389,11 +1429,22 @@ block|{
 name|int
 name|result
 init|=
-name|ULHC
+name|super
 operator|.
 name|hashCode
 argument_list|()
 decl_stmt|;
+name|result
+operator|=
+literal|31
+operator|*
+name|result
+operator|+
+name|ULHC
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
 name|result
 operator|=
 literal|31
@@ -1418,7 +1469,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"GeoWideRectangle: {toplat="
+literal|"GeoWideRectangle: {planetmodel="
+operator|+
+name|planetModel
+operator|+
+literal|", toplat="
 operator|+
 name|topLat
 operator|+

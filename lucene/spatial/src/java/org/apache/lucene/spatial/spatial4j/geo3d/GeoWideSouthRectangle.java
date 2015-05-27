@@ -27,7 +27,7 @@ specifier|public
 class|class
 name|GeoWideSouthRectangle
 extends|extends
-name|GeoBBoxBase
+name|GeoBaseBBox
 block|{
 DECL|field|topLat
 specifier|public
@@ -122,19 +122,16 @@ specifier|final
 name|GeoPoint
 index|[]
 name|edgePoints
-init|=
-operator|new
-name|GeoPoint
-index|[]
-block|{
-name|SOUTH_POLE
-block|}
 decl_stmt|;
 comment|/**    * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}.    * Horizontal angle must be greater than or equal to PI.    */
 DECL|method|GeoWideSouthRectangle
 specifier|public
 name|GeoWideSouthRectangle
 parameter_list|(
+specifier|final
+name|PlanetModel
+name|planetModel
+parameter_list|,
 specifier|final
 name|double
 name|topLat
@@ -147,6 +144,11 @@ name|double
 name|rightLon
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|planetModel
+argument_list|)
+expr_stmt|;
 comment|// Argument checking
 if|if
 condition|(
@@ -348,6 +350,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinTopLat
 argument_list|,
 name|sinLeftLon
@@ -364,6 +368,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinTopLat
 argument_list|,
 name|sinRightLon
@@ -469,6 +475,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinMiddleLat
 argument_list|,
 name|sinMiddleLon
@@ -486,6 +494,8 @@ operator|new
 name|SidedPlane
 argument_list|(
 name|centerPoint
+argument_list|,
+name|planetModel
 argument_list|,
 name|sinTopLat
 argument_list|)
@@ -541,6 +551,8 @@ index|[]
 block|{
 name|ULHC
 block|,
+name|planetModel
+operator|.
 name|SOUTH_POLE
 block|}
 expr_stmt|;
@@ -554,6 +566,8 @@ index|[]
 block|{
 name|URHC
 block|,
+name|planetModel
+operator|.
 name|SOUTH_POLE
 block|}
 expr_stmt|;
@@ -564,6 +578,19 @@ operator|=
 operator|new
 name|EitherBound
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|edgePoints
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|planetModel
+operator|.
+name|SOUTH_POLE
+block|}
 expr_stmt|;
 block|}
 annotation|@
@@ -667,6 +694,8 @@ name|GeoBBoxFactory
 operator|.
 name|makeGeoBBox
 argument_list|(
+name|planetModel
+argument_list|,
 name|newTopLat
 argument_list|,
 name|newBottomLat
@@ -877,6 +906,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|topPlane
 argument_list|,
 name|notablePoints
@@ -892,6 +923,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|leftPlane
 argument_list|,
 name|notablePoints
@@ -907,6 +940,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|rightPlane
 argument_list|,
 name|notablePoints
@@ -1006,6 +1041,8 @@ name|path
 operator|.
 name|isWithin
 argument_list|(
+name|planetModel
+operator|.
 name|SOUTH_POLE
 argument_list|)
 decl_stmt|;
@@ -1123,6 +1160,13 @@ operator|)
 name|o
 decl_stmt|;
 return|return
+name|super
+operator|.
+name|equals
+argument_list|(
+name|other
+argument_list|)
+operator|&&
 name|other
 operator|.
 name|ULHC
@@ -1153,11 +1197,22 @@ block|{
 name|int
 name|result
 init|=
-name|ULHC
+name|super
 operator|.
 name|hashCode
 argument_list|()
 decl_stmt|;
+name|result
+operator|=
+literal|31
+operator|*
+name|result
+operator|+
+name|ULHC
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
 name|result
 operator|=
 literal|31
@@ -1182,7 +1237,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"GeoWideSouthRectangle: {toplat="
+literal|"GeoWideSouthRectangle: {planetmodel="
+operator|+
+name|planetModel
+operator|+
+literal|", toplat="
 operator|+
 name|topLat
 operator|+

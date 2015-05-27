@@ -27,7 +27,7 @@ specifier|public
 class|class
 name|GeoWideDegenerateHorizontalLine
 extends|extends
-name|GeoBBoxBase
+name|GeoBaseBBox
 block|{
 DECL|field|latitude
 specifier|public
@@ -109,6 +109,10 @@ specifier|public
 name|GeoWideDegenerateHorizontalLine
 parameter_list|(
 specifier|final
+name|PlanetModel
+name|planetModel
+parameter_list|,
+specifier|final
 name|double
 name|latitude
 parameter_list|,
@@ -120,6 +124,11 @@ name|double
 name|rightLon
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|planetModel
+argument_list|)
+expr_stmt|;
 comment|// Argument checking
 if|if
 condition|(
@@ -321,6 +330,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinLatitude
 argument_list|,
 name|sinLeftLon
@@ -337,6 +348,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinLatitude
 argument_list|,
 name|sinRightLon
@@ -353,6 +366,8 @@ operator|=
 operator|new
 name|Plane
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinLatitude
 argument_list|)
 expr_stmt|;
@@ -411,6 +426,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinLatitude
 argument_list|,
 name|sinMiddleLon
@@ -579,6 +596,8 @@ name|GeoBBoxFactory
 operator|.
 name|makeGeoBBox
 argument_list|(
+name|planetModel
+argument_list|,
 name|newTopLat
 argument_list|,
 name|newBottomLat
@@ -791,6 +810,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|plane
 argument_list|,
 name|notablePoints
@@ -925,6 +946,13 @@ operator|)
 name|o
 decl_stmt|;
 return|return
+name|super
+operator|.
+name|equals
+argument_list|(
+name|other
+argument_list|)
+operator|&&
 name|other
 operator|.
 name|LHC
@@ -955,11 +983,22 @@ block|{
 name|int
 name|result
 init|=
-name|LHC
+name|super
 operator|.
 name|hashCode
 argument_list|()
 decl_stmt|;
+name|result
+operator|=
+literal|31
+operator|*
+name|result
+operator|+
+name|LHC
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
 name|result
 operator|=
 literal|31
@@ -984,7 +1023,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"GeoWideDegenerateHorizontalLine: {latitude="
+literal|"GeoWideDegenerateHorizontalLine: {planetmodel="
+operator|+
+name|planetModel
+operator|+
+literal|", latitude="
 operator|+
 name|latitude
 operator|+

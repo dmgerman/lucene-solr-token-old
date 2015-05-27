@@ -27,7 +27,7 @@ specifier|public
 class|class
 name|GeoSouthLatitudeZone
 extends|extends
-name|GeoBBoxBase
+name|GeoBaseBBox
 block|{
 DECL|field|topLat
 specifier|public
@@ -86,10 +86,19 @@ specifier|public
 name|GeoSouthLatitudeZone
 parameter_list|(
 specifier|final
+name|PlanetModel
+name|planetModel
+parameter_list|,
+specifier|final
 name|double
 name|topLat
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|planetModel
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|topLat
@@ -118,21 +127,6 @@ argument_list|(
 name|topLat
 argument_list|)
 expr_stmt|;
-comment|// Construct sample points, so we get our sidedness right
-specifier|final
-name|Vector
-name|topPoint
-init|=
-operator|new
-name|Vector
-argument_list|(
-literal|0.0
-argument_list|,
-literal|0.0
-argument_list|,
-name|sinTopLat
-argument_list|)
-decl_stmt|;
 comment|// Compute an interior point.  Pick one whose lat is between top and bottom.
 specifier|final
 name|double
@@ -168,6 +162,12 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
+name|sinMiddleLat
+argument_list|,
+literal|0.0
+argument_list|,
 name|Math
 operator|.
 name|sqrt
@@ -179,9 +179,7 @@ operator|*
 name|sinMiddleLat
 argument_list|)
 argument_list|,
-literal|0.0
-argument_list|,
-name|sinMiddleLat
+literal|1.0
 argument_list|)
 expr_stmt|;
 name|this
@@ -191,6 +189,12 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
+name|sinTopLat
+argument_list|,
+literal|0.0
+argument_list|,
 name|Math
 operator|.
 name|sqrt
@@ -202,9 +206,7 @@ operator|*
 name|sinTopLat
 argument_list|)
 argument_list|,
-literal|0.0
-argument_list|,
-name|sinTopLat
+literal|1.0
 argument_list|)
 expr_stmt|;
 name|this
@@ -215,6 +217,8 @@ operator|new
 name|SidedPlane
 argument_list|(
 name|interiorPoint
+argument_list|,
+name|planetModel
 argument_list|,
 name|sinTopLat
 argument_list|)
@@ -267,6 +271,8 @@ name|GeoBBoxFactory
 operator|.
 name|makeGeoBBox
 argument_list|(
+name|planetModel
+argument_list|,
 name|newTopLat
 argument_list|,
 name|newBottomLat
@@ -423,6 +429,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|topPlane
 argument_list|,
 name|notablePoints
@@ -599,13 +607,20 @@ operator|)
 name|o
 decl_stmt|;
 return|return
-name|other
-operator|.
-name|topPlane
+name|super
 operator|.
 name|equals
 argument_list|(
-name|topPlane
+name|other
+argument_list|)
+operator|&&
+name|other
+operator|.
+name|topBoundaryPoint
+operator|.
+name|equals
+argument_list|(
+name|topBoundaryPoint
 argument_list|)
 return|;
 block|}
@@ -620,11 +635,22 @@ block|{
 name|int
 name|result
 init|=
-name|topPlane
+name|super
 operator|.
 name|hashCode
 argument_list|()
 decl_stmt|;
+name|result
+operator|=
+literal|31
+operator|*
+name|result
+operator|+
+name|topBoundaryPoint
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
 return|return
 name|result
 return|;
@@ -638,7 +664,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"GeoSouthLatitudeZone: {toplat="
+literal|"GeoSouthLatitudeZone: {planetmodel="
+operator|+
+name|planetModel
+operator|+
+literal|", toplat="
 operator|+
 name|topLat
 operator|+
