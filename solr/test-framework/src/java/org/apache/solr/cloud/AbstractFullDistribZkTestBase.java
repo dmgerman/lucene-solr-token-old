@@ -26,7 +26,37 @@ name|cloud
 operator|.
 name|OverseerCollectionProcessor
 operator|.
-name|*
+name|CREATE_NODE_SET
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|cloud
+operator|.
+name|OverseerCollectionProcessor
+operator|.
+name|NUM_SLICES
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|cloud
+operator|.
+name|OverseerCollectionProcessor
+operator|.
+name|SHARDS_PROP
 import|;
 end_import
 begin_import
@@ -43,7 +73,7 @@ name|cloud
 operator|.
 name|ZkNodeProps
 operator|.
-name|*
+name|makeMap
 import|;
 end_import
 begin_import
@@ -848,20 +878,7 @@ specifier|static
 name|void
 name|beforeFullSolrCloudTest
 parameter_list|()
-block|{
-comment|// shorten the log output more for this test type
-if|if
-condition|(
-name|formatter
-operator|!=
-literal|null
-condition|)
-name|formatter
-operator|.
-name|setShorterFormat
-argument_list|()
-expr_stmt|;
-block|}
+block|{   }
 DECL|field|SHARD1
 specifier|public
 specifier|static

@@ -877,7 +877,7 @@ name|solr
 operator|.
 name|logging
 operator|.
-name|MDCUtils
+name|MDCLoggingContext
 import|;
 end_import
 begin_import
@@ -4343,14 +4343,13 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|MDCUtils
+name|MDCLoggingContext
 operator|.
 name|setCore
 argument_list|(
-name|name
+name|this
 argument_list|)
 expr_stmt|;
-comment|// show the core name in the error logs
 name|resourceLoader
 operator|=
 name|config
