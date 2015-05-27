@@ -18,6 +18,19 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -50,19 +63,6 @@ operator|.
 name|util
 operator|.
 name|Locale
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
 import|;
 end_import
 begin_class
@@ -424,6 +424,7 @@ expr_stmt|;
 block|}
 DECL|method|assertSameBreaks
 specifier|public
+specifier|static
 name|void
 name|assertSameBreaks
 parameter_list|(
@@ -459,6 +460,7 @@ expr_stmt|;
 block|}
 DECL|method|assertSameBreaks
 specifier|public
+specifier|static
 name|void
 name|assertSameBreaks
 parameter_list|(
@@ -496,6 +498,7 @@ expr_stmt|;
 block|}
 DECL|method|assertSameBreaks
 specifier|public
+specifier|static
 name|void
 name|assertSameBreaks
 parameter_list|(
@@ -557,6 +560,7 @@ block|}
 comment|/** Asserts that two breakiterators break the text the same way */
 DECL|method|assertSameBreaks
 specifier|public
+specifier|static
 name|void
 name|assertSameBreaks
 parameter_list|(
