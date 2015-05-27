@@ -1297,7 +1297,8 @@ name|makePoint
 argument_list|(
 name|geoPoint
 operator|.
-name|x
+name|getLongitude
+argument_list|()
 operator|*
 name|DistanceUtils
 operator|.
@@ -1305,7 +1306,8 @@ name|RADIANS_TO_DEGREES
 argument_list|,
 name|geoPoint
 operator|.
-name|y
+name|getLongitude
+argument_list|()
 operator|*
 name|DistanceUtils
 operator|.

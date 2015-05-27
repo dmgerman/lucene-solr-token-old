@@ -155,7 +155,7 @@ operator|=
 operator|-
 name|sinLat
 operator|*
-name|computeMagnitude
+name|computeDesiredEllipsoidMagnitude
 argument_list|(
 name|planetModel
 argument_list|,
