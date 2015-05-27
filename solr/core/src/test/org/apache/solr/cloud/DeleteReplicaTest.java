@@ -492,10 +492,6 @@ name|sliceCount
 operator|=
 literal|2
 expr_stmt|;
-name|checkCreatedVsState
-operator|=
-literal|false
-expr_stmt|;
 block|}
 annotation|@
 name|Test

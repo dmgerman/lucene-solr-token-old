@@ -4251,12 +4251,6 @@ operator|.
 name|shutdownAndAwaitTermination
 argument_list|(
 name|executor
-argument_list|,
-literal|120
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}

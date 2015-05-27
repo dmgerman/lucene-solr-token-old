@@ -170,6 +170,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// this will interrupt the threads! Lucene and Solr do not like this because it can close channels, so only use
+comment|// this if you know what you are doing - you probably want shutdownAndAwaitTermination
 DECL|method|shutdownNowAndAwaitTermination
 specifier|public
 specifier|static
@@ -191,7 +193,7 @@ operator|.
 name|shutdownNow
 argument_list|()
 expr_stmt|;
-comment|// Cancel currently executing tasks
+comment|// Cancel currently executing tasks  - NOTE: this interrupts!
 name|boolean
 name|shutdown
 init|=
@@ -212,7 +214,7 @@ name|pool
 operator|.
 name|awaitTermination
 argument_list|(
-literal|5
+literal|1
 argument_list|,
 name|TimeUnit
 operator|.
@@ -247,7 +249,7 @@ operator|.
 name|shutdownNow
 argument_list|()
 expr_stmt|;
-comment|// Cancel currently executing tasks
+comment|// Cancel currently executing tasks - NOTE: this interrupts!
 block|}
 block|}
 block|}
@@ -259,34 +261,6 @@ name|shutdownAndAwaitTermination
 parameter_list|(
 name|ExecutorService
 name|pool
-parameter_list|)
-block|{
-name|shutdownAndAwaitTermination
-argument_list|(
-name|pool
-argument_list|,
-literal|60
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|shutdownAndAwaitTermination
-specifier|public
-specifier|static
-name|void
-name|shutdownAndAwaitTermination
-parameter_list|(
-name|ExecutorService
-name|pool
-parameter_list|,
-name|long
-name|timeout
-parameter_list|,
-name|TimeUnit
-name|timeUnit
 parameter_list|)
 block|{
 name|pool
@@ -315,9 +289,11 @@ name|pool
 operator|.
 name|awaitTermination
 argument_list|(
-name|timeout
+literal|1
 argument_list|,
-name|timeUnit
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
@@ -336,19 +312,6 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|shutdown
-condition|)
-block|{
-name|pool
-operator|.
-name|shutdownNow
-argument_list|()
-expr_stmt|;
-comment|// Cancel currently executing tasks
 block|}
 block|}
 block|}
