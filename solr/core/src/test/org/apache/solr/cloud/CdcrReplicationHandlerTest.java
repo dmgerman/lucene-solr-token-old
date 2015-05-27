@@ -127,6 +127,8 @@ import|;
 end_import
 begin_class
 annotation|@
+name|Ignore
+annotation|@
 name|Slow
 DECL|class|CdcrReplicationHandlerTest
 specifier|public
