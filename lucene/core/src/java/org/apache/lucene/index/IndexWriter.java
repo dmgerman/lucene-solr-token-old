@@ -9394,6 +9394,30 @@ name|commitCompleted
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"IW"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"IW"
+argument_list|,
+literal|"commit: done writing segments file \""
+operator|+
+name|committedSegmentsFileName
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
 comment|// NOTE: don't use this.checkpoint() here, because
 comment|// we do not want to increment changeCount:
 name|deleter
@@ -9403,6 +9427,14 @@ argument_list|(
 name|pendingCommit
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+comment|// Carry over generation to our master SegmentInfos:
+name|segmentInfos
+operator|.
+name|updateGeneration
+argument_list|(
+name|pendingCommit
 argument_list|)
 expr_stmt|;
 name|lastCommitChangeCount
@@ -9568,19 +9600,6 @@ literal|"IW"
 argument_list|)
 condition|)
 block|{
-name|infoStream
-operator|.
-name|message
-argument_list|(
-literal|"IW"
-argument_list|,
-literal|"commit: wrote segments file \""
-operator|+
-name|committedSegmentsFileName
-operator|+
-literal|"\""
-argument_list|)
-expr_stmt|;
 name|infoStream
 operator|.
 name|message
@@ -16287,6 +16306,44 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"IW"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"IW"
+argument_list|,
+literal|"startCommit: wrote pending segments file \""
+operator|+
+name|IndexFileNames
+operator|.
+name|fileNameFromGeneration
+argument_list|(
+name|IndexFileNames
+operator|.
+name|PENDING_SEGMENTS
+argument_list|,
+literal|""
+argument_list|,
+name|toSync
+operator|.
+name|getGeneration
+argument_list|()
+argument_list|)
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
 comment|//System.out.println("DONE prepareCommit");
 name|pendingCommitSet
 operator|=
