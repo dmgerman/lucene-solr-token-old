@@ -359,8 +359,9 @@ name|document
 argument_list|)
 expr_stmt|;
 name|document
-operator|.
-name|clear
+operator|=
+operator|new
+name|Document
 argument_list|()
 expr_stmt|;
 name|document
@@ -619,8 +620,9 @@ name|document
 argument_list|)
 expr_stmt|;
 name|document
-operator|.
-name|clear
+operator|=
+operator|new
+name|Document
 argument_list|()
 expr_stmt|;
 name|document
@@ -932,8 +934,9 @@ name|document
 argument_list|)
 expr_stmt|;
 name|document
-operator|.
-name|clear
+operator|=
+operator|new
+name|Document
 argument_list|()
 expr_stmt|;
 name|document
