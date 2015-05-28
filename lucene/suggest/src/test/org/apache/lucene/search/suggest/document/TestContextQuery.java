@@ -3674,6 +3674,8 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|RandomIndexWriter
 name|iw
 init|=
@@ -3692,7 +3694,8 @@ argument_list|,
 literal|"suggest_field"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|int
 name|numSuggestions
 init|=
@@ -4026,6 +4029,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|DirectoryReader
 name|reader
 init|=
@@ -4033,7 +4038,8 @@ name|iw
 operator|.
 name|getReader
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|SuggestIndexSearcher
 name|suggestIndexSearcher
 init|=
@@ -4127,16 +4133,8 @@ literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|iw
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 end_class
