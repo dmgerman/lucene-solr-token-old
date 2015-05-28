@@ -1078,8 +1078,6 @@ expr_stmt|;
 name|String
 name|url
 init|=
-name|CustomCollectionTest
-operator|.
 name|getUrlFromZk
 argument_list|(
 name|getCommonCloudSolrClient

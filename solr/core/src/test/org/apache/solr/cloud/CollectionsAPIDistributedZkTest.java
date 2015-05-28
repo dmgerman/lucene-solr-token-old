@@ -1607,9 +1607,11 @@ name|RemoteSolrException
 name|e
 parameter_list|)
 block|{            }
-name|checkForMissingCollection
+name|assertCollectionNotExists
 argument_list|(
 name|collectionName
+argument_list|,
+literal|45
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1787,9 +1789,11 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-name|checkForMissingCollection
+name|assertCollectionNotExists
 argument_list|(
 name|collectionName
+argument_list|,
+literal|45
 argument_list|)
 expr_stmt|;
 comment|// now creating that collection should work
@@ -4720,9 +4724,11 @@ name|request
 argument_list|)
 expr_stmt|;
 comment|// ensure its out of the state
-name|checkForMissingCollection
+name|assertCollectionNotExists
 argument_list|(
 name|collectionName
+argument_list|,
+literal|45
 argument_list|)
 expr_stmt|;
 comment|//collectionNameList.remove(collectionName);
