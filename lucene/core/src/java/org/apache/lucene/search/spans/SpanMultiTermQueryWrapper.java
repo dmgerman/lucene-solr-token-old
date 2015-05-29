@@ -700,9 +700,6 @@ name|TermContext
 name|states
 parameter_list|)
 block|{
-comment|// TODO: would be nice to not lose term-state here.
-comment|// we could add a hack option to SpanOrQuery, but the hack would only work if this is the top-level Span
-comment|// (if you put this thing in another span query, it would extractTerms/double-seek anyway)
 specifier|final
 name|SpanTermQuery
 name|q
@@ -711,6 +708,8 @@ operator|new
 name|SpanTermQuery
 argument_list|(
 name|term
+argument_list|,
+name|states
 argument_list|)
 decl_stmt|;
 name|q
@@ -853,6 +852,8 @@ operator|new
 name|SpanTermQuery
 argument_list|(
 name|term
+argument_list|,
+name|states
 argument_list|)
 decl_stmt|;
 name|q
