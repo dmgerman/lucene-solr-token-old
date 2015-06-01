@@ -499,6 +499,8 @@ string|"'.git'"
 op|','
 string|"'build'"
 op|','
+string|"'dist'"
+op|','
 string|"'.caches'"
 op|','
 string|"'.idea'"
