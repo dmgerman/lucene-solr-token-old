@@ -1918,12 +1918,6 @@ name|SolrVelocityResourceTool
 extends|extends
 name|ResourceTool
 block|{
-DECL|field|locale
-specifier|private
-specifier|final
-name|Locale
-name|locale
-decl_stmt|;
 DECL|field|solrClassLoader
 specifier|private
 name|ClassLoader
@@ -1956,9 +1950,8 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|locale
-operator|=
-operator|(
+name|setLocale
+argument_list|(
 name|l
 operator|==
 literal|null
@@ -1968,7 +1961,7 @@ operator|.
 name|ROOT
 else|:
 name|l
-operator|)
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -1995,7 +1988,8 @@ literal|"velocity."
 operator|+
 name|baseName
 argument_list|,
-name|locale
+name|getLocale
+argument_list|()
 argument_list|,
 name|solrClassLoader
 argument_list|)
