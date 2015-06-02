@@ -3908,6 +3908,7 @@ block|}
 block|}
 block|}
 DECL|method|sendError
+specifier|protected
 name|void
 name|sendError
 parameter_list|(
