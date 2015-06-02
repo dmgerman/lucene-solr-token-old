@@ -1349,6 +1349,7 @@ argument_list|>
 name|collectionsList
 decl_stmt|;
 DECL|method|HttpSolrCall
+specifier|public
 name|HttpSolrCall
 parameter_list|(
 name|SolrDispatchFilter
