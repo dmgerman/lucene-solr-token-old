@@ -27,7 +27,7 @@ specifier|public
 class|class
 name|GeoNorthRectangle
 extends|extends
-name|GeoBBoxBase
+name|GeoBaseBBox
 block|{
 DECL|field|bottomLat
 specifier|public
@@ -116,19 +116,16 @@ specifier|final
 name|GeoPoint
 index|[]
 name|edgePoints
-init|=
-operator|new
-name|GeoPoint
-index|[]
-block|{
-name|NORTH_POLE
-block|}
 decl_stmt|;
 comment|/**    * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}    */
 DECL|method|GeoNorthRectangle
 specifier|public
 name|GeoNorthRectangle
 parameter_list|(
+specifier|final
+name|PlanetModel
+name|planetModel
+parameter_list|,
 specifier|final
 name|double
 name|bottomLat
@@ -141,6 +138,11 @@ name|double
 name|rightLon
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|planetModel
+argument_list|)
+expr_stmt|;
 comment|// Argument checking
 if|if
 condition|(
@@ -342,6 +344,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinBottomLat
 argument_list|,
 name|sinRightLon
@@ -358,6 +362,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinBottomLat
 argument_list|,
 name|sinLeftLon
@@ -463,6 +469,8 @@ operator|=
 operator|new
 name|GeoPoint
 argument_list|(
+name|planetModel
+argument_list|,
 name|sinMiddleLat
 argument_list|,
 name|sinMiddleLon
@@ -480,6 +488,8 @@ operator|new
 name|SidedPlane
 argument_list|(
 name|centerPoint
+argument_list|,
+name|planetModel
 argument_list|,
 name|sinBottomLat
 argument_list|)
@@ -533,6 +543,8 @@ operator|new
 name|GeoPoint
 index|[]
 block|{
+name|planetModel
+operator|.
 name|NORTH_POLE
 block|,
 name|LLHC
@@ -546,9 +558,24 @@ operator|new
 name|GeoPoint
 index|[]
 block|{
+name|planetModel
+operator|.
 name|NORTH_POLE
 block|,
 name|LRHC
+block|}
+expr_stmt|;
+name|this
+operator|.
+name|edgePoints
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|planetModel
+operator|.
+name|NORTH_POLE
 block|}
 expr_stmt|;
 block|}
@@ -652,6 +679,8 @@ name|GeoBBoxFactory
 operator|.
 name|makeGeoBBox
 argument_list|(
+name|planetModel
+argument_list|,
 name|newTopLat
 argument_list|,
 name|newBottomLat
@@ -856,6 +885,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|bottomPlane
 argument_list|,
 name|notablePoints
@@ -873,6 +904,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|leftPlane
 argument_list|,
 name|notablePoints
@@ -890,6 +923,8 @@ name|p
 operator|.
 name|intersects
 argument_list|(
+name|planetModel
+argument_list|,
 name|rightPlane
 argument_list|,
 name|notablePoints
@@ -991,6 +1026,8 @@ name|path
 operator|.
 name|isWithin
 argument_list|(
+name|planetModel
+operator|.
 name|NORTH_POLE
 argument_list|)
 decl_stmt|;
@@ -1114,6 +1151,13 @@ operator|)
 name|o
 decl_stmt|;
 return|return
+name|super
+operator|.
+name|equals
+argument_list|(
+name|other
+argument_list|)
+operator|&&
 name|other
 operator|.
 name|LLHC
@@ -1144,11 +1188,22 @@ block|{
 name|int
 name|result
 init|=
-name|LLHC
+name|super
 operator|.
 name|hashCode
 argument_list|()
 decl_stmt|;
+name|result
+operator|=
+literal|31
+operator|*
+name|result
+operator|+
+name|LLHC
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
 name|result
 operator|=
 literal|31
@@ -1173,7 +1228,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"GeoNorthRectangle: {bottomlat="
+literal|"GeoNorthRectangle: {planetmodel="
+operator|+
+name|planetModel
+operator|+
+literal|", bottomlat="
 operator|+
 name|bottomLat
 operator|+
