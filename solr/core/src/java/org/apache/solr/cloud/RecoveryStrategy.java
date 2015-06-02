@@ -1956,6 +1956,14 @@ expr_stmt|;
 comment|// skip peersync
 block|}
 block|}
+name|Future
+argument_list|<
+name|RecoveryInfo
+argument_list|>
+name|replayFuture
+init|=
+literal|null
+decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -2573,6 +2581,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+name|replayFuture
+operator|=
 name|replay
 argument_list|(
 name|core
@@ -2940,6 +2950,30 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// if replay was skipped (possibly to due pulling a full index from the leader),
+comment|// then we still need to update version bucket seeds after recovery
+if|if
+condition|(
+name|successfulRecovery
+operator|&&
+name|replayFuture
+operator|==
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Updating version bucket highest from index after successful recovery."
+argument_list|)
+expr_stmt|;
+name|core
+operator|.
+name|seedVersionBuckets
+argument_list|()
+expr_stmt|;
 block|}
 name|log
 operator|.
