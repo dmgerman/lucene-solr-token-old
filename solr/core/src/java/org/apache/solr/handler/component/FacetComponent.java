@@ -456,13 +456,6 @@ name|REFINE_PARAM
 operator|+
 literal|"="
 decl_stmt|;
-comment|/**    * Incremented counter used to track the values being refined in a given request.    * This counter is used in conjunction with {@link PivotFacet#REFINE_PARAM} to identify    * which refinement values are associated with which pivots.    */
-DECL|field|pivotRefinementCounter
-name|int
-name|pivotRefinementCounter
-init|=
-literal|0
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|prepare
@@ -1629,6 +1622,8 @@ name|PivotFacet
 operator|.
 name|REFINE_PARAM
 operator|+
+name|fi
+operator|.
 name|pivotRefinementCounter
 decl_stmt|;
 name|String
@@ -1647,6 +1642,8 @@ name|command
 operator|=
 name|PIVOT_REFINE_PREFIX
 operator|+
+name|fi
+operator|.
 name|pivotRefinementCounter
 operator|+
 literal|" "
@@ -1667,6 +1664,8 @@ name|command
 operator|=
 name|PIVOT_REFINE_PREFIX
 operator|+
+name|fi
+operator|.
 name|pivotRefinementCounter
 operator|+
 literal|"}"
@@ -1724,6 +1723,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|fi
+operator|.
 name|pivotRefinementCounter
 operator|++
 expr_stmt|;
@@ -5790,10 +5791,6 @@ name|ResponseBuilder
 name|rb
 parameter_list|)
 block|{
-name|pivotRefinementCounter
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -6557,6 +6554,13 @@ specifier|static
 class|class
 name|FacetInfo
 block|{
+comment|/**      * Incremented counter used to track the values being refined in a given request.      * This counter is used in conjunction with {@link PivotFacet#REFINE_PARAM} to identify      * which refinement values are associated with which pivots.      */
+DECL|field|pivotRefinementCounter
+name|int
+name|pivotRefinementCounter
+init|=
+literal|0
+decl_stmt|;
 DECL|field|queryFacets
 specifier|public
 name|LinkedHashMap
