@@ -16,6 +16,21 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|ModifiableSolrParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|noggit
 operator|.
 name|JSONUtil
@@ -408,11 +423,23 @@ name|commit
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ModifiableSolrParams
+name|p
+init|=
+name|params
+argument_list|(
+literal|"sort"
+argument_list|,
+literal|"id asc"
+argument_list|)
+decl_stmt|;
 comment|// test debugging
 name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=dept_id_s}title:MTS"
@@ -433,6 +460,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=dept_id_s}title:MTS"
@@ -450,6 +479,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=noexist_s to=dept_id_s}*:*"
@@ -467,6 +498,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=noexist_s}*:*"
@@ -484,6 +517,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=title to=title}name:dave"
@@ -501,6 +536,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_id_s to=dept_s}text:develop"
@@ -518,6 +555,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=title to=title}name:dave"
@@ -534,6 +573,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=dept_id_s}title:MTS"
@@ -562,6 +603,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=dept_id_s}name:dave"
@@ -579,6 +622,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=dept_id_s v=$qq}"
@@ -608,6 +653,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=dept_id_s v=$qq}"
@@ -633,6 +680,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_s to=dept_id_s defType=dismax}dave"
@@ -659,6 +708,8 @@ name|assertJQ
 argument_list|(
 name|req
 argument_list|(
+name|p
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"{!join from=dept_id_s to=dept_s}text:develop"
