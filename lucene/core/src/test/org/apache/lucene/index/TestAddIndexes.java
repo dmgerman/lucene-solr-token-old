@@ -7584,13 +7584,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|iwc
-operator|.
-name|setWriteLockTimeout
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|RandomIndexWriter
 name|w2
 init|=

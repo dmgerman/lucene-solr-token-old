@@ -234,6 +234,13 @@ name|Closeable
 implements|,
 name|Accountable
 block|{
+DECL|field|directoryOrig
+specifier|private
+specifier|final
+name|Directory
+name|directoryOrig
+decl_stmt|;
+comment|// no wrapping, for infos
 DECL|field|directory
 specifier|private
 specifier|final
@@ -337,9 +344,18 @@ name|LiveIndexWriterConfig
 name|config
 parameter_list|,
 name|Directory
+name|directoryOrig
+parameter_list|,
+name|Directory
 name|directory
 parameter_list|)
 block|{
+name|this
+operator|.
+name|directoryOrig
+operator|=
+name|directoryOrig
+expr_stmt|;
 name|this
 operator|.
 name|directory
@@ -1624,6 +1640,8 @@ name|writer
 operator|.
 name|newSegmentName
 argument_list|()
+argument_list|,
+name|directoryOrig
 argument_list|,
 name|directory
 argument_list|,

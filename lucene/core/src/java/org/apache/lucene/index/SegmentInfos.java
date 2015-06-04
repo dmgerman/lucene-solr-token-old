@@ -2027,13 +2027,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-assert|assert
-name|si
-operator|.
-name|dir
-operator|==
-name|directory
-assert|;
 block|}
 name|segnOutput
 operator|.

@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * This exception is thrown when the<code>write.lock</code>  * could not be acquired.  This  * happens when a writer tries to open an index  * that another writer already has open.  * @see Lock#obtain(long)  */
+comment|/**  * This exception is thrown when the<code>write.lock</code>  * could not be acquired.  This  * happens when a writer tries to open an index  * that another writer already has open.  * @see LockFactory#obtainLock(Directory, String)  */
 end_comment
 begin_class
 DECL|class|LockObtainFailedException

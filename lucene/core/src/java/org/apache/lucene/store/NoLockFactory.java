@@ -65,10 +65,10 @@ parameter_list|()
 block|{}
 annotation|@
 name|Override
-DECL|method|makeLock
+DECL|method|obtainLock
 specifier|public
 name|Lock
-name|makeLock
+name|obtainLock
 parameter_list|(
 name|Directory
 name|dir
@@ -91,20 +91,6 @@ name|Lock
 block|{
 annotation|@
 name|Override
-DECL|method|obtain
-specifier|public
-name|boolean
-name|obtain
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -113,16 +99,14 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|isLocked
+DECL|method|ensureValid
 specifier|public
-name|boolean
-name|isLocked
+name|void
+name|ensureValid
 parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
+throws|throws
+name|IOException
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString
