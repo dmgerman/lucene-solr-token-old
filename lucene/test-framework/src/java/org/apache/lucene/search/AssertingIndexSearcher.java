@@ -91,19 +91,6 @@ operator|.
 name|LeafReaderContext
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Bits
-import|;
-end_import
 begin_comment
 comment|/**  * Helper class that adds some extra checks to ensure correct  * usage of {@code IndexSearcher} and {@code Weight}.  */
 end_comment
@@ -287,6 +274,8 @@ argument_list|(
 name|random
 argument_list|,
 name|w
+argument_list|,
+name|needsScores
 argument_list|)
 block|{
 annotation|@
@@ -359,6 +348,8 @@ name|query
 argument_list|,
 name|needsScores
 argument_list|)
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -426,21 +417,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO: shouldn't we AssertingCollector.wrap(collector) here?
+assert|assert
+name|weight
+operator|instanceof
+name|AssertingWeight
+assert|;
 name|super
 operator|.
 name|search
 argument_list|(
 name|leaves
 argument_list|,
-name|AssertingWeight
-operator|.
-name|wrap
-argument_list|(
-name|random
-argument_list|,
 name|weight
-argument_list|)
 argument_list|,
 name|AssertingCollector
 operator|.
