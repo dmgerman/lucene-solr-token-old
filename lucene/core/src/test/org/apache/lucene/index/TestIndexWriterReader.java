@@ -720,6 +720,27 @@ name|commit
 argument_list|()
 expr_stmt|;
 comment|// no changes that are not visible to the reader
+comment|// A commit is now seen as a change to an NRT reader:
+name|assertFalse
+argument_list|(
+name|reader
+operator|.
+name|isCurrent
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|reader
+operator|=
+name|writer
+operator|.
+name|getReader
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|reader
@@ -741,7 +762,6 @@ name|isCurrent
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// all changes are visible to the reader
 name|iwc
 operator|=
 name|newIndexWriterConfig
@@ -1120,7 +1140,8 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|assertTrue
+comment|// writer.close wrote a new commit
+name|assertFalse
 argument_list|(
 name|r2
 operator|.
@@ -1146,7 +1167,7 @@ name|isCurrent
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|r2
 operator|.
@@ -1245,7 +1266,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|r2
 operator|.
@@ -1534,7 +1555,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// close is actually a commit both should see the changes
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|nrtReader
 operator|.
@@ -1760,7 +1781,8 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|assertTrue
+comment|// A commit is seen as a change to NRT reader:
+name|assertFalse
 argument_list|(
 name|r1
 operator|.
@@ -1768,7 +1790,6 @@ name|isCurrent
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we have seen all changes - no change after opening the NRT reader
 name|assertEquals
 argument_list|(
 literal|200
