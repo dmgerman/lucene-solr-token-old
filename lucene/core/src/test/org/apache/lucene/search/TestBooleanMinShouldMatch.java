@@ -3248,7 +3248,9 @@ init|=
 name|s
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -3416,7 +3418,9 @@ init|=
 name|s
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 try|try
 block|{

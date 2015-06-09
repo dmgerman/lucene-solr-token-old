@@ -1010,7 +1010,9 @@ argument_list|(
 name|s
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2066,7 +2068,9 @@ argument_list|(
 name|s
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Weight
@@ -2257,7 +2261,9 @@ argument_list|(
 name|s
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Weight
@@ -2758,7 +2764,9 @@ argument_list|(
 name|s
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Weight
@@ -2927,7 +2935,9 @@ argument_list|(
 name|s
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Weight

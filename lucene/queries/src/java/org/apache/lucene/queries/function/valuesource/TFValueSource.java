@@ -301,7 +301,9 @@ argument_list|(
 name|searcher
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|,
 name|indexedField
 argument_list|)

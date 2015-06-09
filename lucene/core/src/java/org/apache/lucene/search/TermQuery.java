@@ -328,7 +328,9 @@ operator|=
 name|searcher
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+name|needsScores
+argument_list|)
 expr_stmt|;
 specifier|final
 name|CollectionStatistics
