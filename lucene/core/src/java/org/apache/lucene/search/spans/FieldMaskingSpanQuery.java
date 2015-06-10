@@ -177,9 +177,6 @@ name|searcher
 parameter_list|,
 name|boolean
 name|needsScores
-parameter_list|,
-name|SpanCollectorFactory
-name|factory
 parameter_list|)
 throws|throws
 name|IOException
@@ -192,8 +189,6 @@ argument_list|(
 name|searcher
 argument_list|,
 name|needsScores
-argument_list|,
-name|factory
 argument_list|)
 return|;
 block|}

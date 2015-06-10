@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|IndexReader
 import|;
 end_import
 begin_import
@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -170,7 +170,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|Objects
 import|;
 end_import
 begin_import
@@ -179,7 +179,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Objects
+name|Set
 import|;
 end_import
 begin_comment
@@ -591,9 +591,6 @@ name|searcher
 parameter_list|,
 name|boolean
 name|needsScores
-parameter_list|,
-name|SpanCollectorFactory
-name|factory
 parameter_list|)
 throws|throws
 name|IOException
@@ -608,8 +605,6 @@ argument_list|(
 name|searcher
 argument_list|,
 literal|false
-argument_list|,
-name|factory
 argument_list|)
 decl_stmt|;
 name|SpanWeight
@@ -622,8 +617,6 @@ argument_list|(
 name|searcher
 argument_list|,
 literal|false
-argument_list|,
-name|factory
 argument_list|)
 decl_stmt|;
 return|return
@@ -642,8 +635,6 @@ name|excludeWeight
 argument_list|)
 else|:
 literal|null
-argument_list|,
-name|factory
 argument_list|,
 name|includeWeight
 argument_list|,
@@ -683,9 +674,6 @@ name|TermContext
 argument_list|>
 name|terms
 parameter_list|,
-name|SpanCollectorFactory
-name|factory
-parameter_list|,
 name|SpanWeight
 name|includeWeight
 parameter_list|,
@@ -704,8 +692,6 @@ argument_list|,
 name|searcher
 argument_list|,
 name|terms
-argument_list|,
-name|factory
 argument_list|)
 expr_stmt|;
 name|this
@@ -760,8 +746,8 @@ specifier|final
 name|Bits
 name|acceptDocs
 parameter_list|,
-name|SpanCollector
-name|collector
+name|Postings
+name|requiredPostings
 parameter_list|)
 throws|throws
 name|IOException
@@ -777,7 +763,7 @@ name|context
 argument_list|,
 name|acceptDocs
 argument_list|,
-name|collector
+name|requiredPostings
 argument_list|)
 decl_stmt|;
 if|if
@@ -802,7 +788,7 @@ name|context
 argument_list|,
 name|acceptDocs
 argument_list|,
-name|collector
+name|requiredPostings
 argument_list|)
 decl_stmt|;
 if|if

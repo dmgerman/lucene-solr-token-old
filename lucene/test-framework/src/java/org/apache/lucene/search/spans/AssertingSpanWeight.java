@@ -177,10 +177,6 @@ argument_list|,
 name|searcher
 argument_list|,
 literal|null
-argument_list|,
-name|in
-operator|.
-name|collectorFactory
 argument_list|)
 expr_stmt|;
 name|this
@@ -227,8 +223,8 @@ parameter_list|,
 name|Bits
 name|liveDocs
 parameter_list|,
-name|SpanCollector
-name|collector
+name|Postings
+name|requiredPostings
 parameter_list|)
 throws|throws
 name|IOException
@@ -244,7 +240,7 @@ name|context
 argument_list|,
 name|liveDocs
 argument_list|,
-name|collector
+name|requiredPostings
 argument_list|)
 decl_stmt|;
 if|if
