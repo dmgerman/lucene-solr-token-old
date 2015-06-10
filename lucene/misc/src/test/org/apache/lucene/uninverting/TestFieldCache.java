@@ -1042,6 +1042,13 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+name|TestUtil
+operator|.
+name|checkReader
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|close
@@ -2503,6 +2510,13 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
+name|TestUtil
+operator|.
+name|checkReader
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
 name|FieldCache
 operator|.
 name|DEFAULT

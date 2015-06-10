@@ -1275,6 +1275,13 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
+name|TestUtil
+operator|.
+name|checkReader
+argument_list|(
+name|ar
+argument_list|)
+expr_stmt|;
 name|BinaryDocValues
 name|s
 init|=
@@ -1748,6 +1755,13 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
+name|TestUtil
+operator|.
+name|checkReader
+argument_list|(
+name|ar
+argument_list|)
+expr_stmt|;
 name|BinaryDocValues
 name|s
 init|=
