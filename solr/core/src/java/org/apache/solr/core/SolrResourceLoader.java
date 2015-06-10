@@ -3750,6 +3750,10 @@ name|CodecFactory
 operator|.
 name|class
 block|,
+name|DirectoryFactory
+operator|.
+name|class
+block|,
 name|ManagedIndexSchemaFactory
 operator|.
 name|class
