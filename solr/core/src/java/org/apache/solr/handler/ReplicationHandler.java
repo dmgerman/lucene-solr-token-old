@@ -8612,10 +8612,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|releaseCommitPointAndExtendReserve
+DECL|method|extendReserveAndReleaseCommitPoint
 specifier|protected
 name|void
-name|releaseCommitPointAndExtendReserve
+name|extendReserveAndReleaseCommitPoint
 parameter_list|()
 block|{
 if|if
@@ -8625,14 +8625,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//release the commit point as the write is complete
-name|delPolicy
-operator|.
-name|releaseCommitPoint
-argument_list|(
-name|indexGen
-argument_list|)
-expr_stmt|;
 comment|//Reserve the commit point for another 10s for the next file to be to fetched.
 comment|//We need to keep extending the commit reservation between requests so that the replica can fetch
 comment|//all the files correctly.
@@ -8643,6 +8635,14 @@ argument_list|(
 name|indexGen
 argument_list|,
 name|reserveCommitDuration
+argument_list|)
+expr_stmt|;
+comment|//release the commit point as the write is complete
+name|delPolicy
+operator|.
+name|releaseCommitPoint
+argument_list|(
+name|indexGen
 argument_list|)
 expr_stmt|;
 block|}
@@ -8965,7 +8965,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|releaseCommitPointAndExtendReserve
+name|extendReserveAndReleaseCommitPoint
 argument_list|()
 expr_stmt|;
 block|}
@@ -9256,7 +9256,7 @@ argument_list|(
 name|inputStream
 argument_list|)
 expr_stmt|;
-name|releaseCommitPointAndExtendReserve
+name|extendReserveAndReleaseCommitPoint
 argument_list|()
 expr_stmt|;
 block|}
