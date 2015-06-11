@@ -13759,7 +13759,7 @@ argument_list|)
 expr_stmt|;
 name|merge
 operator|.
-name|setInfo
+name|setMergeInfo
 argument_list|(
 operator|new
 name|SegmentCommitInfo
@@ -14336,7 +14336,7 @@ name|IOContext
 argument_list|(
 name|merge
 operator|.
-name|getMergeInfo
+name|getStoreMergeInfo
 argument_list|()
 argument_list|)
 decl_stmt|;
