@@ -513,6 +513,61 @@ name|rightLon
 argument_list|)
 return|;
 block|}
+DECL|class|Geo3dRectIntersectionTestHelper
+specifier|abstract
+class|class
+name|Geo3dRectIntersectionTestHelper
+extends|extends
+name|RectIntersectionTestHelper
+argument_list|<
+name|Geo3dShape
+argument_list|>
+block|{
+DECL|method|Geo3dRectIntersectionTestHelper
+specifier|public
+name|Geo3dRectIntersectionTestHelper
+parameter_list|(
+name|SpatialContext
+name|ctx
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|ctx
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMaxLaps
+specifier|protected
+name|int
+name|getMaxLaps
+parameter_list|()
+block|{
+comment|//sometimes, getWithinMinimum needs some more attempts then normal; 20k is suggested max.
+return|return
+literal|200_000
+return|;
+comment|//200k
+block|}
+annotation|@
+name|Override
+DECL|method|getDefaultMinimumPredicateFrequency
+specifier|protected
+name|int
+name|getDefaultMinimumPredicateFrequency
+parameter_list|(
+name|int
+name|maxLaps
+parameter_list|)
+block|{
+return|return
+literal|20
+return|;
+comment|//20 times each -- should be plenty in 200k
+block|}
+block|}
 annotation|@
 name|Test
 DECL|method|testGeoCircleRect
@@ -522,10 +577,7 @@ name|testGeoCircleRect
 parameter_list|()
 block|{
 operator|new
-name|RectIntersectionTestHelper
-argument_list|<
-name|Geo3dShape
-argument_list|>
+name|Geo3dRectIntersectionTestHelper
 argument_list|(
 name|ctx
 argument_list|)
@@ -666,10 +718,7 @@ name|testGeoBBoxRect
 parameter_list|()
 block|{
 operator|new
-name|RectIntersectionTestHelper
-argument_list|<
-name|Geo3dShape
-argument_list|>
+name|Geo3dRectIntersectionTestHelper
 argument_list|(
 name|ctx
 argument_list|)
@@ -822,10 +871,7 @@ name|testGeoPolygonRect
 parameter_list|()
 block|{
 operator|new
-name|RectIntersectionTestHelper
-argument_list|<
-name|Geo3dShape
-argument_list|>
+name|Geo3dRectIntersectionTestHelper
 argument_list|(
 name|ctx
 argument_list|)
@@ -1040,11 +1086,9 @@ name|int
 name|laps
 parameter_list|)
 block|{
-comment|// Long/thin so only 10% of the usual figure
+comment|// Long/thin so lets just find 1.
 return|return
-name|laps
-operator|/
-literal|10000
+literal|1
 return|;
 block|}
 block|}
@@ -1062,10 +1106,7 @@ name|testGeoPathRect
 parameter_list|()
 block|{
 operator|new
-name|RectIntersectionTestHelper
-argument_list|<
-name|Geo3dShape
-argument_list|>
+name|Geo3dRectIntersectionTestHelper
 argument_list|(
 name|ctx
 argument_list|)
@@ -1268,11 +1309,9 @@ name|int
 name|laps
 parameter_list|)
 block|{
-comment|// Long/thin so only 10% of the usual figure
+comment|// Long/thin so lets just find 1.
 return|return
-name|laps
-operator|/
-literal|10000
+literal|1
 return|;
 block|}
 block|}
