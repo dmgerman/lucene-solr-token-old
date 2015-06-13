@@ -94,7 +94,7 @@ name|SolrRequestInfo
 import|;
 end_import
 begin_comment
-comment|/**  * Bridge between old style context and a real class  * @lucene.experimental  */
+comment|/*  * Bridge between old style context and a real class.  * This is currently slightly more heavy weight than necessary because of the need to inherit from IdentityHashMap rather than  * instantiate it on demand (and the need to put "searcher" in the map)  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|QueryContext
@@ -189,7 +189,7 @@ argument_list|,
 name|searcher
 argument_list|)
 expr_stmt|;
-comment|// see ValueSource.newContext()
+comment|// see ValueSource.newContext()  // TODO: move check to "get"?
 block|}
 DECL|method|searcher
 specifier|public
