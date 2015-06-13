@@ -2251,6 +2251,10 @@ break|break;
 case|case
 literal|"zkCredientialsProvider"
 case|:
+comment|// deprecated
+case|case
+literal|"zkCredentialsProvider"
+case|:
 name|builder
 operator|.
 name|setZkCredentialsProviderClass
