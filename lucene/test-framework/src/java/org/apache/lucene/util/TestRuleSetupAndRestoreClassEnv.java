@@ -74,6 +74,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|TimeZone
 import|;
 end_import
@@ -677,14 +686,9 @@ name|messageID
 operator|+
 literal|" ["
 operator|+
-name|dateFormat
-operator|.
-name|format
-argument_list|(
 operator|new
 name|Date
 argument_list|()
-argument_list|)
 operator|+
 literal|"; "
 operator|+
