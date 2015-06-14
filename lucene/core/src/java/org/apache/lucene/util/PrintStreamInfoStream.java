@@ -111,7 +111,7 @@ name|int
 name|messageID
 decl_stmt|;
 DECL|field|dateFormat
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|DateFormat
