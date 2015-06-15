@@ -2889,11 +2889,23 @@ operator|=
 name|x
 expr_stmt|;
 block|}
+name|boolean
+name|crossesDateLine
+decl_stmt|;
 if|if
 condition|(
 name|lon1
 operator|<
 name|lon0
+condition|)
+block|{
+if|if
+condition|(
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
 condition|)
 block|{
 name|double
@@ -2908,6 +2920,25 @@ expr_stmt|;
 name|lon1
 operator|=
 name|x
+expr_stmt|;
+name|crossesDateLine
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
+name|crossesDateLine
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|crossesDateLine
+operator|=
+literal|false
 expr_stmt|;
 block|}
 if|if
@@ -2940,14 +2971,21 @@ operator|+
 literal|" TO "
 operator|+
 name|lon1
+operator|+
+literal|" crossesDateLine="
+operator|+
+name|crossesDateLine
 argument_list|)
 expr_stmt|;
 block|}
 name|Query
 name|query
 decl_stmt|;
+comment|// TODO: get poly query working with dateline crossing too (how?)!
 if|if
 condition|(
+name|crossesDateLine
+operator|||
 name|random
 argument_list|()
 operator|.
@@ -3417,6 +3455,10 @@ operator|+
 literal|" query="
 operator|+
 name|query
+operator|+
+literal|" crossesDateLine="
+operator|+
+name|crossesDateLine
 argument_list|)
 expr_stmt|;
 block|}
@@ -3576,6 +3618,13 @@ argument_list|(
 name|pointLon
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|rectLonMin
+operator|<
+name|rectLonMax
+condition|)
+block|{
 return|return
 name|pointLatEnc
 operator|>=
@@ -3593,6 +3642,30 @@ name|pointLonEnc
 operator|<
 name|rectLonMaxEnc
 return|;
+block|}
+else|else
+block|{
+comment|// Rect crosses dateline:
+return|return
+name|pointLatEnc
+operator|>=
+name|rectLatMinEnc
+operator|&&
+name|pointLatEnc
+operator|<
+name|rectLatMaxEnc
+operator|&&
+operator|(
+name|pointLonEnc
+operator|>=
+name|rectLonMinEnc
+operator|||
+name|pointLonEnc
+operator|<
+name|rectLonMaxEnc
+operator|)
+return|;
+block|}
 block|}
 DECL|method|randomLat
 specifier|private
