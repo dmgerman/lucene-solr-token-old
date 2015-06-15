@@ -1183,15 +1183,6 @@ block|{
 comment|// Tests that the values of the constants does not change
 name|assertEquals
 argument_list|(
-literal|0
-argument_list|,
-name|IndexWriterConfig
-operator|.
-name|WRITE_LOCK_TIMEOUT
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 operator|-
 literal|1
 argument_list|,
