@@ -1325,6 +1325,13 @@ comment|// brittle, but it's ok
 comment|// Make sure we have the right bean.
 name|assertEquals
 argument_list|(
+literal|"Got the wrong bean: "
+operator|+
+name|localityBean
+operator|.
+name|getName
+argument_list|()
+argument_list|,
 literal|"hdfs-locality"
 argument_list|,
 name|localityBean
@@ -1347,6 +1354,17 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Saw bytes that were not written: "
+operator|+
+name|statistics
+operator|.
+name|get
+argument_list|(
+name|HdfsLocalityReporter
+operator|.
+name|LOCALITY_BYTES_TOTAL
+argument_list|)
+argument_list|,
 literal|0l
 argument_list|,
 name|statistics
@@ -1361,6 +1379,17 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Counted bytes as local when none written: "
+operator|+
+name|statistics
+operator|.
+name|get
+argument_list|(
+name|HdfsLocalityReporter
+operator|.
+name|LOCALITY_BYTES_RATIO
+argument_list|)
+argument_list|,
 literal|0
 argument_list|,
 name|statistics
@@ -1440,6 +1469,13 @@ operator|.
 name|SIZE
 decl_stmt|;
 comment|// no locality because hostname not set
+name|factory
+operator|.
+name|setHost
+argument_list|(
+literal|"bogus"
+argument_list|)
+expr_stmt|;
 name|statistics
 operator|=
 name|localityBean
@@ -1449,6 +1485,17 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Wrong number of total bytes counted: "
+operator|+
+name|statistics
+operator|.
+name|get
+argument_list|(
+name|HdfsLocalityReporter
+operator|.
+name|LOCALITY_BYTES_TOTAL
+argument_list|)
+argument_list|,
 name|long_bytes
 argument_list|,
 name|statistics
@@ -1463,6 +1510,17 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Wrong number of total blocks counted: "
+operator|+
+name|statistics
+operator|.
+name|get
+argument_list|(
+name|HdfsLocalityReporter
+operator|.
+name|LOCALITY_BLOCKS_TOTAL
+argument_list|)
+argument_list|,
 literal|1
 argument_list|,
 name|statistics
@@ -1477,6 +1535,17 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Counted block as local when bad hostname set: "
+operator|+
+name|statistics
+operator|.
+name|get
+argument_list|(
+name|HdfsLocalityReporter
+operator|.
+name|LOCALITY_BLOCKS_LOCAL
+argument_list|)
+argument_list|,
 literal|0
 argument_list|,
 name|statistics
@@ -1506,6 +1575,17 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Did not count block as local after setting hostname: "
+operator|+
+name|statistics
+operator|.
+name|get
+argument_list|(
+name|HdfsLocalityReporter
+operator|.
+name|LOCALITY_BYTES_LOCAL
+argument_list|)
+argument_list|,
 name|long_bytes
 argument_list|,
 name|statistics
