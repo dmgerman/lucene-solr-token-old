@@ -171,7 +171,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
+name|BitDocIdSet
 import|;
 end_import
 begin_import
@@ -184,7 +184,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BitDocIdSet
+name|Bits
 import|;
 end_import
 begin_import
@@ -2034,10 +2034,14 @@ literal|2
 decl_stmt|;
 comment|// min 2 clauses
 name|PhraseQuery
-name|q
+operator|.
+name|Builder
+name|builder
 init|=
 operator|new
 name|PhraseQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -2066,7 +2070,7 @@ argument_list|(
 name|termsInIndex
 argument_list|)
 decl_stmt|;
-name|q
+name|builder
 operator|.
 name|add
 argument_list|(
@@ -2089,19 +2093,25 @@ literal|'A'
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|,
-name|j
 argument_list|)
 expr_stmt|;
 block|}
-name|q
+comment|// slop could be random too
+name|builder
 operator|.
 name|setSlop
 argument_list|(
 name|termsInIndex
 argument_list|)
 expr_stmt|;
-comment|// this could be random too
+name|PhraseQuery
+name|q
+init|=
+name|builder
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 name|CountingHitCollector
 name|hc
 init|=
