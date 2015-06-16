@@ -340,6 +340,21 @@ name|schema
 operator|.
 name|IndexSchema
 operator|.
+name|MAX_CHARS
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|schema
+operator|.
+name|IndexSchema
+operator|.
 name|NAME
 import|;
 end_import
@@ -1292,6 +1307,94 @@ argument_list|(
 name|DESTINATION
 argument_list|)
 decl_stmt|;
+name|int
+name|maxChars
+init|=
+name|CopyField
+operator|.
+name|UNLIMITED
+decl_stmt|;
+comment|// If maxChars is not specified, there is no limit on copied chars
+name|String
+name|maxCharsStr
+init|=
+name|op
+operator|.
+name|getStr
+argument_list|(
+name|MAX_CHARS
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+literal|null
+operator|!=
+name|maxCharsStr
+condition|)
+block|{
+try|try
+block|{
+name|maxChars
+operator|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|maxCharsStr
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|e
+parameter_list|)
+block|{
+name|op
+operator|.
+name|addError
+argument_list|(
+literal|"Exception parsing "
+operator|+
+name|MAX_CHARS
+operator|+
+literal|" '"
+operator|+
+name|maxCharsStr
+operator|+
+literal|"': "
+operator|+
+name|getErrorStr
+argument_list|(
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|maxChars
+operator|<
+literal|0
+condition|)
+block|{
+name|op
+operator|.
+name|addError
+argument_list|(
+name|MAX_CHARS
+operator|+
+literal|" '"
+operator|+
+name|maxCharsStr
+operator|+
+literal|"' is negative."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 name|op
@@ -1312,6 +1415,8 @@ argument_list|(
 name|SOURCE
 argument_list|,
 name|DESTINATION
+argument_list|,
+name|MAX_CHARS
 argument_list|)
 operator|.
 name|isEmpty
@@ -1326,9 +1431,13 @@ literal|"Only the '"
 operator|+
 name|SOURCE
 operator|+
-literal|"' and '"
+literal|"', '"
 operator|+
 name|DESTINATION
+operator|+
+literal|"' and '"
+operator|+
+name|MAX_CHARS
 operator|+
 literal|"' params are allowed with the 'add-copy-field' operation"
 argument_list|)
@@ -1349,14 +1458,11 @@ name|managedIndexSchema
 operator|.
 name|addCopyFields
 argument_list|(
-name|singletonMap
-argument_list|(
 name|src
 argument_list|,
 name|dests
-argument_list|)
 argument_list|,
-literal|false
+name|maxChars
 argument_list|)
 expr_stmt|;
 return|return
