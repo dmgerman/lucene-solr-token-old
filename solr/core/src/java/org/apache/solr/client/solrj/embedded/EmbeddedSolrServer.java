@@ -1250,6 +1250,11 @@ expr_stmt|;
 block|}
 block|}
 operator|.
+name|setWritableDocFields
+argument_list|(
+name|resolver
+argument_list|)
+operator|.
 name|marshal
 argument_list|(
 name|rsp
