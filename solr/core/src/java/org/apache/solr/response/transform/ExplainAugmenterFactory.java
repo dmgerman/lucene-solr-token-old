@@ -312,7 +312,7 @@ specifier|static
 class|class
 name|ExplainAugmenter
 extends|extends
-name|TransformerWithContext
+name|DocTransformer
 block|{
 DECL|field|name
 specifier|final
@@ -382,7 +382,8 @@ literal|null
 operator|&&
 name|context
 operator|.
-name|query
+name|getQuery
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -394,13 +395,15 @@ name|exp
 init|=
 name|context
 operator|.
-name|searcher
+name|getSearcher
+argument_list|()
 operator|.
 name|explain
 argument_list|(
 name|context
 operator|.
-name|query
+name|getQuery
+argument_list|()
 argument_list|,
 name|docid
 argument_list|)

@@ -51,7 +51,7 @@ specifier|public
 class|class
 name|ScoreAugmenter
 extends|extends
-name|TransformerWithContext
+name|DocTransformer
 block|{
 DECL|field|name
 specifier|final
@@ -108,13 +108,15 @@ operator|&&
 name|context
 operator|.
 name|wantsScores
+argument_list|()
 condition|)
 block|{
 if|if
 condition|(
 name|context
 operator|.
-name|iterator
+name|getDocIterator
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -127,7 +129,8 @@ name|name
 argument_list|,
 name|context
 operator|.
-name|iterator
+name|getDocIterator
+argument_list|()
 operator|.
 name|score
 argument_list|()
