@@ -206,7 +206,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_TIMEOUT
-specifier|private
+specifier|protected
 specifier|static
 name|long
 name|DEFAULT_TIMEOUT
@@ -218,18 +218,18 @@ operator|*
 literal|1000
 decl_stmt|;
 DECL|field|dir
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|dir
 decl_stmt|;
 DECL|field|zookeeper
-specifier|private
+specifier|protected
 name|SolrZkClient
 name|zookeeper
 decl_stmt|;
 DECL|field|prefix
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|prefix
@@ -237,7 +237,7 @@ init|=
 literal|"mn-"
 decl_stmt|;
 DECL|field|response_prefix
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|response_prefix
@@ -343,7 +343,7 @@ name|zookeeper
 expr_stmt|;
 block|}
 DECL|class|LatchChildWatcher
-specifier|private
+specifier|protected
 class|class
 name|LatchChildWatcher
 implements|implements
@@ -477,7 +477,7 @@ block|}
 block|}
 comment|/**    * Inserts data into zookeeper.    *    * @return true if data was successfully added    */
 DECL|method|createData
-specifier|private
+specifier|protected
 name|String
 name|createData
 parameter_list|(

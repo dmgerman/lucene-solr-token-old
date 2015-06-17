@@ -20196,7 +20196,12 @@ name|put
 argument_list|(
 name|asyncId
 argument_list|,
-literal|null
+name|SolrResponse
+operator|.
+name|serializable
+argument_list|(
+name|response
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|log
@@ -20220,7 +20225,12 @@ name|put
 argument_list|(
 name|asyncId
 argument_list|,
-literal|null
+name|SolrResponse
+operator|.
+name|serializable
+argument_list|(
+name|response
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|log
