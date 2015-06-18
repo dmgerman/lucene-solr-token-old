@@ -914,10 +914,14 @@ expr_stmt|;
 block|}
 specifier|final
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -952,6 +956,9 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|q1

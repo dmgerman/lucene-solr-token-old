@@ -484,10 +484,14 @@ name|reader
 argument_list|)
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|booleanQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|booleanQuery
@@ -582,6 +586,9 @@ block|}
 name|query
 operator|=
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 comment|// warm the searcher
 name|searcher
@@ -1437,10 +1444,14 @@ decl_stmt|;
 try|try
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|booleanQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 comment|// won't match - we only test if we check timeout when collectors are pulled
@@ -1495,6 +1506,9 @@ operator|.
 name|search
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|collector
 argument_list|)

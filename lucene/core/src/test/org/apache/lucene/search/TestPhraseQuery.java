@@ -1609,10 +1609,14 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|booleanQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|booleanQuery
@@ -1648,6 +1652,9 @@ operator|.
 name|search
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1894,6 +1901,8 @@ name|booleanQuery
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|booleanQuery
@@ -1929,6 +1938,9 @@ operator|.
 name|search
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1948,6 +1960,8 @@ name|booleanQuery
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|booleanQuery
@@ -1983,6 +1997,9 @@ operator|.
 name|search
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -2006,6 +2023,9 @@ name|random
 argument_list|()
 argument_list|,
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|)
@@ -3541,10 +3561,14 @@ name|Throwable
 block|{
 specifier|final
 name|BooleanQuery
+operator|.
+name|Builder
 name|q2
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q2
@@ -3571,6 +3595,9 @@ name|MUST
 argument_list|)
 expr_stmt|;
 name|q2
+operator|.
+name|build
+argument_list|()
 operator|.
 name|toString
 argument_list|()

@@ -1893,10 +1893,14 @@ condition|)
 block|{
 comment|//touches dateline; -180 == 180
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1933,6 +1937,9 @@ expr_stmt|;
 name|qMinX
 operator|=
 name|bq
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 name|Query
@@ -1976,10 +1983,14 @@ condition|)
 block|{
 comment|//touches dateline; -180 == 180
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -2017,6 +2028,9 @@ expr_stmt|;
 name|qMaxX
 operator|=
 name|bq
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 name|Query
@@ -2517,10 +2531,14 @@ argument_list|)
 expr_stmt|;
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|qNotDisjoint
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|qNotDisjoint
@@ -2563,6 +2581,9 @@ comment|//qNotDisjoint.add(new MatchAllDocsQuery(),BooleanClause.Occur.SHOULD);
 comment|//qNotDisjoint.add(qDisjoint,BooleanClause.Occur.MUST_NOT);
 return|return
 name|qNotDisjoint
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|/**    * Makes a boolean query based upon a collection of queries and a logical operator.    *    * @param occur the logical operator    * @param queries the query collection    * @return the query    */
@@ -2581,10 +2602,14 @@ name|queries
 parameter_list|)
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -2613,6 +2638,9 @@ expr_stmt|;
 block|}
 return|return
 name|bq
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|/**    * Constructs a query to retrieve documents are fully within the input envelope.    *    * @return the spatial query    */
@@ -3252,10 +3280,14 @@ name|query
 return|;
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -3291,6 +3323,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bq
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 DECL|method|makeNumberTermQuery

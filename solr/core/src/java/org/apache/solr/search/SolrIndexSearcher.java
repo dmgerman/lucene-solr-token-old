@@ -10823,10 +10823,14 @@ name|TotalHitCountCollector
 argument_list|()
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -10872,6 +10876,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|collector
 argument_list|)

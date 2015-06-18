@@ -593,10 +593,14 @@ throws|throws
 name|Exception
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -652,6 +656,9 @@ comment|// match at least two of 4
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|2
 argument_list|)
@@ -667,10 +674,14 @@ name|Exception
 block|{
 comment|/* one required, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -780,6 +791,9 @@ comment|// 2 of 3 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|5
 argument_list|)
@@ -795,10 +809,14 @@ name|Exception
 block|{
 comment|/* two required, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -932,6 +950,9 @@ comment|// 2 of 3 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|5
 argument_list|)
@@ -947,10 +968,14 @@ name|Exception
 block|{
 comment|/* one prohibited, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -1060,6 +1085,9 @@ comment|// 2 of 3 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1075,10 +1103,14 @@ name|Exception
 block|{
 comment|/* two prohibited, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -1212,6 +1244,9 @@ comment|// 2 of 3 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1227,10 +1262,14 @@ name|Exception
 block|{
 comment|/* one required, one prohibited, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -1388,6 +1427,9 @@ comment|// 3 of 4 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1403,10 +1445,14 @@ name|Exception
 block|{
 comment|/* two required, one prohibited, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -1588,6 +1634,9 @@ comment|// 3 of 4 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1603,10 +1652,14 @@ name|Exception
 block|{
 comment|/* one required, two prohibited, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -1788,6 +1841,9 @@ comment|// 3 of 4 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1803,10 +1859,14 @@ name|Exception
 block|{
 comment|/* two required, two prohibited, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -2012,6 +2072,9 @@ comment|// 3 of 4 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -2027,10 +2090,14 @@ name|Exception
 block|{
 comment|/* two required, two prohibited, some optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -2236,6 +2303,9 @@ comment|// 90 of 4 optional ?!?!?!
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -2251,10 +2321,14 @@ name|Exception
 block|{
 comment|/* two required, two optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -2364,6 +2438,9 @@ comment|// 2 of 2 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -2379,10 +2456,14 @@ name|Exception
 block|{
 comment|/* two required, one optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -2468,6 +2549,9 @@ comment|// 1 of 1 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -2483,10 +2567,14 @@ name|Exception
 block|{
 comment|/* two required, no optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -2548,6 +2636,9 @@ comment|// 1 of 0 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -2563,10 +2654,14 @@ name|Exception
 block|{
 comment|/* one required, no optional */
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -2604,6 +2699,9 @@ comment|// 1 of 0 optional
 name|verifyNrHits
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -2680,18 +2778,11 @@ name|void
 name|postCreate
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 parameter_list|)
 block|{
-name|BooleanClause
-index|[]
-name|c
-init|=
-name|q
-operator|.
-name|getClauses
-argument_list|()
-decl_stmt|;
 name|int
 name|opt
 init|=
@@ -2699,27 +2790,21 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|c
+name|BooleanClause
+name|clause
+range|:
+name|q
 operator|.
-name|length
-condition|;
-name|i
-operator|++
+name|build
+argument_list|()
+operator|.
+name|clauses
+argument_list|()
 control|)
 block|{
 if|if
 condition|(
-name|c
-index|[
-name|i
-index|]
+name|clause
 operator|.
 name|getOccur
 argument_list|()
@@ -2848,6 +2933,8 @@ name|nextLong
 argument_list|()
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|q1
 init|=
 name|TestBoolean2
@@ -2873,6 +2960,8 @@ argument_list|)
 decl_stmt|;
 comment|// BooleanQuery q2 = TestBoolean2.randBoolQuery(new Random(seed), lev, field, vals, minNrCB);
 name|BooleanQuery
+operator|.
+name|Builder
 name|q2
 init|=
 name|TestBoolean2
@@ -2916,6 +3005,9 @@ operator|.
 name|search
 argument_list|(
 name|q1
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -2928,6 +3020,9 @@ operator|.
 name|search
 argument_list|(
 name|q2
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -2947,6 +3042,9 @@ name|random
 argument_list|()
 argument_list|,
 name|q1
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|s
 argument_list|)
@@ -2959,6 +3057,9 @@ name|random
 argument_list|()
 argument_list|,
 name|q2
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|s
 argument_list|)
@@ -2967,6 +3068,9 @@ block|}
 name|assertSubsetOfSameScores
 argument_list|(
 name|q2
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|top1
 argument_list|,
@@ -3292,10 +3396,14 @@ block|}
 argument_list|)
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|q1
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q1
@@ -3322,10 +3430,14 @@ name|SHOULD
 argument_list|)
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|q2
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q2
@@ -3366,6 +3478,9 @@ operator|.
 name|search
 argument_list|(
 name|q1
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -3378,6 +3493,9 @@ operator|.
 name|search
 argument_list|(
 name|q2
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -3385,6 +3503,9 @@ decl_stmt|;
 name|assertSubsetOfSameScores
 argument_list|(
 name|q2
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|top1
 argument_list|,
@@ -3462,10 +3583,14 @@ block|}
 argument_list|)
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|q1
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q1
@@ -3492,10 +3617,14 @@ name|SHOULD
 argument_list|)
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|q2
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q2
@@ -3552,6 +3681,9 @@ operator|.
 name|search
 argument_list|(
 name|q1
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -3564,6 +3696,9 @@ operator|.
 name|search
 argument_list|(
 name|q2
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -3571,6 +3706,9 @@ decl_stmt|;
 name|assertSubsetOfSameScores
 argument_list|(
 name|q2
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|top1
 argument_list|,

@@ -435,6 +435,9 @@ name|q
 operator|.
 name|toString
 argument_list|()
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|q
@@ -459,6 +462,9 @@ argument_list|,
 name|q
 operator|.
 name|toString
+argument_list|()
+operator|.
+name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1332,7 +1338,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|""
+literal|" "
 argument_list|,
 name|q
 operator|.

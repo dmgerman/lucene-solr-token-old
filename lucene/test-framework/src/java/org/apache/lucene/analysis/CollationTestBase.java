@@ -551,10 +551,14 @@ comment|// index Term below should NOT be returned by a TermRangeFilter with a F
 comment|// Collator (or an Arabic one for the case when Farsi searcher not
 comment|// supported).
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -600,6 +604,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -621,6 +628,8 @@ name|bq
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|bq
@@ -664,6 +673,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)

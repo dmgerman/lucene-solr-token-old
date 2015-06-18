@@ -462,10 +462,14 @@ name|close
 argument_list|()
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|booleanQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|booleanQuery
@@ -521,6 +525,9 @@ operator|new
 name|FilteredQuery
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|filter
 argument_list|)

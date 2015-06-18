@@ -804,10 +804,14 @@ argument_list|)
 expr_stmt|;
 comment|// wrong field
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -855,6 +859,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -881,6 +888,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -1196,10 +1206,14 @@ argument_list|)
 expr_stmt|;
 comment|// wrong field
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1247,6 +1261,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -1273,6 +1290,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -1588,10 +1608,14 @@ argument_list|)
 expr_stmt|;
 comment|// wrong field
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1639,6 +1663,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -1665,6 +1692,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -2069,10 +2099,14 @@ argument_list|)
 expr_stmt|;
 comment|// wrong field
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -2122,6 +2156,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -2148,6 +2185,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -2810,10 +2850,14 @@ argument_list|)
 expr_stmt|;
 comment|// exact start exclusive
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -2864,6 +2908,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -2890,6 +2937,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -2930,6 +2980,8 @@ name|bq
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|bq
@@ -2980,6 +3032,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -3006,6 +3061,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -3046,6 +3104,8 @@ name|bq
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|bq
@@ -3096,6 +3156,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -3122,6 +3185,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -3350,10 +3416,14 @@ block|}
 block|}
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|query
@@ -3387,6 +3457,9 @@ operator|.
 name|search
 argument_list|(
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -3415,6 +3488,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -3455,6 +3531,8 @@ name|query
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|query
@@ -3502,6 +3580,9 @@ operator|.
 name|search
 argument_list|(
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -3528,6 +3609,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -6098,10 +6182,14 @@ block|}
 block|}
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|query
@@ -6181,6 +6269,9 @@ operator|.
 name|search
 argument_list|(
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,
@@ -6209,6 +6300,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
@@ -6526,6 +6620,9 @@ argument_list|(
 literal|"body"
 argument_list|,
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|searcher
 argument_list|,

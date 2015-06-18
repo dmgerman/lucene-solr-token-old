@@ -631,10 +631,14 @@ init|=
 literal|0
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -700,6 +704,9 @@ operator|.
 name|search
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|Integer
 operator|.

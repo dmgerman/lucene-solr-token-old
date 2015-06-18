@@ -1479,10 +1479,14 @@ literal|null
 argument_list|)
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1534,6 +1538,9 @@ expr_stmt|;
 name|assertQuery
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)

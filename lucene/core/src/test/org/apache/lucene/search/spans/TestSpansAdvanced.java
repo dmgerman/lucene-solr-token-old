@@ -529,10 +529,14 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|query
@@ -602,6 +606,9 @@ argument_list|(
 name|s
 argument_list|,
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|"two span queries"
 argument_list|,

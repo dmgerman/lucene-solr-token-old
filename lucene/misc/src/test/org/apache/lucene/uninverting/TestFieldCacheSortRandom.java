@@ -1177,10 +1177,14 @@ condition|)
 block|{
 comment|// force out of order
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 comment|// Add a Query with SHOULD, since bw.scorer() returns BooleanScorer2
@@ -1217,6 +1221,9 @@ operator|new
 name|FilteredQuery
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|f
 argument_list|)

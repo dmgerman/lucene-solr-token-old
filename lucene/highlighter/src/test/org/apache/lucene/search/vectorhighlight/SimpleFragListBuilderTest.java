@@ -863,10 +863,14 @@ name|SimpleFragListBuilder
 argument_list|()
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|booleanQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|booleanQuery
@@ -925,6 +929,9 @@ argument_list|(
 name|fpl
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|"c d e"
 argument_list|)
@@ -954,6 +961,9 @@ argument_list|(
 name|fpl
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|"d b c"
 argument_list|)
@@ -1001,6 +1011,9 @@ argument_list|(
 name|fpl
 argument_list|(
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|"a b c"
 argument_list|)

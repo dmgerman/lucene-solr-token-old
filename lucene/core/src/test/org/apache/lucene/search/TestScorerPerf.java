@@ -1013,6 +1013,8 @@ name|FixedBitSet
 name|addClause
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 parameter_list|,
 name|FixedBitSet
@@ -1144,10 +1146,14 @@ literal|2
 decl_stmt|;
 comment|// min 2 clauses
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|FixedBitSet
@@ -1200,6 +1206,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|hc
 argument_list|)
@@ -1292,10 +1301,14 @@ operator|+
 literal|2
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|oq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|FixedBitSet
@@ -1335,10 +1348,14 @@ literal|2
 decl_stmt|;
 comment|// min 2 clauses
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -1371,6 +1388,9 @@ operator|.
 name|add
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|BooleanClause
 operator|.
@@ -1401,6 +1421,9 @@ operator|.
 name|search
 argument_list|(
 name|oq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|hc
 argument_list|)
@@ -1523,10 +1546,14 @@ literal|2
 decl_stmt|;
 comment|// min 2 clauses
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|BitSet
@@ -1649,6 +1676,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|hc
 argument_list|)
@@ -1755,10 +1785,14 @@ operator|+
 literal|2
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|oq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -1793,10 +1827,14 @@ literal|2
 decl_stmt|;
 comment|// min 2 clauses
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|BitSet
@@ -1913,6 +1951,9 @@ operator|.
 name|add
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|BooleanClause
 operator|.
@@ -1935,6 +1976,9 @@ operator|.
 name|search
 argument_list|(
 name|oq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|hc
 argument_list|)

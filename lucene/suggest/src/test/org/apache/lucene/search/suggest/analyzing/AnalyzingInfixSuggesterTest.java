@@ -9983,10 +9983,14 @@ expr_stmt|;
 comment|//LUCENE-6464 Using the advanced context filtering by query.
 comment|//Note that this is just a sanity test as all the above tests run through the filter by query method
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|suggester
@@ -10044,6 +10048,9 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|10
 argument_list|,

@@ -1417,13 +1417,17 @@ block|{
 comment|// In that case the filter does not implement random-access anyway so
 comment|// we want to take advantage of approximations
 name|BooleanQuery
-name|rewritten
+operator|.
+name|Builder
+name|builder
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
-name|rewritten
+name|builder
 operator|.
 name|add
 argument_list|(
@@ -1434,7 +1438,7 @@ operator|.
 name|MUST
 argument_list|)
 expr_stmt|;
-name|rewritten
+name|builder
 operator|.
 name|add
 argument_list|(
@@ -1445,6 +1449,14 @@ operator|.
 name|FILTER
 argument_list|)
 expr_stmt|;
+name|BooleanQuery
+name|rewritten
+init|=
+name|builder
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 name|rewritten
 operator|.
 name|setBoost

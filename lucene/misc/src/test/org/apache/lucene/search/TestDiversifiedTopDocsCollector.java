@@ -1343,10 +1343,14 @@ name|getTestQuery
 parameter_list|()
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|testQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|testQuery
@@ -1451,6 +1455,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|testQuery
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 annotation|@

@@ -1196,10 +1196,14 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1248,6 +1252,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1320,6 +1327,8 @@ name|bq
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|bq
@@ -1372,6 +1381,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1433,6 +1445,8 @@ name|bq
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|bq
@@ -1485,6 +1499,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1747,14 +1764,23 @@ argument_list|)
 decl_stmt|;
 comment|// matches document #1
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+decl_stmt|;
+name|bq
+operator|.
+name|setDisableCoord
 argument_list|(
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|bq
 operator|.
 name|add
@@ -1790,6 +1816,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1892,6 +1921,13 @@ name|bq
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+expr_stmt|;
+name|bq
+operator|.
+name|setDisableCoord
 argument_list|(
 literal|true
 argument_list|)
@@ -1929,6 +1965,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -2023,9 +2062,9 @@ name|bq
 operator|=
 operator|new
 name|BooleanQuery
-argument_list|(
-literal|true
-argument_list|)
+operator|.
+name|Builder
+argument_list|()
 expr_stmt|;
 name|bq
 operator|.
@@ -2060,6 +2099,9 @@ operator|.
 name|search
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -2176,10 +2218,14 @@ decl_stmt|;
 comment|// now do a boolean where which also contains a
 comment|// ConstantScoreRangeQuery and make sure hte order is the same
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|q
@@ -2230,6 +2276,9 @@ operator|.
 name|search
 argument_list|(
 name|q
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)

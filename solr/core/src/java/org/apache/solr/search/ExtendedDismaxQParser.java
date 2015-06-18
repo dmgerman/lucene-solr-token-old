@@ -752,14 +752,23 @@ literal|true
 expr_stmt|;
 comment|/* the main query we will execute.  we disable the coord because      * this query is an artificial construct      */
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+decl_stmt|;
+name|query
+operator|.
+name|setDisableCoord
 argument_list|(
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|/* * * Main User Query * * */
 name|parsedUserQuery
 operator|=
@@ -1065,6 +1074,9 @@ name|Query
 name|topQuery
 init|=
 name|query
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
@@ -1111,7 +1123,7 @@ operator|=
 operator|new
 name|BoostedQuery
 argument_list|(
-name|query
+name|topQuery
 argument_list|,
 name|prod
 argument_list|)
@@ -1133,7 +1145,7 @@ operator|=
 operator|new
 name|BoostedQuery
 argument_list|(
-name|query
+name|topQuery
 argument_list|,
 name|boosts
 operator|.
@@ -1155,6 +1167,8 @@ name|void
 name|addPhraseFieldQueries
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 parameter_list|,
 name|List
@@ -1496,10 +1510,14 @@ name|BooleanQuery
 condition|)
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|t
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|SolrPluginUtils
@@ -1528,6 +1546,9 @@ expr_stmt|;
 name|query
 operator|=
 name|t
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -1665,6 +1686,8 @@ operator|instanceof
 name|BooleanQuery
 condition|)
 block|{
+name|query
+operator|=
 name|SolrPluginUtils
 operator|.
 name|setMinShouldMatch
@@ -2637,6 +2660,8 @@ name|addShingledPhraseQueries
 parameter_list|(
 specifier|final
 name|BooleanQuery
+operator|.
+name|Builder
 name|mainQuery
 parameter_list|,
 specifier|final
@@ -5379,14 +5404,23 @@ else|else
 block|{
 comment|// should we disable coord?
 name|BooleanQuery
+operator|.
+name|Builder
 name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+decl_stmt|;
+name|q
+operator|.
+name|setDisableCoord
 argument_list|(
 name|disableCoord
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 for|for
 control|(
 name|Query
@@ -5411,6 +5445,9 @@ expr_stmt|;
 block|}
 return|return
 name|q
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 block|}
@@ -5800,6 +5837,8 @@ name|isCoordDisabled
 argument_list|()
 condition|)
 block|{
+name|query
+operator|=
 name|SolrPluginUtils
 operator|.
 name|setMinShouldMatch

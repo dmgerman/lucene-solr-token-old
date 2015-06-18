@@ -1481,10 +1481,14 @@ condition|)
 block|{
 comment|// ensure id remains unique
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1533,6 +1537,9 @@ operator|new
 name|DeleteByQueryWrapper
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|core
 operator|.
@@ -2010,10 +2017,14 @@ name|MAX_VALUE
 condition|)
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -2106,6 +2117,9 @@ expr_stmt|;
 name|q
 operator|=
 name|bq
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 return|return

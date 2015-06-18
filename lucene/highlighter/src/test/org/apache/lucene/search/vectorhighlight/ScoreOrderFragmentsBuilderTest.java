@@ -98,10 +98,14 @@ throws|throws
 name|Exception
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|query
@@ -156,6 +160,9 @@ init|=
 name|ffl
 argument_list|(
 name|query
+operator|.
+name|build
+argument_list|()
 argument_list|,
 literal|"a b b b b b b b b b b b a b a b b b b b c a a b b"
 argument_list|)

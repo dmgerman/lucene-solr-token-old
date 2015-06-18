@@ -2315,10 +2315,14 @@ literal|null
 return|;
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|contextFilter
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -2359,6 +2363,9 @@ expr_stmt|;
 block|}
 return|return
 name|contextFilter
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 DECL|method|toQuery
@@ -2390,10 +2397,14 @@ literal|null
 return|;
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|contextFilter
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -2420,6 +2431,9 @@ expr_stmt|;
 block|}
 return|return
 name|contextFilter
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|/**    * This method is handy as we do not need access to internal fields such as CONTEXTS_FIELD_NAME in order to build queries    * However, here may not be its best location.    *     * @param query an instance of @See {@link BooleanQuery}    * @param context the context    * @param clause one of {@link Occur}    */
@@ -2429,6 +2443,8 @@ name|void
 name|addContextToQuery
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 parameter_list|,
 name|BytesRef
@@ -2539,6 +2555,8 @@ name|SHOULD
 expr_stmt|;
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 decl_stmt|;
 name|Set
@@ -2615,6 +2633,8 @@ name|query
 operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 expr_stmt|;
 name|int
@@ -3401,6 +3421,8 @@ name|Query
 name|finishQuery
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|in
 parameter_list|,
 name|boolean
@@ -3409,6 +3431,9 @@ parameter_list|)
 block|{
 return|return
 name|in
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|/** Override this method to customize the Object    *  representing a single highlighted suggestions; the    *  result is set on each {@link    *  org.apache.lucene.search.suggest.Lookup.LookupResult#highlightKey} member. */

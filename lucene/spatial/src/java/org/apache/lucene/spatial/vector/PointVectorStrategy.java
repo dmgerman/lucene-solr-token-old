@@ -1126,10 +1126,14 @@ name|valueSource
 argument_list|)
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1160,6 +1164,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bq
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|/**    * Constructs a query to retrieve documents that fully contain the input envelope.    */
@@ -1173,10 +1180,14 @@ name|bbox
 parameter_list|)
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|BooleanClause
@@ -1305,6 +1316,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bq
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 DECL|method|rangeQuery
@@ -1406,10 +1420,14 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -1440,6 +1458,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bq
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 block|}

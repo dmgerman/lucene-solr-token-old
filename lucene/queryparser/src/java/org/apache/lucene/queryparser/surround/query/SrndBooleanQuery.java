@@ -78,6 +78,8 @@ name|void
 name|addQueriesToBoolean
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 parameter_list|,
 name|List
@@ -168,10 +170,14 @@ argument_list|)
 throw|;
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|addQueriesToBoolean
@@ -195,6 +201,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bq
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 block|}
