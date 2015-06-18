@@ -134,7 +134,7 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|.
-name|donePoints
+name|done
 argument_list|(
 literal|false
 argument_list|)
@@ -516,7 +516,7 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|.
-name|donePoints
+name|done
 argument_list|(
 literal|false
 argument_list|)
