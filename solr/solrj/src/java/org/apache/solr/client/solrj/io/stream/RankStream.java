@@ -125,7 +125,7 @@ name|io
 operator|.
 name|comp
 operator|.
-name|FieldComparator
+name|StreamComparator
 import|;
 end_import
 begin_import
@@ -142,9 +142,11 @@ name|solrj
 operator|.
 name|io
 operator|.
-name|comp
+name|stream
 operator|.
-name|ExpressibleComparator
+name|expr
+operator|.
+name|Expressible
 import|;
 end_import
 begin_import
@@ -242,7 +244,7 @@ name|RankStream
 extends|extends
 name|TupleStream
 implements|implements
-name|ExpressibleStream
+name|Expressible
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -350,7 +352,7 @@ name|getExpressionOperandsRepresentingTypes
 argument_list|(
 name|expression
 argument_list|,
-name|ExpressibleStream
+name|Expressible
 operator|.
 name|class
 argument_list|,
@@ -660,7 +662,7 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-name|FieldComparator
+name|StreamComparator
 operator|.
 name|class
 argument_list|)
@@ -767,7 +769,7 @@ if|if
 condition|(
 name|tupleStream
 operator|instanceof
-name|ExpressibleStream
+name|Expressible
 condition|)
 block|{
 name|expression
@@ -776,7 +778,7 @@ name|addParameter
 argument_list|(
 operator|(
 operator|(
-name|ExpressibleStream
+name|Expressible
 operator|)
 name|tupleStream
 operator|)
@@ -803,7 +805,7 @@ if|if
 condition|(
 name|comp
 operator|instanceof
-name|ExpressibleComparator
+name|Expressible
 condition|)
 block|{
 name|expression
@@ -817,7 +819,7 @@ literal|"sort"
 argument_list|,
 operator|(
 operator|(
-name|ExpressibleComparator
+name|Expressible
 operator|)
 name|comp
 operator|)

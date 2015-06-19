@@ -6,7 +6,7 @@ begin_comment
 comment|/**  * Primary APIs for communicating with a Solr Server from a Java client.  **/
 end_comment
 begin_package
-DECL|package|org.apache.solr.client.solrj
+DECL|package|org.apache.solr.client.solrj.io.eq
 package|package
 name|org
 operator|.
@@ -17,6 +17,10 @@ operator|.
 name|client
 operator|.
 name|solrj
+operator|.
+name|io
+operator|.
+name|eq
 package|;
 end_package
 end_unit

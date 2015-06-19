@@ -1394,7 +1394,7 @@ name|StreamExpressionParser
 operator|.
 name|parse
 argument_list|(
-literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\"), over=\"a_f asc\")"
+literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\"), over=\"a_f\")"
 argument_list|)
 expr_stmt|;
 name|stream
@@ -1444,7 +1444,7 @@ name|StreamExpressionParser
 operator|.
 name|parse
 argument_list|(
-literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f desc, a_i desc\"), over=\"a_f desc\")"
+literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f desc, a_i desc\"), over=\"a_f\")"
 argument_list|)
 expr_stmt|;
 name|stream
@@ -1494,7 +1494,7 @@ name|StreamExpressionParser
 operator|.
 name|parse
 argument_list|(
-literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\"), over=\"a_f asc, a_i asc\")"
+literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\"), over=\"a_f, a_i\")"
 argument_list|)
 expr_stmt|;
 name|stream
@@ -1546,7 +1546,7 @@ name|factory
 operator|.
 name|constructStream
 argument_list|(
-literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\"), over=\"a_f asc, a_i asc\")"
+literal|"unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\"), over=\"a_f, a_i\")"
 argument_list|)
 expr_stmt|;
 name|tuples
@@ -2210,7 +2210,7 @@ literal|"unique("
 operator|+
 literal|"search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f desc\"),"
 operator|+
-literal|"over=\"a_f desc\"),"
+literal|"over=\"a_f\"),"
 operator|+
 literal|"sort=\"a_f desc\")"
 argument_list|)
@@ -2266,7 +2266,7 @@ literal|"unique("
 operator|+
 literal|"search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\"),"
 operator|+
-literal|"over=\"a_f asc\"),"
+literal|"over=\"a_f\"),"
 operator|+
 literal|"sort=\"a_f asc\")"
 argument_list|)
@@ -3134,7 +3134,7 @@ name|streamFactory
 operator|.
 name|constructStream
 argument_list|(
-literal|"parallel(collection1, unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\", partitionKeys=\"a_f\"), over=\"a_f asc\"), workers=\"2\", zkHost=\""
+literal|"parallel(collection1, unique(search(collection1, q=*:*, fl=\"id,a_s,a_i,a_f\", sort=\"a_f asc, a_i asc\", partitionKeys=\"a_f\"), over=\"a_f\"), workers=\"2\", zkHost=\""
 operator|+
 name|zkHost
 operator|+
