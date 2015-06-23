@@ -343,7 +343,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|checkDistributed
+name|prepDistributed
 parameter_list|(
 name|ResponseBuilder
 name|rb
@@ -351,7 +351,7 @@ parameter_list|)
 block|{
 name|wrapped
 operator|.
-name|checkDistributed
+name|prepDistributed
 argument_list|(
 name|rb
 argument_list|)
