@@ -260,16 +260,13 @@ name|int
 name|nextFloorLabel
 decl_stmt|;
 DECL|field|transition
+specifier|final
 name|Transition
 name|transition
 init|=
 operator|new
 name|Transition
 argument_list|()
-decl_stmt|;
-DECL|field|curTransitionMax
-name|int
-name|curTransitionMax
 decl_stmt|;
 DECL|field|transitionIndex
 name|int
@@ -300,21 +297,31 @@ name|termState
 decl_stmt|;
 comment|// metadata buffer, holding monotonic values
 DECL|field|longs
-specifier|public
+specifier|final
 name|long
 index|[]
 name|longs
 decl_stmt|;
 comment|// metadata buffer, holding general values
 DECL|field|bytes
-specifier|public
 name|byte
 index|[]
 name|bytes
+init|=
+operator|new
+name|byte
+index|[
+literal|32
+index|]
 decl_stmt|;
 DECL|field|bytesReader
+specifier|final
 name|ByteArrayDataInput
 name|bytesReader
+init|=
+operator|new
+name|ByteArrayDataInput
+argument_list|()
 decl_stmt|;
 comment|// Cumulative output so far
 DECL|field|outputPrefix
@@ -425,11 +432,7 @@ name|fr
 operator|.
 name|parent
 operator|.
-name|version
-operator|>=
-name|BlockTreeTermsReader
-operator|.
-name|VERSION_AUTO_PREFIX_TERMS
+name|anyAutoPrefixTerms
 expr_stmt|;
 block|}
 DECL|method|loadNextFloorBlock
@@ -448,7 +451,6 @@ literal|"nextFloorLabel="
 operator|+
 name|nextFloorLabel
 assert|;
-comment|//if (DEBUG) System.out.println("    loadNextFloorBlock transition.min=" + transition.min);
 do|do
 block|{
 name|fp
@@ -467,7 +469,6 @@ expr_stmt|;
 name|numFollowFloorBlocks
 operator|--
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("    skip floor block2!  nextFloorLabel=" + (char) nextFloorLabel + " newFP=" + fp + " numFollowFloorBlocks=" + numFollowFloorBlocks);
 if|if
 condition|(
 name|numFollowFloorBlocks
@@ -492,7 +493,6 @@ operator|=
 literal|256
 expr_stmt|;
 block|}
-comment|//if (DEBUG) System.out.println("    nextFloorLabel=" + (char) nextFloorLabel);
 block|}
 do|while
 condition|(
@@ -507,7 +507,6 @@ operator|.
 name|min
 condition|)
 do|;
-comment|//if (DEBUG) System.out.println("      done loadNextFloorBlock");
 name|load
 argument_list|(
 literal|null
@@ -571,17 +570,21 @@ argument_list|(
 name|transition
 argument_list|)
 expr_stmt|;
-name|curTransitionMax
-operator|=
-name|transition
-operator|.
-name|max
-expr_stmt|;
-comment|//if (DEBUG) System.out.println("    after setState state=" + state + " trans: " + transition + " transCount=" + transitionCount);
 block|}
 else|else
 block|{
-name|curTransitionMax
+comment|// Must set min to -1 so the "label< min" check never falsely triggers:
+name|transition
+operator|.
+name|min
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+comment|// Must set max to -1 so we immediately realize we need to step to the next transition and then pop this frame:
+name|transition
+operator|.
+name|max
 operator|=
 operator|-
 literal|1
@@ -598,7 +601,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//xif (DEBUG) System.out.println("    load fp=" + fp + " fpOrig=" + fpOrig + " frameIndexData=" + frameIndexData + " trans=" + (transitions.length != 0 ? transitions[0] : "n/a" + " state=" + state));
 if|if
 condition|(
 name|frameIndexData
@@ -606,41 +608,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Floor frame
-if|if
-condition|(
-name|floorData
+name|floorDataReader
 operator|.
-name|length
-operator|<
-name|frameIndexData
-operator|.
-name|length
-condition|)
-block|{
-name|this
-operator|.
-name|floorData
-operator|=
-operator|new
-name|byte
-index|[
-name|ArrayUtil
-operator|.
-name|oversize
-argument_list|(
-name|frameIndexData
-operator|.
-name|length
-argument_list|,
-literal|1
-argument_list|)
-index|]
-expr_stmt|;
-block|}
-name|System
-operator|.
-name|arraycopy
+name|reset
 argument_list|(
 name|frameIndexData
 operator|.
@@ -649,23 +619,6 @@ argument_list|,
 name|frameIndexData
 operator|.
 name|offset
-argument_list|,
-name|floorData
-argument_list|,
-literal|0
-argument_list|,
-name|frameIndexData
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
-name|floorDataReader
-operator|.
-name|reset
-argument_list|(
-name|floorData
-argument_list|,
-literal|0
 argument_list|,
 name|frameIndexData
 operator|.
@@ -696,6 +649,7 @@ operator|!=
 literal|0
 condition|)
 block|{
+comment|// Floor frame
 name|numFollowFloorBlocks
 operator|=
 name|floorDataReader
@@ -712,7 +666,6 @@ argument_list|()
 operator|&
 literal|0xff
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("    numFollowFloorBlocks=" + numFollowFloorBlocks + " nextFloorLabel=" + nextFloorLabel);
 comment|// If current state is not accept, and has transitions, we must process
 comment|// first block in case it has empty suffix:
 if|if
@@ -772,7 +725,6 @@ expr_stmt|;
 name|numFollowFloorBlocks
 operator|--
 expr_stmt|;
-comment|//xif (DEBUG) System.out.println("    skip floor block!  nextFloorLabel=" + (char) nextFloorLabel + " vs target=" + (char) transitions[0].getMin() + " newFP=" + fp + " numFollowFloorBlocks=" + numFollowFloorBlocks);
 if|if
 condition|(
 name|numFollowFloorBlocks
@@ -868,7 +820,6 @@ name|code
 operator|>>>
 literal|1
 decl_stmt|;
-comment|//if (DEBUG) System.out.println("      entCount=" + entCount + " lastInFloor?=" + isLastInFloor + " leafBlock?=" + isLeafBlock + " numSuffixBytes=" + numBytes);
 if|if
 condition|(
 name|suffixBytes
@@ -1004,36 +955,6 @@ expr_stmt|;
 if|if
 condition|(
 name|bytes
-operator|==
-literal|null
-condition|)
-block|{
-name|bytes
-operator|=
-operator|new
-name|byte
-index|[
-name|ArrayUtil
-operator|.
-name|oversize
-argument_list|(
-name|numBytes
-argument_list|,
-literal|1
-argument_list|)
-index|]
-expr_stmt|;
-name|bytesReader
-operator|=
-operator|new
-name|ByteArrayDataInput
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|bytes
 operator|.
 name|length
 operator|<
@@ -1139,9 +1060,6 @@ name|void
 name|nextLeaf
 parameter_list|()
 block|{
-comment|//if (DEBUG) {
-comment|//  System.out.println("  frame.nextLeaf ord=" + ord + " nextEnt=" + nextEnt + " entCount=" + entCount);
-comment|//}
 assert|assert
 name|nextEnt
 operator|!=
@@ -1195,9 +1113,6 @@ name|boolean
 name|nextNonLeaf
 parameter_list|()
 block|{
-comment|//if (DEBUG) {
-comment|//  System.out.println("  frame.nextNonLeaf ord=" + ord + " nextEnt=" + nextEnt + " entCount=" + entCount + " versionAutoPrefix=" + versionAutoPrefix + " fp=" + suffixesReader.getPosition());
-comment|// }
 assert|assert
 name|nextEnt
 operator|!=
@@ -1330,7 +1245,6 @@ case|case
 literal|0
 case|:
 comment|// A normal term
-comment|//if (DEBUG) System.out.println("    ret: term");
 name|isAutoPrefixTerm
 operator|=
 literal|false
@@ -1360,7 +1274,6 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("    ret: sub-block");
 return|return
 literal|true
 return|;
@@ -1399,9 +1312,7 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-comment|//System.out.println("  fill in -1");
 block|}
-comment|//if (DEBUG) System.out.println("    ret: floor prefix term: start=-1 end=" + floorSuffixLeadEnd);
 name|isAutoPrefixTerm
 operator|=
 literal|true
@@ -1458,7 +1369,6 @@ index|]
 operator|&
 literal|0xff
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("    peek-parent: suffix=" + floorSuffixLeadStart);
 block|}
 else|else
 block|{
@@ -1494,7 +1404,6 @@ argument_list|()
 operator|&
 literal|0xff
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("    ret: floor prefix term start=" + floorSuffixLeadStart + " end=" + floorSuffixLeadEnd);
 return|return
 literal|false
 return|;
@@ -1578,7 +1487,6 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("    dF=" + state.docFreq);
 if|if
 condition|(
 name|ite
@@ -1608,7 +1516,6 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("    totTF=" + state.totalTermFreq);
 block|}
 comment|// metadata
 for|for
