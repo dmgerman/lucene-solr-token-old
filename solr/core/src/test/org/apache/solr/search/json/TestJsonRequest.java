@@ -273,6 +273,7 @@ expr_stmt|;
 block|}
 DECL|method|doJsonRequest
 specifier|public
+specifier|static
 name|void
 name|doJsonRequest
 parameter_list|(
