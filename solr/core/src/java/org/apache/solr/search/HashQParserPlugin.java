@@ -975,7 +975,12 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
+name|searcher
+operator|.
+name|rewrite
+argument_list|(
 name|constantScoreQuery
+argument_list|)
 operator|.
 name|createWeight
 argument_list|(
