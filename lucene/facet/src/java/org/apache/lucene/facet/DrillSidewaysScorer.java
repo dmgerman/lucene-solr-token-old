@@ -116,19 +116,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterLeafCollector
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|LeafCollector
 import|;
 end_import
@@ -335,7 +322,7 @@ name|int
 name|score
 parameter_list|(
 name|LeafCollector
-name|originalCollector
+name|collector
 parameter_list|,
 name|Bits
 name|acceptDocs
@@ -382,66 +369,6 @@ argument_list|(
 literal|"maxDoc must be Integer.MAX_VALUE"
 argument_list|)
 throw|;
-block|}
-specifier|final
-name|LeafCollector
-name|collector
-decl_stmt|;
-if|if
-condition|(
-name|acceptDocs
-operator|==
-literal|null
-condition|)
-block|{
-name|collector
-operator|=
-name|originalCollector
-expr_stmt|;
-block|}
-else|else
-block|{
-name|collector
-operator|=
-operator|new
-name|FilterLeafCollector
-argument_list|(
-name|originalCollector
-argument_list|)
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|collect
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|acceptDocs
-operator|.
-name|get
-argument_list|(
-name|doc
-argument_list|)
-condition|)
-block|{
-name|super
-operator|.
-name|collect
-argument_list|(
-name|doc
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-expr_stmt|;
 block|}
 comment|//if (DEBUG) {
 comment|//  System.out.println("\nscore: reader=" + context.reader());
@@ -852,6 +779,8 @@ block|{
 comment|//System.out.println("queryFirst: baseScorer=" + baseScorer + " disis.length=" + disis.length + " bits.length=" + bits.length);
 name|doQueryFirstScoring
 argument_list|(
+name|acceptDocs
+argument_list|,
 name|collector
 argument_list|,
 name|disis
@@ -892,6 +821,8 @@ block|{
 comment|//System.out.println("drillDownAdvance");
 name|doDrillDownAdvanceScoring
 argument_list|(
+name|acceptDocs
+argument_list|,
 name|collector
 argument_list|,
 name|disis
@@ -905,6 +836,8 @@ block|{
 comment|//System.out.println("union");
 name|doUnionScoring
 argument_list|(
+name|acceptDocs
+argument_list|,
 name|collector
 argument_list|,
 name|disis
@@ -925,6 +858,9 @@ specifier|private
 name|void
 name|doQueryFirstScoring
 parameter_list|(
+name|Bits
+name|acceptDocs
+parameter_list|,
 name|LeafCollector
 name|collector
 parameter_list|,
@@ -969,6 +905,31 @@ operator|.
 name|NO_MORE_DOCS
 condition|)
 block|{
+if|if
+condition|(
+name|acceptDocs
+operator|!=
+literal|null
+operator|&&
+name|acceptDocs
+operator|.
+name|get
+argument_list|(
+name|docID
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|docID
+operator|=
+name|baseScorer
+operator|.
+name|nextDoc
+argument_list|()
+expr_stmt|;
+continue|continue;
+block|}
 name|LeafCollector
 name|failedCollector
 init|=
@@ -1197,6 +1158,9 @@ specifier|private
 name|void
 name|doDrillDownAdvanceScoring
 parameter_list|(
+name|Bits
+name|acceptDocs
+parameter_list|,
 name|LeafCollector
 name|collector
 parameter_list|,
@@ -1350,6 +1314,20 @@ operator|<
 name|nextChunkStart
 condition|)
 block|{
+if|if
+condition|(
+name|acceptDocs
+operator|==
+literal|null
+operator|||
+name|acceptDocs
+operator|.
+name|get
+argument_list|(
+name|docID
+argument_list|)
+condition|)
+block|{
 name|int
 name|slot
 init|=
@@ -1400,6 +1378,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+block|}
 name|docID
 operator|=
 name|disi
@@ -1440,6 +1419,20 @@ condition|(
 name|docID
 operator|<
 name|nextChunkStart
+condition|)
+block|{
+if|if
+condition|(
+name|acceptDocs
+operator|==
+literal|null
+operator|||
+name|acceptDocs
+operator|.
+name|get
+argument_list|(
+name|docID
+argument_list|)
 condition|)
 block|{
 name|int
@@ -1536,6 +1529,7 @@ expr_stmt|;
 comment|//if (DEBUG) {
 comment|//  System.out.println("    set docID=" + docID + " missingDim=" + missingDims[slot] + " id=" + context.reader().document(docID).get("id"));
 comment|//}
+block|}
 block|}
 block|}
 name|docID
@@ -1954,6 +1948,9 @@ specifier|private
 name|void
 name|doUnionScoring
 parameter_list|(
+name|Bits
+name|acceptDocs
+parameter_list|,
 name|LeafCollector
 name|collector
 parameter_list|,
@@ -2089,6 +2086,20 @@ operator|<
 name|nextChunkStart
 condition|)
 block|{
+if|if
+condition|(
+name|acceptDocs
+operator|==
+literal|null
+operator|||
+name|acceptDocs
+operator|.
+name|get
+argument_list|(
+name|docID
+argument_list|)
+condition|)
+block|{
 name|int
 name|slot
 init|=
@@ -2155,6 +2166,7 @@ index|]
 operator|=
 literal|1
 expr_stmt|;
+block|}
 name|docID
 operator|=
 name|baseScorer
@@ -2239,6 +2251,7 @@ operator|==
 name|docID
 condition|)
 block|{
+comment|// this also checks that the doc is not deleted
 comment|//if (DEBUG) {
 comment|//  System.out.println("      set docID=" + docID + " count=2");
 comment|//}
@@ -2330,6 +2343,7 @@ name|slot
 index|]
 operator|==
 name|docID
+comment|// also means that the doc is not deleted
 operator|&&
 name|counts
 index|[
