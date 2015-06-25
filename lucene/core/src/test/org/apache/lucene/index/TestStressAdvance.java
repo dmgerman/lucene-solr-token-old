@@ -560,8 +560,6 @@ argument_list|()
 argument_list|,
 name|te
 argument_list|,
-literal|null
-argument_list|,
 name|de
 argument_list|,
 name|PostingsEnum
@@ -606,8 +604,6 @@ name|random
 argument_list|()
 argument_list|,
 name|te
-argument_list|,
-literal|null
 argument_list|,
 name|de
 argument_list|,

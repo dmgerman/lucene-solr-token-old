@@ -979,8 +979,6 @@ literal|"field"
 argument_list|,
 name|term
 argument_list|,
-name|liveDocs
-argument_list|,
 literal|null
 argument_list|,
 name|PostingsEnum
@@ -1006,17 +1004,6 @@ name|term
 argument_list|)
 control|)
 block|{
-if|if
-condition|(
-operator|!
-name|deleted
-operator|.
-name|contains
-argument_list|(
-name|docID
-argument_list|)
-condition|)
-block|{
 name|assertEquals
 argument_list|(
 name|docID
@@ -1027,7 +1014,6 @@ name|nextDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|assertEquals
 argument_list|(
@@ -1167,8 +1153,6 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
@@ -1193,8 +1177,6 @@ name|BytesRef
 argument_list|(
 literal|"j"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1332,8 +1314,6 @@ operator|.
 name|getTermDocsEnum
 argument_list|(
 name|r
-argument_list|,
-literal|null
 argument_list|,
 literal|"f"
 argument_list|,

@@ -6560,8 +6560,6 @@ name|terms
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
@@ -6657,8 +6655,6 @@ name|terms
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
@@ -6704,8 +6700,6 @@ name|random
 argument_list|()
 argument_list|,
 name|terms
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

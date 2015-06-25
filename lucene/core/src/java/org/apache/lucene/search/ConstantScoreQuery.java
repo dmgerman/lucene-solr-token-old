@@ -317,6 +317,9 @@ parameter_list|(
 name|LeafCollector
 name|collector
 parameter_list|,
+name|Bits
+name|acceptDocs
+parameter_list|,
 name|int
 name|min
 parameter_list|,
@@ -335,6 +338,8 @@ name|wrapCollector
 argument_list|(
 name|collector
 argument_list|)
+argument_list|,
+name|acceptDocs
 argument_list|,
 name|min
 argument_list|,
@@ -479,9 +484,6 @@ name|bulkScorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -495,8 +497,6 @@ operator|.
 name|bulkScorer
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|)
 decl_stmt|;
 if|if
@@ -531,9 +531,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -547,8 +544,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|)
 decl_stmt|;
 if|if

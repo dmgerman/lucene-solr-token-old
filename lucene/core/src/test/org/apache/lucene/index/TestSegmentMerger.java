@@ -764,13 +764,6 @@ argument_list|(
 literal|"field"
 argument_list|)
 argument_list|,
-name|MultiFields
-operator|.
-name|getLiveDocs
-argument_list|(
-name|mergedReader
-argument_list|)
-argument_list|,
 literal|null
 argument_list|,
 literal|0

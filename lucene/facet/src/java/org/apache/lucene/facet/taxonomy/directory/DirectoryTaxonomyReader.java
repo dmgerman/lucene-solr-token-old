@@ -1084,8 +1084,6 @@ name|getTermDocsEnum
 argument_list|(
 name|indexReader
 argument_list|,
-literal|null
-argument_list|,
 name|Consts
 operator|.
 name|FULL

@@ -1089,8 +1089,6 @@ operator|.
 name|scorer
 argument_list|(
 name|privateContext
-argument_list|,
-name|acceptDocs
 argument_list|)
 return|;
 block|}

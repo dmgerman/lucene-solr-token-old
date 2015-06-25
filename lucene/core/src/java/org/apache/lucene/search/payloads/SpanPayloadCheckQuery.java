@@ -265,19 +265,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|ToStringUtils
 import|;
 end_import
@@ -508,9 +495,6 @@ specifier|final
 name|LeafReaderContext
 name|context
 parameter_list|,
-name|Bits
-name|acceptDocs
-parameter_list|,
 name|Postings
 name|requiredPostings
 parameter_list|)
@@ -533,8 +517,6 @@ operator|.
 name|getSpans
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|,
 name|requiredPostings
 operator|.
@@ -607,9 +589,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -672,8 +651,6 @@ init|=
 name|getSpans
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|,
 name|Postings
 operator|.

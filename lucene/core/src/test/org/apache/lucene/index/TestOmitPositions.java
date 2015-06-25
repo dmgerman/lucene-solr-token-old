@@ -297,8 +297,6 @@ name|getTermPositionsEnum
 argument_list|(
 name|reader
 argument_list|,
-literal|null
-argument_list|,
 literal|"foo"
 argument_list|,
 operator|new
@@ -328,8 +326,6 @@ name|BytesRef
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

@@ -285,9 +285,6 @@ parameter_list|(
 specifier|final
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -411,7 +408,7 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|acceptDocs
+literal|null
 argument_list|)
 expr_stmt|;
 if|if
@@ -467,7 +464,7 @@ operator|.
 name|bits
 argument_list|()
 else|:
-name|acceptDocs
+literal|null
 decl_stmt|;
 return|return
 operator|new
@@ -530,9 +527,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException

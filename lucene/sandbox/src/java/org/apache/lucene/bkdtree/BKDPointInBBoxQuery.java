@@ -536,14 +536,6 @@ init|=
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-name|context
-operator|.
-name|reader
-argument_list|()
-operator|.
-name|getLiveDocs
-argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -634,9 +626,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -717,8 +706,6 @@ name|tree
 operator|.
 name|intersect
 argument_list|(
-name|acceptDocs
-argument_list|,
 name|minLat
 argument_list|,
 name|maxLat

@@ -1700,8 +1700,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docs
 argument_list|,
 name|PostingsEnum
@@ -2414,8 +2412,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docs
 argument_list|,
 name|PostingsEnum
@@ -3904,8 +3900,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docs
 argument_list|,
 name|PostingsEnum
@@ -4674,8 +4668,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docs
 argument_list|,
 name|PostingsEnum

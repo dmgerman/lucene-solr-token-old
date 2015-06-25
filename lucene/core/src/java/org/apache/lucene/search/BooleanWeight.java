@@ -124,19 +124,6 @@ operator|.
 name|Similarity
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Bits
-import|;
-end_import
 begin_comment
 comment|/**  * Expert: the Weight for BooleanQuery, used to  * normalize, score and explain these queries.  */
 end_comment
@@ -1099,9 +1086,6 @@ name|booleanScorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -1154,8 +1138,6 @@ operator|.
 name|bulkScorer
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|)
 decl_stmt|;
 if|if
@@ -1287,9 +1269,6 @@ name|bulkScorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -1301,8 +1280,6 @@ init|=
 name|booleanScorer
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|)
 decl_stmt|;
 if|if
@@ -1379,8 +1356,6 @@ operator|.
 name|bulkScorer
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|)
 return|;
 block|}
@@ -1393,9 +1368,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -1491,8 +1463,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|)
 decl_stmt|;
 if|if

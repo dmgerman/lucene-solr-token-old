@@ -278,6 +278,8 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
+literal|null
+argument_list|,
 name|min
 argument_list|,
 name|max

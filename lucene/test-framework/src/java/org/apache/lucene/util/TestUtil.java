@@ -7859,9 +7859,6 @@ parameter_list|,
 name|BytesRef
 name|term
 parameter_list|,
-name|Bits
-name|liveDocs
-parameter_list|,
 name|PostingsEnum
 name|reuse
 parameter_list|,
@@ -7926,8 +7923,6 @@ name|random
 argument_list|,
 name|termsEnum
 argument_list|,
-name|liveDocs
-argument_list|,
 name|reuse
 argument_list|,
 name|flags
@@ -7946,9 +7941,6 @@ name|random
 parameter_list|,
 name|TermsEnum
 name|termsEnum
-parameter_list|,
-name|Bits
-name|liveDocs
 parameter_list|,
 name|PostingsEnum
 name|reuse
@@ -8035,8 +8027,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|liveDocs
-argument_list|,
 literal|null
 argument_list|,
 name|posFlags
@@ -8055,8 +8045,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|liveDocs
-argument_list|,
 name|reuse
 argument_list|,
 name|flags

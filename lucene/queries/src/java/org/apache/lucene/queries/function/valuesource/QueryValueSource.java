@@ -440,11 +440,6 @@ specifier|final
 name|LeafReaderContext
 name|readerContext
 decl_stmt|;
-DECL|field|acceptDocs
-specifier|final
-name|Bits
-name|acceptDocs
-decl_stmt|;
 DECL|field|weight
 specifier|final
 name|Weight
@@ -516,18 +511,6 @@ operator|.
 name|readerContext
 operator|=
 name|readerContext
-expr_stmt|;
-name|this
-operator|.
-name|acceptDocs
-operator|=
-name|readerContext
-operator|.
-name|reader
-argument_list|()
-operator|.
-name|getLiveDocs
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -698,8 +681,6 @@ operator|.
 name|scorer
 argument_list|(
 name|readerContext
-argument_list|,
-name|acceptDocs
 argument_list|)
 expr_stmt|;
 if|if
@@ -822,8 +803,6 @@ operator|.
 name|scorer
 argument_list|(
 name|readerContext
-argument_list|,
-name|acceptDocs
 argument_list|)
 expr_stmt|;
 name|scorerDoc
@@ -1035,8 +1014,6 @@ operator|.
 name|scorer
 argument_list|(
 name|readerContext
-argument_list|,
-name|acceptDocs
 argument_list|)
 expr_stmt|;
 name|scorerDoc

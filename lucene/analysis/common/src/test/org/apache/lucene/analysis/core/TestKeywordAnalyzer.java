@@ -583,13 +583,6 @@ argument_list|(
 literal|"Q36"
 argument_list|)
 argument_list|,
-name|MultiFields
-operator|.
-name|getLiveDocs
-argument_list|(
-name|reader
-argument_list|)
-argument_list|,
 literal|null
 argument_list|,
 literal|0
@@ -624,13 +617,6 @@ operator|new
 name|BytesRef
 argument_list|(
 literal|"Q37"
-argument_list|)
-argument_list|,
-name|MultiFields
-operator|.
-name|getLiveDocs
-argument_list|(
-name|reader
 argument_list|)
 argument_list|,
 literal|null

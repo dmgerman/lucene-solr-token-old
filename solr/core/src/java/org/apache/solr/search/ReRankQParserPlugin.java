@@ -1305,9 +1305,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|bits
 parameter_list|)
 throws|throws
 name|IOException
@@ -1318,8 +1315,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-name|bits
 argument_list|)
 return|;
 block|}

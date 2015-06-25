@@ -95,7 +95,7 @@ name|Automaton
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: Responsible for executing the query against an  * appropriate suggester and collecting the results  * via a collector.  *  * {@link #score(LeafCollector, int, int)} is called  * for each leaf reader.  *  * {@link #accept(int)} and {@link #score(float, float)}  * is called for every matched completion (i.e. document)  *  * @lucene.experimental  */
+comment|/**  * Expert: Responsible for executing the query against an  * appropriate suggester and collecting the results  * via a collector.  *  * {@link #score(LeafCollector, Bits, int, int)} is called  * for each leaf reader.  *  * {@link #accept(int,Bits)} and {@link #score(float, float)}  * is called for every matched completion (i.e. document)  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|CompletionScorer
@@ -111,11 +111,11 @@ specifier|final
 name|NRTSuggester
 name|suggester
 decl_stmt|;
-DECL|field|acceptDocs
+DECL|field|filterDocs
 specifier|private
 specifier|final
 name|Bits
-name|acceptDocs
+name|filterDocs
 decl_stmt|;
 comment|// values accessed by suggester
 comment|/** weight that created this scorer */
@@ -159,7 +159,7 @@ name|reader
 parameter_list|,
 specifier|final
 name|Bits
-name|acceptDocs
+name|filterDocs
 parameter_list|,
 specifier|final
 name|boolean
@@ -204,9 +204,9 @@ name|filtered
 expr_stmt|;
 name|this
 operator|.
-name|acceptDocs
+name|filterDocs
 operator|=
-name|acceptDocs
+name|filterDocs
 expr_stmt|;
 block|}
 annotation|@
@@ -218,6 +218,9 @@ name|score
 parameter_list|(
 name|LeafCollector
 name|collector
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|,
 name|int
 name|min
@@ -252,6 +255,8 @@ name|lookup
 argument_list|(
 name|this
 argument_list|,
+name|acceptDocs
+argument_list|,
 operator|(
 operator|(
 name|TopSuggestDocsCollector
@@ -276,7 +281,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**    * Returns true if a document with<code>docID</code> is accepted,    * false if the docID maps to a deleted    * document or has been filtered out    */
+comment|/**    * Returns true if a document with<code>docID</code> is accepted,    * false if the docID maps to a deleted    * document or has been filtered out    * @param liveDocs the {@link Bits} representing live docs, or possibly    *                 {@code null} if all docs are live    */
 DECL|method|accept
 specifier|public
 specifier|final
@@ -285,19 +290,37 @@ name|accept
 parameter_list|(
 name|int
 name|docID
+parameter_list|,
+name|Bits
+name|liveDocs
 parameter_list|)
 block|{
 return|return
-name|acceptDocs
+operator|(
+name|filterDocs
 operator|==
 literal|null
 operator|||
-name|acceptDocs
+name|filterDocs
 operator|.
 name|get
 argument_list|(
 name|docID
 argument_list|)
+operator|)
+operator|&&
+operator|(
+name|liveDocs
+operator|==
+literal|null
+operator|||
+name|liveDocs
+operator|.
+name|get
+argument_list|(
+name|docID
+argument_list|)
+operator|)
 return|;
 block|}
 comment|/**    * Returns the score for a matched completion    * based on the query time boost and the    * index time weight.    */

@@ -3446,9 +3446,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -3461,8 +3458,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-name|acceptDocs
 argument_list|)
 decl_stmt|;
 name|NumericDocValues
@@ -9607,11 +9602,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|slowCompositeReader
-operator|.
-name|getLiveDocs
-argument_list|()
-argument_list|,
 name|postingsEnum
 argument_list|,
 name|PostingsEnum
@@ -10399,13 +10389,6 @@ operator|.
 name|getTermDocsEnum
 argument_list|(
 name|topLevelReader
-argument_list|,
-name|MultiFields
-operator|.
-name|getLiveDocs
-argument_list|(
-name|topLevelReader
-argument_list|)
 argument_list|,
 literal|"id"
 argument_list|,

@@ -931,8 +931,6 @@ name|reader
 operator|.
 name|getContext
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 return|;
 case|case
@@ -950,8 +948,6 @@ name|reader
 operator|.
 name|getContext
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -971,8 +967,6 @@ name|reader
 operator|.
 name|getContext
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 operator|!=
 literal|null

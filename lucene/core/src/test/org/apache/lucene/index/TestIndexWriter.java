@@ -3545,13 +3545,6 @@ argument_list|(
 literal|"a"
 argument_list|)
 argument_list|,
-name|MultiFields
-operator|.
-name|getLiveDocs
-argument_list|(
-name|reader
-argument_list|)
-argument_list|,
 literal|null
 argument_list|,
 name|PostingsEnum
@@ -5707,8 +5700,6 @@ name|postings
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|ALL
@@ -5765,8 +5756,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|dpEnum
 argument_list|,
 name|PostingsEnum
@@ -8327,8 +8316,6 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
@@ -8360,8 +8347,6 @@ name|BytesRef
 argument_list|(
 literal|"doc2field1"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -8399,8 +8384,6 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
@@ -8432,8 +8415,6 @@ name|BytesRef
 argument_list|(
 literal|"doc1field2"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -8471,8 +8452,6 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|NONE
@@ -8504,8 +8483,6 @@ name|BytesRef
 argument_list|(
 literal|"doc3field2"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

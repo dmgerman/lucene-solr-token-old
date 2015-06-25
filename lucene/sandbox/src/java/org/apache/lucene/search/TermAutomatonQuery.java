@@ -2013,9 +2013,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -2164,8 +2161,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|acceptDocs
-argument_list|,
 literal|null
 argument_list|,
 name|PostingsEnum
