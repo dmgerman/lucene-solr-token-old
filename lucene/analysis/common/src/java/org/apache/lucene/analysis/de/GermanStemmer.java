@@ -968,8 +968,7 @@ literal|3
 argument_list|)
 expr_stmt|;
 name|substCount
-operator|=
-operator|+
+operator|+=
 literal|2
 expr_stmt|;
 block|}
