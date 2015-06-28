@@ -2789,7 +2789,9 @@ name|qParams
 operator|.
 name|add
 argument_list|(
-literal|"shards.info"
+name|ShardParams
+operator|.
+name|SHARDS_INFO
 argument_list|,
 literal|"true"
 argument_list|)
@@ -2825,12 +2827,18 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"shards.info"
+name|ShardParams
+operator|.
+name|SHARDS_INFO
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Unable to obtain shards.info"
+literal|"Unable to obtain "
+operator|+
+name|ShardParams
+operator|.
+name|SHARDS_INFO
 argument_list|,
 name|shardsInfo
 argument_list|)
@@ -2914,7 +2922,11 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Did not find map-type value in shards.info"
+literal|"Did not find map-type value in "
+operator|+
+name|ShardParams
+operator|.
+name|SHARDS_INFO
 argument_list|,
 name|e
 operator|.
@@ -2947,7 +2959,11 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"shards.info did not return 'shardAddress' parameter"
+name|ShardParams
+operator|.
+name|SHARDS_INFO
+operator|+
+literal|" did not return 'shardAddress' parameter"
 argument_list|,
 name|shardAddress
 argument_list|)

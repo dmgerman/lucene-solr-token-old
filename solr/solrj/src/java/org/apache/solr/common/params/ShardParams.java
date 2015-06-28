@@ -17,7 +17,7 @@ name|params
 package|;
 end_package
 begin_comment
-comment|/**  * Parameters used for distributed search.  */
+comment|/**  * Parameters used for distributed search.  *   * When adding a new parameter here, please also add the corresponding  * one-line test case in the ShardParamsTest class.  *   */
 end_comment
 begin_interface
 DECL|interface|ShardParams
