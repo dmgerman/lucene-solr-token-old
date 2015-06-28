@@ -1721,6 +1721,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|newIndexWriterConfig
@@ -1991,6 +1994,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|newIndexWriterConfig
@@ -2443,6 +2449,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|newIndexWriterConfig
@@ -2638,6 +2647,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|newIndexWriterConfig
@@ -2903,6 +2915,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|conf
@@ -6782,6 +6797,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|newIndexWriterConfig

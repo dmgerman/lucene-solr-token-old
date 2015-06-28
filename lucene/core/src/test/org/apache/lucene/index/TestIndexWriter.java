@@ -15650,6 +15650,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|iwc
@@ -16670,6 +16673,9 @@ name|RandomIndexWriter
 operator|.
 name|mockIndexWriter
 argument_list|(
+name|random
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|iwc

@@ -632,6 +632,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|AssertionError
+decl||
 name|IOException
 name|ioe
 parameter_list|)

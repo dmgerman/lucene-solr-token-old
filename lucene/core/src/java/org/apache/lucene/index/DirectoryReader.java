@@ -373,6 +373,8 @@ name|StandardDirectoryReader
 operator|.
 name|ReaderCommit
 argument_list|(
+literal|null
+argument_list|,
 name|latest
 argument_list|,
 name|dir
@@ -479,6 +481,7 @@ name|sis
 operator|!=
 literal|null
 condition|)
+block|{
 name|commits
 operator|.
 name|add
@@ -488,12 +491,15 @@ name|StandardDirectoryReader
 operator|.
 name|ReaderCommit
 argument_list|(
+literal|null
+argument_list|,
 name|sis
 argument_list|,
 name|dir
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Ensure that the commit points are sorted in ascending order.
