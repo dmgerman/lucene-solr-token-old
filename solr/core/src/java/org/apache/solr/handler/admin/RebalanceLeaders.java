@@ -306,21 +306,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|cloud
-operator|.
-name|OverseerCollectionProcessor
-operator|.
-name|ASYNC
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|common
 operator|.
 name|cloud
@@ -483,6 +468,23 @@ operator|.
 name|CollectionAction
 operator|.
 name|REBALANCELEADERS
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonAdminParams
+operator|.
+name|ASYNC
 import|;
 end_import
 begin_class

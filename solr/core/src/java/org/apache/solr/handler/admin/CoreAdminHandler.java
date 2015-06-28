@@ -454,6 +454,21 @@ name|common
 operator|.
 name|params
 operator|.
+name|CommonAdminParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
 name|CoreAdminParams
 import|;
 end_import
@@ -1350,6 +1365,7 @@ argument_list|)
 throw|;
 block|}
 comment|//boolean doPersist = false;
+specifier|final
 name|String
 name|taskId
 init|=
@@ -1360,7 +1376,9 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"async"
+name|CommonAdminParams
+operator|.
+name|ASYNC
 argument_list|)
 decl_stmt|;
 name|TaskObject

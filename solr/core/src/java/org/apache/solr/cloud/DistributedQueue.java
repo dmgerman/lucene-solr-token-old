@@ -594,6 +594,9 @@ name|boolean
 name|containsTaskWithRequestId
 parameter_list|(
 name|String
+name|requestIdKey
+parameter_list|,
+name|String
 name|requestId
 parameter_list|)
 throws|throws
@@ -689,9 +692,7 @@ name|message
 operator|.
 name|containsKey
 argument_list|(
-name|OverseerCollectionProcessor
-operator|.
-name|ASYNC
+name|requestIdKey
 argument_list|)
 condition|)
 block|{
@@ -705,9 +706,7 @@ name|message
 operator|.
 name|get
 argument_list|(
-name|OverseerCollectionProcessor
-operator|.
-name|ASYNC
+name|requestIdKey
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -717,9 +716,7 @@ name|message
 operator|.
 name|get
 argument_list|(
-name|OverseerCollectionProcessor
-operator|.
-name|ASYNC
+name|requestIdKey
 argument_list|)
 operator|.
 name|equals
