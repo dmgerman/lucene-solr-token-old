@@ -665,6 +665,12 @@ name|long
 name|add
 parameter_list|(
 name|Builder
+argument_list|<
+name|T
+argument_list|>
+name|builder
+parameter_list|,
+name|Builder
 operator|.
 name|UnCompiledNode
 argument_list|<
@@ -729,6 +735,8 @@ name|fst
 operator|.
 name|addNode
 argument_list|(
+name|builder
+argument_list|,
 name|nodeIn
 argument_list|)
 decl_stmt|;

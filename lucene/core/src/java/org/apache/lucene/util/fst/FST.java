@@ -528,7 +528,7 @@ name|ARCS_AS_FIXED_ARRAY
 init|=
 name|BIT_ARC_HAS_FINAL_OUTPUT
 decl_stmt|;
-comment|/**    * @see #shouldExpand(UnCompiledNode)    */
+comment|/**    * @see #shouldExpand(Builder, UnCompiledNode)    */
 DECL|field|FIXED_ARRAY_SHALLOW_DISTANCE
 specifier|static
 specifier|final
@@ -538,7 +538,7 @@ init|=
 literal|3
 decl_stmt|;
 comment|// 0 => only root node.
-comment|/**    * @see #shouldExpand(UnCompiledNode)    */
+comment|/**    * @see #shouldExpand(Builder, UnCompiledNode)    */
 DECL|field|FIXED_ARRAY_NUM_ARCS_SHALLOW
 specifier|static
 specifier|final
@@ -547,7 +547,7 @@ name|FIXED_ARRAY_NUM_ARCS_SHALLOW
 init|=
 literal|5
 decl_stmt|;
-comment|/**    * @see #shouldExpand(UnCompiledNode)    */
+comment|/**    * @see #shouldExpand(Builder, UnCompiledNode)    */
 DECL|field|FIXED_ARRAY_NUM_ARCS_DEEP
 specifier|static
 specifier|final
@@ -555,19 +555,6 @@ name|int
 name|FIXED_ARRAY_NUM_ARCS_DEEP
 init|=
 literal|10
-decl_stmt|;
-comment|// Reused temporarily while building the FST:
-DECL|field|reusedBytesPerArc
-specifier|private
-name|int
-index|[]
-name|reusedBytesPerArc
-init|=
-operator|new
-name|int
-index|[
-literal|0
-index|]
 decl_stmt|;
 comment|// Increment version to change it
 DECL|field|FILE_FORMAT_NAME
@@ -628,6 +615,16 @@ name|VERSION_VINT_TARGET
 init|=
 literal|4
 decl_stmt|;
+comment|/** Don't store arcWithOutputCount anymore */
+DECL|field|VERSION_NO_NODE_ARC_COUNTS
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|VERSION_NO_NODE_ARC_COUNTS
+init|=
+literal|5
+decl_stmt|;
 DECL|field|VERSION_CURRENT
 specifier|private
 specifier|static
@@ -635,7 +632,7 @@ specifier|final
 name|int
 name|VERSION_CURRENT
 init|=
-name|VERSION_VINT_TARGET
+name|VERSION_NO_NODE_ARC_COUNTS
 decl_stmt|;
 comment|// Never serialized; just used to represent the virtual
 comment|// final node w/ no arcs:
@@ -683,10 +680,18 @@ DECL|field|emptyOutput
 name|T
 name|emptyOutput
 decl_stmt|;
+comment|/** A {@link BytesStore}, used during building, or during reading when    *  the FST is very large (more than 1 GB).  If the FST is less than 1    *  GB then bytesArray is set instead. */
 DECL|field|bytes
 specifier|final
 name|BytesStore
 name|bytes
+decl_stmt|;
+comment|/** Used at read time when the FST fits into a single byte[]. */
+DECL|field|bytesArray
+specifier|final
+name|byte
+index|[]
+name|bytesArray
 decl_stmt|;
 DECL|field|startNode
 specifier|private
@@ -705,36 +710,6 @@ name|T
 argument_list|>
 name|outputs
 decl_stmt|;
-comment|// Used for the BIT_TARGET_NEXT optimization (whereby
-comment|// instead of storing the address of the target node for
-comment|// a given arc, we mark a single bit noting that the next
-comment|// node in the byte[] is the target node):
-DECL|field|lastFrozenNode
-specifier|private
-name|long
-name|lastFrozenNode
-decl_stmt|;
-DECL|field|NO_OUTPUT
-specifier|private
-specifier|final
-name|T
-name|NO_OUTPUT
-decl_stmt|;
-DECL|field|nodeCount
-specifier|public
-name|long
-name|nodeCount
-decl_stmt|;
-DECL|field|arcCount
-specifier|public
-name|long
-name|arcCount
-decl_stmt|;
-DECL|field|arcWithOutputCount
-specifier|public
-name|long
-name|arcWithOutputCount
-decl_stmt|;
 DECL|field|packed
 specifier|private
 specifier|final
@@ -747,12 +722,6 @@ name|PackedInts
 operator|.
 name|Reader
 name|nodeRefToAddress
-decl_stmt|;
-DECL|field|allowArrayArcs
-specifier|private
-specifier|final
-name|boolean
-name|allowArrayArcs
 decl_stmt|;
 DECL|field|cachedRootArcs
 specifier|private
@@ -1214,9 +1183,6 @@ parameter_list|,
 name|float
 name|acceptableOverheadRatio
 parameter_list|,
-name|boolean
-name|allowArrayArcs
-parameter_list|,
 name|int
 name|bytesPageBits
 parameter_list|)
@@ -1233,15 +1199,13 @@ name|outputs
 operator|=
 name|outputs
 expr_stmt|;
-name|this
-operator|.
-name|allowArrayArcs
-operator|=
-name|allowArrayArcs
-expr_stmt|;
 name|version
 operator|=
 name|VERSION_CURRENT
+expr_stmt|;
+name|bytesArray
+operator|=
+literal|null
 expr_stmt|;
 name|bytes
 operator|=
@@ -1262,13 +1226,6 @@ name|byte
 operator|)
 literal|0
 argument_list|)
-expr_stmt|;
-name|NO_OUTPUT
-operator|=
-name|outputs
-operator|.
-name|getNoOutput
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1427,7 +1384,7 @@ name|FILE_FORMAT_NAME
 argument_list|,
 name|VERSION_PACKED
 argument_list|,
-name|VERSION_VINT_TARGET
+name|VERSION_NO_NODE_ARC_COUNTS
 argument_list|)
 expr_stmt|;
 name|packed
@@ -1625,27 +1582,29 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-name|nodeCount
-operator|=
+if|if
+condition|(
+name|version
+operator|<
+name|VERSION_NO_NODE_ARC_COUNTS
+condition|)
+block|{
 name|in
 operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-name|arcCount
-operator|=
 name|in
 operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-name|arcWithOutputCount
-operator|=
 name|in
 operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
+block|}
 name|long
 name|numBytes
 init|=
@@ -1654,6 +1613,16 @@ operator|.
 name|readVLong
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|numBytes
+operator|>
+literal|1
+operator|<<
+name|maxBlockBits
+condition|)
+block|{
+comment|// FST is big: we need multiple pages
 name|bytes
 operator|=
 operator|new
@@ -1668,24 +1637,46 @@ operator|<<
 name|maxBlockBits
 argument_list|)
 expr_stmt|;
-name|NO_OUTPUT
+name|bytesArray
 operator|=
-name|outputs
-operator|.
-name|getNoOutput
-argument_list|()
+literal|null
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// FST fits into a single block: use ByteArrayBytesStoreReader for less overhead
+name|bytes
+operator|=
+literal|null
+expr_stmt|;
+name|bytesArray
+operator|=
+operator|new
+name|byte
+index|[
+operator|(
+name|int
+operator|)
+name|numBytes
+index|]
+expr_stmt|;
+name|in
+operator|.
+name|readBytes
+argument_list|(
+name|bytesArray
+argument_list|,
+literal|0
+argument_list|,
+name|bytesArray
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+block|}
 name|cacheRootArcs
 argument_list|()
 expr_stmt|;
-comment|// NOTE: bogus because this is only used during
-comment|// building; we need to break out mutable FST from
-comment|// immutable
-name|allowArrayArcs
-operator|=
-literal|false
-expr_stmt|;
-comment|/*     if (bytes.length == 665) {       Writer w = new OutputStreamWriter(new FileOutputStream("out.dot"), StandardCharsets.UTF_8);       Util.toDot(this, w, false, false);       w.close();       System.out.println("Wrote FST to out.dot");     }     */
 block|}
 DECL|method|getInputType
 specifier|public
@@ -1838,6 +1829,22 @@ name|size
 init|=
 name|BASE_RAM_BYTES_USED
 decl_stmt|;
+if|if
+condition|(
+name|bytesArray
+operator|!=
+literal|null
+condition|)
+block|{
+name|size
+operator|+=
+name|bytesArray
+operator|.
+name|length
+expr_stmt|;
+block|}
+else|else
+block|{
 name|size
 operator|+=
 name|bytes
@@ -1845,6 +1852,7 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|packed
@@ -1884,15 +1892,6 @@ block|}
 name|size
 operator|+=
 name|cachedArcsBytesUsed
-expr_stmt|;
-name|size
-operator|+=
-name|RamUsageEstimator
-operator|.
-name|sizeOf
-argument_list|(
-name|reusedBytesPerArc
-argument_list|)
 expr_stmt|;
 return|return
 name|size
@@ -2007,16 +2006,6 @@ operator|+
 literal|",packed="
 operator|+
 name|packed
-operator|+
-literal|",nodes="
-operator|+
-name|nodeCount
-operator|+
-literal|",arcs="
-operator|+
-name|arcCount
-operator|+
-literal|")"
 return|;
 block|}
 DECL|method|finish
@@ -2029,6 +2018,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|newStartNode
+operator|<=
+name|bytes
+operator|.
+name|getPosition
+argument_list|()
+assert|;
 if|if
 condition|(
 name|startNode
@@ -2703,27 +2700,13 @@ argument_list|(
 name|startNode
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeVLong
-argument_list|(
-name|nodeCount
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeVLong
-argument_list|(
-name|arcCount
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeVLong
-argument_list|(
-name|arcWithOutputCount
-argument_list|)
-expr_stmt|;
+if|if
+condition|(
+name|bytes
+operator|!=
+literal|null
+condition|)
+block|{
 name|long
 name|numBytes
 init|=
@@ -2746,6 +2729,37 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+assert|assert
+name|bytesArray
+operator|!=
+literal|null
+assert|;
+name|out
+operator|.
+name|writeVLong
+argument_list|(
+name|bytesArray
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBytes
+argument_list|(
+name|bytesArray
+argument_list|,
+literal|0
+argument_list|,
+name|bytesArray
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**    * Writes an automaton to a file.     */
 DECL|method|save
@@ -3042,6 +3056,12 @@ name|long
 name|addNode
 parameter_list|(
 name|Builder
+argument_list|<
+name|T
+argument_list|>
+name|builder
+parameter_list|,
+name|Builder
 operator|.
 name|UnCompiledNode
 argument_list|<
@@ -3052,6 +3072,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|T
+name|NO_OUTPUT
+init|=
+name|outputs
+operator|.
+name|getNoOutput
+argument_list|()
+decl_stmt|;
 comment|//System.out.println("FST.addNode pos=" + bytes.getPosition() + " numArcs=" + nodeIn.numArcs);
 if|if
 condition|(
@@ -3084,6 +3112,8 @@ specifier|final
 name|long
 name|startAddress
 init|=
+name|builder
+operator|.
 name|bytes
 operator|.
 name|getPosition
@@ -3096,6 +3126,8 @@ name|doFixedArray
 init|=
 name|shouldExpand
 argument_list|(
+name|builder
+argument_list|,
 name|nodeIn
 argument_list|)
 decl_stmt|;
@@ -3107,6 +3139,8 @@ block|{
 comment|//System.out.println("  fixedArray");
 if|if
 condition|(
+name|builder
+operator|.
 name|reusedBytesPerArc
 operator|.
 name|length
@@ -3116,6 +3150,8 @@ operator|.
 name|numArcs
 condition|)
 block|{
+name|builder
+operator|.
 name|reusedBytesPerArc
 operator|=
 operator|new
@@ -3135,6 +3171,8 @@ index|]
 expr_stmt|;
 block|}
 block|}
+name|builder
+operator|.
 name|arcCount
 operator|+=
 name|nodeIn
@@ -3154,6 +3192,8 @@ decl_stmt|;
 name|long
 name|lastArcStart
 init|=
+name|builder
+operator|.
 name|bytes
 operator|.
 name|getPosition
@@ -3232,6 +3272,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|builder
+operator|.
 name|lastFrozenNode
 operator|==
 name|target
@@ -3355,6 +3397,8 @@ operator|+=
 name|BIT_ARC_HAS_OUTPUT
 expr_stmt|;
 block|}
+name|builder
+operator|.
 name|bytes
 operator|.
 name|writeByte
@@ -3367,6 +3411,8 @@ argument_list|)
 expr_stmt|;
 name|writeLabel
 argument_list|(
+name|builder
+operator|.
 name|bytes
 argument_list|,
 name|arc
@@ -3392,13 +3438,12 @@ name|arc
 operator|.
 name|output
 argument_list|,
+name|builder
+operator|.
 name|bytes
 argument_list|)
 expr_stmt|;
 comment|//System.out.println("    write output");
-name|arcWithOutputCount
-operator|++
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3418,6 +3463,8 @@ name|arc
 operator|.
 name|nextFinalOutput
 argument_list|,
+name|builder
+operator|.
 name|bytes
 argument_list|)
 expr_stmt|;
@@ -3443,6 +3490,8 @@ operator|>
 literal|0
 assert|;
 comment|//System.out.println("    write target");
+name|builder
+operator|.
 name|bytes
 operator|.
 name|writeVLong
@@ -3461,6 +3510,8 @@ condition|(
 name|doFixedArray
 condition|)
 block|{
+name|builder
+operator|.
 name|reusedBytesPerArc
 index|[
 name|arcIdx
@@ -3470,6 +3521,8 @@ call|(
 name|int
 call|)
 argument_list|(
+name|builder
+operator|.
 name|bytes
 operator|.
 name|getPosition
@@ -3480,6 +3533,8 @@ argument_list|)
 expr_stmt|;
 name|lastArcStart
 operator|=
+name|builder
+operator|.
 name|bytes
 operator|.
 name|getPosition
@@ -3493,13 +3548,15 @@ name|max
 argument_list|(
 name|maxBytesPerArc
 argument_list|,
+name|builder
+operator|.
 name|reusedBytesPerArc
 index|[
 name|arcIdx
 index|]
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("    bytes=" + reusedBytesPerArc[arcIdx]);
+comment|//System.out.println("    bytes=" + builder.reusedBytesPerArc[arcIdx]);
 block|}
 block|}
 comment|// TODO: try to avoid wasteful cases: disable doFixedArray in that case
@@ -3589,6 +3646,8 @@ comment|// expand the arcs in place, backwards
 name|long
 name|srcPos
 init|=
+name|builder
+operator|.
 name|bytes
 operator|.
 name|getPosition
@@ -3617,6 +3676,8 @@ operator|>
 name|srcPos
 condition|)
 block|{
+name|builder
+operator|.
 name|bytes
 operator|.
 name|skipBytes
@@ -3656,6 +3717,8 @@ name|maxBytesPerArc
 expr_stmt|;
 name|srcPos
 operator|-=
+name|builder
+operator|.
 name|reusedBytesPerArc
 index|[
 name|arcIdx
@@ -3669,7 +3732,7 @@ operator|!=
 name|destPos
 condition|)
 block|{
-comment|//System.out.println("  copy len=" + reusedBytesPerArc[arcIdx]);
+comment|//System.out.println("  copy len=" + builder.reusedBytesPerArc[arcIdx]);
 assert|assert
 name|destPos
 operator|>
@@ -3693,6 +3756,8 @@ name|maxBytesPerArc
 operator|+
 literal|" reusedBytesPerArc[arcIdx]="
 operator|+
+name|builder
+operator|.
 name|reusedBytesPerArc
 index|[
 name|arcIdx
@@ -3704,6 +3769,8 @@ name|nodeIn
 operator|.
 name|numArcs
 assert|;
+name|builder
+operator|.
 name|bytes
 operator|.
 name|copyBytes
@@ -3712,6 +3779,8 @@ name|srcPos
 argument_list|,
 name|destPos
 argument_list|,
+name|builder
+operator|.
 name|reusedBytesPerArc
 index|[
 name|arcIdx
@@ -3722,6 +3791,8 @@ block|}
 block|}
 block|}
 comment|// now write the header
+name|builder
+operator|.
 name|bytes
 operator|.
 name|writeBytes
@@ -3740,6 +3811,8 @@ specifier|final
 name|long
 name|thisNodeAddress
 init|=
+name|builder
+operator|.
 name|bytes
 operator|.
 name|getPosition
@@ -3747,6 +3820,8 @@ argument_list|()
 operator|-
 literal|1
 decl_stmt|;
+name|builder
+operator|.
 name|bytes
 operator|.
 name|reverse
@@ -3764,6 +3839,8 @@ name|nodeAddress
 operator|!=
 literal|null
 operator|&&
+name|builder
+operator|.
 name|nodeCount
 operator|==
 name|Integer
@@ -3779,6 +3856,8 @@ literal|"cannot create a packed FST with more than 2.1 billion nodes"
 argument_list|)
 throw|;
 block|}
+name|builder
+operator|.
 name|nodeCount
 operator|++
 expr_stmt|;
@@ -3799,6 +3878,8 @@ condition|(
 operator|(
 name|int
 operator|)
+name|builder
+operator|.
 name|nodeCount
 operator|==
 name|nodeAddress
@@ -3863,6 +3944,8 @@ argument_list|(
 operator|(
 name|int
 operator|)
+name|builder
+operator|.
 name|nodeCount
 argument_list|,
 name|thisNodeAddress
@@ -3871,6 +3954,8 @@ expr_stmt|;
 comment|// System.out.println("  write nodeAddress[" + nodeCount + "] = " + endAddress);
 name|node
 operator|=
+name|builder
+operator|.
 name|nodeCount
 expr_stmt|;
 block|}
@@ -3881,10 +3966,6 @@ operator|=
 name|thisNodeAddress
 expr_stmt|;
 block|}
-name|lastFrozenNode
-operator|=
-name|node
-expr_stmt|;
 comment|//System.out.println("  ret node=" + node + " address=" + thisNodeAddress + " nodeAddress=" + nodeAddress);
 return|return
 name|node
@@ -3906,6 +3987,14 @@ argument_list|>
 name|arc
 parameter_list|)
 block|{
+name|T
+name|NO_OUTPUT
+init|=
+name|outputs
+operator|.
+name|getNoOutput
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|emptyOutput
@@ -6200,45 +6289,18 @@ return|return;
 block|}
 block|}
 block|}
-DECL|method|getNodeCount
-specifier|public
-name|long
-name|getNodeCount
-parameter_list|()
-block|{
-comment|// 1+ in order to count the -1 implicit final node
-return|return
-literal|1
-operator|+
-name|nodeCount
-return|;
-block|}
-DECL|method|getArcCount
-specifier|public
-name|long
-name|getArcCount
-parameter_list|()
-block|{
-return|return
-name|arcCount
-return|;
-block|}
-DECL|method|getArcWithOutputCount
-specifier|public
-name|long
-name|getArcWithOutputCount
-parameter_list|()
-block|{
-return|return
-name|arcWithOutputCount
-return|;
-block|}
 comment|/**    * Nodes will be expanded if their depth (distance from the root node) is    *&lt;= this value and their number of arcs is&gt;=    * {@link #FIXED_ARRAY_NUM_ARCS_SHALLOW}.    *     *<p>    * Fixed array consumes more RAM but enables binary search on the arcs    * (instead of a linear scan) on lookup by arc label.    *     * @return<code>true</code> if<code>node</code> should be stored in an    *         expanded (array) form.    *     * @see #FIXED_ARRAY_NUM_ARCS_DEEP    * @see Builder.UnCompiledNode#depth    */
 DECL|method|shouldExpand
 specifier|private
 name|boolean
 name|shouldExpand
 parameter_list|(
+name|Builder
+argument_list|<
+name|T
+argument_list|>
+name|builder
+parameter_list|,
 name|UnCompiledNode
 argument_list|<
 name|T
@@ -6247,6 +6309,8 @@ name|node
 parameter_list|)
 block|{
 return|return
+name|builder
+operator|.
 name|allowArrayArcs
 operator|&&
 operator|(
@@ -6279,35 +6343,63 @@ name|BytesReader
 name|getBytesReader
 parameter_list|()
 block|{
-name|BytesReader
-name|in
-decl_stmt|;
 if|if
 condition|(
 name|packed
 condition|)
 block|{
-name|in
-operator|=
+if|if
+condition|(
+name|bytesArray
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|ForwardBytesReader
+argument_list|(
+name|bytesArray
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
 name|bytes
 operator|.
 name|getForwardReader
 argument_list|()
-expr_stmt|;
+return|;
+block|}
 block|}
 else|else
 block|{
-name|in
-operator|=
+if|if
+condition|(
+name|bytesArray
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|ReverseBytesReader
+argument_list|(
+name|bytesArray
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
 name|bytes
 operator|.
 name|getReverseReader
 argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|in
 return|;
+block|}
+block|}
 block|}
 comment|/** Reads bytes stored in an FST. */
 DECL|class|BytesReader
@@ -6380,6 +6472,10 @@ name|inputType
 operator|=
 name|inputType
 expr_stmt|;
+name|bytesArray
+operator|=
+literal|null
+expr_stmt|;
 name|bytes
 operator|=
 operator|new
@@ -6394,20 +6490,6 @@ name|outputs
 operator|=
 name|outputs
 expr_stmt|;
-name|NO_OUTPUT
-operator|=
-name|outputs
-operator|.
-name|getNoOutput
-argument_list|()
-expr_stmt|;
-comment|// NOTE: bogus because this is only used during
-comment|// building; we need to break out mutable FST from
-comment|// immutable
-name|allowArrayArcs
-operator|=
-literal|false
-expr_stmt|;
 block|}
 comment|/** Expert: creates an FST by packing this one.  This    *  process requires substantial additional RAM (currently    *  up to ~8 bytes per node depending on    *<code>acceptableOverheadRatio</code>), but then should    *  produce a smaller FST.    *    *<p>The implementation of this method uses ideas from    *<a target="_blank" href="http://www.cs.put.poznan.pl/dweiss/site/publications/download/fsacomp.pdf">Smaller Representation of Finite State Automata</a>,    *  which describes techniques to reduce the size of a FST.    *  However, this is not a strict implementation of the    *  algorithms described in this paper.    */
 DECL|method|pack
@@ -6417,6 +6499,12 @@ name|T
 argument_list|>
 name|pack
 parameter_list|(
+name|Builder
+argument_list|<
+name|T
+argument_list|>
+name|builder
+parameter_list|,
 name|int
 name|minInCountDeref
 parameter_list|,
@@ -6456,6 +6544,14 @@ literal|"this FST was not built with willPackFST=true"
 argument_list|)
 throw|;
 block|}
+name|T
+name|NO_OUTPUT
+init|=
+name|outputs
+operator|.
+name|getNoOutput
+argument_list|()
+decl_stmt|;
 name|Arc
 argument_list|<
 name|T
@@ -6694,7 +6790,7 @@ name|PackedInts
 operator|.
 name|bitsRequired
 argument_list|(
-name|this
+name|builder
 operator|.
 name|bytes
 operator|.
@@ -6708,6 +6804,8 @@ call|)
 argument_list|(
 literal|1
 operator|+
+name|builder
+operator|.
 name|nodeCount
 argument_list|)
 argument_list|,
@@ -6724,6 +6822,8 @@ literal|1
 init|;
 name|node
 operator|<=
+name|builder
+operator|.
 name|nodeCount
 condition|;
 name|node
@@ -6738,7 +6838,7 @@ name|node
 argument_list|,
 literal|1
 operator|+
-name|this
+name|builder
 operator|.
 name|bytes
 operator|.
@@ -6800,6 +6900,8 @@ name|inputType
 argument_list|,
 name|outputs
 argument_list|,
+name|builder
+operator|.
 name|bytes
 operator|.
 name|getBlockBits
@@ -6824,24 +6926,6 @@ name|byte
 operator|)
 literal|0
 argument_list|)
-expr_stmt|;
-name|fst
-operator|.
-name|arcWithOutputCount
-operator|=
-literal|0
-expr_stmt|;
-name|fst
-operator|.
-name|nodeCount
-operator|=
-literal|0
-expr_stmt|;
-name|fst
-operator|.
-name|arcCount
-operator|=
-literal|0
 expr_stmt|;
 name|absCount
 operator|=
@@ -6875,6 +6959,8 @@ init|=
 operator|(
 name|int
 operator|)
+name|builder
+operator|.
 name|nodeCount
 init|;
 name|node
@@ -6885,11 +6971,6 @@ name|node
 operator|--
 control|)
 block|{
-name|fst
-operator|.
-name|nodeCount
-operator|++
-expr_stmt|;
 specifier|final
 name|long
 name|address
@@ -7358,18 +7439,6 @@ argument_list|,
 name|writer
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|retry
-condition|)
-block|{
-name|fst
-operator|.
-name|arcWithOutputCount
-operator|++
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -7642,12 +7711,6 @@ name|negDelta
 operator||=
 name|anyNegDelta
 expr_stmt|;
-name|fst
-operator|.
-name|arcCount
-operator|+=
-name|nodeArcCount
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -7667,7 +7730,6 @@ comment|//System.out.println("TOT wasted=" + totWasted);
 comment|// Converged!
 break|break;
 block|}
-comment|//System.out.println("  " + changedCount + " of " + fst.nodeCount + " changed; retry");
 block|}
 name|long
 name|maxAddress
@@ -7804,47 +7866,6 @@ name|emptyOutput
 argument_list|)
 expr_stmt|;
 block|}
-assert|assert
-name|fst
-operator|.
-name|nodeCount
-operator|==
-name|nodeCount
-operator|:
-literal|"fst.nodeCount="
-operator|+
-name|fst
-operator|.
-name|nodeCount
-operator|+
-literal|" nodeCount="
-operator|+
-name|nodeCount
-assert|;
-assert|assert
-name|fst
-operator|.
-name|arcCount
-operator|==
-name|arcCount
-assert|;
-assert|assert
-name|fst
-operator|.
-name|arcWithOutputCount
-operator|==
-name|arcWithOutputCount
-operator|:
-literal|"fst.arcWithOutputCount="
-operator|+
-name|fst
-operator|.
-name|arcWithOutputCount
-operator|+
-literal|" arcWithOutputCount="
-operator|+
-name|arcWithOutputCount
-assert|;
 name|fst
 operator|.
 name|bytes
