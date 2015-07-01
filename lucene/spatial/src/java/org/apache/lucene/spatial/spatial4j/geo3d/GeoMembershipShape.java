@@ -29,6 +29,8 @@ name|GeoMembershipShape
 extends|extends
 name|GeoShape
 extends|,
+name|GeoOutsideDistance
+extends|,
 name|Membership
 block|{  }
 end_interface
