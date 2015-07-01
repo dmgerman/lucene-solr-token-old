@@ -63,19 +63,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -90,6 +77,21 @@ operator|.
 name|search
 operator|.
 name|Weight
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|BitsProducer
 import|;
 end_import
 begin_comment
@@ -110,7 +112,7 @@ specifier|final
 name|CompletionAnalyzer
 name|analyzer
 decl_stmt|;
-comment|/**    * Calls {@link PrefixCompletionQuery#PrefixCompletionQuery(Analyzer, Term, Filter)}    * with no filter    */
+comment|/**    * Calls {@link PrefixCompletionQuery#PrefixCompletionQuery(Analyzer, Term, BitsProducer)}    * with no filter    */
 DECL|method|PrefixCompletionQuery
 specifier|public
 name|PrefixCompletionQuery
@@ -143,7 +145,7 @@ parameter_list|,
 name|Term
 name|term
 parameter_list|,
-name|Filter
+name|BitsProducer
 name|filter
 parameter_list|)
 block|{

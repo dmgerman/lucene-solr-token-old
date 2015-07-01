@@ -50,19 +50,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -77,6 +64,21 @@ operator|.
 name|search
 operator|.
 name|Weight
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|BitsProducer
 import|;
 end_import
 begin_import
@@ -132,7 +134,7 @@ specifier|final
 name|int
 name|maxDeterminizedStates
 decl_stmt|;
-comment|/**    * Calls {@link RegexCompletionQuery#RegexCompletionQuery(Term, Filter)}    * with no filter    */
+comment|/**    * Calls {@link RegexCompletionQuery#RegexCompletionQuery(Term, BitsProducer)}    * with no filter    */
 DECL|method|RegexCompletionQuery
 specifier|public
 name|RegexCompletionQuery
@@ -149,7 +151,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Calls {@link RegexCompletionQuery#RegexCompletionQuery(Term, int, int, Filter)}    * enabling all optional regex syntax and<code>maxDeterminizedStates</code> of    * {@value Operations#DEFAULT_MAX_DETERMINIZED_STATES}    */
+comment|/**    * Calls {@link RegexCompletionQuery#RegexCompletionQuery(Term, int, int, BitsProducer)}    * enabling all optional regex syntax and<code>maxDeterminizedStates</code> of    * {@value Operations#DEFAULT_MAX_DETERMINIZED_STATES}    */
 DECL|method|RegexCompletionQuery
 specifier|public
 name|RegexCompletionQuery
@@ -157,7 +159,7 @@ parameter_list|(
 name|Term
 name|term
 parameter_list|,
-name|Filter
+name|BitsProducer
 name|filter
 parameter_list|)
 block|{
@@ -177,7 +179,7 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Calls {@link RegexCompletionQuery#RegexCompletionQuery(Term, int, int, Filter)}    * with no filter    */
+comment|/**    * Calls {@link RegexCompletionQuery#RegexCompletionQuery(Term, int, int, BitsProducer)}    * with no filter    */
 DECL|method|RegexCompletionQuery
 specifier|public
 name|RegexCompletionQuery
@@ -218,7 +220,7 @@ parameter_list|,
 name|int
 name|maxDeterminizedStates
 parameter_list|,
-name|Filter
+name|BitsProducer
 name|filter
 parameter_list|)
 block|{

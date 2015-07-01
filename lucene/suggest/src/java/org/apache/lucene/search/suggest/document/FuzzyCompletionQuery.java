@@ -81,19 +81,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -108,6 +95,21 @@ operator|.
 name|search
 operator|.
 name|Weight
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|BitsProducer
 import|;
 end_import
 begin_import
@@ -308,7 +310,7 @@ specifier|final
 name|int
 name|maxDeterminizedStates
 decl_stmt|;
-comment|/**    * Calls {@link FuzzyCompletionQuery#FuzzyCompletionQuery(Analyzer, Term, Filter)}    * with no filter    */
+comment|/**    * Calls {@link FuzzyCompletionQuery#FuzzyCompletionQuery(Analyzer, Term, BitsProducer)}    * with no filter    */
 DECL|method|FuzzyCompletionQuery
 specifier|public
 name|FuzzyCompletionQuery
@@ -330,7 +332,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Calls {@link FuzzyCompletionQuery#FuzzyCompletionQuery(Analyzer, Term, Filter,    * int, boolean, int, int, boolean, int)}    * with defaults for<code>maxEdits</code>,<code>transpositions</code>,    *<code>nonFuzzyPrefix</code>,<code>minFuzzyLength</code>,    *<code>unicodeAware</code> and<code>maxDeterminizedStates</code>    *    * See {@link #DEFAULT_MAX_EDITS}, {@link #DEFAULT_TRANSPOSITIONS},    * {@link #DEFAULT_NON_FUZZY_PREFIX}, {@link #DEFAULT_MIN_FUZZY_LENGTH},    * {@link #DEFAULT_UNICODE_AWARE} and {@link Operations#DEFAULT_MAX_DETERMINIZED_STATES}    * for defaults    */
+comment|/**    * Calls {@link FuzzyCompletionQuery#FuzzyCompletionQuery(Analyzer, Term, BitsProducer,    * int, boolean, int, int, boolean, int)}    * with defaults for<code>maxEdits</code>,<code>transpositions</code>,    *<code>nonFuzzyPrefix</code>,<code>minFuzzyLength</code>,    *<code>unicodeAware</code> and<code>maxDeterminizedStates</code>    *    * See {@link #DEFAULT_MAX_EDITS}, {@link #DEFAULT_TRANSPOSITIONS},    * {@link #DEFAULT_NON_FUZZY_PREFIX}, {@link #DEFAULT_MIN_FUZZY_LENGTH},    * {@link #DEFAULT_UNICODE_AWARE} and {@link Operations#DEFAULT_MAX_DETERMINIZED_STATES}    * for defaults    */
 DECL|method|FuzzyCompletionQuery
 specifier|public
 name|FuzzyCompletionQuery
@@ -341,7 +343,7 @@ parameter_list|,
 name|Term
 name|term
 parameter_list|,
-name|Filter
+name|BitsProducer
 name|filter
 parameter_list|)
 block|{
@@ -380,7 +382,7 @@ parameter_list|,
 name|Term
 name|term
 parameter_list|,
-name|Filter
+name|BitsProducer
 name|filter
 parameter_list|,
 name|int
@@ -928,9 +930,7 @@ name|getFilter
 argument_list|()
 operator|.
 name|toString
-argument_list|(
-name|field
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
