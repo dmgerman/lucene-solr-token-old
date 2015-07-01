@@ -92,7 +92,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|Query
 import|;
 end_import
 begin_comment
@@ -122,12 +122,12 @@ name|int
 index|[]
 name|counts
 decl_stmt|;
-comment|/** Optional: if specified, we first test this Filter to    *  see whether the document should be checked for    *  matching ranges.  If this is null, all documents are    *  checked. */
-DECL|field|fastMatchFilter
+comment|/** Optional: if specified, we first test this Query to    *  see whether the document should be checked for    *  matching ranges.  If this is null, all documents are    *  checked. */
+DECL|field|fastMatchQuery
 specifier|protected
 specifier|final
-name|Filter
-name|fastMatchFilter
+name|Query
+name|fastMatchQuery
 decl_stmt|;
 comment|/** Our field name. */
 DECL|field|field
@@ -154,8 +154,8 @@ name|Range
 index|[]
 name|ranges
 parameter_list|,
-name|Filter
-name|fastMatchFilter
+name|Query
+name|fastMatchQuery
 parameter_list|)
 throws|throws
 name|IOException
@@ -174,9 +174,9 @@ name|ranges
 expr_stmt|;
 name|this
 operator|.
-name|fastMatchFilter
+name|fastMatchQuery
 operator|=
-name|fastMatchFilter
+name|fastMatchQuery
 expr_stmt|;
 name|counts
 operator|=
