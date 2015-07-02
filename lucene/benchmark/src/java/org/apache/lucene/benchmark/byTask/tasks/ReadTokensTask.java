@@ -430,7 +430,7 @@ condition|)
 block|{
 name|termAtt
 operator|.
-name|fillBytesRef
+name|getBytesRef
 argument_list|()
 expr_stmt|;
 name|tokenCount

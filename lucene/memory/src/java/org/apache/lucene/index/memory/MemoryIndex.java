@@ -1700,14 +1700,6 @@ argument_list|)
 else|:
 literal|null
 decl_stmt|;
-name|BytesRef
-name|ref
-init|=
-name|termAtt
-operator|.
-name|getBytesRef
-argument_list|()
-decl_stmt|;
 name|stream
 operator|.
 name|reset
@@ -1721,11 +1713,6 @@ name|incrementToken
 argument_list|()
 condition|)
 block|{
-name|termAtt
-operator|.
-name|fillBytesRef
-argument_list|()
-expr_stmt|;
 comment|//        if (DEBUG) System.err.println("token='" + term + "'");
 name|numTokens
 operator|++
@@ -1759,7 +1746,10 @@ name|terms
 operator|.
 name|add
 argument_list|(
-name|ref
+name|termAtt
+operator|.
+name|getBytesRef
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
