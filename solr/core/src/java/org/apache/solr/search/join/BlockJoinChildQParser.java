@@ -131,6 +131,8 @@ name|getFilter
 argument_list|(
 name|parentListQuery
 argument_list|)
+operator|.
+name|filter
 argument_list|)
 return|;
 block|}

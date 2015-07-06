@@ -804,7 +804,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 import|;
 end_import
 begin_import
@@ -819,7 +819,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 begin_import
@@ -4290,11 +4290,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|parentFilter
 init|=
 operator|new
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -4463,11 +4463,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|parentFilter
 init|=
 operator|new
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 argument_list|(
 operator|new
 name|QueryWrapperFilter

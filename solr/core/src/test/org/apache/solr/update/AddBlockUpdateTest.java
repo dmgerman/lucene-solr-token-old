@@ -283,7 +283,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 import|;
 end_import
 begin_import
@@ -3394,7 +3394,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 argument_list|(
 operator|new
 name|QueryWrapperFilter

@@ -206,7 +206,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 import|;
 end_import
 begin_import
@@ -221,7 +221,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 begin_import
@@ -2506,7 +2506,7 @@ literal|"=\"true\" name=\"{0}\" query=\"{1}\">\n {2} {3}</entity>\n"
 decl_stmt|;
 DECL|method|createParentFilter
 specifier|private
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|createParentFilter
 parameter_list|(
 name|String
@@ -2547,7 +2547,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 argument_list|(
 operator|new
 name|QueryWrapperFilter
