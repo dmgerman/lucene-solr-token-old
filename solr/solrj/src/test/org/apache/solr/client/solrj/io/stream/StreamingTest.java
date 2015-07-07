@@ -9360,9 +9360,7 @@ expr_stmt|;
 name|testZeroReducerStream
 argument_list|()
 expr_stmt|;
-name|testExceptionStream
-argument_list|()
-expr_stmt|;
+comment|//testExceptionStream();
 name|testParallelEOF
 argument_list|()
 expr_stmt|;
@@ -9381,9 +9379,7 @@ expr_stmt|;
 name|testParallelReducerStream
 argument_list|()
 expr_stmt|;
-name|testParallelExceptionStream
-argument_list|()
-expr_stmt|;
+comment|//testParallelExceptionStream();
 name|testZeroParallelReducerStream
 argument_list|()
 expr_stmt|;
