@@ -1631,6 +1631,8 @@ name|maxDoc
 condition|)
 block|{
 comment|// Fast case: all docs have this field:
+name|this
+operator|.
 name|docsWithField
 operator|=
 operator|new
