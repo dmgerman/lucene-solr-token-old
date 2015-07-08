@@ -16,6 +16,71 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|Directory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|CollectionUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|InfoStream
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -144,71 +209,6 @@ operator|.
 name|Matcher
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|AlreadyClosedException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|Directory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|CollectionUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|IOUtils
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|InfoStream
-import|;
-end_import
 begin_comment
 comment|/*  * This class keeps track of each SegmentInfos instance that  * is still "live", either because it corresponds to a  * segments_N file in the Directory (a "commit", i.e. a  * committed SegmentInfos) or because it's an in-memory  * SegmentInfos that a writer is actively updating but has  * not yet committed.  This class uses simple reference  * counting to map the live SegmentInfos instances to  * individual files in the Directory.  *  * The same directory file may be referenced by more than  * one IndexCommit, i.e. more than one SegmentInfos.  * Therefore we count how many commits reference each file.  * When all the commits referencing a certain file have been  * deleted, the refcount for that file becomes zero, and the  * file is deleted.  *  * A separate deletion policy interface  * (IndexDeletionPolicy) is consulted on creation (onInit)  * and once per commit (onCommit), to decide when a commit  * should be removed.  *  * It is the business of the IndexDeletionPolicy to choose  * when to delete commit points.  The actual mechanics of  * file deletion, retrying, etc, derived from the deletion  * of commit points is the business of the IndexFileDeleter.  *  * The current default deletion policy is {@link  * KeepOnlyLastCommitDeletionPolicy}, which removes all  * prior commits when a new commit has completed.  This  * matches the behavior before 2.2.  *  * Note that you must hold the write.lock before  * instantiating this class.  It opens segments_N file(s)  * directly with no retry logic.  */
 end_comment
@@ -223,11 +223,17 @@ block|{
 comment|/* Files that we tried to delete but failed (likely    * because they are open and we are running on Windows),    * so we will retry them again later: */
 DECL|field|deletable
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|String
 argument_list|>
 name|deletable
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
 decl_stmt|;
 comment|/* Reference count for all files in the index.    * Counts how many existing commits reference a file.    **/
 DECL|field|refCounts
@@ -363,6 +369,10 @@ DECL|method|IndexFileDeleter
 specifier|public
 name|IndexFileDeleter
 parameter_list|(
+name|String
+index|[]
+name|files
+parameter_list|,
 name|Directory
 name|directoryOrig
 parameter_list|,
@@ -468,15 +478,6 @@ name|CommitPoint
 name|currentCommitPoint
 init|=
 literal|null
-decl_stmt|;
-name|String
-index|[]
-name|files
-init|=
-name|directory
-operator|.
-name|listAll
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -606,12 +607,6 @@ block|}
 name|SegmentInfos
 name|sis
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|sis
-operator|=
 name|SegmentInfos
 operator|.
 name|readCommit
@@ -620,55 +615,7 @@ name|directoryOrig
 argument_list|,
 name|fileName
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|FileNotFoundException
-decl||
-name|NoSuchFileException
-name|e
-parameter_list|)
-block|{
-comment|// LUCENE-948: on NFS (and maybe others), if
-comment|// you have writers switching back and forth
-comment|// between machines, it's very likely that the
-comment|// dir listing will be stale and will claim a
-comment|// file segments_X exists when in fact it
-comment|// doesn't.  So, we catch this and handle it
-comment|// as if the file does not exist
-if|if
-condition|(
-name|infoStream
-operator|.
-name|isEnabled
-argument_list|(
-literal|"IFD"
-argument_list|)
-condition|)
-block|{
-name|infoStream
-operator|.
-name|message
-argument_list|(
-literal|"IFD"
-argument_list|,
-literal|"init: hit FileNotFoundException when loading commit \""
-operator|+
-name|fileName
-operator|+
-literal|"\"; skipping this commit point"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|sis
-operator|!=
-literal|null
-condition|)
-block|{
+decl_stmt|;
 specifier|final
 name|CommitPoint
 name|commitPoint
@@ -736,7 +683,6 @@ name|lastSegmentInfos
 operator|=
 name|sis
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -933,6 +879,31 @@ operator|.
 name|count
 condition|)
 block|{
+comment|// A segments_N file should never have ref count 0 on init:
+if|if
+condition|(
+name|fileName
+operator|.
+name|startsWith
+argument_list|(
+name|IndexFileNames
+operator|.
+name|SEGMENTS
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"file \""
+operator|+
+name|fileName
+operator|+
+literal|"\" has refCount=0, which should never happen on init"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|infoStream
@@ -2078,13 +2049,18 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
-name|deleteFile
+name|deletable
+operator|.
+name|add
 argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|deletePendingFiles
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|refresh
 name|void
@@ -2093,16 +2069,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Set to null so that we regenerate the list of pending
-comment|// files; else we can accumulate same file more than
-comment|// once
 assert|assert
 name|locked
 argument_list|()
 assert|;
 name|deletable
-operator|=
-literal|null
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 name|refresh
 argument_list|(
@@ -2217,55 +2191,31 @@ assert|assert
 name|locked
 argument_list|()
 assert|;
-if|if
-condition|(
-name|deletable
-operator|!=
-literal|null
-condition|)
-block|{
-name|Set
+comment|// Clone the set because it will change as we iterate:
+name|List
 argument_list|<
 name|String
 argument_list|>
-name|oldDeletable
+name|toDelete
 init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|deletable
+argument_list|)
 decl_stmt|;
-name|deletable
-operator|=
-literal|null
-expr_stmt|;
+comment|// First pass: delete any segments_N files.  We do these first to be certain stale commit points are removed
+comment|// before we remove any files they reference.  If any delete of segments_N fails, we leave all other files
+comment|// undeleted so index is never in a corrupt state:
 for|for
 control|(
 name|String
 name|fileName
 range|:
-name|oldDeletable
+name|toDelete
 control|)
 block|{
-if|if
-condition|(
-name|infoStream
-operator|.
-name|isEnabled
-argument_list|(
-literal|"IFD"
-argument_list|)
-condition|)
-block|{
-name|infoStream
-operator|.
-name|message
-argument_list|(
-literal|"IFD"
-argument_list|,
-literal|"delete pending file "
-operator|+
-name|fileName
-argument_list|)
-expr_stmt|;
-block|}
 name|RefCount
 name|rc
 init|=
@@ -2290,28 +2240,102 @@ literal|0
 condition|)
 block|{
 comment|// LUCENE-5904: should never happen!  This means we are about to pending-delete a referenced index file
-assert|assert
-literal|false
-operator|:
-literal|"fileName="
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"file \""
 operator|+
 name|fileName
 operator|+
-literal|" is in pending delete list but also has refCount="
+literal|"\" is in pending delete set but has non-zero refCount="
 operator|+
 name|rc
 operator|.
 name|count
-assert|;
+argument_list|)
+throw|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|fileName
+operator|.
+name|startsWith
+argument_list|(
+name|IndexFileNames
+operator|.
+name|SEGMENTS
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|deleteFile
+argument_list|(
+name|fileName
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"IFD"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"IFD"
+argument_list|,
+literal|"failed to remove commit point \""
+operator|+
+name|fileName
+operator|+
+literal|"\"; skipping deletion of all other pending files"
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
+block|}
+block|}
+comment|// Only delete other files if we were able to remove the segments_N files; this way we never
+comment|// leave a corrupt commit in the index even in the presense of virus checkers:
+for|for
+control|(
+name|String
+name|fileName
+range|:
+name|toDelete
+control|)
+block|{
+if|if
+condition|(
+name|fileName
+operator|.
+name|startsWith
+argument_list|(
+name|IndexFileNames
+operator|.
+name|SEGMENTS
+argument_list|)
+operator|==
+literal|false
+condition|)
 block|{
 name|deleteFile
 argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2401,11 +2425,6 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Try again now to delete any previously un-deletable
-comment|// files (because they were in use, on Windows):
-name|deletePendingFiles
-argument_list|()
-expr_stmt|;
 comment|// Incref the files:
 name|incRef
 argument_list|(
@@ -2710,6 +2729,32 @@ expr_stmt|;
 block|}
 block|}
 block|}
+try|try
+block|{
+name|deletePendingFiles
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+if|if
+condition|(
+name|firstThrowable
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Save first exception and throw it in the end, but be sure to finish decRef all files
+name|firstThrowable
+operator|=
+name|t
+expr_stmt|;
+block|}
+block|}
 comment|// NOTE: does nothing if firstThrowable is null
 name|IOUtils
 operator|.
@@ -2759,8 +2804,21 @@ name|t
 parameter_list|)
 block|{       }
 block|}
+try|try
+block|{
+name|deletePendingFiles
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{     }
 block|}
 DECL|method|decRef
+specifier|private
 name|void
 name|decRef
 parameter_list|(
@@ -2828,7 +2886,9 @@ comment|// This file is no longer referenced by any past
 comment|// commit points nor by the in-memory SegmentInfos:
 try|try
 block|{
-name|deleteFile
+name|deletable
+operator|.
+name|add
 argument_list|(
 name|fileName
 argument_list|)
@@ -2995,37 +3055,6 @@ return|return
 name|rc
 return|;
 block|}
-DECL|method|deleteFiles
-name|void
-name|deleteFiles
-parameter_list|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|files
-parameter_list|)
-block|{
-assert|assert
-name|locked
-argument_list|()
-assert|;
-for|for
-control|(
-specifier|final
-name|String
-name|file
-range|:
-name|files
-control|)
-block|{
-name|deleteFile
-argument_list|(
-name|file
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|/** Deletes the specified files, but only if they are new    *  (have not yet been incref'd). */
 DECL|method|deleteNewFiles
 name|void
@@ -3037,6 +3066,8 @@ name|String
 argument_list|>
 name|files
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|locked
@@ -3095,7 +3126,7 @@ name|message
 argument_list|(
 literal|"IFD"
 argument_list|,
-literal|"delete new file \""
+literal|"will delete new file \""
 operator|+
 name|fileName
 operator|+
@@ -3103,16 +3134,23 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
-name|deleteFile
+name|deletable
+operator|.
+name|add
 argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|deletePendingFiles
+argument_list|()
+expr_stmt|;
 block|}
+comment|/** Returns true if the delete succeeded. Otherwise, the fileName is    *  added to the deletable set so we will retry the delete later, and    *  we return false. */
 DECL|method|deleteFile
-name|void
+specifier|private
+name|boolean
 name|deleteFile
 parameter_list|(
 name|String
@@ -3159,6 +3197,16 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
+name|deletable
+operator|.
+name|remove
+argument_list|(
+name|fileName
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -3167,6 +3215,29 @@ name|e
 parameter_list|)
 block|{
 comment|// if delete fails
+comment|// IndexWriter should only ask us to delete files it knows it wrote, so if we hit this, something is wrong!
+assert|assert
+name|e
+operator|instanceof
+name|NoSuchFileException
+operator|==
+literal|false
+operator|:
+literal|"file="
+operator|+
+name|fileName
+assert|;
+assert|assert
+name|e
+operator|instanceof
+name|FileNotFoundException
+operator|==
+literal|false
+operator|:
+literal|"file="
+operator|+
+name|fileName
+assert|;
 comment|// Some operating systems (e.g. Windows) don't
 comment|// permit a file to be deleted while it is opened
 comment|// for read (e.g. by another process or thread). So
@@ -3204,21 +3275,6 @@ literal|"; Will re-try later."
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|deletable
-operator|==
-literal|null
-condition|)
-block|{
-name|deletable
-operator|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-expr_stmt|;
-block|}
 name|deletable
 operator|.
 name|add
@@ -3226,7 +3282,9 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-comment|// add to deletable
+return|return
+literal|false
+return|;
 block|}
 block|}
 comment|/**    * Tracks the reference count for a single index file:    */
