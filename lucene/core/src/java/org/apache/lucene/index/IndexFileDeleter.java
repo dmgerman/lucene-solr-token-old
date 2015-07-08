@@ -3223,7 +3223,7 @@ name|NoSuchFileException
 operator|==
 literal|false
 operator|:
-literal|"file="
+literal|"hit unexpected NoSuchFileException: file="
 operator|+
 name|fileName
 assert|;
@@ -3234,7 +3234,7 @@ name|FileNotFoundException
 operator|==
 literal|false
 operator|:
-literal|"file="
+literal|"hit unexpected FileNotFoundException: file="
 operator|+
 name|fileName
 assert|;
