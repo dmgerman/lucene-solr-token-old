@@ -322,7 +322,7 @@ name|cloud
 operator|.
 name|Assign
 operator|.
-name|Node
+name|ReplicaCount
 import|;
 end_import
 begin_import
@@ -1048,7 +1048,7 @@ name|cloud
 operator|.
 name|Assign
 operator|.
-name|getNodesForNewShard
+name|getNodesForNewReplicas
 import|;
 end_import
 begin_import
@@ -9318,11 +9318,11 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Node
+name|ReplicaCount
 argument_list|>
 name|sortedNodeList
 init|=
-name|getNodesForNewShard
+name|getNodesForNewReplicas
 argument_list|(
 name|clusterState
 argument_list|,
@@ -17775,7 +17775,9 @@ name|message
 operator|.
 name|getStr
 argument_list|(
-literal|"node"
+name|CoreAdminParams
+operator|.
+name|NODE
 argument_list|)
 decl_stmt|;
 name|String
@@ -17910,16 +17912,10 @@ operator|.
 name|getShardHandler
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|node
-operator|==
-literal|null
-condition|)
-block|{
+comment|// Kind of unnecessary, but it does put the logic of whether to override maxShardsPerNode in one place.
 name|node
 operator|=
-name|getNodesForNewShard
+name|getNodesForNewReplicas
 argument_list|(
 name|clusterState
 argument_list|,
@@ -17929,7 +17925,7 @@ name|shard
 argument_list|,
 literal|1
 argument_list|,
-literal|null
+name|node
 argument_list|,
 name|overseer
 operator|.
@@ -17956,7 +17952,6 @@ argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
