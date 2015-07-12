@@ -24,10 +24,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|spatial4j
-operator|.
 name|geo3d
 operator|.
 name|GeoArea
@@ -40,10 +36,6 @@ operator|.
 name|apache
 operator|.
 name|lucene
-operator|.
-name|spatial
-operator|.
-name|spatial4j
 operator|.
 name|geo3d
 operator|.
@@ -58,10 +50,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|spatial4j
-operator|.
 name|geo3d
 operator|.
 name|GeoBBoxFactory
@@ -74,10 +62,6 @@ operator|.
 name|apache
 operator|.
 name|lucene
-operator|.
-name|spatial
-operator|.
-name|spatial4j
 operator|.
 name|geo3d
 operator|.
@@ -92,10 +76,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|spatial4j
-operator|.
 name|geo3d
 operator|.
 name|GeoPath
@@ -109,10 +89,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|spatial4j
-operator|.
 name|geo3d
 operator|.
 name|GeoPoint
@@ -125,10 +101,6 @@ operator|.
 name|apache
 operator|.
 name|lucene
-operator|.
-name|spatial
-operator|.
-name|spatial4j
 operator|.
 name|geo3d
 operator|.
