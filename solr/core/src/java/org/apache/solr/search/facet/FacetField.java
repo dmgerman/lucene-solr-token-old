@@ -2680,6 +2680,7 @@ name|getFieldCacheCounts
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** this BytesRef may be shared across calls and should be deep-cloned if necessary */
 DECL|method|lookupOrd
 specifier|abstract
 specifier|protected
@@ -3579,10 +3580,12 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|br
+name|BytesRef
 operator|.
-name|clone
-argument_list|()
+name|deepCopyOf
+argument_list|(
+name|br
+argument_list|)
 argument_list|)
 argument_list|)
 else|:
