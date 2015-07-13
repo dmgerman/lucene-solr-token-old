@@ -93,6 +93,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|core
+operator|.
+name|SolrResourceNotFoundException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|schema
 operator|.
 name|ZkIndexSchemaReader
@@ -431,7 +444,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|SolrResourceNotFoundException
 argument_list|(
 literal|"Can't find resource '"
 operator|+

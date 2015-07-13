@@ -1993,7 +1993,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|SolrResourceNotFoundException
 argument_list|(
 literal|"Can't find resource '"
 operator|+
