@@ -29,6 +29,8 @@ comment|// Since we don't know what each GeoArea's constraints are,
 comment|// we put the onus on the GeoArea implementation to do the right thing.
 comment|// This will, of course, rely heavily on methods provided by
 comment|// the underlying GeoShape class.
+comment|// Relationship values for "getRelationship()"
+comment|/** The referenced shape CONTAINS this shape */
 DECL|field|CONTAINS
 specifier|public
 specifier|static
@@ -38,6 +40,7 @@ name|CONTAINS
 init|=
 literal|0
 decl_stmt|;
+comment|/** The referenced shape IS WITHIN this shape */
 DECL|field|WITHIN
 specifier|public
 specifier|static
@@ -47,6 +50,7 @@ name|WITHIN
 init|=
 literal|1
 decl_stmt|;
+comment|/** The referenced shape OVERLAPS this shape */
 DECL|field|OVERLAPS
 specifier|public
 specifier|static
@@ -56,6 +60,7 @@ name|OVERLAPS
 init|=
 literal|2
 decl_stmt|;
+comment|/** The referenced shape has no relation to this shape */
 DECL|field|DISJOINT
 specifier|public
 specifier|static

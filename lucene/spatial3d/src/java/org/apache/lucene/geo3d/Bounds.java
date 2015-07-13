@@ -23,6 +23,7 @@ specifier|public
 class|class
 name|Bounds
 block|{
+comment|/** Set to true if no longitude bounds can be stated */
 DECL|field|noLongitudeBound
 specifier|protected
 name|boolean
@@ -30,6 +31,7 @@ name|noLongitudeBound
 init|=
 literal|false
 decl_stmt|;
+comment|/** Set to true if no top latitude bound can be stated */
 DECL|field|noTopLatitudeBound
 specifier|protected
 name|boolean
@@ -37,6 +39,7 @@ name|noTopLatitudeBound
 init|=
 literal|false
 decl_stmt|;
+comment|/** Set to true if no bottom latitude bound can be stated */
 DECL|field|noBottomLatitudeBound
 specifier|protected
 name|boolean
@@ -44,6 +47,7 @@ name|noBottomLatitudeBound
 init|=
 literal|false
 decl_stmt|;
+comment|/** If non-null, the minimum latitude bound */
 DECL|field|minLatitude
 specifier|protected
 name|Double
@@ -51,6 +55,7 @@ name|minLatitude
 init|=
 literal|null
 decl_stmt|;
+comment|/** If non-null, the maximum latitude bound */
 DECL|field|maxLatitude
 specifier|protected
 name|Double
@@ -109,6 +114,7 @@ comment|// We keep track of the last point we saw, and take each point as it arr
 comment|// Then, we have a choice as to which way to expand the envelope: we can expand by going to the left or
 comment|// to the right.  We choose the direction with the least longitude difference.  (If we aren't sure,
 comment|// and can recognize that, we can set "unconstrained in longitude".)
+comment|/** If non-null, the left longitude bound */
 DECL|field|leftLongitude
 specifier|protected
 name|Double
@@ -116,6 +122,7 @@ name|leftLongitude
 init|=
 literal|null
 decl_stmt|;
+comment|/** If non-null, the right longitude bound */
 DECL|field|rightLongitude
 specifier|protected
 name|Double
@@ -123,11 +130,13 @@ name|rightLongitude
 init|=
 literal|null
 decl_stmt|;
+comment|/** Construct an empty bounds object */
 DECL|method|Bounds
 specifier|public
 name|Bounds
 parameter_list|()
 block|{   }
+comment|/** Get maximum latitude, if any.    *@return maximum latitude or null.    */
 DECL|method|getMaxLatitude
 specifier|public
 name|Double
@@ -138,6 +147,7 @@ return|return
 name|maxLatitude
 return|;
 block|}
+comment|/** Get minimum latitude, if any.    *@return minimum latitude or null.    */
 DECL|method|getMinLatitude
 specifier|public
 name|Double
@@ -148,6 +158,7 @@ return|return
 name|minLatitude
 return|;
 block|}
+comment|/** Get left longitude, if any.    *@return left longitude, or null.    */
 DECL|method|getLeftLongitude
 specifier|public
 name|Double
@@ -158,6 +169,7 @@ return|return
 name|leftLongitude
 return|;
 block|}
+comment|/** Get right longitude, if any.    *@return right longitude, or null.    */
 DECL|method|getRightLongitude
 specifier|public
 name|Double
@@ -168,6 +180,7 @@ return|return
 name|rightLongitude
 return|;
 block|}
+comment|/** Check if there's no longitude bound.    *@return true if no longitude bound.    */
 DECL|method|checkNoLongitudeBound
 specifier|public
 name|boolean
@@ -178,6 +191,7 @@ return|return
 name|noLongitudeBound
 return|;
 block|}
+comment|/** Check if there's no top latitude bound.    *@return true if no top latitude bound.    */
 DECL|method|checkNoTopLatitudeBound
 specifier|public
 name|boolean
@@ -188,6 +202,7 @@ return|return
 name|noTopLatitudeBound
 return|;
 block|}
+comment|/** Check if there's no bottom latitude bound.    *@return true if no bottom latitude bound.    */
 DECL|method|checkNoBottomLatitudeBound
 specifier|public
 name|boolean
@@ -198,6 +213,7 @@ return|return
 name|noBottomLatitudeBound
 return|;
 block|}
+comment|/** Add a constraint representing a horizontal circle with a    * specified z value.    *@param z is the z value.    *@return the updated Bounds object.    */
 DECL|method|addHorizontalCircle
 specifier|public
 name|Bounds
@@ -237,6 +253,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Add a constraint representing a horizontal circle at    * a specific latitude.    *@param latitude is the latitude.    *@return the updated Bounds object.    */
 DECL|method|addLatitudeZone
 specifier|public
 name|Bounds
@@ -265,6 +282,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Add a constraint representing a longitude slice.    *@param newLeftLongitude is the left longitude value.    *@param newRightLongitude is the right longitude value.    *@return the updated Bounds object.    */
 DECL|method|addLongitudeSlice
 specifier|public
 name|Bounds
@@ -295,6 +313,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Update latitude bound.    *@param latitude is the latitude.    */
 DECL|method|addLatitudeBound
 specifier|protected
 name|void
@@ -343,6 +362,7 @@ operator|=
 name|latitude
 expr_stmt|;
 block|}
+comment|/** Update longitude bound.    *@param newLeftLongitude is the left longitude.    *@param newRightLongitude is the right longitude.    */
 DECL|method|addLongitudeBound
 specifier|protected
 name|void
@@ -537,6 +557,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+comment|/** Update longitude bound.    *@param longitude is the new longitude value.    */
 DECL|method|addLongitudeBound
 specifier|protected
 name|void
@@ -802,6 +823,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+comment|/** Add a single point.    *@param v is the point vector.    *@return the updated Bounds object.    */
 DECL|method|addPoint
 specifier|public
 name|Bounds
@@ -829,6 +851,7 @@ name|z
 argument_list|)
 return|;
 block|}
+comment|/** Add a single point.    *@param x is the point x.    *@param y is the point y.    *@param z is the point z.    *@return the updated Bounds object.    */
 DECL|method|addPoint
 specifier|public
 name|Bounds
@@ -920,6 +943,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Add a single point.    *@param latitude is the point's latitude.    *@param longitude is the point's longitude.    *@return the updated Bounds object.    */
 DECL|method|addPoint
 specifier|public
 name|Bounds
@@ -965,6 +989,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Signal that there is no longitude bound.    *@return the updated Bounds object.    */
 DECL|method|noLongitudeBound
 specifier|public
 name|Bounds
@@ -987,6 +1012,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Signal that there is no top latitude bound.    *@return the updated Bounds object.    */
 DECL|method|noTopLatitudeBound
 specifier|public
 name|Bounds
@@ -1005,6 +1031,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Signal that there is no bottom latitude bound.    *@return the updated Bounds object.    */
 DECL|method|noBottomLatitudeBound
 specifier|public
 name|Bounds

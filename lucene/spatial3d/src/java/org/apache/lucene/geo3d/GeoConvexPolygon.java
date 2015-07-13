@@ -52,6 +52,7 @@ name|GeoConvexPolygon
 extends|extends
 name|GeoBaseMembershipShape
 block|{
+comment|/** The list of polygon points */
 DECL|field|points
 specifier|protected
 specifier|final
@@ -61,12 +62,14 @@ name|GeoPoint
 argument_list|>
 name|points
 decl_stmt|;
+comment|/** A bitset describing, for each edge, whether it is internal or not */
 DECL|field|isInternalEdges
 specifier|protected
 specifier|final
 name|BitSet
 name|isInternalEdges
 decl_stmt|;
+comment|/** A list of edges */
 DECL|field|edges
 specifier|protected
 name|SidedPlane
@@ -75,6 +78,7 @@ name|edges
 init|=
 literal|null
 decl_stmt|;
+comment|/** The set of notable points for each edge */
 DECL|field|notableEdgePoints
 specifier|protected
 name|GeoPoint
@@ -84,6 +88,7 @@ name|notableEdgePoints
 init|=
 literal|null
 decl_stmt|;
+comment|/** A point which is on the boundary of the polygon */
 DECL|field|edgePoints
 specifier|protected
 name|GeoPoint
@@ -92,6 +97,7 @@ name|edgePoints
 init|=
 literal|null
 decl_stmt|;
+comment|/** Tracking the maximum distance we go at any one time, so to be sure it's legal */
 DECL|field|fullDistance
 specifier|protected
 name|double
@@ -99,6 +105,7 @@ name|fullDistance
 init|=
 literal|0.0
 decl_stmt|;
+comment|/** Set to true when the polygon is complete */
 DECL|field|isDone
 specifier|protected
 name|boolean
@@ -106,7 +113,7 @@ name|isDone
 init|=
 literal|false
 decl_stmt|;
-comment|/**    * Create a convex polygon from a list of points.  The first point must be on the    * external edge.    */
+comment|/**    * Create a convex polygon from a list of points.  The first point must be on the    * external edge.    *@param planetModel is the planet model.    *@param pointList is the list of points to create the polygon from.    */
 DECL|method|GeoConvexPolygon
 specifier|public
 name|GeoConvexPolygon
@@ -148,7 +155,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a convex polygon from a list of points, keeping track of which boundaries    * are internal.  This is used when creating a polygon as a building block for another shape.    */
+comment|/**    * Create a convex polygon from a list of points, keeping track of which boundaries    * are internal.  This is used when creating a polygon as a building block for another shape.    *@param planetModel is the planet model.    *@param pointList is the set of points to create the polygon from.    *@param internalEdgeFlags is a bitset describing whether each edge is internal or not.    *@param returnEdgeInternal is true when the final return edge is an internal one.    */
 DECL|method|GeoConvexPolygon
 specifier|public
 name|GeoConvexPolygon
@@ -196,7 +203,7 @@ name|returnEdgeInternal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a convex polygon, with a starting latitude and longitude.    * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}    */
+comment|/**    * Create a convex polygon, with a starting latitude and longitude.    * Accepts only values in the following ranges: lat: {@code -PI/2 -> PI/2}, lon: {@code -PI -> PI}    *@param planetModel is the planet model.    *@param startLatitude is the latitude of the first point.    *@param startLongitude is the longitude of the first point.    */
 DECL|method|GeoConvexPolygon
 specifier|public
 name|GeoConvexPolygon
@@ -310,7 +317,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Finish the polygon, by connecting the last added point with the starting point.    */
+comment|/**    * Finish the polygon, by connecting the last added point with the starting point.    *@param isInternalReturnEdge is true if the return edge (back to start) is an internal one.    */
 DECL|method|done
 specifier|public
 name|void
@@ -517,6 +524,7 @@ name|createCenterPoint
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** Compute a reasonable center point.    */
 DECL|method|createCenterPoint
 specifier|protected
 name|void
@@ -638,6 +646,7 @@ argument_list|)
 block|}
 expr_stmt|;
 block|}
+comment|/** Compute a legal point index from a possibly illegal one, that may have wrapped.    *@param index is the index.    *@return the normalized index.    */
 DECL|method|legalIndex
 specifier|protected
 name|int

@@ -28,6 +28,7 @@ name|GeoBaseShape
 implements|implements
 name|GeoMembershipShape
 block|{
+comment|/** Constructor.    *@param planetModel is the planet model to use.    */
 DECL|method|GeoBaseMembershipShape
 specifier|public
 name|GeoBaseMembershipShape

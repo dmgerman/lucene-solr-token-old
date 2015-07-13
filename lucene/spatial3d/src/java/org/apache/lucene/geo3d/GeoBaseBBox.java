@@ -28,6 +28,7 @@ name|GeoBaseMembershipShape
 implements|implements
 name|GeoBBox
 block|{
+comment|/** Construct, given planet model.    *@param planetModel is the planet model.    */
 DECL|method|GeoBaseBBox
 specifier|public
 name|GeoBaseBBox
@@ -43,6 +44,8 @@ name|planetModel
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Signals for relationship of edge points to shape
+comment|/** All edgepoints inside shape */
 DECL|field|ALL_INSIDE
 specifier|protected
 specifier|final
@@ -52,6 +55,7 @@ name|ALL_INSIDE
 init|=
 literal|0
 decl_stmt|;
+comment|/** Some edgepoints inside shape */
 DECL|field|SOME_INSIDE
 specifier|protected
 specifier|final
@@ -61,6 +65,7 @@ name|SOME_INSIDE
 init|=
 literal|1
 decl_stmt|;
+comment|/** No edgepoints inside shape */
 DECL|field|NONE_INSIDE
 specifier|protected
 specifier|final
@@ -70,6 +75,7 @@ name|NONE_INSIDE
 init|=
 literal|2
 decl_stmt|;
+comment|/** Determine the relationship between this BBox and the provided    * shape's edgepoints.    *@param path is the shape.    *@return the relationship.    */
 DECL|method|isShapeInsideBBox
 specifier|protected
 name|int
