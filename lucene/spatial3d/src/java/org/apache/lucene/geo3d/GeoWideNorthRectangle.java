@@ -25,60 +25,70 @@ name|GeoWideNorthRectangle
 extends|extends
 name|GeoBaseBBox
 block|{
+comment|/** Bottom latitude */
 DECL|field|bottomLat
 specifier|protected
 specifier|final
 name|double
 name|bottomLat
 decl_stmt|;
+comment|/** Left longitude */
 DECL|field|leftLon
 specifier|protected
 specifier|final
 name|double
 name|leftLon
 decl_stmt|;
+comment|/** Right longitude */
 DECL|field|rightLon
 specifier|protected
 specifier|final
 name|double
 name|rightLon
 decl_stmt|;
+comment|/** The cosine of the middle latitude */
 DECL|field|cosMiddleLat
 specifier|protected
 specifier|final
 name|double
 name|cosMiddleLat
 decl_stmt|;
+comment|/** The lower right hand corner point */
 DECL|field|LRHC
 specifier|protected
 specifier|final
 name|GeoPoint
 name|LRHC
 decl_stmt|;
+comment|/** The lower left hand corner point */
 DECL|field|LLHC
 specifier|protected
 specifier|final
 name|GeoPoint
 name|LLHC
 decl_stmt|;
+comment|/** The bottom plane */
 DECL|field|bottomPlane
 specifier|protected
 specifier|final
 name|SidedPlane
 name|bottomPlane
 decl_stmt|;
+comment|/** The left plane */
 DECL|field|leftPlane
 specifier|protected
 specifier|final
 name|SidedPlane
 name|leftPlane
 decl_stmt|;
+comment|/** The right plane */
 DECL|field|rightPlane
 specifier|protected
 specifier|final
 name|SidedPlane
 name|rightPlane
 decl_stmt|;
+comment|/** Notable points for the bottom plane */
 DECL|field|bottomPlanePoints
 specifier|protected
 specifier|final
@@ -86,6 +96,7 @@ name|GeoPoint
 index|[]
 name|bottomPlanePoints
 decl_stmt|;
+comment|/** Notable points for the left plane */
 DECL|field|leftPlanePoints
 specifier|protected
 specifier|final
@@ -93,6 +104,7 @@ name|GeoPoint
 index|[]
 name|leftPlanePoints
 decl_stmt|;
+comment|/** Notable points for the right plane */
 DECL|field|rightPlanePoints
 specifier|protected
 specifier|final
@@ -100,18 +112,21 @@ name|GeoPoint
 index|[]
 name|rightPlanePoints
 decl_stmt|;
+comment|/** Center point */
 DECL|field|centerPoint
 specifier|protected
 specifier|final
 name|GeoPoint
 name|centerPoint
 decl_stmt|;
+comment|/** Composite left/right bounds */
 DECL|field|eitherBound
 specifier|protected
 specifier|final
 name|EitherBound
 name|eitherBound
 decl_stmt|;
+comment|/** A point on the edge */
 DECL|field|edgePoints
 specifier|protected
 specifier|final
@@ -1397,6 +1412,7 @@ operator|+
 literal|")}"
 return|;
 block|}
+comment|/** Membership implementation representing a wide (more than 180 degree) bound.    */
 DECL|class|EitherBound
 specifier|protected
 class|class
@@ -1404,6 +1420,7 @@ name|EitherBound
 implements|implements
 name|Membership
 block|{
+comment|/** Constructor.      */
 DECL|method|EitherBound
 specifier|public
 name|EitherBound
