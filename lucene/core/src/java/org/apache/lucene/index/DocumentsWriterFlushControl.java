@@ -1217,8 +1217,6 @@ operator|.
 name|reset
 argument_list|(
 name|state
-argument_list|,
-name|closed
 argument_list|)
 expr_stmt|;
 block|}
@@ -1298,8 +1296,6 @@ operator|.
 name|reset
 argument_list|(
 name|perThread
-argument_list|,
-name|closed
 argument_list|)
 expr_stmt|;
 name|numPending
@@ -1398,8 +1394,6 @@ operator|.
 name|reset
 argument_list|(
 name|perThread
-argument_list|,
-name|closed
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -1622,19 +1616,12 @@ name|setClosed
 parameter_list|()
 block|{
 comment|// set by DW to signal that we should not release new DWPT after close
-if|if
-condition|(
-operator|!
-name|closed
-condition|)
-block|{
 name|this
 operator|.
 name|closed
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 comment|/**    * Returns an iterator that provides access to all currently active {@link ThreadState}s     */
 DECL|method|allActiveThreadStates
@@ -2057,24 +2044,6 @@ name|isInitialized
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|closed
-operator|&&
-name|next
-operator|.
-name|isActive
-argument_list|()
-condition|)
-block|{
-name|perThreadPool
-operator|.
-name|deactivateThreadState
-argument_list|(
-name|next
-argument_list|)
-expr_stmt|;
-block|}
 continue|continue;
 block|}
 assert|assert
@@ -2447,8 +2416,6 @@ operator|.
 name|reset
 argument_list|(
 name|perThread
-argument_list|,
-name|closed
 argument_list|)
 expr_stmt|;
 comment|// make this state inactive
