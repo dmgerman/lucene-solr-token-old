@@ -54,15 +54,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -84,9 +75,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
+name|util
 operator|.
-name|ZkStateReader
+name|StrUtils
 import|;
 end_import
 begin_import
@@ -101,7 +92,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|StrUtils
+name|Utils
 import|;
 end_import
 begin_import
@@ -850,7 +841,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSONString
 argument_list|(

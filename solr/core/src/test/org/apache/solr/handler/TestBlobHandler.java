@@ -284,9 +284,11 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
+name|common
 operator|.
-name|ConfigOverlay
+name|util
+operator|.
+name|Utils
 import|;
 end_import
 begin_import
@@ -297,9 +299,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|update
+name|core
 operator|.
-name|DirectUpdateHandler2
+name|ConfigOverlay
 import|;
 end_import
 begin_import
@@ -433,9 +435,11 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
+name|common
 operator|.
-name|ConfigOverlay
+name|util
+operator|.
+name|Utils
 operator|.
 name|getObjectByPath
 import|;
@@ -794,7 +798,7 @@ init|=
 operator|(
 name|List
 operator|)
-name|ConfigOverlay
+name|Utils
 operator|.
 name|getObjectByPath
 argument_list|(
@@ -1056,7 +1060,7 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-name|ConfigOverlay
+name|Utils
 operator|.
 name|getObjectByPath
 argument_list|(
@@ -1104,7 +1108,7 @@ operator|=
 operator|(
 name|List
 operator|)
-name|ConfigOverlay
+name|Utils
 operator|.
 name|getObjectByPath
 argument_list|(
@@ -1204,7 +1208,7 @@ return|return
 operator|new
 name|String
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(

@@ -132,9 +132,11 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
+name|common
 operator|.
-name|ConfigOverlay
+name|util
+operator|.
+name|Utils
 import|;
 end_import
 begin_import
@@ -237,15 +239,6 @@ operator|.
 name|zookeeper
 operator|.
 name|CreateMode
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
 import|;
 end_import
 begin_import
@@ -955,7 +948,7 @@ init|=
 operator|(
 name|String
 operator|)
-name|ConfigOverlay
+name|Utils
 operator|.
 name|getObjectByPath
 argument_list|(
@@ -1090,7 +1083,7 @@ operator|=
 operator|(
 name|String
 operator|)
-name|ConfigOverlay
+name|Utils
 operator|.
 name|getObjectByPath
 argument_list|(

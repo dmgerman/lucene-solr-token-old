@@ -436,15 +436,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|BeforeClass
 import|;
 end_import
@@ -639,9 +630,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
+name|util
 operator|.
-name|ZkNodeProps
+name|Utils
 operator|.
 name|makeMap
 import|;

@@ -45,15 +45,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
-operator|.
-name|MessageFormat
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -118,9 +109,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
+name|util
 operator|.
-name|ZkStateReader
+name|StrUtils
 import|;
 end_import
 begin_import
@@ -135,7 +126,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|StrUtils
+name|Utils
 import|;
 end_import
 begin_import
@@ -199,9 +190,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
+name|util
 operator|.
-name|ZkNodeProps
+name|Utils
 operator|.
 name|makeMap
 import|;
@@ -1292,7 +1283,7 @@ return|return
 operator|new
 name|String
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(

@@ -296,6 +296,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|Utils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|zookeeper
 operator|.
 name|KeeperException
@@ -570,7 +585,7 @@ operator|=
 operator|(
 name|Map
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -607,7 +622,7 @@ name|byte
 index|[]
 name|bytes
 init|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -630,7 +645,7 @@ argument_list|,
 name|Object
 argument_list|>
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -835,7 +850,7 @@ condition|)
 block|{
 name|bytes
 operator|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -858,7 +873,7 @@ argument_list|,
 name|Object
 argument_list|>
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(

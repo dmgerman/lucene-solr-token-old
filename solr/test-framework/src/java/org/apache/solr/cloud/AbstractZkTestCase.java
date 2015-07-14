@@ -65,9 +65,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
+name|util
 operator|.
-name|ZkStateReader
+name|Utils
 import|;
 end_import
 begin_import
@@ -491,7 +491,7 @@ name|makePath
 argument_list|(
 literal|"/collections/collection1"
 argument_list|,
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -524,7 +524,7 @@ name|makePath
 argument_list|(
 literal|"/collections/control_collection"
 argument_list|,
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(

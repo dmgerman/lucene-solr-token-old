@@ -110,9 +110,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
+name|util
 operator|.
-name|ZkStateReader
+name|Utils
 import|;
 end_import
 begin_import
@@ -343,7 +343,7 @@ name|byte
 index|[]
 name|bytes
 init|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(

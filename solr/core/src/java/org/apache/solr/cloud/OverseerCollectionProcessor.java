@@ -845,6 +845,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|Utils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|handler
 operator|.
 name|admin
@@ -1078,9 +1093,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
+name|util
 operator|.
-name|ZkNodeProps
+name|Utils
 operator|.
 name|makeMap
 import|;
@@ -3102,7 +3117,7 @@ init|=
 operator|(
 name|Map
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -3342,7 +3357,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -3649,7 +3664,7 @@ init|=
 operator|(
 name|Map
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -4413,7 +4428,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -4942,7 +4957,7 @@ name|inQueue
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -5045,7 +5060,7 @@ name|inQueue
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -5173,7 +5188,7 @@ name|inQueue
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -6121,7 +6136,7 @@ operator|=
 operator|(
 name|Map
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -6150,7 +6165,7 @@ name|byte
 index|[]
 name|bytes
 init|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -6173,7 +6188,7 @@ argument_list|,
 name|Object
 argument_list|>
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -6378,7 +6393,7 @@ condition|)
 block|{
 name|bytes
 operator|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -6401,7 +6416,7 @@ argument_list|,
 name|Object
 argument_list|>
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -7197,7 +7212,7 @@ operator|=
 operator|(
 name|Map
 operator|)
-name|ZkStateReader
+name|Utils
 operator|.
 name|fromJSON
 argument_list|(
@@ -7361,7 +7376,7 @@ name|ZkStateReader
 operator|.
 name|ROLES
 argument_list|,
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -7382,7 +7397,7 @@ name|ZkStateReader
 operator|.
 name|ROLES
 argument_list|,
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -8148,7 +8163,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -8340,7 +8355,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -8678,7 +8693,7 @@ block|{
 comment|// only sub map right now
 name|jsonBytes
 operator|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -9097,7 +9112,7 @@ block|{
 comment|// only sub map right now
 name|jsonBytes
 operator|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -9355,7 +9370,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -11085,7 +11100,7 @@ name|inQueue
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -12003,7 +12018,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -12276,7 +12291,7 @@ name|inQueue
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -12385,7 +12400,7 @@ name|inQueue
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -13418,7 +13433,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -14443,7 +14458,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -16620,7 +16635,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -16928,7 +16943,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -18182,7 +18197,7 @@ argument_list|)
 operator|.
 name|offer
 argument_list|(
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
@@ -18776,7 +18791,7 @@ name|byte
 index|[]
 name|data
 init|=
-name|ZkStateReader
+name|Utils
 operator|.
 name|toJSON
 argument_list|(
