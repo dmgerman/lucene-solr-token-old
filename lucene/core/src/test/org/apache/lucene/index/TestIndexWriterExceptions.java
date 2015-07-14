@@ -11444,7 +11444,7 @@ name|void
 name|testNoLostDeletesOrUpdates
 parameter_list|()
 throws|throws
-name|Exception
+name|Throwable
 block|{
 name|int
 name|deleteCount
@@ -11691,6 +11691,11 @@ name|RandomIndexWriter
 name|w
 init|=
 literal|null
+decl_stmt|;
+name|boolean
+name|tragic
+init|=
+literal|false
 decl_stmt|;
 for|for
 control|(
@@ -12380,8 +12385,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
-name|ioe
+name|Throwable
+name|t
 parameter_list|)
 block|{
 comment|// FakeIOException can be thrown from mergeMiddle, in which case IW
@@ -12389,19 +12394,12 @@ comment|// registers it before our CMS gets to suppress it. IW.forceMerge later
 comment|// throws it as a wrapped IOE, so don't fail in this case.
 if|if
 condition|(
-name|ioe
+name|t
 operator|instanceof
 name|FakeIOException
 operator|||
 operator|(
-name|ioe
-operator|.
-name|getCause
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|ioe
+name|t
 operator|.
 name|getCause
 argument_list|()
@@ -12422,15 +12420,32 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"TEST: w.close() hit expected IOE"
+literal|"TEST: hit expected IOE"
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|t
+operator|instanceof
+name|AlreadyClosedException
+condition|)
+block|{
+comment|// FakeIOExc struck during merge and writer is now closed:
+name|w
+operator|=
+literal|null
+expr_stmt|;
+name|tragic
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
 else|else
 block|{
 throw|throw
-name|ioe
+name|t
 throw|;
 block|}
 block|}
@@ -12556,6 +12571,13 @@ name|getReader
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|tragic
+operator|==
+literal|false
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|docCount
@@ -12568,6 +12590,7 @@ name|numDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|BytesRef
 name|scratch
 init|=
@@ -12798,6 +12821,13 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Final verify:
+if|if
+condition|(
+name|tragic
+operator|==
+literal|false
+condition|)
+block|{
 name|IndexReader
 name|r
 init|=
@@ -12825,6 +12855,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 name|dir
 operator|.
 name|close
