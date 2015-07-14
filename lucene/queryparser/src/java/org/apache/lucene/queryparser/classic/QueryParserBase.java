@@ -2457,6 +2457,8 @@ operator|new
 name|WildcardQuery
 argument_list|(
 name|t
+argument_list|,
+name|maxDeterminizedStates
 argument_list|)
 decl_stmt|;
 name|query
