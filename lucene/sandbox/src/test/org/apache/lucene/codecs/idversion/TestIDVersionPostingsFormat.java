@@ -2677,13 +2677,15 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|ioe
+decl||
+name|IllegalStateException
+name|exc
 parameter_list|)
 block|{
 comment|// expected
 name|assertTrue
 argument_list|(
-name|ioe
+name|exc
 operator|.
 name|getCause
 argument_list|()
@@ -2694,7 +2696,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|close
+name|rollback
 argument_list|()
 expr_stmt|;
 name|dir

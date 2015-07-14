@@ -1283,13 +1283,16 @@ name|startDir
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|writer
-operator|=
-operator|new
-name|IndexWriter
-argument_list|(
 name|dir
-argument_list|,
+operator|.
+name|setPreventDoubleWrite
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|IndexWriterConfig
+name|iwc
+init|=
 name|newIndexWriterConfig
 argument_list|(
 operator|new
@@ -1314,23 +1317,21 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|writer
+operator|=
+operator|new
+name|IndexWriter
+argument_list|(
+name|dir
+argument_list|,
+name|iwc
 argument_list|)
 expr_stmt|;
-name|IOException
+name|Exception
 name|err
 init|=
 literal|null
-decl_stmt|;
-name|MergeScheduler
-name|ms
-init|=
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergeScheduler
-argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1347,12 +1348,24 @@ name|x
 operator|++
 control|)
 block|{
+name|MergeScheduler
+name|ms
+init|=
+name|writer
+operator|.
+name|getConfig
+argument_list|()
+operator|.
+name|getMergeScheduler
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|ms
 operator|instanceof
 name|ConcurrentMergeScheduler
 condition|)
+block|{
 comment|// This test intentionally produces exceptions
 comment|// in the threads that CMS launches; we don't
 comment|// want to pollute test output with these.
@@ -1362,6 +1375,7 @@ literal|0
 operator|==
 name|x
 condition|)
+block|{
 operator|(
 operator|(
 name|ConcurrentMergeScheduler
@@ -1372,7 +1386,9 @@ operator|.
 name|setSuppressExceptions
 argument_list|()
 expr_stmt|;
+block|}
 else|else
+block|{
 operator|(
 operator|(
 name|ConcurrentMergeScheduler
@@ -1383,6 +1399,8 @@ operator|.
 name|clearSuppressExceptions
 argument_list|()
 expr_stmt|;
+block|}
+block|}
 comment|// Two loops: first time, limit disk space&
 comment|// throw random IOExceptions; second time, no
 comment|// disk space limit:
@@ -1475,6 +1493,7 @@ if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|testName
 operator|=
 literal|"disk full test "
@@ -1487,6 +1506,7 @@ name|diskFree
 operator|+
 literal|" bytes"
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1509,6 +1529,7 @@ if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|testName
 operator|=
 literal|"disk full test "
@@ -1518,10 +1539,12 @@ operator|+
 literal|" with unlimited disk space"
 expr_stmt|;
 block|}
+block|}
 if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -1533,6 +1556,7 @@ operator|+
 name|testName
 argument_list|)
 expr_stmt|;
+block|}
 name|dir
 operator|.
 name|setTrackDiskUsage
@@ -1751,6 +1775,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|IllegalStateException
+decl||
 name|IOException
 name|e
 parameter_list|)
@@ -1774,7 +1800,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"  hit IOException: "
+literal|"  hit Exception: "
 operator|+
 name|e
 argument_list|)
@@ -1814,8 +1840,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Make sure all threads from
-comment|// ConcurrentMergeScheduler are done
+if|if
+condition|(
+name|x
+operator|==
+literal|1
+condition|)
+block|{
+comment|// Make sure all threads from ConcurrentMergeScheduler are done
 name|TestUtil
 operator|.
 name|syncConcurrentMerges
@@ -1823,6 +1855,55 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|dir
+operator|.
+name|setRandomIOExceptionRateOnOpen
+argument_list|(
+literal|0.0
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|rollback
+argument_list|()
+expr_stmt|;
+name|writer
+operator|=
+operator|new
+name|IndexWriter
+argument_list|(
+name|dir
+argument_list|,
+name|newIndexWriterConfig
+argument_list|(
+operator|new
+name|MockAnalyzer
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|setOpenMode
+argument_list|(
+name|OpenMode
+operator|.
+name|APPEND
+argument_list|)
+operator|.
+name|setMergePolicy
+argument_list|(
+name|newLogMergePolicy
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|VERBOSE
@@ -2244,16 +2325,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// Wait for all BG threads to finish else
-comment|// dir.close() will throw IOException because
-comment|// there are still open files
-name|TestUtil
-operator|.
-name|syncConcurrentMerges
-argument_list|(
-name|ms
-argument_list|)
-expr_stmt|;
 name|dir
 operator|.
 name|close
@@ -2662,6 +2733,8 @@ operator|.
 name|clearDoFail
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|w
 operator|.
 name|addDocument
@@ -2669,11 +2742,20 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|w
-operator|.
-name|close
-argument_list|()
+name|fail
+argument_list|(
+literal|"writer was not closed by merge exception"
+argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|ace
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|dir
 operator|.
 name|close
