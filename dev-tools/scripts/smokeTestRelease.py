@@ -5096,6 +5096,8 @@ string|"'sandbox'"
 op|','
 string|"'spatial'"
 op|','
+string|"'spatial3d'"
+op|','
 string|"'suggest'"
 op|','
 string|"'test-framework'"
