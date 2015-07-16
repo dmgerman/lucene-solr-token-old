@@ -18,6 +18,15 @@ package|;
 end_package
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -697,6 +706,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"expected more elements: width=%s, count=%s"
 argument_list|,
 name|width
@@ -728,6 +741,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"expected no more elements: width=%s, count=%s"
 argument_list|,
 name|width
