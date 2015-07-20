@@ -81,6 +81,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|DateFormatUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|BeforeClass
@@ -163,12 +176,9 @@ specifier|static
 name|TimeZone
 name|UTC
 init|=
-name|TimeZone
+name|DateFormatUtil
 operator|.
-name|getTimeZone
-argument_list|(
-literal|"UTC"
-argument_list|)
+name|UTC
 decl_stmt|;
 DECL|field|testInstanceDir
 specifier|private
@@ -338,11 +348,11 @@ name|input
 argument_list|,
 name|expected
 argument_list|,
-name|f
+name|DateFormatUtil
 operator|.
 name|formatDate
 argument_list|(
-name|f
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -376,7 +386,7 @@ name|input
 argument_list|,
 name|expected
 argument_list|,
-name|f
+name|DateFormatUtil
 operator|.
 name|formatDate
 argument_list|(
@@ -478,7 +488,7 @@ expr_stmt|;
 comment|// kind of kludgy, but we have other tests for the actual date math
 name|assertFormatParsed
 argument_list|(
-name|f
+name|DateFormatUtil
 operator|.
 name|formatDate
 argument_list|(
@@ -582,7 +592,7 @@ name|input
 argument_list|,
 name|expected
 argument_list|,
-name|f
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -878,7 +888,7 @@ name|assertEquals
 argument_list|(
 name|expected
 argument_list|,
-name|f
+name|DateFormatUtil
 operator|.
 name|formatDate
 argument_list|(
@@ -905,7 +915,7 @@ block|{
 name|Date
 name|d
 init|=
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(
@@ -915,7 +925,7 @@ decl_stmt|;
 name|String
 name|result
 init|=
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|formatExternal
 argument_list|(

@@ -493,6 +493,19 @@ operator|.
 name|QParser
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|DateFormatUtil
+import|;
+end_import
 begin_comment
 comment|/**  * Provides field types to support for Lucene's {@link  * IntField}, {@link LongField}, {@link FloatField} and  * {@link DoubleField}.  * See {@link org.apache.lucene.search.NumericRangeQuery} for more details.  * It supports integer, float, long, double and date types.  *<p>  * For each number being added to this field, multiple terms are generated as per the algorithm described in the above  * link. The possible number of terms increases dramatically with lower precision steps. For  * the fast range search to work, trie fields must be indexed.  *<p>  * Trie fields are sortable in numerical order and can be used in function queries.  *<p>  * Note that if you use a precisionStep of 32 for int/float and 64 for long/double/date, then multiple terms will not be  * generated, range search will be no faster than any other number field, but sorting will still be possible.  *  *  * @see org.apache.lucene.search.NumericRangeQuery  * @since solr 1.4  */
 end_comment
@@ -533,22 +546,6 @@ DECL|field|type
 specifier|protected
 name|TrieTypes
 name|type
-decl_stmt|;
-DECL|field|missingValue
-specifier|protected
-name|Object
-name|missingValue
-decl_stmt|;
-comment|/**    * Used for handling date types    */
-DECL|field|dateField
-specifier|static
-specifier|final
-name|TrieDateField
-name|dateField
-init|=
-operator|new
-name|TrieDateField
-argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -1664,8 +1661,6 @@ name|precisionStep
 decl_stmt|;
 name|Query
 name|query
-init|=
-literal|null
 decl_stmt|;
 specifier|final
 name|boolean
@@ -2140,7 +2135,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|dateField
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -2158,7 +2153,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|dateField
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -2197,7 +2192,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|dateField
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -2215,7 +2210,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|dateField
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -2708,7 +2703,7 @@ name|NumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
-name|dateField
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -2828,9 +2823,9 @@ operator|.
 name|DATE
 operator|)
 condition|?
-name|dateField
+name|DateFormatUtil
 operator|.
-name|toExternal
+name|formatExternal
 argument_list|(
 operator|(
 name|Date
@@ -2954,9 +2949,9 @@ case|case
 name|DATE
 case|:
 return|return
-name|dateField
+name|DateFormatUtil
 operator|.
-name|toExternal
+name|formatExternal
 argument_list|(
 operator|new
 name|Date
@@ -3098,9 +3093,9 @@ name|DATE
 case|:
 name|value
 operator|=
-name|dateField
+name|DateFormatUtil
 operator|.
-name|toExternal
+name|formatExternal
 argument_list|(
 operator|new
 name|Date
@@ -4122,7 +4117,7 @@ operator|)
 name|value
 operator|)
 else|:
-name|dateField
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(
@@ -4674,11 +4669,9 @@ name|val
 parameter_list|)
 block|{
 return|return
-name|TrieField
+name|DateFormatUtil
 operator|.
-name|dateField
-operator|.
-name|toExternal
+name|formatExternal
 argument_list|(
 name|longToObject
 argument_list|(
@@ -4699,9 +4692,7 @@ name|extVal
 parameter_list|)
 block|{
 return|return
-name|TrieField
-operator|.
-name|dateField
+name|DateFormatUtil
 operator|.
 name|parseMath
 argument_list|(

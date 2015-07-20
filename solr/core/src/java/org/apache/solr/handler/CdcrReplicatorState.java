@@ -39,19 +39,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|schema
-operator|.
-name|TrieDateField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|update
 operator|.
 name|CdcrUpdateLog
@@ -68,6 +55,19 @@ operator|.
 name|update
 operator|.
 name|UpdateLog
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|DateFormatUtil
 import|;
 end_import
 begin_import
@@ -542,7 +542,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|formatExternal
 argument_list|(
@@ -593,7 +593,7 @@ condition|)
 block|{
 comment|// Shift back to the right by 20 bits the version number - See VersionInfo#getNewClock
 return|return
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|formatExternal
 argument_list|(

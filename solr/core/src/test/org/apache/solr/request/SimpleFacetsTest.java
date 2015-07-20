@@ -246,9 +246,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|schema
+name|util
 operator|.
-name|TrieDateField
+name|DateFormatUtil
 import|;
 end_import
 begin_import
@@ -13859,7 +13859,7 @@ name|FacetParams
 operator|.
 name|FACET_RANGE_START
 argument_list|,
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|formatExternal
 argument_list|(
@@ -13878,7 +13878,7 @@ name|FacetParams
 operator|.
 name|FACET_RANGE_END
 argument_list|,
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|formatExternal
 argument_list|(

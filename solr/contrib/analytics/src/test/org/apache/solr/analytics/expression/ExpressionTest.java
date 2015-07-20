@@ -87,9 +87,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|schema
+name|util
 operator|.
-name|TrieDateField
+name|DateMathParser
 import|;
 end_import
 begin_import
@@ -102,7 +102,7 @@ name|solr
 operator|.
 name|util
 operator|.
-name|DateMathParser
+name|DateFormatUtil
 import|;
 end_import
 begin_import
@@ -1429,7 +1429,7 @@ name|date
 operator|.
 name|setNow
 argument_list|(
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(
@@ -1471,7 +1471,7 @@ argument_list|(
 name|getRawResponse
 argument_list|()
 argument_list|,
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(
@@ -1512,7 +1512,7 @@ name|date
 operator|.
 name|setNow
 argument_list|(
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(
@@ -1553,7 +1553,7 @@ argument_list|(
 name|getRawResponse
 argument_list|()
 argument_list|,
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(

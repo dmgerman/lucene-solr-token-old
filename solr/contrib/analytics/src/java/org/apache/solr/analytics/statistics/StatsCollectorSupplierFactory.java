@@ -729,6 +729,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|DateFormatUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -3306,7 +3319,7 @@ try|try
 block|{
 name|defaultObject
 operator|=
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(
@@ -4395,7 +4408,7 @@ return|return
 operator|new
 name|ConstDateSource
 argument_list|(
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(

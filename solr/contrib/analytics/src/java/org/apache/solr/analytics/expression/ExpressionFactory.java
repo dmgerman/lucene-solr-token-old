@@ -109,9 +109,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|schema
+name|util
 operator|.
-name|TrieDateField
+name|DateFormatUtil
 import|;
 end_import
 begin_class
@@ -465,7 +465,7 @@ return|return
 operator|new
 name|ConstantDateExpression
 argument_list|(
-name|TrieDateField
+name|DateFormatUtil
 operator|.
 name|parseDate
 argument_list|(
