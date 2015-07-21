@@ -96,6 +96,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -223,7 +236,7 @@ name|fields
 operator|.
 name|put
 argument_list|(
-literal|"_EXCEPTION_"
+literal|"EXCEPTION"
 argument_list|,
 name|openException
 operator|.
@@ -240,11 +253,11 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
-literal|"Error while opening Stream"
+name|log
 argument_list|,
 name|openException
 argument_list|)
@@ -283,7 +296,7 @@ name|fields
 operator|.
 name|put
 argument_list|(
-literal|"_EXCEPTION_"
+literal|"EXCEPTION"
 argument_list|,
 name|e
 operator|.
@@ -300,12 +313,12 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
-literal|"Error while reading Stream:"
-operator|+
+name|log
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

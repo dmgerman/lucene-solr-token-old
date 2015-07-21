@@ -449,7 +449,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"(c:d)"
+literal|"(c:\"d\")"
 argument_list|)
 operator|)
 assert|;
@@ -506,7 +506,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"(c:d)"
+literal|"(c:\"d\")"
 argument_list|)
 operator|)
 assert|;
@@ -519,7 +519,7 @@ argument_list|()
 expr_stmt|;
 name|sql
 operator|=
-literal|"select a from b where (c = '\"d d\"')"
+literal|"select a from b where (c = 'd d')"
 expr_stmt|;
 name|statement
 operator|=
@@ -620,7 +620,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:d) AND (l:z))"
+literal|"((c:\"d\") AND (l:\"z\"))"
 argument_list|)
 operator|)
 assert|;
@@ -677,7 +677,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:d) OR (l:z))"
+literal|"((c:\"d\") OR (l:\"z\"))"
 argument_list|)
 operator|)
 assert|;
@@ -734,7 +734,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:d) AND -(l:z))"
+literal|"((c:\"d\") AND -(l:\"z\"))"
 argument_list|)
 operator|)
 assert|;
@@ -791,7 +791,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:d) OR ((l:z) AND (m:j)))"
+literal|"((c:\"d\") OR ((l:\"z\") AND (m:\"j\")))"
 argument_list|)
 operator|)
 assert|;
@@ -848,7 +848,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:d) OR ((l:z) AND -(m:j)))"
+literal|"((c:\"d\") OR ((l:\"z\") AND -(m:\"j\")))"
 argument_list|)
 operator|)
 assert|;
@@ -862,7 +862,7 @@ argument_list|()
 expr_stmt|;
 name|sql
 operator|=
-literal|"select a from b where ((c = '[0 TO 100]') OR ((l = 'z') AND (m = 'j')))"
+literal|"select a from b where ((c = '[0 TO 100]') OR ((l = '(z)') AND (m = 'j')))"
 expr_stmt|;
 name|statement
 operator|=
@@ -906,7 +906,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:[0 TO 100]) OR ((l:z) AND (m:j)))"
+literal|"((c:[0 TO 100]) OR ((l:(z)) AND (m:\"j\")))"
 argument_list|)
 operator|)
 assert|;
@@ -919,7 +919,7 @@ argument_list|()
 expr_stmt|;
 name|sql
 operator|=
-literal|"select a from b where ((c = '[0 TO 100]') OR ((l = 'z*') AND (m = 'j')))"
+literal|"select a from b where ((c = '[0 TO 100]') OR ((l = '(z*)') AND (m = 'j')))"
 expr_stmt|;
 name|statement
 operator|=
@@ -963,7 +963,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:[0 TO 100]) OR ((l:z*) AND (m:j)))"
+literal|"((c:[0 TO 100]) OR ((l:(z*)) AND (m:\"j\")))"
 argument_list|)
 operator|)
 assert|;
@@ -976,7 +976,7 @@ argument_list|()
 expr_stmt|;
 name|sql
 operator|=
-literal|"select a from b where ((c = '[0 TO 100]') OR ((l = 'z*') AND (m = '(j OR (k NOT s))')))"
+literal|"select a from b where ((c = '[0 TO 100]') OR ((l = '(z*)') AND (m = '(j OR (k NOT s))')))"
 expr_stmt|;
 name|statement
 operator|=
@@ -1020,7 +1020,7 @@ name|query
 operator|.
 name|equals
 argument_list|(
-literal|"((c:[0 TO 100]) OR ((l:z*) AND (m:(j OR (k NOT s)))))"
+literal|"((c:[0 TO 100]) OR ((l:(z*)) AND (m:(j OR (k NOT s)))))"
 argument_list|)
 operator|)
 assert|;
@@ -1234,7 +1234,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select id, field_i, str_s from mytable where text='XXXX' order by field_i desc"
+literal|"select id, field_i, str_s from collection1 where text='XXXX' order by field_i desc"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -1683,7 +1683,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select id, field_i, str_s from mytable where text='XXXX' order by field_i desc limit 1"
+literal|"select id, field_i, str_s from collection1 where text='XXXX' order by field_i desc limit 1"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -1786,7 +1786,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select id, field_i, str_s from mytable where text='XXXX' AND id='(1 2 3)' order by field_i desc"
+literal|"select id, field_i, str_s from collection1 where text='XXXX' AND id='(1 2 3)' order by field_i desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -2179,7 +2179,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select id, field_i, str_s from mytable where text='XXXX' order by field_iff desc"
+literal|"select id, field_i, str_s from collection1 where text='XXXX' order by field_iff desc"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -2258,7 +2258,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select id, field_iff, str_s from mytable where text='XXXX' order by field_iff desc"
+literal|"select id, field_iff, str_s from collection1 where text='XXXX' order by field_iff desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -2308,7 +2308,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"An exception has occurred on the server, refer to server log for details"
+literal|"sort param field can't be found:"
 argument_list|)
 operator|)
 assert|;
@@ -2335,7 +2335,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_iff), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s having ((sum(field_iff) = 19) AND (min(field_i) = 8))"
+literal|"select str_s, count(*), sum(field_iff), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_iff) = 19) AND (min(field_i) = 8))"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -2386,6 +2386,159 @@ operator|.
 name|contains
 argument_list|(
 literal|"undefined field:"
+argument_list|)
+operator|)
+assert|;
+name|params
+operator|=
+operator|new
+name|HashMap
+argument_list|()
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+name|CommonParams
+operator|.
+name|QT
+argument_list|,
+literal|"/sql"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"sql"
+argument_list|,
+literal|"select str_s, count(*), blah(field_iff), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_iff) = 19) AND (min(field_i) = 8))"
+argument_list|)
+expr_stmt|;
+name|solrStream
+operator|=
+operator|new
+name|SolrStream
+argument_list|(
+name|jetty
+operator|.
+name|url
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|tuple
+operator|=
+name|getTuple
+argument_list|(
+operator|new
+name|ExceptionStream
+argument_list|(
+name|solrStream
+argument_list|)
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|EOF
+operator|)
+assert|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|EXCEPTION
+operator|)
+assert|;
+comment|//An exception not detected by the parser thrown from the /export handler
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|getException
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Invalid function: blah"
+argument_list|)
+operator|)
+assert|;
+name|params
+operator|=
+operator|new
+name|HashMap
+argument_list|()
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+name|CommonParams
+operator|.
+name|QT
+argument_list|,
+literal|"/sql"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"sql"
+argument_list|,
+literal|"select str_s from collection1 where text='XXXX' group by str_s"
+argument_list|)
+expr_stmt|;
+name|solrStream
+operator|=
+operator|new
+name|SolrStream
+argument_list|(
+name|jetty
+operator|.
+name|url
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|tuple
+operator|=
+name|getTuple
+argument_list|(
+operator|new
+name|ExceptionStream
+argument_list|(
+name|solrStream
+argument_list|)
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|EOF
+operator|)
+assert|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|EXCEPTION
+operator|)
+assert|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|getException
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Group by queries must include atleast one aggregate function."
 argument_list|)
 operator|)
 assert|;
@@ -2606,7 +2759,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s order by sum(field_i) asc limit 2"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s order by sum(field_i) asc limit 2"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -2840,7 +2993,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where (text='XXXX' AND NOT text='\"XXXX XXX\"') group by str_s order by str_s desc"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where (text='XXXX' AND NOT text='XXXX XXX') group by str_s order by str_s desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -3149,7 +3302,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s having sum(field_i) = 19"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having sum(field_i) = 19"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -3288,7 +3441,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 8))"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 8))"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -3428,7 +3581,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 100))"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 100))"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -3686,7 +3839,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s order by sum(field_i) asc limit 2"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s order by sum(field_i) asc limit 2"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -3929,7 +4082,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s order by str_s desc"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s order by str_s desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -4247,7 +4400,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s having sum(field_i) = 19"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having sum(field_i) = 19"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -4480,7 +4633,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 8))"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 8))"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -4629,7 +4782,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from mytable where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 100))"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 100))"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -4910,7 +5063,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select year_i, sum(item_i) from mytable group by year_i order by year_i desc"
+literal|"select year_i, sum(item_i) from collection1 group by year_i order by year_i desc"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -5025,7 +5178,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select year_i, month_i, sum(item_i) from mytable group by year_i, month_i order by year_i desc, month_i desc"
+literal|"select year_i, month_i, sum(item_i) from collection1 group by year_i, month_i order by year_i desc, month_i desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -5220,7 +5373,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select year_i, month_i, day_i, sum(item_i) from mytable group by year_i, month_i, day_i order by year_i desc, month_i desc, day_i desc"
+literal|"select year_i, month_i, day_i, sum(item_i) from collection1 group by year_i, month_i, day_i order by year_i desc, month_i desc, day_i desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -5857,7 +6010,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select year_i, sum(item_i) from mytable group by year_i order by year_i desc"
+literal|"select year_i, sum(item_i) from collection1 group by year_i order by year_i desc"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -5996,7 +6149,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select year_i, month_i, sum(item_i) from mytable group by year_i, month_i order by year_i desc, month_i desc"
+literal|"select year_i, month_i, sum(item_i) from collection1 group by year_i, month_i order by year_i desc, month_i desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -6198,7 +6351,7 @@ name|put
 argument_list|(
 literal|"sql"
 argument_list|,
-literal|"select year_i, month_i, day_i, sum(item_i) from mytable group by year_i, month_i, day_i order by year_i desc, month_i desc, day_i desc"
+literal|"select year_i, month_i, day_i, sum(item_i) from collection1 group by year_i, month_i, day_i order by year_i desc, month_i desc, day_i desc"
 argument_list|)
 expr_stmt|;
 name|solrStream
