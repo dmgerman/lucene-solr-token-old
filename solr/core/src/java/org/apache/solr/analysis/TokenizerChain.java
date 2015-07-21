@@ -93,6 +93,34 @@ name|TokenizerChain
 extends|extends
 name|SolrAnalyzer
 block|{
+DECL|field|EMPTY_CHAR_FITLERS
+specifier|private
+specifier|static
+specifier|final
+name|CharFilterFactory
+index|[]
+name|EMPTY_CHAR_FITLERS
+init|=
+operator|new
+name|CharFilterFactory
+index|[
+literal|0
+index|]
+decl_stmt|;
+DECL|field|EMPTY_TOKEN_FITLERS
+specifier|private
+specifier|static
+specifier|final
+name|TokenFilterFactory
+index|[]
+name|EMPTY_TOKEN_FITLERS
+init|=
+operator|new
+name|TokenFilterFactory
+index|[
+literal|0
+index|]
+decl_stmt|;
 DECL|field|charFilters
 specifier|final
 specifier|private
@@ -113,6 +141,7 @@ name|TokenFilterFactory
 index|[]
 name|filters
 decl_stmt|;
+comment|/**     * Creates a new TokenizerChain w/o any CharFilterFactories.    *    * @param tokenizer Factory for the Tokenizer to use, must not be null.    * @param filters Factories for the TokenFilters to use - if null, will be treated as if empty.    */
 DECL|method|TokenizerChain
 specifier|public
 name|TokenizerChain
@@ -135,6 +164,7 @@ name|filters
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**     * Creates a new TokenizerChain.    *    * @param charFilters Factories for the CharFilters to use, if any - if null, will be treated as if empty.    * @param tokenizer Factory for the Tokenizer to use, must not be null.    * @param filters Factories for the TokenFilters to use if any- if null, will be treated as if empty.    */
 DECL|method|TokenizerChain
 specifier|public
 name|TokenizerChain
@@ -151,6 +181,41 @@ index|[]
 name|filters
 parameter_list|)
 block|{
+name|charFilters
+operator|=
+literal|null
+operator|==
+name|charFilters
+condition|?
+name|EMPTY_CHAR_FITLERS
+else|:
+name|charFilters
+expr_stmt|;
+name|filters
+operator|=
+literal|null
+operator|==
+name|filters
+condition|?
+name|EMPTY_TOKEN_FITLERS
+else|:
+name|filters
+expr_stmt|;
+if|if
+condition|(
+literal|null
+operator|==
+name|tokenizer
+condition|)
+block|{
+throw|throw
+operator|new
+name|NullPointerException
+argument_list|(
+literal|"TokenizerFactory must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|charFilters
@@ -170,6 +235,7 @@ operator|=
 name|filters
 expr_stmt|;
 block|}
+comment|/** @return array of CharFilterFactories, may be empty but never null */
 DECL|method|getCharFilterFactories
 specifier|public
 name|CharFilterFactory
@@ -181,6 +247,7 @@ return|return
 name|charFilters
 return|;
 block|}
+comment|/** @return the TokenizerFactory in use, will never be null */
 DECL|method|getTokenizerFactory
 specifier|public
 name|TokenizerFactory
@@ -191,6 +258,7 @@ return|return
 name|tokenizer
 return|;
 block|}
+comment|/** @return array of TokenFilterFactories, may be empty but never null */
 DECL|method|getTokenFilterFactories
 specifier|public
 name|TokenFilterFactory

@@ -1005,13 +1005,6 @@ operator|.
 name|getCharFilterFactories
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|charFactories
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|CharFilterFactory
@@ -1027,7 +1020,6 @@ argument_list|(
 name|fact
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|builder
 operator|.
