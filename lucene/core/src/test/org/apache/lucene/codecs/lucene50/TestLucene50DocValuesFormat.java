@@ -444,6 +444,8 @@ argument_list|,
 literal|32766
 argument_list|,
 literal|16
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -500,6 +502,8 @@ argument_list|,
 literal|500
 argument_list|,
 literal|16
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
