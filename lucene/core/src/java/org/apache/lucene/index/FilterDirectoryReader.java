@@ -393,7 +393,7 @@ name|IOException
 block|{
 name|in
 operator|.
-name|doClose
+name|close
 argument_list|()
 expr_stmt|;
 block|}
