@@ -72,6 +72,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|logging
 operator|.
 name|log4j
@@ -98,6 +113,13 @@ name|Test
 import|;
 end_import
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"test uses log4j because it tests output at a specific level"
+argument_list|)
 DECL|class|LoggingHandlerTest
 specifier|public
 class|class
