@@ -998,7 +998,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// We can't wrap with "exotic" readers because the NumericRangeTreeQuery must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the NumericRangeTreeQuery must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -1574,7 +1574,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// We can't wrap with "exotic" readers because the NumericRangeTreeQuery must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the NumericRangeTreeQuery must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -2666,7 +2666,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// We can't wrap with "exotic" readers because the NumericRangeTreeQuery must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the NumericRangeTreeQuery must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -3524,7 +3524,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -3729,7 +3729,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -3954,7 +3954,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -4375,7 +4375,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -4658,7 +4658,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -4963,7 +4963,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -5156,7 +5156,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
@@ -5273,7 +5273,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// We can't wrap with "exotic" readers because the query must see the NumericTreeDVFormat:
+comment|// We can't wrap with "exotic" readers because the query must see the RangeTreeDVFormat:
 name|IndexSearcher
 name|s
 init|=
