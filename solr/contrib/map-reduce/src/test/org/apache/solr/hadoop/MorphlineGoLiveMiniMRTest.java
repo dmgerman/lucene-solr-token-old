@@ -4483,9 +4483,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 if|if

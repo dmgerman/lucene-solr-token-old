@@ -853,9 +853,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -1265,9 +1263,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|// check that all dirs are gone

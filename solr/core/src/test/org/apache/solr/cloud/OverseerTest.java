@@ -2923,9 +2923,7 @@ expr_stmt|;
 name|reader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ClusterState
 name|state
@@ -3447,9 +3445,7 @@ block|{
 name|stateReader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 specifier|final
 name|ClusterState
@@ -4035,9 +4031,7 @@ block|{
 name|reader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// poll state
 name|ZkNodeProps
@@ -5781,9 +5775,7 @@ empty_stmt|;
 name|reader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ClusterState
 name|state
@@ -6661,9 +6653,7 @@ block|{
 name|reader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ClusterState
 name|state

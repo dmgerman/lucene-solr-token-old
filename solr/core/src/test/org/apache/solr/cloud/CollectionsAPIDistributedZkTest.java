@@ -2077,9 +2077,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|assertFalse
@@ -3102,9 +3100,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -3257,9 +3253,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -3308,9 +3302,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -3441,9 +3433,7 @@ name|getZkStateReader
 argument_list|()
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|Collection
 argument_list|<

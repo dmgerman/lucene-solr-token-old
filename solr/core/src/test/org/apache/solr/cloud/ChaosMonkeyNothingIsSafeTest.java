@@ -1182,9 +1182,7 @@ comment|// TODO: assert we didnt kill everyone
 name|zkStateReader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(

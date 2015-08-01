@@ -4084,9 +4084,7 @@ comment|// force update the cluster state
 name|zkStateReader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|CollectionParams
 operator|.
@@ -13007,9 +13005,7 @@ expr_stmt|;
 name|zkStateReader
 operator|.
 name|updateClusterState
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 throw|throw
