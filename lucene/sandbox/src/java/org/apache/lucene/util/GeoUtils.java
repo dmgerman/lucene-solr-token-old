@@ -60,7 +60,7 @@ specifier|final
 name|short
 name|BITS
 init|=
-literal|31
+literal|32
 decl_stmt|;
 DECL|field|LON_SCALE
 specifier|private
@@ -70,9 +70,13 @@ name|double
 name|LON_SCALE
 init|=
 operator|(
+operator|(
 literal|0x1L
 operator|<<
 name|BITS
+operator|)
+operator|-
+literal|1
 operator|)
 operator|/
 literal|360.0D
@@ -85,9 +89,13 @@ name|double
 name|LAT_SCALE
 init|=
 operator|(
+operator|(
 literal|0x1L
 operator|<<
 name|BITS
+operator|)
+operator|-
+literal|1
 operator|)
 operator|/
 literal|180.0D
