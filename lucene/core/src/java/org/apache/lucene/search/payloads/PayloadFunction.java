@@ -30,7 +30,7 @@ name|Explanation
 import|;
 end_import
 begin_comment
-comment|/**  * An abstract class that defines a way for Payload*Query instances to transform  * the cumulative effects of payload scores for a document.  *   * @see org.apache.lucene.search.payloads.PayloadTermQuery for more information  *   * @lucene.experimental This class and its derivations are experimental and subject to  *               change  *   **/
+comment|/**  * An abstract class that defines a way for PayloadScoreQuery instances to transform  * the cumulative effects of payload scores for a document.  *   * @see org.apache.lucene.search.payloads.PayloadScoreQuery for more information  *   * @lucene.experimental This class and its derivations are experimental and subject to  *               change  *   **/
 end_comment
 begin_class
 DECL|class|PayloadFunction
