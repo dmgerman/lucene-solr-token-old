@@ -1224,7 +1224,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|childFreq
+name|childScore
 argument_list|,
 name|minScore
 argument_list|)
