@@ -3287,6 +3287,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 name|fieldMap
 operator|.
 name|add
@@ -3299,7 +3300,6 @@ name|getDocCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
