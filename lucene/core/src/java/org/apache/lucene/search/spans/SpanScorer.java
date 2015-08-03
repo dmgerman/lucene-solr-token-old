@@ -18,6 +18,24 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,24 +73,6 @@ operator|.
 name|similarities
 operator|.
 name|Similarity
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
 import|;
 end_import
 begin_comment
@@ -243,6 +243,7 @@ block|}
 comment|/**    * Sets {@link #freq} and {@link #numMatches} for the current document.    *<p>    * This will be called at most once per document.    */
 DECL|method|setFreqCurrentDoc
 specifier|protected
+specifier|final
 name|void
 name|setFreqCurrentDoc
 parameter_list|()
@@ -256,6 +257,9 @@ expr_stmt|;
 name|numMatches
 operator|=
 literal|0
+expr_stmt|;
+name|doStartCurrentDoc
+argument_list|()
 expr_stmt|;
 assert|assert
 name|spans
@@ -384,6 +388,9 @@ name|width
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doCurrentSpans
+argument_list|()
+expr_stmt|;
 name|prevStartPos
 operator|=
 name|startPos
@@ -438,6 +445,24 @@ operator|+
 name|spans
 assert|;
 block|}
+comment|/**    * Called before the current doc's frequency is calculated    */
+DECL|method|doStartCurrentDoc
+specifier|protected
+name|void
+name|doStartCurrentDoc
+parameter_list|()
+throws|throws
+name|IOException
+block|{}
+comment|/**    * Called each time the scorer's Spans is advanced during frequency calculation    */
+DECL|method|doCurrentSpans
+specifier|protected
+name|void
+name|doCurrentSpans
+parameter_list|()
+throws|throws
+name|IOException
+block|{}
 comment|/**    * Score the current doc. The default implementation scores the doc     * with the similarity using the slop-adjusted {@link #freq}.    */
 DECL|method|scoreCurrentDoc
 specifier|protected
