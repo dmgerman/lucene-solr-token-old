@@ -366,8 +366,6 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"create_collection"
-block|,
 literal|"-name"
 block|,
 name|testCollectionName
@@ -406,6 +404,7 @@ block|,
 name|solrUrl
 block|}
 decl_stmt|;
+comment|// NOTE: not calling SolrCLI.main as the script does because it calls System.exit which is a no-no in a JUnit test
 name|SolrCLI
 operator|.
 name|CreateCollectionTool
@@ -860,8 +859,6 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"healthcheck"
-block|,
 literal|"-collection"
 block|,
 name|testCollectionName
@@ -939,8 +936,6 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"delete"
-block|,
 literal|"-name"
 block|,
 name|testCollectionName
@@ -1114,8 +1109,6 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"config"
-block|,
 literal|"-collection"
 block|,
 name|testCollectionName
