@@ -816,7 +816,7 @@ literal|"dd-MMM-yyyy kk:mm:ss.SSS"
 argument_list|,
 name|Locale
 operator|.
-name|ROOT
+name|ENGLISH
 argument_list|)
 expr_stmt|;
 name|dfi
