@@ -516,6 +516,17 @@ argument_list|(
 name|fromQuery
 argument_list|)
 decl_stmt|;
+specifier|final
+name|Query
+name|rewrittenToQuery
+init|=
+name|searcher
+operator|.
+name|rewrite
+argument_list|(
+name|toQuery
+argument_list|)
+decl_stmt|;
 name|GlobalOrdinalsWithScoreCollector
 name|globalOrdinalsWithScoreCollector
 decl_stmt|;
@@ -663,7 +674,7 @@ name|joinField
 argument_list|,
 name|ordinalMap
 argument_list|,
-name|toQuery
+name|rewrittenToQuery
 argument_list|,
 name|rewrittenFromQuery
 argument_list|,
@@ -732,7 +743,7 @@ name|joinField
 argument_list|,
 name|ordinalMap
 argument_list|,
-name|toQuery
+name|rewrittenToQuery
 argument_list|,
 name|rewrittenFromQuery
 argument_list|,
