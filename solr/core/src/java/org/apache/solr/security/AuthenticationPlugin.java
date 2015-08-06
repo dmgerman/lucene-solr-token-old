@@ -292,6 +292,13 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**    * Cleanup any per request  data    */
+DECL|method|closeRequest
+specifier|public
+name|void
+name|closeRequest
+parameter_list|()
+block|{   }
 block|}
 end_class
 end_unit

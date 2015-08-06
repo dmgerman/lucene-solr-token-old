@@ -163,6 +163,13 @@ name|String
 name|getResource
 parameter_list|()
 function_decl|;
+DECL|method|getHttpMethod
+specifier|public
+specifier|abstract
+name|String
+name|getHttpMethod
+parameter_list|()
+function_decl|;
 DECL|enum|RequestType
 DECL|enum constant|READ
 DECL|enum constant|WRITE
