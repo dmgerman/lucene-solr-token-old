@@ -461,7 +461,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|matchesValue
+name|matches
 parameter_list|(
 name|int
 name|doc
@@ -510,7 +510,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|matchesValue
+name|matches
 parameter_list|(
 name|int
 name|doc
@@ -559,7 +559,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|matchesValue
+name|matches
 parameter_list|(
 name|int
 name|doc
@@ -601,7 +601,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|matchesValue
+name|matches
 parameter_list|(
 name|int
 name|doc
