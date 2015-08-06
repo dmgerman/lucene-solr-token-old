@@ -1956,11 +1956,11 @@ block|}
 block|}
 return|;
 block|}
-comment|/** Returns the minimum int value indexed into this    *  numeric field. */
+comment|/**    * Returns the minimum int value indexed into this    * numeric field or null if no terms exist.    */
 DECL|method|getMinInt
 specifier|public
 specifier|static
-name|int
+name|Integer
 name|getMinInt
 parameter_list|(
 name|Terms
@@ -1972,23 +1972,36 @@ block|{
 comment|// All shift=0 terms are sorted first, so we don't need
 comment|// to filter the incoming terms; we can just get the
 comment|// min:
-return|return
-name|NumericUtils
-operator|.
-name|prefixCodedToInt
-argument_list|(
+name|BytesRef
+name|min
+init|=
 name|terms
 operator|.
 name|getMin
 argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|min
+operator|!=
+literal|null
+operator|)
+condition|?
+name|NumericUtils
+operator|.
+name|prefixCodedToInt
+argument_list|(
+name|min
 argument_list|)
+else|:
+literal|null
 return|;
 block|}
-comment|/** Returns the maximum int value indexed into this    *  numeric field. */
+comment|/**    * Returns the maximum int value indexed into this    * numeric field or null if no terms exist.    */
 DECL|method|getMaxInt
 specifier|public
 specifier|static
-name|int
+name|Integer
 name|getMaxInt
 parameter_list|(
 name|Terms
@@ -1997,11 +2010,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-name|NumericUtils
-operator|.
-name|prefixCodedToInt
-argument_list|(
+name|BytesRef
+name|max
+init|=
 name|intTerms
 argument_list|(
 name|terms
@@ -2009,14 +2020,29 @@ argument_list|)
 operator|.
 name|getMax
 argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|max
+operator|!=
+literal|null
+operator|)
+condition|?
+name|NumericUtils
+operator|.
+name|prefixCodedToInt
+argument_list|(
+name|max
 argument_list|)
+else|:
+literal|null
 return|;
 block|}
-comment|/** Returns the minimum long value indexed into this    *  numeric field. */
+comment|/**    * Returns the minimum long value indexed into this    * numeric field or null if no terms exist.    */
 DECL|method|getMinLong
 specifier|public
 specifier|static
-name|long
+name|Long
 name|getMinLong
 parameter_list|(
 name|Terms
@@ -2028,23 +2054,36 @@ block|{
 comment|// All shift=0 terms are sorted first, so we don't need
 comment|// to filter the incoming terms; we can just get the
 comment|// min:
-return|return
-name|NumericUtils
-operator|.
-name|prefixCodedToLong
-argument_list|(
+name|BytesRef
+name|min
+init|=
 name|terms
 operator|.
 name|getMin
 argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|min
+operator|!=
+literal|null
+operator|)
+condition|?
+name|NumericUtils
+operator|.
+name|prefixCodedToLong
+argument_list|(
+name|min
 argument_list|)
+else|:
+literal|null
 return|;
 block|}
-comment|/** Returns the maximum long value indexed into this    *  numeric field. */
+comment|/**    * Returns the maximum long value indexed into this    * numeric field or null if no terms exist.    */
 DECL|method|getMaxLong
 specifier|public
 specifier|static
-name|long
+name|Long
 name|getMaxLong
 parameter_list|(
 name|Terms
@@ -2053,11 +2092,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-name|NumericUtils
-operator|.
-name|prefixCodedToLong
-argument_list|(
+name|BytesRef
+name|max
+init|=
 name|longTerms
 argument_list|(
 name|terms
@@ -2065,7 +2102,22 @@ argument_list|)
 operator|.
 name|getMax
 argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|max
+operator|!=
+literal|null
+operator|)
+condition|?
+name|NumericUtils
+operator|.
+name|prefixCodedToLong
+argument_list|(
+name|max
 argument_list|)
+else|:
+literal|null
 return|;
 block|}
 block|}
