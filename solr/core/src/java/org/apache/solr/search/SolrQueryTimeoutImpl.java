@@ -15,16 +15,14 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
-import|import
-name|org
+import|import static
+name|java
 operator|.
-name|apache
+name|lang
 operator|.
-name|lucene
+name|System
 operator|.
-name|index
-operator|.
-name|QueryTimeout
+name|nanoTime
 import|;
 end_import
 begin_import
@@ -39,14 +37,16 @@ name|TimeUnit
 import|;
 end_import
 begin_import
-import|import static
-name|java
+import|import
+name|org
 operator|.
-name|lang
+name|apache
 operator|.
-name|System
+name|lucene
 operator|.
-name|nanoTime
+name|index
+operator|.
+name|QueryTimeout
 import|;
 end_import
 begin_comment
@@ -76,25 +76,6 @@ argument_list|<
 name|Long
 argument_list|>
 argument_list|()
-block|{
-comment|/**      * {@inheritDoc}      *<p>      * By default, timeoutAt is set as far in the future as possible,       * so that it effectively never happens.      *<p>      * Since nanoTime() values can be anything from Long.MIN_VALUE to      * Long.MAX_VALUE, adding Long.MAX_VALUE can cause overflow.  That's      * expected and works fine, since in that case the subtraction of a      * future nanoTime() value from timeoutAt (in       * {@link SolrQueryTimeoutImpl#shouldExit}) will result in underflow,      * and checking the sign of the result of that subtraction (via      * comparison to zero) will correctly indicate whether the future      * nanoTime() value has exceeded the timeoutAt value.      *<p>       * See {@link System#nanoTime}      */
-annotation|@
-name|Override
-specifier|protected
-name|Long
-name|initialValue
-parameter_list|()
-block|{
-return|return
-name|nanoTime
-argument_list|()
-operator|+
-name|Long
-operator|.
-name|MAX_VALUE
-return|;
-block|}
-block|}
 decl_stmt|;
 DECL|method|SolrQueryTimeoutImpl
 specifier|private
@@ -147,9 +128,26 @@ name|boolean
 name|shouldExit
 parameter_list|()
 block|{
-return|return
+name|Long
+name|timeoutAt
+init|=
 name|get
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|timeoutAt
+operator|==
+literal|null
+condition|)
+block|{
+comment|// timeout unset
+return|return
+literal|false
+return|;
+block|}
+return|return
+name|timeoutAt
 operator|-
 name|nanoTime
 argument_list|()
