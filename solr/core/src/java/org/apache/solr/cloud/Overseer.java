@@ -604,7 +604,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|ONLY_ACTIVE_NODES
 import|;
@@ -619,7 +619,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|SHARD_UNIQUE
 import|;
@@ -2892,7 +2892,7 @@ name|startsWith
 argument_list|(
 name|tmp
 argument_list|,
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|COLL_PROP_PREFIX
 argument_list|)
@@ -2902,7 +2902,7 @@ condition|)
 block|{
 name|tmp
 operator|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|COLL_PROP_PREFIX
 operator|+
@@ -4857,6 +4857,22 @@ argument_list|(
 literal|"Overseer collection creation process."
 argument_list|)
 decl_stmt|;
+name|OverseerNodePrioritizer
+name|overseerPrioritizer
+init|=
+operator|new
+name|OverseerNodePrioritizer
+argument_list|(
+name|reader
+argument_list|,
+name|adminPath
+argument_list|,
+name|shardHandler
+operator|.
+name|getShardHandlerFactory
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|overseerCollectionProcessor
 operator|=
 operator|new
@@ -4875,6 +4891,8 @@ argument_list|,
 name|Overseer
 operator|.
 name|this
+argument_list|,
+name|overseerPrioritizer
 argument_list|)
 expr_stmt|;
 name|ccThread

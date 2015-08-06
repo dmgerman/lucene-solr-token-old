@@ -128,7 +128,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 import|;
 end_import
 begin_import
@@ -277,7 +277,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|COLL_PROP_PREFIX
 import|;
@@ -785,7 +785,7 @@ condition|)
 block|{
 name|property
 operator|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|COLL_PROP_PREFIX
 operator|+
@@ -822,7 +822,7 @@ name|message
 operator|.
 name|getStr
 argument_list|(
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|SHARD_UNIQUE
 argument_list|)
@@ -879,7 +879,7 @@ name|property
 operator|+
 literal|" cannot have "
 operator|+
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|SHARD_UNIQUE
 operator|+
@@ -1315,7 +1315,7 @@ condition|)
 block|{
 name|property
 operator|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|COLL_PROP_PREFIX
 operator|+

@@ -1371,7 +1371,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|OverseerCollectionProcessor
+name|OverseerProcessor
 operator|.
 name|getSortedElectionNodes
 argument_list|(

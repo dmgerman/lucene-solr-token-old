@@ -804,6 +804,18 @@ operator|.
 name|Stats
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
+operator|new
+name|OverseerNodePrioritizer
+argument_list|(
+name|zkStateReader
+argument_list|,
+name|adminPath
+argument_list|,
+name|shardHandlerFactory
+argument_list|)
+argument_list|,
 name|workQueue
 argument_list|,
 name|runningMap
@@ -2532,7 +2544,7 @@ literal|"collection.configName"
 argument_list|,
 name|CONFIG_NAME
 argument_list|,
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|NUM_SLICES
 argument_list|,
@@ -2560,7 +2572,7 @@ name|propMap
 operator|.
 name|put
 argument_list|(
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|CREATE_NODE_SET
 argument_list|,
@@ -2584,7 +2596,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|CREATE_NODE_SET_SHUFFLE_DEFAULT
 operator|!=
@@ -2601,7 +2613,7 @@ name|propMap
 operator|.
 name|put
 argument_list|(
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|CREATE_NODE_SET_SHUFFLE
 argument_list|,
@@ -3809,7 +3821,7 @@ name|shuffle
 argument_list|(
 name|createNodeList
 argument_list|,
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|RANDOM
 argument_list|)

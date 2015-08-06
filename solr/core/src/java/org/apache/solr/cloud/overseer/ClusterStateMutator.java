@@ -80,7 +80,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 import|;
 end_import
 begin_import
@@ -637,7 +637,7 @@ name|Object
 argument_list|>
 name|e
 range|:
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|COLL_PROPS
 operator|.
@@ -667,7 +667,7 @@ condition|)
 block|{
 name|val
 operator|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionMessageHandler
 operator|.
 name|COLL_PROPS
 operator|.
