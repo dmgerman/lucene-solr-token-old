@@ -254,6 +254,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|solrUIMAConfiguration
+specifier|private
 name|SolrUIMAConfiguration
 name|solrUIMAConfiguration
 decl_stmt|;
@@ -948,6 +949,17 @@ literal|"Text processing completed"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**    * @return the configuration object for this request processor    */
+DECL|method|getConfiguration
+specifier|public
+name|SolrUIMAConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|solrUIMAConfiguration
+return|;
 block|}
 block|}
 end_class

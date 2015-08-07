@@ -505,7 +505,8 @@ operator|)
 name|processor
 operator|)
 operator|.
-name|solrUIMAConfiguration
+name|getConfiguration
+argument_list|()
 decl_stmt|;
 name|Map
 argument_list|<
