@@ -4362,7 +4362,7 @@ name|this
 return|;
 block|}
 block|}
-comment|// DELETEREPLICAPROP request
+comment|// MIGRATECLUSTERSTATE request
 DECL|class|MigrateClusterState
 specifier|public
 specifier|static
