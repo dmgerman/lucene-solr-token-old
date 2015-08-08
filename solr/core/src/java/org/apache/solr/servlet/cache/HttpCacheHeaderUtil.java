@@ -100,6 +100,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|core
 operator|.
 name|IndexDeletionPolicyWrapper
@@ -671,7 +686,10 @@ argument_list|)
 else|:
 name|searcher
 operator|.
-name|getOpenTime
+name|getOpenTimeStamp
+argument_list|()
+operator|.
+name|getTime
 argument_list|()
 expr_stmt|;
 block|}
@@ -705,6 +723,27 @@ name|lastMod
 operator|%
 literal|1000L
 operator|)
+return|;
+block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Need currentTimeMillis to send out cache control headers externally"
+argument_list|)
+DECL|method|timeNowForHeader
+specifier|private
+specifier|static
+name|long
+name|timeNowForHeader
+parameter_list|()
+block|{
+return|return
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
 return|;
 block|}
 comment|/**    * Set the Cache-Control HTTP header (and Expires if needed)    * based on the SolrConfig.    * @param conf The config of the SolrCore handling this request    * @param resp The servlet response object to modify    * @param method The request method (GET, POST, ...) used by this request    */
@@ -798,9 +837,7 @@ name|setDateHeader
 argument_list|(
 literal|"Expires"
 argument_list|,
-name|System
-operator|.
-name|currentTimeMillis
+name|timeNowForHeader
 argument_list|()
 operator|+
 operator|(
@@ -1276,6 +1313,12 @@ argument_list|,
 literal|"Sat, 01 Jan 2000 01:00:00 GMT"
 argument_list|)
 expr_stmt|;
+name|long
+name|timeNowForHeader
+init|=
+name|timeNowForHeader
+argument_list|()
+decl_stmt|;
 comment|// We signal "just modified" just in case some broken
 comment|// proxy cache does not follow the above headers
 name|resp
@@ -1284,10 +1327,7 @@ name|setDateHeader
 argument_list|(
 literal|"Last-Modified"
 argument_list|,
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
+name|timeNowForHeader
 argument_list|)
 expr_stmt|;
 comment|// We override the ETag with something different
@@ -1303,10 +1343,7 @@ name|Long
 operator|.
 name|toHexString
 argument_list|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
+name|timeNowForHeader
 argument_list|)
 operator|+
 literal|'"'

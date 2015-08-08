@@ -52,6 +52,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|RTimer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|tika
 operator|.
 name|Tika
@@ -4142,12 +4155,12 @@ operator|+
 literal|" for messages"
 argument_list|)
 expr_stmt|;
-name|long
-name|searchAtMs
+specifier|final
+name|RTimer
+name|searchTimer
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|RTimer
 argument_list|()
 decl_stmt|;
 comment|// If using GMail, speed up the envelope processing by doing a
@@ -4280,18 +4293,6 @@ name|current
 operator|=
 literal|0
 expr_stmt|;
-name|long
-name|tookMs
-init|=
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|searchAtMs
-operator|)
-decl_stmt|;
 name|LOG
 operator|.
 name|info
@@ -4305,11 +4306,12 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Search criteria applied. Batching disabled. Took "
-operator|+
-name|tookMs
-operator|+
-literal|" (ms)"
+literal|"Search criteria applied. Batching disabled. Took {} (ms)"
+argument_list|,
+name|searchTimer
+operator|.
+name|getTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

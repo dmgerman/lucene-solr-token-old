@@ -1205,7 +1205,7 @@ literal|"-corex-"
 operator|+
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -350,6 +350,21 @@ name|common
 operator|.
 name|util
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|util
+operator|.
 name|Utils
 import|;
 end_import
@@ -603,6 +618,13 @@ argument_list|>
 name|pluginConfig
 parameter_list|)
 block|{   }
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Needs currentTimeMillis to compare against time in header"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|doAuthenticate
@@ -1456,6 +1478,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Needs currentTimeMillis to set current time in header"
+argument_list|)
 DECL|method|setHeader
 name|void
 name|setHeader

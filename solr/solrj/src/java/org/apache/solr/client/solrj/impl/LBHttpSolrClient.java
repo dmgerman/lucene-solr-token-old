@@ -512,16 +512,6 @@ specifier|final
 name|HttpSolrClient
 name|client
 decl_stmt|;
-DECL|field|lastUsed
-name|long
-name|lastUsed
-decl_stmt|;
-comment|// last time used for a real request
-DECL|field|lastChecked
-name|long
-name|lastChecked
-decl_stmt|;
-comment|// last time checked for liveness
 comment|// "standard" servers are used by default.  They normally live in the alive list
 comment|// and move to the zombie list when unavailable.  When they become available again,
 comment|// they move back to the alive list.
@@ -1500,15 +1490,6 @@ argument_list|)
 expr_stmt|;
 name|wrapper
 operator|.
-name|lastUsed
-operator|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-expr_stmt|;
-name|wrapper
-operator|.
 name|standard
 operator|=
 literal|false
@@ -2241,15 +2222,6 @@ operator|.
 name|length
 index|]
 decl_stmt|;
-name|wrapper
-operator|.
-name|lastUsed
-operator|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 return|return
@@ -2604,22 +2576,8 @@ name|ServerWrapper
 name|zombieServer
 parameter_list|)
 block|{
-name|long
-name|currTime
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 try|try
 block|{
-name|zombieServer
-operator|.
-name|lastChecked
-operator|=
-name|currTime
-expr_stmt|;
 name|QueryResponse
 name|resp
 init|=

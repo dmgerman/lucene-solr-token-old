@@ -1500,14 +1500,6 @@ operator|.
 name|collection
 argument_list|)
 decl_stmt|;
-name|long
-name|time
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Replica
@@ -1580,9 +1572,7 @@ name|shuffler
 argument_list|,
 operator|new
 name|Random
-argument_list|(
-name|time
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

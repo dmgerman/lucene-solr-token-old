@@ -3542,7 +3542,10 @@ block|{
 return|return
 name|tmp
 operator|.
-name|getStartTime
+name|getStartTimeStamp
+argument_list|()
+operator|.
+name|getTime
 argument_list|()
 return|;
 block|}
