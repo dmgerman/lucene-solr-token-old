@@ -1440,6 +1440,14 @@ name|decref
 argument_list|()
 expr_stmt|;
 block|}
+synchronized|synchronized
+init|(
+name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
+init|)
+block|{
 if|if
 condition|(
 name|ulog
@@ -1453,6 +1461,7 @@ argument_list|(
 name|cmd
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|doNormalUpdate
 specifier|private
@@ -1679,6 +1688,14 @@ comment|// added to the the index.
 comment|// This also ensures that if a commit sneaks in-between, that we
 comment|// know everything in a particular
 comment|// log version was definitely committed.
+synchronized|synchronized
+init|(
+name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
+init|)
+block|{
 if|if
 condition|(
 name|ulog
@@ -1692,6 +1709,7 @@ argument_list|(
 name|cmd
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|addAndDelete
 specifier|private
@@ -1912,6 +1930,14 @@ name|decref
 argument_list|()
 expr_stmt|;
 block|}
+synchronized|synchronized
+init|(
+name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
+init|)
+block|{
 if|if
 condition|(
 name|ulog
@@ -1927,6 +1953,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|updateDeleteTrackers
 specifier|private
