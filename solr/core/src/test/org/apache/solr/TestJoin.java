@@ -1616,12 +1616,7 @@ argument_list|)
 operator|+
 literal|"\n\tmodel="
 operator|+
-name|JSONUtil
-operator|.
-name|toJSON
-argument_list|(
 name|model
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// re-execute the request... good for putting a breakpoint here for debugging
