@@ -1523,7 +1523,7 @@ condition|(
 name|val
 operator|!=
 literal|0
-operator|&&
+operator|||
 name|docsWithField
 operator|.
 name|get
