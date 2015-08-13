@@ -82,6 +82,8 @@ block|{
 return|return
 name|tf
 operator|*
+name|c
+operator|*
 name|stats
 operator|.
 name|getAvgFieldLength
