@@ -441,7 +441,7 @@ name|long
 name|docFreq
 parameter_list|,
 name|long
-name|numDocs
+name|docCount
 parameter_list|)
 block|{
 return|return
