@@ -146,6 +146,11 @@ specifier|private
 name|long
 name|countWritten
 decl_stmt|;
+DECL|field|closed
+specifier|private
+name|boolean
+name|closed
+decl_stmt|;
 DECL|method|OfflineLatLonWriter
 specifier|public
 name|OfflineLatLonWriter
@@ -267,6 +272,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|closed
+assert|;
 return|return
 operator|new
 name|OfflineLatLonReader
@@ -291,6 +299,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|closed
+operator|=
+literal|true
+expr_stmt|;
 name|out
 operator|.
 name|close
