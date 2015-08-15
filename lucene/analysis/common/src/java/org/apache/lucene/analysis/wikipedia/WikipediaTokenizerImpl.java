@@ -38,8 +38,13 @@ begin_comment
 comment|/**  * JFlex-generated tokenizer that is aware of Wikipedia syntax.  */
 end_comment
 begin_class
-DECL|class|WikipediaTokenizerImpl
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 class|class
+DECL|class|WikipediaTokenizerImpl
 name|WikipediaTokenizerImpl
 block|{
 comment|/** This character denotes the end of file */

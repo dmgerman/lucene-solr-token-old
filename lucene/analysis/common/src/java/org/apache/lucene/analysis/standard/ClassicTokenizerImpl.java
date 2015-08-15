@@ -47,8 +47,13 @@ begin_comment
 comment|/**  * This class implements the classic lucene StandardTokenizer up until 3.0   */
 end_comment
 begin_class
-DECL|class|ClassicTokenizerImpl
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 class|class
+DECL|class|ClassicTokenizerImpl
 name|ClassicTokenizerImpl
 block|{
 comment|/** This character denotes the end of file */

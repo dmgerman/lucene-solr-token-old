@@ -122,6 +122,11 @@ begin_comment
 comment|/**  * A CharFilter that wraps another Reader and attempts to strip out HTML constructs.  */
 end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 DECL|class|HTMLStripCharFilter
 specifier|public
 specifier|final
