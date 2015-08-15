@@ -303,6 +303,11 @@ name|TestDocValuesFieldSources
 extends|extends
 name|LuceneTestCase
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 DECL|method|test
 specifier|public
 name|void
@@ -872,6 +877,7 @@ operator|>=
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// fall-through
 case|case
 name|BINARY
 case|:

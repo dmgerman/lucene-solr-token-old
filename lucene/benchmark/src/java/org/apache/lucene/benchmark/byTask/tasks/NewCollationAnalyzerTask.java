@@ -213,14 +213,9 @@ name|getMethod
 argument_list|(
 literal|"getInstance"
 argument_list|,
-operator|new
-name|Class
-index|[]
-block|{
 name|Locale
 operator|.
 name|class
-block|}
 argument_list|)
 decl_stmt|;
 name|Object

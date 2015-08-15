@@ -1280,15 +1280,10 @@ name|clazz
 operator|.
 name|getConstructor
 argument_list|(
-operator|new
-name|Class
-index|[]
-block|{
 name|String
 index|[]
 operator|.
 expr|class
-block|}
 argument_list|)
 decl_stmt|;
 return|return
