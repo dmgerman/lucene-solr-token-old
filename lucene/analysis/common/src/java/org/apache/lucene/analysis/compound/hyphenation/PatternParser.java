@@ -1437,7 +1437,11 @@ name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|endElement
 specifier|public
@@ -1589,7 +1593,11 @@ comment|/**    * @see org.xml.sax.ContentHandler#characters(char[], int, int)   
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 annotation|@
 name|Override
