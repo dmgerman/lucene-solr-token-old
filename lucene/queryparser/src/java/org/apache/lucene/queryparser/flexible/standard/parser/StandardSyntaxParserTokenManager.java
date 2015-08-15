@@ -390,6 +390,11 @@ begin_comment
 comment|/** Token Manager. */
 end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"cast"
+argument_list|)
 DECL|class|StandardSyntaxParserTokenManager
 specifier|public
 class|class
