@@ -246,6 +246,9 @@ comment|// First pass - build the map of resolved nodes by revision id
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|IvyNode
+argument_list|>
 name|iter
 init|=
 name|dependencies
@@ -263,9 +266,6 @@ block|{
 name|IvyNode
 name|node
 init|=
-operator|(
-name|IvyNode
-operator|)
 name|iter
 operator|.
 name|next
@@ -320,6 +320,9 @@ comment|// Second pass - establish relationships between the resolved nodes
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|IvyNode
+argument_list|>
 name|iter
 init|=
 name|dependencies
@@ -337,9 +340,6 @@ block|{
 name|IvyNode
 name|node
 init|=
-operator|(
-name|IvyNode
-operator|)
 name|iter
 operator|.
 name|next
@@ -713,6 +713,9 @@ expr_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|IvyNodeElement
+argument_list|>
 name|iter
 init|=
 name|conflicts
@@ -730,9 +733,6 @@ block|{
 name|IvyNodeElement
 name|conflict
 init|=
-operator|(
-name|IvyNodeElement
-operator|)
 name|iter
 operator|.
 name|next
