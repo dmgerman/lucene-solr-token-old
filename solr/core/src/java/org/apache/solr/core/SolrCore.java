@@ -7971,9 +7971,6 @@ name|IndexWriter
 argument_list|>
 name|writer
 init|=
-name|getUpdateHandler
-argument_list|()
-operator|.
 name|getSolrCoreState
 argument_list|()
 operator|.
@@ -8230,9 +8227,6 @@ name|IndexWriter
 argument_list|>
 name|writer
 init|=
-name|getUpdateHandler
-argument_list|()
-operator|.
 name|getSolrCoreState
 argument_list|()
 operator|.
