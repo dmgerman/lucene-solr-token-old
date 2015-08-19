@@ -792,7 +792,7 @@ return|return
 name|readerPooling
 return|;
 block|}
-comment|/**    * Returns the indexing chain set on    * {@link IndexWriterConfig#setIndexingChain(IndexingChain)}.    */
+comment|/**    * Returns the indexing chain.    */
 DECL|method|getIndexingChain
 name|IndexingChain
 name|getIndexingChain
