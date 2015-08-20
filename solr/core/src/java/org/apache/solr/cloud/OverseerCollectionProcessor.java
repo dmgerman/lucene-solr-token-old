@@ -205,7 +205,7 @@ parameter_list|,
 name|OverseerNodePrioritizer
 name|overseerNodePrioritizer
 parameter_list|,
-name|DistributedQueue
+name|OverseerCollectionQueue
 name|workQueue
 parameter_list|,
 name|DistributedMap

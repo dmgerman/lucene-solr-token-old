@@ -240,7 +240,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|DistributedQueue
+name|OverseerCollectionQueue
 import|;
 end_import
 begin_import
@@ -253,7 +253,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|DistributedQueue
+name|OverseerCollectionQueue
 operator|.
 name|QueueEvent
 import|;
@@ -2093,7 +2093,7 @@ name|KeeperException
 throws|,
 name|InterruptedException
 block|{
-name|DistributedQueue
+name|OverseerCollectionQueue
 name|collectionQueue
 init|=
 name|coreContainer

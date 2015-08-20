@@ -67,7 +67,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|DistributedQueue
+name|OverseerCollectionQueue
 operator|.
 name|QueueEvent
 import|;
@@ -675,7 +675,7 @@ decl_stmt|;
 DECL|field|workQueueMock
 specifier|private
 specifier|static
-name|DistributedQueue
+name|OverseerCollectionQueue
 name|workQueueMock
 decl_stmt|;
 DECL|field|runningMapMock
@@ -799,7 +799,7 @@ parameter_list|,
 name|String
 name|adminPath
 parameter_list|,
-name|DistributedQueue
+name|OverseerCollectionQueue
 name|workQueue
 parameter_list|,
 name|DistributedMap
@@ -880,7 +880,7 @@ name|workQueueMock
 operator|=
 name|createMock
 argument_list|(
-name|DistributedQueue
+name|OverseerCollectionQueue
 operator|.
 name|class
 argument_list|)

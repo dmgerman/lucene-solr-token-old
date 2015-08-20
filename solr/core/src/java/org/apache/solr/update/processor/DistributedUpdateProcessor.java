@@ -82,7 +82,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|DistributedQueue
+name|LeaderInitiatedRecoveryThread
 import|;
 end_import
 begin_import
@@ -95,7 +95,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|LeaderInitiatedRecoveryThread
+name|DistributedQueue
 import|;
 end_import
 begin_import
