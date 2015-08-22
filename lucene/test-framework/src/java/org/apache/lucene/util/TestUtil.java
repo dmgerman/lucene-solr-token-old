@@ -186,6 +186,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -8440,26 +8449,32 @@ name|offset
 index|]
 decl_stmt|;
 comment|// sanity check
-name|Assert
-operator|.
-name|assertTrue
-argument_list|(
-literal|"Not really whitespace? (@"
-operator|+
-name|offset
-operator|+
-literal|"): "
-operator|+
-name|c
-argument_list|,
+assert|assert
 name|Character
 operator|.
 name|isWhitespace
 argument_list|(
 name|c
 argument_list|)
+operator|:
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
+literal|"Not really whitespace? WHITESPACE_CHARACTERS[%d] is '\\u%04X'"
+argument_list|,
+name|offset
+argument_list|,
+operator|(
+name|int
+operator|)
+name|c
 argument_list|)
-expr_stmt|;
+assert|;
 name|out
 operator|.
 name|append
@@ -9136,11 +9151,10 @@ literal|'\u001F'
 block|,
 literal|'\u0020'
 block|,
-comment|// '\u0085', faild sanity check?
+comment|// '\u0085', failed sanity check?
 literal|'\u1680'
 block|,
-literal|'\u180E'
-block|,
+comment|// '\u180E', no longer whitespace in Unicode 7.0 (Java 9)!
 literal|'\u2000'
 block|,
 literal|'\u2001'
