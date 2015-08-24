@@ -33,7 +33,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntByteOpenHashMap
+name|IntByteHashMap
 import|;
 end_import
 begin_import
@@ -44,7 +44,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongOpenHashSet
+name|LongHashSet
 import|;
 end_import
 begin_import
@@ -167,12 +167,12 @@ comment|// *********************************************************************
 comment|// Storage
 comment|// storage used when #type is EXPLICIT, null otherwise
 DECL|field|explicitStorage
-name|LongOpenHashSet
+name|LongHashSet
 name|explicitStorage
 decl_stmt|;
 comment|// storage used when #type is SPARSE, null otherwise
 DECL|field|sparseProbabilisticStorage
-name|IntByteOpenHashMap
+name|IntByteHashMap
 name|sparseProbabilisticStorage
 decl_stmt|;
 comment|// storage used when #type is FULL, null otherwise
@@ -1413,22 +1413,32 @@ specifier|final
 name|byte
 name|currentValue
 decl_stmt|;
-if|if
-condition|(
+specifier|final
+name|int
+name|index
+init|=
 name|sparseProbabilisticStorage
 operator|.
-name|containsKey
+name|indexOf
 argument_list|(
 name|j
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|index
+operator|>=
+literal|0
 condition|)
 block|{
 name|currentValue
 operator|=
 name|sparseProbabilisticStorage
 operator|.
-name|lget
-argument_list|()
+name|indexGet
+argument_list|(
+name|index
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1600,7 +1610,7 @@ operator|.
 name|explicitStorage
 operator|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 expr_stmt|;
 break|break;
@@ -1612,7 +1622,7 @@ operator|.
 name|sparseProbabilisticStorage
 operator|=
 operator|new
-name|IntByteOpenHashMap
+name|IntByteHashMap
 argument_list|()
 expr_stmt|;
 break|break;
@@ -1780,8 +1790,10 @@ name|register
 operator|=
 name|sparseProbabilisticStorage
 operator|.
-name|lget
-argument_list|()
+name|get
+argument_list|(
+name|j
+argument_list|)
 expr_stmt|;
 block|}
 else|else

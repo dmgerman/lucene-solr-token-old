@@ -55,7 +55,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongOpenHashSet
+name|LongHashSet
 import|;
 end_import
 begin_import
@@ -989,7 +989,7 @@ name|hllB
 parameter_list|)
 block|{
 specifier|final
-name|LongOpenHashSet
+name|LongHashSet
 name|internalSetA
 init|=
 name|hllA
@@ -997,7 +997,7 @@ operator|.
 name|explicitStorage
 decl_stmt|;
 specifier|final
-name|LongOpenHashSet
+name|LongHashSet
 name|internalSetB
 init|=
 name|hllB
