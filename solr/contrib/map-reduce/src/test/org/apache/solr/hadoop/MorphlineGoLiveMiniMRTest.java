@@ -3189,7 +3189,7 @@ argument_list|()
 block|,
 literal|"--mappers=3"
 block|,
-literal|"--reducers=12"
+literal|"--reducers=6"
 block|,
 literal|"--fanout=2"
 block|,
@@ -3616,11 +3616,11 @@ name|createCollection
 argument_list|(
 name|replicatedCollection
 argument_list|,
-literal|7
+literal|3
 argument_list|,
 literal|3
 argument_list|,
-literal|9
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
@@ -3724,7 +3724,7 @@ argument_list|()
 block|,
 literal|"--mappers=3"
 block|,
-literal|"--reducers=22"
+literal|"--reducers=12"
 block|,
 literal|"--fanout=2"
 block|,
@@ -4521,11 +4521,11 @@ name|createCollection
 argument_list|(
 name|replicatedCollection
 argument_list|,
-literal|7
+literal|3
 argument_list|,
 literal|3
 argument_list|,
-literal|9
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
