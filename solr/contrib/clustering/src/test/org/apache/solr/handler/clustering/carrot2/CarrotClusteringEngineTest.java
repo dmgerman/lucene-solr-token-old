@@ -3070,6 +3070,8 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
+literal|"unavailable"
+argument_list|,
 literal|"lingo"
 argument_list|,
 literal|"stc"
