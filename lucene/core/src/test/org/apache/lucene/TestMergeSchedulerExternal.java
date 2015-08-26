@@ -352,7 +352,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-empty_stmt|;
 annotation|@
 name|Override
 DECL|method|doMerge
