@@ -259,7 +259,7 @@ block|{
 name|String
 name|leader
 init|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getLeaderNode
 argument_list|(
@@ -596,7 +596,7 @@ condition|)
 block|{
 name|leader
 operator|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getLeaderNode
 argument_list|(
@@ -621,7 +621,7 @@ name|error
 argument_list|(
 literal|"NOOVERSEER election queue is :"
 operator|+
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getSortedElectionNodes
 argument_list|(
@@ -706,7 +706,7 @@ condition|)
 block|{
 name|leader
 operator|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getLeaderNode
 argument_list|(
@@ -731,7 +731,7 @@ name|error
 argument_list|(
 literal|"NOOVERSEER election queue is :"
 operator|+
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getSortedElectionNodes
 argument_list|(
@@ -813,7 +813,7 @@ argument_list|)
 expr_stmt|;
 name|leader
 operator|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getLeaderNode
 argument_list|(
@@ -943,7 +943,7 @@ block|{
 name|String
 name|newLeader
 init|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getLeaderNode
 argument_list|(

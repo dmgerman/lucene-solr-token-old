@@ -1505,6 +1505,9 @@ operator|.
 name|makeMap
 import|;
 end_import
+begin_comment
+comment|/**  * A {@link OverseerMessageHandler} that handles Collections API related  * overseer messages.  */
+end_comment
 begin_class
 DECL|class|OverseerCollectionMessageHandler
 specifier|public
@@ -1904,7 +1907,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"OverseerCollectionProcessor.processMessage : "
+literal|"OverseerCollectionMessageHandler.processMessage : "
 operator|+
 name|operation
 operator|+
@@ -3079,7 +3082,7 @@ block|{
 name|String
 name|leaderNode
 init|=
-name|OverseerProcessor
+name|OverseerTaskProcessor
 operator|.
 name|getLeaderNode
 argument_list|(
@@ -17930,7 +17933,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"Overseer Collection Processor"
+literal|"Overseer Collection Message Handler"
 return|;
 block|}
 annotation|@
@@ -18048,6 +18051,9 @@ name|collectionName
 parameter_list|,
 name|String
 name|operation
+parameter_list|,
+name|ZkNodeProps
+name|message
 parameter_list|)
 block|{
 if|if
@@ -18117,6 +18123,11 @@ name|ExclusiveMarking
 operator|.
 name|EXCLUSIVE
 return|;
+synchronized|synchronized
+init|(
+name|collectionWip
+init|)
+block|{
 if|if
 condition|(
 name|collectionWip
@@ -18131,6 +18142,7 @@ name|ExclusiveMarking
 operator|.
 name|NONEXCLUSIVE
 return|;
+block|}
 return|return
 name|ExclusiveMarking
 operator|.

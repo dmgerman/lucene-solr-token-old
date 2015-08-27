@@ -140,7 +140,7 @@ block|{
 name|String
 name|overseerNode
 init|=
-name|OverseerCollectionProcessor
+name|OverseerCollectionConfigSetProcessor
 operator|.
 name|getLeaderNode
 argument_list|(

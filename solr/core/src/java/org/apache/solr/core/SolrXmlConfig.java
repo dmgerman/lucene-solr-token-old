@@ -1543,6 +1543,17 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+literal|"configSetsHandler"
+case|:
+name|builder
+operator|.
+name|setConfigSetsHandlerClass
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 literal|"coreRootDirectory"
 case|:
 name|builder

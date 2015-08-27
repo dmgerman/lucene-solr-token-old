@@ -135,7 +135,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|OverseerCollectionQueue
+name|OverseerTaskQueue
 operator|.
 name|QueueEvent
 import|;
@@ -349,10 +349,10 @@ begin_comment
 comment|/**  * A generic processor run in the Overseer, used for handling items added  * to a distributed work queue.  Has support for handling exclusive tasks  * (i.e. tasks that should not run in parallel with each other).  *  * An {@link OverseerMessageHandlerSelector} determines which  * {@link OverseerMessageHandler} handles specific messages in the  * queue.  */
 end_comment
 begin_class
-DECL|class|OverseerProcessor
+DECL|class|OverseerTaskProcessor
 specifier|public
 class|class
-name|OverseerProcessor
+name|OverseerTaskProcessor
 implements|implements
 name|Runnable
 implements|,
@@ -380,14 +380,14 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|OverseerProcessor
+name|OverseerTaskProcessor
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 DECL|field|workQueue
 specifier|private
-name|OverseerCollectionQueue
+name|OverseerTaskQueue
 name|workQueue
 decl_stmt|;
 DECL|field|runningMap
@@ -489,9 +489,9 @@ specifier|private
 name|OverseerNodePrioritizer
 name|prioritizer
 decl_stmt|;
-DECL|method|OverseerProcessor
+DECL|method|OverseerTaskProcessor
 specifier|public
-name|OverseerProcessor
+name|OverseerTaskProcessor
 parameter_list|(
 name|ZkStateReader
 name|zkStateReader
@@ -517,7 +517,7 @@ parameter_list|,
 name|OverseerNodePrioritizer
 name|prioritizer
 parameter_list|,
-name|OverseerCollectionQueue
+name|OverseerTaskQueue
 name|workQueue
 parameter_list|,
 name|DistributedMap
@@ -2433,6 +2433,8 @@ argument_list|,
 name|asyncId
 argument_list|,
 name|taskKey
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 name|log
@@ -2519,6 +2521,8 @@ argument_list|,
 name|asyncId
 argument_list|,
 name|taskKey
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 name|log
@@ -2563,6 +2567,8 @@ argument_list|,
 name|asyncId
 argument_list|,
 name|taskKey
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 block|}
@@ -2595,6 +2601,9 @@ name|asyncId
 parameter_list|,
 name|String
 name|taskKey
+parameter_list|,
+name|ZkNodeProps
+name|message
 parameter_list|)
 throws|throws
 name|KeeperException
@@ -2649,6 +2658,8 @@ argument_list|(
 name|taskKey
 argument_list|,
 name|operation
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 block|}
@@ -2668,6 +2679,9 @@ name|asyncId
 parameter_list|,
 name|String
 name|taskKey
+parameter_list|,
+name|ZkNodeProps
+name|message
 parameter_list|)
 block|{
 name|log
@@ -2718,6 +2732,8 @@ argument_list|(
 name|taskKey
 argument_list|,
 name|operation
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 block|}

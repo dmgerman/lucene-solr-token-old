@@ -158,13 +158,13 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link DistributedQueue} augmented with helper methods specific to the collection queue.  * Methods specific to this subclass ignore superclass internal state and hit ZK directly.  * This is inefficient!  But the API on this class is kind of muddy..  */
+comment|/**  * A {@link DistributedQueue} augmented with helper methods specific to the overseer task queues.  * Methods specific to this subclass ignore superclass internal state and hit ZK directly.  * This is inefficient!  But the API on this class is kind of muddy..  */
 end_comment
 begin_class
-DECL|class|OverseerCollectionQueue
+DECL|class|OverseerTaskQueue
 specifier|public
 class|class
-name|OverseerCollectionQueue
+name|OverseerTaskQueue
 extends|extends
 name|DistributedQueue
 block|{
@@ -179,7 +179,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|OverseerCollectionQueue
+name|OverseerTaskQueue
 operator|.
 name|class
 argument_list|)
@@ -192,9 +192,9 @@ name|response_prefix
 init|=
 literal|"qnr-"
 decl_stmt|;
-DECL|method|OverseerCollectionQueue
+DECL|method|OverseerTaskQueue
 specifier|public
-name|OverseerCollectionQueue
+name|OverseerTaskQueue
 parameter_list|(
 name|SolrZkClient
 name|zookeeper
@@ -217,9 +217,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|OverseerCollectionQueue
+DECL|method|OverseerTaskQueue
 specifier|public
-name|OverseerCollectionQueue
+name|OverseerTaskQueue
 parameter_list|(
 name|SolrZkClient
 name|zookeeper

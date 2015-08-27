@@ -409,7 +409,7 @@ return|return;
 name|String
 name|ldr
 init|=
-name|OverseerProcessor
+name|OverseerTaskProcessor
 operator|.
 name|getLeaderNode
 argument_list|(
@@ -443,7 +443,7 @@ name|String
 argument_list|>
 name|electionNodes
 init|=
-name|OverseerProcessor
+name|OverseerTaskProcessor
 operator|.
 name|getSortedElectionNodes
 argument_list|(
@@ -623,7 +623,7 @@ argument_list|()
 argument_list|,
 literal|"id"
 argument_list|,
-name|OverseerProcessor
+name|OverseerTaskProcessor
 operator|.
 name|getLeaderId
 argument_list|(
