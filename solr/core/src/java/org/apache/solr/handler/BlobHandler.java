@@ -379,6 +379,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|request
+operator|.
+name|SolrRequestInfo
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|response
 operator|.
 name|SolrQueryResponse
@@ -2127,8 +2140,6 @@ name|SolrQueryResponse
 name|rsp
 parameter_list|)
 block|{
-try|try
-init|(
 name|LocalSolrQueryRequest
 name|r
 init|=
@@ -2142,8 +2153,18 @@ argument_list|()
 argument_list|,
 name|params
 argument_list|)
-init|)
-block|{
+decl_stmt|;
+name|SolrRequestInfo
+operator|.
+name|getRequestInfo
+argument_list|()
+operator|.
+name|addCloseHook
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+comment|// Close as late as possible...
 name|req
 operator|.
 name|getCore
@@ -2161,7 +2182,6 @@ argument_list|,
 name|rsp
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
