@@ -421,7 +421,8 @@ operator|)
 name|o
 operator|)
 operator|.
-name|docs
+name|getDocList
+argument_list|()
 expr_stmt|;
 block|}
 if|if

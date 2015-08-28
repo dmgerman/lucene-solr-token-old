@@ -238,10 +238,16 @@ argument_list|(
 literal|"response"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|DocList
+name|docs
+init|=
 name|rc
 operator|.
+name|getDocList
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
 name|docs
 operator|.
 name|hasScores
@@ -252,8 +258,6 @@ name|processScores
 argument_list|(
 name|rb
 argument_list|,
-name|rc
-operator|.
 name|docs
 argument_list|,
 name|schema
@@ -268,8 +272,6 @@ name|processIds
 argument_list|(
 name|rb
 argument_list|,
-name|rc
-operator|.
 name|docs
 argument_list|,
 name|schema
