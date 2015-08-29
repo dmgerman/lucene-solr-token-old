@@ -1222,8 +1222,8 @@ comment|// FIFO).
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|hitException
@@ -1238,13 +1238,13 @@ name|println
 argument_list|(
 literal|"Stress Test Index Writer: creation hit unexpected exception: "
 operator|+
-name|e
+name|t
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|e
+name|t
 operator|.
 name|printStackTrace
 argument_list|(
@@ -1284,8 +1284,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|hitException
@@ -1300,13 +1300,13 @@ name|println
 argument_list|(
 literal|"Stress Test Index Writer: addDoc hit unexpected exception: "
 operator|+
-name|e
+name|t
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|e
+name|t
 operator|.
 name|printStackTrace
 argument_list|(
@@ -1339,8 +1339,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|hitException
@@ -1355,13 +1355,13 @@ name|println
 argument_list|(
 literal|"Stress Test Index Writer: close hit unexpected exception: "
 operator|+
-name|e
+name|t
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|e
+name|t
 operator|.
 name|printStackTrace
 argument_list|(
