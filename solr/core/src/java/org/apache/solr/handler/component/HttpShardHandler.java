@@ -1790,13 +1790,11 @@ range|:
 name|pending
 control|)
 block|{
-comment|// TODO: any issues with interrupting?  shouldn't be if
-comment|// there are finally blocks to release connections.
 name|future
 operator|.
 name|cancel
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
