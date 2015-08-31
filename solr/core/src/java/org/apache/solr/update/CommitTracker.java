@@ -422,7 +422,7 @@ expr_stmt|;
 block|}
 name|scheduler
 operator|.
-name|shutdownNow
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
