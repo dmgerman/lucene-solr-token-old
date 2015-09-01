@@ -1104,7 +1104,7 @@ name|cloud
 operator|.
 name|ZkStateReader
 operator|.
-name|NODE_NAME_PROP
+name|CORE_NODE_NAME_PROP
 import|;
 end_import
 begin_import
@@ -2490,7 +2490,7 @@ name|CORE_NAME_PROP
 argument_list|,
 name|ELECTION_NODE_PROP
 argument_list|,
-name|NODE_NAME_PROP
+name|CORE_NODE_NAME_PROP
 argument_list|,
 name|BASE_URL_PROP
 argument_list|,
@@ -2580,13 +2580,13 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NODE_NAME_PROP
+name|CORE_NODE_NAME_PROP
 argument_list|,
 name|message
 operator|.
 name|getStr
 argument_list|(
-name|NODE_NAME_PROP
+name|CORE_NODE_NAME_PROP
 argument_list|)
 argument_list|)
 expr_stmt|;

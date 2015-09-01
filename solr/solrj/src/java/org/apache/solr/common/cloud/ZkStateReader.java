@@ -3398,6 +3398,8 @@ operator|)
 else|:
 literal|""
 operator|)
+operator|+
+literal|"/leader"
 return|;
 block|}
 comment|/**    * Get path where shard leader elections ephemeral nodes are.    */
