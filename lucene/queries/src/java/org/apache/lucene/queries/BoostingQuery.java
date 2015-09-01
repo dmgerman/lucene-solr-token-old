@@ -210,11 +210,11 @@ specifier|final
 name|Weight
 name|matchWeight
 init|=
-name|match
+name|searcher
 operator|.
 name|createWeight
 argument_list|(
-name|searcher
+name|match
 argument_list|,
 name|needsScores
 argument_list|)
@@ -223,11 +223,11 @@ specifier|final
 name|Weight
 name|contextWeight
 init|=
-name|context
+name|searcher
 operator|.
 name|createWeight
 argument_list|(
-name|searcher
+name|context
 argument_list|,
 literal|false
 argument_list|)
