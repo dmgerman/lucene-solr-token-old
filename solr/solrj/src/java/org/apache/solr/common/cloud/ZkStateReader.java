@@ -2131,6 +2131,13 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|securityData
+operator|=
+name|getSecurityProps
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|addSecuritynodeWatcher
