@@ -991,6 +991,12 @@ argument_list|(
 name|termString
 argument_list|,
 name|previousValue
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|previousValue
 operator|+
 name|modifier
 operator|*
@@ -1232,6 +1238,11 @@ block|}
 name|tokenStream
 operator|.
 name|end
+argument_list|()
+expr_stmt|;
+name|tokenStream
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 block|}

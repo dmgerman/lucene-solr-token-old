@@ -373,7 +373,7 @@ throw|;
 block|}
 block|}
 DECL|method|assignClassNormalizedList
-specifier|private
+specifier|protected
 name|List
 argument_list|<
 name|ClassificationResult
@@ -1078,7 +1078,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// threadsafe and concurent write
+comment|// threadsafe and concurrent write
 name|termCClassHitCache
 operator|.
 name|put
