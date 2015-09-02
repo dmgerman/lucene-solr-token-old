@@ -122,6 +122,8 @@ DECL|interface|SolrQueryRequest
 specifier|public
 interface|interface
 name|SolrQueryRequest
+extends|extends
+name|AutoCloseable
 block|{
 comment|/** returns the current request parameters */
 DECL|method|getParams
