@@ -167,19 +167,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|GeoUtils
 import|;
 end_import
@@ -909,8 +896,6 @@ operator|.
 name|getBKDTreeReader
 argument_list|()
 decl_stmt|;
-comment|// TODO: make this more efficient: as we recurse the BKD tree we should check whether the
-comment|// bbox we are recursing into intersects our shape; Apache SIS may have (non-GPL!) code to do this?
 name|DocIdSet
 name|result
 init|=
@@ -1014,7 +999,7 @@ name|BKDTreeReader
 operator|.
 name|Relation
 operator|.
-name|INSIDE
+name|CELL_INSIDE_SHAPE
 return|;
 block|}
 elseif|else
@@ -1051,7 +1036,7 @@ name|BKDTreeReader
 operator|.
 name|Relation
 operator|.
-name|CROSSES
+name|SHAPE_CROSSES_CELL
 return|;
 block|}
 else|else
@@ -1061,7 +1046,7 @@ name|BKDTreeReader
 operator|.
 name|Relation
 operator|.
-name|OUTSIDE
+name|SHAPE_OUTSIDE_CELL
 return|;
 block|}
 block|}
