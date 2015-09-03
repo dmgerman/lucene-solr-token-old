@@ -177,11 +177,11 @@ name|closed
 init|=
 literal|false
 decl_stmt|;
-DECL|field|deleteLock
+DECL|field|updateLock
 specifier|private
 specifier|final
 name|Object
-name|deleteLock
+name|updateLock
 init|=
 operator|new
 name|Object
@@ -194,7 +194,7 @@ name|getUpdateLock
 parameter_list|()
 block|{
 return|return
-name|deleteLock
+name|updateLock
 return|;
 block|}
 DECL|field|solrCoreStateRefCnt
