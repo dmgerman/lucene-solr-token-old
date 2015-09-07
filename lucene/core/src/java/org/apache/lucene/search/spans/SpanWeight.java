@@ -525,11 +525,6 @@ argument_list|)
 operator|.
 name|computeWeight
 argument_list|(
-name|query
-operator|.
-name|getBoost
-argument_list|()
-argument_list|,
 name|collectionStats
 argument_list|,
 name|termStats
@@ -602,7 +597,7 @@ name|float
 name|queryNorm
 parameter_list|,
 name|float
-name|topLevelBoost
+name|boost
 parameter_list|)
 block|{
 if|if
@@ -618,7 +613,7 @@ name|normalize
 argument_list|(
 name|queryNorm
 argument_list|,
-name|topLevelBoost
+name|boost
 argument_list|)
 expr_stmt|;
 block|}

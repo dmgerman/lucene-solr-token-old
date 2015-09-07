@@ -321,9 +321,6 @@ operator|.
 name|getFieldName
 argument_list|()
 argument_list|,
-name|getWeight
-argument_list|()
-argument_list|,
 name|sncf
 operator|.
 name|getBasicQueryFactory
@@ -348,9 +345,6 @@ name|reader
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|float
-name|boost
 parameter_list|,
 name|BasicQueryFactory
 name|qf
@@ -480,9 +474,7 @@ name|qi
 operator|++
 expr_stmt|;
 block|}
-name|SpanNearQuery
-name|r
-init|=
+return|return
 operator|new
 name|SpanNearQuery
 argument_list|(
@@ -496,16 +488,6 @@ argument_list|,
 name|subQueriesOrdered
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|r
-operator|.
-name|setBoost
-argument_list|(
-name|boost
-argument_list|)
-expr_stmt|;
-return|return
-name|r
 return|;
 block|}
 annotation|@

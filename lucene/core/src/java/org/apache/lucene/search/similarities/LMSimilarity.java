@@ -131,9 +131,6 @@ name|newStats
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|float
-name|queryBoost
 parameter_list|)
 block|{
 return|return
@@ -141,8 +138,6 @@ operator|new
 name|LMStats
 argument_list|(
 name|field
-argument_list|,
-name|queryBoost
 argument_list|)
 return|;
 block|}
@@ -333,16 +328,11 @@ name|LMStats
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|float
-name|queryBoost
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|field
-argument_list|,
-name|queryBoost
 argument_list|)
 expr_stmt|;
 block|}

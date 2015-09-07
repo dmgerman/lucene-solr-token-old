@@ -206,32 +206,6 @@ operator|.
 name|Weight
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Bits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ToStringUtils
-import|;
-end_import
 begin_comment
 comment|/**  * Query that sets document score as a programmatic function of several (sub) scores:  *<ol>  *<li>the score of its subQuery (any query)</li>  *<li>(optional) the score of its {@link FunctionQuery} (or queries).</li>  *</ol>  * Subclasses can modify the computation by overriding {@link #getCustomScoreProvider}.  *   * @lucene.experimental  */
 end_comment
@@ -242,6 +216,8 @@ class|class
 name|CustomScoreQuery
 extends|extends
 name|Query
+implements|implements
+name|Cloneable
 block|{
 DECL|field|subQuery
 specifier|private
@@ -504,7 +480,11 @@ parameter_list|()
 block|{
 name|CustomScoreQuery
 name|clone
-init|=
+decl_stmt|;
+try|try
+block|{
+name|clone
+operator|=
 operator|(
 name|CustomScoreQuery
 operator|)
@@ -512,15 +492,28 @@ name|super
 operator|.
 name|clone
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|bogus
+parameter_list|)
+block|{
+comment|// cannot happen
+throw|throw
+operator|new
+name|Error
+argument_list|(
+name|bogus
+argument_list|)
+throw|;
+block|}
 name|clone
 operator|.
 name|subQuery
 operator|=
 name|subQuery
-operator|.
-name|clone
-argument_list|()
 expr_stmt|;
 name|clone
 operator|.
@@ -562,9 +555,6 @@ name|scoringQueries
 index|[
 name|i
 index|]
-operator|.
-name|clone
-argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -659,14 +649,6 @@ name|sb
 operator|.
 name|toString
 argument_list|()
-operator|+
-name|ToStringUtils
-operator|.
-name|boost
-argument_list|(
-name|getBoost
-argument_list|()
-argument_list|)
 return|;
 block|}
 comment|/** Returns true if<code>o</code> is equal to this. */
@@ -703,21 +685,6 @@ condition|)
 return|return
 literal|false
 return|;
-if|if
-condition|(
-name|getClass
-argument_list|()
-operator|!=
-name|o
-operator|.
-name|getClass
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 name|CustomScoreQuery
 name|other
 init|=
@@ -728,16 +695,6 @@ name|o
 decl_stmt|;
 if|if
 condition|(
-name|this
-operator|.
-name|getBoost
-argument_list|()
-operator|!=
-name|other
-operator|.
-name|getBoost
-argument_list|()
-operator|||
 operator|!
 name|this
 operator|.
@@ -817,14 +774,6 @@ argument_list|(
 name|scoringQueries
 argument_list|)
 operator|)
-operator|^
-name|Float
-operator|.
-name|floatToIntBits
-argument_list|(
-name|getBoost
-argument_list|()
-argument_list|)
 operator|^
 operator|(
 name|strict
@@ -1036,17 +985,11 @@ block|{
 if|if
 condition|(
 name|qStrict
+operator|==
+literal|false
 condition|)
 block|{
-name|valSrcWeight
-operator|.
-name|getValueForNormalization
-argument_list|()
-expr_stmt|;
-comment|// do not include ValueSource part in the query normalization
-block|}
-else|else
-block|{
+comment|// otherwise do not include ValueSource part in the query normalization
 name|sum
 operator|+=
 name|valSrcWeight
@@ -1072,10 +1015,10 @@ name|float
 name|norm
 parameter_list|,
 name|float
-name|topLevelBoost
+name|boost
 parameter_list|)
 block|{
-comment|// note we DONT incorporate our boost, nor pass down any topLevelBoost
+comment|// note we DONT incorporate our boost, nor pass down any boost
 comment|// (e.g. from outer BQ), as there is no guarantee that the CustomScoreProvider's
 comment|// function obeys the distributive law... it might call sqrt() on the subQuery score
 comment|// or some other arbitrary function other than multiplication.
@@ -1128,10 +1071,7 @@ block|}
 block|}
 name|queryWeight
 operator|=
-name|topLevelBoost
-operator|*
-name|getBoost
-argument_list|()
+name|boost
 expr_stmt|;
 block|}
 annotation|@

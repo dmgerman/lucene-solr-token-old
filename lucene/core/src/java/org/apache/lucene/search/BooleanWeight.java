@@ -176,6 +176,12 @@ name|float
 name|coords
 index|[]
 decl_stmt|;
+DECL|field|boost
+name|float
+name|boost
+init|=
+literal|1f
+decl_stmt|;
 DECL|method|BooleanWeight
 name|BooleanWeight
 parameter_list|(
@@ -533,15 +539,9 @@ expr_stmt|;
 block|}
 name|sum
 operator|*=
-name|query
-operator|.
-name|getBoost
-argument_list|()
+name|boost
 operator|*
-name|query
-operator|.
-name|getBoost
-argument_list|()
+name|boost
 expr_stmt|;
 comment|// boost each sub-weight
 return|return
@@ -614,17 +614,15 @@ name|float
 name|norm
 parameter_list|,
 name|float
-name|topLevelBoost
+name|boost
 parameter_list|)
 block|{
-name|topLevelBoost
-operator|*=
-name|query
+name|this
 operator|.
-name|getBoost
-argument_list|()
+name|boost
+operator|=
+name|boost
 expr_stmt|;
-comment|// incorporate boost
 for|for
 control|(
 name|Weight
@@ -640,7 +638,7 @@ name|normalize
 argument_list|(
 name|norm
 argument_list|,
-name|topLevelBoost
+name|boost
 argument_list|)
 expr_stmt|;
 block|}

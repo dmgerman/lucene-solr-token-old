@@ -866,6 +866,8 @@ name|getWeightedSpanTerms
 argument_list|(
 name|query
 argument_list|,
+literal|1f
+argument_list|,
 name|tokenStream
 argument_list|,
 name|field
@@ -883,6 +885,8 @@ operator|.
 name|getWeightedSpanTermsWithScores
 argument_list|(
 name|query
+argument_list|,
+literal|1f
 argument_list|,
 name|tokenStream
 argument_list|,

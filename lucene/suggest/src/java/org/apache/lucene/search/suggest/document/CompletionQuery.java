@@ -451,7 +451,12 @@ block|}
 block|}
 block|}
 return|return
-name|this
+name|super
+operator|.
+name|rewrite
+argument_list|(
+name|reader
+argument_list|)
 return|;
 block|}
 annotation|@

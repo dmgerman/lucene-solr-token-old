@@ -930,9 +930,6 @@ specifier|public
 name|SimWeight
 name|computeWeight
 parameter_list|(
-name|float
-name|queryBoost
-parameter_list|,
 name|CollectionStatistics
 name|collectionStats
 parameter_list|,
@@ -946,8 +943,6 @@ name|sim
 operator|.
 name|computeWeight
 argument_list|(
-name|queryBoost
-argument_list|,
 name|collectionStats
 argument_list|,
 name|termStats

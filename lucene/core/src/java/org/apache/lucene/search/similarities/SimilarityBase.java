@@ -222,9 +222,6 @@ specifier|final
 name|SimWeight
 name|computeWeight
 parameter_list|(
-name|float
-name|queryBoost
-parameter_list|,
 name|CollectionStatistics
 name|collectionStats
 parameter_list|,
@@ -273,8 +270,6 @@ name|collectionStats
 operator|.
 name|field
 argument_list|()
-argument_list|,
-name|queryBoost
 argument_list|)
 expr_stmt|;
 name|fillBasicStats
@@ -322,9 +317,6 @@ name|newStats
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|float
-name|queryBoost
 parameter_list|)
 block|{
 return|return
@@ -332,8 +324,6 @@ operator|new
 name|BasicStats
 argument_list|(
 name|field
-argument_list|,
-name|queryBoost
 argument_list|)
 return|;
 block|}

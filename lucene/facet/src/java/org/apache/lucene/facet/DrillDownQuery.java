@@ -132,7 +132,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
+name|BoostQuery
 import|;
 end_import
 begin_import
@@ -175,7 +175,7 @@ name|TermQuery
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link Query} for drill-down over facet categories. You  * should call {@link #add(String, String...)} for every group of categories you  * want to drill-down over.  *<p>  *<b>NOTE:</b> if you choose to create your own {@link Query} by calling  * {@link #term}, it is recommended to wrap it with {@link ConstantScoreQuery}  * and set the {@link ConstantScoreQuery#setBoost(float) boost} to {@code 0.0f},  * so that it does not affect the scores of the documents.  *   * @lucene.experimental  */
+comment|/**  * A {@link Query} for drill-down over facet categories. You  * should call {@link #add(String, String...)} for every group of categories you  * want to drill-down over.  *<p>  *<b>NOTE:</b> if you choose to create your own {@link Query} by calling  * {@link #term}, it is recommended to wrap it in a {@link BoostQuery}  * with a boost of {@code 0.0f},  * so that it does not affect the scores of the documents.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DrillDownQuery

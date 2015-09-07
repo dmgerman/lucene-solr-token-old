@@ -1027,7 +1027,12 @@ name|IOException
 block|{
 comment|// don't rewrite the subQuery
 return|return
-name|this
+name|super
+operator|.
+name|rewrite
+argument_list|(
+name|reader
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -3107,16 +3112,6 @@ name|other
 operator|.
 name|toField
 argument_list|)
-operator|&&
-name|this
-operator|.
-name|getBoost
-argument_list|()
-operator|==
-name|other
-operator|.
-name|getBoost
-argument_list|()
 operator|&&
 name|this
 operator|.
