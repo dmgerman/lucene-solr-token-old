@@ -1039,12 +1039,10 @@ comment|// Find any point on the minX plane that intersects the world
 comment|// First construct a perpendicular plane that will allow us to find a sample point.
 comment|// This plane is vertical and goes through the points (0,0,0) and (1,0,0)
 comment|// Then use it to compute a sample point.
-name|minXEdges
-operator|=
-operator|new
+specifier|final
 name|GeoPoint
-index|[]
-block|{
+name|intPoint
+init|=
 name|minXPlane
 operator|.
 name|getSampleIntersectionPoint
@@ -1053,8 +1051,32 @@ name|planetModel
 argument_list|,
 name|xVerticalPlane
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|intPoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|minXEdges
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|intPoint
 block|}
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// No intersection found?
+name|minXEdges
+operator|=
+name|EMPTY_POINTS
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1116,12 +1138,10 @@ comment|// Find any point on the maxX plane that intersects the world
 comment|// First construct a perpendicular plane that will allow us to find a sample point.
 comment|// This plane is vertical and goes through the points (0,0,0) and (1,0,0)
 comment|// Then use it to compute a sample point.
-name|maxXEdges
-operator|=
-operator|new
+specifier|final
 name|GeoPoint
-index|[]
-block|{
+name|intPoint
+init|=
 name|maxXPlane
 operator|.
 name|getSampleIntersectionPoint
@@ -1130,8 +1150,31 @@ name|planetModel
 argument_list|,
 name|xVerticalPlane
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|intPoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|maxXEdges
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|intPoint
 block|}
 expr_stmt|;
+block|}
+else|else
+block|{
+name|maxXEdges
+operator|=
+name|EMPTY_POINTS
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1193,12 +1236,10 @@ comment|// Find any point on the minY plane that intersects the world
 comment|// First construct a perpendicular plane that will allow us to find a sample point.
 comment|// This plane is vertical and goes through the points (0,0,0) and (0,1,0)
 comment|// Then use it to compute a sample point.
-name|minYEdges
-operator|=
-operator|new
+specifier|final
 name|GeoPoint
-index|[]
-block|{
+name|intPoint
+init|=
 name|minYPlane
 operator|.
 name|getSampleIntersectionPoint
@@ -1207,8 +1248,31 @@ name|planetModel
 argument_list|,
 name|yVerticalPlane
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|intPoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|minYEdges
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|intPoint
 block|}
 expr_stmt|;
+block|}
+else|else
+block|{
+name|minYEdges
+operator|=
+name|EMPTY_POINTS
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1270,12 +1334,10 @@ comment|// Find any point on the maxY plane that intersects the world
 comment|// First construct a perpendicular plane that will allow us to find a sample point.
 comment|// This plane is vertical and goes through the points (0,0,0) and (0,1,0)
 comment|// Then use it to compute a sample point.
-name|maxYEdges
-operator|=
-operator|new
+specifier|final
 name|GeoPoint
-index|[]
-block|{
+name|intPoint
+init|=
 name|maxYPlane
 operator|.
 name|getSampleIntersectionPoint
@@ -1284,8 +1346,31 @@ name|planetModel
 argument_list|,
 name|yVerticalPlane
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|intPoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|maxYEdges
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|intPoint
 block|}
 expr_stmt|;
+block|}
+else|else
+block|{
+name|maxYEdges
+operator|=
+name|EMPTY_POINTS
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1347,12 +1432,10 @@ comment|// Find any point on the minZ plane that intersects the world
 comment|// First construct a perpendicular plane that will allow us to find a sample point.
 comment|// This plane is vertical and goes through the points (0,0,0) and (1,0,0)
 comment|// Then use it to compute a sample point.
-name|minZEdges
-operator|=
-operator|new
+specifier|final
 name|GeoPoint
-index|[]
-block|{
+name|intPoint
+init|=
 name|minZPlane
 operator|.
 name|getSampleIntersectionPoint
@@ -1361,8 +1444,31 @@ name|planetModel
 argument_list|,
 name|xVerticalPlane
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|intPoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|minZEdges
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|intPoint
 block|}
 expr_stmt|;
+block|}
+else|else
+block|{
+name|minZEdges
+operator|=
+name|EMPTY_POINTS
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1424,12 +1530,10 @@ comment|// Find any point on the maxZ plane that intersects the world
 comment|// First construct a perpendicular plane that will allow us to find a sample point.
 comment|// This plane is vertical and goes through the points (0,0,0) and (1,0,0) (that is, its orientation doesn't matter)
 comment|// Then use it to compute a sample point.
-name|maxZEdges
-operator|=
-operator|new
+specifier|final
 name|GeoPoint
-index|[]
-block|{
+name|intPoint
+init|=
 name|maxZPlane
 operator|.
 name|getSampleIntersectionPoint
@@ -1438,8 +1542,31 @@ name|planetModel
 argument_list|,
 name|xVerticalPlane
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|intPoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|maxZEdges
+operator|=
+operator|new
+name|GeoPoint
+index|[]
+block|{
+name|intPoint
 block|}
 expr_stmt|;
+block|}
+else|else
+block|{
+name|maxZEdges
+operator|=
+name|EMPTY_POINTS
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1640,6 +1767,7 @@ return|return
 name|OVERLAPS
 return|;
 block|}
+comment|/*     for (GeoPoint p : getEdgePoints()) {       System.err.println(" Edge point "+p+" path.isWithin()? "+path.isWithin(p));     }          for (GeoPoint p : path.getEdgePoints()) {       System.err.println(" path edge point "+p+" isWithin()? "+isWithin(p)+" minx="+minXPlane.evaluate(p)+" maxx="+maxXPlane.evaluate(p)+" miny="+minYPlane.evaluate(p)+" maxy="+maxYPlane.evaluate(p)+" minz="+minZPlane.evaluate(p)+" maxz="+maxZPlane.evaluate(p));     }     */
 comment|//System.err.println(this+" getrelationship with "+path);
 specifier|final
 name|int
