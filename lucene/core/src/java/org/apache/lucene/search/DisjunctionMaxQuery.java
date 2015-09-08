@@ -336,11 +336,6 @@ specifier|final
 name|boolean
 name|needsScores
 decl_stmt|;
-DECL|field|boost
-specifier|private
-name|float
-name|boost
-decl_stmt|;
 comment|/** Construct the Weight for this Query searched by searcher.  Recursively construct subquery weights. */
 DECL|method|DisjunctionMaxWeight
 specifier|public
@@ -390,12 +385,6 @@ operator|.
 name|needsScores
 operator|=
 name|needsScores
-expr_stmt|;
-name|this
-operator|.
-name|boost
-operator|=
-literal|1f
 expr_stmt|;
 block|}
 annotation|@
@@ -497,10 +486,6 @@ operator|)
 operator|+
 name|max
 operator|)
-operator|*
-name|boost
-operator|*
-name|boost
 return|;
 block|}
 comment|/** Apply the computed normalization factor to our subqueries */
@@ -518,12 +503,6 @@ name|float
 name|boost
 parameter_list|)
 block|{
-name|this
-operator|.
-name|boost
-operator|=
-name|boost
-expr_stmt|;
 for|for
 control|(
 name|Weight
