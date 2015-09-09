@@ -357,7 +357,7 @@ return|return
 literal|1
 return|;
 block|}
-comment|/** Implemented as<code>log(docCount/(docFreq+1)) + 1</code>. */
+comment|/** Implemented as<code>log((docCount+1)/(docFreq+1)) + 1</code>. */
 annotation|@
 name|Override
 DECL|method|idf
@@ -381,7 +381,11 @@ name|Math
 operator|.
 name|log
 argument_list|(
+operator|(
 name|docCount
+operator|+
+literal|1
+operator|)
 operator|/
 call|(
 name|double
