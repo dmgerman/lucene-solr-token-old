@@ -138,6 +138,15 @@ name|NUM_DOCS_PER_TYPE
 init|=
 literal|20
 decl_stmt|;
+DECL|field|sleep
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|sleep
+init|=
+literal|"2"
+decl_stmt|;
 DECL|method|CloudExitableDirectoryReaderTest
 specifier|public
 name|CloudExitableDirectoryReaderTest
@@ -345,6 +354,10 @@ argument_list|,
 literal|"timeAllowed"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|"sleep"
+argument_list|,
+name|sleep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -399,6 +412,10 @@ argument_list|,
 literal|"timeAllowed"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|"sleep"
+argument_list|,
+name|sleep
 argument_list|)
 argument_list|)
 expr_stmt|;
