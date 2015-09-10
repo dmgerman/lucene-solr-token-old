@@ -143,7 +143,7 @@ name|lucene
 operator|.
 name|geo3d
 operator|.
-name|GeoCircle
+name|GeoStandardCircle
 import|;
 end_import
 begin_import
@@ -896,7 +896,7 @@ argument_list|,
 literal|"field"
 argument_list|,
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1105,7 +1105,7 @@ argument_list|,
 literal|"field"
 argument_list|,
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -5451,7 +5451,7 @@ try|try
 block|{
 return|return
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|planetModel
 argument_list|,

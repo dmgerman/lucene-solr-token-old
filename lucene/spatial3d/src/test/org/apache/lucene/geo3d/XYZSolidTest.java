@@ -88,7 +88,7 @@ comment|// Any shape, except whole world, should be within.
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -171,7 +171,7 @@ comment|// Some things should be disjoint...
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -202,7 +202,7 @@ comment|// And, some things should be within...
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -235,7 +235,7 @@ comment|// And, some things should overlap.
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -321,7 +321,7 @@ comment|// All shapes should be disjoint
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -418,7 +418,7 @@ comment|// Any shape, except whole world, should be within.
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -499,7 +499,7 @@ comment|// disjoint with everything?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -578,7 +578,7 @@ comment|// inside everything that it touches?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -632,7 +632,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -690,7 +690,7 @@ comment|// disjoint with everything?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -770,7 +770,7 @@ comment|// inside everything that it touches?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -824,7 +824,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -858,7 +858,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -919,7 +919,7 @@ comment|// inside everything that it touches?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -973,7 +973,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1007,7 +1007,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1068,7 +1068,7 @@ comment|// disjoint with everything?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1148,7 +1148,7 @@ comment|// inside everything that it touches?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1202,7 +1202,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1236,7 +1236,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1297,7 +1297,7 @@ comment|// inside everything that it touches?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1351,7 +1351,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1385,7 +1385,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1448,7 +1448,7 @@ comment|// disjoint with everything?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1528,7 +1528,7 @@ comment|// disjoint with everything?
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1633,7 +1633,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1663,7 +1663,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1695,7 +1695,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1729,7 +1729,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1764,7 +1764,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1798,7 +1798,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1883,7 +1883,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1913,7 +1913,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1945,7 +1945,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1979,7 +1979,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2014,7 +2014,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2048,7 +2048,7 @@ expr_stmt|;
 name|shape
 operator|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.

@@ -240,7 +240,7 @@ name|lucene
 operator|.
 name|geo3d
 operator|.
-name|GeoCircle
+name|GeoStandardCircle
 import|;
 end_import
 begin_import
@@ -1262,7 +1262,7 @@ name|GeoShape
 name|shape
 init|=
 operator|new
-name|GeoCircle
+name|GeoStandardCircle
 argument_list|(
 name|PlanetModel
 operator|.
