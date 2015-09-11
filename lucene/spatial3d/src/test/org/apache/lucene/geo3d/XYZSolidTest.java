@@ -62,7 +62,7 @@ comment|// Something bigger than the world
 name|s
 operator|=
 operator|new
-name|XYZSolid
+name|StandardXYZSolid
 argument_list|(
 name|PlanetModel
 operator|.
@@ -145,7 +145,7 @@ comment|// Something overlapping the world on only one side
 name|s
 operator|=
 operator|new
-name|XYZSolid
+name|StandardXYZSolid
 argument_list|(
 name|PlanetModel
 operator|.
@@ -295,7 +295,7 @@ comment|// Something inside the world
 name|s
 operator|=
 operator|new
-name|XYZSolid
+name|StandardXYZSolid
 argument_list|(
 name|PlanetModel
 operator|.
