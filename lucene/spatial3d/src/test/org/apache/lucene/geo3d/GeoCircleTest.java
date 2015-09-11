@@ -93,8 +93,9 @@ name|gp
 decl_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -337,8 +338,9 @@ name|gp
 decl_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -562,8 +564,9 @@ name|gp
 decl_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -817,8 +820,9 @@ decl_stmt|;
 comment|// ...
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -933,8 +937,9 @@ expr_stmt|;
 comment|// Twelfth BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1104,8 +1109,9 @@ expr_stmt|;
 comment|// Eleventh BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1204,8 +1210,9 @@ expr_stmt|;
 comment|// Tenth BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1304,8 +1311,9 @@ expr_stmt|;
 comment|// Ninth BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1406,8 +1414,9 @@ expr_stmt|;
 comment|// Eighth BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1505,8 +1514,9 @@ expr_stmt|;
 comment|// Seventh BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1605,8 +1615,9 @@ expr_stmt|;
 comment|// Sixth BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1667,8 +1678,9 @@ comment|/*     p1 = new GeoPoint(1.0010893045436076,0.007380935180644008,-0.0021
 comment|// Fifth BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1785,8 +1797,9 @@ expr_stmt|;
 comment|// Fourth BKD discovered failure
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -1884,8 +1897,9 @@ expr_stmt|;
 comment|// Yet another test case from BKD
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2036,8 +2050,9 @@ expr_stmt|;
 comment|// Another test case from BKD
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2135,8 +2150,9 @@ expr_stmt|;
 comment|// Test case from BKD
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2253,8 +2269,9 @@ expr_stmt|;
 comment|// Vertical circle cases
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2358,8 +2375,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2460,8 +2478,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2563,8 +2582,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2677,8 +2697,9 @@ expr_stmt|;
 comment|// Horizontal circle cases
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2752,8 +2773,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2830,8 +2852,9 @@ expr_stmt|;
 comment|// Now do a somewhat tilted plane, facing different directions.
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -2933,8 +2956,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -3046,8 +3070,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -3164,8 +3189,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -3286,8 +3312,9 @@ expr_stmt|;
 comment|// Slightly tilted, PI/4 direction.
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -3404,8 +3431,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -3525,8 +3553,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -3644,8 +3673,9 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
@@ -3767,8 +3797,9 @@ expr_stmt|;
 comment|// Now do a somewhat tilted plane.
 name|c
 operator|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
