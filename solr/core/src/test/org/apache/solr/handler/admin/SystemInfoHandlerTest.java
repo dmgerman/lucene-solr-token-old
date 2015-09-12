@@ -154,6 +154,10 @@ name|addGetterIfAvaliable
 argument_list|(
 name|os
 argument_list|,
+name|OperatingSystemMXBean
+operator|.
+name|class
+argument_list|,
 literal|"name"
 argument_list|,
 name|info2
@@ -165,6 +169,10 @@ name|addGetterIfAvaliable
 argument_list|(
 name|os
 argument_list|,
+name|OperatingSystemMXBean
+operator|.
+name|class
+argument_list|,
 literal|"version"
 argument_list|,
 name|info2
@@ -175,6 +183,10 @@ operator|.
 name|addGetterIfAvaliable
 argument_list|(
 name|os
+argument_list|,
+name|OperatingSystemMXBean
+operator|.
+name|class
 argument_list|,
 literal|"arch"
 argument_list|,
