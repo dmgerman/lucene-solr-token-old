@@ -1007,7 +1007,7 @@ literal|"*:*"
 argument_list|,
 literal|"wt"
 argument_list|,
-literal|"velocityWithCustomTools"
+literal|"velocity"
 argument_list|,
 name|VelocityResponseWriter
 operator|.
