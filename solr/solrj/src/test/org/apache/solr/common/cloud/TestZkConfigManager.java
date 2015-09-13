@@ -286,6 +286,10 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+name|zkServer
+operator|=
+literal|null
+expr_stmt|;
 block|}
 annotation|@
 name|Test

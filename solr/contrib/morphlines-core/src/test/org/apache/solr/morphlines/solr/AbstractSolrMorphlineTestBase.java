@@ -722,6 +722,10 @@ name|savedLocale
 argument_list|)
 expr_stmt|;
 block|}
+name|savedLocale
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|myInitCore
 specifier|protected
