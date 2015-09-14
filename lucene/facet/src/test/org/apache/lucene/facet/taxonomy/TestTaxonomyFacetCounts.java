@@ -420,7 +420,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -1849,7 +1849,7 @@ name|Similarity
 name|sim
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 annotation|@

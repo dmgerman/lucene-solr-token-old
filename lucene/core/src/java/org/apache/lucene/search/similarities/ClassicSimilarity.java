@@ -59,10 +59,10 @@ begin_comment
 comment|/**  * Expert: Default scoring implementation which {@link #encodeNormValue(float)  * encodes} norm values as a single byte before being stored. At search time,  * the norm byte value is read from the index  * {@link org.apache.lucene.store.Directory directory} and  * {@link #decodeNormValue(long) decoded} back to a float<i>norm</i> value.  * This encoding/decoding, while reducing index size, comes with the price of  * precision loss - it is not guaranteed that<i>decode(encode(x)) = x</i>. For  * instance,<i>decode(encode(0.89)) = 0.875</i>.  *<p>  * Compression of norm values to a single byte saves memory at search time,  * because once a field is referenced at search time, its norms - for all  * documents - are maintained in memory.  *<p>  * The rationale supporting such lossy compression of norm values is that given  * the difficulty (and inaccuracy) of users to express their true information  * need by a query, only big differences matter.<br>  *&nbsp;<br>  * Last, note that search time is too late to modify this<i>norm</i> part of  * scoring, e.g. by using a different {@link Similarity} for search.  */
 end_comment
 begin_class
-DECL|class|DefaultSimilarity
+DECL|class|ClassicSimilarity
 specifier|public
 class|class
-name|DefaultSimilarity
+name|ClassicSimilarity
 extends|extends
 name|TFIDFSimilarity
 block|{
@@ -116,9 +116,9 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Sole constructor: parameter-free */
-DECL|method|DefaultSimilarity
+DECL|method|ClassicSimilarity
 specifier|public
-name|DefaultSimilarity
+name|ClassicSimilarity
 parameter_list|()
 block|{}
 comment|/** Implemented as<code>overlap / maxOverlap</code>. */
@@ -444,7 +444,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"DefaultSimilarity"
+literal|"ClassicSimilarity"
 return|;
 block|}
 block|}

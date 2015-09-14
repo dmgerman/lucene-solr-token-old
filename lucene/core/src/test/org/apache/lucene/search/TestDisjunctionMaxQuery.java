@@ -270,7 +270,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -372,7 +372,7 @@ specifier|static
 class|class
 name|TestSimilarity
 extends|extends
-name|DefaultSimilarity
+name|ClassicSimilarity
 block|{
 DECL|method|TestSimilarity
 specifier|public

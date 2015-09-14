@@ -126,7 +126,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -185,7 +185,7 @@ specifier|static
 class|class
 name|SimpleSimilarity
 extends|extends
-name|DefaultSimilarity
+name|ClassicSimilarity
 block|{
 annotation|@
 name|Override

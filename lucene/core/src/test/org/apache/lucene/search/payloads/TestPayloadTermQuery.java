@@ -286,7 +286,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -1836,7 +1836,7 @@ specifier|static
 class|class
 name|BoostingSimilarity
 extends|extends
-name|DefaultSimilarity
+name|ClassicSimilarity
 block|{
 annotation|@
 name|Override
@@ -1985,7 +1985,7 @@ specifier|static
 class|class
 name|FullSimilarity
 extends|extends
-name|DefaultSimilarity
+name|ClassicSimilarity
 block|{
 DECL|method|scorePayload
 specifier|public

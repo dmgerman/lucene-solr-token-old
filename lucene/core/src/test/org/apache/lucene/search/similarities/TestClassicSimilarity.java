@@ -260,10 +260,10 @@ name|LuceneTestCase
 import|;
 end_import
 begin_class
-DECL|class|TestDefaultSimilarity
+DECL|class|TestClassicSimilarity
 specifier|public
 class|class
-name|TestDefaultSimilarity
+name|TestClassicSimilarity
 extends|extends
 name|LuceneTestCase
 block|{
@@ -375,7 +375,7 @@ operator|.
 name|setSimilarity
 argument_list|(
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -414,11 +414,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|sim
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 name|float

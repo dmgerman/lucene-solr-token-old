@@ -41,7 +41,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -120,11 +120,11 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// SSS tf w/defaults should behave just like DS
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|d
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 for|for
@@ -237,11 +237,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|d
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 comment|// constant up to 6

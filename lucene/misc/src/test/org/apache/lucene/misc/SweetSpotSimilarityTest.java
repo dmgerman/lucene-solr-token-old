@@ -26,7 +26,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -197,7 +197,7 @@ name|Similarity
 name|d
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 name|Similarity
@@ -1077,7 +1077,7 @@ name|TFIDFSimilarity
 name|d
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 name|TFIDFSimilarity

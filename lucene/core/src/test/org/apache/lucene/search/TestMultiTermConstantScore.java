@@ -156,7 +156,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -1586,7 +1586,7 @@ operator|.
 name|setSimilarity
 argument_list|(
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 argument_list|)
 expr_stmt|;

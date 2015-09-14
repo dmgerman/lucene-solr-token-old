@@ -28,7 +28,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -104,7 +104,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|DefaultSimilarity
+name|ClassicSimilarity
 operator|.
 name|class
 argument_list|,
@@ -120,7 +120,7 @@ literal|true
 argument_list|,
 operator|(
 operator|(
-name|DefaultSimilarity
+name|ClassicSimilarity
 operator|)
 name|sim
 operator|)
@@ -149,7 +149,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|DefaultSimilarity
+name|ClassicSimilarity
 operator|.
 name|class
 argument_list|,
@@ -165,7 +165,7 @@ literal|false
 argument_list|,
 operator|(
 operator|(
-name|DefaultSimilarity
+name|ClassicSimilarity
 operator|)
 name|sim
 operator|)

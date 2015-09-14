@@ -28,7 +28,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -131,7 +131,7 @@ name|SolrCoreAware
 import|;
 end_import
 begin_comment
-comment|/**  * SimilarityFactory that returns a {@link PerFieldSimilarityWrapper}  * that delegates to the field type, if it's configured, otherwise  * {@link DefaultSimilarity}.  *  *<p>  *<b>NOTE:</b> Users should be aware that in addition to supporting   *<code>Similarity</code> configurations specified on individual   * field types, this factory also differs in behavior from   * {@link DefaultSimilarityFactory} because of other differences in the   * implementations of<code>PerFieldSimilarityWrapper</code> and   *<code>DefaultSimilarity</code> - notably in methods such as   * {@link Similarity#coord} and {@link Similarity#queryNorm}.    *</p>  *  * @see FieldType#getSimilarity  */
+comment|/**  * SimilarityFactory that returns a {@link PerFieldSimilarityWrapper}  * that delegates to the field type, if it's configured, otherwise  * {@link ClassicSimilarity}.  *  *<p>  *<b>NOTE:</b> Users should be aware that in addition to supporting   *<code>Similarity</code> configurations specified on individual   * field types, this factory also differs in behavior from   * {@link DefaultSimilarityFactory} because of other differences in the   * implementations of<code>PerFieldSimilarityWrapper</code> and   *<code>DefaultSimilarity</code> - notably in methods such as   * {@link Similarity#coord} and {@link Similarity#queryNorm}.    *</p>  *  * @see FieldType#getSimilarity  */
 end_comment
 begin_class
 DECL|class|SchemaSimilarityFactory
@@ -154,7 +154,7 @@ name|Similarity
 name|defaultSimilarity
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 DECL|field|core

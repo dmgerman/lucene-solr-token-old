@@ -3241,11 +3241,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|expected
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 name|SimilarityBase

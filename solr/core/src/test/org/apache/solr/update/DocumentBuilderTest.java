@@ -100,7 +100,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -2511,7 +2511,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"similarity doesn't extend DefaultSimilarity, "
+literal|"similarity doesn't extend ClassicSimilarity, "
 operator|+
 literal|"config or defaults have changed since test was written"
 argument_list|,
@@ -2522,14 +2522,14 @@ argument_list|(
 literal|true
 argument_list|)
 operator|instanceof
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|)
 expr_stmt|;
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|sim
 init|=
 operator|(
-name|DefaultSimilarity
+name|ClassicSimilarity
 operator|)
 name|searcher
 operator|.
@@ -2657,7 +2657,7 @@ name|byte
 name|expectedNorm
 parameter_list|(
 specifier|final
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|sim
 parameter_list|,
 specifier|final

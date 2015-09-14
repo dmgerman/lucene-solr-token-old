@@ -174,7 +174,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 begin_import
@@ -255,7 +255,7 @@ specifier|final
 class|class
 name|MySimilarity
 extends|extends
-name|DefaultSimilarity
+name|ClassicSimilarity
 block|{
 comment|// Does not implement anything - used only for type checking on IndexWriterConfig.
 block|}
