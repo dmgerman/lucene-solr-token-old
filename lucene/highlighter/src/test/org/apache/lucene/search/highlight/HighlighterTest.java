@@ -849,7 +849,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|queries
 operator|.
 name|payloads
 operator|.
