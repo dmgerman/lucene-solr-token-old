@@ -3885,7 +3885,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-break|break;
+continue|continue;
 case|case
 name|GeoArea
 operator|.
