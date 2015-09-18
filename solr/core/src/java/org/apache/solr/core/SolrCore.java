@@ -13009,7 +13009,7 @@ operator|.
 name|currentThread
 argument_list|()
 operator|.
-name|isInterrupted
+name|interrupt
 argument_list|()
 expr_stmt|;
 block|}
