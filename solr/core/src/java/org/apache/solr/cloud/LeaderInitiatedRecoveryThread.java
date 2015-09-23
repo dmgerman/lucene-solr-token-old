@@ -210,6 +210,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|solr
+operator|.
+name|core
+operator|.
+name|CoreDescriptor
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|zookeeper
 operator|.
 name|KeeperException
@@ -333,10 +346,10 @@ specifier|protected
 name|int
 name|maxTries
 decl_stmt|;
-DECL|field|leaderCoreNodeName
-specifier|protected
-name|String
-name|leaderCoreNodeName
+DECL|field|leaderCd
+specifier|private
+name|CoreDescriptor
+name|leaderCd
 decl_stmt|;
 DECL|method|LeaderInitiatedRecoveryThread
 specifier|public
@@ -360,8 +373,8 @@ parameter_list|,
 name|int
 name|maxTries
 parameter_list|,
-name|String
-name|leaderCoreNodeName
+name|CoreDescriptor
+name|leaderCd
 parameter_list|)
 block|{
 name|super
@@ -412,9 +425,9 @@ name|maxTries
 expr_stmt|;
 name|this
 operator|.
-name|leaderCoreNodeName
+name|leaderCd
 operator|=
-name|leaderCoreNodeName
+name|leaderCd
 expr_stmt|;
 name|setDaemon
 argument_list|(
@@ -953,7 +966,7 @@ name|State
 operator|.
 name|DOWN
 argument_list|,
-name|leaderCoreNodeName
+name|leaderCd
 argument_list|,
 literal|true
 argument_list|)
@@ -1397,6 +1410,17 @@ literal|false
 expr_stmt|;
 break|break;
 block|}
+name|String
+name|leaderCoreNodeName
+init|=
+name|leaderCd
+operator|.
+name|getCloudDescriptor
+argument_list|()
+operator|.
+name|getCoreNodeName
+argument_list|()
+decl_stmt|;
 comment|// stop trying if I'm no longer the leader
 if|if
 condition|(
@@ -1510,6 +1534,47 @@ literal|false
 expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
+operator|!
+name|leaderCd
+operator|.
+name|getCloudDescriptor
+argument_list|()
+operator|.
+name|isLeader
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Stop trying to send recovery command to downed replica core="
+operator|+
+name|coreNeedingRecovery
+operator|+
+literal|",coreNodeName="
+operator|+
+name|replicaCoreNodeName
+operator|+
+literal|" on "
+operator|+
+name|replicaNodeName
+operator|+
+literal|" because "
+operator|+
+name|leaderCoreNodeName
+operator|+
+literal|" is no longer the leader!"
+argument_list|)
+expr_stmt|;
+name|continueTrying
+operator|=
+literal|false
+expr_stmt|;
+break|break;
+block|}
 block|}
 comment|// additional safeguard against the replica trying to be in the active state
 comment|// before acknowledging the leader initiated recovery command
@@ -1614,7 +1679,7 @@ block|}
 else|else
 block|{
 name|String
-name|leaderCoreNodeName
+name|lcnn
 init|=
 name|zkStateReader
 operator|.
@@ -1644,7 +1709,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|leaderCoreNodeName
+name|lcnn
 argument_list|)
 decl_stmt|;
 if|if

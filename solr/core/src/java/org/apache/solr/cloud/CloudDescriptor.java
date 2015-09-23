@@ -182,6 +182,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|field|isLeader
+specifier|private
 specifier|volatile
 name|boolean
 name|isLeader

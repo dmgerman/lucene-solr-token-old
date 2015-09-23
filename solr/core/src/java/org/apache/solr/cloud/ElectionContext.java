@@ -2725,7 +2725,10 @@ name|shardId
 argument_list|,
 name|coreNodeProps
 argument_list|,
-name|coreNodeName
+name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
 argument_list|,
 literal|false
 comment|/* forcePublishState */
