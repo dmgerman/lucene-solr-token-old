@@ -7123,7 +7123,7 @@ name|lastJetty
 operator|.
 name|url
 operator|+
-literal|"lastClient"
+literal|" (previous client)"
 operator|+
 literal|" and got "
 operator|+
