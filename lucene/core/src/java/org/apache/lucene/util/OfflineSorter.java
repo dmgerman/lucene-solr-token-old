@@ -185,6 +185,12 @@ specifier|final
 class|class
 name|OfflineSorter
 block|{
+DECL|field|DEFAULT_TEMP_DIR
+specifier|private
+specifier|static
+name|Path
+name|DEFAULT_TEMP_DIR
+decl_stmt|;
 comment|/** Convenience constant for megabytes */
 DECL|field|MB
 specifier|public
@@ -678,7 +684,7 @@ operator|.
 name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 decl_stmt|;
-comment|/**    * Defaults constructor.    *     * @see #defaultTempDir()    * @see BufferSize#automatic()    */
+comment|/**    * Defaults constructor.    *     * @see #getDefaultTempDir()    * @see BufferSize#automatic()    */
 DECL|method|OfflineSorter
 specifier|public
 name|OfflineSorter
@@ -695,14 +701,14 @@ operator|.
 name|automatic
 argument_list|()
 argument_list|,
-name|defaultTempDir
+name|getDefaultTempDir
 argument_list|()
 argument_list|,
 name|MAX_TEMPFILES
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Defaults constructor with a custom comparator.    *     * @see #defaultTempDir()    * @see BufferSize#automatic()    */
+comment|/**    * Defaults constructor with a custom comparator.    *     * @see #getDefaultTempDir()    * @see BufferSize#automatic()    */
 DECL|method|OfflineSorter
 specifier|public
 name|OfflineSorter
@@ -725,7 +731,7 @@ operator|.
 name|automatic
 argument_list|()
 argument_list|,
-name|defaultTempDir
+name|getDefaultTempDir
 argument_list|()
 argument_list|,
 name|MAX_TEMPFILES
@@ -846,13 +852,9 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 expr_stmt|;
-name|Files
-operator|.
-name|deleteIfExists
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
+comment|// NOTE: don't remove output here: its existence (often created by the caller
+comment|// up above using Files.createTempFile) prevents another concurrent caller
+comment|// of this API (from a different thread) from incorrectly re-using this file name
 name|ArrayList
 argument_list|<
 name|Path
@@ -1027,6 +1029,7 @@ if|if
 condition|(
 name|success
 condition|)
+block|{
 name|IOUtils
 operator|.
 name|close
@@ -1034,7 +1037,9 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|IOUtils
 operator|.
 name|closeWhileHandlingException
@@ -1042,6 +1047,7 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// One partition, try to rename or copy if unsuccessful.
 if|if
@@ -1054,52 +1060,24 @@ operator|==
 literal|1
 condition|)
 block|{
-name|Path
-name|single
-init|=
+name|Files
+operator|.
+name|move
+argument_list|(
 name|merges
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
-decl_stmt|;
-comment|// If simple rename doesn't work this means the output is
-comment|// on a different volume or something. Copy the input then.
-try|try
-block|{
-name|Files
-operator|.
-name|move
-argument_list|(
-name|single
 argument_list|,
 name|output
 argument_list|,
 name|StandardCopyOption
 operator|.
-name|ATOMIC_MOVE
+name|REPLACE_EXISTING
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-decl||
-name|UnsupportedOperationException
-name|e
-parameter_list|)
-block|{
-name|Files
-operator|.
-name|copy
-argument_list|(
-name|single
-argument_list|,
-name|output
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -1169,16 +1147,40 @@ return|return
 name|sortInfo
 return|;
 block|}
+comment|/** Used by test framework */
+DECL|method|setDefaultTempDir
+specifier|static
+name|void
+name|setDefaultTempDir
+parameter_list|(
+name|Path
+name|tempDir
+parameter_list|)
+block|{
+name|DEFAULT_TEMP_DIR
+operator|=
+name|tempDir
+expr_stmt|;
+block|}
 comment|/**    * Returns the default temporary directory. By default, java.io.tmpdir. If not accessible    * or not available, an IOException is thrown    */
-DECL|method|defaultTempDir
+DECL|method|getDefaultTempDir
 specifier|public
+specifier|synchronized
 specifier|static
 name|Path
-name|defaultTempDir
+name|getDefaultTempDir
 parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|DEFAULT_TEMP_DIR
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Lazy init
 name|String
 name|tempDirPath
 init|=
@@ -1195,6 +1197,7 @@ name|tempDirPath
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1202,6 +1205,7 @@ argument_list|(
 literal|"Java has no temporary folder property (java.io.tmpdir)?"
 argument_list|)
 throw|;
+block|}
 name|Path
 name|tempDirectory
 init|=
@@ -1214,13 +1218,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|Files
 operator|.
 name|isWritable
 argument_list|(
 name|tempDirectory
 argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -1236,8 +1241,13 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-return|return
+name|DEFAULT_TEMP_DIR
+operator|=
 name|tempDirectory
+expr_stmt|;
+block|}
+return|return
+name|DEFAULT_TEMP_DIR
 return|;
 block|}
 comment|/** Sort a single partition in-memory. */

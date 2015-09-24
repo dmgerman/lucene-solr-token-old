@@ -793,7 +793,7 @@ name|directory
 init|=
 name|OfflineSorter
 operator|.
-name|defaultTempDir
+name|getDefaultTempDir
 argument_list|()
 decl_stmt|;
 name|tempInput

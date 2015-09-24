@@ -182,7 +182,7 @@ name|createTempFile
 argument_list|(
 name|OfflineSorter
 operator|.
-name|defaultTempDir
+name|getDefaultTempDir
 argument_list|()
 argument_list|,
 literal|"RefSorter-"
@@ -263,7 +263,7 @@ name|createTempFile
 argument_list|(
 name|OfflineSorter
 operator|.
-name|defaultTempDir
+name|getDefaultTempDir
 argument_list|()
 argument_list|,
 literal|"RefSorter-"
