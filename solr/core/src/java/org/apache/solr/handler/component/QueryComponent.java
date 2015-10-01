@@ -1908,7 +1908,7 @@ if|if
 condition|(
 name|rb
 operator|.
-name|getQueryCommand
+name|getSortSpec
 argument_list|()
 operator|.
 name|getOffset
@@ -1989,16 +1989,6 @@ argument_list|)
 throw|;
 block|}
 name|SolrIndexSearcher
-operator|.
-name|QueryCommand
-name|cmd
-init|=
-name|rb
-operator|.
-name|getQueryCommand
-argument_list|()
-decl_stmt|;
-name|SolrIndexSearcher
 name|searcher
 init|=
 name|rb
@@ -2022,6 +2012,15 @@ argument_list|(
 name|groupingSpec
 argument_list|)
 expr_stmt|;
+specifier|final
+name|SortSpec
+name|sortSpec
+init|=
+name|rb
+operator|.
+name|getSortSpec
+argument_list|()
+decl_stmt|;
 comment|//TODO: move weighting of sort
 name|Sort
 name|groupSort
@@ -2030,7 +2029,7 @@ name|searcher
 operator|.
 name|weightSort
 argument_list|(
-name|cmd
+name|sortSpec
 operator|.
 name|getSort
 argument_list|()
@@ -2276,10 +2275,7 @@ name|groupingSpec
 operator|.
 name|setOffset
 argument_list|(
-name|rb
-operator|.
-name|getSortSpec
-argument_list|()
+name|sortSpec
 operator|.
 name|getOffset
 argument_list|()
@@ -2289,10 +2285,7 @@ name|groupingSpec
 operator|.
 name|setLimit
 argument_list|(
-name|rb
-operator|.
-name|getSortSpec
-argument_list|()
+name|sortSpec
 operator|.
 name|getCount
 argument_list|()
@@ -2335,9 +2328,9 @@ operator|.
 name|setNeedScore
 argument_list|(
 operator|(
-name|cmd
+name|rb
 operator|.
-name|getFlags
+name|getFieldFlags
 argument_list|()
 operator|&
 name|SolrIndexSearcher
