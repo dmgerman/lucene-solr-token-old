@@ -46,6 +46,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestRuleLimitSysouts
+operator|.
+name|Limit
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|client
@@ -173,6 +188,13 @@ begin_comment
 comment|/**  * A few tests for parsing Solr response in QueryResponse  *   * @since solr 1.3  */
 end_comment
 begin_class
+annotation|@
+name|Limit
+argument_list|(
+name|bytes
+operator|=
+literal|20000
+argument_list|)
 DECL|class|QueryResponseTest
 specifier|public
 class|class
