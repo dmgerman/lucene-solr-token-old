@@ -1905,7 +1905,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"OverseerCollectionMessageHandler.processMessage : "
 operator|+
