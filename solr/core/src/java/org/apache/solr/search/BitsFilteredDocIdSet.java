@@ -1,12 +1,12 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.apache.solr.search
 package|package
 name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|solr
 operator|.
 name|search
 package|;
@@ -31,13 +31,26 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|DocIdSet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Bits
 import|;
 end_import
 begin_comment
-comment|/**  * This implementation supplies a filtered DocIdSet, that excludes all  * docids which are not in a Bits instance. This is especially useful in  * {@link org.apache.lucene.search.Filter} to apply the {@code acceptDocs}  * passed to {@code getDocIdSet()} before returning the final DocIdSet.  *  * @see DocIdSet  * @see org.apache.lucene.search.Filter  */
+comment|/**  * This implementation supplies a filtered DocIdSet, that excludes all  * docids which are not in a Bits instance. This is especially useful in  * {@link org.apache.solr.search.Filter} to apply the {@code acceptDocs}  * passed to {@code getDocIdSet()} before returning the final DocIdSet.  *  * @see DocIdSet  * @see org.apache.solr.search.Filter  */
 end_comment
 begin_class
 DECL|class|BitsFilteredDocIdSet

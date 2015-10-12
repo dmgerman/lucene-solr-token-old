@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Abstract decorator class of a DocIdSetIterator  * implementation that provides on-demand filter/validation  * mechanism on an underlying DocIdSetIterator.  See {@link  * FilteredDocIdSet}.  */
+comment|/**  * Abstract decorator class of a DocIdSetIterator  * implementation that provides on-demand filter/validation  * mechanism on an underlying DocIdSetIterator.  */
 end_comment
 begin_class
 DECL|class|FilteredDocIdSetIterator

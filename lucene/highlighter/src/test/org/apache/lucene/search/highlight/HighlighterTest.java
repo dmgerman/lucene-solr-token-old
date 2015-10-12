@@ -681,19 +681,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryWrapperFilter
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|RegexpQuery
 import|;
 end_import
@@ -4271,9 +4258,6 @@ operator|new
 name|QueryBitSetProducer
 argument_list|(
 operator|new
-name|QueryWrapperFilter
-argument_list|(
-operator|new
 name|TermQuery
 argument_list|(
 operator|new
@@ -4282,7 +4266,6 @@ argument_list|(
 name|FIELD_NAME
 argument_list|,
 literal|"parent"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4444,9 +4427,6 @@ operator|new
 name|QueryBitSetProducer
 argument_list|(
 operator|new
-name|QueryWrapperFilter
-argument_list|(
-operator|new
 name|TermQuery
 argument_list|(
 operator|new
@@ -4455,7 +4435,6 @@ argument_list|(
 name|FIELD_NAME
 argument_list|,
 literal|"parent"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6434,9 +6413,6 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|QueryWrapperFilter
-argument_list|(
-operator|new
 name|TermQuery
 argument_list|(
 operator|new
@@ -6445,7 +6421,6 @@ argument_list|(
 name|FIELD_NAME
 argument_list|,
 literal|"kennedy"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
