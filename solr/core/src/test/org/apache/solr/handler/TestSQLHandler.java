@@ -372,7 +372,7 @@ expr_stmt|;
 name|testBasicSelect
 argument_list|()
 expr_stmt|;
-name|testStringLiteralFields
+name|testMixedCaseFields
 argument_list|()
 expr_stmt|;
 name|testBasicGrouping
@@ -1339,7 +1339,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select 'id', field_i, str_s from collection1 where 'text'='XXXX' order by field_i desc"
 argument_list|)
@@ -1788,7 +1788,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select id, field_i, str_s from collection1 where text='XXXX' order by field_i desc limit 1"
 argument_list|)
@@ -1891,7 +1891,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select id, field_i, str_s from collection1 where text='XXXX' AND id='(1 2 3)' order by field_i desc"
 argument_list|)
@@ -2077,10 +2077,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testStringLiteralFields
+DECL|method|testMixedCaseFields
 specifier|private
 name|void
-name|testStringLiteralFields
+name|testMixedCaseFields
 parameter_list|()
 throws|throws
 name|Exception
@@ -2119,7 +2119,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -2141,7 +2141,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -2163,7 +2163,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -2185,7 +2185,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -2207,7 +2207,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"c"
 argument_list|,
@@ -2229,7 +2229,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"c"
 argument_list|,
@@ -2251,7 +2251,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"c"
 argument_list|,
@@ -2273,7 +2273,7 @@ literal|"Text_t"
 argument_list|,
 literal|"XXXX XXXX"
 argument_list|,
-literal|"str_s"
+literal|"Str_s"
 argument_list|,
 literal|"c"
 argument_list|,
@@ -2308,9 +2308,9 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
-literal|"select id, 'Field_i', str_s from Collection1 where 'Text_t'='XXXX' order by 'Field_i' desc"
+literal|"select id, Field_i, Str_s from Collection1 where Text_t='XXXX' order by Field_i desc"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -2391,7 +2391,7 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
@@ -2439,7 +2439,7 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
@@ -2487,7 +2487,7 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
@@ -2535,7 +2535,7 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
@@ -2583,7 +2583,7 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
@@ -2631,7 +2631,7 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
@@ -2679,7 +2679,7 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
@@ -2727,13 +2727,267 @@ name|tuple
 operator|.
 name|get
 argument_list|(
-literal|"str_s"
+literal|"Str_s"
 argument_list|)
 operator|.
 name|equals
 argument_list|(
 literal|"a"
 argument_list|)
+operator|)
+assert|;
+name|params
+operator|=
+operator|new
+name|HashMap
+argument_list|()
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+name|CommonParams
+operator|.
+name|QT
+argument_list|,
+literal|"/sql"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"stmt"
+argument_list|,
+literal|"select Str_s, sum(Field_i) from Collection1 where 'id'='(1 8)' group by Str_s having (sum(Field_i) = 7 OR 'sum(Field_i)' = 60) order by 'sum(Field_i)' desc"
+argument_list|)
+expr_stmt|;
+name|solrStream
+operator|=
+operator|new
+name|SolrStream
+argument_list|(
+name|jetty
+operator|.
+name|url
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|tuples
+operator|=
+name|getTuples
+argument_list|(
+name|solrStream
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuples
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|2
+operator|)
+assert|;
+name|tuple
+operator|=
+name|tuples
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|get
+argument_list|(
+literal|"Str_s"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"c"
+argument_list|)
+operator|)
+assert|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|getDouble
+argument_list|(
+literal|"sum(Field_i)"
+argument_list|)
+operator|==
+literal|60
+operator|)
+assert|;
+name|tuple
+operator|=
+name|tuples
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|get
+argument_list|(
+literal|"Str_s"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"a"
+argument_list|)
+operator|)
+assert|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|getDouble
+argument_list|(
+literal|"sum(Field_i)"
+argument_list|)
+operator|==
+literal|7
+operator|)
+assert|;
+name|params
+operator|=
+operator|new
+name|HashMap
+argument_list|()
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+name|CommonParams
+operator|.
+name|QT
+argument_list|,
+literal|"/sql"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"stmt"
+argument_list|,
+literal|"select Str_s, sum(Field_i) from Collection1 where 'id'='(1 8)' group by 'Str_s' having (sum(Field_i) = 7 OR 'sum(Field_i)' = 60) order by 'sum(Field_i)' desc"
+argument_list|)
+expr_stmt|;
+name|solrStream
+operator|=
+operator|new
+name|SolrStream
+argument_list|(
+name|jetty
+operator|.
+name|url
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|tuples
+operator|=
+name|getTuples
+argument_list|(
+name|solrStream
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuples
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|2
+operator|)
+assert|;
+name|tuple
+operator|=
+name|tuples
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|get
+argument_list|(
+literal|"Str_s"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"c"
+argument_list|)
+operator|)
+assert|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|getDouble
+argument_list|(
+literal|"sum(Field_i)"
+argument_list|)
+operator|==
+literal|60
+operator|)
+assert|;
+name|tuple
+operator|=
+name|tuples
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|get
+argument_list|(
+literal|"Str_s"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"a"
+argument_list|)
+operator|)
+assert|;
+assert|assert
+operator|(
+name|tuple
+operator|.
+name|getDouble
+argument_list|(
+literal|"sum(Field_i)"
+argument_list|)
+operator|==
+literal|7
 operator|)
 assert|;
 block|}
@@ -2975,7 +3229,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select id, field_i, str_s from collection1 where text='XXXX' order by field_iff desc"
 argument_list|)
@@ -3054,7 +3308,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select id, field_iff, str_s from collection1 where text='XXXX' order by field_iff desc"
 argument_list|)
@@ -3131,7 +3385,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_iff), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_iff) = 19) AND (min(field_i) = 8))"
 argument_list|)
@@ -3208,7 +3462,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), blah(field_iff), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_iff) = 19) AND (min(field_i) = 8))"
 argument_list|)
@@ -3285,7 +3539,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s from collection1 where text='XXXX' group by str_s"
 argument_list|)
@@ -3555,9 +3809,9 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
-literal|"select str_s, 'count(*)', sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by 'str_s' order by 'sum(field_i)' asc limit 2"
+literal|"select str_s, 'count(*)', sum('field_i'), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by 'str_s' order by 'sum(field_i)' asc limit 2"
 argument_list|)
 expr_stmt|;
 name|SolrStream
@@ -3789,7 +4043,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where (text='XXXX' AND NOT text='XXXX XXX') group by str_s order by str_s desc"
 argument_list|)
@@ -4098,7 +4352,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having sum(field_i) = 19"
 argument_list|)
@@ -4237,7 +4491,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 8))"
 argument_list|)
@@ -4377,7 +4631,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 100))"
 argument_list|)
@@ -4635,7 +4889,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct 'str_s', 'field_i' from collection1 order by 'str_s' asc, 'field_i' asc"
 argument_list|)
@@ -4926,7 +5180,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 order by str_s desc, field_i desc"
 argument_list|)
@@ -5207,7 +5461,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 order by str_s desc, field_i desc limit 2"
 argument_list|)
@@ -5342,7 +5596,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1"
 argument_list|)
@@ -5621,7 +5875,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 where str_s = 'a'"
 argument_list|)
@@ -5942,7 +6196,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct 'str_s', 'field_i' from collection1 order by 'str_s' asc, 'field_i' asc"
 argument_list|)
@@ -6224,7 +6478,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 order by str_s desc, field_i desc"
 argument_list|)
@@ -6496,7 +6750,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 order by str_s desc, field_i desc limit 2"
 argument_list|)
@@ -6622,7 +6876,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1"
 argument_list|)
@@ -6892,7 +7146,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 where str_s = 'a'"
 argument_list|)
@@ -7222,7 +7476,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 order by str_s asc, field_i asc"
 argument_list|)
@@ -7513,7 +7767,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 order by str_s desc, field_i desc"
 argument_list|)
@@ -7794,7 +8048,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 order by str_s desc, field_i desc limit 2"
 argument_list|)
@@ -7929,7 +8183,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1"
 argument_list|)
@@ -8208,7 +8462,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select distinct str_s, field_i from collection1 where str_s = 'a'"
 argument_list|)
@@ -8538,7 +8792,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select 'str_s', 'count(*)', sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by 'str_s' order by 'sum(field_i)' asc limit 2"
 argument_list|)
@@ -8781,7 +9035,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where (text='XXXX' AND NOT text='XXXX XXX') group by str_s order by str_s desc"
 argument_list|)
@@ -9099,9 +9353,9 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having sum(field_i) = 19"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having 'sum(field_i)' = 19"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -9247,9 +9501,9 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
-literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 8))"
+literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having (('sum(field_i)' = 19) AND (min(field_i) = 8))"
 argument_list|)
 expr_stmt|;
 name|solrStream
@@ -9396,7 +9650,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 100))"
 argument_list|)
@@ -9654,7 +9908,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s order by sum(field_i) asc limit 2"
 argument_list|)
@@ -9897,7 +10151,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s order by str_s desc"
 argument_list|)
@@ -10215,7 +10469,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having sum(field_i) = 19"
 argument_list|)
@@ -10448,7 +10702,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 8))"
 argument_list|)
@@ -10597,7 +10851,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select str_s, count(*), sum(field_i), min(field_i), max(field_i), avg(field_i) from collection1 where text='XXXX' group by str_s having ((sum(field_i) = 19) AND (min(field_i) = 100))"
 argument_list|)
@@ -10882,7 +11136,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select count(*), sum(a_i), min(a_i), max(a_i), avg(a_i), sum(a_f), min(a_f), max(a_f), avg(a_f) from collection1"
 argument_list|)
@@ -11134,7 +11388,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select count(*), sum(a_i), min(a_i), max(a_i), avg(a_i), sum(a_f), min(a_f), max(a_f), avg(a_f) from collection1 where id = 2"
 argument_list|)
@@ -11358,7 +11612,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select count(*), sum(a_i), min(a_i), max(a_i), avg(a_i), sum(a_f), min(a_f), max(a_f), avg(a_f) from collection1 where a_s = 'blah'"
 argument_list|)
@@ -11808,7 +12062,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, sum(item_i) from collection1 group by year_i order by year_i desc"
 argument_list|)
@@ -11923,7 +12177,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, month_i, sum(item_i) from collection1 group by year_i, month_i order by year_i desc, month_i desc"
 argument_list|)
@@ -12118,7 +12372,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, month_i, day_i, sum(item_i) from collection1 group by year_i, month_i, day_i order by year_i desc, month_i desc, day_i desc"
 argument_list|)
@@ -12755,7 +13009,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, sum(item_i) from collection1 group by year_i order by year_i desc"
 argument_list|)
@@ -12896,7 +13150,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, month_i, sum(item_i) from collection1 group by year_i, month_i order by year_i desc, month_i desc"
 argument_list|)
@@ -13096,7 +13350,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, month_i, day_i, sum(item_i) from collection1 group by year_i, month_i, day_i order by year_i desc, month_i desc, day_i desc"
 argument_list|)
@@ -13729,7 +13983,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, sum(item_i) from collection1 group by year_i order by year_i desc"
 argument_list|)
@@ -13868,7 +14122,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, month_i, sum(item_i) from collection1 group by year_i, month_i order by year_i desc, month_i desc"
 argument_list|)
@@ -14070,7 +14324,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 literal|"select year_i, month_i, day_i, sum(item_i) from collection1 group by year_i, month_i, day_i order by year_i desc, month_i desc, day_i desc"
 argument_list|)

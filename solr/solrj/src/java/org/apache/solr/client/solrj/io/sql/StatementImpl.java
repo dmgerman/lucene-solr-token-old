@@ -612,7 +612,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sql"
+literal|"stmt"
 argument_list|,
 name|sql
 argument_list|)
