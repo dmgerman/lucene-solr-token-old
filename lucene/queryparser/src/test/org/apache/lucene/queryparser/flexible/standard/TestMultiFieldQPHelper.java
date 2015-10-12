@@ -994,7 +994,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"b:one^5.0 t:one^10.0"
+literal|"(b:one)^5.0 (t:one)^10.0"
 argument_list|,
 name|q
 operator|.
@@ -1016,7 +1016,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"+(b:one^5.0 t:one^10.0) +(b:two^5.0 t:two^10.0)"
+literal|"+((b:one)^5.0 (t:one)^10.0) +((b:two)^5.0 (t:two)^10.0)"
 argument_list|,
 name|q
 operator|.
@@ -1038,7 +1038,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"(b:one^5.0 t:one^10.0) (b:two^5.0 t:two^10.0)"
+literal|"((b:one)^5.0 (t:one)^10.0) ((b:two)^5.0 (t:two)^10.0)"
 argument_list|,
 name|q
 operator|.
@@ -1060,7 +1060,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"+(b:one^5.0 t:one^10.0) +(b:two^5.0 t:two^10.0) +foo:test"
+literal|"+((b:one)^5.0 (t:one)^10.0) +((b:two)^5.0 (t:two)^10.0) +foo:test"
 argument_list|,
 name|q
 operator|.
@@ -1081,7 +1081,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"+(b:one^5.0 t:one^10.0)^3.0 +(b:two^5.0 t:two^10.0)^4.0"
+literal|"+((b:one)^5.0 (t:one)^10.0)^3.0 +((b:two)^5.0 (t:two)^10.0)^4.0"
 argument_list|,
 name|q
 operator|.

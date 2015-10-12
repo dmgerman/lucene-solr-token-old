@@ -1449,7 +1449,7 @@ literal|"germ term^2.0"
 argument_list|,
 literal|null
 argument_list|,
-literal|"germ term^2.0"
+literal|"germ (term)^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1458,7 +1458,7 @@ literal|"(term)^2.0"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term^2.0"
+literal|"(term)^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1476,7 +1476,7 @@ literal|"term^2.0"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term^2.0"
+literal|"(term)^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1485,7 +1485,7 @@ literal|"term^2"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term^2.0"
+literal|"(term)^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1494,7 +1494,7 @@ literal|"\"germ term\"^2.0"
 argument_list|,
 literal|null
 argument_list|,
-literal|"\"germ term\"^2.0"
+literal|"(\"germ term\")^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1503,7 +1503,7 @@ literal|"\"term germ\"^2"
 argument_list|,
 literal|null
 argument_list|,
-literal|"\"term germ\"^2.0"
+literal|"(\"term germ\")^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1756,7 +1756,7 @@ literal|"\"term germ\"~2^2"
 argument_list|,
 literal|null
 argument_list|,
-literal|"\"term germ\"~2^2.0"
+literal|"(\"term germ\"~2)^2.0"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1857,7 +1857,7 @@ literal|"term*^2"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term*^2.0"
+literal|"(term*)^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1884,7 +1884,7 @@ literal|"term~^3"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~2^3.0"
+literal|"(term~2)^3.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1893,7 +1893,7 @@ literal|"term^3~"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~2^3.0"
+literal|"(term~2)^3.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1911,7 +1911,7 @@ literal|"term*germ^3"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term*germ^3.0"
+literal|"(term*germ)^3.0"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -2458,7 +2458,7 @@ literal|"{ a TO z }^2.0"
 argument_list|,
 literal|null
 argument_list|,
-literal|"{a TO z}^2.0"
+literal|"({a TO z})^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals

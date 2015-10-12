@@ -2711,7 +2711,7 @@ argument_list|,
 literal|"id:42"
 argument_list|)
 argument_list|,
-literal|"//str[@name='parsedquery_toString'][.='+id:42^5.0']"
+literal|"//str[@name='parsedquery_toString'][.='+(id:42)^5.0']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -2739,7 +2739,7 @@ argument_list|,
 literal|"name:foo"
 argument_list|)
 argument_list|,
-literal|"//str[@name='parsedquery_toString'][.='+name:foo^2.0']"
+literal|"//str[@name='parsedquery_toString'][.='+(name:foo)^2.0']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -2767,7 +2767,7 @@ argument_list|,
 literal|"id:42"
 argument_list|)
 argument_list|,
-literal|"//str[@name='parsedquery_toString'][.='+id:42^5.0']"
+literal|"//str[@name='parsedquery_toString'][.='+(id:42)^5.0']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -4159,31 +4159,31 @@ argument_list|,
 literal|"true"
 argument_list|)
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx cccc vvvv\"~1^10.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx cccc vvvv\"~1)^10.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx cccc vvvv\"~2^20.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx cccc vvvv\"~2)^20.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx cccc vvvv\"~3^30.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx cccc vvvv\"~3)^30.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx\"~2^22.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx\"~2)^22.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"xxxx cccc\"~2^22.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"xxxx cccc\"~2)^22.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"cccc vvvv\"~2^22.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"cccc vvvv\"~2)^22.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx\"~3^33.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx\"~3)^33.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"xxxx cccc\"~3^33.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"xxxx cccc\"~3)^33.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"cccc vvvv\"~3^33.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"cccc vvvv\"~3)^33.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx cccc\"~2^222.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx cccc\"~2)^222.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"xxxx cccc vvvv\"~2^222.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"xxxx cccc vvvv\"~2)^222.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx cccc\"~3^333.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx cccc\"~3)^333.0')]"
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"xxxx cccc vvvv\"~3^333.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"xxxx cccc vvvv\"~3)^333.0')]"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -4403,7 +4403,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 argument_list|,
-literal|"//str[@name='parsedquery'][contains(.,'phrase_sw:\"zzzz xxxx\"~2^22.0')]"
+literal|"//str[@name='parsedquery'][contains(.,'(phrase_sw:\"zzzz xxxx\"~2)^22.0')]"
 argument_list|)
 expr_stmt|;
 name|assertQ

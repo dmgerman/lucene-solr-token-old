@@ -661,7 +661,7 @@ argument_list|,
 literal|"query"
 argument_list|)
 argument_list|,
-literal|"/debug/parsedquery_toString=='(text:x^2.0)^3.0'"
+literal|"/debug/parsedquery_toString=='((text:x)^2.0)^3.0'"
 argument_list|)
 expr_stmt|;
 comment|// boost should multiply
@@ -690,7 +690,7 @@ argument_list|,
 literal|"query"
 argument_list|)
 argument_list|,
-literal|"/debug/parsedquery_toString=='(text:x^2.0)^3.0'"
+literal|"/debug/parsedquery_toString=='((text:x)^2.0)^3.0'"
 argument_list|)
 expr_stmt|;
 block|}

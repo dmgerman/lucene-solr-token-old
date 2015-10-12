@@ -223,7 +223,7 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|"foo:bar^2.0"
+literal|"(foo:bar)^2.0"
 argument_list|,
 operator|new
 name|BoostQuery
