@@ -20,15 +20,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -180,6 +171,11 @@ return|return
 operator|new
 name|WFSTCompletionLookup
 argument_list|(
+name|getTempDir
+argument_list|()
+argument_list|,
+literal|"suggester"
+argument_list|,
 name|exactMatchFirst
 argument_list|)
 return|;

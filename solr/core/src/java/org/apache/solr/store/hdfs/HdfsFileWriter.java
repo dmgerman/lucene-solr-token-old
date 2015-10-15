@@ -174,6 +174,9 @@ name|fileSystem
 parameter_list|,
 name|Path
 name|path
+parameter_list|,
+name|String
+name|name
 parameter_list|)
 throws|throws
 name|IOException
@@ -187,6 +190,8 @@ operator|+
 literal|" path="
 operator|+
 name|path
+argument_list|,
+name|name
 argument_list|,
 name|getOutputStream
 argument_list|(
