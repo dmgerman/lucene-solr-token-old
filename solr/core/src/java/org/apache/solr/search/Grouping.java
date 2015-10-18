@@ -807,10 +807,10 @@ specifier|private
 name|Sort
 name|sort
 decl_stmt|;
-DECL|field|groupSort
+DECL|field|withinGroupSort
 specifier|private
 name|Sort
-name|groupSort
+name|withinGroupSort
 decl_stmt|;
 DECL|field|limitDefault
 specifier|private
@@ -1098,9 +1098,9 @@ argument_list|()
 decl_stmt|;
 name|gc
 operator|.
-name|groupSort
+name|withinGroupSort
 operator|=
-name|groupSort
+name|withinGroupSort
 expr_stmt|;
 name|gc
 operator|.
@@ -1359,9 +1359,9 @@ expr_stmt|;
 block|}
 name|gc
 operator|.
-name|groupSort
+name|withinGroupSort
 operator|=
-name|groupSort
+name|withinGroupSort
 expr_stmt|;
 name|gc
 operator|.
@@ -1518,9 +1518,9 @@ name|gq
 expr_stmt|;
 name|gc
 operator|.
-name|groupSort
+name|withinGroupSort
 operator|=
-name|groupSort
+name|withinGroupSort
 expr_stmt|;
 name|gc
 operator|.
@@ -1648,20 +1648,20 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setGroupSort
+DECL|method|setWithinGroupSort
 specifier|public
 name|Grouping
-name|setGroupSort
+name|setWithinGroupSort
 parameter_list|(
 name|Sort
-name|groupSort
+name|withinGroupSort
 parameter_list|)
 block|{
 name|this
 operator|.
-name|groupSort
+name|withinGroupSort
 operator|=
-name|groupSort
+name|withinGroupSort
 expr_stmt|;
 return|return
 name|this
@@ -1893,7 +1893,7 @@ name|cacheScores
 init|=
 literal|false
 decl_stmt|;
-comment|// NOTE: Change this when groupSort can be specified per group
+comment|// NOTE: Change this when withinGroupSort can be specified per group
 if|if
 condition|(
 operator|!
@@ -1915,7 +1915,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|groupSort
+name|withinGroupSort
 operator|==
 literal|null
 condition|)
@@ -1939,7 +1939,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|groupSort
+name|withinGroupSort
 operator|.
 name|getSort
 argument_list|()
@@ -2856,10 +2856,10 @@ name|String
 name|key
 decl_stmt|;
 comment|// the name to use for this group in the response
-DECL|field|groupSort
+DECL|field|withinGroupSort
 specifier|public
 name|Sort
-name|groupSort
+name|withinGroupSort
 decl_stmt|;
 comment|// the sort of the documents *within* a single group.
 DECL|field|sort
@@ -3879,7 +3879,7 @@ name|topGroups
 argument_list|,
 name|sort
 argument_list|,
-name|groupSort
+name|withinGroupSort
 argument_list|,
 name|groupedDocsToCollect
 argument_list|,
@@ -3942,11 +3942,11 @@ block|{
 name|Sort
 name|sortWithinGroup
 init|=
-name|groupSort
+name|withinGroupSort
 operator|!=
 literal|null
 condition|?
-name|groupSort
+name|withinGroupSort
 else|:
 operator|new
 name|Sort
@@ -4318,7 +4318,7 @@ name|topCollector
 operator|=
 name|newCollector
 argument_list|(
-name|groupSort
+name|withinGroupSort
 argument_list|,
 name|needScores
 argument_list|)
@@ -4827,7 +4827,7 @@ name|topGroups
 argument_list|,
 name|sort
 argument_list|,
-name|groupSort
+name|withinGroupSort
 argument_list|,
 name|groupdDocsToCollect
 argument_list|,
@@ -4895,11 +4895,11 @@ block|{
 name|Sort
 name|sortWithinGroup
 init|=
-name|groupSort
+name|withinGroupSort
 operator|!=
 literal|null
 condition|?
-name|groupSort
+name|withinGroupSort
 else|:
 operator|new
 name|Sort
