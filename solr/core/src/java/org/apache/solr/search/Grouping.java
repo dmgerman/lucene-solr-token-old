@@ -802,10 +802,10 @@ specifier|final
 name|int
 name|maxDocsPercentageToCache
 decl_stmt|;
-DECL|field|sort
+DECL|field|groupSort
 specifier|private
 name|Sort
-name|sort
+name|groupSort
 decl_stmt|;
 DECL|field|withinGroupSort
 specifier|private
@@ -1143,9 +1143,9 @@ argument_list|()
 expr_stmt|;
 name|gc
 operator|.
-name|sort
+name|groupSort
 operator|=
-name|sort
+name|groupSort
 expr_stmt|;
 name|gc
 operator|.
@@ -1398,9 +1398,9 @@ argument_list|()
 expr_stmt|;
 name|gc
 operator|.
-name|sort
+name|groupSort
 operator|=
-name|sort
+name|groupSort
 expr_stmt|;
 name|gc
 operator|.
@@ -1629,20 +1629,20 @@ name|gc
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setSort
+DECL|method|setGroupSort
 specifier|public
 name|Grouping
-name|setSort
+name|setGroupSort
 parameter_list|(
 name|Sort
-name|sort
+name|groupSort
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sort
+name|groupSort
 operator|=
-name|sort
+name|groupSort
 expr_stmt|;
 return|return
 name|this
@@ -2862,10 +2862,10 @@ name|Sort
 name|withinGroupSort
 decl_stmt|;
 comment|// the sort of the documents *within* a single group.
-DECL|field|sort
+DECL|field|groupSort
 specifier|public
 name|Sort
-name|sort
+name|groupSort
 decl_stmt|;
 comment|// the sort between groups
 DECL|field|docsPerGroup
@@ -3699,9 +3699,9 @@ return|return
 name|fallBackCollector
 return|;
 block|}
-name|sort
+name|groupSort
 operator|=
-name|sort
+name|groupSort
 operator|==
 literal|null
 condition|?
@@ -3709,7 +3709,7 @@ name|Sort
 operator|.
 name|RELEVANCE
 else|:
-name|sort
+name|groupSort
 expr_stmt|;
 name|firstPass
 operator|=
@@ -3718,7 +3718,7 @@ name|TermFirstPassGroupingCollector
 argument_list|(
 name|groupBy
 argument_list|,
-name|sort
+name|groupSort
 argument_list|,
 name|actualGroupsToFind
 argument_list|)
@@ -3877,7 +3877,7 @@ name|groupBy
 argument_list|,
 name|topGroups
 argument_list|,
-name|sort
+name|groupSort
 argument_list|,
 name|withinGroupSort
 argument_list|,
@@ -4638,9 +4638,9 @@ return|return
 name|fallBackCollector
 return|;
 block|}
-name|sort
+name|groupSort
 operator|=
-name|sort
+name|groupSort
 operator|==
 literal|null
 condition|?
@@ -4648,7 +4648,7 @@ name|Sort
 operator|.
 name|RELEVANCE
 else|:
-name|sort
+name|groupSort
 expr_stmt|;
 name|firstPass
 operator|=
@@ -4663,7 +4663,7 @@ name|searcher
 operator|.
 name|weightSort
 argument_list|(
-name|sort
+name|groupSort
 argument_list|)
 argument_list|,
 name|actualGroupsToFind
@@ -4825,7 +4825,7 @@ name|FunctionSecondPassGroupingCollector
 argument_list|(
 name|topGroups
 argument_list|,
-name|sort
+name|groupSort
 argument_list|,
 name|withinGroupSort
 argument_list|,
