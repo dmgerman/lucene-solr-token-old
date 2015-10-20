@@ -6553,17 +6553,12 @@ name|deState
 operator|.
 name|fieldName
 argument_list|,
-name|BytesRef
-operator|.
-name|deepCopyOf
-argument_list|(
 name|deState
 operator|.
 name|termsEnum
 operator|.
 name|term
 argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -962,9 +962,6 @@ argument_list|(
 name|field
 argument_list|,
 name|bytesRefBuilder
-operator|.
-name|toBytesRef
-argument_list|()
 argument_list|)
 return|;
 block|}

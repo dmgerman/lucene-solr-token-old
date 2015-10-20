@@ -3508,12 +3508,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|BytesRef
-operator|.
-name|deepCopyOf
-argument_list|(
 name|br
-argument_list|)
 argument_list|)
 argument_list|)
 else|:
