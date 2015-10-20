@@ -325,12 +325,12 @@ name|RandomIndexWriter
 name|indexWriter
 decl_stmt|;
 DECL|field|dir
-specifier|private
+specifier|protected
 name|Directory
 name|dir
 decl_stmt|;
 DECL|field|ft
-specifier|private
+specifier|protected
 name|FieldType
 name|ft
 decl_stmt|;
