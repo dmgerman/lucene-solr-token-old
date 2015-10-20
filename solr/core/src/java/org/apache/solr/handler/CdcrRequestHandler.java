@@ -718,7 +718,7 @@ control|)
 block|{
 if|if
 condition|(
-name|replicas
+name|replica
 operator|!=
 literal|null
 operator|&&
@@ -773,9 +773,7 @@ argument_list|)
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrParams
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3354,6 +3352,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|HttpSolrClient
 name|server
 init|=
@@ -3362,8 +3362,7 @@ name|HttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|server
 operator|.
@@ -3443,14 +3442,6 @@ operator|.
 name|CHECKPOINT
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|server
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
