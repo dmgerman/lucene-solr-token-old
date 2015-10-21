@@ -814,6 +814,12 @@ argument_list|,
 name|packedBytesLength
 argument_list|)
 expr_stmt|;
+name|tempInput
+operator|=
+name|offlinePointWriter
+operator|.
+name|out
+expr_stmt|;
 name|PointReader
 name|reader
 init|=
@@ -873,12 +879,6 @@ block|}
 name|heapPointWriter
 operator|=
 literal|null
-expr_stmt|;
-name|tempInput
-operator|=
-name|offlinePointWriter
-operator|.
-name|out
 expr_stmt|;
 block|}
 DECL|method|add
