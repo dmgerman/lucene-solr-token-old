@@ -302,6 +302,13 @@ name|e
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+name|deltaKeys
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
