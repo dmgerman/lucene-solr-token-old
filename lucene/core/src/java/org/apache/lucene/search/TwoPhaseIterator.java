@@ -32,23 +32,8 @@ operator|.
 name|Objects
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|spans
-operator|.
-name|Spans
-import|;
-end_import
 begin_comment
-comment|/**  * Returned by {@link Scorer#asTwoPhaseIterator()}  * and  {@link Spans#asTwoPhaseIterator()}  * to expose an approximation of a {@link DocIdSetIterator}.  * When the {@link #approximation()}'s  * {@link DocIdSetIterator#nextDoc()} or {@link DocIdSetIterator#advance(int)}  * return, {@link #matches()} needs to be checked in order to know whether the  * returned doc ID actually matches.  * @lucene.experimental  */
+comment|/**  * Returned by {@link Scorer#asTwoPhaseIterator()}  * to expose an approximation of a {@link DocIdSetIterator}.  * When the {@link #approximation()}'s  * {@link DocIdSetIterator#nextDoc()} or {@link DocIdSetIterator#advance(int)}  * return, {@link #matches()} needs to be checked in order to know whether the  * returned doc ID actually matches.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|TwoPhaseIterator
@@ -273,22 +258,6 @@ condition|?
 operator|(
 operator|(
 name|Scorer
-operator|)
-name|iter
-operator|)
-operator|.
-name|asTwoPhaseIterator
-argument_list|()
-else|:
-operator|(
-name|iter
-operator|instanceof
-name|Spans
-operator|)
-condition|?
-operator|(
-operator|(
-name|Spans
 operator|)
 name|iter
 operator|)

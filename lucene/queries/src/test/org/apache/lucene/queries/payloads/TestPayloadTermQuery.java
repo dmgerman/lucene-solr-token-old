@@ -346,7 +346,7 @@ name|search
 operator|.
 name|spans
 operator|.
-name|SpanTermQuery
+name|Spans
 import|;
 end_import
 begin_import
@@ -361,7 +361,7 @@ name|search
 operator|.
 name|spans
 operator|.
-name|Spans
+name|SpanTermQuery
 import|;
 end_import
 begin_import
