@@ -1513,7 +1513,7 @@ comment|// we may need them later, but we don't want to create them now
 comment|// otherwise we won't know if we need to call setNextReader on them.
 return|return;
 block|}
-comment|// create the deffered aggs up front for use by allBuckets
+comment|// create the deferred aggs up front for use by allBuckets
 name|createOtherAccs
 argument_list|(
 name|numDocs
@@ -2403,6 +2403,61 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|setNextReader
+specifier|public
+name|void
+name|setNextReader
+parameter_list|(
+name|LeafReaderContext
+name|readerContext
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// collectAcc and otherAccs will normally have setNextReader called directly on them.
+comment|// This, however, will be used when collect(DocSet,slot) variant is used on this Acc.
+if|if
+condition|(
+name|collectAcc
+operator|!=
+literal|null
+condition|)
+block|{
+name|collectAcc
+operator|.
+name|setNextReader
+argument_list|(
+name|readerContext
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|otherAccs
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|SlotAcc
+name|otherAcc
+range|:
+name|otherAccs
+control|)
+block|{
+name|otherAcc
+operator|.
+name|setNextReader
+argument_list|(
+name|readerContext
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -2922,7 +2977,7 @@ argument_list|(
 name|freq
 operator|.
 name|limit
-operator|>
+operator|>=
 literal|0
 condition|?
 name|freq
@@ -3168,7 +3223,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|lim
+operator|>
+literal|0
+condition|)
 block|{
 comment|// queue not full
 name|Slot
