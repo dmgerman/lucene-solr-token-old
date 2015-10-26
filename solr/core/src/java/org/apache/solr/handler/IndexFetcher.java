@@ -2984,19 +2984,20 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting download to "
-operator|+
-name|tmpIndexDir
-operator|+
-literal|" fullCopy="
-operator|+
+literal|"Starting download (fullCopy={}) to {}"
+argument_list|,
 name|isFullCopyNeeded
+argument_list|,
+name|tmpIndexDir
 argument_list|)
 expr_stmt|;
 name|successfulInstall
 operator|=
 literal|false
 expr_stmt|;
+name|long
+name|bytesDownloaded
+init|=
 name|downloadIndexFiles
 argument_list|(
 name|isFullCopyNeeded
@@ -3007,7 +3008,7 @@ name|tmpIndexDir
 argument_list|,
 name|latestGeneration
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|tlogFilesToDownload
@@ -3015,6 +3016,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|bytesDownloaded
+operator|+=
 name|downloadTlogFiles
 argument_list|(
 name|timestamp
@@ -3023,14 +3026,48 @@ name|latestGeneration
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|long
+name|timeTakenSeconds
+init|=
+name|getReplicationTimeElapsed
+argument_list|()
+decl_stmt|;
+specifier|final
+name|Long
+name|bytesDownloadedPerSecond
+init|=
+operator|(
+name|timeTakenSeconds
+operator|!=
+literal|0
+condition|?
+operator|new
+name|Long
+argument_list|(
+name|bytesDownloaded
+operator|/
+name|timeTakenSeconds
+argument_list|)
+else|:
+literal|null
+operator|)
+decl_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Total time taken for download: {} secs"
+literal|"Total time taken for download (fullCopy={},bytesDownloaded={}) : {} secs ({} bytes/sec) to {}"
 argument_list|,
-name|getReplicationTimeElapsed
-argument_list|()
+name|isFullCopyNeeded
+argument_list|,
+name|bytesDownloaded
+argument_list|,
+name|timeTakenSeconds
+argument_list|,
+name|bytesDownloadedPerSecond
+argument_list|,
+name|tmpIndexDir
 argument_list|)
 expr_stmt|;
 name|Collection
@@ -5123,7 +5160,7 @@ block|}
 block|}
 DECL|method|downloadTlogFiles
 specifier|private
-name|void
+name|long
 name|downloadTlogFiles
 parameter_list|(
 name|String
@@ -5174,6 +5211,11 @@ argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|long
+name|bytesDownloaded
+init|=
+literal|0
+decl_stmt|;
 name|File
 name|tmpTlogDir
 init|=
@@ -5299,6 +5341,13 @@ operator|.
 name|fetchFile
 argument_list|()
 expr_stmt|;
+name|bytesDownloaded
+operator|+=
+name|localFileFetcher
+operator|.
+name|getBytesDownloaded
+argument_list|()
+expr_stmt|;
 name|tlogFilesDownloaded
 operator|.
 name|add
@@ -5357,11 +5406,14 @@ name|tmpTlogDir
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|bytesDownloaded
+return|;
 block|}
-comment|/**    * Download the index files. If a new index is needed, download all the files.    *    * @param downloadCompleteIndex is it a fresh index copy    * @param tmpIndexDir              the directory to which files need to be downloadeed to    * @param indexDir                 the indexDir to be merged to    * @param latestGeneration         the version number    */
+comment|/**    * Download the index files. If a new index is needed, download all the files.    *    * @param downloadCompleteIndex is it a fresh index copy    * @param tmpIndexDir              the directory to which files need to be downloadeed to    * @param indexDir                 the indexDir to be merged to    * @param latestGeneration         the version number    *    * @return number of bytes downloaded    */
 DECL|method|downloadIndexFiles
 specifier|private
-name|void
+name|long
 name|downloadIndexFiles
 parameter_list|(
 name|boolean
@@ -5405,6 +5457,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|long
+name|bytesDownloaded
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -5518,6 +5575,13 @@ operator|.
 name|fetchFile
 argument_list|()
 expr_stmt|;
+name|bytesDownloaded
+operator|+=
+name|dirFileFetcher
+operator|.
+name|getBytesDownloaded
+argument_list|()
+expr_stmt|;
 name|filesDownloaded
 operator|.
 name|add
@@ -5551,6 +5615,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|bytesDownloaded
+return|;
 block|}
 DECL|method|filesToAlwaysDownloadIfNoChecksums
 specifier|private
