@@ -357,8 +357,6 @@ operator|.
 name|automaton
 operator|.
 name|AutomatonTestUtil
-operator|.
-name|RandomAcceptedStrings
 import|;
 end_import
 begin_import
@@ -374,6 +372,8 @@ operator|.
 name|automaton
 operator|.
 name|AutomatonTestUtil
+operator|.
+name|RandomAcceptedStrings
 import|;
 end_import
 begin_import
@@ -682,6 +682,10 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|()
+argument_list|,
+literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|fieldUpto
@@ -3256,6 +3260,10 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|()
+argument_list|,
+literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

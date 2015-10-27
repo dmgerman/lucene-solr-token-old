@@ -3595,6 +3595,16 @@ name|fi
 operator|.
 name|getDocValuesType
 argument_list|()
+argument_list|,
+name|fi
+operator|.
+name|getDimensionCount
+argument_list|()
+argument_list|,
+name|fi
+operator|.
+name|getDimensionNumBytes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -8133,6 +8143,7 @@ range|:
 name|fis
 control|)
 block|{
+comment|// This will throw exceptions if any of the incoming fields have an illegal schema change:
 name|globalFieldNumberMap
 operator|.
 name|addOrGet
@@ -8148,6 +8159,16 @@ argument_list|,
 name|fi
 operator|.
 name|getDocValuesType
+argument_list|()
+argument_list|,
+name|fi
+operator|.
+name|getDimensionCount
+argument_list|()
+argument_list|,
+name|fi
+operator|.
+name|getDimensionNumBytes
 argument_list|()
 argument_list|)
 expr_stmt|;

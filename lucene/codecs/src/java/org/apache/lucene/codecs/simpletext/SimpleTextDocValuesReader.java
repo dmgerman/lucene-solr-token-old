@@ -87,15 +87,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -3469,8 +3460,6 @@ parameter_list|(
 name|BytesRef
 name|prefix
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new

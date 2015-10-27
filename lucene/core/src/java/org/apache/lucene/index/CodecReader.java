@@ -87,6 +87,19 @@ name|lucene
 operator|.
 name|codecs
 operator|.
+name|DimensionalReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
 name|DocValuesProducer
 import|;
 end_import
@@ -265,6 +278,14 @@ specifier|public
 specifier|abstract
 name|FieldsProducer
 name|getPostingsReader
+parameter_list|()
+function_decl|;
+comment|/**    * Expert: retrieve underlying DimensionalReader    * @lucene.internal    */
+DECL|method|getDimensionalReader
+specifier|public
+specifier|abstract
+name|DimensionalReader
+name|getDimensionalReader
 parameter_list|()
 function_decl|;
 annotation|@
