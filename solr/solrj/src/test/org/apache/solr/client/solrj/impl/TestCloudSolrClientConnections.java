@@ -147,6 +147,11 @@ literal|0
 argument_list|,
 name|createTempDir
 argument_list|()
+argument_list|,
+name|buildJettyConfig
+argument_list|(
+literal|"/solr"
+argument_list|)
 argument_list|)
 decl_stmt|;
 try|try
@@ -282,6 +287,11 @@ literal|0
 argument_list|,
 name|createTempDir
 argument_list|()
+argument_list|,
+name|buildJettyConfig
+argument_list|(
+literal|"/solr"
+argument_list|)
 argument_list|)
 decl_stmt|;
 try|try

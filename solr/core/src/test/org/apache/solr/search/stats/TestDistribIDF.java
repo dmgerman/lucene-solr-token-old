@@ -374,6 +374,11 @@ literal|3
 argument_list|,
 name|createTempDir
 argument_list|()
+argument_list|,
+name|buildJettyConfig
+argument_list|(
+literal|"/solr"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// set some system properties for use by tests
