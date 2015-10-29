@@ -87,6 +87,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TestUtil
 import|;
 end_import
@@ -814,6 +827,30 @@ literal|0
 condition|)
 block|{
 comment|// simple no-op FilterReader
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: MockRandomMergePolicy now swaps in a SlowCodecReaderWrapper for merging reader="
+operator|+
+name|readers
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|readers
 operator|.
 name|set
@@ -850,6 +887,30 @@ comment|// renumber fields
 comment|// NOTE: currently this only "blocks" bulk merges just by
 comment|// being a FilterReader. But it might find bugs elsewhere,
 comment|// and maybe the situation can be improved in the future.
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: MockRandomMergePolicy now swaps in a MismatchedLeafReader for merging reader="
+operator|+
+name|readers
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|readers
 operator|.
 name|set
