@@ -74,15 +74,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|BeforeClass
 import|;
 end_import
@@ -401,7 +392,7 @@ argument_list|,
 literal|1e-15
 argument_list|)
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|Query
 argument_list|>
