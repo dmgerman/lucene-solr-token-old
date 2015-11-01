@@ -157,9 +157,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene54
+name|lucene60
 operator|.
-name|Lucene54Codec
+name|Lucene60Codec
 import|;
 end_import
 begin_import
@@ -225,6 +225,8 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
+operator|.
+name|OpenMode
 import|;
 end_import
 begin_import
@@ -238,8 +240,6 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
-operator|.
-name|OpenMode
 import|;
 end_import
 begin_import
@@ -813,7 +813,7 @@ operator|.
 name|setCodec
 argument_list|(
 operator|new
-name|Lucene54Codec
+name|Lucene60Codec
 argument_list|()
 block|{
 annotation|@

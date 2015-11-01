@@ -1268,7 +1268,7 @@ name|visit
 argument_list|(
 name|docMap
 operator|.
-name|newToOld
+name|oldToNew
 argument_list|(
 name|docID
 argument_list|)
@@ -1297,7 +1297,7 @@ name|visit
 argument_list|(
 name|docMap
 operator|.
-name|newToOld
+name|oldToNew
 argument_list|(
 name|docID
 argument_list|)

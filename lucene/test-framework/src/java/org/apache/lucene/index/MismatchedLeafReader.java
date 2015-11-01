@@ -287,12 +287,14 @@ operator|.
 name|getDimensionCount
 argument_list|()
 argument_list|,
+comment|// dimension count
 name|oldInfo
 operator|.
 name|getDimensionNumBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// dimension numBytes
 name|shuffled
 operator|.
 name|set
