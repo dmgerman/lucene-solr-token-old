@@ -553,7 +553,7 @@ try|try
 block|{
 name|ExecutorUtil
 operator|.
-name|shutdownAndAwaitTermination
+name|shutdownWithInterruptAndAwaitTermination
 argument_list|(
 name|updateExecutor
 argument_list|)
