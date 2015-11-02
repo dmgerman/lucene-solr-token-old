@@ -957,7 +957,7 @@ name|payload
 operator|=
 literal|"{\n"
 operator|+
-literal|"'create-requesthandler' : { 'name' : '/dump', 'class': 'org.apache.solr.handler.DumpRequestHandler' }\n"
+literal|"'update-requesthandler' : { 'name' : '/dump', 'class': 'org.apache.solr.handler.DumpRequestHandler' }\n"
 operator|+
 literal|"}"
 expr_stmt|;
