@@ -2623,8 +2623,6 @@ specifier|final
 name|Reader
 name|reader
 parameter_list|)
-throws|throws
-name|IOException
 block|{           }
 block|}
 return|;
@@ -3087,8 +3085,6 @@ specifier|final
 name|Reader
 name|reader
 parameter_list|)
-throws|throws
-name|IOException
 block|{           }
 block|}
 return|;
@@ -3361,8 +3357,6 @@ specifier|final
 name|Reader
 name|reader
 parameter_list|)
-throws|throws
-name|IOException
 block|{           }
 block|}
 return|;
