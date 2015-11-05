@@ -421,7 +421,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"codec must be simple ASCII, less than 256 characters in length [got "
+literal|"suffix must be simple ASCII, less than 256 characters in length [got "
 operator|+
 name|suffix
 operator|+
