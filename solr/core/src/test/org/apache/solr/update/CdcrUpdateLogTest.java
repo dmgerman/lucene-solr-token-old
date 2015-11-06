@@ -122,7 +122,7 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
-name|Slow
+name|Nightly
 import|;
 end_import
 begin_import
@@ -232,7 +232,7 @@ import|;
 end_import
 begin_class
 annotation|@
-name|Slow
+name|Nightly
 DECL|class|CdcrUpdateLogTest
 specifier|public
 class|class

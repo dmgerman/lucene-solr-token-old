@@ -613,13 +613,20 @@ operator|.
 name|getZnodeBase
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
 name|CreateMode
 operator|.
 name|PERSISTENT
 argument_list|,
+literal|null
+argument_list|,
+literal|false
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// Should be a no-op if node exists
 block|}
 name|zkClient
 operator|.
@@ -655,6 +662,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|KeeperException
+operator|.
+name|NodeExistsException
+name|ne
+parameter_list|)
+block|{
+comment|// Someone got in first and created the node.
 block|}
 catch|catch
 parameter_list|(
