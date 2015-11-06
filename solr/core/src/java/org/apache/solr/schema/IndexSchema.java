@@ -558,7 +558,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarityFactory
+name|ClassicSimilarityFactory
 import|;
 end_import
 begin_import
@@ -2583,7 +2583,7 @@ block|{
 name|similarityFactory
 operator|=
 operator|new
-name|DefaultSimilarityFactory
+name|ClassicSimilarityFactory
 argument_list|()
 expr_stmt|;
 specifier|final
