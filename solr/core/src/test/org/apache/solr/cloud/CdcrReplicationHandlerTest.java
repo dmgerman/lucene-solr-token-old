@@ -1,7 +1,4 @@
 begin_unit
-begin_comment
-comment|/*  * Copyright (c) 2015 Renaud Delbru. All Rights Reserved.  */
-end_comment
 begin_package
 DECL|package|org.apache.solr.cloud
 package|package
