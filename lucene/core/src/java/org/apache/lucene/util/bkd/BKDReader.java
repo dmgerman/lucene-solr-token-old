@@ -584,6 +584,7 @@ operator|>=
 name|leafNodeOffset
 condition|)
 block|{
+comment|//System.out.println("ADDALL");
 name|visitDocIDs
 argument_list|(
 name|state
@@ -661,13 +662,15 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
+name|visitor
+operator|.
+name|grow
+argument_list|(
+name|count
+argument_list|)
+expr_stmt|;
 comment|// TODO: especially for the 1D case, this was a decent speedup, because caller could know it should budget for around XXX docs:
 comment|//state.docs.grow(count);
-name|int
-name|docID
-init|=
-literal|0
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -683,18 +686,14 @@ name|i
 operator|++
 control|)
 block|{
-name|docID
-operator|+=
-name|in
-operator|.
-name|readVInt
-argument_list|()
-expr_stmt|;
 name|visitor
 operator|.
 name|visit
 argument_list|(
-name|docID
+name|in
+operator|.
+name|readInt
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -736,11 +735,6 @@ decl_stmt|;
 comment|// TODO: we could maybe pollute the IntersectVisitor API with a "grow" method if this maybe helps perf
 comment|// enough (it did before, esp. for the 1D case):
 comment|//state.docs.grow(count);
-name|int
-name|docID
-init|=
-literal|0
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -756,19 +750,15 @@ name|i
 operator|++
 control|)
 block|{
-name|docID
-operator|+=
-name|in
-operator|.
-name|readVInt
-argument_list|()
-expr_stmt|;
 name|docIDs
 index|[
 name|i
 index|]
 operator|=
-name|docID
+name|in
+operator|.
+name|readInt
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -800,6 +790,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|visitor
+operator|.
+name|grow
+argument_list|(
+name|count
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -885,7 +882,7 @@ name|r
 operator|==
 name|Relation
 operator|.
-name|QUERY_OUTSIDE_CELL
+name|CELL_OUTSIDE_QUERY
 condition|)
 block|{
 comment|// This cell is fully outside of the query shape: stop recursing
@@ -922,6 +919,7 @@ operator|>=
 name|leafNodeOffset
 condition|)
 block|{
+comment|//System.out.println("FILTER");
 comment|// Leaf node; scan and filter all points in this block:
 name|int
 name|count

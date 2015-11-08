@@ -1499,6 +1499,24 @@ name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}
+comment|// dimensional values
+if|if
+condition|(
+name|getDimensionalReader
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ramBytesUsed
+operator|+=
+name|getDimensionalReader
+argument_list|()
+operator|.
+name|ramBytesUsed
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|ramBytesUsed
 return|;
@@ -1639,6 +1657,31 @@ argument_list|(
 literal|"term vectors"
 argument_list|,
 name|getTermVectorsReader
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// dimensional values
+if|if
+condition|(
+name|getDimensionalReader
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|resources
+operator|.
+name|add
+argument_list|(
+name|Accountables
+operator|.
+name|namedAccountable
+argument_list|(
+literal|"dimensional values"
+argument_list|,
+name|getDimensionalReader
 argument_list|()
 argument_list|)
 argument_list|)

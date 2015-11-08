@@ -189,8 +189,6 @@ operator|.
 name|document
 operator|.
 name|Field
-operator|.
-name|Store
 import|;
 end_import
 begin_import
@@ -204,6 +202,8 @@ operator|.
 name|document
 operator|.
 name|Field
+operator|.
+name|Store
 import|;
 end_import
 begin_import
@@ -3064,7 +3064,7 @@ block|{
 return|return
 name|Relation
 operator|.
-name|QUERY_CROSSES_CELL
+name|CELL_CROSSES_QUERY
 return|;
 block|}
 block|}
