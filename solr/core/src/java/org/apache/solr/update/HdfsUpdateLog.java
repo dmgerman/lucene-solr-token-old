@@ -523,7 +523,7 @@ literal|null
 condition|)
 name|tlogDfsReplication
 operator|=
-literal|1
+literal|3
 expr_stmt|;
 name|log
 operator|.
