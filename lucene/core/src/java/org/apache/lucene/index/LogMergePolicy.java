@@ -1943,7 +1943,9 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
+argument_list|(
+name|numSegments
+argument_list|)
 decl_stmt|;
 specifier|final
 name|float
@@ -2510,7 +2512,11 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
+argument_list|(
+name|end
+operator|-
+name|start
+argument_list|)
 decl_stmt|;
 for|for
 control|(
