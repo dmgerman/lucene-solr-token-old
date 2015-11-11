@@ -2671,7 +2671,7 @@ literal|"8"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"QQQQ"
+literal|" QQQQ trash trash"
 argument_list|,
 literal|"str_s1"
 argument_list|,
@@ -2689,7 +2689,7 @@ literal|"9"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"QQQQ QQQQ"
+literal|" QQQQ QQQQ  trash"
 argument_list|,
 literal|"str_s1"
 argument_list|,
@@ -2707,7 +2707,7 @@ literal|"10"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"QQQQ QQQQ QQQQ"
+literal|"QQQQ QQQQ  QQQQ "
 argument_list|,
 literal|"str_s1"
 argument_list|,
@@ -2864,11 +2864,11 @@ argument_list|)
 argument_list|,
 literal|"//*[@numFound='3']"
 argument_list|,
-literal|"//result/doc[1]/str[@name='id'][.='8']"
+literal|"//result/doc[1]/str[@name='id'][.='10']"
 argument_list|,
 literal|"//result/doc[2]/str[@name='id'][.='9']"
 argument_list|,
-literal|"//result/doc[3]/str[@name='id'][.='10']"
+literal|"//result/doc[3]/str[@name='id'][.='8']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -2908,17 +2908,17 @@ argument_list|)
 argument_list|,
 literal|"//*[@numFound='3']"
 argument_list|,
-literal|"//result/doc[1]/str[@name='id'][.='8']"
+literal|"//result/doc[1]/str[@name='id'][.='10']"
 argument_list|,
 literal|"//result/doc[2]/str[@name='id'][.='9']"
 argument_list|,
-literal|"//result/doc[3]/str[@name='id'][.='10']"
+literal|"//result/doc[3]/str[@name='id'][.='8']"
 argument_list|,
-literal|"//result/doc[1]/bool[@name='[excluded]'][.='false']"
+literal|"//result/doc[1]/bool[@name='[excluded]'][.='true']"
 argument_list|,
 literal|"//result/doc[2]/bool[@name='[excluded]'][.='false']"
 argument_list|,
-literal|"//result/doc[3]/bool[@name='[excluded]'][.='true']"
+literal|"//result/doc[3]/bool[@name='[excluded]'][.='false']"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2956,7 +2956,7 @@ literal|"a"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"ipod"
+literal|"ipod trash trash"
 argument_list|,
 literal|"str_s1"
 argument_list|,
@@ -2974,7 +2974,7 @@ literal|"b"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"ipod ipod"
+literal|"ipod ipod  trash"
 argument_list|,
 literal|"str_s1"
 argument_list|,
@@ -2992,7 +2992,7 @@ literal|"c"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"ipod ipod ipod"
+literal|"ipod ipod  ipod "
 argument_list|,
 literal|"str_s1"
 argument_list|,
@@ -3175,11 +3175,11 @@ name|req
 argument_list|,
 literal|"//*[@numFound='3']"
 argument_list|,
-literal|"//result/doc[1]/str[@name='id'][.='a']"
+literal|"//result/doc[1]/str[@name='id'][.='c']"
 argument_list|,
 literal|"//result/doc[2]/str[@name='id'][.='b']"
 argument_list|,
-literal|"//result/doc[3]/str[@name='id'][.='c']"
+literal|"//result/doc[3]/str[@name='id'][.='a']"
 argument_list|)
 expr_stmt|;
 comment|// Explicitly set what gets boosted
@@ -3248,11 +3248,11 @@ literal|"//result/doc[2]/str[@name='id'][.='y']"
 argument_list|,
 literal|"//result/doc[3]/str[@name='id'][.='z']"
 argument_list|,
-literal|"//result/doc[4]/str[@name='id'][.='a']"
+literal|"//result/doc[4]/str[@name='id'][.='c']"
 argument_list|,
 literal|"//result/doc[5]/str[@name='id'][.='b']"
 argument_list|,
-literal|"//result/doc[6]/str[@name='id'][.='c']"
+literal|"//result/doc[6]/str[@name='id'][.='a']"
 argument_list|)
 expr_stmt|;
 name|booster
@@ -3317,9 +3317,9 @@ literal|"//result/doc[1]/str[@name='id'][.='a']"
 argument_list|,
 literal|"//result/doc[2]/str[@name='id'][.='x']"
 argument_list|,
-literal|"//result/doc[3]/str[@name='id'][.='b']"
+literal|"//result/doc[3]/str[@name='id'][.='c']"
 argument_list|,
-literal|"//result/doc[4]/str[@name='id'][.='c']"
+literal|"//result/doc[4]/str[@name='id'][.='b']"
 argument_list|)
 expr_stmt|;
 comment|// Test reverse sort
@@ -3363,14 +3363,15 @@ argument_list|,
 name|req
 argument_list|,
 literal|"//*[@numFound='4']"
+comment|// NOTE REVERSED doc[X] indices
 argument_list|,
 literal|"//result/doc[4]/str[@name='id'][.='a']"
 argument_list|,
 literal|"//result/doc[3]/str[@name='id'][.='x']"
 argument_list|,
-literal|"//result/doc[2]/str[@name='id'][.='b']"
+literal|"//result/doc[2]/str[@name='id'][.='c']"
 argument_list|,
-literal|"//result/doc[1]/str[@name='id'][.='c']"
+literal|"//result/doc[1]/str[@name='id'][.='b']"
 argument_list|)
 expr_stmt|;
 comment|// Try normal sort by 'id'
@@ -3691,9 +3692,9 @@ literal|"//*[@numFound='3']"
 argument_list|,
 literal|"//result/doc[1]/str[@name='id'][.='x']"
 argument_list|,
-literal|"//result/doc[2]/str[@name='id'][.='b']"
+literal|"//result/doc[2]/str[@name='id'][.='c']"
 argument_list|,
-literal|"//result/doc[3]/str[@name='id'][.='c']"
+literal|"//result/doc[3]/str[@name='id'][.='b']"
 argument_list|)
 expr_stmt|;
 comment|// Test setting ids and excludes from http parameters
@@ -3762,9 +3763,9 @@ literal|"//result/doc[2]/str[@name='id'][.='y']"
 argument_list|,
 literal|"//result/doc[3]/str[@name='id'][.='z']"
 argument_list|,
-literal|"//result/doc[4]/str[@name='id'][.='a']"
+literal|"//result/doc[4]/str[@name='id'][.='c']"
 argument_list|,
-literal|"//result/doc[5]/str[@name='id'][.='c']"
+literal|"//result/doc[5]/str[@name='id'][.='a']"
 argument_list|)
 expr_stmt|;
 name|args

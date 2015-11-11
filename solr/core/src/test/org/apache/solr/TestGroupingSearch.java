@@ -432,6 +432,10 @@ literal|"id"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"1"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author1"
@@ -454,6 +458,10 @@ argument_list|(
 name|doc
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"2"
+argument_list|,
+literal|"id_i"
 argument_list|,
 literal|"2"
 argument_list|,
@@ -482,6 +490,10 @@ literal|"id"
 argument_list|,
 literal|"3"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"3"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author2"
@@ -504,6 +516,10 @@ argument_list|(
 name|doc
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"4"
+argument_list|,
+literal|"id_i"
 argument_list|,
 literal|"4"
 argument_list|,
@@ -532,6 +548,10 @@ literal|"id"
 argument_list|,
 literal|"5"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"5"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author3"
@@ -553,13 +573,14 @@ name|commit
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// function based query for predictable scores not affect by similarity
 name|assertQ
 argument_list|(
 name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"title:title"
+literal|"{!func}id_i"
 argument_list|,
 literal|"group"
 argument_list|,
@@ -568,32 +589,33 @@ argument_list|,
 literal|"group.field"
 argument_list|,
 literal|"name"
+argument_list|,
+literal|"fl"
+argument_list|,
+literal|"id, score"
 argument_list|)
 argument_list|,
 literal|"//lst[@name='grouped']/lst[@name='name']"
 argument_list|,
 literal|"*[count(//arr[@name='groups']/lst) = 3]"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/str[@name='groupValue'][.='author2']"
-comment|//        ,"//arr[@name='groups']/lst[1]/int[@name='matches'][.='2']"
+literal|"//arr[@name='groups']/lst[1]/str[@name='groupValue'][.='author3']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result[@numFound='2']"
+literal|"//arr[@name='groups']/lst[1]/result[@numFound='1']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='4']"
+literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='5']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/str[@name='groupValue'][.='author1']"
-comment|//       ,"//arr[@name='groups']/lst[2]/int[@name='matches'][.='2']"
+literal|"//arr[@name='groups']/lst[2]/str[@name='groupValue'][.='author2']"
 argument_list|,
 literal|"//arr[@name='groups']/lst[2]/result[@numFound='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='2']"
+literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='4']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/str[@name='groupValue'][.='author3']"
-comment|//        ,"//arr[@name='groups']/lst[3]/int[@name='matches'][.='1']"
+literal|"//arr[@name='groups']/lst[3]/str[@name='groupValue'][.='author1']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/result[@numFound='1']"
+literal|"//arr[@name='groups']/lst[3]/result[@numFound='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/result/doc/*[@name='id'][.='5']"
+literal|"//arr[@name='groups']/lst[3]/result/doc/*[@name='id'][.='2']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -649,6 +671,10 @@ literal|"id"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"1"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author1"
@@ -671,6 +697,10 @@ argument_list|(
 name|doc
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"2"
+argument_list|,
+literal|"id_i"
 argument_list|,
 literal|"2"
 argument_list|,
@@ -699,6 +729,10 @@ literal|"id"
 argument_list|,
 literal|"3"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"3"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author2"
@@ -721,6 +755,10 @@ argument_list|(
 name|doc
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"4"
+argument_list|,
+literal|"id_i"
 argument_list|,
 literal|"4"
 argument_list|,
@@ -749,6 +787,10 @@ literal|"id"
 argument_list|,
 literal|"5"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"5"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author3"
@@ -770,13 +812,14 @@ name|commit
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// function based query for predictable scores not affect by similarity
 name|assertQ
 argument_list|(
 name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"title:title"
+literal|"{!func}id_i"
 argument_list|,
 literal|"group"
 argument_list|,
@@ -799,32 +842,33 @@ literal|"//lst[@name='grouped']/lst[@name='name']/int[@name='ngroups'][.='3']"
 argument_list|,
 literal|"*[count(//arr[@name='groups']/lst) = 3]"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/str[@name='groupValue'][.='author2']"
+literal|"//arr[@name='groups']/lst[1]/str[@name='groupValue'][.='author3']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result[@numFound='2']"
+literal|"//arr[@name='groups']/lst[1]/result[@numFound='1']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='4']"
+literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='5']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/str[@name='groupValue'][.='author1']"
+literal|"//arr[@name='groups']/lst[2]/str[@name='groupValue'][.='author2']"
 argument_list|,
 literal|"//arr[@name='groups']/lst[2]/result[@numFound='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='2']"
+literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='4']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/str[@name='groupValue'][.='author3']"
+literal|"//arr[@name='groups']/lst[3]/str[@name='groupValue'][.='author1']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/result[@numFound='1']"
+literal|"//arr[@name='groups']/lst[3]/result[@numFound='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/result/doc/*[@name='id'][.='5']"
+literal|"//arr[@name='groups']/lst[3]/result/doc/*[@name='id'][.='2']"
 argument_list|)
 expr_stmt|;
+comment|// function based query for predictable scores not affect by similarity
 name|assertQ
 argument_list|(
 name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"title:title"
+literal|"{!func}id_i"
 argument_list|,
 literal|"group"
 argument_list|,
@@ -845,17 +889,17 @@ literal|"//lst[@name='grouped']/lst[@name='group_i']/int[@name='ngroups'][.='2']
 argument_list|,
 literal|"*[count(//arr[@name='groups']/lst) = 2]"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/int[@name='groupValue'][.='2']"
+literal|"//arr[@name='groups']/lst[1]/int[@name='groupValue'][.='1']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result[@numFound='2']"
+literal|"//arr[@name='groups']/lst[1]/result[@numFound='3']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='4']"
+literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='5']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/int[@name='groupValue'][.='1']"
+literal|"//arr[@name='groups']/lst[2]/int[@name='groupValue'][.='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/result[@numFound='3']"
+literal|"//arr[@name='groups']/lst[2]/result[@numFound='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='5']"
+literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='4']"
 argument_list|)
 expr_stmt|;
 block|}
@@ -874,6 +918,10 @@ argument_list|(
 name|doc
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"id_i"
 argument_list|,
 literal|"1"
 argument_list|,
@@ -898,6 +946,10 @@ literal|"id"
 argument_list|,
 literal|"2"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"2"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author1"
@@ -916,6 +968,10 @@ argument_list|(
 name|doc
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"3"
+argument_list|,
+literal|"id_i"
 argument_list|,
 literal|"3"
 argument_list|,
@@ -940,6 +996,10 @@ literal|"id"
 argument_list|,
 literal|"4"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"4"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author2"
@@ -961,6 +1021,10 @@ literal|"id"
 argument_list|,
 literal|"5"
 argument_list|,
+literal|"id_i"
+argument_list|,
+literal|"5"
+argument_list|,
 literal|"name"
 argument_list|,
 literal|"author3"
@@ -978,13 +1042,14 @@ name|commit
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// function based query for predictable scores not affect by similarity
 name|assertQ
 argument_list|(
 name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"title:title"
+literal|"{!func}id_i"
 argument_list|,
 literal|"group"
 argument_list|,
@@ -1003,26 +1068,23 @@ argument_list|,
 literal|"score desc"
 argument_list|)
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/str[@name='groupValue'][.='author2']"
-comment|//        ,"//arr[@name='groups']/lst[1]/int[@name='matches'][.='2']"
+literal|"//arr[@name='groups']/lst[1]/str[@name='groupValue'][.='author3']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result[@numFound='2']"
+literal|"//arr[@name='groups']/lst[1]/result[@numFound='1']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='4']"
+literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='5']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/str[@name='groupValue'][.='author1']"
-comment|//        ,"//arr[@name='groups']/lst[2]/int[@name='matches'][.='2']"
+literal|"//arr[@name='groups']/lst[2]/str[@name='groupValue'][.='author2']"
 argument_list|,
 literal|"//arr[@name='groups']/lst[2]/result[@numFound='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='2']"
+literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='4']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/str[@name='groupValue'][.='author3']"
-comment|//        ,"//arr[@name='groups']/lst[3]/int[@name='matches'][.='1']"
+literal|"//arr[@name='groups']/lst[3]/str[@name='groupValue'][.='author1']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/result[@numFound='1']"
+literal|"//arr[@name='groups']/lst[3]/result[@numFound='2']"
 argument_list|,
-literal|"//arr[@name='groups']/lst[3]/result/doc/*[@name='id'][.='5']"
+literal|"//arr[@name='groups']/lst[3]/result/doc/*[@name='id'][.='2']"
 argument_list|)
 expr_stmt|;
 block|}
