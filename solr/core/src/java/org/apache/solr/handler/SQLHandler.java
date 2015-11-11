@@ -1907,6 +1907,8 @@ argument_list|,
 name|buckets
 argument_list|)
 decl_stmt|;
+comment|// Because of the way adjustSorts works we know that each FieldComparator has a single
+comment|// field name. For this reason we can just look at the leftFieldName
 name|FieldEqualitor
 index|[]
 name|fieldEqualitors
@@ -1964,7 +1966,7 @@ name|FieldEqualitor
 argument_list|(
 name|fieldComparator
 operator|.
-name|getFieldName
+name|getLeftFieldName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1989,7 +1991,7 @@ name|append
 argument_list|(
 name|fieldComparator
 operator|.
-name|getFieldName
+name|getLeftFieldName
 argument_list|()
 argument_list|)
 operator|.
