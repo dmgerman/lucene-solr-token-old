@@ -313,6 +313,9 @@ name|config
 operator|.
 name|getConfigSetBaseDirectory
 argument_list|()
+operator|.
+name|toAbsolutePath
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -322,6 +325,9 @@ name|get
 argument_list|(
 literal|"/path/to/solr/home/configsets"
 argument_list|)
+operator|.
+name|toAbsolutePath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -343,6 +349,9 @@ name|absConfig
 operator|.
 name|getConfigSetBaseDirectory
 argument_list|()
+operator|.
+name|toAbsolutePath
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -352,6 +361,9 @@ name|get
 argument_list|(
 literal|"/path/to/configsets"
 argument_list|)
+operator|.
+name|toAbsolutePath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
