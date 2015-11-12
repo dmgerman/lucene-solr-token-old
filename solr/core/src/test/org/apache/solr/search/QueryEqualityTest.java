@@ -898,6 +898,10 @@ argument_list|(
 literal|"myField"
 argument_list|,
 literal|"foo_s"
+argument_list|,
+literal|"g_sort"
+argument_list|,
+literal|"foo_s1 asc, foo_i desc"
 argument_list|)
 decl_stmt|;
 try|try
@@ -927,6 +931,21 @@ argument_list|,
 name|req
 argument_list|,
 literal|"{!collapse field=$myField min=a}"
+argument_list|,
+literal|"{!collapse field=$myField min=a nullPolicy=ignore}"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"collapse"
+argument_list|,
+name|req
+argument_list|,
+literal|"{!collapse field=$myField sort=$g_sort}"
+argument_list|,
+literal|"{!collapse field=$myField sort='foo_s1 asc, foo_i desc'}"
+argument_list|,
+literal|"{!collapse field=$myField sort=$g_sort nullPolicy=ignore}"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
