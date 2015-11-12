@@ -2966,10 +2966,6 @@ expr_stmt|;
 comment|// We should never incRef a file we are already wanting to delete:
 assert|assert
 name|deletable
-operator|==
-literal|null
-operator|||
-name|deletable
 operator|.
 name|contains
 argument_list|(
