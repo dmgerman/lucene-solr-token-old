@@ -3140,6 +3140,16 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|descriptor
+operator|.
+name|getCloudDescriptor
+argument_list|()
+operator|.
+name|setHasRegistered
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -5384,6 +5394,19 @@ name|ACTIVE
 argument_list|)
 expr_stmt|;
 block|}
+name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
+operator|.
+name|getCloudDescriptor
+argument_list|()
+operator|.
+name|setHasRegistered
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 comment|// make sure we have an update cluster state right away
 name|zkStateReader
