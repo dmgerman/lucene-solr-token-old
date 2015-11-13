@@ -220,19 +220,6 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|LeaderInitiatedRecoveryThread
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|cloud
-operator|.
 name|DistributedQueue
 import|;
 end_import
@@ -5561,11 +5548,15 @@ name|getLeaderExc
 init|=
 literal|null
 decl_stmt|;
+name|Replica
+name|leaderProps
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
-name|Replica
-name|leader
-init|=
+name|leaderProps
+operator|=
 name|zkController
 operator|.
 name|getZkStateReader
@@ -5577,17 +5568,17 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
-name|leader
+name|leaderProps
 operator|!=
 literal|null
 condition|)
 block|{
 name|leaderCoreNodeName
 operator|=
-name|leader
+name|leaderProps
 operator|.
 name|getName
 argument_list|()
@@ -5745,6 +5736,10 @@ continue|continue;
 block|}
 if|if
 condition|(
+name|leaderCoreNodeName
+operator|!=
+literal|null
+operator|&&
 name|cloudDesc
 operator|.
 name|getCoreNodeName
@@ -5754,10 +5749,30 @@ name|equals
 argument_list|(
 name|leaderCoreNodeName
 argument_list|)
+comment|// we are still same leader
 operator|&&
 name|foundErrorNodeInReplicaList
+comment|// we found an error for one of replicas
+operator|&&
+operator|!
+name|stdNode
+operator|.
+name|getNodeProps
+argument_list|()
+operator|.
+name|getCoreUrl
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|leaderProps
+operator|.
+name|getCoreUrl
+argument_list|()
+argument_list|)
 condition|)
 block|{
+comment|// we do not want to put ourself into LIR
 try|try
 block|{
 comment|// if false, then the node is probably not "live" anymore
@@ -5927,7 +5942,7 @@ literal|" "
 operator|+
 name|shardId
 operator|+
-literal|", no request recovery command will be sent!"
+literal|" or we tried to put ourself into LIR, no request recovery command will be sent!"
 argument_list|)
 expr_stmt|;
 block|}
