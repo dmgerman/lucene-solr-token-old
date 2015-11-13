@@ -978,6 +978,11 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+name|float
+name|totalMatchCost
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1075,6 +1080,15 @@ name|PostingsEnum
 operator|.
 name|POSITIONS
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|totalMatchCost
+operator|+=
+name|PhraseQuery
+operator|.
+name|termPositionsCost
+argument_list|(
+name|termsEnum
 argument_list|)
 expr_stmt|;
 block|}
@@ -1193,6 +1207,8 @@ name|context
 argument_list|)
 argument_list|,
 name|needsScores
+argument_list|,
+name|totalMatchCost
 argument_list|)
 return|;
 block|}
@@ -1218,6 +1234,8 @@ name|context
 argument_list|)
 argument_list|,
 name|needsScores
+argument_list|,
+name|totalMatchCost
 argument_list|)
 return|;
 block|}
