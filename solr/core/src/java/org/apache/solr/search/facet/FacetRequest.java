@@ -3039,6 +3039,12 @@ else|else
 block|{
 name|facet
 operator|.
+name|sortVariable
+operator|=
+name|sortStr
+expr_stmt|;
+name|facet
+operator|.
 name|sortDirection
 operator|=
 literal|"index"
