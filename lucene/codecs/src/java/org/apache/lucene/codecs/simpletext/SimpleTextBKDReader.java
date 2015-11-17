@@ -402,6 +402,10 @@ specifier|protected
 name|void
 name|visitDocValues
 parameter_list|(
+name|int
+index|[]
+name|commonPrefixLengths
+parameter_list|,
 name|byte
 index|[]
 name|scratchPackedValue
@@ -422,6 +426,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// NOTE: we don't do prefix coding, so we ignore commonPrefixLengths
 assert|assert
 name|scratchPackedValue
 operator|.
