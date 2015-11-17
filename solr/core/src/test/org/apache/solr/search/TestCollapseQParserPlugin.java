@@ -4022,7 +4022,7 @@ literal|"//result/doc[2]/float[@name='id'][.='1.0']"
 argument_list|)
 expr_stmt|;
 comment|// Test collapse using selector field in no docs
-comment|// tie selector in all of these cases, so index order applies
+comment|// tie selector in all of these cases
 for|for
 control|(
 name|String
@@ -4096,7 +4096,9 @@ name|add
 argument_list|(
 literal|"sort"
 argument_list|,
-literal|"id asc"
+name|group
+operator|+
+literal|" asc"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -4108,9 +4110,20 @@ argument_list|)
 argument_list|,
 literal|"*[count(//doc)=2]"
 argument_list|,
-literal|"//result/doc[1]/float[@name='id'][.='1.0']"
+comment|// since selector is bogus, group head is undefined
+comment|// (should be index order, but don't make absolute assumptions: segments may be re-ordered)
+comment|// key assertion is that there is one doc from each group& groups are in order
+literal|"//result/doc[1]/*[@name='"
+operator|+
+name|group
+operator|+
+literal|"'][starts-with(.,'1')]"
 argument_list|,
-literal|"//result/doc[2]/float[@name='id'][.='5.0']"
+literal|"//result/doc[2]/*[@name='"
+operator|+
+name|group
+operator|+
+literal|"'][starts-with(.,'2')]"
 argument_list|)
 expr_stmt|;
 block|}
