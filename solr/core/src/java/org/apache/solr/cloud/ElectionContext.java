@@ -3713,12 +3713,12 @@ specifier|private
 name|Overseer
 name|overseer
 decl_stmt|;
-DECL|field|PATH
+DECL|field|OVERSEER_ELECT
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|PATH
+name|OVERSEER_ELECT
 init|=
 literal|"/overseer_elect"
 decl_stmt|;
@@ -3741,9 +3741,9 @@ name|super
 argument_list|(
 name|zkNodeName
 argument_list|,
-name|PATH
+name|OVERSEER_ELECT
 argument_list|,
-name|PATH
+name|OVERSEER_ELECT
 operator|+
 literal|"/leader"
 argument_list|,
@@ -3777,7 +3777,7 @@ argument_list|)
 operator|.
 name|ensureExists
 argument_list|(
-literal|"/overseer_elect"
+name|OVERSEER_ELECT
 argument_list|,
 name|zkClient
 argument_list|)

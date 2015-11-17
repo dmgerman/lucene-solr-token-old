@@ -1156,13 +1156,7 @@ operator|.
 name|getZkClient
 argument_list|()
 argument_list|,
-name|OverseerElectionContext
-operator|.
-name|PATH
-operator|+
-name|LeaderElector
-operator|.
-name|ELECTION_NODE
+literal|"/overseer_elect/election"
 argument_list|)
 argument_list|)
 expr_stmt|;

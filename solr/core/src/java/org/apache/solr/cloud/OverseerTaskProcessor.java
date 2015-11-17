@@ -1556,7 +1556,7 @@ name|getChildren
 argument_list|(
 name|OverseerElectionContext
 operator|.
-name|PATH
+name|OVERSEER_ELECT
 operator|+
 name|LeaderElector
 operator|.
@@ -1766,7 +1766,11 @@ name|zkClient
 operator|.
 name|getData
 argument_list|(
-literal|"/overseer_elect/leader"
+name|OverseerElectionContext
+operator|.
+name|OVERSEER_ELECT
+operator|+
+literal|"/leader"
 argument_list|,
 literal|null
 argument_list|,
@@ -1857,7 +1861,11 @@ argument_list|()
 operator|.
 name|getData
 argument_list|(
-literal|"/overseer_elect/leader"
+name|OverseerElectionContext
+operator|.
+name|OVERSEER_ELECT
+operator|+
+literal|"/leader"
 argument_list|,
 literal|null
 argument_list|,
