@@ -126,19 +126,6 @@ operator|.
 name|TextResponseWriter
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|search
-operator|.
-name|QParser
-import|;
-end_import
 begin_comment
 comment|/**  * Encapsulates all information about a Field in a Solr Schema  *  *  */
 end_comment
@@ -895,10 +882,7 @@ DECL|method|checkFieldCacheSource
 specifier|public
 name|void
 name|checkFieldCacheSource
-parameter_list|(
-name|QParser
-name|parser
-parameter_list|)
+parameter_list|()
 throws|throws
 name|SolrException
 block|{

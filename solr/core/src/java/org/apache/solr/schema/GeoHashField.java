@@ -539,9 +539,7 @@ block|{
 name|field
 operator|.
 name|checkFieldCacheSource
-argument_list|(
-name|parser
-argument_list|)
+argument_list|()
 expr_stmt|;
 return|return
 operator|new
