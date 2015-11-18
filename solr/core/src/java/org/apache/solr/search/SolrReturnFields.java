@@ -905,8 +905,6 @@ specifier|static
 name|String
 name|getFieldName
 parameter_list|(
-name|QueryParsing
-operator|.
 name|StrParser
 name|sp
 parameter_list|)
@@ -1068,14 +1066,10 @@ return|return;
 block|}
 try|try
 block|{
-name|QueryParsing
-operator|.
 name|StrParser
 name|sp
 init|=
 operator|new
-name|QueryParsing
-operator|.
 name|StrParser
 argument_list|(
 name|fl
