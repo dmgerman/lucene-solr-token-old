@@ -360,7 +360,7 @@ specifier|final
 name|SortSpec
 name|ss
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -449,7 +449,7 @@ specifier|final
 name|SortSpec
 name|otherSort
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -524,7 +524,7 @@ specifier|final
 name|SortSpec
 name|ss
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -609,7 +609,7 @@ specifier|final
 name|SortSpec
 name|ss
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -682,7 +682,7 @@ specifier|final
 name|SortSpec
 name|ss
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -781,7 +781,7 @@ specifier|final
 name|SortSpec
 name|ss
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -959,7 +959,7 @@ specifier|final
 name|SortSpec
 name|otherSort
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -1122,7 +1122,7 @@ specifier|final
 name|SortSpec
 name|ss
 init|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(

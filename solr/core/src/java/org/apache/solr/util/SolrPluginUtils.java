@@ -741,6 +741,19 @@ name|solr
 operator|.
 name|search
 operator|.
+name|SortSpecParsing
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
 name|SyntaxError
 import|;
 end_import
@@ -2520,7 +2533,7 @@ condition|)
 block|{
 name|sort
 operator|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
@@ -4475,7 +4488,7 @@ try|try
 block|{
 name|ss
 operator|=
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(

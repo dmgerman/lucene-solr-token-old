@@ -1659,7 +1659,7 @@ operator|.
 name|type
 argument_list|)
 condition|?
-name|QueryParsing
+name|SortSpecParsing
 operator|.
 name|parseSortSpec
 argument_list|(
