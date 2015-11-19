@@ -206,6 +206,9 @@ name|shard
 parameter_list|,
 name|ModifiableSolrParams
 name|params
+parameter_list|,
+name|String
+name|preferredHostAddress
 parameter_list|)
 block|{}
 annotation|@
