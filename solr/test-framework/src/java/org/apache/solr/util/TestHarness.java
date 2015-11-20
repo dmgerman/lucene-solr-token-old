@@ -20,15 +20,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -39,6 +30,17 @@ operator|.
 name|io
 operator|.
 name|StringWriter
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 begin_import
@@ -351,7 +353,7 @@ specifier|static
 name|SolrConfig
 name|createConfig
 parameter_list|(
-name|String
+name|Path
 name|solrHome
 parameter_list|,
 name|String
@@ -387,12 +389,11 @@ operator|new
 name|SolrConfig
 argument_list|(
 name|solrHome
-operator|+
-name|File
 operator|.
-name|separator
-operator|+
+name|resolve
+argument_list|(
 name|coreName
+argument_list|)
 argument_list|,
 name|confFile
 argument_list|,
@@ -415,14 +416,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Creates a SolrConfig object for the default test core using {@link #createConfig(String,String,String)}    */
+comment|/**    * Creates a SolrConfig object for the default test core using {@link #createConfig(Path,String,String)}    */
 DECL|method|createConfig
 specifier|public
 specifier|static
 name|SolrConfig
 name|createConfig
 parameter_list|(
-name|String
+name|Path
 name|solrHome
 parameter_list|,
 name|String
@@ -642,7 +643,7 @@ DECL|method|TestHarness
 specifier|public
 name|TestHarness
 parameter_list|(
-name|String
+name|Path
 name|solrHome
 parameter_list|,
 name|String

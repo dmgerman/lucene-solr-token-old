@@ -280,7 +280,7 @@ name|SolrResourceLoader
 argument_list|(
 name|solrHome
 operator|.
-name|getAbsolutePath
+name|toPath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -357,7 +357,7 @@ name|loader
 argument_list|,
 name|solrHome
 operator|.
-name|getAbsolutePath
+name|toPath
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -918,7 +918,7 @@ name|loader
 argument_list|,
 name|solrHome
 operator|.
-name|getAbsolutePath
+name|toPath
 argument_list|()
 argument_list|)
 decl_stmt|;
