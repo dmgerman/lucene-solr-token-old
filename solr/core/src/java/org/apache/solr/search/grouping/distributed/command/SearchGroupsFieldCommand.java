@@ -497,6 +497,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|List
 argument_list|<
 name|Collector
@@ -506,8 +507,11 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
+argument_list|(
+literal|2
+argument_list|)
 decl_stmt|;
+specifier|final
 name|FieldType
 name|fieldType
 init|=
@@ -684,9 +688,9 @@ name|topGroups
 decl_stmt|;
 if|if
 condition|(
-name|topNGroups
-operator|>
-literal|0
+name|firstPassGroupingCollector
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
@@ -752,7 +756,9 @@ name|groupCount
 decl_stmt|;
 if|if
 condition|(
-name|includeGroupCount
+name|allGroupsCollector
+operator|!=
+literal|null
 condition|)
 block|{
 name|groupCount
