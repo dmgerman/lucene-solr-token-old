@@ -2519,8 +2519,6 @@ argument_list|,
 name|entry
 operator|.
 name|numDocsWithValue
-operator|+
-literal|1
 argument_list|,
 name|blockShift
 argument_list|)
