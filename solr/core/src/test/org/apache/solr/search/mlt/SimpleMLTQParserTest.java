@@ -713,13 +713,11 @@ argument_list|(
 name|params
 argument_list|)
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='26']"
+literal|"//result/doc[1]/int[@name='id'][.='29']"
 argument_list|,
-literal|"//result/doc[2]/int[@name='id'][.='29']"
+literal|"//result/doc[2]/int[@name='id'][.='27']"
 argument_list|,
-literal|"//result/doc[3]/int[@name='id'][.='27']"
-argument_list|,
-literal|"//result/doc[4]/int[@name='id'][.='28']"
+literal|"//result/doc[3]/int[@name='id'][.='28']"
 argument_list|)
 expr_stmt|;
 name|params
@@ -795,7 +793,7 @@ argument_list|(
 name|params
 argument_list|)
 argument_list|,
-literal|"//result[@numFound='4']"
+literal|"//result[@numFound='3']"
 argument_list|)
 expr_stmt|;
 name|params
@@ -833,7 +831,7 @@ argument_list|(
 name|params
 argument_list|)
 argument_list|,
-literal|"//result[@numFound='1']"
+literal|"//result[@numFound='0']"
 argument_list|)
 expr_stmt|;
 block|}
