@@ -713,9 +713,9 @@ name|String
 argument_list|>
 name|mimeMap
 decl_stmt|;
-DECL|field|globFileFilter
-name|GlobFileFilter
-name|globFileFilter
+DECL|field|fileFilter
+name|FileFilter
+name|fileFilter
 decl_stmt|;
 comment|// Backlog for crawling
 DECL|field|backlog
@@ -1761,7 +1761,7 @@ name|fileTypes
 expr_stmt|;
 name|this
 operator|.
-name|globFileFilter
+name|fileFilter
 operator|=
 name|getFileFilterFromFileTypes
 argument_list|(
@@ -2782,7 +2782,7 @@ name|dir
 operator|.
 name|listFiles
 argument_list|(
-name|globFileFilter
+name|fileFilter
 argument_list|)
 operator|.
 name|length
@@ -2807,7 +2807,7 @@ name|dir
 operator|.
 name|listFiles
 argument_list|(
-name|globFileFilter
+name|fileFilter
 argument_list|)
 argument_list|,
 name|out
@@ -5455,7 +5455,7 @@ expr_stmt|;
 block|}
 DECL|method|getFileFilterFromFileTypes
 specifier|public
-name|GlobFileFilter
+name|FileFilter
 name|getFileFilterFromFileTypes
 parameter_list|(
 name|String

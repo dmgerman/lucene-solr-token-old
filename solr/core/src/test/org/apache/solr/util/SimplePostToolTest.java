@@ -666,7 +666,7 @@ literal|"doc,xls,ppt"
 expr_stmt|;
 name|t_web
 operator|.
-name|globFileFilter
+name|fileFilter
 operator|=
 name|t_web
 operator|.
