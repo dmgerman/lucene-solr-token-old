@@ -1643,7 +1643,7 @@ name|excludeTags
 operator|=
 name|getStringList
 argument_list|(
-name|m
+name|domainMap
 argument_list|,
 literal|"excludeTags"
 argument_list|)
