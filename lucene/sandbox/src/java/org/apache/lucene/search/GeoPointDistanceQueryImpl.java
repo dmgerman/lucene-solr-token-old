@@ -131,6 +131,12 @@ specifier|final
 name|GeoPointDistanceQuery
 name|query
 decl_stmt|;
+DECL|field|centerLon
+specifier|private
+specifier|final
+name|double
+name|centerLon
+decl_stmt|;
 DECL|method|GeoPointDistanceQueryImpl
 name|GeoPointDistanceQueryImpl
 parameter_list|(
@@ -141,6 +147,10 @@ parameter_list|,
 specifier|final
 name|GeoPointDistanceQuery
 name|q
+parameter_list|,
+specifier|final
+name|double
+name|centerLonUnwrapped
 parameter_list|,
 specifier|final
 name|GeoRect
@@ -171,6 +181,10 @@ expr_stmt|;
 name|query
 operator|=
 name|q
+expr_stmt|;
+name|centerLon
+operator|=
+name|centerLonUnwrapped
 expr_stmt|;
 block|}
 annotation|@
@@ -371,8 +385,6 @@ name|maxLon
 argument_list|,
 name|maxLat
 argument_list|,
-name|query
-operator|.
 name|centerLon
 argument_list|,
 name|query
@@ -422,8 +434,6 @@ name|maxLon
 argument_list|,
 name|maxLat
 argument_list|,
-name|query
-operator|.
 name|centerLon
 argument_list|,
 name|query
@@ -524,8 +534,6 @@ name|query
 operator|.
 name|centerLat
 argument_list|,
-name|query
-operator|.
 name|centerLon
 argument_list|,
 name|lat
