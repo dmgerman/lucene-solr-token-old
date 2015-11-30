@@ -750,7 +750,9 @@ name|fields
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Returns the fields used to expand the query when the field for a    * certain query is<code>null</code>    *     * @param fields the fields used to expand the query    */
+comment|/**    * Returns the fields used to expand the query when the field for a    * certain query is<code>null</code>    *     * @param fields the fields used to expand the query    * @deprecated Use StandardQueryParser#getMultiFields() instead.    */
+annotation|@
+name|Deprecated
 DECL|method|getMultiFields
 specifier|public
 name|void
@@ -771,6 +773,26 @@ operator|.
 name|MULTI_FIELDS
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**    * Returns the fields used to expand the query when the field for a    * certain query is<code>null</code>    *    * @return the fields used to expand the query    */
+DECL|method|getMultiFields
+specifier|public
+name|CharSequence
+index|[]
+name|getMultiFields
+parameter_list|()
+block|{
+return|return
+name|getQueryConfigHandler
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|ConfigurationKeys
+operator|.
+name|MULTI_FIELDS
+argument_list|)
+return|;
 block|}
 comment|/**    * Set the prefix length for fuzzy queries. Default is 0.    *     * @param fuzzyPrefixLength    *          The fuzzyPrefixLength to set.    */
 annotation|@
