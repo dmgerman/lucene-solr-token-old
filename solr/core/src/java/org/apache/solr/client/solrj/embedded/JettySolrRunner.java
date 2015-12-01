@@ -2435,9 +2435,9 @@ operator|.
 name|getDefaultProtocol
 argument_list|()
 operator|.
-name|equals
+name|startsWith
 argument_list|(
-literal|"SSL-http/1.1"
+literal|"SSL"
 argument_list|)
 condition|?
 literal|"https"
