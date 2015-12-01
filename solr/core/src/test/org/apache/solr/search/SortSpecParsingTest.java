@@ -160,6 +160,56 @@ literal|"schema.xml"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|doParseSortSpec
+specifier|private
+specifier|static
+name|SortSpec
+name|doParseSortSpec
+parameter_list|(
+name|String
+name|sortSpec
+parameter_list|,
+name|SolrQueryRequest
+name|req
+parameter_list|)
+block|{
+if|if
+condition|(
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
+return|return
+name|SortSpecParsing
+operator|.
+name|parseSortSpec
+argument_list|(
+name|sortSpec
+argument_list|,
+name|req
+operator|.
+name|getSchema
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|SortSpecParsing
+operator|.
+name|parseSortSpec
+argument_list|(
+name|sortSpec
+argument_list|,
+name|req
+argument_list|)
+return|;
+block|}
+block|}
 annotation|@
 name|Test
 DECL|method|testSort
@@ -184,9 +234,7 @@ argument_list|()
 decl_stmt|;
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"score desc"
 argument_list|,
@@ -206,9 +254,7 @@ expr_stmt|;
 comment|//only 1 thing in the list, no Sort specified
 name|spec
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"score desc"
 argument_list|,
@@ -254,9 +300,7 @@ expr_stmt|;
 comment|// SOLR-4458 - using different case variations of asc and desc
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"score aSc"
 argument_list|,
@@ -305,9 +349,7 @@ argument_list|)
 expr_stmt|;
 name|spec
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"score aSc"
 argument_list|,
@@ -389,9 +431,7 @@ argument_list|)
 expr_stmt|;
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight dEsC"
 argument_list|,
@@ -453,9 +493,7 @@ argument_list|)
 expr_stmt|;
 name|spec
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight dEsC"
 argument_list|,
@@ -570,9 +608,7 @@ argument_list|)
 expr_stmt|;
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight desc,bday ASC"
 argument_list|,
@@ -678,9 +714,7 @@ expr_stmt|;
 comment|//order aliases
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight top,bday asc"
 argument_list|,
@@ -785,9 +819,7 @@ argument_list|)
 expr_stmt|;
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight top,bday bottom"
 argument_list|,
@@ -893,9 +925,7 @@ expr_stmt|;
 comment|//test weird spacing
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight         DESC,            bday         asc"
 argument_list|,
@@ -975,9 +1005,7 @@ expr_stmt|;
 comment|//handles trailing commas
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight desc,"
 argument_list|,
@@ -1389,9 +1417,7 @@ expr_stmt|;
 comment|//handles trailing commas
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight desc,"
 argument_list|,
@@ -1493,9 +1519,7 @@ argument_list|)
 expr_stmt|;
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|""
 argument_list|,
@@ -1512,9 +1536,7 @@ argument_list|)
 expr_stmt|;
 name|spec
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|""
 argument_list|,
@@ -1564,9 +1586,7 @@ try|try
 block|{
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight, desc"
 argument_list|,
@@ -1594,9 +1614,7 @@ try|try
 block|{
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"w"
 argument_list|,
@@ -1624,9 +1642,7 @@ try|try
 block|{
 name|sort
 operator|=
-name|SortSpecParsing
-operator|.
-name|parseSortSpec
+name|doParseSortSpec
 argument_list|(
 literal|"weight desc, bday"
 argument_list|,
