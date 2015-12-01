@@ -1113,6 +1113,15 @@ name|SolrTestCaseJ4
 extends|extends
 name|LuceneTestCase
 block|{
+DECL|field|DEFAULT_TEST_COLLECTION_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_TEST_COLLECTION_NAME
+init|=
+literal|"collection1"
+decl_stmt|;
 DECL|field|DEFAULT_TEST_CORENAME
 specifier|public
 specifier|static
@@ -1120,7 +1129,7 @@ specifier|final
 name|String
 name|DEFAULT_TEST_CORENAME
 init|=
-literal|"collection1"
+name|DEFAULT_TEST_COLLECTION_NAME
 decl_stmt|;
 DECL|field|CORE_PROPERTIES_FILENAME
 specifier|protected
