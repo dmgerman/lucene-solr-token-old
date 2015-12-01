@@ -21,6 +21,7 @@ comment|/**  * A serialization schema for HLLs. Reads and writes HLL metadata to
 end_comment
 begin_interface
 DECL|interface|ISchemaVersion
+specifier|public
 interface|interface
 name|ISchemaVersion
 block|{
