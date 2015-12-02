@@ -291,24 +291,6 @@ name|UpdateRequestProcessor
 import|;
 end_import
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-begin_import
 import|import static
 name|org
 operator|.
@@ -336,21 +318,6 @@ name|UpdateRequestHandler
 extends|extends
 name|ContentStreamHandlerBase
 block|{
-DECL|field|log
-specifier|public
-specifier|static
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|UpdateRequestHandler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// XML Constants
 DECL|field|ADD
 specifier|public

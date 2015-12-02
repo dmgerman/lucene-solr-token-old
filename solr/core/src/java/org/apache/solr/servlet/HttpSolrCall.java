@@ -85,6 +85,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|invoke
+operator|.
+name|MethodHandles
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|Principal
@@ -1261,8 +1272,9 @@ class|class
 name|HttpSolrCall
 block|{
 DECL|field|log
-specifier|protected
+specifier|private
 specifier|static
+specifier|final
 name|Logger
 name|log
 init|=
@@ -1270,9 +1282,13 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|HttpSolrCall
+name|MethodHandles
 operator|.
-name|class
+name|lookup
+argument_list|()
+operator|.
+name|lookupClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|random
@@ -2172,8 +2188,6 @@ return|return;
 comment|// we are done with a valid handler
 block|}
 block|}
-name|SolrDispatchFilter
-operator|.
 name|log
 operator|.
 name|debug
@@ -3161,8 +3175,6 @@ operator|!=
 name|ex
 condition|)
 block|{
-name|SolrDispatchFilter
-operator|.
 name|log
 operator|.
 name|error
@@ -3283,8 +3295,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|SolrDispatchFilter
-operator|.
 name|log
 operator|.
 name|debug
@@ -4118,8 +4128,6 @@ name|ex
 argument_list|,
 name|info
 argument_list|,
-name|SolrDispatchFilter
-operator|.
 name|log
 argument_list|)
 decl_stmt|;
@@ -4189,8 +4197,6 @@ name|EOFException
 name|e
 parameter_list|)
 block|{
-name|SolrDispatchFilter
-operator|.
 name|log
 operator|.
 name|info
@@ -4290,8 +4296,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|SolrDispatchFilter
-operator|.
 name|log
 operator|.
 name|isInfoEnabled
@@ -4308,8 +4312,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|SolrDispatchFilter
-operator|.
 name|log
 operator|.
 name|info
@@ -4742,8 +4744,6 @@ argument_list|()
 argument_list|,
 name|info
 argument_list|,
-name|SolrDispatchFilter
-operator|.
 name|log
 argument_list|)
 decl_stmt|;
@@ -4800,8 +4800,6 @@ name|EOFException
 name|e
 parameter_list|)
 block|{
-name|SolrDispatchFilter
-operator|.
 name|log
 operator|.
 name|info

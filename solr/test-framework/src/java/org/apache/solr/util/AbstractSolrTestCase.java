@@ -27,6 +27,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|invoke
+operator|.
+name|MethodHandles
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashSet
@@ -175,8 +186,9 @@ argument_list|()
 return|;
 block|}
 DECL|field|log
-specifier|public
+specifier|private
 specifier|static
+specifier|final
 name|Logger
 name|log
 init|=
@@ -184,9 +196,13 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|AbstractSolrTestCase
+name|MethodHandles
 operator|.
-name|class
+name|lookup
+argument_list|()
+operator|.
+name|lookupClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|/** Causes an exception matching the regex pattern to not be logged. */

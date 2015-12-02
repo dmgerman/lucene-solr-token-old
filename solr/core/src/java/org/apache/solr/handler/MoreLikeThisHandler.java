@@ -641,6 +641,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|invoke
+operator|.
+name|MethodHandles
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|MalformedURLException
@@ -747,8 +758,9 @@ literal|",| "
 argument_list|)
 decl_stmt|;
 DECL|field|log
-specifier|protected
+specifier|private
 specifier|static
+specifier|final
 name|Logger
 name|log
 init|=
@@ -756,9 +768,13 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|MoreLikeThisHandler
+name|MethodHandles
 operator|.
-name|class
+name|lookup
+argument_list|()
+operator|.
+name|lookupClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -1930,8 +1946,6 @@ name|SolrException
 operator|.
 name|log
 argument_list|(
-name|SolrCore
-operator|.
 name|log
 argument_list|,
 literal|"Exception during debug"

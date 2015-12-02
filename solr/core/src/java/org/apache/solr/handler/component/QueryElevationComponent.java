@@ -810,6 +810,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|invoke
+operator|.
+name|MethodHandles
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|MalformedURLException
@@ -921,6 +932,7 @@ block|{
 DECL|field|log
 specifier|private
 specifier|static
+specifier|final
 name|Logger
 name|log
 init|=
@@ -928,9 +940,13 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|QueryElevationComponent
+name|MethodHandles
 operator|.
-name|class
+name|lookup
+argument_list|()
+operator|.
+name|lookupClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Constants used in solrconfig.xml
