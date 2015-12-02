@@ -18,15 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -118,14 +109,14 @@ DECL|class|SolrDocument
 specifier|public
 class|class
 name|SolrDocument
-implements|implements
-name|Map
+extends|extends
+name|SolrDocumentBase
 argument_list|<
-name|String
-argument_list|,
 name|Object
+argument_list|,
+name|SolrDocument
 argument_list|>
-implements|,
+implements|implements
 name|Iterable
 argument_list|<
 name|Map
@@ -137,8 +128,6 @@ argument_list|,
 name|Object
 argument_list|>
 argument_list|>
-implements|,
-name|Serializable
 block|{
 DECL|field|_fields
 specifier|private
@@ -173,6 +162,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * @return a list of field names defined in this document - this Collection is directly backed by this SolrDocument.    * @see #keySet    */
+annotation|@
+name|Override
 DECL|method|getFieldNames
 specifier|public
 name|Collection
@@ -364,6 +355,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 DECL|method|addField
 specifier|public
 name|void
@@ -657,6 +650,8 @@ literal|null
 return|;
 block|}
 comment|/**    * Get the value or collection of values for a given field.      */
+annotation|@
+name|Override
 DECL|method|getFieldValue
 specifier|public
 name|Object
@@ -681,6 +676,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 DECL|method|getFieldValues
 specifier|public
 name|Collection
@@ -1574,6 +1571,8 @@ name|values
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addChildDocument
 specifier|public
 name|void
@@ -1606,6 +1605,8 @@ name|child
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addChildDocuments
 specifier|public
 name|void
@@ -1615,7 +1616,7 @@ name|Collection
 argument_list|<
 name|SolrDocument
 argument_list|>
-name|childs
+name|children
 parameter_list|)
 block|{
 for|for
@@ -1623,7 +1624,7 @@ control|(
 name|SolrDocument
 name|child
 range|:
-name|childs
+name|children
 control|)
 block|{
 name|addChildDocument
@@ -1634,6 +1635,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Returns the list of child documents, or null if none. */
+annotation|@
+name|Override
 DECL|method|getChildDocuments
 specifier|public
 name|List
@@ -1647,6 +1650,8 @@ return|return
 name|_childDocuments
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasChildDocuments
 specifier|public
 name|boolean
@@ -1672,6 +1677,8 @@ operator|!
 name|isEmpty
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getChildDocumentCount
 specifier|public
 name|int
