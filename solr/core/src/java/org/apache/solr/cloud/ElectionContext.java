@@ -2191,6 +2191,8 @@ literal|null
 condition|)
 block|{
 comment|// TODO: we could optimize this if necessary
+try|try
+init|(
 name|UpdateLog
 operator|.
 name|RecentUpdates
@@ -2200,8 +2202,7 @@ name|ulog
 operator|.
 name|getRecentUpdates
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|hasRecentUpdates
 operator|=
@@ -2214,14 +2215,6 @@ literal|1
 argument_list|)
 operator|.
 name|isEmpty
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|recentUpdates
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 block|}
