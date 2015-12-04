@@ -722,8 +722,6 @@ name|other
 decl_stmt|;
 if|if
 condition|(
-name|size
-operator|+
 name|otherUpdates
 operator|.
 name|size
@@ -731,6 +729,8 @@ operator|>
 name|Integer
 operator|.
 name|MAX_VALUE
+operator|-
+name|size
 condition|)
 block|{
 throw|throw
