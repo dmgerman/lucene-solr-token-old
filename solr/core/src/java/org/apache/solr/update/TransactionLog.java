@@ -332,7 +332,8 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|debug
-specifier|final
+specifier|private
+specifier|static
 name|boolean
 name|debug
 init|=
@@ -342,7 +343,8 @@ name|isDebugEnabled
 argument_list|()
 decl_stmt|;
 DECL|field|trace
-specifier|final
+specifier|private
+specifier|static
 name|boolean
 name|trace
 init|=
