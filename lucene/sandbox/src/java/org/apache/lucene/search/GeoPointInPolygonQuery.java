@@ -94,6 +94,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|GeoRelationUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|GeoUtils
 import|;
 end_import
@@ -803,7 +816,7 @@ name|maxLat
 parameter_list|)
 block|{
 return|return
-name|GeoUtils
+name|GeoRelationUtils
 operator|.
 name|rectCrossesPoly
 argument_list|(
@@ -870,7 +883,7 @@ name|maxLat
 parameter_list|)
 block|{
 return|return
-name|GeoUtils
+name|GeoRelationUtils
 operator|.
 name|rectWithinPoly
 argument_list|(
@@ -971,7 +984,7 @@ name|maxLat
 argument_list|)
 return|;
 block|}
-comment|/**      * The two-phase query approach. The parent      * {@link org.apache.lucene.search.GeoPointTermsEnum#accept} method is called to match      * encoded terms that fall within the bounding box of the polygon. Those documents that pass the initial      * bounding box filter are then compared to the provided polygon using the      * {@link org.apache.lucene.util.GeoUtils#pointInPolygon} method.      */
+comment|/**      * The two-phase query approach. The parent      * {@link org.apache.lucene.search.GeoPointTermsEnum#accept} method is called to match      * encoded terms that fall within the bounding box of the polygon. Those documents that pass the initial      * bounding box filter are then compared to the provided polygon using the      * {@link org.apache.lucene.util.GeoRelationUtils#pointInPolygon} method.      */
 annotation|@
 name|Override
 DECL|method|postFilter
@@ -989,7 +1002,7 @@ name|lat
 parameter_list|)
 block|{
 return|return
-name|GeoUtils
+name|GeoRelationUtils
 operator|.
 name|pointInPolygon
 argument_list|(
