@@ -354,11 +354,17 @@ name|TestParser
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|builder
+DECL|field|analyzer
+specifier|private
+specifier|static
+name|Analyzer
+name|analyzer
+decl_stmt|;
+DECL|field|coreParser
 specifier|private
 specifier|static
 name|CoreParser
-name|builder
+name|coreParser
 decl_stmt|;
 DECL|field|dir
 specifier|private
@@ -390,9 +396,8 @@ throws|throws
 name|Exception
 block|{
 comment|// TODO: rewrite test (this needs to set QueryParser.enablePositionIncrements, too, for work with CURRENT):
-name|Analyzer
 name|analyzer
-init|=
+operator|=
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -409,9 +414,9 @@ name|MockTokenFilter
 operator|.
 name|ENGLISH_STOPSET
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//initialize the parser
-name|builder
+name|coreParser
 operator|=
 operator|new
 name|CorePlusExtensionsParser
@@ -659,7 +664,11 @@ name|dir
 operator|=
 literal|null
 expr_stmt|;
-name|builder
+name|coreParser
+operator|=
+literal|null
+expr_stmt|;
+name|analyzer
 operator|=
 literal|null
 expr_stmt|;
@@ -1179,10 +1188,10 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNumericRangeQueryQueryXML
+DECL|method|testNumericRangeQueryXML
 specifier|public
 name|void
-name|testNumericRangeQueryQueryXML
+name|testNumericRangeQueryXML
 parameter_list|()
 throws|throws
 name|ParserException
@@ -1194,7 +1203,7 @@ name|q
 init|=
 name|parse
 argument_list|(
-literal|"NumericRangeQueryQuery.xml"
+literal|"NumericRangeQuery.xml"
 argument_list|)
 decl_stmt|;
 name|dumpResults
@@ -1208,6 +1217,26 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//================= Helper methods ===================================
+DECL|method|analyzer
+specifier|protected
+name|Analyzer
+name|analyzer
+parameter_list|()
+block|{
+return|return
+name|analyzer
+return|;
+block|}
+DECL|method|coreParser
+specifier|protected
+name|CoreParser
+name|coreParser
+parameter_list|()
+block|{
+return|return
+name|coreParser
+return|;
+block|}
 DECL|method|parse
 specifier|private
 name|Query
@@ -1236,7 +1265,8 @@ decl_stmt|;
 name|Query
 name|result
 init|=
-name|builder
+name|coreParser
+argument_list|()
 operator|.
 name|parse
 argument_list|(
