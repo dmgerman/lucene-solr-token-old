@@ -8463,6 +8463,15 @@ assert|assert
 name|coreNodeName
 operator|!=
 literal|null
+operator|:
+literal|"SolrCore: "
+operator|+
+name|cd
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" has no coreNodeName"
 assert|;
 if|if
 condition|(
