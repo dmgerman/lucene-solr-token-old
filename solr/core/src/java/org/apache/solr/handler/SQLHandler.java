@@ -1652,13 +1652,6 @@ argument_list|(
 name|factory
 argument_list|)
 expr_stmt|;
-name|parallelStream
-operator|.
-name|setObjectSerialize
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|tupleStream
 operator|=
 name|parallelStream
@@ -2450,13 +2443,6 @@ operator|.
 name|setStreamFactory
 argument_list|(
 name|factory
-argument_list|)
-expr_stmt|;
-name|parallelStream
-operator|.
-name|setObjectSerialize
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 name|tupleStream
