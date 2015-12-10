@@ -563,6 +563,9 @@ operator|new
 name|TwoPhaseIterator
 argument_list|(
 name|indexQueryScorer
+operator|.
+name|iterator
+argument_list|()
 argument_list|)
 block|{
 annotation|@

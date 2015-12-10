@@ -516,7 +516,7 @@ name|contextTwoPhase
 init|=
 name|contextScorer
 operator|.
-name|asTwoPhaseIterator
+name|twoPhaseIterator
 argument_list|()
 decl_stmt|;
 name|DocIdSetIterator
@@ -527,6 +527,9 @@ operator|==
 literal|null
 condition|?
 name|contextScorer
+operator|.
+name|iterator
+argument_list|()
 else|:
 name|contextTwoPhase
 operator|.

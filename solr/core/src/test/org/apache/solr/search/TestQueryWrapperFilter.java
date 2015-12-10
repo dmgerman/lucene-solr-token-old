@@ -1720,7 +1720,7 @@ name|assertNotNull
 argument_list|(
 name|scorer
 operator|.
-name|asTwoPhaseIterator
+name|twoPhaseIterator
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -946,14 +946,10 @@ argument_list|)
 return|;
 block|}
 name|DisiPriorityQueue
-argument_list|<
-name|Spans
-argument_list|>
 name|byDocQueue
 init|=
 operator|new
 name|DisiPriorityQueue
-argument_list|<>
 argument_list|(
 name|subSpans
 operator|.
@@ -975,7 +971,6 @@ name|add
 argument_list|(
 operator|new
 name|DisiWrapper
-argument_list|<>
 argument_list|(
 name|spans
 argument_list|)
@@ -998,14 +993,7 @@ comment|// when empty use -1
 return|return
 operator|new
 name|Spans
-argument_list|(
-name|this
-argument_list|,
-name|getSimScorer
-argument_list|(
-name|context
-argument_list|)
-argument_list|)
+argument_list|()
 block|{
 name|Spans
 name|topPositionSpans
@@ -1026,9 +1014,6 @@ operator|=
 literal|null
 expr_stmt|;
 name|DisiWrapper
-argument_list|<
-name|Spans
-argument_list|>
 name|topDocSpans
 init|=
 name|byDocQueue
@@ -1096,9 +1081,6 @@ operator|=
 literal|null
 expr_stmt|;
 name|DisiWrapper
-argument_list|<
-name|Spans
-argument_list|>
 name|topDocSpans
 init|=
 name|byDocQueue
@@ -1152,9 +1134,6 @@ name|docID
 parameter_list|()
 block|{
 name|DisiWrapper
-argument_list|<
-name|Spans
-argument_list|>
 name|topDocSpans
 init|=
 name|byDocQueue
@@ -1189,9 +1168,6 @@ decl_stmt|;
 for|for
 control|(
 name|DisiWrapper
-argument_list|<
-name|Spans
-argument_list|>
 name|w
 range|:
 name|byDocQueue
@@ -1269,9 +1245,6 @@ name|TwoPhaseIterator
 argument_list|(
 operator|new
 name|DisjunctionDISIApproximation
-argument_list|<
-name|Spans
-argument_list|>
 argument_list|(
 name|byDocQueue
 argument_list|)
@@ -1328,9 +1301,6 @@ decl_stmt|;
 for|for
 control|(
 name|DisiWrapper
-argument_list|<
-name|Spans
-argument_list|>
 name|w
 range|:
 name|byDocQueue
@@ -1357,7 +1327,7 @@ name|sumPositionsCost
 operator|+=
 name|w
 operator|.
-name|iterator
+name|spans
 operator|.
 name|positionsCost
 argument_list|()
@@ -1407,9 +1377,6 @@ throws|throws
 name|IOException
 block|{
 name|DisiWrapper
-argument_list|<
-name|Spans
-argument_list|>
 name|listAtCurrentDoc
 init|=
 name|byDocQueue
@@ -1508,9 +1475,6 @@ literal|0
 assert|;
 comment|// add all matching Spans at current doc to byPositionQueue
 name|DisiWrapper
-argument_list|<
-name|Spans
-argument_list|>
 name|listAtCurrentDoc
 init|=
 name|byDocQueue
@@ -1530,7 +1494,7 @@ name|spansAtDoc
 init|=
 name|listAtCurrentDoc
 operator|.
-name|iterator
+name|spans
 decl_stmt|;
 if|if
 condition|(

@@ -1019,6 +1019,9 @@ name|skipOk
 init|=
 name|ds
 operator|.
+name|iterator
+argument_list|()
+operator|.
 name|advance
 argument_list|(
 literal|3
@@ -1154,6 +1157,9 @@ argument_list|(
 literal|"firsttime skipTo found no match"
 argument_list|,
 name|ds
+operator|.
+name|iterator
+argument_list|()
 operator|.
 name|advance
 argument_list|(

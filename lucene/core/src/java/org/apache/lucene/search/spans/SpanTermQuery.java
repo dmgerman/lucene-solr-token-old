@@ -680,8 +680,6 @@ return|return
 operator|new
 name|TermSpans
 argument_list|(
-name|this
-argument_list|,
 name|getSimScorer
 argument_list|(
 name|context

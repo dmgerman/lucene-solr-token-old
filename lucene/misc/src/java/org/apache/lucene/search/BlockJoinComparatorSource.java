@@ -571,7 +571,7 @@ literal|false
 argument_list|)
 decl_stmt|;
 specifier|final
-name|DocIdSetIterator
+name|Scorer
 name|parents
 init|=
 name|weight
@@ -610,6 +610,9 @@ operator|.
 name|of
 argument_list|(
 name|parents
+operator|.
+name|iterator
+argument_list|()
 argument_list|,
 name|context
 operator|.

@@ -217,6 +217,12 @@ specifier|final
 name|Scorer
 name|baseScorer
 decl_stmt|;
+DECL|field|baseIterator
+specifier|private
+specifier|final
+name|DocIdSetIterator
+name|baseIterator
+decl_stmt|;
 DECL|field|context
 specifier|private
 specifier|final
@@ -301,6 +307,15 @@ name|baseScorer
 expr_stmt|;
 name|this
 operator|.
+name|baseIterator
+operator|=
+name|baseScorer
+operator|.
+name|iterator
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|drillDownCollector
 operator|=
 name|drillDownCollector
@@ -321,7 +336,7 @@ name|cost
 parameter_list|()
 block|{
 return|return
-name|baseScorer
+name|baseIterator
 operator|.
 name|cost
 argument_list|()
@@ -463,19 +478,11 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: if we ever allow null baseScorer ... it will
-comment|// mean we DO score docs out of order ... hmm, or if we
-comment|// change up the order of the conjuntions below
-assert|assert
-name|baseScorer
-operator|!=
-literal|null
-assert|;
 comment|// some scorers, eg ReqExlScorer, can hit NPE if cost is called after nextDoc
 name|long
 name|baseQueryCost
 init|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|cost
 argument_list|()
@@ -547,7 +554,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Position all scorers to their first matching doc:
-name|baseScorer
+name|baseIterator
 operator|.
 name|nextDoc
 argument_list|()
@@ -694,7 +701,7 @@ condition|)
 block|{
 name|docID
 operator|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|nextDoc
 argument_list|()
@@ -801,7 +808,7 @@ comment|// it's neither a hit nor a near-miss; move to
 comment|// next doc:
 name|docID
 operator|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|nextDoc
 argument_list|()
@@ -861,7 +868,7 @@ expr_stmt|;
 block|}
 name|docID
 operator|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|nextDoc
 argument_list|()
@@ -1330,7 +1337,7 @@ assert|;
 name|int
 name|baseDocID
 init|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|docID
 argument_list|()
@@ -1344,7 +1351,7 @@ condition|)
 block|{
 name|baseDocID
 operator|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|advance
 argument_list|(
@@ -1812,7 +1819,7 @@ decl_stmt|;
 name|int
 name|docID
 init|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|docID
 argument_list|()
@@ -1910,7 +1917,7 @@ expr_stmt|;
 block|}
 name|docID
 operator|=
-name|baseScorer
+name|baseIterator
 operator|.
 name|nextDoc
 argument_list|()
@@ -2395,25 +2402,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|advance
-specifier|public
-name|int
-name|advance
-parameter_list|(
-name|int
-name|target
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"FakeScorer doesn't support advance(int)"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -2442,10 +2430,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|nextDoc
+DECL|method|iterator
 specifier|public
-name|int
-name|nextDoc
+name|DocIdSetIterator
+name|iterator
 parameter_list|()
 block|{
 throw|throw
@@ -2466,21 +2454,6 @@ parameter_list|()
 block|{
 return|return
 name|collectScore
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|cost
-specifier|public
-name|long
-name|cost
-parameter_list|()
-block|{
-return|return
-name|baseScorer
-operator|.
-name|cost
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -2566,7 +2539,7 @@ name|twoPhase
 init|=
 name|scorer
 operator|.
-name|asTwoPhaseIterator
+name|twoPhaseIterator
 argument_list|()
 decl_stmt|;
 if|if
@@ -2581,6 +2554,9 @@ operator|.
 name|approximation
 operator|=
 name|scorer
+operator|.
+name|iterator
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
