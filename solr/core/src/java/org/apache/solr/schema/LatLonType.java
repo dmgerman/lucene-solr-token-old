@@ -1699,13 +1699,7 @@ name|field
 argument_list|,
 name|i
 argument_list|,
-name|parser
-operator|.
-name|getReq
-argument_list|()
-operator|.
-name|getSchema
-argument_list|()
+name|schema
 argument_list|)
 decl_stmt|;
 name|vs
