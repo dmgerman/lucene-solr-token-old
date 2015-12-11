@@ -10159,7 +10159,11 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|(
+literal|14
+argument_list|,
+literal|1
+argument_list|)
 decl_stmt|;
 name|m
 operator|.
@@ -10643,7 +10647,14 @@ init|=
 operator|new
 name|LinkedHashMap
 argument_list|<>
+argument_list|(
+name|map
+operator|.
+name|size
 argument_list|()
+argument_list|,
+literal|1
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -10725,7 +10736,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|"Unbale to instantiate class"
+literal|"Unable to instantiate class"
 argument_list|,
 name|exp
 argument_list|)
@@ -10965,7 +10976,12 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|(
+name|pluginInfos
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -11563,7 +11579,9 @@ init|=
 operator|new
 name|SimpleOrderedMap
 argument_list|<>
-argument_list|()
+argument_list|(
+literal|8
+argument_list|)
 decl_stmt|;
 name|lst
 operator|.

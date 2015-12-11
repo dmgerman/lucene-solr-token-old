@@ -240,7 +240,11 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|(
+literal|29
+argument_list|,
+literal|1
+argument_list|)
 decl_stmt|;
 name|map
 operator|.
