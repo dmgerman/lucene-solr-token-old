@@ -98,7 +98,7 @@ name|SegmentInfos
 import|;
 end_import
 begin_comment
-comment|/*  * A {@link MergePolicy} that only returns forced merges.  *<p><b>NOTE</b>: Use this policy if you wish to disallow background  * merges but wish to run optimize/forceMerge segment merges.  *  *  @lucene.experimental  */
+comment|/**  * A {@link MergePolicy} that only returns forced merges.  *<p><b>NOTE</b>: Use this policy if you wish to disallow background  * merges but wish to run optimize/forceMerge segment merges.  *  *  @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|ForceMergePolicy
