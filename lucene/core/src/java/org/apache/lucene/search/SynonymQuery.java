@@ -1006,9 +1006,7 @@ name|tf
 argument_list|(
 name|synScorer
 operator|.
-name|subScorers
-operator|.
-name|topList
+name|getSubMatches
 argument_list|()
 argument_list|)
 expr_stmt|;
