@@ -78,7 +78,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DoubleField
+name|LegacyDoubleField
 import|;
 end_import
 begin_import
@@ -210,7 +210,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 begin_import
@@ -335,11 +335,11 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_comment
-comment|/**  * A SpatialStrategy for indexing and searching Rectangles by storing its  * coordinates in numeric fields. It supports all {@link SpatialOperation}s and  * has a custom overlap relevancy. It is based on GeoPortal's<a  * href="http://geoportal.svn.sourceforge.net/svnroot/geoportal/Geoportal/trunk/src/com/esri/gpt/catalog/lucene/SpatialClauseAdapter.java">SpatialClauseAdapter</a>.  *<p>  *<b>Characteristics:</b>  *<br>  *<ul>  *<li>Only indexes Rectangles; just one per field value. Other shapes can be provided  * and the bounding box will be used.</li>  *<li>Can query only by a Rectangle. Providing other shapes is an error.</li>  *<li>Supports most {@link SpatialOperation}s but not Overlaps.</li>  *<li>Uses the DocValues API for any sorting / relevancy.</li>  *</ul>  *<p>  *<b>Implementation:</b>  *<p>  * This uses 4 double fields for minX, maxX, minY, maxY  * and a boolean to mark a dateline cross. Depending on the particular {@link  * SpatialOperation}s, there are a variety of {@link NumericRangeQuery}s to be  * done.  * The {@link #makeOverlapRatioValueSource(com.spatial4j.core.shape.Rectangle, double)}  * works by calculating the query bbox overlap percentage against the indexed  * shape overlap percentage. The indexed shape's coordinates are retrieved from  * {@link org.apache.lucene.index.LeafReader#getNumericDocValues}.  *  * @lucene.experimental  */
+comment|/**  * A SpatialStrategy for indexing and searching Rectangles by storing its  * coordinates in numeric fields. It supports all {@link SpatialOperation}s and  * has a custom overlap relevancy. It is based on GeoPortal's<a  * href="http://geoportal.svn.sourceforge.net/svnroot/geoportal/Geoportal/trunk/src/com/esri/gpt/catalog/lucene/SpatialClauseAdapter.java">SpatialClauseAdapter</a>.  *<p>  *<b>Characteristics:</b>  *<br>  *<ul>  *<li>Only indexes Rectangles; just one per field value. Other shapes can be provided  * and the bounding box will be used.</li>  *<li>Can query only by a Rectangle. Providing other shapes is an error.</li>  *<li>Supports most {@link SpatialOperation}s but not Overlaps.</li>  *<li>Uses the DocValues API for any sorting / relevancy.</li>  *</ul>  *<p>  *<b>Implementation:</b>  *<p>  * This uses 4 double fields for minX, maxX, minY, maxY  * and a boolean to mark a dateline cross. Depending on the particular {@link  * SpatialOperation}s, there are a variety of {@link org.apache.lucene.search.LegacyNumericRangeQuery}s to be  * done.  * The {@link #makeOverlapRatioValueSource(com.spatial4j.core.shape.Rectangle, double)}  * works by calculating the query bbox overlap percentage against the indexed  * shape overlap percentage. The indexed shape's coordinates are retrieved from  * {@link org.apache.lucene.index.LeafReader#getNumericDocValues}.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|BBoxStrategy
@@ -501,7 +501,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|DoubleField
+name|LegacyDoubleField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -583,7 +583,7 @@ argument_list|()
 operator|!=
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|DOUBLE
 condition|)
@@ -850,7 +850,7 @@ argument_list|()
 operator|==
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|DOUBLE
 condition|)
@@ -875,7 +875,7 @@ argument_list|()
 operator|==
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|FLOAT
 condition|)
@@ -1196,7 +1196,7 @@ comment|// docMinY<= queryExtent.getMinY() AND docMaxY>= queryExtent.getMaxY()
 name|Query
 name|qMinY
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1220,7 +1220,7 @@ decl_stmt|;
 name|Query
 name|qMaxY
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1279,7 +1279,7 @@ comment|// docMinX<= queryExtent.getMinX() AND docMaxX>= queryExtent.getMaxX()
 name|Query
 name|qMinX
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1303,7 +1303,7 @@ decl_stmt|;
 name|Query
 name|qMaxX
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1377,7 +1377,7 @@ comment|// docMinXLeft<= queryExtent.getMinX() OR docMaxXRight>= queryExtent.get
 name|Query
 name|qXDLLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1401,7 +1401,7 @@ decl_stmt|;
 name|Query
 name|qXDLRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1553,7 +1553,7 @@ comment|// docMinXLeft<= queryExtent.getMinX() AND docMaxXRight>= queryExtent.ge
 name|Query
 name|qXDLLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1577,7 +1577,7 @@ decl_stmt|;
 name|Query
 name|qXDLRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1700,7 +1700,7 @@ comment|// docMinY> queryExtent.getMaxY() OR docMaxY< queryExtent.getMinY()
 name|Query
 name|qMinY
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1724,7 +1724,7 @@ decl_stmt|;
 name|Query
 name|qMaxY
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1782,7 +1782,7 @@ comment|// docMinX> queryExtent.getMaxX() OR docMaxX< queryExtent.getMinX()
 name|Query
 name|qMinX
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1873,7 +1873,7 @@ block|}
 name|Query
 name|qMaxX
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2017,7 +2017,7 @@ comment|// (docMinXRight> queryExtent.getMaxX()) equates to (-180.0> queryExtent
 name|Query
 name|qMinXLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2041,7 +2041,7 @@ decl_stmt|;
 name|Query
 name|qMaxXRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2122,7 +2122,7 @@ comment|// where: queryExtent.getMaxX()Left = 180.0, queryExtent.getMinX()Left =
 name|Query
 name|qMinXLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2143,7 +2143,7 @@ decl_stmt|;
 name|Query
 name|qMaxXLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2167,7 +2167,7 @@ decl_stmt|;
 name|Query
 name|qMinXRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2191,7 +2191,7 @@ decl_stmt|;
 name|Query
 name|qMaxXRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2587,7 +2587,7 @@ comment|// docMinY>= queryExtent.getMinY() AND docMaxY<= queryExtent.getMaxY()
 name|Query
 name|qMinY
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2611,7 +2611,7 @@ decl_stmt|;
 name|Query
 name|qMaxY
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2697,7 +2697,7 @@ comment|// docMinX>= queryExtent.getMinX() AND docMaxX<= queryExtent.getMaxX()
 name|Query
 name|qMinX
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2721,7 +2721,7 @@ decl_stmt|;
 name|Query
 name|qMaxX
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2870,7 +2870,7 @@ comment|// docMinX>= queryExtent.getMinX() AND docMaxX<= 180.0
 name|Query
 name|qMinXLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2894,7 +2894,7 @@ decl_stmt|;
 name|Query
 name|qMaxXLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2935,7 +2935,7 @@ comment|// docMinX>= -180.0 AND docMaxX<= queryExtent.getMaxX()
 name|Query
 name|qMinXRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2957,7 +2957,7 @@ decl_stmt|;
 name|Query
 name|qMaxXRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -3036,7 +3036,7 @@ comment|// AND docMinXRight>= -180.0 AND docMaxXRight<= queryExtent.getMaxX()
 name|Query
 name|qXDLLeft
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -3060,7 +3060,7 @@ decl_stmt|;
 name|Query
 name|qXDLRight
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -3275,11 +3275,11 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(

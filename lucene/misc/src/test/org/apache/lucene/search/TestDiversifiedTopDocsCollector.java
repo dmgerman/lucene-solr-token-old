@@ -105,7 +105,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FloatField
+name|LegacyFloatField
 import|;
 end_import
 begin_import
@@ -1546,7 +1546,7 @@ name|Field
 name|weeksStoredField
 init|=
 operator|new
-name|FloatField
+name|LegacyFloatField
 argument_list|(
 literal|"weeks"
 argument_list|,

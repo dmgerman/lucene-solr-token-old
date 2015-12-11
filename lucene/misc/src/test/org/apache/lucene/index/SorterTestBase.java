@@ -162,7 +162,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalField
+name|DimensionalBinaryField
 import|;
 end_import
 begin_import
@@ -189,6 +189,8 @@ operator|.
 name|document
 operator|.
 name|Field
+operator|.
+name|Store
 import|;
 end_import
 begin_import
@@ -202,8 +204,6 @@ operator|.
 name|document
 operator|.
 name|Field
-operator|.
-name|Store
 import|;
 end_import
 begin_import
@@ -486,7 +486,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TestUtil
+name|NumericUtils
 import|;
 end_import
 begin_import
@@ -499,9 +499,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|bkd
-operator|.
-name|BKDUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1304,7 +1302,7 @@ index|[
 literal|4
 index|]
 decl_stmt|;
-name|BKDUtil
+name|NumericUtils
 operator|.
 name|intToBytes
 argument_list|(
@@ -1320,7 +1318,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalField
+name|DimensionalBinaryField
 argument_list|(
 name|DIMENSIONAL_FIELD
 argument_list|,
@@ -3035,7 +3033,7 @@ operator|.
 name|intValue
 argument_list|()
 argument_list|,
-name|BKDUtil
+name|NumericUtils
 operator|.
 name|bytesToInt
 argument_list|(

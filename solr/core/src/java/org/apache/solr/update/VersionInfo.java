@@ -200,7 +200,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_import
@@ -1109,7 +1109,7 @@ operator|!=
 literal|null
 operator|)
 condition|?
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMaxLong
 argument_list|(

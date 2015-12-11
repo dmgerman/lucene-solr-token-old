@@ -142,7 +142,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_comment
@@ -1266,7 +1266,7 @@ name|result
 operator|!=
 literal|null
 assert|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCoded
 argument_list|(

@@ -213,7 +213,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_comment
@@ -317,7 +317,7 @@ operator|=
 name|maxInclusive
 expr_stmt|;
 comment|// TODO: if DoubleDocValuesField used
-comment|// NumericUtils.doubleToSortableLong format (instead of
+comment|// LegacyNumericUtils.doubleToSortableLong format (instead of
 comment|// Double.doubleToRawLongBits) we could do comparisons
 comment|// in long space
 if|if
@@ -448,7 +448,7 @@ name|LongRange
 argument_list|(
 name|label
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -457,7 +457,7 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(

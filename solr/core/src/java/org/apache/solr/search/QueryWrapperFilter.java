@@ -124,19 +124,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -180,7 +167,7 @@ name|Bits
 import|;
 end_import
 begin_comment
-comment|/**   * Constrains search results to only match those which also match a provided  * query.    *  *<p> This could be used, for example, with a {@link NumericRangeQuery} on a suitably  * formatted date field to implement date filtering.  One could re-use a single  * CachingWrapperFilter(QueryWrapperFilter) that matches, e.g., only documents modified   * within the last week.  This would only need to be reconstructed once per day.  */
+comment|/**   * Constrains search results to only match those which also match a provided  * query.    *  *<p> This could be used, for example, with a {@link org.apache.lucene.search.LegacyNumericRangeQuery} on a suitably  * formatted date field to implement date filtering.  One could re-use a single  * CachingWrapperFilter(QueryWrapperFilter) that matches, e.g., only documents modified   * within the last week.  This would only need to be reconstructed once per day.  */
 end_comment
 begin_class
 DECL|class|QueryWrapperFilter

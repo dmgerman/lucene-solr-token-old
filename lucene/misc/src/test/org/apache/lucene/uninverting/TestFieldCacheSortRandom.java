@@ -149,7 +149,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 begin_import
@@ -833,7 +833,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"id"
 argument_list|,

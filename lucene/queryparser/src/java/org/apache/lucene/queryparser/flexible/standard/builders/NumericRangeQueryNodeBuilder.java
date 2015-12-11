@@ -31,8 +31,6 @@ operator|.
 name|document
 operator|.
 name|FieldType
-operator|.
-name|NumericType
 import|;
 end_import
 begin_import
@@ -193,11 +191,11 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 begin_comment
-comment|/**  * Builds {@link NumericRangeQuery}s out of {@link NumericRangeQueryNode}s.  *  * @see NumericRangeQuery  * @see NumericRangeQueryNode  */
+comment|/**  * Builds {@link org.apache.lucene.search.LegacyNumericRangeQuery}s out of {@link NumericRangeQueryNode}s.  *  * @see org.apache.lucene.search.LegacyNumericRangeQuery  * @see NumericRangeQueryNode  */
 end_comment
 begin_class
 DECL|class|NumericRangeQueryNodeBuilder
@@ -219,7 +217,7 @@ annotation|@
 name|Override
 DECL|method|build
 specifier|public
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 extends|extends
@@ -281,7 +279,9 @@ operator|.
 name|getNumericConfig
 argument_list|()
 decl_stmt|;
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 name|numberType
 init|=
 name|numericConfig
@@ -335,7 +335,7 @@ case|case
 name|LONG
 case|:
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -362,7 +362,7 @@ case|case
 name|INT
 case|:
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newIntRange
 argument_list|(
@@ -389,7 +389,7 @@ case|case
 name|FLOAT
 case|:
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newFloatRange
 argument_list|(
@@ -416,7 +416,7 @@ case|case
 name|DOUBLE
 case|:
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(

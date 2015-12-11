@@ -50,7 +50,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DoubleField
+name|LegacyDoubleField
 import|;
 end_import
 begin_import
@@ -89,20 +89,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|LeafReaderContext
+name|LegacyLongField
 import|;
 end_import
 begin_import
@@ -155,19 +142,6 @@ operator|.
 name|index
 operator|.
 name|RandomIndexWriter
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|SlowCompositeReaderWrapper
 import|;
 end_import
 begin_import
@@ -258,6 +232,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LegacyNumericUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|LuceneTestCase
 import|;
 end_import
@@ -271,25 +258,9 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|TestLegacyNumericUtils
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestNumericUtils
-import|;
-end_import
-begin_comment
-comment|// NaN arrays
-end_comment
 begin_import
 import|import
 name|org
@@ -472,7 +443,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|LongField
+name|LegacyLongField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -580,7 +551,7 @@ specifier|final
 name|FieldType
 name|unstoredLong
 init|=
-name|LongField
+name|LegacyLongField
 operator|.
 name|TYPE_NOT_STORED
 decl_stmt|;
@@ -652,11 +623,11 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-name|LongField
+name|LegacyLongField
 name|field8
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"field8"
 argument_list|,
@@ -668,7 +639,7 @@ decl_stmt|,
 name|field6
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"field6"
 argument_list|,
@@ -680,7 +651,7 @@ decl_stmt|,
 name|field4
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"field4"
 argument_list|,
@@ -692,7 +663,7 @@ decl_stmt|,
 name|field2
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"field2"
 argument_list|,
@@ -704,7 +675,7 @@ decl_stmt|,
 name|fieldNoTrie
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"field"
 operator|+
@@ -720,7 +691,7 @@ decl_stmt|,
 name|ascfield8
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"ascfield8"
 argument_list|,
@@ -732,7 +703,7 @@ decl_stmt|,
 name|ascfield6
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"ascfield6"
 argument_list|,
@@ -744,7 +715,7 @@ decl_stmt|,
 name|ascfield4
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"ascfield4"
 argument_list|,
@@ -756,7 +727,7 @@ decl_stmt|,
 name|ascfield2
 init|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"ascfield2"
 argument_list|,
@@ -1079,13 +1050,13 @@ operator|/
 literal|3
 operator|)
 decl_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
 name|q
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -1386,13 +1357,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
 name|q
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -1488,13 +1459,13 @@ operator|)
 operator|+
 name|startOffset
 decl_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
 name|q
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -1634,7 +1605,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -1875,13 +1846,13 @@ operator|)
 operator|+
 name|startOffset
 decl_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
 name|q
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2027,7 +1998,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2282,7 +2253,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 literal|"double"
 argument_list|,
@@ -2303,7 +2274,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"long"
 argument_list|,
@@ -2337,7 +2308,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 literal|"double"
 argument_list|,
@@ -2358,7 +2329,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"long"
 argument_list|,
@@ -2392,7 +2363,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 literal|"double"
 argument_list|,
@@ -2411,7 +2382,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"long"
 argument_list|,
@@ -2437,7 +2408,7 @@ control|(
 name|double
 name|d
 range|:
-name|TestNumericUtils
+name|TestLegacyNumericUtils
 operator|.
 name|DOUBLE_NANs
 control|)
@@ -2453,7 +2424,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 literal|"double"
 argument_list|,
@@ -2501,7 +2472,7 @@ decl_stmt|;
 name|Query
 name|q
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2543,7 +2514,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2584,7 +2555,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2629,7 +2600,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2674,7 +2645,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2715,7 +2686,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2756,7 +2727,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2801,7 +2772,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2846,7 +2817,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2880,7 +2851,7 @@ name|assertEquals
 argument_list|(
 literal|"Score doc count"
 argument_list|,
-name|TestNumericUtils
+name|TestLegacyNumericUtils
 operator|.
 name|DOUBLE_NANs
 operator|.
@@ -3039,7 +3010,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -3057,7 +3028,7 @@ operator|.
 name|toBytesRef
 argument_list|()
 expr_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -3076,13 +3047,13 @@ name|toBytesRef
 argument_list|()
 expr_stmt|;
 comment|// test inclusive range
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
 name|tq
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -3142,7 +3113,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Returned count for NumericRangeQuery and TermRangeQuery must be equal"
+literal|"Returned count for LegacyNumericRangeQuery and TermRangeQuery must be equal"
 argument_list|,
 name|cTopDocs
 operator|.
@@ -3183,7 +3154,7 @@ expr_stmt|;
 comment|// test exclusive range
 name|tq
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -3240,7 +3211,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Returned count for NumericRangeQuery and TermRangeQuery must be equal"
+literal|"Returned count for LegacyNumericRangeQuery and TermRangeQuery must be equal"
 argument_list|,
 name|cTopDocs
 operator|.
@@ -3281,7 +3252,7 @@ expr_stmt|;
 comment|// test left exclusive range
 name|tq
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -3338,7 +3309,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Returned count for NumericRangeQuery and TermRangeQuery must be equal"
+literal|"Returned count for LegacyNumericRangeQuery and TermRangeQuery must be equal"
 argument_list|,
 name|cTopDocs
 operator|.
@@ -3379,7 +3350,7 @@ expr_stmt|;
 comment|// test right exclusive range
 name|tq
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -3436,7 +3407,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Returned count for NumericRangeQuery and TermRangeQuery must be equal"
+literal|"Returned count for LegacyNumericRangeQuery and TermRangeQuery must be equal"
 argument_list|,
 name|cTopDocs
 operator|.
@@ -3612,7 +3583,7 @@ literal|0
 operator|<
 name|countTerms
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -3637,7 +3608,7 @@ literal|0
 argument_list|,
 name|countTerms
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -3682,7 +3653,7 @@ literal|0
 argument_list|,
 name|countTerms
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4062,7 +4033,7 @@ comment|// test inclusive range
 name|Query
 name|tq
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4109,7 +4080,7 @@ expr_stmt|;
 comment|// test exclusive range
 name|tq
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4162,7 +4133,7 @@ expr_stmt|;
 comment|// test left exclusive range
 name|tq
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4206,7 +4177,7 @@ expr_stmt|;
 comment|// test right exclusive range
 name|tq
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4313,7 +4284,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** we fake a double test using long2double conversion of NumericUtils */
+comment|/** we fake a double test using long2double conversion of LegacyNumericUtils */
 DECL|method|testDoubleRange
 specifier|private
 name|void
@@ -4348,7 +4319,7 @@ decl_stmt|;
 name|Query
 name|tq
 init|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -4356,14 +4327,14 @@ name|field
 argument_list|,
 name|precisionStep
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
 name|lower
 argument_list|)
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
@@ -4481,7 +4452,7 @@ name|QueryUtils
 operator|.
 name|checkHashEquals
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4503,7 +4474,7 @@ name|QueryUtils
 operator|.
 name|checkHashEquals
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4525,7 +4496,7 @@ name|QueryUtils
 operator|.
 name|checkHashEquals
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4547,7 +4518,7 @@ name|QueryUtils
 operator|.
 name|checkHashEquals
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4569,7 +4540,7 @@ name|QueryUtils
 operator|.
 name|checkHashEquals
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4591,7 +4562,7 @@ name|QueryUtils
 operator|.
 name|checkHashEquals
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4613,7 +4584,7 @@ name|QueryUtils
 operator|.
 name|checkHashEquals
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4635,7 +4606,7 @@ name|QueryUtils
 operator|.
 name|checkEqual
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4652,7 +4623,7 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4674,7 +4645,7 @@ name|QueryUtils
 operator|.
 name|checkUnequal
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4691,7 +4662,7 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4713,7 +4684,7 @@ name|QueryUtils
 operator|.
 name|checkUnequal
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4730,7 +4701,7 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4752,7 +4723,7 @@ name|QueryUtils
 operator|.
 name|checkUnequal
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4769,7 +4740,7 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4791,7 +4762,7 @@ name|QueryUtils
 operator|.
 name|checkUnequal
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4808,7 +4779,7 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4830,7 +4801,7 @@ name|QueryUtils
 operator|.
 name|checkUnequal
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -4847,7 +4818,7 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newFloatRange
 argument_list|(

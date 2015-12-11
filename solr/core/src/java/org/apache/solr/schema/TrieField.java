@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DoubleField
+name|LegacyDoubleField
 import|;
 end_import
 begin_import
@@ -126,7 +126,7 @@ name|document
 operator|.
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 import|;
 end_import
 begin_import
@@ -139,7 +139,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FloatField
+name|LegacyFloatField
 import|;
 end_import
 begin_import
@@ -152,7 +152,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 begin_import
@@ -165,7 +165,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongField
+name|LegacyLongField
 import|;
 end_import
 begin_import
@@ -326,7 +326,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 begin_import
@@ -445,7 +445,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_import
@@ -549,7 +549,7 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Provides field types to support for Lucene's {@link  * IntField}, {@link LongField}, {@link FloatField} and  * {@link DoubleField}.  * See {@link org.apache.lucene.search.NumericRangeQuery} for more details.  * It supports integer, float, long, double and date types.  *<p>  * For each number being added to this field, multiple terms are generated as per the algorithm described in the above  * link. The possible number of terms increases dramatically with lower precision steps. For  * the fast range search to work, trie fields must be indexed.  *<p>  * Trie fields are sortable in numerical order and can be used in function queries.  *<p>  * Note that if you use a precisionStep of 32 for int/float and 64 for long/double/date, then multiple terms will not be  * generated, range search will be no faster than any other number field, but sorting will still be possible.  *  *  * @see org.apache.lucene.search.NumericRangeQuery  * @since solr 1.4  */
+comment|/**  * Provides field types to support for Lucene's {@link  * org.apache.lucene.document.LegacyIntField}, {@link org.apache.lucene.document.LegacyLongField}, {@link org.apache.lucene.document.LegacyFloatField} and  * {@link org.apache.lucene.document.LegacyDoubleField}.  * See {@link org.apache.lucene.search.LegacyNumericRangeQuery} for more details.  * It supports integer, float, long, double and date types.  *<p>  * For each number being added to this field, multiple terms are generated as per the algorithm described in the above  * link. The possible number of terms increases dramatically with lower precision steps. For  * the fast range search to work, trie fields must be indexed.  *<p>  * Trie fields are sortable in numerical order and can be used in function queries.  *<p>  * Note that if you use a precisionStep of 32 for int/float and 64 for long/double/date, then multiple terms will not be  * generated, range search will be no faster than any other number field, but sorting will still be possible.  *  *  * @see org.apache.lucene.search.LegacyNumericRangeQuery  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TrieField
@@ -1779,7 +1779,9 @@ annotation|@
 name|Override
 DECL|method|getNumericType
 specifier|public
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 name|getNumericType
 parameter_list|()
 block|{
@@ -1792,7 +1794,9 @@ case|case
 name|INTEGER
 case|:
 return|return
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|INT
 return|;
@@ -1803,7 +1807,9 @@ case|case
 name|DATE
 case|:
 return|return
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|LONG
 return|;
@@ -1811,7 +1817,9 @@ case|case
 name|FLOAT
 case|:
 return|return
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|FLOAT
 return|;
@@ -1819,7 +1827,9 @@ case|case
 name|DOUBLE
 case|:
 return|return
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|DOUBLE
 return|;
@@ -1985,7 +1995,7 @@ else|else
 block|{
 name|query
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newIntRange
 argument_list|(
@@ -2057,7 +2067,7 @@ else|:
 operator|(
 name|long
 operator|)
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -2078,7 +2088,7 @@ else|:
 operator|(
 name|long
 operator|)
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -2100,7 +2110,7 @@ else|else
 block|{
 name|query
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newFloatRange
 argument_list|(
@@ -2199,7 +2209,7 @@ else|else
 block|{
 name|query
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2268,7 +2278,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2286,7 +2296,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2308,7 +2318,7 @@ else|else
 block|{
 name|query
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -2417,7 +2427,7 @@ else|else
 block|{
 name|query
 operator|=
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2851,7 +2861,7 @@ block|{
 case|case
 name|INTEGER
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
@@ -2871,11 +2881,11 @@ break|break;
 case|case
 name|FLOAT
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -2896,7 +2906,7 @@ break|break;
 case|case
 name|LONG
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -2916,11 +2926,11 @@ break|break;
 case|case
 name|DOUBLE
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2941,7 +2951,7 @@ break|break;
 case|case
 name|DATE
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -3121,7 +3131,7 @@ name|Integer
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -3137,11 +3147,11 @@ name|Float
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -3158,7 +3168,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3174,11 +3184,11 @@ name|Double
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3198,7 +3208,7 @@ argument_list|(
 operator|new
 name|Date
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3257,7 +3267,7 @@ name|Integer
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -3275,11 +3285,11 @@ name|Float
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -3298,7 +3308,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3316,11 +3326,11 @@ name|Double
 operator|.
 name|toString
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3342,7 +3352,7 @@ argument_list|(
 operator|new
 name|Date
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3438,7 +3448,7 @@ case|case
 name|INTEGER
 case|:
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -3449,11 +3459,11 @@ case|case
 name|FLOAT
 case|:
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -3465,7 +3475,7 @@ case|case
 name|LONG
 case|:
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3476,11 +3486,11 @@ case|case
 name|DOUBLE
 case|:
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3495,7 +3505,7 @@ return|return
 operator|new
 name|Date
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -3594,7 +3604,7 @@ block|{
 case|case
 name|INTEGER
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
@@ -3612,11 +3622,11 @@ break|break;
 case|case
 name|FLOAT
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -3639,7 +3649,7 @@ comment|//fallthrough!
 case|case
 name|DATE
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -3657,11 +3667,11 @@ break|break;
 case|case
 name|DOUBLE
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -3742,7 +3752,7 @@ block|{
 case|case
 name|INTEGER
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
@@ -3767,9 +3777,9 @@ case|case
 name|FLOAT
 case|:
 block|{
-comment|// WARNING: Code Duplication! Keep in sync with o.a.l.util.NumericUtils!
-comment|// copied from NumericUtils to not convert to/from float two times
-comment|// code in next 2 lines is identical to: int v = NumericUtils.floatToSortableInt(Float.intBitsToFloat(toInt(arr)));
+comment|// WARNING: Code Duplication! Keep in sync with o.a.l.util.LegacyNumericUtils!
+comment|// copied from LegacyNumericUtils to not convert to/from float two times
+comment|// code in next 2 lines is identical to: int v = LegacyNumericUtils.floatToSortableInt(Float.intBitsToFloat(toInt(arr)));
 name|int
 name|v
 init|=
@@ -3794,7 +3804,7 @@ name|v
 operator|^=
 literal|0x7fffffff
 expr_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
@@ -3814,7 +3824,7 @@ comment|//fallthrough!
 case|case
 name|DATE
 case|:
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -3839,9 +3849,9 @@ case|case
 name|DOUBLE
 case|:
 block|{
-comment|// WARNING: Code Duplication! Keep in sync with o.a.l.util.NumericUtils!
-comment|// copied from NumericUtils to not convert to/from double two times
-comment|// code in next 2 lines is identical to: long v = NumericUtils.doubleToSortableLong(Double.longBitsToDouble(toLong(arr)));
+comment|// WARNING: Code Duplication! Keep in sync with o.a.l.util.LegacyNumericUtils!
+comment|// copied from LegacyNumericUtils to not convert to/from double two times
+comment|// code in next 2 lines is identical to: long v = LegacyNumericUtils.doubleToSortableLong(Double.longBitsToDouble(toLong(arr)));
 name|long
 name|v
 init|=
@@ -3866,7 +3876,7 @@ name|v
 operator|^=
 literal|0x7fffffffffffffffL
 expr_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -4038,7 +4048,7 @@ name|ft
 operator|.
 name|setNumericType
 argument_list|(
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|INT
 argument_list|)
@@ -4051,7 +4061,9 @@ name|ft
 operator|.
 name|setNumericType
 argument_list|(
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|FLOAT
 argument_list|)
@@ -4064,7 +4076,9 @@ name|ft
 operator|.
 name|setNumericType
 argument_list|(
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)
@@ -4077,7 +4091,9 @@ name|ft
 operator|.
 name|setNumericType
 argument_list|(
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|DOUBLE
 argument_list|)
@@ -4090,7 +4106,9 @@ name|ft
 operator|.
 name|setNumericType
 argument_list|(
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)
@@ -4172,15 +4190,7 @@ decl_stmt|;
 name|f
 operator|=
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|IntField
+name|LegacyIntField
 argument_list|(
 name|field
 operator|.
@@ -4228,15 +4238,7 @@ decl_stmt|;
 name|f
 operator|=
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|FloatField
+name|LegacyFloatField
 argument_list|(
 name|field
 operator|.
@@ -4284,15 +4286,7 @@ decl_stmt|;
 name|f
 operator|=
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|LongField
+name|LegacyLongField
 argument_list|(
 name|field
 operator|.
@@ -4340,15 +4334,7 @@ decl_stmt|;
 name|f
 operator|=
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 name|field
 operator|.
@@ -4395,15 +4381,7 @@ decl_stmt|;
 name|f
 operator|=
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|LongField
+name|LegacyLongField
 argument_list|(
 name|field
 operator|.
@@ -4708,7 +4686,7 @@ operator|new
 name|char
 index|[]
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|SHIFT_START_INT
 block|}
@@ -4727,7 +4705,7 @@ operator|new
 name|char
 index|[]
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|SHIFT_START_LONG
 block|}

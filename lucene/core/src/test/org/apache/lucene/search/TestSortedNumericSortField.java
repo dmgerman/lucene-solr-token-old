@@ -128,7 +128,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
+name|LegacyNumericUtils
 import|;
 end_import
 begin_import
@@ -141,7 +141,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LuceneTestCase
 import|;
 end_import
 begin_comment
@@ -1916,7 +1916,7 @@ name|SortedNumericDocValuesField
 argument_list|(
 literal|"value"
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -1966,7 +1966,7 @@ name|SortedNumericDocValuesField
 argument_list|(
 literal|"value"
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -1985,7 +1985,7 @@ name|SortedNumericDocValuesField
 argument_list|(
 literal|"value"
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -2186,7 +2186,7 @@ name|SortedNumericDocValuesField
 argument_list|(
 literal|"value"
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2236,7 +2236,7 @@ name|SortedNumericDocValuesField
 argument_list|(
 literal|"value"
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2255,7 +2255,7 @@ name|SortedNumericDocValuesField
 argument_list|(
 literal|"value"
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(

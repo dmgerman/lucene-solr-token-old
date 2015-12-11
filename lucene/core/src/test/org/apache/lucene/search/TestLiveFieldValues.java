@@ -146,7 +146,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|StoredField
 import|;
 end_import
 begin_import
@@ -785,7 +785,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|StoredField
 argument_list|(
 literal|"field"
 argument_list|,
@@ -793,12 +793,6 @@ name|field
 operator|.
 name|intValue
 argument_list|()
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -281,10 +281,10 @@ name|queryFactory
 operator|.
 name|addBuilder
 argument_list|(
-literal|"NumericRangeQuery"
+literal|"LegacyNumericRangeQuery"
 argument_list|,
 operator|new
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;

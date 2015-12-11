@@ -2365,7 +2365,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"int"
 argument_list|,
@@ -2406,7 +2406,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"int"
 argument_list|,

@@ -214,7 +214,7 @@ name|document
 operator|.
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 import|;
 end_import
 begin_import
@@ -240,7 +240,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 begin_import
@@ -253,7 +253,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongField
+name|LegacyDoubleField
 import|;
 end_import
 begin_import
@@ -266,7 +266,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FloatField
+name|LegacyLongField
 import|;
 end_import
 begin_import
@@ -279,7 +279,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DoubleField
+name|LegacyFloatField
 import|;
 end_import
 begin_import
@@ -530,7 +530,7 @@ argument_list|(
 name|DATE_MSEC_FIELD
 argument_list|,
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 name|DATE_MSEC_FIELD
 argument_list|,
@@ -551,7 +551,7 @@ argument_list|(
 name|TIME_SEC_FIELD
 argument_list|,
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 name|TIME_SEC_FIELD
 argument_list|,
@@ -668,7 +668,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|NumericType
+name|LegacyNumericType
 name|type
 parameter_list|)
 block|{
@@ -715,7 +715,7 @@ case|:
 name|f
 operator|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 name|name
 argument_list|,
@@ -735,7 +735,7 @@ case|:
 name|f
 operator|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 name|name
 argument_list|,
@@ -755,7 +755,7 @@ case|:
 name|f
 operator|=
 operator|new
-name|FloatField
+name|LegacyFloatField
 argument_list|(
 name|name
 argument_list|,
@@ -775,7 +775,7 @@ case|:
 name|f
 operator|=
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 name|name
 argument_list|,
@@ -1382,7 +1382,9 @@ name|getNumericField
 argument_list|(
 name|DATE_MSEC_FIELD
 argument_list|,
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)
@@ -1463,7 +1465,7 @@ name|getNumericField
 argument_list|(
 name|TIME_SEC_FIELD
 argument_list|,
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|INT
 argument_list|)

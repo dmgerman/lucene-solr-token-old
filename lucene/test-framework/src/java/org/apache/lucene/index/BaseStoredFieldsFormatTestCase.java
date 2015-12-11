@@ -196,7 +196,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DoubleField
+name|LegacyDoubleField
 import|;
 end_import
 begin_import
@@ -239,7 +239,7 @@ name|document
 operator|.
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 import|;
 end_import
 begin_import
@@ -265,7 +265,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FloatField
+name|LegacyFloatField
 import|;
 end_import
 begin_import
@@ -278,7 +278,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 begin_import
@@ -291,7 +291,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongField
+name|LegacyLongField
 import|;
 end_import
 begin_import
@@ -369,7 +369,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 begin_import
@@ -1890,12 +1890,12 @@ name|numDocs
 index|]
 decl_stmt|;
 specifier|final
-name|NumericType
+name|LegacyNumericType
 index|[]
 name|typeAnswers
 init|=
 operator|new
-name|NumericType
+name|LegacyNumericType
 index|[
 name|numDocs
 index|]
@@ -1935,7 +1935,7 @@ name|Number
 name|answer
 decl_stmt|;
 specifier|final
-name|NumericType
+name|LegacyNumericType
 name|typeAnswer
 decl_stmt|;
 if|if
@@ -1979,7 +1979,7 @@ expr_stmt|;
 name|nf
 operator|=
 operator|new
-name|FloatField
+name|LegacyFloatField
 argument_list|(
 literal|"nf"
 argument_list|,
@@ -2004,7 +2004,7 @@ argument_list|)
 expr_stmt|;
 name|typeAnswer
 operator|=
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|FLOAT
 expr_stmt|;
@@ -2033,7 +2033,7 @@ expr_stmt|;
 name|nf
 operator|=
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 literal|"nf"
 argument_list|,
@@ -2058,7 +2058,7 @@ argument_list|)
 expr_stmt|;
 name|typeAnswer
 operator|=
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|DOUBLE
 expr_stmt|;
@@ -2098,7 +2098,7 @@ expr_stmt|;
 name|nf
 operator|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"nf"
 argument_list|,
@@ -2123,7 +2123,7 @@ argument_list|)
 expr_stmt|;
 name|typeAnswer
 operator|=
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|INT
 expr_stmt|;
@@ -2152,7 +2152,7 @@ expr_stmt|;
 name|nf
 operator|=
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"nf"
 argument_list|,
@@ -2177,7 +2177,7 @@ argument_list|)
 expr_stmt|;
 name|typeAnswer
 operator|=
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|LONG
 expr_stmt|;
@@ -2217,7 +2217,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|IntField
+name|LegacyIntField
 operator|.
 name|TYPE_STORED
 argument_list|)
@@ -2236,7 +2236,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -2774,7 +2774,7 @@ name|ft
 argument_list|)
 argument_list|,
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"long"
 argument_list|,
@@ -2786,7 +2786,7 @@ name|YES
 argument_list|)
 argument_list|,
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"int"
 argument_list|,
@@ -2798,7 +2798,7 @@ name|YES
 argument_list|)
 argument_list|,
 operator|new
-name|FloatField
+name|LegacyFloatField
 argument_list|(
 literal|"float"
 argument_list|,
@@ -2810,7 +2810,7 @@ name|YES
 argument_list|)
 argument_list|,
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 literal|"double"
 argument_list|,
@@ -4034,11 +4034,11 @@ operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
-name|IntField
+name|LegacyIntField
 name|id
 init|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -4286,7 +4286,7 @@ name|iw
 operator|.
 name|deleteDocuments
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newIntRange
 argument_list|(

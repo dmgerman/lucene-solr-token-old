@@ -126,7 +126,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 begin_import
@@ -139,7 +139,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongField
+name|LegacyLongField
 import|;
 end_import
 begin_import
@@ -297,7 +297,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_import
@@ -361,7 +361,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -393,7 +393,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -412,7 +412,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -591,7 +591,7 @@ argument_list|(
 operator|-
 literal|3
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -612,7 +612,7 @@ name|assertEquals
 argument_list|(
 literal|5
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -678,7 +678,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -715,7 +715,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -739,7 +739,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -928,7 +928,7 @@ operator|-
 literal|3f
 argument_list|)
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -954,7 +954,7 @@ argument_list|(
 literal|5f
 argument_list|)
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -1020,7 +1020,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1052,7 +1052,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1071,7 +1071,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1250,7 +1250,7 @@ argument_list|(
 operator|-
 literal|3
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -1271,7 +1271,7 @@ name|assertEquals
 argument_list|(
 literal|5
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -1337,7 +1337,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1374,7 +1374,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1398,7 +1398,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1587,7 +1587,7 @@ operator|-
 literal|3d
 argument_list|)
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -1613,7 +1613,7 @@ argument_list|(
 literal|5d
 argument_list|)
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -1677,7 +1677,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|IntField
+name|LegacyIntField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -1871,7 +1871,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"trie_multi"
 argument_list|,
@@ -1890,7 +1890,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"notrie_multi"
 argument_list|,
@@ -1970,7 +1970,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"trie_single"
 argument_list|,
@@ -1989,7 +1989,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"notrie_single"
 argument_list|,
@@ -2053,7 +2053,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"trie_multi"
 argument_list|,
@@ -2072,7 +2072,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"notrie_multi"
 argument_list|,

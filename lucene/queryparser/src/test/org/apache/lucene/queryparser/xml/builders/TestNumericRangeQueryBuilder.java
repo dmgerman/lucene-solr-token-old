@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 begin_import
@@ -181,17 +181,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 name|filterBuilder
 init|=
 operator|new
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 argument_list|()
 decl_stmt|;
 name|String
 name|xml
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='int' lowerTerm='-1' upperTerm='NaN'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='int' lowerTerm='-1' upperTerm='NaN'/>"
 decl_stmt|;
 name|Document
 name|doc
@@ -249,17 +249,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 name|filterBuilder
 init|=
 operator|new
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 argument_list|()
 decl_stmt|;
 name|String
 name|xml
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='int' lowerTerm='-1' upperTerm='10'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='int' lowerTerm='-1' upperTerm='10'/>"
 decl_stmt|;
 name|Document
 name|doc
@@ -286,20 +286,20 @@ name|assertTrue
 argument_list|(
 name|filter
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Integer
 argument_list|>
 name|numRangeFilter
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Integer
 argument_list|>
@@ -366,7 +366,7 @@ expr_stmt|;
 name|String
 name|xml2
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='int' lowerTerm='-1' upperTerm='10' includeUpper='false'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='int' lowerTerm='-1' upperTerm='10' includeUpper='false'/>"
 decl_stmt|;
 name|Document
 name|doc2
@@ -393,20 +393,20 @@ name|assertTrue
 argument_list|(
 name|filter2
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Integer
 argument_list|>
 name|numRangeFilter2
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|filter2
 decl_stmt|;
@@ -485,17 +485,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 name|filterBuilder
 init|=
 operator|new
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 argument_list|()
 decl_stmt|;
 name|String
 name|xml
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='LoNg' lowerTerm='-2321' upperTerm='60000000'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='LoNg' lowerTerm='-2321' upperTerm='60000000'/>"
 decl_stmt|;
 name|Document
 name|doc
@@ -522,20 +522,20 @@ name|assertTrue
 argument_list|(
 name|filter
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
 name|numRangeFilter
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|filter
 decl_stmt|;
@@ -599,7 +599,7 @@ expr_stmt|;
 name|String
 name|xml2
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='LoNg' lowerTerm='-2321' upperTerm='60000000' includeUpper='false'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='LoNg' lowerTerm='-2321' upperTerm='60000000' includeUpper='false'/>"
 decl_stmt|;
 name|Document
 name|doc2
@@ -626,20 +626,20 @@ name|assertTrue
 argument_list|(
 name|filter2
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
 name|numRangeFilter2
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|filter2
 decl_stmt|;
@@ -718,17 +718,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 name|filterBuilder
 init|=
 operator|new
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 argument_list|()
 decl_stmt|;
 name|String
 name|xml
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='doubLe' lowerTerm='-23.21' upperTerm='60000.00023'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='doubLe' lowerTerm='-23.21' upperTerm='60000.00023'/>"
 decl_stmt|;
 name|Document
 name|doc
@@ -755,20 +755,20 @@ name|assertTrue
 argument_list|(
 name|filter
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Double
 argument_list|>
 name|numRangeFilter
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|filter
 decl_stmt|;
@@ -832,7 +832,7 @@ expr_stmt|;
 name|String
 name|xml2
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='doubLe' lowerTerm='-23.21' upperTerm='60000.00023' includeUpper='false'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='doubLe' lowerTerm='-23.21' upperTerm='60000.00023' includeUpper='false'/>"
 decl_stmt|;
 name|Document
 name|doc2
@@ -859,20 +859,20 @@ name|assertTrue
 argument_list|(
 name|filter2
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Double
 argument_list|>
 name|numRangeFilter2
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|filter2
 decl_stmt|;
@@ -951,17 +951,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 name|filterBuilder
 init|=
 operator|new
-name|NumericRangeQueryBuilder
+name|LegacyNumericRangeQueryBuilder
 argument_list|()
 decl_stmt|;
 name|String
 name|xml
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='FLOAT' lowerTerm='-2.321432' upperTerm='32432.23'/>"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='FLOAT' lowerTerm='-2.321432' upperTerm='32432.23'/>"
 decl_stmt|;
 name|Document
 name|doc
@@ -988,20 +988,20 @@ name|assertTrue
 argument_list|(
 name|filter
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Float
 argument_list|>
 name|numRangeFilter
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|filter
 decl_stmt|;
@@ -1065,7 +1065,7 @@ expr_stmt|;
 name|String
 name|xml2
 init|=
-literal|"<NumericRangeQuery fieldName='AGE' type='FLOAT' lowerTerm='-2.321432' upperTerm='32432.23' includeUpper='false' precisionStep='2' />"
+literal|"<LegacyNumericRangeQuery fieldName='AGE' type='FLOAT' lowerTerm='-2.321432' upperTerm='32432.23' includeUpper='false' precisionStep='2' />"
 decl_stmt|;
 name|Document
 name|doc2
@@ -1092,20 +1092,20 @@ name|assertTrue
 argument_list|(
 name|filter2
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|?
 argument_list|>
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Float
 argument_list|>
 name|numRangeFilter2
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|filter2
 decl_stmt|;

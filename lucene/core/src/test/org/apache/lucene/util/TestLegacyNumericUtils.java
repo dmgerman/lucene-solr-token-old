@@ -51,10 +51,10 @@ name|Random
 import|;
 end_import
 begin_class
-DECL|class|TestNumericUtils
+DECL|class|TestLegacyNumericUtils
 specifier|public
 class|class
-name|TestNumericUtils
+name|TestLegacyNumericUtils
 extends|extends
 name|LuceneTestCase
 block|{
@@ -97,7 +97,7 @@ name|l
 operator|++
 control|)
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -170,7 +170,7 @@ literal|"forward and back conversion should generate same long"
 argument_list|,
 name|l
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -230,7 +230,7 @@ name|i
 operator|++
 control|)
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
@@ -303,7 +303,7 @@ literal|"forward and back conversion should generate same int"
 argument_list|,
 name|i
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -442,7 +442,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 expr_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -469,7 +469,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -486,7 +486,7 @@ expr_stmt|;
 comment|// test if decoding values as int fails correctly
 try|try
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -602,7 +602,7 @@ name|j
 operator|++
 control|)
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCodedBytes
 argument_list|(
@@ -619,7 +619,7 @@ expr_stmt|;
 name|long
 name|prefixVal
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -786,7 +786,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 expr_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
@@ -813,7 +813,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -830,7 +830,7 @@ expr_stmt|;
 comment|// test if decoding values as long fails correctly
 try|try
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -946,7 +946,7 @@ name|j
 operator|++
 control|)
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCodedBytes
 argument_list|(
@@ -963,7 +963,7 @@ expr_stmt|;
 name|int
 name|prefixVal
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -1118,7 +1118,7 @@ index|[
 name|i
 index|]
 operator|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -1141,7 +1141,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
@@ -1245,7 +1245,7 @@ specifier|final
 name|long
 name|plusInf
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -1276,7 +1276,7 @@ specifier|final
 name|long
 name|sortable
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -1407,7 +1407,7 @@ index|[
 name|i
 index|]
 operator|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -1430,7 +1430,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
@@ -1534,7 +1534,7 @@ specifier|final
 name|int
 name|plusInf
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -1565,7 +1565,7 @@ specifier|final
 name|int
 name|sortable
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -1689,12 +1689,12 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|splitLongRange
 argument_list|(
 operator|new
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|LongRangeBuilder
 argument_list|()
@@ -1891,7 +1891,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** LUCENE-2541: NumericRangeQuery errors with endpoints near long min and max values */
+comment|/** LUCENE-2541: LegacyNumericRangeQuery errors with endpoints near long min and max values */
 DECL|method|testLongExtremeValues
 specifier|public
 name|void
@@ -3102,12 +3102,12 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|splitIntRange
 argument_list|(
 operator|new
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|IntRangeBuilder
 argument_list|()

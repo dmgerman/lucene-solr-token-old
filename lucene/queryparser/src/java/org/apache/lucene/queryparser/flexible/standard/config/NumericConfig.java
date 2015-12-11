@@ -49,8 +49,6 @@ operator|.
 name|document
 operator|.
 name|FieldType
-operator|.
-name|NumericType
 import|;
 end_import
 begin_import
@@ -61,13 +59,15 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|document
 operator|.
-name|NumericRangeQuery
+name|FieldType
+operator|.
+name|LegacyNumericType
 import|;
 end_import
 begin_comment
-comment|/**  * This class holds the configuration used to parse numeric queries and create  * {@link NumericRangeQuery}s.  *   * @see NumericRangeQuery  * @see NumberFormat  */
+comment|/**  * This class holds the configuration used to parse numeric queries and create  * {@link org.apache.lucene.search.LegacyNumericRangeQuery}s.  *   * @see org.apache.lucene.search.LegacyNumericRangeQuery  * @see NumberFormat  */
 end_comment
 begin_class
 DECL|class|NumericConfig
@@ -87,10 +87,12 @@ name|format
 decl_stmt|;
 DECL|field|type
 specifier|private
-name|NumericType
+name|FieldType
+operator|.
+name|LegacyNumericType
 name|type
 decl_stmt|;
-comment|/**    * Constructs a {@link NumericConfig} object.    *     * @param precisionStep    *          the precision used to index the numeric values    * @param format    *          the {@link NumberFormat} used to parse a {@link String} to    *          {@link Number}    * @param type    *          the numeric type used to index the numeric values    *     * @see NumericConfig#setPrecisionStep(int)    * @see NumericConfig#setNumberFormat(NumberFormat)    * @see #setType(org.apache.lucene.document.FieldType.NumericType)    */
+comment|/**    * Constructs a {@link NumericConfig} object.    *     * @param precisionStep    *          the precision used to index the numeric values    * @param format    *          the {@link NumberFormat} used to parse a {@link String} to    *          {@link Number}    * @param type    *          the numeric type used to index the numeric values    *     * @see NumericConfig#setPrecisionStep(int)    * @see NumericConfig#setNumberFormat(NumberFormat)    * @see #setType(org.apache.lucene.document.FieldType.LegacyNumericType)    */
 DECL|method|NumericConfig
 specifier|public
 name|NumericConfig
@@ -101,7 +103,7 @@ parameter_list|,
 name|NumberFormat
 name|format
 parameter_list|,
-name|NumericType
+name|LegacyNumericType
 name|type
 parameter_list|)
 block|{
@@ -121,7 +123,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Returns the precision used to index the numeric values    *     * @return the precision used to index the numeric values    *     * @see NumericRangeQuery#getPrecisionStep()    */
+comment|/**    * Returns the precision used to index the numeric values    *     * @return the precision used to index the numeric values    *     * @see org.apache.lucene.search.LegacyNumericRangeQuery#getPrecisionStep()    */
 DECL|method|getPrecisionStep
 specifier|public
 name|int
@@ -132,7 +134,7 @@ return|return
 name|precisionStep
 return|;
 block|}
-comment|/**    * Sets the precision used to index the numeric values    *     * @param precisionStep    *          the precision used to index the numeric values    *     * @see NumericRangeQuery#getPrecisionStep()    */
+comment|/**    * Sets the precision used to index the numeric values    *     * @param precisionStep    *          the precision used to index the numeric values    *     * @see org.apache.lucene.search.LegacyNumericRangeQuery#getPrecisionStep()    */
 DECL|method|setPrecisionStep
 specifier|public
 name|void
@@ -163,7 +165,7 @@ block|}
 comment|/**    * Returns the numeric type used to index the numeric values    *     * @return the numeric type used to index the numeric values    */
 DECL|method|getType
 specifier|public
-name|NumericType
+name|LegacyNumericType
 name|getType
 parameter_list|()
 block|{
@@ -177,7 +179,7 @@ specifier|public
 name|void
 name|setType
 parameter_list|(
-name|NumericType
+name|LegacyNumericType
 name|type
 parameter_list|)
 block|{

@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 begin_import
@@ -769,7 +769,7 @@ name|Field
 name|field
 init|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"value"
 argument_list|,

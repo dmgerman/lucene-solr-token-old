@@ -209,7 +209,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DoubleField
+name|LegacyDoubleField
 import|;
 end_import
 begin_import
@@ -248,7 +248,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FloatField
+name|LegacyFloatField
 import|;
 end_import
 begin_import
@@ -261,7 +261,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 begin_import
@@ -287,7 +287,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongField
+name|LegacyLongField
 import|;
 end_import
 begin_import
@@ -3661,7 +3661,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|IntField
+name|LegacyIntField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -3688,7 +3688,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 name|fieldInfo
 operator|.
@@ -3721,7 +3721,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|LongField
+name|LegacyLongField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -3748,7 +3748,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongField
+name|LegacyLongField
 argument_list|(
 name|fieldInfo
 operator|.
@@ -3781,7 +3781,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|FloatField
+name|LegacyFloatField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -3808,7 +3808,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|FloatField
+name|LegacyFloatField
 argument_list|(
 name|fieldInfo
 operator|.
@@ -3841,7 +3841,7 @@ init|=
 operator|new
 name|FieldType
 argument_list|(
-name|DoubleField
+name|LegacyDoubleField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -3868,7 +3868,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DoubleField
+name|LegacyDoubleField
 argument_list|(
 name|fieldInfo
 operator|.

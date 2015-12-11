@@ -48,7 +48,7 @@ name|document
 operator|.
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 import|;
 end_import
 begin_import
@@ -310,7 +310,7 @@ name|ft8
 operator|.
 name|setNumericType
 argument_list|(
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|DOUBLE
 argument_list|)

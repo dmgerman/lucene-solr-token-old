@@ -40,71 +40,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|analysis
-operator|.
-name|NumericTokenStream
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|DoubleField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|FloatField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|IntField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|LongField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|document
 operator|.
 name|NumericDocValuesField
@@ -266,7 +201,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_import
@@ -360,7 +295,7 @@ operator|new
 name|FieldCacheImpl
 argument_list|()
 decl_stmt|;
-comment|/**    * A parser instance for int values encoded by {@link NumericUtils}, e.g. when indexed    * via {@link IntField}/{@link NumericTokenStream}.    */
+comment|/**    * A parser instance for int values encoded by {@link org.apache.lucene.util.LegacyNumericUtils}, e.g. when indexed    * via {@link org.apache.lucene.document.LegacyIntField}/{@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    */
 DECL|field|NUMERIC_UTILS_INT_PARSER
 specifier|public
 specifier|static
@@ -383,7 +318,7 @@ name|term
 parameter_list|)
 block|{
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -404,7 +339,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|filterPrefixCodedInts
 argument_list|(
@@ -435,7 +370,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/**    * A parser instance for float values encoded with {@link NumericUtils}, e.g. when indexed    * via {@link FloatField}/{@link NumericTokenStream}.    */
+comment|/**    * A parser instance for float values encoded with {@link org.apache.lucene.util.LegacyNumericUtils}, e.g. when indexed    * via {@link org.apache.lucene.document.LegacyFloatField}/{@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    */
 DECL|field|NUMERIC_UTILS_FLOAT_PARSER
 specifier|public
 specifier|static
@@ -460,7 +395,7 @@ block|{
 name|int
 name|val
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -512,7 +447,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|filterPrefixCodedInts
 argument_list|(
@@ -525,7 +460,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/**    * A parser instance for long values encoded by {@link NumericUtils}, e.g. when indexed    * via {@link LongField}/{@link NumericTokenStream}.    */
+comment|/**    * A parser instance for long values encoded by {@link org.apache.lucene.util.LegacyNumericUtils}, e.g. when indexed    * via {@link org.apache.lucene.document.LegacyLongField}/{@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    */
 DECL|field|NUMERIC_UTILS_LONG_PARSER
 specifier|public
 specifier|static
@@ -548,7 +483,7 @@ name|term
 parameter_list|)
 block|{
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -587,7 +522,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|filterPrefixCodedLongs
 argument_list|(
@@ -600,7 +535,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/**    * A parser instance for double values encoded with {@link NumericUtils}, e.g. when indexed    * via {@link DoubleField}/{@link NumericTokenStream}.    */
+comment|/**    * A parser instance for double values encoded with {@link org.apache.lucene.util.LegacyNumericUtils}, e.g. when indexed    * via {@link org.apache.lucene.document.LegacyDoubleField}/{@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    */
 DECL|field|NUMERIC_UTILS_DOUBLE_PARSER
 specifier|public
 specifier|static
@@ -625,7 +560,7 @@ block|{
 name|long
 name|val
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -677,7 +612,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|filterPrefixCodedLongs
 argument_list|(
@@ -705,7 +640,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Returns a {@link NumericDocValues} over the values found in documents in the given    * field. If the field was indexed as {@link NumericDocValuesField}, it simply    * uses {@link org.apache.lucene.index.LeafReader#getNumericDocValues(String)} to read the values.    * Otherwise, it checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as longs and returns    * an array of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *     * @param reader    *          Used to get field values.    * @param field    *          Which field contains the longs.    * @param parser    *          Computes long for string values. May be {@code null} if the    *          requested field was indexed as {@link NumericDocValuesField} or    *          {@link LongField}.    * @param setDocsWithField    *          If true then {@link #getDocsWithField} will also be computed and    *          stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException    *           If any error occurs.    */
+comment|/**    * Returns a {@link NumericDocValues} over the values found in documents in the given    * field. If the field was indexed as {@link NumericDocValuesField}, it simply    * uses {@link org.apache.lucene.index.LeafReader#getNumericDocValues(String)} to read the values.    * Otherwise, it checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as longs and returns    * an array of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *     * @param reader    *          Used to get field values.    * @param field    *          Which field contains the longs.    * @param parser    *          Computes long for string values. May be {@code null} if the    *          requested field was indexed as {@link NumericDocValuesField} or    *          {@link org.apache.lucene.document.LegacyLongField}.    * @param setDocsWithField    *          If true then {@link #getDocsWithField} will also be computed and    *          stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException    *           If any error occurs.    */
 DECL|method|getNumerics
 specifier|public
 name|NumericDocValues
@@ -813,7 +748,7 @@ operator|new
 name|byte
 index|[]
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|SHIFT_START_INT
 block|}
@@ -834,7 +769,7 @@ operator|new
 name|byte
 index|[]
 block|{
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|SHIFT_START_LONG
 block|}

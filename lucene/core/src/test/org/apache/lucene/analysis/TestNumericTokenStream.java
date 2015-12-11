@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 begin_import
@@ -37,9 +37,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
-name|NumericTermAttributeImpl
+name|LegacyNumericTermAttributeImpl
 import|;
 end_import
 begin_import
@@ -155,11 +155,11 @@ argument_list|(
 literal|"resource"
 argument_list|)
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|stream
 init|=
 operator|new
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 argument_list|()
 operator|.
 name|setLongValue
@@ -204,18 +204,18 @@ name|typeAtt
 argument_list|)
 expr_stmt|;
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 name|numericAtt
 init|=
 name|stream
 operator|.
 name|getAttribute
 argument_list|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -253,7 +253,7 @@ literal|64
 condition|;
 name|shift
 operator|+=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|PRECISION_STEP_DEFAULT
 control|)
@@ -297,7 +297,7 @@ operator|-
 literal|1L
 operator|)
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToLong
 argument_list|(
@@ -341,11 +341,11 @@ operator|==
 literal|0
 operator|)
 condition|?
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
 name|TOKEN_TYPE_FULL_PREC
 else|:
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
 name|TOKEN_TYPE_LOWER_PREC
 argument_list|,
@@ -391,11 +391,11 @@ argument_list|(
 literal|"resource"
 argument_list|)
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|stream
 init|=
 operator|new
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 argument_list|()
 operator|.
 name|setIntValue
@@ -440,18 +440,18 @@ name|typeAtt
 argument_list|)
 expr_stmt|;
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 name|numericAtt
 init|=
 name|stream
 operator|.
 name|getAttribute
 argument_list|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -489,7 +489,7 @@ literal|32
 condition|;
 name|shift
 operator|+=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|PRECISION_STEP_DEFAULT
 control|)
@@ -533,7 +533,7 @@ operator|-
 literal|1
 operator|)
 argument_list|,
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|prefixCodedToInt
 argument_list|(
@@ -582,11 +582,11 @@ operator|==
 literal|0
 operator|)
 condition|?
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
 name|TOKEN_TYPE_FULL_PREC
 else|:
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
 name|TOKEN_TYPE_LOWER_PREC
 argument_list|,
@@ -627,11 +627,11 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|stream
 init|=
 operator|new
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 argument_list|()
 decl_stmt|;
 try|try
@@ -709,11 +709,11 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|stream
 init|=
 operator|new
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 argument_list|()
 decl_stmt|;
 try|try
@@ -748,7 +748,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"NumericTokenStream does not support"
+literal|"LegacyNumericTokenStream does not support"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -785,7 +785,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"NumericTokenStream does not support"
+literal|"LegacyNumericTokenStream does not support"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -804,11 +804,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NumericTermAttributeImpl
+name|LegacyNumericTermAttributeImpl
 name|att
 init|=
 operator|new
-name|NumericTermAttributeImpl
+name|LegacyNumericTermAttributeImpl
 argument_list|()
 decl_stmt|;
 name|att
@@ -825,7 +825,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// set some value, to make getBytesRef() work
-name|NumericTermAttributeImpl
+name|LegacyNumericTermAttributeImpl
 name|copy
 init|=
 name|TestCharTermAttributeImpl
@@ -848,7 +848,7 @@ name|getBytesRef
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|NumericTermAttributeImpl
+name|LegacyNumericTermAttributeImpl
 name|copy2
 init|=
 name|TestCharTermAttributeImpl
