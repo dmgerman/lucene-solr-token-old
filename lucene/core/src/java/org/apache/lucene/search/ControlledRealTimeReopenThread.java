@@ -543,12 +543,10 @@ operator|+
 name|maxMS
 operator|)
 operator|-
-operator|(
 name|System
 operator|.
 name|nanoTime
 argument_list|()
-operator|)
 operator|/
 literal|1000000
 decl_stmt|;
@@ -746,6 +744,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+comment|/** Returns which {@code generation} the current searcher is guaranteed to include. */
+DECL|method|getSearchingGen
+specifier|public
+name|long
+name|getSearchingGen
+parameter_list|()
+block|{
+return|return
+name|searchingGen
+return|;
 block|}
 block|}
 end_class
