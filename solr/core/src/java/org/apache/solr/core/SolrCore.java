@@ -237,19 +237,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|atomic
-operator|.
-name|AtomicLong
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|locks
 operator|.
 name|ReentrantLock
@@ -606,6 +593,21 @@ operator|.
 name|util
 operator|.
 name|NamedList
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|ObjectReleaseTracker
 import|;
 end_import
 begin_import
@@ -1342,54 +1344,6 @@ name|String
 name|version
 init|=
 literal|"1.0"
-decl_stmt|;
-comment|// These should *only* be used for debugging or monitoring purposes
-DECL|field|numOpens
-specifier|public
-specifier|static
-specifier|final
-name|AtomicLong
-name|numOpens
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
-DECL|field|numCloses
-specifier|public
-specifier|static
-specifier|final
-name|AtomicLong
-name|numCloses
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
-DECL|field|openHandles
-specifier|public
-specifier|static
-name|Map
-argument_list|<
-name|SolrCore
-argument_list|,
-name|Exception
-argument_list|>
-name|openHandles
-init|=
-name|Collections
-operator|.
-name|synchronizedMap
-argument_list|(
-operator|new
-name|IdentityHashMap
-argument_list|<
-name|SolrCore
-argument_list|,
-name|Exception
-argument_list|>
-argument_list|()
-argument_list|)
 decl_stmt|;
 DECL|field|log
 specifier|private
@@ -4180,6 +4134,15 @@ name|SolrCore
 name|prev
 parameter_list|)
 block|{
+assert|assert
+name|ObjectReleaseTracker
+operator|.
+name|track
+argument_list|(
+name|searcherExecutor
+argument_list|)
+assert|;
+comment|// ensure that in unclean shutdown tests we still close this
 name|checkNotNull
 argument_list|(
 name|coreDescriptor
@@ -4785,9 +4748,6 @@ argument_list|(
 name|coreDescriptor
 argument_list|)
 expr_stmt|;
-comment|// For debugging
-comment|//    numOpens.incrementAndGet();
-comment|//    openHandles.put(this, new RuntimeException("unclosed core - name:" + getName() + " refs: " + refCount.get()));
 name|this
 operator|.
 name|ruleExpiryLock
@@ -4799,6 +4759,14 @@ expr_stmt|;
 name|registerConfListener
 argument_list|()
 expr_stmt|;
+assert|assert
+name|ObjectReleaseTracker
+operator|.
+name|track
+argument_list|(
+name|this
+argument_list|)
+assert|;
 block|}
 DECL|method|seedVersionBuckets
 specifier|public
@@ -6538,6 +6506,14 @@ name|e
 throw|;
 block|}
 block|}
+assert|assert
+name|ObjectReleaseTracker
+operator|.
+name|release
+argument_list|(
+name|searcherExecutor
+argument_list|)
+assert|;
 try|try
 block|{
 comment|// Since we waited for the searcherExecutor to shut down,
@@ -6720,9 +6696,14 @@ block|}
 block|}
 block|}
 block|}
-comment|// For debugging
-comment|//    numCloses.incrementAndGet();
-comment|//    openHandles.remove(this);
+assert|assert
+name|ObjectReleaseTracker
+operator|.
+name|release
+argument_list|(
+name|this
+argument_list|)
+assert|;
 block|}
 comment|/** Current core usage count. */
 DECL|method|getOpenCount

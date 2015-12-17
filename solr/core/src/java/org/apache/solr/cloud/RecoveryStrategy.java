@@ -2207,7 +2207,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recovery was cancelled"
+literal|"RecoveryStrategy has been closed"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2231,7 +2231,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recovery was cancelled"
+literal|"RecoveryStrategy has been closed"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2509,7 +2509,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recovery was cancelled"
+literal|"RecoveryStrategy has been closed"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2545,7 +2545,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recovery was cancelled"
+literal|"RecoveryStrategy has been closed"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2571,7 +2571,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recovery was cancelled"
+literal|"RecoveryStrategy has been closed"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2761,6 +2761,13 @@ name|isClosed
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"RecoveryStrategy has been closed"
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 name|log
@@ -2908,8 +2915,17 @@ condition|(
 name|isClosed
 argument_list|()
 condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"RecoveryStrategy has been closed"
+argument_list|)
+expr_stmt|;
 break|break;
 comment|// check if someone closed us
+block|}
 name|Thread
 operator|.
 name|sleep
@@ -2977,7 +2993,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Finished recovery process."
+literal|"Finished recovery process, successful="
+argument_list|,
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|successfulRecovery
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -1419,7 +1419,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|close
-specifier|protected
+specifier|public
 name|void
 name|close
 parameter_list|()
