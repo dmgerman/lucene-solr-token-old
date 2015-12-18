@@ -476,11 +476,6 @@ name|COMPONENT_NAME
 init|=
 literal|"tv"
 decl_stmt|;
-DECL|field|initParams
-specifier|protected
-name|NamedList
-name|initParams
-decl_stmt|;
 DECL|field|TERM_VECTORS
 specifier|public
 specifier|static
@@ -489,6 +484,20 @@ name|String
 name|TERM_VECTORS
 init|=
 literal|"termVectors"
+decl_stmt|;
+DECL|field|TV_KEY_WARNINGS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TV_KEY_WARNINGS
+init|=
+literal|"warnings"
+decl_stmt|;
+DECL|field|initParams
+specifier|protected
+name|NamedList
+name|initParams
 decl_stmt|;
 comment|/**    * Helper method for determining the list of fields that we should     * try to find term vectors on.      *<p>    * Does simple (non-glob-supporting) parsing on the     * {@link TermVectorParams#FIELDS} param if specified, otherwise it returns     * the concrete field values specified in {@link CommonParams#FL} --     * ignoring functions, transformers, or literals.      *</p>    *<p>    * If "fl=*" is used, or neither param is specified, then<code>null</code>     * will be returned.  If the empty set is returned, it means the "fl"     * specified consisted entirely of things that are not real fields     * (ie: functions, transformers, partial-globs, score, etc...) and not     * supported by this component.     *</p>    */
 DECL|method|getFields
@@ -759,15 +768,6 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
-name|termVectors
-operator|.
-name|add
-argument_list|(
-literal|"uniqueKeyFieldName"
-argument_list|,
-name|uniqFieldName
-argument_list|)
-expr_stmt|;
 block|}
 name|FieldOptions
 name|allFields
@@ -1019,7 +1019,7 @@ range|:
 name|fields
 control|)
 block|{
-comment|// workarround SOLR-3523
+comment|// workaround SOLR-3523
 if|if
 condition|(
 literal|null
@@ -1340,15 +1340,10 @@ block|}
 block|}
 block|}
 comment|//else, deal with all fields
-comment|// NOTE: currently all typs of warnings are schema driven, and garunteed
+comment|// NOTE: currently all types of warnings are schema driven, and guaranteed
 comment|// to be consistent across all shards - if additional types of warnings
-comment|// are added that might be differnet between shards, finishStage() needs
+comment|// are added that might be different between shards, finishStage() needs
 comment|// to be changed to account for that.
-name|boolean
-name|hasWarnings
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1366,10 +1361,6 @@ literal|"noTermVectors"
 argument_list|,
 name|noTV
 argument_list|)
-expr_stmt|;
-name|hasWarnings
-operator|=
-literal|true
 expr_stmt|;
 block|}
 if|if
@@ -1390,10 +1381,6 @@ argument_list|,
 name|noPos
 argument_list|)
 expr_stmt|;
-name|hasWarnings
-operator|=
-literal|true
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1412,10 +1399,6 @@ literal|"noOffsets"
 argument_list|,
 name|noOff
 argument_list|)
-expr_stmt|;
-name|hasWarnings
-operator|=
-literal|true
 expr_stmt|;
 block|}
 if|if
@@ -1436,21 +1419,22 @@ argument_list|,
 name|noPay
 argument_list|)
 expr_stmt|;
-name|hasWarnings
-operator|=
-literal|true
-expr_stmt|;
 block|}
 if|if
 condition|(
-name|hasWarnings
+name|warnings
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|termVectors
 operator|.
 name|add
 argument_list|(
-literal|"warnings"
+name|TV_KEY_WARNINGS
 argument_list|,
 name|warnings
 argument_list|)
@@ -2633,7 +2617,7 @@ name|NamedList
 argument_list|<
 name|Object
 argument_list|>
-name|termVectors
+name|termVectorsNL
 init|=
 operator|new
 name|NamedList
@@ -2738,6 +2722,47 @@ argument_list|(
 name|TERM_VECTORS
 argument_list|)
 decl_stmt|;
+comment|// Add metadata (that which isn't a uniqueKey value):
+name|Object
+name|warningsNL
+init|=
+name|nl
+operator|.
+name|get
+argument_list|(
+name|TV_KEY_WARNINGS
+argument_list|)
+decl_stmt|;
+comment|// assume if that if warnings is already present; we don't need to merge.
+if|if
+condition|(
+name|warningsNL
+operator|!=
+literal|null
+operator|&&
+name|termVectorsNL
+operator|.
+name|indexOf
+argument_list|(
+name|TV_KEY_WARNINGS
+argument_list|,
+literal|0
+argument_list|)
+operator|<
+literal|0
+condition|)
+block|{
+name|termVectorsNL
+operator|.
+name|add
+argument_list|(
+name|TV_KEY_WARNINGS
+argument_list|,
+name|warningsNL
+argument_list|)
+expr_stmt|;
+block|}
+comment|// UniqueKey data
 for|for
 control|(
 name|int
@@ -2780,44 +2805,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-literal|null
-operator|==
 name|sdoc
+operator|!=
+literal|null
 condition|)
 block|{
-comment|// metadata, only need from one node, leave in order
-if|if
-condition|(
-name|termVectors
-operator|.
-name|indexOf
-argument_list|(
-name|key
-argument_list|,
-literal|0
-argument_list|)
-operator|<
-literal|0
-condition|)
-block|{
-name|termVectors
-operator|.
-name|add
-argument_list|(
-name|key
-argument_list|,
-name|nl
-operator|.
-name|getVal
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
+comment|// can be null when rb.onePassDistributedQuery
 name|int
 name|idx
 init|=
@@ -2851,23 +2844,13 @@ block|}
 block|}
 block|}
 comment|// remove nulls in case not all docs were able to be retrieved
-name|termVectors
-operator|.
-name|addAll
-argument_list|(
 name|SolrPluginUtils
 operator|.
 name|removeNulls
 argument_list|(
 name|arr
 argument_list|,
-operator|new
-name|NamedList
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
-argument_list|)
+name|termVectorsNL
 argument_list|)
 expr_stmt|;
 name|rb
@@ -2878,7 +2861,7 @@ name|add
 argument_list|(
 name|TERM_VECTORS
 argument_list|,
-name|termVectors
+name|termVectorsNL
 argument_list|)
 expr_stmt|;
 block|}

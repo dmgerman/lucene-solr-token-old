@@ -525,9 +525,7 @@ literal|" 'test_posofftv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
 literal|" 'test_posoffpaytv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
-literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}},"
-operator|+
-literal|" 'uniqueKeyFieldName':'id'}"
+literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}}}"
 argument_list|)
 expr_stmt|;
 comment|// tv.fl diff from fl
@@ -572,9 +570,7 @@ literal|"/termVectors=={'0':{'uniqueKey':'0',"
 operator|+
 literal|" 'test_basictv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
-literal|" 'test_offtv':{'anoth':{'tf':1},'titl':{'tf':2}}},"
-operator|+
-literal|" 'uniqueKeyFieldName':'id'}"
+literal|" 'test_offtv':{'anoth':{'tf':1},'titl':{'tf':2}}}}"
 argument_list|)
 expr_stmt|;
 comment|// multi-valued tv.fl
@@ -623,9 +619,7 @@ literal|"/termVectors=={'0':{'uniqueKey':'0',"
 operator|+
 literal|" 'test_basictv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
-literal|" 'test_offtv':{'anoth':{'tf':1},'titl':{'tf':2}}},"
-operator|+
-literal|" 'uniqueKeyFieldName':'id'}"
+literal|" 'test_offtv':{'anoth':{'tf':1},'titl':{'tf':2}}}}"
 argument_list|)
 expr_stmt|;
 comment|// re-use fl glob
@@ -672,9 +666,7 @@ literal|" 'test_posofftv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
 literal|" 'test_posoffpaytv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
-literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}},"
-operator|+
-literal|" 'uniqueKeyFieldName':'id'}"
+literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}}}"
 argument_list|)
 expr_stmt|;
 comment|// re-use fl, ignore things we can't handle
@@ -715,9 +707,7 @@ literal|"/termVectors=={'0':{'uniqueKey':'0',"
 operator|+
 literal|" 'test_basictv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
-literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}},"
-operator|+
-literal|" 'uniqueKeyFieldName':'id'}"
+literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}}}"
 argument_list|)
 expr_stmt|;
 comment|// re-use (multi-valued) fl, ignore things we can't handle
@@ -762,9 +752,7 @@ literal|"/termVectors=={'0':{'uniqueKey':'0',"
 operator|+
 literal|" 'test_basictv':{'anoth':{'tf':1},'titl':{'tf':2}},"
 operator|+
-literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}},"
-operator|+
-literal|" 'uniqueKeyFieldName':'id'}"
+literal|" 'test_postv':{'anoth':{'tf':1},'titl':{'tf':2}}}}"
 argument_list|)
 expr_stmt|;
 block|}
