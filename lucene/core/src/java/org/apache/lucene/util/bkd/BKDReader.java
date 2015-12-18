@@ -278,6 +278,11 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
+assert|assert
+name|numLeaves
+operator|>
+literal|0
+assert|;
 name|leafNodeOffset
 operator|=
 name|numLeaves
