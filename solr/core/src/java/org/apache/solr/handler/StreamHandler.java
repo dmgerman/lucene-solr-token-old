@@ -1286,7 +1286,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-literal|"stream"
+literal|"expr"
 argument_list|)
 argument_list|)
 expr_stmt|;
