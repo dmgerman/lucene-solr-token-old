@@ -406,13 +406,8 @@ name|omitHeader
 condition|)
 name|rsp
 operator|.
-name|getValues
+name|removeResponseHeader
 argument_list|()
-operator|.
-name|remove
-argument_list|(
-literal|"responseHeader"
-argument_list|)
 expr_stmt|;
 name|writeNamedList
 argument_list|(

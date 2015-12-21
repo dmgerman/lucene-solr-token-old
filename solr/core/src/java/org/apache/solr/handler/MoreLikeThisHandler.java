@@ -1485,10 +1485,8 @@ comment|// avoid NPE
 block|}
 name|rsp
 operator|.
-name|add
+name|addResponse
 argument_list|(
-literal|"response"
-argument_list|,
 name|mltDocs
 operator|.
 name|docList
