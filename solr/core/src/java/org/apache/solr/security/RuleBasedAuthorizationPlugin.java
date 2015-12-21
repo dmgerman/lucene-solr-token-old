@@ -658,7 +658,7 @@ name|mapping
 operator|.
 name|get
 argument_list|(
-literal|""
+literal|null
 argument_list|)
 argument_list|,
 name|context
@@ -712,7 +712,7 @@ operator|.
 name|rsp
 return|;
 block|}
-comment|//check global permissions.
+comment|//check wildcard (all=*) permissions.
 name|MatchStatus
 name|flag
 init|=
@@ -722,7 +722,7 @@ name|mapping
 operator|.
 name|get
 argument_list|(
-literal|null
+literal|"*"
 argument_list|)
 argument_list|,
 name|context
@@ -1492,12 +1492,12 @@ argument_list|)
 condition|?
 name|singleton
 argument_list|(
-literal|""
+literal|null
 argument_list|)
 else|:
 name|singleton
 argument_list|(
-literal|null
+literal|"*"
 argument_list|)
 return|;
 block|}
@@ -3177,7 +3177,11 @@ literal|"    config-edit:{"
 operator|+
 literal|"      method:POST,"
 operator|+
-literal|"      path:'/config/*'}}"
+literal|"      path:'/config/*'},"
+operator|+
+literal|"    all:{collection:['*', null]}"
+operator|+
+literal|"}"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
