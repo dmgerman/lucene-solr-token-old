@@ -533,6 +533,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|response
+operator|.
+name|SolrQueryResponse
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -8816,7 +8829,13 @@ else|else
 block|{
 name|assertEquals
 argument_list|(
-literal|"Expected to find the partialResults header set if a shard is down"
+literal|"Expected to find the "
+operator|+
+name|SolrQueryResponse
+operator|.
+name|RESPONSE_HEADER_PARTIAL_RESULTS_KEY
+operator|+
+literal|" header set if a shard is down"
 argument_list|,
 name|Boolean
 operator|.
@@ -8829,7 +8848,9 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"partialResults"
+name|SolrQueryResponse
+operator|.
+name|RESPONSE_HEADER_PARTIAL_RESULTS_KEY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8885,7 +8906,13 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"Expected the partialResults header to be null"
+literal|"Expected the "
+operator|+
+name|SolrQueryResponse
+operator|.
+name|RESPONSE_HEADER_PARTIAL_RESULTS_KEY
+operator|+
+literal|" header to be null"
 argument_list|,
 name|control
 operator|.
@@ -8894,7 +8921,9 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"partialResults"
+name|SolrQueryResponse
+operator|.
+name|RESPONSE_HEADER_PARTIAL_RESULTS_KEY
 argument_list|)
 argument_list|)
 expr_stmt|;
