@@ -156,17 +156,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadFactory
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|TimeUnit
 import|;
 end_import
@@ -411,12 +400,12 @@ name|ZkStateReader
 implements|implements
 name|Closeable
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
@@ -805,11 +794,7 @@ name|newSetFromMap
 argument_list|(
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -851,11 +836,7 @@ name|watchedCollectionStates
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Collections with format2 state.json, not "interesting" and not actively watched. */
@@ -872,11 +853,7 @@ name|lazyCollectionStates
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|LazyCollectionRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|liveNodes
@@ -959,24 +936,15 @@ literal|"/"
 operator|+
 name|collection
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Load collection config from:"
-operator|+
+literal|"Load collection config from: [{}]"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|byte
@@ -1047,12 +1015,12 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Specified config does not exist in ZooKeeper:"
-operator|+
+literal|"Specified config does not exist in ZooKeeper: [{}]"
+argument_list|,
 name|configName
 argument_list|)
 expr_stmt|;
@@ -1064,37 +1032,25 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|"Specified config does not exist in ZooKeeper:"
+literal|"Specified config does not exist in ZooKeeper: "
 operator|+
 name|configName
 argument_list|)
 throw|;
 block|}
-elseif|else
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
+else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"path={} {}={} specified config exists in ZooKeeper"
+literal|"path=[{}] [{}]=[{}] specified config exists in ZooKeeper"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|path
-block|,
+argument_list|,
 name|CONFIGNAME_PROP
-block|,
+argument_list|,
 name|configName
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1168,60 +1124,6 @@ block|}
 return|return
 name|configName
 return|;
-block|}
-DECL|class|ZKTF
-specifier|private
-specifier|static
-class|class
-name|ZKTF
-implements|implements
-name|ThreadFactory
-block|{
-DECL|field|tg
-specifier|private
-specifier|static
-name|ThreadGroup
-name|tg
-init|=
-operator|new
-name|ThreadGroup
-argument_list|(
-literal|"ZkStateReader"
-argument_list|)
-decl_stmt|;
-annotation|@
-name|Override
-DECL|method|newThread
-specifier|public
-name|Thread
-name|newThread
-parameter_list|(
-name|Runnable
-name|r
-parameter_list|)
-block|{
-name|Thread
-name|td
-init|=
-operator|new
-name|Thread
-argument_list|(
-name|tg
-argument_list|,
-name|r
-argument_list|)
-decl_stmt|;
-name|td
-operator|.
-name|setDaemon
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-name|td
-return|;
-block|}
 block|}
 DECL|field|zkClient
 specifier|private
@@ -1364,11 +1266,11 @@ name|KeeperException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -1383,7 +1285,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -1404,11 +1306,11 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|""
+literal|"Interrupted"
 argument_list|,
 name|e
 argument_list|)
@@ -1423,7 +1325,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|""
+literal|"Interrupted"
 argument_list|,
 name|e
 argument_list|)
@@ -1628,11 +1530,11 @@ operator|<
 name|version
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"server older than client {}<{}"
+literal|"Server older than client {}<{}"
 argument_list|,
 name|collection
 operator|.
@@ -1702,11 +1604,11 @@ return|return
 literal|null
 return|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"wrong version from client {}!={} "
+literal|"Wrong version from client [{}]!=[{}]"
 argument_list|,
 name|version
 argument_list|,
@@ -1735,7 +1637,7 @@ throws|,
 name|InterruptedException
 block|{
 comment|// We need to fetch the current cluster state and the set of live nodes
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1864,7 +1766,7 @@ name|getUpdateLock
 argument_list|()
 init|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1878,6 +1780,7 @@ name|thisWatch
 init|=
 name|this
 decl_stmt|;
+specifier|final
 name|Stat
 name|stat
 init|=
@@ -1885,6 +1788,7 @@ operator|new
 name|Stat
 argument_list|()
 decl_stmt|;
+specifier|final
 name|byte
 index|[]
 name|data
@@ -1902,25 +1806,45 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|Aliases
-name|aliases
-init|=
-name|ClusterState
-operator|.
-name|load
-argument_list|(
-name|data
-argument_list|)
-decl_stmt|;
 name|ZkStateReader
 operator|.
 name|this
 operator|.
 name|aliases
 operator|=
-name|aliases
+name|ClusterState
+operator|.
+name|load
+argument_list|(
+name|data
+argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|KeeperException
+operator|.
+name|ConnectionLossException
+decl||
+name|KeeperException
+operator|.
+name|SessionExpiredException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK: [{}]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1928,45 +1852,11 @@ name|KeeperException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|SESSIONEXPIRED
-operator|||
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|CONNECTIONLOSS
-condition|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -1981,7 +1871,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -2002,16 +1892,15 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|""
+literal|"Interrupted"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 block|}
@@ -2032,8 +1921,6 @@ condition|)
 block|{
 name|addSecuritynodeWatcher
 argument_list|(
-name|SOLR_SECURITY_CONF_PATH
-argument_list|,
 operator|new
 name|Callable
 argument_list|<
@@ -2161,9 +2048,6 @@ specifier|private
 name|void
 name|addSecuritynodeWatcher
 parameter_list|(
-name|String
-name|path
-parameter_list|,
 specifier|final
 name|Callable
 argument_list|<
@@ -2233,13 +2117,13 @@ name|getUpdateLock
 argument_list|()
 init|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Updating {} ... "
+literal|"Updating [{}] ... "
 argument_list|,
-name|path
+name|SOLR_SECURITY_CONF_PATH
 argument_list|)
 expr_stmt|;
 comment|// remake watch
@@ -2249,6 +2133,7 @@ name|thisWatch
 init|=
 name|this
 decl_stmt|;
+specifier|final
 name|Stat
 name|stat
 init|=
@@ -2256,6 +2141,7 @@ operator|new
 name|Stat
 argument_list|()
 decl_stmt|;
+specifier|final
 name|byte
 index|[]
 name|data
@@ -2265,7 +2151,7 @@ argument_list|()
 operator|.
 name|getData
 argument_list|(
-name|path
+name|SOLR_SECURITY_CONF_PATH
 argument_list|,
 name|thisWatch
 argument_list|,
@@ -2297,31 +2183,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|instanceof
-name|KeeperException
-condition|)
-throw|throw
-operator|(
-name|KeeperException
-operator|)
-name|e
-throw|;
-if|if
-condition|(
-name|e
-operator|instanceof
-name|InterruptedException
-condition|)
-throw|throw
-operator|(
-name|InterruptedException
-operator|)
-name|e
-throw|;
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -2336,48 +2198,39 @@ block|}
 catch|catch
 parameter_list|(
 name|KeeperException
+operator|.
+name|ConnectionLossException
+decl||
+name|KeeperException
+operator|.
+name|SessionExpiredException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|SESSIONEXPIRED
-operator|||
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|CONNECTIONLOSS
-condition|)
-block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK"
+literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK: [{}]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
-name|log
+catch|catch
+parameter_list|(
+name|KeeperException
+name|e
+parameter_list|)
+block|{
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -2411,16 +2264,15 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|""
+literal|"Interrupted"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 block|}
@@ -2586,11 +2438,11 @@ argument_list|,
 name|legacyClusterStateVersion
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"clusterStateSet: version {} legacy {} interesting {} watched {} lazy {} total {}"
+literal|"clusterStateSet: version [{}] legacy [{}] interesting [{}] watched [{}] lazy [{}] total [{}]"
 argument_list|,
 name|clusterState
 operator|.
@@ -2637,6 +2489,7 @@ name|InterruptedException
 block|{
 try|try
 block|{
+specifier|final
 name|Stat
 name|stat
 init|=
@@ -2644,6 +2497,7 @@ operator|new
 name|Stat
 argument_list|()
 decl_stmt|;
+specifier|final
 name|byte
 index|[]
 name|data
@@ -2661,6 +2515,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+specifier|final
 name|ClusterState
 name|loadedData
 init|=
@@ -2818,11 +2673,16 @@ name|NoNodeException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error fetching collection names"
+literal|"Error fetching collection names: [{}]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// fall through
@@ -3038,11 +2898,11 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating live nodes from ZooKeeper... ({})"
+literal|"Updating live nodes from ZooKeeper... [{}]"
 argument_list|,
 name|nodeList
 operator|.
@@ -3164,8 +3024,6 @@ name|timeout
 parameter_list|)
 throws|throws
 name|InterruptedException
-throws|,
-name|KeeperException
 block|{
 name|ZkCoreNodeProps
 name|props
@@ -3201,8 +3059,6 @@ parameter_list|,
 name|String
 name|shard
 parameter_list|)
-throws|throws
-name|InterruptedException
 block|{
 if|if
 condition|(
@@ -3844,6 +3700,7 @@ name|KeeperException
 throws|,
 name|InterruptedException
 block|{
+specifier|final
 name|byte
 index|[]
 name|data
@@ -3861,23 +3718,16 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|Aliases
+name|this
+operator|.
 name|aliases
-init|=
+operator|=
 name|ClusterState
 operator|.
 name|load
 argument_list|(
 name|data
 argument_list|)
-decl_stmt|;
-name|ZkStateReader
-operator|.
-name|this
-operator|.
-name|aliases
-operator|=
-name|aliases
 expr_stmt|;
 block|}
 DECL|method|getClusterProps
@@ -3886,11 +3736,6 @@ name|Map
 name|getClusterProps
 parameter_list|()
 block|{
-name|Map
-name|result
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 if|if
@@ -3908,8 +3753,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|result
-operator|=
+return|return
 operator|(
 name|Map
 operator|)
@@ -3935,20 +3779,16 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
-name|result
-operator|=
+return|return
 operator|new
 name|LinkedHashMap
 argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|result
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -4037,11 +3877,6 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|int
-name|v
-init|=
-literal|0
-decl_stmt|;
 name|Map
 name|properties
 init|=
@@ -4217,38 +4052,19 @@ parameter_list|(
 name|KeeperException
 operator|.
 name|BadVersionException
-name|bve
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Race condition while trying to set a new cluster prop on current version "
-operator|+
-name|s
-operator|.
-name|getVersion
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|//race condition
-continue|continue;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|KeeperException
 operator|.
 name|NodeExistsException
-name|nee
+name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Race condition while trying to set a new cluster prop on current version "
-operator|+
+literal|"Race condition while trying to set a new cluster prop on current version [{}]"
+argument_list|,
 name|s
 operator|.
 name|getVersion
@@ -4264,12 +4080,12 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error updating path "
-operator|+
+literal|"Error updating path [{}]"
+argument_list|,
 name|CLUSTER_PROPS
 argument_list|,
 name|ex
@@ -4362,6 +4178,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
+specifier|final
 name|byte
 index|[]
 name|data
@@ -4637,11 +4454,11 @@ argument_list|)
 condition|)
 block|{
 comment|// This collection is no longer interesting, stop watching.
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Uninteresting collection {}"
+literal|"Uninteresting collection [{}]"
 argument_list|,
 name|coll
 argument_list|)
@@ -4667,18 +4484,9 @@ condition|)
 block|{
 return|return;
 block|}
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"A cluster state change: {} for collection {} has occurred - updating... (live nodes size: {})"
-argument_list|,
-operator|(
-name|event
-operator|)
-argument_list|,
-name|coll
-argument_list|,
+name|int
+name|liveNodesSize
+init|=
 name|ZkStateReader
 operator|.
 name|this
@@ -4700,6 +4508,18 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"A cluster state change: [{}] for collection [{}] has occurred - updating... (live nodes size: [{}])"
+argument_list|,
+name|event
+argument_list|,
+name|coll
+argument_list|,
+name|liveNodesSize
 argument_list|)
 expr_stmt|;
 name|refreshAndWatch
@@ -4761,12 +4581,12 @@ condition|(
 name|expectExists
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"State node vanished for collection: "
-operator|+
+literal|"State node vanished for collection: [{}]"
+argument_list|,
 name|coll
 argument_list|,
 name|e
@@ -4777,49 +4597,40 @@ block|}
 catch|catch
 parameter_list|(
 name|KeeperException
+operator|.
+name|SessionExpiredException
+decl||
+name|KeeperException
+operator|.
+name|ConnectionLossException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|SESSIONEXPIRED
-operator|||
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|CONNECTIONLOSS
-condition|)
-block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK"
+literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK: [{}]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
-name|log
+catch|catch
+parameter_list|(
+name|KeeperException
+name|e
+parameter_list|)
+block|{
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Unwatched collection: "
-operator|+
+literal|"Unwatched collection: [{}]"
+argument_list|,
 name|coll
 argument_list|,
 name|e
@@ -4833,7 +4644,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -4853,12 +4664,12 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Unwatched collection :"
-operator|+
+literal|"Unwatched collection: [{}]"
+argument_list|,
 name|coll
 argument_list|,
 name|e
@@ -4904,16 +4715,9 @@ condition|)
 block|{
 return|return;
 block|}
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"A cluster state change: {}, has occurred - updating... (live nodes size: {})"
-argument_list|,
-operator|(
-name|event
-operator|)
-argument_list|,
+name|int
+name|liveNodesSize
+init|=
 name|ZkStateReader
 operator|.
 name|this
@@ -4935,6 +4739,16 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"A cluster state change: [{}], has occurred - updating... (live nodes size: [{}])"
+argument_list|,
+name|event
+argument_list|,
+name|liveNodesSize
 argument_list|)
 expr_stmt|;
 name|refreshAndWatch
@@ -4996,48 +4810,39 @@ block|}
 catch|catch
 parameter_list|(
 name|KeeperException
+operator|.
+name|SessionExpiredException
+decl||
+name|KeeperException
+operator|.
+name|ConnectionLossException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|SESSIONEXPIRED
-operator|||
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|CONNECTIONLOSS
-condition|)
-block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK"
+literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK: [{}]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
-name|log
+catch|catch
+parameter_list|(
+name|KeeperException
+name|e
+parameter_list|)
+block|{
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -5052,7 +4857,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -5073,11 +4878,11 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|""
+literal|"Interrupted"
 argument_list|,
 name|e
 argument_list|)
@@ -5122,15 +4927,13 @@ condition|)
 block|{
 return|return;
 block|}
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"A collections change: {}, has occurred - updating..."
+literal|"A collections change: [{}], has occurred - updating..."
 argument_list|,
-operator|(
 name|event
-operator|)
 argument_list|)
 expr_stmt|;
 name|refreshAndWatch
@@ -5165,48 +4968,39 @@ block|}
 catch|catch
 parameter_list|(
 name|KeeperException
+operator|.
+name|SessionExpiredException
+decl||
+name|KeeperException
+operator|.
+name|ConnectionLossException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|SESSIONEXPIRED
-operator|||
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|CONNECTIONLOSS
-condition|)
-block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK"
+literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK: [{}]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
-name|log
+catch|catch
+parameter_list|(
+name|KeeperException
+name|e
+parameter_list|)
+block|{
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -5221,7 +5015,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -5242,11 +5036,11 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|""
+literal|"Interrupted"
 argument_list|,
 name|e
 argument_list|)
@@ -5291,15 +5085,13 @@ condition|)
 block|{
 return|return;
 block|}
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"A live node change: {}, has occurred - updating... (live nodes size: {})"
+literal|"A live node change: [{}], has occurred - updating... (live nodes size: [{}])"
 argument_list|,
-operator|(
 name|event
-operator|)
 argument_list|,
 name|liveNodes
 operator|.
@@ -5328,48 +5120,39 @@ block|}
 catch|catch
 parameter_list|(
 name|KeeperException
+operator|.
+name|SessionExpiredException
+decl||
+name|KeeperException
+operator|.
+name|ConnectionLossException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|SESSIONEXPIRED
-operator|||
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|CONNECTIONLOSS
-condition|)
-block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK"
+literal|"ZooKeeper watch triggered, but Solr cannot talk to ZK: [{}]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
-name|log
+catch|catch
+parameter_list|(
+name|KeeperException
+name|e
+parameter_list|)
+block|{
+name|LOG
 operator|.
 name|error
 argument_list|(
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -5384,7 +5167,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|""
+literal|"A ZK error has occurred"
 argument_list|,
 name|e
 argument_list|)
@@ -5405,11 +5188,11 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|""
+literal|"Interrupted"
 argument_list|,
 name|e
 argument_list|)
@@ -5457,7 +5240,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"Could not load collection from ZK:"
+literal|"Could not load collection from ZK: "
 operator|+
 name|coll
 argument_list|,
@@ -5487,7 +5270,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"Could not load collection from ZK:"
+literal|"Could not load collection from ZK: "
 operator|+
 name|coll
 argument_list|,
@@ -5640,10 +5423,6 @@ parameter_list|(
 name|String
 name|coll
 parameter_list|)
-throws|throws
-name|KeeperException
-throws|,
-name|InterruptedException
 block|{
 if|if
 condition|(
@@ -5655,11 +5434,11 @@ name|coll
 argument_list|)
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"addZkWatch {}"
+literal|"addZkWatch [{}]"
 argument_list|,
 name|coll
 argument_list|)
@@ -5706,11 +5485,11 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Deleting data for {}"
+literal|"Deleting data for [{}]"
 argument_list|,
 name|coll
 argument_list|)
@@ -5774,11 +5553,11 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Add data for {} ver {} "
+literal|"Add data for [{}] ver [{}]"
 argument_list|,
 name|coll
 argument_list|,
@@ -5823,11 +5602,11 @@ name|newState
 argument_list|)
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Updating data for {} from {} to {} "
+literal|"Updating data for [{}] from [{}] to [{}]"
 argument_list|,
 name|coll
 argument_list|,
@@ -5865,11 +5644,11 @@ argument_list|(
 name|coll
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Removing uninteresting collection {}"
+literal|"Removing uninteresting collection [{}]"
 argument_list|,
 name|coll
 argument_list|)
@@ -5886,11 +5665,11 @@ name|String
 name|coll
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Removing watch for uninteresting collection {}"
+literal|"Removing watch for uninteresting collection [{}]"
 argument_list|,
 name|coll
 argument_list|)
