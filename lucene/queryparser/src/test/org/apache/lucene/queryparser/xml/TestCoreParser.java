@@ -316,10 +316,10 @@ name|StandardCharsets
 import|;
 end_import
 begin_class
-DECL|class|TestParser
+DECL|class|TestCoreParser
 specifier|public
 class|class
-name|TestParser
+name|TestCoreParser
 extends|extends
 name|LuceneTestCase
 block|{
@@ -413,7 +413,7 @@ argument_list|(
 operator|new
 name|InputStreamReader
 argument_list|(
-name|TestParser
+name|TestCoreParser
 operator|.
 name|class
 operator|.
@@ -1142,7 +1142,7 @@ block|{
 name|InputStream
 name|xmlStream
 init|=
-name|TestParser
+name|TestCoreParser
 operator|.
 name|class
 operator|.

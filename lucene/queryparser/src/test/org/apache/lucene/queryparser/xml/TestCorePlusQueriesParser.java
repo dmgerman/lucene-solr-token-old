@@ -35,7 +35,7 @@ specifier|public
 class|class
 name|TestCorePlusQueriesParser
 extends|extends
-name|TestParser
+name|TestCoreParser
 block|{
 DECL|field|corePlusQueriesParser
 specifier|private
