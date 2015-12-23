@@ -1047,6 +1047,17 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// We could have 0 points on merge since all docs with dimensional fields may be deleted:
+if|if
+condition|(
+name|writer
+operator|.
+name|getPointCount
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|indexFPs
 operator|.
 name|put
@@ -1063,6 +1074,7 @@ name|dataOut
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|write
 specifier|private
