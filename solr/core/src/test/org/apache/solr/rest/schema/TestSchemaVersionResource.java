@@ -62,7 +62,7 @@ literal|"/schema/version?indent=on&wt=xml"
 argument_list|,
 literal|"count(/response/float[@name='version']) = 1"
 argument_list|,
-literal|"/response/float[@name='version'][.='1.5']"
+literal|"/response/float[@name='version'][.='1.6']"
 argument_list|)
 expr_stmt|;
 block|}

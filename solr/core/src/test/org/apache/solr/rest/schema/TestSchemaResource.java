@@ -67,7 +67,7 @@ literal|"/response/lst[@name='schema']/str[@name='name'][.='test-rest']"
 argument_list|,
 literal|"count(/response/lst[@name='schema']/float[@name='version']) = 1"
 argument_list|,
-literal|"/response/lst[@name='schema']/float[@name='version'][.='1.5']"
+literal|"/response/lst[@name='schema']/float[@name='version'][.='1.6']"
 argument_list|,
 literal|"count(/response/lst[@name='schema']/lst[@name='solrQueryParser']/str[@name='defaultOperator']) = 1"
 argument_list|,
@@ -192,7 +192,7 @@ argument_list|,
 comment|// Should work with or without a trailing slash
 literal|"/schema/name=='test-rest'"
 argument_list|,
-literal|"/schema/version==1.5"
+literal|"/schema/version==1.6"
 argument_list|,
 literal|"/schema/solrQueryParser/defaultOperator=='OR'"
 argument_list|,
@@ -261,7 +261,7 @@ argument_list|,
 comment|// should work with or without trailing slash on '/schema/' path
 literal|"/schema/@name = 'test-rest'"
 argument_list|,
-literal|"/schema/@version = '1.5'"
+literal|"/schema/@version = '1.6'"
 argument_list|,
 literal|"/schema/solrQueryParser/@defaultOperator = 'OR'"
 argument_list|,
