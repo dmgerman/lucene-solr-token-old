@@ -186,7 +186,7 @@ name|DEFAULT_FRAGMENT_SIZE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @param queryScorer QueryScorer that was used to score hits    * @param fragmentSize size in bytes of each fragment    */
+comment|/**    * @param queryScorer QueryScorer that was used to score hits    * @param fragmentSize size in chars of each fragment    */
 DECL|method|SimpleSpanFragmenter
 specifier|public
 name|SimpleSpanFragmenter
@@ -230,7 +230,7 @@ expr_stmt|;
 if|if
 condition|(
 name|waitForPos
-operator|==
+operator|<=
 name|position
 condition|)
 block|{
@@ -286,30 +286,15 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|PositionSpan
+name|positionSpan
+range|:
 name|positionSpans
-operator|.
-name|size
-argument_list|()
-condition|;
-name|i
-operator|++
 control|)
 block|{
 if|if
 condition|(
-name|positionSpans
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
+name|positionSpan
 operator|.
 name|start
 operator|==
@@ -318,12 +303,7 @@ condition|)
 block|{
 name|waitForPos
 operator|=
-name|positionSpans
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
+name|positionSpan
 operator|.
 name|end
 operator|+
