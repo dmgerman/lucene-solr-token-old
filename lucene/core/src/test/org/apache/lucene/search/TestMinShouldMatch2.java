@@ -942,7 +942,7 @@ name|bulkScorer
 init|=
 name|weight
 operator|.
-name|booleanScorer
+name|optionalBulkScorer
 argument_list|(
 name|reader
 operator|.
