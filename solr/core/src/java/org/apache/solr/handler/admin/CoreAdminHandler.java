@@ -1767,13 +1767,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Helper method to add a task to a tracking map.    */
+comment|/**    * Helper method to add a task to a tracking type.    */
 DECL|method|addTask
 name|void
 name|addTask
 parameter_list|(
 name|String
-name|map
+name|type
 parameter_list|,
 name|TaskObject
 name|o
@@ -1786,7 +1786,7 @@ synchronized|synchronized
 init|(
 name|getRequestStatusMap
 argument_list|(
-name|map
+name|type
 argument_list|)
 init|)
 block|{
@@ -1796,7 +1796,7 @@ name|limit
 operator|&&
 name|getRequestStatusMap
 argument_list|(
-name|map
+name|type
 argument_list|)
 operator|.
 name|size
@@ -1810,7 +1810,7 @@ name|key
 init|=
 name|getRequestStatusMap
 argument_list|(
-name|map
+name|type
 argument_list|)
 operator|.
 name|entrySet
@@ -1827,7 +1827,7 @@ argument_list|()
 decl_stmt|;
 name|getRequestStatusMap
 argument_list|(
-name|map
+name|type
 argument_list|)
 operator|.
 name|remove
@@ -1838,7 +1838,7 @@ expr_stmt|;
 block|}
 name|addTask
 argument_list|(
-name|map
+name|type
 argument_list|,
 name|o
 argument_list|)
@@ -1846,11 +1846,12 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|addTask
+specifier|private
 name|void
 name|addTask
 parameter_list|(
 name|String
-name|map
+name|type
 parameter_list|,
 name|TaskObject
 name|o
@@ -1860,13 +1861,13 @@ synchronized|synchronized
 init|(
 name|getRequestStatusMap
 argument_list|(
-name|map
+name|type
 argument_list|)
 init|)
 block|{
 name|getRequestStatusMap
 argument_list|(
-name|map
+name|type
 argument_list|)
 operator|.
 name|put
@@ -1882,6 +1883,7 @@ block|}
 block|}
 comment|/**    * Helper method to remove a task from a tracking map.    */
 DECL|method|removeTask
+specifier|private
 name|void
 name|removeTask
 parameter_list|(
@@ -1911,30 +1913,6 @@ name|taskId
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**    * Helper method to check if a map contains a taskObject with the given taskId.    */
-DECL|method|mapContainsTask
-name|boolean
-name|mapContainsTask
-parameter_list|(
-name|String
-name|map
-parameter_list|,
-name|String
-name|taskId
-parameter_list|)
-block|{
-return|return
-name|getRequestStatusMap
-argument_list|(
-name|map
-argument_list|)
-operator|.
-name|containsKey
-argument_list|(
-name|taskId
-argument_list|)
-return|;
 block|}
 comment|/**    * Helper method to get a request status map given the name.    */
 DECL|method|getRequestStatusMap
