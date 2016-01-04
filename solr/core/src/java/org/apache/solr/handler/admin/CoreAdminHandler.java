@@ -816,6 +816,8 @@ throws|throws
 name|Exception
 block|{
 comment|// Make sure the cores is enabled
+try|try
+block|{
 name|CoreContainer
 name|cores
 init|=
@@ -833,8 +835,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -915,8 +915,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -967,17 +965,7 @@ name|a
 operator|==
 literal|null
 condition|)
-throw|throw
-operator|new
-name|SolrException
-argument_list|(
-name|ErrorCode
-operator|.
-name|BAD_REQUEST
-argument_list|,
-literal|"No action"
-argument_list|)
-throw|;
+return|return;
 name|CoreAdminOperation
 name|op
 init|=
@@ -1181,6 +1169,17 @@ literal|"CoreAdminHandler.action"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|rsp
+operator|.
+name|setHttpCaching
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**    * Handle Custom Action.    *<p>    * This method could be overridden by derived classes to handle custom actions.<br> By default - this method throws a    * solr exception. Derived classes are free to write their derivation if necessary.    */
@@ -2059,13 +2058,6 @@ operator|.
 name|call
 argument_list|(
 name|this
-argument_list|)
-expr_stmt|;
-name|rsp
-operator|.
-name|setHttpCaching
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
