@@ -579,7 +579,7 @@ name|name
 argument_list|)
 decl_stmt|;
 return|return
-name|newFactoryInstance
+name|newFactoryClassInstance
 argument_list|(
 name|service
 argument_list|,
@@ -680,8 +680,8 @@ name|keySet
 argument_list|()
 return|;
 block|}
-DECL|method|newFactoryInstance
-specifier|public
+DECL|method|newFactoryClassInstance
+specifier|private
 specifier|static
 parameter_list|<
 name|T
@@ -689,7 +689,7 @@ extends|extends
 name|AbstractAnalysisFactory
 parameter_list|>
 name|T
-name|newFactoryInstance
+name|newFactoryClassInstance
 parameter_list|(
 name|Class
 argument_list|<
@@ -771,6 +771,13 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
+literal|"Unexpected checked exception while calling constructor of "
+operator|+
+name|clazz
+operator|.
+name|getName
+argument_list|()
+argument_list|,
 name|cause
 argument_list|)
 throw|;
