@@ -1096,21 +1096,6 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|NoSuchMethodException
-condition|)
-block|{
-comment|// there is no corresponding ctor available
-throw|throw
-name|e
-throw|;
-block|}
 comment|// TODO: For now pass because some factories have not yet a default config that always works
 block|}
 block|}
@@ -1271,21 +1256,6 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|NoSuchMethodException
-condition|)
-block|{
-comment|// there is no corresponding ctor available
-throw|throw
-name|e
-throw|;
-block|}
 comment|// TODO: For now pass because some factories have not yet a default config that always works
 block|}
 block|}
@@ -1437,21 +1407,6 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|NoSuchMethodException
-condition|)
-block|{
-comment|// there is no corresponding ctor available
-throw|throw
-name|e
-throw|;
-block|}
 comment|// TODO: For now pass because some factories have not yet a default config that always works
 block|}
 block|}
