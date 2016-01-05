@@ -117,6 +117,7 @@ comment|/**  * Helper class for loading named SPIs from classpath (e.g. Tokenize
 end_comment
 begin_class
 DECL|class|AnalysisSPILoader
+specifier|public
 specifier|final
 class|class
 name|AnalysisSPILoader
@@ -680,8 +681,9 @@ name|keySet
 argument_list|()
 return|;
 block|}
+comment|/** Creates a new instance of the given {@link AbstractAnalysisFactory} by invoking the constructor, passing the given argument map. */
 DECL|method|newFactoryClassInstance
-specifier|private
+specifier|public
 specifier|static
 parameter_list|<
 name|T
