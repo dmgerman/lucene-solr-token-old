@@ -1372,7 +1372,8 @@ name|collector
 argument_list|,
 name|cmd
 operator|.
-name|len
+name|getLen
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
