@@ -1148,7 +1148,9 @@ operator|.
 name|INSTANCE
 return|;
 case|case
-literal|"single"
+name|DirectoryFactory
+operator|.
+name|LOCK_TYPE_SINGLE
 case|:
 return|return
 operator|new
@@ -1156,7 +1158,9 @@ name|SingleInstanceLockFactory
 argument_list|()
 return|;
 case|case
-literal|"none"
+name|DirectoryFactory
+operator|.
+name|LOCK_TYPE_NONE
 case|:
 return|return
 name|NoLockFactory

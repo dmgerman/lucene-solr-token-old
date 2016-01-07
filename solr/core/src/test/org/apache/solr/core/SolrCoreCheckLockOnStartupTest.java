@@ -321,7 +321,9 @@ name|setProperty
 argument_list|(
 literal|"solr.tests.lockType"
 argument_list|,
-literal|"simple"
+name|DirectoryFactory
+operator|.
+name|LOCK_TYPE_SIMPLE
 argument_list|)
 expr_stmt|;
 comment|//opening a new core on the same index
@@ -461,7 +463,9 @@ name|setProperty
 argument_list|(
 literal|"solr.tests.lockType"
 argument_list|,
-literal|"native"
+name|DirectoryFactory
+operator|.
+name|LOCK_TYPE_NATIVE
 argument_list|)
 expr_stmt|;
 comment|//opening a new core on the same index
