@@ -661,6 +661,11 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|newline
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|write
 argument_list|(
 name|out
@@ -690,6 +695,11 @@ name|br
 operator|.
 name|toString
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|newline
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 for|for

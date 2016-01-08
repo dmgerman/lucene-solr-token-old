@@ -1497,7 +1497,7 @@ block|}
 return|return
 name|bkdReader
 operator|.
-name|getMinPackedValue
+name|getMaxPackedValue
 argument_list|()
 return|;
 block|}
