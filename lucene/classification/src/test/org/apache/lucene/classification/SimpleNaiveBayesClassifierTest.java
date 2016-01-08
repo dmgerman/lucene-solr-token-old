@@ -442,10 +442,11 @@ argument_list|(
 name|analyzer
 argument_list|)
 expr_stmt|;
-name|checkCorrectClassification
-argument_list|(
+name|SimpleNaiveBayesClassifier
+name|classifier
+init|=
 operator|new
-name|CachingNaiveBayesClassifier
+name|SimpleNaiveBayesClassifier
 argument_list|(
 name|leafReader
 argument_list|,
@@ -457,6 +458,10 @@ name|categoryFieldName
 argument_list|,
 name|textFieldName
 argument_list|)
+decl_stmt|;
+name|checkCorrectClassification
+argument_list|(
+name|classifier
 argument_list|,
 name|TECHNOLOGY_INPUT
 argument_list|,
