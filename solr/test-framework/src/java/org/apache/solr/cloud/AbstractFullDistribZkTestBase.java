@@ -8252,7 +8252,9 @@ operator|.
 name|getZkAddress
 argument_list|()
 argument_list|,
-literal|10000
+name|AbstractZkTestCase
+operator|.
+name|TIMEOUT
 argument_list|,
 name|AbstractZkTestCase
 operator|.
