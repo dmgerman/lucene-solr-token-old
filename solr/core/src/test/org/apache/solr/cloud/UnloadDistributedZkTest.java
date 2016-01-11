@@ -901,7 +901,7 @@ argument_list|(
 name|unloadCmd
 argument_list|)
 expr_stmt|;
-comment|// there should be only one shard
+comment|// there should still be two shards (as of SOLR-5209)
 name|checkCoreNamePresenceAndSliceCount
 argument_list|(
 name|collection
@@ -912,8 +912,6 @@ literal|false
 comment|/* shouldBePresent */
 argument_list|,
 name|numShards
-operator|-
-literal|1
 comment|/* expectedSliceCount */
 argument_list|)
 expr_stmt|;
@@ -950,30 +948,18 @@ literal|false
 comment|/* shouldBePresent */
 argument_list|,
 name|numShards
-operator|-
-literal|2
 comment|/* expectedSliceCount */
 argument_list|)
 expr_stmt|;
 block|}
 comment|//printLayout();
-comment|// the collection should be gone
-specifier|final
-name|TimeOut
-name|timeout
-init|=
-operator|new
-name|TimeOut
+comment|// the collection should still be present (as of SOLR-5209 replica removal does not cascade to remove the slice and collection)
+name|assertTrue
 argument_list|(
-literal|30
+literal|"No longer found collection "
+operator|+
+name|collection
 argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-decl_stmt|;
-while|while
-condition|(
 name|getCommonCloudSolrClient
 argument_list|()
 operator|.
@@ -987,33 +973,8 @@ name|hasCollection
 argument_list|(
 name|collection
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|timeout
-operator|.
-name|hasTimedOut
-argument_list|()
-condition|)
-block|{
-name|printLayout
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Still found collection"
 argument_list|)
 expr_stmt|;
-block|}
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|50
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**    * @throws Exception on any problem    */
 DECL|method|testCoreUnloadAndLeaders
