@@ -408,7 +408,7 @@ literal|"Message with key:Q0005E_MESSAGE_NOT_IN_BUNDLE and locale: "
 operator|+
 name|locale
 operator|.
-name|toString
+name|toLanguageTag
 argument_list|()
 operator|+
 literal|" not found."

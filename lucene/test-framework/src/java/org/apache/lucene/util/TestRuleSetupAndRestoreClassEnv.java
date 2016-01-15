@@ -465,7 +465,7 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
-name|localeForName
+name|localeForLanguageTag
 import|;
 end_import
 begin_import
@@ -1420,7 +1420,7 @@ argument_list|)
 condition|?
 name|randomLocale
 else|:
-name|localeForName
+name|localeForLanguageTag
 argument_list|(
 name|testLocale
 argument_list|)
