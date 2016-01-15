@@ -480,10 +480,13 @@ operator|.
 name|debug
 argument_list|(
 literal|"Do not retry, non retriable class {}"
-operator|+
+argument_list|,
 name|exception
 operator|.
 name|getClass
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -524,10 +527,13 @@ operator|.
 name|debug
 argument_list|(
 literal|"Do not retry, non retriable class {}"
-operator|+
+argument_list|,
 name|exception
 operator|.
 name|getClass
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -640,6 +646,17 @@ operator|.
 name|getMethod
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|getRequest
+argument_list|()
+operator|.
+name|getRequestLine
+argument_list|()
+operator|.
+name|getUri
+argument_list|()
+expr_stmt|;
 return|return
 name|method
 operator|.
