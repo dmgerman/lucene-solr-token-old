@@ -710,7 +710,7 @@ name|nextBoolean
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(org.apache.lucene.index.IndexDocument)    */
+comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(Iterable)    */
 DECL|method|addDocument
 specifier|public
 parameter_list|<
@@ -722,7 +722,10 @@ name|void
 name|addDocument
 parameter_list|(
 specifier|final
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 name|doc
 parameter_list|)
 throws|throws
@@ -763,7 +766,10 @@ argument_list|(
 operator|new
 name|Iterable
 argument_list|<
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -772,7 +778,10 @@ name|Override
 specifier|public
 name|Iterator
 argument_list|<
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|iterator
 parameter_list|()
@@ -781,7 +790,10 @@ return|return
 operator|new
 name|Iterator
 argument_list|<
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -816,7 +828,10 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 name|next
 parameter_list|()
 block|{
@@ -999,7 +1014,12 @@ name|Iterable
 argument_list|<
 name|?
 extends|extends
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|IndexableField
+argument_list|>
 argument_list|>
 name|docs
 parameter_list|)
@@ -1041,7 +1061,12 @@ name|Iterable
 argument_list|<
 name|?
 extends|extends
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|IndexableField
+argument_list|>
 argument_list|>
 name|docs
 parameter_list|)
@@ -1073,7 +1098,7 @@ name|maybeFlushOrCommit
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, org.apache.lucene.index.IndexDocument)    */
+comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, Iterable)    */
 DECL|method|updateDocument
 specifier|public
 parameter_list|<
@@ -1088,7 +1113,10 @@ name|Term
 name|t
 parameter_list|,
 specifier|final
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 name|doc
 parameter_list|)
 throws|throws
@@ -1127,7 +1155,10 @@ argument_list|,
 operator|new
 name|Iterable
 argument_list|<
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -1136,7 +1167,10 @@ name|Override
 specifier|public
 name|Iterator
 argument_list|<
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|iterator
 parameter_list|()
@@ -1145,7 +1179,10 @@ return|return
 operator|new
 name|Iterator
 argument_list|<
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -1180,7 +1217,10 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|T
+argument_list|>
 name|next
 parameter_list|()
 block|{

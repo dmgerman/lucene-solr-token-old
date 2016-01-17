@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|document
 operator|.
-name|StorableField
+name|Document
 import|;
 end_import
 begin_import
@@ -91,7 +91,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StoredDocument
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -837,7 +837,7 @@ else|else
 block|{
 try|try
 block|{
-name|StoredDocument
+name|Document
 name|doc
 init|=
 name|rctx
@@ -986,7 +986,7 @@ specifier|static
 name|SolrDocument
 name|getDoc
 parameter_list|(
-name|StoredDocument
+name|Document
 name|doc
 parameter_list|,
 specifier|final
@@ -1003,7 +1003,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|StorableField
+name|IndexableField
 name|f
 range|:
 name|doc
@@ -1144,7 +1144,7 @@ parameter_list|(
 name|SchemaField
 name|sf
 parameter_list|,
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{

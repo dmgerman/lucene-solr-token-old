@@ -326,19 +326,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StoredDocument
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -1359,7 +1346,7 @@ name|docID
 operator|++
 control|)
 block|{
-name|StoredDocument
+name|Document
 name|doc
 init|=
 name|ar
@@ -1839,7 +1826,7 @@ name|docID
 operator|++
 control|)
 block|{
-name|StoredDocument
+name|Document
 name|doc
 init|=
 name|ar

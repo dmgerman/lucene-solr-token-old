@@ -480,7 +480,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|StoredDocument
+name|Document
 name|doc
 init|=
 name|reader
@@ -709,7 +709,7 @@ expr_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|StorableField
+name|IndexableField
 argument_list|>
 name|fields
 init|=

@@ -65,6 +65,8 @@ operator|.
 name|document
 operator|.
 name|Field
+operator|.
+name|Store
 import|;
 end_import
 begin_import
@@ -78,8 +80,6 @@ operator|.
 name|document
 operator|.
 name|Field
-operator|.
-name|Store
 import|;
 end_import
 begin_import
@@ -249,19 +249,6 @@ operator|.
 name|index
 operator|.
 name|SortedDocValues
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|StoredDocument
 import|;
 end_import
 begin_import
@@ -1976,7 +1963,7 @@ name|i
 operator|++
 control|)
 block|{
-name|StoredDocument
+name|Document
 name|doc
 init|=
 name|reader

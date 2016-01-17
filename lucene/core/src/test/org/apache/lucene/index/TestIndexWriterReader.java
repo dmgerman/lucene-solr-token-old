@@ -1021,15 +1021,11 @@ decl_stmt|;
 name|Document
 name|newDoc
 init|=
-operator|new
-name|Document
-argument_list|(
 name|r1
 operator|.
 name|document
 argument_list|(
 literal|10
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|newDoc
@@ -1859,7 +1855,7 @@ name|index2df
 argument_list|)
 expr_stmt|;
 comment|// verify the docs are from different indexes
-name|StoredDocument
+name|Document
 name|doc5
 init|=
 name|r1
@@ -1881,7 +1877,7 @@ literal|"indexname"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|StoredDocument
+name|Document
 name|doc150
 init|=
 name|r1

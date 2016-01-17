@@ -191,6 +191,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexableField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|LeafReader
 import|;
 end_import
@@ -936,7 +949,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|Field
+name|IndexableField
 index|[]
 name|fieldValues
 init|=
@@ -949,7 +962,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Field
+name|IndexableField
 name|fieldValue
 range|:
 name|fieldValues

@@ -16,6 +16,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -24,7 +33,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -105,15 +114,6 @@ operator|.
 name|QParser
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 begin_comment
 comment|/**  * Custom field that overrides the PrefixQuery behaviour to map queries such that:  * (foo* becomes bar*) and (bar* becomes foo*).  * This is used for testing overridded prefix query for custom fields in TestOverriddenPrefixQueryForCustomFieldType  */
 end_comment
@@ -138,7 +138,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 throws|throws

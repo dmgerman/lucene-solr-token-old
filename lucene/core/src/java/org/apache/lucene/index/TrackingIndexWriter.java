@@ -134,7 +134,7 @@ operator|=
 name|writer
 expr_stmt|;
 block|}
-comment|/** Calls {@link    *  IndexWriter#updateDocument(Term,IndexDocument)} and    *  returns the generation that reflects this change. */
+comment|/** Calls {@link    *  IndexWriter#updateDocument(Term,Iterable)} and    *  returns the generation that reflects this change. */
 DECL|method|updateDocument
 specifier|public
 name|long
@@ -143,7 +143,12 @@ parameter_list|(
 name|Term
 name|t
 parameter_list|,
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|IndexableField
+argument_list|>
 name|d
 parameter_list|)
 throws|throws
@@ -179,7 +184,12 @@ name|Iterable
 argument_list|<
 name|?
 extends|extends
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|IndexableField
+argument_list|>
 argument_list|>
 name|docs
 parameter_list|)
@@ -335,13 +345,18 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/** Calls {@link IndexWriter#addDocument(IndexDocument)}    *  and returns the generation that reflects this change. */
+comment|/** Calls {@link IndexWriter#addDocument(Iterable)}    *  and returns the generation that reflects this change. */
 DECL|method|addDocument
 specifier|public
 name|long
 name|addDocument
 parameter_list|(
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|IndexableField
+argument_list|>
 name|d
 parameter_list|)
 throws|throws
@@ -372,7 +387,12 @@ name|Iterable
 argument_list|<
 name|?
 extends|extends
-name|IndexDocument
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|IndexableField
+argument_list|>
 argument_list|>
 name|docs
 parameter_list|)

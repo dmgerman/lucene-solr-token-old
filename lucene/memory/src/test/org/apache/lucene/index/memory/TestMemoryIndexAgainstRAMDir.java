@@ -3391,7 +3391,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Field
+name|IndexableField
 name|field
 range|:
 name|nextDoc
@@ -3464,9 +3464,6 @@ name|IndexableField
 name|field
 range|:
 name|doc
-operator|.
-name|indexableFields
-argument_list|()
 control|)
 block|{
 name|memory

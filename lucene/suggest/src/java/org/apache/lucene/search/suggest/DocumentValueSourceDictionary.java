@@ -51,9 +51,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|document
 operator|.
-name|LeafReaderContext
+name|Document
 import|;
 end_import
 begin_import
@@ -79,7 +79,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|ReaderUtil
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -92,7 +92,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StoredDocument
+name|ReaderUtil
 import|;
 end_import
 begin_import
@@ -445,7 +445,7 @@ specifier|protected
 name|long
 name|getWeight
 parameter_list|(
-name|StoredDocument
+name|Document
 name|doc
 parameter_list|,
 name|int

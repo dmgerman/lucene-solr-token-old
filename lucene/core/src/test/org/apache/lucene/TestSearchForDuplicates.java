@@ -201,19 +201,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StoredDocument
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -1006,7 +993,7 @@ literal|105
 operator|)
 condition|)
 block|{
-name|StoredDocument
+name|Document
 name|d
 init|=
 name|searcher
@@ -1103,7 +1090,7 @@ literal|105
 operator|)
 condition|)
 block|{
-name|StoredDocument
+name|Document
 name|d
 init|=
 name|searcher

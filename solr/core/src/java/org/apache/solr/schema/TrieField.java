@@ -217,7 +217,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -759,7 +759,7 @@ specifier|public
 name|Object
 name|toObject
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -1710,7 +1710,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 throws|throws
@@ -2781,7 +2781,7 @@ specifier|public
 name|String
 name|storedToReadable
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -3037,7 +3037,7 @@ specifier|static
 name|String
 name|badFieldString
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -3062,7 +3062,7 @@ specifier|public
 name|String
 name|toExternal
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -3538,7 +3538,7 @@ specifier|public
 name|String
 name|storedToIndexed
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -3572,7 +3572,7 @@ specifier|private
 name|void
 name|storedToIndexed
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|,
 specifier|final
@@ -3915,7 +3915,7 @@ annotation|@
 name|Override
 DECL|method|createField
 specifier|public
-name|StorableField
+name|IndexableField
 name|createField
 parameter_list|(
 name|SchemaField
@@ -4431,7 +4431,7 @@ DECL|method|createFields
 specifier|public
 name|List
 argument_list|<
-name|StorableField
+name|IndexableField
 argument_list|>
 name|createFields
 parameter_list|(
@@ -4455,7 +4455,7 @@ condition|)
 block|{
 name|List
 argument_list|<
-name|StorableField
+name|IndexableField
 argument_list|>
 name|fields
 init|=
@@ -4465,7 +4465,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|StorableField
+name|IndexableField
 name|field
 init|=
 name|createField

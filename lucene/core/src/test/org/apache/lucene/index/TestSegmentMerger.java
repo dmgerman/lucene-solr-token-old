@@ -659,7 +659,7 @@ operator|==
 literal|2
 argument_list|)
 expr_stmt|;
-name|StoredDocument
+name|Document
 name|newDoc1
 init|=
 name|mergedReader
@@ -701,7 +701,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|StoredDocument
+name|Document
 name|newDoc2
 init|=
 name|mergedReader

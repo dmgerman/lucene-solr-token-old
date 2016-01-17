@@ -243,7 +243,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -521,6 +521,8 @@ operator|.
 name|common
 operator|.
 name|SolrException
+operator|.
+name|ErrorCode
 import|;
 end_import
 begin_import
@@ -534,8 +536,6 @@ operator|.
 name|common
 operator|.
 name|SolrException
-operator|.
-name|ErrorCode
 import|;
 end_import
 begin_import
@@ -1352,7 +1352,7 @@ block|}
 comment|/**    * Used for adding a document when a field needs to be created from a    * type and a string.    *    *<p>    * By default, the indexed value is the same as the stored value    * (taken from toInternal()).   Having a different representation for    * external, internal, and indexed would present quite a few problems    * given the current Lucene architecture.  An analyzer for adding docs    * would need to translate internal-&gt;indexed while an analyzer for    * querying would need to translate external-&gt;indexed.    *</p>    *<p>    * The only other alternative to having internal==indexed would be to have    * internal==external.   In this case, toInternal should convert to    * the indexed representation, toExternal() should do nothing, and    * createField() should *not* call toInternal, but use the external    * value and set tokenized=true to get Lucene to convert to the    * internal(indexed) form.    *</p>    *    * :TODO: clean up and clarify this explanation.    *    * @see #toInternal    *    *    */
 DECL|method|createField
 specifier|public
-name|StorableField
+name|IndexableField
 name|createField
 parameter_list|(
 name|SchemaField
@@ -1588,7 +1588,7 @@ block|}
 comment|/**    * Create the field from native Lucene parts.  Mostly intended for use by FieldTypes outputing multiple    * Fields per SchemaField    * @param name The name of the field    * @param val The _internal_ value to index    * @param type {@link org.apache.lucene.document.FieldType}    * @param boost The boost value    * @return the {@link org.apache.lucene.index.IndexableField}.    */
 DECL|method|createField
 specifier|protected
-name|StorableField
+name|IndexableField
 name|createField
 parameter_list|(
 name|String
@@ -1641,7 +1641,7 @@ DECL|method|createFields
 specifier|public
 name|List
 argument_list|<
-name|StorableField
+name|IndexableField
 argument_list|>
 name|createFields
 parameter_list|(
@@ -1655,7 +1655,7 @@ name|float
 name|boost
 parameter_list|)
 block|{
-name|StorableField
+name|IndexableField
 name|f
 init|=
 name|createField
@@ -1706,7 +1706,7 @@ condition|?
 name|Collections
 operator|.
 expr|<
-name|StorableField
+name|IndexableField
 operator|>
 name|emptyList
 argument_list|()
@@ -1811,7 +1811,7 @@ specifier|public
 name|String
 name|toExternal
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -1831,7 +1831,7 @@ specifier|public
 name|Object
 name|toObject
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -1871,7 +1871,7 @@ name|ref
 argument_list|)
 expr_stmt|;
 specifier|final
-name|StorableField
+name|IndexableField
 name|f
 init|=
 name|createField
@@ -1940,7 +1940,7 @@ specifier|public
 name|String
 name|storedToReadable
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -1957,7 +1957,7 @@ specifier|public
 name|String
 name|storedToIndexed
 parameter_list|(
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 block|{
@@ -2633,7 +2633,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 throws|throws

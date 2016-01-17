@@ -95,7 +95,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -223,7 +223,7 @@ DECL|method|createFields
 specifier|public
 name|List
 argument_list|<
-name|StorableField
+name|IndexableField
 argument_list|>
 name|createFields
 parameter_list|(
@@ -247,7 +247,7 @@ condition|)
 block|{
 name|List
 argument_list|<
-name|StorableField
+name|IndexableField
 argument_list|>
 name|fields
 init|=
@@ -420,7 +420,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|StorableField
+name|IndexableField
 name|f
 parameter_list|)
 throws|throws

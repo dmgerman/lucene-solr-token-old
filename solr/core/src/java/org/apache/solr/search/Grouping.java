@@ -133,7 +133,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -4142,7 +4142,7 @@ name|utf8ToString
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|StorableField
+name|IndexableField
 name|field
 init|=
 name|schemaField

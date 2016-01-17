@@ -60,6 +60,32 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|Analyzer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|TokenStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|document
 operator|.
 name|StoredField
@@ -101,6 +127,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexableField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexableFieldType
 import|;
 end_import
@@ -115,19 +154,6 @@ operator|.
 name|index
 operator|.
 name|MergeState
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|StorableField
 import|;
 end_import
 begin_import
@@ -170,7 +196,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Codec API for writing stored fields:  *<ol>  *<li>For every document, {@link #startDocument()} is called,  *       informing the Codec that a new document has started.  *<li>{@link #writeField(FieldInfo, StorableField)} is called for   *       each field in the document.  *<li>After all documents have been written, {@link #finish(FieldInfos, int)}   *       is called for verification/sanity-checks.  *<li>Finally the writer is closed ({@link #close()})  *</ol>  *   * @lucene.experimental  */
+comment|/**  * Codec API for writing stored fields:  *<ol>  *<li>For every document, {@link #startDocument()} is called,  *       informing the Codec that a new document has started.  *<li>{@link #writeField(FieldInfo, IndexableField)} is called for   *       each field in the document.  *<li>After all documents have been written, {@link #finish(FieldInfos, int)}   *       is called for verification/sanity-checks.  *<li>Finally the writer is closed ({@link #close()})  *</ol>  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|StoredFieldsWriter
@@ -187,7 +213,7 @@ specifier|protected
 name|StoredFieldsWriter
 parameter_list|()
 block|{   }
-comment|/** Called before writing the stored fields of the document.    *  {@link #writeField(FieldInfo, StorableField)} will be called    *  for each stored field. Note that this is    *  called even if the document has no stored fields. */
+comment|/** Called before writing the stored fields of the document.    *  {@link #writeField(FieldInfo, IndexableField)} will be called    *  for each stored field. Note that this is    *  called even if the document has no stored fields. */
 DECL|method|startDocument
 specifier|public
 specifier|abstract
@@ -216,7 +242,7 @@ parameter_list|(
 name|FieldInfo
 name|info
 parameter_list|,
-name|StorableField
+name|IndexableField
 name|field
 parameter_list|)
 throws|throws
@@ -238,7 +264,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Merges in the stored fields from the readers in     *<code>mergeState</code>. The default implementation skips    *  over deleted documents, and uses {@link #startDocument()},    *  {@link #writeField(FieldInfo, StorableField)}, and {@link #finish(FieldInfos, int)},    *  returning the number of documents that were written.    *  Implementations can override this method for more sophisticated    *  merging (bulk-byte copying, etc). */
+comment|/** Merges in the stored fields from the readers in     *<code>mergeState</code>. The default implementation skips    *  over deleted documents, and uses {@link #startDocument()},    *  {@link #writeField(FieldInfo, IndexableField)}, and {@link #finish(FieldInfos, int)},    *  returning the number of documents that were written.    *  Implementations can override this method for more sophisticated    *  merging (bulk-byte copying, etc). */
 DECL|method|merge
 specifier|public
 name|int
@@ -394,7 +420,7 @@ name|MergeVisitor
 extends|extends
 name|StoredFieldVisitor
 implements|implements
-name|StorableField
+name|IndexableField
 block|{
 DECL|field|binaryValue
 name|BytesRef
@@ -767,6 +793,38 @@ specifier|public
 name|Reader
 name|readerValue
 parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|boost
+specifier|public
+name|float
+name|boost
+parameter_list|()
+block|{
+return|return
+literal|1F
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|tokenStream
+specifier|public
+name|TokenStream
+name|tokenStream
+parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
+name|TokenStream
+name|reuse
+parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 literal|null

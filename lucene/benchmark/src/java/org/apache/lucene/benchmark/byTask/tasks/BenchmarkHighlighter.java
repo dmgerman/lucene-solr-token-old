@@ -57,19 +57,6 @@ operator|.
 name|IndexReader
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|StoredDocument
-import|;
-end_import
 begin_comment
 comment|/**  * Abstract class for benchmarking highlighting performance  */
 end_comment
@@ -95,7 +82,7 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|StoredDocument
+name|Document
 name|document
 parameter_list|,
 name|Analyzer

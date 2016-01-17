@@ -1417,7 +1417,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|StoredDocument
+name|Document
 name|d
 init|=
 name|slow

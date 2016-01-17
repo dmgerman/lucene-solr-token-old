@@ -122,7 +122,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -979,7 +979,7 @@ operator|.
 name|scoreDocs
 control|)
 block|{
-name|StorableField
+name|IndexableField
 name|storableField
 init|=
 name|indexSearcher

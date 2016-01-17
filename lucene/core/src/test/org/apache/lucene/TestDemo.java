@@ -109,7 +109,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StoredDocument
+name|RandomIndexWriter
 import|;
 end_import
 begin_import
@@ -123,19 +123,6 @@ operator|.
 name|index
 operator|.
 name|Term
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|RandomIndexWriter
 import|;
 end_import
 begin_import
@@ -380,7 +367,7 @@ name|i
 operator|++
 control|)
 block|{
-name|StoredDocument
+name|Document
 name|hitDoc
 init|=
 name|isearcher

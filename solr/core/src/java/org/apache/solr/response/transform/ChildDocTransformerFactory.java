@@ -33,9 +33,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|document
 operator|.
-name|StorableField
+name|Document
 import|;
 end_import
 begin_import
@@ -48,7 +48,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StoredDocument
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -89,7 +89,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|QueryBitSetProducer
+name|BitSetProducer
 import|;
 end_import
 begin_import
@@ -104,7 +104,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitSetProducer
+name|QueryBitSetProducer
 import|;
 end_import
 begin_import
@@ -146,6 +146,8 @@ operator|.
 name|common
 operator|.
 name|SolrException
+operator|.
+name|ErrorCode
 import|;
 end_import
 begin_import
@@ -159,8 +161,6 @@ operator|.
 name|common
 operator|.
 name|SolrException
-operator|.
-name|ErrorCode
 import|;
 end_import
 begin_import
@@ -703,14 +703,14 @@ name|parentIdExt
 init|=
 name|parentIdField
 operator|instanceof
-name|StorableField
+name|IndexableField
 condition|?
 name|idFt
 operator|.
 name|toExternal
 argument_list|(
 operator|(
-name|StorableField
+name|IndexableField
 operator|)
 name|parentIdField
 argument_list|)
@@ -804,7 +804,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|StoredDocument
+name|Document
 name|childDoc
 init|=
 name|context

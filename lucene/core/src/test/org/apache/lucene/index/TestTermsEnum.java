@@ -6360,7 +6360,7 @@ name|termBytesRef
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|StoredDocument
+name|Document
 name|doc
 init|=
 name|r

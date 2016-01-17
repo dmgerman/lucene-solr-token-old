@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -194,7 +194,7 @@ if|if
 condition|(
 name|val
 operator|instanceof
-name|StorableField
+name|IndexableField
 condition|)
 block|{
 comment|// set boost to the calculated compound boost
@@ -224,7 +224,7 @@ return|return;
 block|}
 for|for
 control|(
-name|StorableField
+name|IndexableField
 name|f
 range|:
 name|field

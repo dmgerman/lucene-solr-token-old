@@ -1188,7 +1188,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/* from StorableFieldType */
 comment|/**    * {@inheritDoc}    *<p>    * The default is<code>null</code> (no docValues)     * @see #setDocValuesType(DocValuesType)    */
 annotation|@
 name|Override

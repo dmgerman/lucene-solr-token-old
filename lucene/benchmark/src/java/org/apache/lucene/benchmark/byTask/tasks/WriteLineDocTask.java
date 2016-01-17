@@ -205,7 +205,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_comment
@@ -854,7 +854,7 @@ name|i
 operator|++
 control|)
 block|{
-name|StorableField
+name|IndexableField
 name|f
 init|=
 name|doc

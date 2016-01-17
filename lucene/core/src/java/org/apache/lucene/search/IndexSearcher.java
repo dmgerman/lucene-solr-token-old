@@ -138,6 +138,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|Document
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DirectoryReader
@@ -238,19 +251,6 @@ operator|.
 name|index
 operator|.
 name|ReaderUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|StoredDocument
 import|;
 end_import
 begin_import
@@ -1016,7 +1016,7 @@ block|}
 comment|/**     * Sugar for<code>.getIndexReader().document(docID)</code>     * @see IndexReader#document(int)     */
 DECL|method|doc
 specifier|public
-name|StoredDocument
+name|Document
 name|doc
 parameter_list|(
 name|int
@@ -1062,7 +1062,7 @@ block|}
 comment|/**     * Sugar for<code>.getIndexReader().document(docID, fieldsToLoad)</code>    * @see IndexReader#document(int, Set)     */
 DECL|method|doc
 specifier|public
-name|StoredDocument
+name|Document
 name|doc
 parameter_list|(
 name|int

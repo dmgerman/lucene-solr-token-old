@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|StorableField
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -617,13 +617,13 @@ if|if
 condition|(
 name|v
 operator|instanceof
-name|StorableField
+name|IndexableField
 condition|)
 block|{
 return|return
 operator|(
 operator|(
-name|StorableField
+name|IndexableField
 operator|)
 name|v
 operator|)
