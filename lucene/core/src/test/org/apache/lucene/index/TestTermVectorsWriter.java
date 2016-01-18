@@ -4608,8 +4608,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// Make sure the exc didn't lose our first document:

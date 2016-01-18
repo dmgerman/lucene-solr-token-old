@@ -3478,8 +3478,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sugar method (FREQS)
@@ -3921,8 +3919,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sugar method (FREQS)
@@ -4511,8 +4507,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sugar method (FREQS)
@@ -6135,8 +6129,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sugar method (FREQS)
@@ -7871,8 +7863,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sugar method (FREQS)
@@ -9708,8 +9698,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sugar method (FREQS)

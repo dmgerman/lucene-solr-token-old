@@ -268,8 +268,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -537,8 +535,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|is

@@ -1169,12 +1169,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|w

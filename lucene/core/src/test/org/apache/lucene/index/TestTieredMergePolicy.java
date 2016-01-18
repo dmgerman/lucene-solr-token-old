@@ -1515,8 +1515,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// Make sure TMP always merged equal-number-of-docs segments:

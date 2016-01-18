@@ -11047,8 +11047,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -13258,8 +13256,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sometimes sneak in a pending commit: we don't want to leak a file handle to that segments_N
@@ -13617,8 +13613,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// sometimes sneak in a pending commit: we don't want to leak a file handle to that segments_N
@@ -14021,8 +14015,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-literal|true
 argument_list|)
 operator|.
 name|close

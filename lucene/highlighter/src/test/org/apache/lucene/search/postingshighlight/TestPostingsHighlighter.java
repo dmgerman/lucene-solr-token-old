@@ -8535,8 +8535,6 @@ argument_list|(
 name|iw
 operator|.
 name|w
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|iw

@@ -505,8 +505,6 @@ argument_list|(
 name|w
 operator|.
 name|w
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
