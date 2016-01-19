@@ -959,6 +959,16 @@ operator|<
 name|seg
 operator|.
 name|endTermIndex
+operator|&&
+operator|(
+name|mincount
+operator|<
+literal|1
+operator|||
+name|seg
+operator|.
+name|hasAnyCount
+operator|)
 condition|)
 block|{
 name|seg
@@ -1151,13 +1161,68 @@ name|startTermIndex
 index|]
 expr_stmt|;
 block|}
-comment|// TODO: OPTIMIZATION...
 comment|// if mincount>0 then seg.pos++ can skip ahead to the next non-zero entry.
+do|do
+block|{
+operator|++
 name|seg
 operator|.
 name|pos
-operator|++
 expr_stmt|;
+block|}
+do|while
+condition|(
+operator|(
+name|seg
+operator|.
+name|pos
+operator|<
+name|seg
+operator|.
+name|endTermIndex
+operator|)
+comment|//stop incrementing before we run off the end
+operator|&&
+operator|(
+name|seg
+operator|.
+name|tenum
+operator|.
+name|next
+argument_list|()
+operator|!=
+literal|null
+operator|||
+literal|true
+operator|)
+comment|//move term enum forward with position -- dont care about value
+operator|&&
+operator|(
+name|mincount
+operator|>
+literal|0
+operator|)
+comment|//only skip ahead if mincount> 0
+operator|&&
+operator|(
+name|seg
+operator|.
+name|counts
+index|[
+name|seg
+operator|.
+name|pos
+operator|-
+name|seg
+operator|.
+name|startTermIndex
+index|]
+operator|==
+literal|0
+operator|)
+comment|//check zero count
+condition|)
+do|;
 if|if
 condition|(
 name|seg
@@ -1192,7 +1257,7 @@ name|seg
 operator|.
 name|tenum
 operator|.
-name|next
+name|term
 argument_list|()
 expr_stmt|;
 name|seg
@@ -1397,6 +1462,14 @@ DECL|field|counts
 name|int
 index|[]
 name|counts
+decl_stmt|;
+comment|//whether this segment has any non-zero term counts
+comment|//used to ignore insignificant segments when mincount>0
+DECL|field|hasAnyCount
+name|boolean
+name|hasAnyCount
+init|=
+literal|false
 decl_stmt|;
 DECL|field|pos
 name|int
@@ -1614,8 +1687,9 @@ operator|.
 name|NO_MORE_DOCS
 condition|)
 block|{
-name|counts
-index|[
+name|int
+name|t
+init|=
 literal|1
 operator|+
 name|si
@@ -1624,6 +1698,19 @@ name|getOrd
 argument_list|(
 name|doc
 argument_list|)
+decl_stmt|;
+name|hasAnyCount
+operator|=
+name|hasAnyCount
+operator|||
+name|t
+operator|>
+literal|0
+expr_stmt|;
+comment|//counts[0] == missing counts
+name|counts
+index|[
+name|t
 index|]
 operator|++
 expr_stmt|;
@@ -1678,12 +1765,18 @@ name|arrIdx
 operator|<
 name|nTerms
 condition|)
+block|{
 name|counts
 index|[
 name|arrIdx
 index|]
 operator|++
 expr_stmt|;
+name|hasAnyCount
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
