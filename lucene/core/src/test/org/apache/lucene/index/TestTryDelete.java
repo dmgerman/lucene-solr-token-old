@@ -404,8 +404,6 @@ name|SearcherManager
 argument_list|(
 name|writer
 argument_list|,
-literal|true
-argument_list|,
 operator|new
 name|SearcherFactory
 argument_list|()
@@ -631,8 +629,6 @@ name|SearcherManager
 argument_list|(
 name|writer
 argument_list|,
-literal|true
-argument_list|,
 operator|new
 name|SearcherFactory
 argument_list|()
@@ -846,8 +842,6 @@ operator|new
 name|SearcherManager
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|,
 operator|new
 name|SearcherFactory

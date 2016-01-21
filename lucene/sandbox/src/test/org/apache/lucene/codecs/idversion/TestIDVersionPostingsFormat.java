@@ -1777,7 +1777,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|//IndexReader r = DirectoryReader.open(w, true);
+comment|//IndexReader r = DirectoryReader.open(w);
 name|PerThreadVersionPKLookup
 name|lookup
 init|=
@@ -4404,8 +4404,6 @@ argument_list|(
 name|w
 operator|.
 name|w
-argument_list|,
-literal|true
 argument_list|,
 operator|new
 name|SearcherFactory

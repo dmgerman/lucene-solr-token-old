@@ -798,8 +798,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// We can't wrap with "exotic" readers because the query must see the BKD3DDVFormat:
@@ -4248,8 +4246,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|w

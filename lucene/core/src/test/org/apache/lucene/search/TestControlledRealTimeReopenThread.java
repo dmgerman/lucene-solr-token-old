@@ -1551,8 +1551,6 @@ name|SearcherManager
 argument_list|(
 name|writer
 argument_list|,
-literal|true
-argument_list|,
 name|sf
 argument_list|)
 expr_stmt|;
@@ -2625,8 +2623,6 @@ name|SearcherManager
 argument_list|(
 name|iw
 argument_list|,
-literal|true
-argument_list|,
 operator|new
 name|SearcherFactory
 argument_list|()
@@ -2907,8 +2903,6 @@ operator|new
 name|SearcherManager
 argument_list|(
 name|iw
-argument_list|,
-literal|true
 argument_list|,
 operator|new
 name|SearcherFactory
