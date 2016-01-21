@@ -53,7 +53,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalReader
+name|PointReader
 import|;
 end_import
 begin_import
@@ -66,7 +66,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalWriter
+name|PointWriter
 import|;
 end_import
 begin_import
@@ -79,7 +79,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|IntersectVisitor
 import|;
@@ -94,7 +94,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|Relation
 import|;
@@ -193,11 +193,11 @@ name|BKDWriter
 import|;
 end_import
 begin_class
-DECL|class|SimpleTextDimensionalWriter
+DECL|class|SimpleTextPointWriter
 class|class
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 extends|extends
-name|DimensionalWriter
+name|PointWriter
 block|{
 DECL|field|NUM_DIMS
 specifier|final
@@ -425,9 +425,9 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|SimpleTextDimensionalWriter
+DECL|method|SimpleTextPointWriter
 specifier|public
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 parameter_list|(
 name|SegmentWriteState
 name|writeState
@@ -452,9 +452,9 @@ name|writeState
 operator|.
 name|segmentSuffix
 argument_list|,
-name|SimpleTextDimensionalFormat
+name|SimpleTextPointFormat
 operator|.
-name|DIMENSIONAL_EXTENSION
+name|POINT_EXTENSION
 argument_list|)
 decl_stmt|;
 name|dataOut
@@ -489,7 +489,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|DimensionalReader
+name|PointReader
 name|values
 parameter_list|)
 throws|throws
@@ -514,12 +514,12 @@ name|name
 argument_list|,
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 argument_list|,
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 argument_list|,
 name|BKDWriter
@@ -753,7 +753,7 @@ literal|1
 operator|+
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 operator|)
 operator|)
@@ -772,7 +772,7 @@ literal|1
 operator|+
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 operator|)
 decl_stmt|;
@@ -837,7 +837,7 @@ literal|1
 operator|+
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 operator|)
 index|]
@@ -874,14 +874,14 @@ literal|1
 operator|+
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 operator|)
 operator|)
 argument_list|,
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1143,7 +1143,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// We could have 0 points on merge since all docs with dimensional fields may be deleted:
+comment|// We could have 0 points on merge since all docs with points may be deleted:
 if|if
 condition|(
 name|writer
@@ -1356,9 +1356,9 @@ name|writeState
 operator|.
 name|segmentSuffix
 argument_list|,
-name|SimpleTextDimensionalFormat
+name|SimpleTextPointFormat
 operator|.
-name|DIMENSIONAL_INDEX_EXTENSION
+name|POINT_INDEX_EXTENSION
 argument_list|)
 decl_stmt|;
 try|try

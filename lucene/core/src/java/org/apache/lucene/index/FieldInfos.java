@@ -146,11 +146,11 @@ specifier|final
 name|boolean
 name|hasDocValues
 decl_stmt|;
-DECL|field|hasDimensionalValues
+DECL|field|hasPointValues
 specifier|private
 specifier|final
 name|boolean
-name|hasDimensionalValues
+name|hasPointValues
 decl_stmt|;
 comment|// used only by fieldInfo(int)
 DECL|field|byNumberTable
@@ -245,7 +245,7 @@ init|=
 literal|false
 decl_stmt|;
 name|boolean
-name|hasDimensionalValues
+name|hasPointValues
 init|=
 literal|false
 decl_stmt|;
@@ -461,12 +461,12 @@ operator|.
 name|hasPayloads
 argument_list|()
 expr_stmt|;
-name|hasDimensionalValues
+name|hasPointValues
 operator||=
 operator|(
 name|info
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|!=
 literal|0
@@ -517,9 +517,9 @@ name|hasDocValues
 expr_stmt|;
 name|this
 operator|.
-name|hasDimensionalValues
+name|hasPointValues
 operator|=
-name|hasDimensionalValues
+name|hasPointValues
 expr_stmt|;
 name|this
 operator|.
@@ -717,15 +717,15 @@ return|return
 name|hasDocValues
 return|;
 block|}
-comment|/** Returns true if any fields have DimensionalValues */
-DECL|method|hasDimensionalValues
+comment|/** Returns true if any fields have PointValues */
+DECL|method|hasPointValues
 specifier|public
 name|boolean
-name|hasDimensionalValues
+name|hasPointValues
 parameter_list|()
 block|{
 return|return
-name|hasDimensionalValues
+name|hasPointValues
 return|;
 block|}
 comment|/** Returns the number of fields */
@@ -1125,7 +1125,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"cannot change dimension count from "
+literal|"cannot change point dimension count from "
 operator|+
 name|dims
 operator|.
@@ -1156,7 +1156,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"cannot change dimension numBytes from "
+literal|"cannot change point numBytes from "
 operator|+
 name|dims
 operator|.
@@ -1581,7 +1581,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"cannot change dimension count from "
+literal|"cannot change point dimension count from "
 operator|+
 name|dim
 operator|.
@@ -1612,7 +1612,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"cannot change dimension numBytes from "
+literal|"cannot change point numBytes from "
 operator|+
 name|dim
 operator|.
@@ -1759,7 +1759,7 @@ if|if
 condition|(
 name|dimensionNumBytes
 operator|>
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 condition|)
@@ -1768,9 +1768,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"dimension numBytes must be<= DimensionalValues.MAX_NUM_BYTES (= "
+literal|"dimension numBytes must be<= PointValues.MAX_NUM_BYTES (= "
 operator|+
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 operator|+
@@ -1790,7 +1790,7 @@ if|if
 condition|(
 name|dimensionCount
 operator|>
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 condition|)
@@ -1799,9 +1799,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"dimensionCount must be<= DimensionalValues.MAX_DIMENSIONS (= "
+literal|"pointDimensionCount must be<= PointValues.MAX_DIMENSIONS (= "
 operator|+
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 operator|+
@@ -2355,12 +2355,12 @@ argument_list|()
 argument_list|,
 name|fi
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 argument_list|,
 name|fi
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 argument_list|)
 return|;

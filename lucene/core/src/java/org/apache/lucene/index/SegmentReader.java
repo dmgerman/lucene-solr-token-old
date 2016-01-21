@@ -55,7 +55,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalReader
+name|PointReader
 import|;
 end_import
 begin_import
@@ -957,10 +957,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDimensionalValues
+DECL|method|getPointValues
 specifier|public
-name|DimensionalValues
-name|getDimensionalValues
+name|PointValues
+name|getPointValues
 parameter_list|()
 block|{
 name|ensureOpen
@@ -969,7 +969,7 @@ expr_stmt|;
 return|return
 name|core
 operator|.
-name|dimensionalReader
+name|pointReader
 return|;
 block|}
 annotation|@
@@ -1023,10 +1023,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDimensionalReader
+DECL|method|getPointReader
 specifier|public
-name|DimensionalReader
-name|getDimensionalReader
+name|PointReader
+name|getPointReader
 parameter_list|()
 block|{
 name|ensureOpen
@@ -1035,7 +1035,7 @@ expr_stmt|;
 return|return
 name|core
 operator|.
-name|dimensionalReader
+name|pointReader
 return|;
 block|}
 annotation|@

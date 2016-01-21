@@ -202,7 +202,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalIntField
+name|IntPoint
 import|;
 end_import
 begin_import
@@ -332,7 +332,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DimensionalRangeQuery
+name|PointRangeQuery
 import|;
 end_import
 begin_import
@@ -2355,7 +2355,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 literal|"weight_fld"
 argument_list|,
@@ -2387,7 +2387,7 @@ name|iw
 operator|.
 name|deleteDocuments
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DIntRange
 argument_list|(

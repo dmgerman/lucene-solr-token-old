@@ -28,71 +28,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|DimensionalBinaryField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|DimensionalDoubleField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|DimensionalFloatField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|DimensionalIntField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|DimensionalLongField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|bkd
@@ -104,14 +39,14 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/** Allows recursively visiting dimensional values indexed with {@link DimensionalIntField},  *  {@link DimensionalFloatField}, {@link DimensionalLongField}, {@link DimensionalDoubleField}  *  or {@link DimensionalBinaryField}.  *  *  @lucene.experimental */
+comment|/** Allows recursively visiting point values indexed with {@link org.apache.lucene.document.IntPoint},  *  {@link org.apache.lucene.document.FloatPoint}, {@link org.apache.lucene.document.LongPoint}, {@link org.apache.lucene.document.DoublePoint}  *  or {@link org.apache.lucene.document.BinaryPoint}.  *  *  @lucene.experimental */
 end_comment
 begin_class
-DECL|class|DimensionalValues
+DECL|class|PointValues
 specifier|public
 specifier|abstract
 class|class
-name|DimensionalValues
+name|PointValues
 block|{
 comment|/** Maximum number of bytes for each dimension */
 DECL|field|MAX_NUM_BYTES
@@ -136,9 +71,9 @@ operator|.
 name|MAX_DIMS
 decl_stmt|;
 comment|/** Default constructor */
-DECL|method|DimensionalValues
+DECL|method|PointValues
 specifier|protected
-name|DimensionalValues
+name|PointValues
 parameter_list|()
 block|{   }
 comment|/** Used by {@link #intersect} to check how each recursive cell corresponds to the query. */

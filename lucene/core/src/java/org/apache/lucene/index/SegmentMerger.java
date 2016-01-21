@@ -55,7 +55,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalWriter
+name|PointWriter
 import|;
 end_import
 begin_import
@@ -649,11 +649,11 @@ name|mergeState
 operator|.
 name|mergeFieldInfos
 operator|.
-name|hasDimensionalValues
+name|hasPointValues
 argument_list|()
 condition|)
 block|{
-name|mergeDimensionalValues
+name|mergePoints
 argument_list|(
 name|segmentWriteState
 argument_list|)
@@ -697,7 +697,7 @@ operator|/
 literal|1000000
 operator|)
 operator|+
-literal|" msec to merge dimensional values ["
+literal|" msec to merge points ["
 operator|+
 name|numMerged
 operator|+
@@ -1008,10 +1008,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|mergeDimensionalValues
+DECL|method|mergePoints
 specifier|private
 name|void
-name|mergeDimensionalValues
+name|mergePoints
 parameter_list|(
 name|SegmentWriteState
 name|segmentWriteState
@@ -1021,12 +1021,12 @@ name|IOException
 block|{
 try|try
 init|(
-name|DimensionalWriter
+name|PointWriter
 name|writer
 init|=
 name|codec
 operator|.
-name|dimensionalFormat
+name|pointFormat
 argument_list|()
 operator|.
 name|fieldsWriter

@@ -111,7 +111,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalReader
+name|PointReader
 import|;
 end_import
 begin_import
@@ -234,15 +234,15 @@ name|BKDReader
 import|;
 end_import
 begin_comment
-comment|/** Reads dimensional values previously written with {@link Lucene60DimensionalWriter} */
+comment|/** Reads point values previously written with {@link Lucene60PointWriter} */
 end_comment
 begin_class
-DECL|class|Lucene60DimensionalReader
+DECL|class|Lucene60PointReader
 specifier|public
 class|class
-name|Lucene60DimensionalReader
+name|Lucene60PointReader
 extends|extends
-name|DimensionalReader
+name|PointReader
 implements|implements
 name|Closeable
 block|{
@@ -272,9 +272,9 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Sole constructor */
-DECL|method|Lucene60DimensionalReader
+DECL|method|Lucene60PointReader
 specifier|public
-name|Lucene60DimensionalReader
+name|Lucene60PointReader
 parameter_list|(
 name|SegmentReadState
 name|readState
@@ -305,7 +305,7 @@ name|readState
 operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene60DimensionalFormat
+name|Lucene60PointFormat
 operator|.
 name|DATA_EXTENSION
 argument_list|)
@@ -342,7 +342,7 @@ name|readState
 operator|.
 name|segmentSuffix
 argument_list|,
-name|Lucene60DimensionalFormat
+name|Lucene60PointFormat
 operator|.
 name|INDEX_EXTENSION
 argument_list|)
@@ -378,15 +378,15 @@ name|checkIndexHeader
 argument_list|(
 name|indexIn
 argument_list|,
-name|Lucene60DimensionalFormat
+name|Lucene60PointFormat
 operator|.
 name|CODEC_NAME
 argument_list|,
-name|Lucene60DimensionalFormat
+name|Lucene60PointFormat
 operator|.
 name|INDEX_VERSION_START
 argument_list|,
-name|Lucene60DimensionalFormat
+name|Lucene60PointFormat
 operator|.
 name|INDEX_VERSION_START
 argument_list|,
@@ -543,7 +543,7 @@ if|if
 condition|(
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|==
 literal|0
@@ -557,7 +557,7 @@ literal|"field=\""
 operator|+
 name|fieldName
 operator|+
-literal|"\" did not index dimensional values"
+literal|"\" did not index point values"
 argument_list|)
 throw|;
 block|}
@@ -603,8 +603,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this point field were deleted in this segment:
 return|return;
 block|}
 name|bkdReader
@@ -797,8 +797,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this point field were deleted in this segment:
 return|return
 literal|null
 return|;
@@ -837,8 +837,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this point field were deleted in this segment:
 return|return
 literal|null
 return|;
@@ -876,8 +876,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this point field were deleted in this segment:
 return|return
 literal|0
 return|;
@@ -915,8 +915,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this point field were deleted in this segment:
 return|return
 literal|0
 return|;

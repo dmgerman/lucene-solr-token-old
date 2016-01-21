@@ -40,22 +40,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|DocValuesType
 import|;
 end_import
@@ -109,7 +93,7 @@ name|FieldType
 implements|implements
 name|IndexableFieldType
 block|{
-comment|/** Data type of the numeric value    * @since 3.2    *    * @deprecated Please switch to {@link DimensionalValues} instead    */
+comment|/** Data type of the numeric value    * @since 3.2    *    * @deprecated Please switch to {@link org.apache.lucene.index.PointValues} instead    */
 annotation|@
 name|Deprecated
 DECL|enum|LegacyNumericType
@@ -673,7 +657,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**    * Specifies the field's numeric type.    * @param type numeric type, or null if the field has no numeric type.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #numericType()    *    * @deprecated Please switch to {@link DimensionalValues} instead    */
+comment|/**    * Specifies the field's numeric type.    * @param type numeric type, or null if the field has no numeric type.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #numericType()    *    * @deprecated Please switch to {@link org.apache.lucene.index.PointValues} instead    */
 annotation|@
 name|Deprecated
 DECL|method|setNumericType
@@ -693,7 +677,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/**     * LegacyNumericType: if non-null then the field's value will be indexed    * numerically so that {@link org.apache.lucene.search.LegacyNumericRangeQuery} can be used at    * search time.     *<p>    * The default is<code>null</code> (no numeric type)     * @see #setNumericType(org.apache.lucene.document.FieldType.LegacyNumericType)    *    * @deprecated Please switch to {@link DimensionalValues} instead    */
+comment|/**     * LegacyNumericType: if non-null then the field's value will be indexed    * numerically so that {@link org.apache.lucene.search.LegacyNumericRangeQuery} can be used at    * search time.     *<p>    * The default is<code>null</code> (no numeric type)     * @see #setNumericType(org.apache.lucene.document.FieldType.LegacyNumericType)    *    * @deprecated Please switch to {@link org.apache.lucene.index.PointValues} instead    */
 annotation|@
 name|Deprecated
 DECL|method|numericType
@@ -706,7 +690,7 @@ return|return
 name|numericType
 return|;
 block|}
-comment|/**    * Sets the numeric precision step for the field.    * @param precisionStep numeric precision step for the field    * @throws IllegalArgumentException if precisionStep is less than 1.     * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #numericPrecisionStep()    *    * @deprecated Please switch to {@link DimensionalValues} instead    */
+comment|/**    * Sets the numeric precision step for the field.    * @param precisionStep numeric precision step for the field    * @throws IllegalArgumentException if precisionStep is less than 1.     * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #numericPrecisionStep()    *    * @deprecated Please switch to {@link org.apache.lucene.index.PointValues} instead    */
 annotation|@
 name|Deprecated
 DECL|method|setNumericPrecisionStep
@@ -747,7 +731,7 @@ operator|=
 name|precisionStep
 expr_stmt|;
 block|}
-comment|/**     * Precision step for numeric field.     *<p>    * This has no effect if {@link #numericType()} returns null.    *<p>    * The default is {@link org.apache.lucene.util.LegacyNumericUtils#PRECISION_STEP_DEFAULT}    * @see #setNumericPrecisionStep(int)    *    * @deprecated Please switch to {@link DimensionalValues} instead    */
+comment|/**     * Precision step for numeric field.     *<p>    * This has no effect if {@link #numericType()} returns null.    *<p>    * The default is {@link org.apache.lucene.util.LegacyNumericUtils#PRECISION_STEP_DEFAULT}    * @see #setNumericPrecisionStep(int)    *    * @deprecated Please switch to {@link org.apache.lucene.index.PointValues} instead    */
 annotation|@
 name|Deprecated
 DECL|method|numericPrecisionStep
@@ -760,7 +744,7 @@ return|return
 name|numericPrecisionStep
 return|;
 block|}
-comment|/**    * Enables dimensional indexing.    */
+comment|/**    * Enables points indexing.    */
 DECL|method|setDimensions
 specifier|public
 name|void
@@ -784,7 +768,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"dimensionCount must be>= 0; got "
+literal|"pointDimensionCount must be>= 0; got "
 operator|+
 name|dimensionCount
 argument_list|)
@@ -801,7 +785,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"dimensionNumBytes must be>= 0; got "
+literal|"pointNumBytes must be>= 0; got "
 operator|+
 name|dimensionNumBytes
 argument_list|)
@@ -825,7 +809,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"when dimensionCount is 0 dimensionNumBytes must 0; got "
+literal|"when pointDimensionCount is 0 pointNumBytes must 0; got "
 operator|+
 name|dimensionNumBytes
 argument_list|)
@@ -851,7 +835,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"when dimensionNumBytes is 0 dimensionCount must 0; got "
+literal|"when pointNumBytes is 0 pointDimensionCount must 0; got "
 operator|+
 name|dimensionCount
 argument_list|)
@@ -873,10 +857,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|dimensionCount
+DECL|method|pointDimensionCount
 specifier|public
 name|int
-name|dimensionCount
+name|pointDimensionCount
 parameter_list|()
 block|{
 return|return
@@ -885,10 +869,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|dimensionNumBytes
+DECL|method|pointNumBytes
 specifier|public
 name|int
-name|dimensionNumBytes
+name|pointNumBytes
 parameter_list|()
 block|{
 return|return
@@ -1113,7 +1097,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|",dimensionCount="
+literal|",pointDimensionCount="
 argument_list|)
 expr_stmt|;
 name|result
@@ -1127,7 +1111,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|",dimensionNumBytes="
+literal|",pointNumBytes="
 argument_list|)
 expr_stmt|;
 name|result

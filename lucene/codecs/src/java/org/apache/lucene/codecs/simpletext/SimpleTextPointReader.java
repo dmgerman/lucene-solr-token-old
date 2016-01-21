@@ -64,7 +64,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalReader
+name|PointReader
 import|;
 end_import
 begin_import
@@ -237,7 +237,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|BLOCK_FP
 import|;
@@ -254,7 +254,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|BYTES_PER_DIM
 import|;
@@ -271,7 +271,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|FIELD_COUNT
 import|;
@@ -288,7 +288,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|FIELD_FP
 import|;
@@ -305,7 +305,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|FIELD_FP_NAME
 import|;
@@ -322,7 +322,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|INDEX_COUNT
 import|;
@@ -339,7 +339,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|MAX_LEAF_POINTS
 import|;
@@ -356,7 +356,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|MAX_VALUE
 import|;
@@ -373,7 +373,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|MIN_VALUE
 import|;
@@ -390,7 +390,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|NUM_DIMS
 import|;
@@ -407,7 +407,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|SPLIT_COUNT
 import|;
@@ -424,7 +424,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|SPLIT_DIM
 import|;
@@ -441,17 +441,17 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|SPLIT_VALUE
 import|;
 end_import
 begin_class
-DECL|class|SimpleTextDimensionalReader
+DECL|class|SimpleTextPointReader
 class|class
-name|SimpleTextDimensionalReader
+name|SimpleTextPointReader
 extends|extends
-name|DimensionalReader
+name|PointReader
 block|{
 DECL|field|dataIn
 specifier|private
@@ -488,9 +488,9 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-DECL|method|SimpleTextDimensionalReader
+DECL|method|SimpleTextPointReader
 specifier|public
-name|SimpleTextDimensionalReader
+name|SimpleTextPointReader
 parameter_list|(
 name|SegmentReadState
 name|readState
@@ -516,9 +516,9 @@ name|readState
 operator|.
 name|segmentSuffix
 argument_list|,
-name|SimpleTextDimensionalFormat
+name|SimpleTextPointFormat
 operator|.
-name|DIMENSIONAL_EXTENSION
+name|POINT_EXTENSION
 argument_list|)
 decl_stmt|;
 name|dataIn
@@ -553,9 +553,9 @@ name|readState
 operator|.
 name|segmentSuffix
 argument_list|,
-name|SimpleTextDimensionalFormat
+name|SimpleTextPointFormat
 operator|.
-name|DIMENSIONAL_INDEX_EXTENSION
+name|POINT_INDEX_EXTENSION
 argument_list|)
 decl_stmt|;
 try|try
@@ -670,7 +670,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// NOTE: matches what writeIndex does in SimpleTextDimensionalWriter
+comment|// NOTE: matches what writeIndex does in SimpleTextPointWriter
 name|dataIn
 operator|.
 name|seek
@@ -1168,7 +1168,7 @@ if|if
 condition|(
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|==
 literal|0
@@ -1182,7 +1182,7 @@ literal|"field=\""
 operator|+
 name|fieldName
 operator|+
-literal|"\" did not index dimensional values"
+literal|"\" did not index points"
 argument_list|)
 throw|;
 block|}
@@ -1227,8 +1227,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this field were deleted in this segment:
 return|return;
 block|}
 name|bkdReader
@@ -1401,7 +1401,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SimpleTextDimensionalReader(segment="
+literal|"SimpleTextPointReader(segment="
 operator|+
 name|readState
 operator|.
@@ -1448,8 +1448,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this field were deleted in this segment:
 return|return
 literal|null
 return|;
@@ -1488,8 +1488,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this field were deleted in this segment:
 return|return
 literal|null
 return|;
@@ -1527,8 +1527,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this field were deleted in this segment:
 return|return
 literal|0
 return|;
@@ -1566,8 +1566,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Schema ghost corner case!  This field did index dimensional values in the past, but
-comment|// now all docs having this dimensional field were deleted in this segment:
+comment|// Schema ghost corner case!  This field did index points in the past, but
+comment|// now all docs having this field were deleted in this segment:
 return|return
 literal|0
 return|;

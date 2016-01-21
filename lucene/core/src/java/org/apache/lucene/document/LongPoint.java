@@ -54,14 +54,14 @@ name|RamUsageEstimator
 import|;
 end_import
 begin_comment
-comment|/** A double field that is indexed dimensionally such that finding  *  all documents within an N-dimensional shape or range at search time is  *  efficient.  Muliple values for the same field in one documents  *  is allowed. */
+comment|/** A long field that is indexed dimensionally such that finding  *  all documents within an N-dimensional shape or range at search time is  *  efficient.  Muliple values for the same field in one documents  *  is allowed. */
 end_comment
 begin_class
-DECL|class|DimensionalDoubleField
+DECL|class|LongPoint
 specifier|public
 specifier|final
 class|class
-name|DimensionalDoubleField
+name|LongPoint
 extends|extends
 name|Field
 block|{
@@ -104,28 +104,28 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setDoubleValue
+DECL|method|setLongValue
 specifier|public
 name|void
-name|setDoubleValue
+name|setLongValue
 parameter_list|(
-name|double
+name|long
 name|value
 parameter_list|)
 block|{
-name|setDoubleValues
+name|setLongValues
 argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
 block|}
 comment|/** Change the values of this field */
-DECL|method|setDoubleValues
+DECL|method|setLongValues
 specifier|public
 name|void
-name|setDoubleValues
+name|setLongValues
 parameter_list|(
-name|double
+name|long
 modifier|...
 name|point
 parameter_list|)
@@ -153,7 +153,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"cannot change value type from double to BytesRef"
+literal|"cannot change value type from long to BytesRef"
 argument_list|)
 throw|;
 block|}
@@ -185,11 +185,7 @@ assert|;
 return|return
 name|NumericUtils
 operator|.
-name|sortableLongToDouble
-argument_list|(
-name|NumericUtils
-operator|.
-name|bytesToLongDirect
+name|bytesToLong
 argument_list|(
 name|bytes
 operator|.
@@ -199,7 +195,6 @@ name|bytes
 operator|.
 name|offset
 argument_list|)
-argument_list|)
 return|;
 block|}
 DECL|method|pack
@@ -208,7 +203,7 @@ specifier|static
 name|BytesRef
 name|pack
 parameter_list|(
-name|double
+name|long
 modifier|...
 name|point
 parameter_list|)
@@ -280,17 +275,12 @@ control|)
 block|{
 name|NumericUtils
 operator|.
-name|longToBytesDirect
-argument_list|(
-name|NumericUtils
-operator|.
-name|doubleToSortableLong
+name|longToBytes
 argument_list|(
 name|point
 index|[
 name|dim
 index|]
-argument_list|)
 argument_list|,
 name|packed
 argument_list|,
@@ -306,15 +296,15 @@ name|packed
 argument_list|)
 return|;
 block|}
-comment|/** Creates a new DimensionalDoubleField, indexing the    *  provided N-dimensional int point.    *    *  @param name field name    *  @param point double[] value    *  @throws IllegalArgumentException if the field name or value is null.    */
-DECL|method|DimensionalDoubleField
+comment|/** Creates a new LongPoint, indexing the    *  provided N-dimensional int point.    *    *  @param name field name    *  @param point int[] value    *  @throws IllegalArgumentException if the field name or value is null.    */
+DECL|method|LongPoint
 specifier|public
-name|DimensionalDoubleField
+name|LongPoint
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|double
+name|long
 modifier|...
 name|point
 parameter_list|)

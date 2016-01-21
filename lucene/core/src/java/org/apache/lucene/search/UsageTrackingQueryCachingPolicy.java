@@ -96,7 +96,7 @@ name|MultiTermQueryConstantScoreWrapper
 operator|||
 name|query
 operator|instanceof
-name|DimensionalRangeQuery
+name|PointRangeQuery
 return|;
 block|}
 DECL|method|isCheap

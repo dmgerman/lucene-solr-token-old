@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalReader
+name|PointReader
 import|;
 end_import
 begin_import
@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalWriter
+name|PointWriter
 import|;
 end_import
 begin_import
@@ -118,9 +118,9 @@ begin_comment
 comment|/** Buffers up pending byte[][] value(s) per doc, then flushes when segment flushes. */
 end_comment
 begin_class
-DECL|class|DimensionalValuesWriter
+DECL|class|PointValuesWriter
 class|class
-name|DimensionalValuesWriter
+name|PointValuesWriter
 block|{
 DECL|field|fieldInfo
 specifier|private
@@ -158,9 +158,9 @@ name|byte
 index|[]
 name|packedValue
 decl_stmt|;
-DECL|method|DimensionalValuesWriter
+DECL|method|PointValuesWriter
 specifier|public
-name|DimensionalValuesWriter
+name|PointValuesWriter
 parameter_list|(
 name|DocumentsWriterPerThread
 name|docWriter
@@ -221,12 +221,12 @@ name|byte
 index|[
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|*
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 index|]
 expr_stmt|;
@@ -260,7 +260,7 @@ name|fieldInfo
 operator|.
 name|name
 operator|+
-literal|": dimensional value cannot be null"
+literal|": point value cannot be null"
 argument_list|)
 throw|;
 block|}
@@ -272,12 +272,12 @@ name|length
 operator|!=
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|*
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 condition|)
 block|{
@@ -302,12 +302,12 @@ operator|+
 operator|(
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|*
 name|fieldInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 operator|)
 argument_list|)
@@ -379,7 +379,7 @@ parameter_list|(
 name|SegmentWriteState
 name|state
 parameter_list|,
-name|DimensionalWriter
+name|PointWriter
 name|writer
 parameter_list|)
 throws|throws
@@ -392,7 +392,7 @@ argument_list|(
 name|fieldInfo
 argument_list|,
 operator|new
-name|DimensionalReader
+name|PointReader
 argument_list|()
 block|{
 annotation|@

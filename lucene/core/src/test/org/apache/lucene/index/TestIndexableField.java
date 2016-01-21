@@ -467,7 +467,7 @@ annotation|@
 name|Override
 specifier|public
 name|int
-name|dimensionCount
+name|pointDimensionCount
 parameter_list|()
 block|{
 return|return
@@ -478,7 +478,7 @@ annotation|@
 name|Override
 specifier|public
 name|int
-name|dimensionNumBytes
+name|pointNumBytes
 parameter_list|()
 block|{
 return|return

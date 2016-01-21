@@ -41,7 +41,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalDoubleField
+name|DoublePoint
 import|;
 end_import
 begin_import
@@ -339,7 +339,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DimensionalRangeQuery
+name|PointRangeQuery
 import|;
 end_import
 begin_import
@@ -657,7 +657,7 @@ argument_list|)
 decl_stmt|;
 comment|// TODO: we could index in radians instead ... saves all the conversions in getBoundingBoxFilter
 comment|// Add documents with latitude/longitude location:
-comment|// we index these both as DimensionalDoubleFields (for bounding box/ranges) and as NumericDocValuesFields (for scoring)
+comment|// we index these both as DoublePoints (for bounding box/ranges) and as NumericDocValuesFields (for scoring)
 name|Document
 name|doc
 init|=
@@ -670,7 +670,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalDoubleField
+name|DoublePoint
 argument_list|(
 literal|"latitude"
 argument_list|,
@@ -701,7 +701,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalDoubleField
+name|DoublePoint
 argument_list|(
 literal|"longitude"
 argument_list|,
@@ -747,7 +747,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalDoubleField
+name|DoublePoint
 argument_list|(
 literal|"latitude"
 argument_list|,
@@ -778,7 +778,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalDoubleField
+name|DoublePoint
 argument_list|(
 literal|"longitude"
 argument_list|,
@@ -824,7 +824,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalDoubleField
+name|DoublePoint
 argument_list|(
 literal|"latitude"
 argument_list|,
@@ -855,7 +855,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalDoubleField
+name|DoublePoint
 argument_list|(
 literal|"longitude"
 argument_list|,
@@ -1257,7 +1257,7 @@ name|f
 operator|.
 name|add
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DDoubleRange
 argument_list|(
@@ -1314,7 +1314,7 @@ name|lonF
 operator|.
 name|add
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DDoubleRange
 argument_list|(
@@ -1345,7 +1345,7 @@ name|lonF
 operator|.
 name|add
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DDoubleRange
 argument_list|(
@@ -1395,7 +1395,7 @@ name|f
 operator|.
 name|add
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DDoubleRange
 argument_list|(

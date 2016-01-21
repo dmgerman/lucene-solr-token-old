@@ -75,7 +75,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalDoubleField
+name|DoublePoint
 import|;
 end_import
 begin_import
@@ -88,7 +88,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalFloatField
+name|FloatPoint
 import|;
 end_import
 begin_import
@@ -101,7 +101,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalLongField
+name|LongPoint
 import|;
 end_import
 begin_import
@@ -523,7 +523,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DimensionalRangeQuery
+name|PointRangeQuery
 import|;
 end_import
 begin_import
@@ -1657,7 +1657,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalLongField
+name|LongPoint
 argument_list|(
 literal|"field"
 argument_list|,
@@ -2181,7 +2181,7 @@ name|add
 argument_list|(
 literal|"field"
 argument_list|,
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(
@@ -2877,7 +2877,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalLongField
+name|LongPoint
 argument_list|(
 literal|"field"
 argument_list|,
@@ -3452,7 +3452,7 @@ condition|)
 block|{
 name|fastMatchQuery
 operator|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(
@@ -3472,7 +3472,7 @@ else|else
 block|{
 name|fastMatchQuery
 operator|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(
@@ -3653,7 +3653,7 @@ name|add
 argument_list|(
 literal|"field"
 argument_list|,
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(
@@ -3847,7 +3847,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalFloatField
+name|FloatPoint
 argument_list|(
 literal|"field"
 argument_list|,
@@ -4486,7 +4486,7 @@ condition|)
 block|{
 name|fastMatchQuery
 operator|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DFloatRange
 argument_list|(
@@ -4506,7 +4506,7 @@ else|else
 block|{
 name|fastMatchQuery
 operator|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DFloatRange
 argument_list|(
@@ -4687,7 +4687,7 @@ name|add
 argument_list|(
 literal|"field"
 argument_list|,
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DFloatRange
 argument_list|(
@@ -4887,7 +4887,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalDoubleField
+name|DoublePoint
 argument_list|(
 literal|"field"
 argument_list|,
@@ -5438,7 +5438,7 @@ condition|)
 block|{
 name|fastMatchFilter
 operator|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DDoubleRange
 argument_list|(
@@ -5458,7 +5458,7 @@ else|else
 block|{
 name|fastMatchFilter
 operator|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DDoubleRange
 argument_list|(
@@ -5639,7 +5639,7 @@ name|add
 argument_list|(
 literal|"field"
 argument_list|,
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DDoubleRange
 argument_list|(

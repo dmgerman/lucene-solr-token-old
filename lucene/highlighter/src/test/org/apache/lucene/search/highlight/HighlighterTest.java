@@ -324,7 +324,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalIntField
+name|IntPoint
 import|;
 end_import
 begin_import
@@ -564,7 +564,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DimensionalRangeQuery
+name|PointRangeQuery
 import|;
 end_import
 begin_import
@@ -4254,7 +4254,7 @@ block|{
 comment|// doesn't currently highlight, but make sure it doesn't cause exception either
 name|query
 operator|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DIntRange
 argument_list|(
@@ -13547,7 +13547,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 name|NUMERIC_FIELD_NAME
 argument_list|,
@@ -13586,7 +13586,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 name|NUMERIC_FIELD_NAME
 argument_list|,
@@ -13625,7 +13625,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 name|NUMERIC_FIELD_NAME
 argument_list|,
@@ -13664,7 +13664,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 name|NUMERIC_FIELD_NAME
 argument_list|,

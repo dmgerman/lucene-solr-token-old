@@ -80,7 +80,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|IntersectVisitor
 import|;
@@ -95,7 +95,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|Relation
 import|;

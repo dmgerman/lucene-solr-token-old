@@ -190,7 +190,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalIntField
+name|IntPoint
 import|;
 end_import
 begin_import
@@ -230,6 +230,19 @@ operator|.
 name|document
 operator|.
 name|FieldType
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|IntPoint
 import|;
 end_import
 begin_import
@@ -1058,7 +1071,7 @@ expr_stmt|;
 name|idNum
 operator|=
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 literal|"docid_int"
 argument_list|,

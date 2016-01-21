@@ -73,7 +73,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalFormat
+name|PointFormat
 import|;
 end_import
 begin_import
@@ -86,7 +86,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalWriter
+name|PointWriter
 import|;
 end_import
 begin_import
@@ -513,7 +513,7 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
-name|writeDimensionalValues
+name|writePoints
 argument_list|(
 name|state
 argument_list|)
@@ -663,11 +663,11 @@ name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes all buffered dimensional values. */
-DECL|method|writeDimensionalValues
+comment|/** Writes all buffered points. */
+DECL|method|writePoints
 specifier|private
 name|void
-name|writeDimensionalValues
+name|writePoints
 parameter_list|(
 name|SegmentWriteState
 name|state
@@ -675,8 +675,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|DimensionalWriter
-name|dimensionalWriter
+name|PointWriter
+name|pointWriter
 init|=
 literal|null
 decl_stmt|;
@@ -723,7 +723,7 @@ if|if
 condition|(
 name|perField
 operator|.
-name|dimensionalValuesWriter
+name|pointValuesWriter
 operator|!=
 literal|null
 condition|)
@@ -734,7 +734,7 @@ name|perField
 operator|.
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|==
 literal|0
@@ -759,19 +759,19 @@ name|fieldInfo
 operator|.
 name|name
 operator|+
-literal|"\" has no dimensional values but wrote them"
+literal|"\" has no points but wrote them"
 argument_list|)
 throw|;
 block|}
 if|if
 condition|(
-name|dimensionalWriter
+name|pointWriter
 operator|==
 literal|null
 condition|)
 block|{
 comment|// lazy init
-name|DimensionalFormat
+name|PointFormat
 name|fmt
 init|=
 name|state
@@ -781,7 +781,7 @@ operator|.
 name|getCodec
 argument_list|()
 operator|.
-name|dimensionalFormat
+name|pointFormat
 argument_list|()
 decl_stmt|;
 if|if
@@ -803,11 +803,11 @@ name|fieldInfo
 operator|.
 name|name
 operator|+
-literal|"\" was indexed dimensionally but codec does not support dimensional formats"
+literal|"\" was indexed as points but codec does not support points"
 argument_list|)
 throw|;
 block|}
-name|dimensionalWriter
+name|pointWriter
 operator|=
 name|fmt
 operator|.
@@ -819,18 +819,18 @@ expr_stmt|;
 block|}
 name|perField
 operator|.
-name|dimensionalValuesWriter
+name|pointValuesWriter
 operator|.
 name|flush
 argument_list|(
 name|state
 argument_list|,
-name|dimensionalWriter
+name|pointWriter
 argument_list|)
 expr_stmt|;
 name|perField
 operator|.
-name|dimensionalValuesWriter
+name|pointValuesWriter
 operator|=
 literal|null
 expr_stmt|;
@@ -842,7 +842,7 @@ name|perField
 operator|.
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|!=
 literal|0
@@ -867,7 +867,7 @@ name|fieldInfo
 operator|.
 name|name
 operator|+
-literal|"\" has dimensional values but did not write them"
+literal|"\" has points but did not write them"
 argument_list|)
 throw|;
 block|}
@@ -895,7 +895,7 @@ name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|dimensionalWriter
+name|pointWriter
 argument_list|)
 expr_stmt|;
 block|}
@@ -905,7 +905,7 @@ name|IOUtils
 operator|.
 name|closeWhileHandlingException
 argument_list|(
-name|dimensionalWriter
+name|pointWriter
 argument_list|)
 expr_stmt|;
 block|}
@@ -2132,7 +2132,7 @@ if|if
 condition|(
 name|fieldType
 operator|.
-name|dimensionCount
+name|pointDimensionCount
 argument_list|()
 operator|!=
 literal|0
@@ -2157,7 +2157,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-name|indexDimensionalValue
+name|indexPoint
 argument_list|(
 name|fp
 argument_list|,
@@ -2271,11 +2271,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** Called from processDocument to index one field's dimensional value */
-DECL|method|indexDimensionalValue
+comment|/** Called from processDocument to index one field's point */
+DECL|method|indexPoint
 specifier|private
 name|void
-name|indexDimensionalValue
+name|indexPoint
 parameter_list|(
 name|PerField
 name|fp
@@ -2287,14 +2287,14 @@ throws|throws
 name|IOException
 block|{
 name|int
-name|dimensionCount
+name|pointDimensionCount
 init|=
 name|field
 operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|dimensionCount
+name|pointDimensionCount
 argument_list|()
 decl_stmt|;
 name|int
@@ -2305,7 +2305,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|dimensionNumBytes
+name|pointNumBytes
 argument_list|()
 decl_stmt|;
 comment|// Record dimensions for this field; this setter will throw IllegalArgExc if
@@ -2316,7 +2316,7 @@ name|fp
 operator|.
 name|fieldInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 operator|==
 literal|0
@@ -2340,7 +2340,7 @@ name|fieldInfo
 operator|.
 name|name
 argument_list|,
-name|dimensionCount
+name|pointDimensionCount
 argument_list|,
 name|dimensionNumBytes
 argument_list|)
@@ -2350,9 +2350,9 @@ name|fp
 operator|.
 name|fieldInfo
 operator|.
-name|setDimensions
+name|setPointDimensions
 argument_list|(
-name|dimensionCount
+name|pointDimensionCount
 argument_list|,
 name|dimensionNumBytes
 argument_list|)
@@ -2361,17 +2361,17 @@ if|if
 condition|(
 name|fp
 operator|.
-name|dimensionalValuesWriter
+name|pointValuesWriter
 operator|==
 literal|null
 condition|)
 block|{
 name|fp
 operator|.
-name|dimensionalValuesWriter
+name|pointValuesWriter
 operator|=
 operator|new
-name|DimensionalValuesWriter
+name|PointValuesWriter
 argument_list|(
 name|docWriter
 argument_list|,
@@ -2383,7 +2383,7 @@ expr_stmt|;
 block|}
 name|fp
 operator|.
-name|dimensionalValuesWriter
+name|pointValuesWriter
 operator|.
 name|addPackedValue
 argument_list|(
@@ -3050,10 +3050,10 @@ DECL|field|docValuesWriter
 name|DocValuesWriter
 name|docValuesWriter
 decl_stmt|;
-comment|// Non-null if this field ever had dimensional values in this segment:
-DECL|field|dimensionalValuesWriter
-name|DimensionalValuesWriter
-name|dimensionalValuesWriter
+comment|// Non-null if this field ever had points in this segment:
+DECL|field|pointValuesWriter
+name|PointValuesWriter
+name|pointValuesWriter
 decl_stmt|;
 comment|/** We use this to know when a PerField is seen for the      *  first time in the current document. */
 DECL|field|fieldGen

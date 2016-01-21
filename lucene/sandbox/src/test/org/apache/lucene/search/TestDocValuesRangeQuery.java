@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalLongField
+name|LongPoint
 import|;
 end_import
 begin_import
@@ -425,7 +425,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalLongField
+name|LongPoint
 argument_list|(
 literal|"idx"
 argument_list|,
@@ -455,7 +455,7 @@ name|iw
 operator|.
 name|deleteDocuments
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(
@@ -589,7 +589,7 @@ specifier|final
 name|Query
 name|q1
 init|=
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(
@@ -1634,7 +1634,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalLongField
+name|LongPoint
 argument_list|(
 literal|"idx"
 argument_list|,
@@ -1689,7 +1689,7 @@ name|iw
 operator|.
 name|deleteDocuments
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(
@@ -1834,7 +1834,7 @@ name|ref
 operator|.
 name|add
 argument_list|(
-name|DimensionalRangeQuery
+name|PointRangeQuery
 operator|.
 name|new1DLongRange
 argument_list|(

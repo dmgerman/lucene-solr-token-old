@@ -104,7 +104,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalFormat
+name|PointFormat
 import|;
 end_import
 begin_import
@@ -117,7 +117,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalReader
+name|PointReader
 import|;
 end_import
 begin_import
@@ -130,7 +130,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalWriter
+name|PointWriter
 import|;
 end_import
 begin_import
@@ -158,7 +158,7 @@ name|codecs
 operator|.
 name|lucene60
 operator|.
-name|Lucene60DimensionalReader
+name|Lucene60PointReader
 import|;
 end_import
 begin_import
@@ -173,7 +173,7 @@ name|codecs
 operator|.
 name|lucene60
 operator|.
-name|Lucene60DimensionalWriter
+name|Lucene60PointWriter
 import|;
 end_import
 begin_import
@@ -186,7 +186,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalBinaryField
+name|BinaryPoint
 import|;
 end_import
 begin_import
@@ -199,7 +199,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalIntField
+name|IntPoint
 import|;
 end_import
 begin_import
@@ -264,7 +264,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|IntersectVisitor
 import|;
@@ -279,7 +279,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|Relation
 import|;
@@ -405,10 +405,10 @@ begin_comment
 comment|// TODO: factor out a BaseTestDimensionFormat
 end_comment
 begin_class
-DECL|class|TestDimensionalValues
+DECL|class|TestPointValues
 specifier|public
 class|class
-name|TestDimensionalValues
+name|TestPointValues
 extends|extends
 name|LuceneTestCase
 block|{
@@ -428,7 +428,7 @@ argument_list|(
 literal|20
 argument_list|)
 decl_stmt|;
-comment|// TODO: randomize codec once others support dimensional format
+comment|// TODO: randomize codec once others support points format
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -502,7 +502,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -548,12 +548,12 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
-name|DimensionalValues
+name|PointValues
 name|values
 init|=
 name|sub
 operator|.
-name|getDimensionalValues
+name|getPointValues
 argument_list|()
 decl_stmt|;
 comment|// Simple test: make sure intersect can visit every doc:
@@ -755,7 +755,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -814,12 +814,12 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
-name|DimensionalValues
+name|PointValues
 name|values
 init|=
 name|sub
 operator|.
-name|getDimensionalValues
+name|getPointValues
 argument_list|()
 decl_stmt|;
 comment|// Simple test: make sure intersect can visit every doc:
@@ -932,10 +932,10 @@ name|dir
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testAllDimensionalDocsDeletedInSegment
+DECL|method|testAllPointDocsDeletedInSegment
 specifier|public
 name|void
-name|testAllDimensionalDocsDeletedInSegment
+name|testAllPointDocsDeletedInSegment
 parameter_list|()
 throws|throws
 name|Exception
@@ -1013,7 +1013,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -1124,10 +1124,10 @@ name|numDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|DimensionalValues
+name|PointValues
 name|values
 init|=
-name|MultiDimensionalValues
+name|MultiPointValues
 operator|.
 name|get
 argument_list|(
@@ -1318,7 +1318,7 @@ argument_list|()
 argument_list|,
 literal|2
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 argument_list|)
@@ -1335,7 +1335,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 argument_list|)
@@ -1682,7 +1682,7 @@ argument_list|()
 argument_list|,
 literal|2
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 argument_list|)
@@ -1699,7 +1699,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 argument_list|)
@@ -1944,7 +1944,7 @@ argument_list|()
 argument_list|,
 literal|2
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 argument_list|)
@@ -1961,7 +1961,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 argument_list|)
@@ -2114,7 +2114,7 @@ argument_list|()
 argument_list|,
 literal|2
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 argument_list|)
@@ -2131,7 +2131,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 argument_list|)
@@ -2318,7 +2318,7 @@ argument_list|()
 argument_list|,
 literal|2
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 argument_list|)
@@ -2335,7 +2335,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 argument_list|)
@@ -2541,7 +2541,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"field"
 argument_list|,
@@ -2570,10 +2570,10 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|DimensionalValues
+name|PointValues
 name|dimValues
 init|=
-name|MultiDimensionalValues
+name|MultiPointValues
 operator|.
 name|get
 argument_list|(
@@ -3214,11 +3214,11 @@ literal|200000
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Suddenly add dimensional values to an existing field:
-DECL|method|testUpgradeFieldToDimensional
+comment|// Suddenly add points to an existing field:
+DECL|method|testUpgradeFieldToPoints
 specifier|public
 name|void
-name|testUpgradeFieldToDimensional
+name|testUpgradeFieldToPoints
 parameter_list|()
 throws|throws
 name|Exception
@@ -3305,7 +3305,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3382,7 +3382,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3399,7 +3399,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3436,7 +3436,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension count from 1 to 2 for field=\"dim\""
+literal|"cannot change point dimension count from 1 to 2 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -3509,7 +3509,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3539,7 +3539,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3576,7 +3576,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension count from 1 to 2 for field=\"dim\""
+literal|"cannot change point dimension count from 1 to 2 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -3649,7 +3649,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3684,7 +3684,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3721,7 +3721,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension count from 1 to 2 for field=\"dim\""
+literal|"cannot change point dimension count from 1 to 2 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -3794,7 +3794,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3852,7 +3852,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3889,7 +3889,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension count from 1 to 2 for field=\"dim\""
+literal|"cannot change point dimension count from 1 to 2 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -3962,7 +3962,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4028,7 +4028,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4076,7 +4076,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension count from 2 to 1 for field=\"dim\""
+literal|"cannot change point dimension count from 2 to 1 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -4150,7 +4150,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4216,7 +4216,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4277,7 +4277,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension count from 2 to 1 for field=\"dim\""
+literal|"cannot change point dimension count from 2 to 1 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -4353,7 +4353,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4419,7 +4419,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4474,7 +4474,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension count from 2 to 1 for field=\"dim\""
+literal|"cannot change point dimension count from 2 to 1 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -4550,7 +4550,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4567,7 +4567,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4598,7 +4598,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension numBytes from 4 to 6 for field=\"dim\""
+literal|"cannot change point numBytes from 4 to 6 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -4671,7 +4671,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4701,7 +4701,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4732,7 +4732,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension numBytes from 4 to 6 for field=\"dim\""
+literal|"cannot change point numBytes from 4 to 6 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -4805,7 +4805,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4840,7 +4840,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -4871,7 +4871,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension numBytes from 4 to 6 for field=\"dim\""
+literal|"cannot change point numBytes from 4 to 6 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -4944,7 +4944,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5002,7 +5002,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5033,7 +5033,7 @@ block|{
 comment|// expected
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension numBytes from 4 to 6 for field=\"dim\""
+literal|"cannot change point numBytes from 4 to 6 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -5106,7 +5106,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5172,7 +5172,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5214,7 +5214,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension numBytes from 6 to 4 for field=\"dim\""
+literal|"cannot change point numBytes from 6 to 4 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -5288,7 +5288,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5354,7 +5354,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5409,7 +5409,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension numBytes from 6 to 4 for field=\"dim\""
+literal|"cannot change point numBytes from 6 to 4 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -5485,7 +5485,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5551,7 +5551,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5600,7 +5600,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"cannot change dimension numBytes from 6 to 4 for field=\"dim\""
+literal|"cannot change point numBytes from 6 to 4 for field=\"dim\""
 argument_list|,
 name|iae
 operator|.
@@ -5676,14 +5676,14 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
 operator|new
 name|byte
 index|[
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 operator|+
@@ -5726,7 +5726,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5808,7 +5808,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 operator|+
@@ -5850,7 +5850,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5892,7 +5892,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -5958,7 +5958,7 @@ argument_list|()
 argument_list|,
 literal|2
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_NUM_BYTES
 argument_list|)
@@ -5975,7 +5975,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-name|DimensionalValues
+name|PointValues
 operator|.
 name|MAX_DIMENSIONS
 argument_list|)
@@ -6143,7 +6143,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"TEST: using Lucene60DimensionalFormat with maxPointsInLeafNode="
+literal|"TEST: using Lucene60PointFormat with maxPointsInLeafNode="
 operator|+
 name|maxPointsInLeafNode
 operator|+
@@ -6168,19 +6168,19 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|DimensionalFormat
-name|dimensionalFormat
+name|PointFormat
+name|pointFormat
 parameter_list|()
 block|{
 return|return
 operator|new
-name|DimensionalFormat
+name|PointFormat
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|DimensionalWriter
+name|PointWriter
 name|fieldsWriter
 parameter_list|(
 name|SegmentWriteState
@@ -6191,7 +6191,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene60DimensionalWriter
+name|Lucene60PointWriter
 argument_list|(
 name|writeState
 argument_list|,
@@ -6204,7 +6204,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|DimensionalReader
+name|PointReader
 name|fieldsReader
 parameter_list|(
 name|SegmentReadState
@@ -6215,7 +6215,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene60DimensionalReader
+name|Lucene60PointReader
 argument_list|(
 name|readState
 argument_list|)
@@ -6734,7 +6734,7 @@ block|}
 block|}
 block|}
 comment|// 20% of the time we add into a separate directory, then at some point use
-comment|// addIndexes to bring the indexed dimensional values to the main directory:
+comment|// addIndexes to bring the indexed point values to the main directory:
 name|Directory
 name|saveDir
 decl_stmt|;
@@ -7002,7 +7002,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7102,7 +7102,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalBinaryField
+name|BinaryPoint
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7405,10 +7405,10 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|DimensionalValues
+name|PointValues
 name|dimValues
 init|=
-name|MultiDimensionalValues
+name|MultiPointValues
 operator|.
 name|get
 argument_list|(
@@ -7826,7 +7826,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 operator|new
-name|DimensionalValues
+name|PointValues
 operator|.
 name|IntersectVisitor
 argument_list|()

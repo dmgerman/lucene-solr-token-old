@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|IntersectVisitor
 import|;
@@ -48,9 +48,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
-operator|.
-name|Relation
+name|PointValues
 import|;
 end_import
 begin_import
@@ -63,7 +61,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
+operator|.
+name|Relation
 import|;
 end_import
 begin_import
@@ -197,7 +197,7 @@ name|NumericUtils
 import|;
 end_import
 begin_comment
-comment|/** Finds all previously indexed points that fall within the specified polygon.  *  *<p>The field must be indexed using {@link Geo3DPointField}.  *  * @lucene.experimental */
+comment|/** Finds all previously indexed points that fall within the specified polygon.  *  *<p>The field must be indexed using {@link Geo3DPoint}.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|PointInGeo3DShapeQuery
@@ -301,12 +301,12 @@ operator|.
 name|reader
 argument_list|()
 decl_stmt|;
-name|DimensionalValues
+name|PointValues
 name|values
 init|=
 name|reader
 operator|.
-name|getDimensionalValues
+name|getPointValues
 argument_list|()
 decl_stmt|;
 if|if

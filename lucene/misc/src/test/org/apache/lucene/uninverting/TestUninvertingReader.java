@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DimensionalIntField
+name|IntPoint
 import|;
 end_import
 begin_import
@@ -2709,7 +2709,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DimensionalIntField
+name|IntPoint
 argument_list|(
 literal|"dint"
 argument_list|,
@@ -2849,7 +2849,7 @@ literal|0
 argument_list|,
 name|intFInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2859,7 +2859,7 @@ literal|0
 argument_list|,
 name|intFInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2882,7 +2882,7 @@ literal|1
 argument_list|,
 name|dintFInfo
 operator|.
-name|getDimensionCount
+name|getPointDimensionCount
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2892,7 +2892,7 @@ literal|4
 argument_list|,
 name|dintFInfo
 operator|.
-name|getDimensionNumBytes
+name|getPointNumBytes
 argument_list|()
 argument_list|)
 expr_stmt|;

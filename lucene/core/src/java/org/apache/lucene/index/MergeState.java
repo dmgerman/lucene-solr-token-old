@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|DimensionalReader
+name|PointReader
 import|;
 end_import
 begin_import
@@ -252,13 +252,13 @@ name|FieldsProducer
 index|[]
 name|fieldsProducers
 decl_stmt|;
-comment|/** Dimensional readers to merge */
-DECL|field|dimensionalReaders
+comment|/** Point readers to merge */
+DECL|field|pointReaders
 specifier|public
 specifier|final
-name|DimensionalReader
+name|PointReader
 index|[]
-name|dimensionalReaders
+name|pointReaders
 decl_stmt|;
 comment|/** New docID base per reader. */
 DECL|field|docBase
@@ -374,10 +374,10 @@ index|[
 name|numReaders
 index|]
 expr_stmt|;
-name|dimensionalReaders
+name|pointReaders
 operator|=
 operator|new
-name|DimensionalReader
+name|PointReader
 index|[
 name|numReaders
 index|]
@@ -603,19 +603,19 @@ operator|.
 name|getMergeInstance
 argument_list|()
 expr_stmt|;
-name|dimensionalReaders
+name|pointReaders
 index|[
 name|i
 index|]
 operator|=
 name|reader
 operator|.
-name|getDimensionalReader
+name|getPointReader
 argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|dimensionalReaders
+name|pointReaders
 index|[
 name|i
 index|]
@@ -623,12 +623,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|dimensionalReaders
+name|pointReaders
 index|[
 name|i
 index|]
 operator|=
-name|dimensionalReaders
+name|pointReaders
 index|[
 name|i
 index|]

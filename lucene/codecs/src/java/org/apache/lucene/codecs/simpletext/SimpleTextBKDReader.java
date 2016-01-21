@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DimensionalValues
+name|PointValues
 operator|.
 name|IntersectVisitor
 import|;
@@ -130,7 +130,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|BLOCK_COUNT
 import|;
@@ -147,7 +147,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|BLOCK_DOC_ID
 import|;
@@ -164,7 +164,7 @@ name|codecs
 operator|.
 name|simpletext
 operator|.
-name|SimpleTextDimensionalWriter
+name|SimpleTextPointWriter
 operator|.
 name|BLOCK_VALUE
 import|;
