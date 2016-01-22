@@ -86,6 +86,23 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|client
+operator|.
+name|solrj
+operator|.
+name|response
+operator|.
+name|RequestStatusState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|common
 operator|.
 name|params
@@ -374,9 +391,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Task 1000 not found in completed tasks."
-argument_list|,
-literal|"found 1000 in completed tasks"
+literal|"found [1000] in completed tasks"
 argument_list|,
 name|message
 argument_list|)
@@ -467,9 +482,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Task 9999999 found in tasks queue."
-argument_list|,
-literal|"Did not find taskid [9999999] in any tasks queue"
+literal|"Did not find [9999999] in any tasks queue"
 argument_list|,
 name|message
 argument_list|)
@@ -611,9 +624,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Task 1001 not found in completed tasks."
-argument_list|,
-literal|"found 1001 in completed tasks"
+literal|"found [1001] in completed tasks"
 argument_list|,
 name|message
 argument_list|)
@@ -781,9 +792,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Task 1002 not found in completed tasks."
-argument_list|,
-literal|"found 1002 in failed tasks"
+literal|"found [1002] in failed tasks"
 argument_list|,
 name|message
 argument_list|)
@@ -894,8 +903,6 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Did not error out on duplicate requests (same request id)"
-argument_list|,
 literal|"Task with the same requestid already exists."
 argument_list|,
 name|r
@@ -924,23 +931,10 @@ name|SolrServerException
 throws|,
 name|IOException
 block|{
-name|NamedList
-name|status
-init|=
-literal|null
-decl_stmt|;
-name|String
-name|state
-init|=
-literal|null
-decl_stmt|;
 name|String
 name|message
 init|=
 literal|null
-decl_stmt|;
-name|NamedList
-name|r
 decl_stmt|;
 while|while
 condition|(
@@ -950,15 +944,19 @@ operator|>
 literal|0
 condition|)
 block|{
+specifier|final
+name|NamedList
 name|r
-operator|=
+init|=
 name|sendRequest
 argument_list|(
 name|params
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+specifier|final
+name|NamedList
 name|status
-operator|=
+init|=
 operator|(
 name|NamedList
 operator|)
@@ -968,9 +966,15 @@ name|get
 argument_list|(
 literal|"status"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+specifier|final
+name|RequestStatusState
 name|state
-operator|=
+init|=
+name|RequestStatusState
+operator|.
+name|fromKey
+argument_list|(
 operator|(
 name|String
 operator|)
@@ -980,7 +984,8 @@ name|get
 argument_list|(
 literal|"state"
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 name|message
 operator|=
 operator|(
@@ -996,30 +1001,22 @@ expr_stmt|;
 if|if
 condition|(
 name|state
+operator|==
+name|RequestStatusState
 operator|.
-name|equals
-argument_list|(
-literal|"completed"
-argument_list|)
+name|COMPLETED
 operator|||
 name|state
+operator|==
+name|RequestStatusState
 operator|.
-name|equals
-argument_list|(
-literal|"failed"
-argument_list|)
+name|FAILED
 condition|)
+block|{
 return|return
-operator|(
-name|String
-operator|)
-name|status
-operator|.
-name|get
-argument_list|(
-literal|"msg"
-argument_list|)
+name|message
 return|;
+block|}
 try|try
 block|{
 name|Thread
@@ -1035,7 +1032,7 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{        }
+block|{       }
 block|}
 comment|// Return last state?
 return|return
