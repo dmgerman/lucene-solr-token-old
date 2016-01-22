@@ -8177,8 +8177,11 @@ init|(
 name|Directory
 name|dir
 init|=
-name|newDirectory
+name|getDirectory
+argument_list|(
+name|createTempDir
 argument_list|()
+argument_list|)
 init|)
 block|{
 try|try
@@ -8292,8 +8295,11 @@ init|(
 name|Directory
 name|dir
 init|=
-name|newDirectory
+name|getDirectory
+argument_list|(
+name|createTempDir
 argument_list|()
+argument_list|)
 init|)
 block|{
 try|try
