@@ -17,7 +17,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Implements the<em>Divergence from Independence (DFI)</em> model based on Chi-square statistics  * (i.e., standardized Chi-squared distance from independence in term frequency tf).  *<p>  * DFI is both parameter-free and non-parametric:  *<ul>  *<li>parameter-free: it does not require any parameter tuning or training.</li>  *<li>non-parametric: it does not make any assumptions about word frequency distributions on document collections.</li>  *</ul>  *<p>  * It is highly recommended<b>not</b> to remove stopwords (very common terms: the, of, and, to, a, in, for, is, on, that, etc) with this similarity.  *<p>  * For more information see:<a href="http://dx.doi.org/10.1007/s10791-013-9225-4">A nonparametric term weighting method for information retrieval based on measuring the divergence from independence</a>  *  * @lucene.experimental  * @see org.apache.lucene.search.similarities.DFRSimilarity  */
+comment|/**  * Implements the<em>Divergence from Independence (DFI)</em> model based on Chi-square statistics  * (i.e., standardized Chi-squared distance from independence in term frequency tf).  *<p>  * DFI is both parameter-free and non-parametric:  *<ul>  *<li>parameter-free: it does not require any parameter tuning or training.</li>  *<li>non-parametric: it does not make any assumptions about word frequency distributions on document collections.</li>  *</ul>  *<p>  * It is highly recommended<b>not</b> to remove stopwords (very common terms: the, of, and, to, a, in, for, is, on, that, etc) with this similarity.  *<p>  * For more information see:<a href="http://dx.doi.org/10.1007/s10791-013-9225-4">A nonparametric term weighting method for information retrieval based on measuring the divergence from independence</a>  *  * @lucene.experimental  * @see org.apache.lucene.search.similarities.IndependenceStandardized  * @see org.apache.lucene.search.similarities.IndependenceSaturated  * @see org.apache.lucene.search.similarities.IndependenceChiSquared  */
 end_comment
 begin_class
 DECL|class|DFISimilarity
@@ -27,12 +27,28 @@ name|DFISimilarity
 extends|extends
 name|SimilarityBase
 block|{
-comment|/**    * Sole constructor: DFI is parameter-free.    */
+DECL|field|independence
+specifier|private
+specifier|final
+name|Independence
+name|independence
+decl_stmt|;
+comment|/**    * Create DFI with the specified divergence from independence measure    * @param independenceMeasure measure of divergence from independence    */
 DECL|method|DFISimilarity
 specifier|public
 name|DFISimilarity
-parameter_list|()
-block|{   }
+parameter_list|(
+name|Independence
+name|independenceMeasure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|independence
+operator|=
+name|independenceMeasure
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|score
@@ -86,21 +102,16 @@ literal|0
 return|;
 specifier|final
 name|float
-name|chiSquare
+name|measure
 init|=
-operator|(
+name|independence
+operator|.
+name|score
+argument_list|(
 name|freq
-operator|-
+argument_list|,
 name|expected
-operator|)
-operator|*
-operator|(
-name|freq
-operator|-
-name|expected
-operator|)
-operator|/
-name|expected
+argument_list|)
 decl_stmt|;
 return|return
 name|stats
@@ -113,10 +124,21 @@ name|float
 operator|)
 name|log2
 argument_list|(
-name|chiSquare
+name|measure
 operator|+
 literal|1
 argument_list|)
+return|;
+block|}
+comment|/**    * Returns the measure of independence    */
+DECL|method|getIndependence
+specifier|public
+name|Independence
+name|getIndependence
+parameter_list|()
+block|{
+return|return
+name|independence
 return|;
 block|}
 annotation|@
@@ -128,7 +150,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"DFI"
+literal|"DFI("
+operator|+
+name|independence
+operator|+
+literal|")"
 return|;
 block|}
 block|}
