@@ -407,6 +407,9 @@ name|Locale
 operator|.
 name|getDefault
 argument_list|()
+operator|.
+name|toLanguageTag
+argument_list|()
 operator|+
 literal|"'"
 operator|)
