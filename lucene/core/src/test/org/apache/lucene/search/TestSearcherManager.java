@@ -1334,6 +1334,8 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
+literal|false
+argument_list|,
 name|factory
 argument_list|)
 decl_stmt|;
@@ -1782,6 +1784,8 @@ name|writer
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|SearcherFactory
 argument_list|()
@@ -2041,6 +2045,8 @@ name|iw
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|SearcherFactory
 argument_list|()
@@ -2255,6 +2261,8 @@ name|random
 operator|.
 name|nextBoolean
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 name|theEvilOne
 argument_list|)
@@ -2808,6 +2816,8 @@ argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 name|factory
 argument_list|)

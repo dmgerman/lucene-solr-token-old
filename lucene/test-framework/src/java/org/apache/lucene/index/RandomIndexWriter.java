@@ -1601,6 +1601,8 @@ return|return
 name|getReader
 argument_list|(
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1873,6 +1875,9 @@ name|getReader
 parameter_list|(
 name|boolean
 name|applyDeletions
+parameter_list|,
+name|boolean
+name|writeAllDeletes
 parameter_list|)
 throws|throws
 name|IOException
@@ -1961,6 +1966,8 @@ operator|.
 name|getReader
 argument_list|(
 name|applyDeletions
+argument_list|,
+name|writeAllDeletes
 argument_list|)
 return|;
 block|}
@@ -2016,6 +2023,8 @@ operator|.
 name|getReader
 argument_list|(
 name|applyDeletions
+argument_list|,
+name|writeAllDeletes
 argument_list|)
 return|;
 block|}
