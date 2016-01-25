@@ -983,6 +983,12 @@ operator|instanceof
 name|SocketException
 operator|==
 literal|false
+operator|&&
+name|t
+operator|instanceof
+name|NodeCommunicationException
+operator|==
+literal|false
 condition|)
 block|{
 name|node
@@ -1016,7 +1022,7 @@ name|node
 operator|.
 name|message
 argument_list|(
-literal|"SocketException "
+literal|"exception "
 operator|+
 name|t
 operator|+
