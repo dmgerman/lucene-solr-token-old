@@ -367,8 +367,6 @@ parameter_list|,
 name|TokenStream
 name|reuse
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|CompletionTokenStream
 name|completionStream
@@ -448,8 +446,6 @@ specifier|private
 name|BytesRef
 name|buildSuggestPayload
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|ByteArrayOutputStream
 name|byteArrayOutputStream
@@ -513,6 +509,21 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+comment|// not possible, it's a ByteArrayOutputStream!
 block|}
 return|return
 operator|new
