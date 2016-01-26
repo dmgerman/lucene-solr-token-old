@@ -2528,7 +2528,7 @@ literal|1
 index|]
 operator|.
 name|score
-operator|>
+operator|>=
 name|search
 operator|.
 name|scoreDocs
