@@ -898,7 +898,7 @@ if|if
 condition|(
 name|GeoRelationUtils
 operator|.
-name|rectWithinPoly
+name|rectWithinPolyPrecise
 argument_list|(
 name|cellMinLon
 argument_list|,
@@ -933,7 +933,7 @@ if|if
 condition|(
 name|GeoRelationUtils
 operator|.
-name|rectCrossesPoly
+name|rectCrossesPolyPrecise
 argument_list|(
 name|cellMinLon
 argument_list|,

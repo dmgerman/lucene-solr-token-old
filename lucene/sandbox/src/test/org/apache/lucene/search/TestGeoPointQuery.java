@@ -227,6 +227,21 @@ operator|.
 name|BeforeClass
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|GeoDistanceUtils
+operator|.
+name|DISTANCE_PCT_ERR
+import|;
+end_import
 begin_comment
 comment|/**  * Unit testing for basic GeoPoint query logic  *  * @lucene.experimental  */
 end_comment
@@ -262,16 +277,6 @@ name|searcher
 init|=
 literal|null
 decl_stmt|;
-comment|// error threshold for point-distance queries (in percent) NOTE: Guideline from USGS
-DECL|field|DISTANCE_PCT_ERR
-specifier|private
-specifier|static
-specifier|final
-name|double
-name|DISTANCE_PCT_ERR
-init|=
-literal|0.005
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|forceSmall
@@ -280,9 +285,8 @@ name|boolean
 name|forceSmall
 parameter_list|()
 block|{
-comment|// TODO: GeoUtils are potentially slow if we use small=false with heavy testing
 return|return
-literal|true
+literal|false
 return|;
 block|}
 annotation|@
@@ -1193,7 +1197,7 @@ block|{
 return|return
 name|GeoRelationUtils
 operator|.
-name|pointInRect
+name|pointInRectPrecise
 argument_list|(
 name|pointLon
 argument_list|,
@@ -1223,7 +1227,7 @@ comment|// Rect crosses dateline:
 return|return
 name|GeoRelationUtils
 operator|.
-name|pointInRect
+name|pointInRectPrecise
 argument_list|(
 name|pointLon
 argument_list|,
@@ -1247,7 +1251,7 @@ argument_list|)
 operator|||
 name|GeoRelationUtils
 operator|.
-name|pointInRect
+name|pointInRectPrecise
 argument_list|(
 name|pointLon
 argument_list|,
@@ -1906,7 +1910,7 @@ name|assertTrue
 argument_list|(
 name|GeoRelationUtils
 operator|.
-name|rectCrossesPoly
+name|rectCrossesPolyApprox
 argument_list|(
 name|xMin
 argument_list|,
@@ -1934,7 +1938,7 @@ name|assertFalse
 argument_list|(
 name|GeoRelationUtils
 operator|.
-name|rectCrossesPoly
+name|rectCrossesPolyApprox
 argument_list|(
 operator|-
 literal|5
@@ -1963,7 +1967,7 @@ name|assertTrue
 argument_list|(
 name|GeoRelationUtils
 operator|.
-name|rectWithinPoly
+name|rectWithinPolyApprox
 argument_list|(
 operator|-
 literal|5

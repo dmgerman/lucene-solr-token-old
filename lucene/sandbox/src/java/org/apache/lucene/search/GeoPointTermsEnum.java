@@ -356,11 +356,9 @@ name|short
 call|)
 argument_list|(
 operator|(
-operator|(
 name|GeoUtils
 operator|.
 name|BITS
-operator|)
 operator|<<
 literal|1
 operator|)
