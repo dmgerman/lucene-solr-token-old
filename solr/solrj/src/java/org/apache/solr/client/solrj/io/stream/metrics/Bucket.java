@@ -95,7 +95,7 @@ expr_stmt|;
 block|}
 DECL|method|getBucketValue
 specifier|public
-name|String
+name|Object
 name|getBucketValue
 parameter_list|(
 name|Tuple
@@ -109,9 +109,6 @@ name|get
 argument_list|(
 name|bucketKey
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 DECL|method|toString
