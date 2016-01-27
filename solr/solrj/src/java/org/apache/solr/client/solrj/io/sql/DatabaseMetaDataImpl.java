@@ -2385,7 +2385,9 @@ throws|throws
 name|SQLException
 block|{
 return|return
-literal|null
+name|this
+operator|.
+name|connection
 return|;
 block|}
 annotation|@
