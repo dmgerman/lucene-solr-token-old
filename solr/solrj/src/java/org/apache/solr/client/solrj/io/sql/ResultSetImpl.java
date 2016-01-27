@@ -622,7 +622,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -651,7 +651,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -680,7 +680,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -709,7 +709,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -738,7 +738,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -767,7 +767,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -796,7 +796,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -825,7 +825,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -857,7 +857,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -889,7 +889,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -918,7 +918,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -947,7 +947,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -976,7 +976,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
@@ -1682,7 +1682,7 @@ name|this
 operator|.
 name|resultSetMetaData
 operator|.
-name|getColumnName
+name|getColumnLabel
 argument_list|(
 name|columnIndex
 argument_list|)
