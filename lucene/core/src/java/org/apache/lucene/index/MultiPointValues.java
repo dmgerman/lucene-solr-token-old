@@ -54,8 +54,12 @@ operator|.
 name|StringHelper
 import|;
 end_import
+begin_comment
+comment|/** Merges multiple {@link PointValues} into a single one. */
+end_comment
 begin_class
 DECL|class|MultiPointValues
+specifier|public
 class|class
 name|MultiPointValues
 extends|extends
@@ -109,6 +113,7 @@ operator|=
 name|docBases
 expr_stmt|;
 block|}
+comment|/** Returns a {@link PointValues} merging all point values from the provided reader. */
 DECL|method|get
 specifier|public
 specifier|static
