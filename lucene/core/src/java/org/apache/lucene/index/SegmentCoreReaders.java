@@ -818,6 +818,8 @@ parameter_list|(
 name|Throwable
 name|th
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 synchronized|synchronized
 init|(
@@ -876,7 +878,7 @@ block|}
 block|}
 name|IOUtils
 operator|.
-name|reThrowUnchecked
+name|reThrow
 argument_list|(
 name|th
 argument_list|)
