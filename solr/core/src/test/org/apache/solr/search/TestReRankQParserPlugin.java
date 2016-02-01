@@ -179,6 +179,73 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testReRankQParserPluginConstants
+specifier|public
+name|void
+name|testReRankQParserPluginConstants
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertEquals
+argument_list|(
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+argument_list|,
+literal|"rerank"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+argument_list|,
+literal|"reRankQuery"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+argument_list|,
+literal|"reRankDocs"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS_DEFAULT
+argument_list|,
+literal|200
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+argument_list|,
+literal|"reRankWeight"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT_DEFAULT
+argument_list|,
+literal|2.0d
+argument_list|,
+literal|0.0d
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testReRankQueries
 specifier|public
 name|void
@@ -458,7 +525,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=200}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=200}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -540,7 +625,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -641,7 +744,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -751,7 +872,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -855,7 +994,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6 reRankWeight=50}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=50}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -974,7 +1137,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1066,7 +1253,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1179,7 +1390,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1291,7 +1526,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=4 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=4 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1404,7 +1663,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=3 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=3 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1507,7 +1790,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=3 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=3 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1605,7 +1912,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=1 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=1 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1696,7 +2027,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=0 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=0 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1787,7 +2142,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=2 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=2 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -1879,7 +2258,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6 reRankWeight=0}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=0}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -2013,7 +2416,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -2137,7 +2558,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -2261,7 +2700,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6}"
 argument_list|)
 expr_stmt|;
 comment|// function query for predictible scores (relative to id) independent of similarity
@@ -2348,7 +2805,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=3 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=3 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -2423,7 +2904,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=6 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -2496,7 +3001,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=3 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=3 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -3001,7 +3530,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=11 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=11 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -3085,7 +3638,31 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=11 reRankWeight=2}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=11 "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_WEIGHT
+operator|+
+literal|"=2}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -3305,7 +3882,25 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=200}"
+literal|"{!"
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+operator|+
+literal|" "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|"=$rqq "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_DOCS
+operator|+
+literal|"=200}"
 argument_list|)
 expr_stmt|;
 name|params
@@ -3349,7 +3944,13 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"A syntax error should be thrown when reRankQuery parameter is not specified"
+literal|"A syntax error should be thrown when "
+operator|+
+name|ReRankQParserPlugin
+operator|.
+name|RERANK_QUERY
+operator|+
+literal|" parameter is not specified"
 argument_list|)
 expr_stmt|;
 block|}
