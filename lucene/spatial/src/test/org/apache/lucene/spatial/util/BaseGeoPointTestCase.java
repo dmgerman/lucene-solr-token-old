@@ -447,7 +447,7 @@ init|=
 operator|(
 literal|0x1L
 operator|<<
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|BITS
 operator|)
@@ -464,7 +464,7 @@ init|=
 operator|(
 literal|0x1L
 operator|<<
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|BITS
 operator|)

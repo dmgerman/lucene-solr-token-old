@@ -221,7 +221,7 @@ name|DocIdSetBuilder
 import|;
 end_import
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -232,11 +232,30 @@ name|spatial
 operator|.
 name|util
 operator|.
-name|GeoUtils
+name|GeoEncodingUtils
+operator|.
+name|mortonUnhashLat
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|mortonUnhashLon
 import|;
 end_import
 begin_comment
-comment|/**  * Custom ConstantScoreWrapper for {@code GeoPointTermQuery} that cuts over to DocValues  * for post filtering boundary ranges. Multi-valued GeoPoint documents are supported.  *  * @lucene.experimental  */
+comment|/**  * Custom ConstantScoreWrapper for {@code GeoPointMultiTermQuery} that cuts over to DocValues  * for post filtering boundary ranges. Multi-valued GeoPoint documents are supported.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|GeoPointTermQueryConstantScoreWrapper
@@ -246,7 +265,7 @@ name|GeoPointTermQueryConstantScoreWrapper
 parameter_list|<
 name|Q
 extends|extends
-name|GeoPointTermQuery
+name|GeoPointMultiTermQuery
 parameter_list|>
 extends|extends
 name|Query
@@ -579,15 +598,11 @@ name|termsEnum
 operator|.
 name|postFilter
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonUnhashLon
 argument_list|(
 name|hash
 argument_list|)
 argument_list|,
-name|GeoUtils
-operator|.
 name|mortonUnhashLat
 argument_list|(
 name|hash
