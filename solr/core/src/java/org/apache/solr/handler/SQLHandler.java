@@ -960,7 +960,7 @@ throw|throw
 operator|new
 name|Exception
 argument_list|(
-literal|"sql parameter cannot be null"
+literal|"stmt parameter cannot be null"
 argument_list|)
 throw|;
 block|}
