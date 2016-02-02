@@ -2149,9 +2149,11 @@ parameter_list|()
 throws|throws
 name|SQLException
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
 block|}
 annotation|@
 name|Override
