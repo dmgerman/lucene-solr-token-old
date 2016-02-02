@@ -575,13 +575,14 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+comment|// TODO: this is test code specific!!
 name|message
 argument_list|(
-literal|"init: marker hit count: "
+literal|"init: marker count: "
 operator|+
 name|s
 operator|.
-name|search
+name|count
 argument_list|(
 operator|new
 name|TermQuery
@@ -594,11 +595,7 @@ argument_list|,
 literal|"marker"
 argument_list|)
 argument_list|)
-argument_list|,
-literal|1
 argument_list|)
-operator|.
-name|totalHits
 argument_list|)
 expr_stmt|;
 block|}
@@ -724,7 +721,7 @@ argument_list|)
 expr_stmt|;
 name|message
 argument_list|(
-literal|"flushAndRefresh:  version="
+literal|"flushAndRefresh: version="
 operator|+
 name|curInfos
 operator|.
@@ -1092,6 +1089,40 @@ operator|)
 operator|.
 name|getSegmentInfos
 argument_list|()
+expr_stmt|;
+comment|// TODO: this is test code specific!!
+name|message
+argument_list|(
+literal|"setCurrentInfos: marker count: "
+operator|+
+name|searcher
+operator|.
+name|count
+argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+literal|"marker"
+argument_list|,
+literal|"marker"
+argument_list|)
+argument_list|)
+argument_list|)
+operator|+
+literal|" version="
+operator|+
+name|infos
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|" searcher="
+operator|+
+name|searcher
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
