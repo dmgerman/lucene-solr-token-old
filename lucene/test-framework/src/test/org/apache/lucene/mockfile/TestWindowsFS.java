@@ -224,7 +224,6 @@ name|TestWindowsFS
 extends|extends
 name|MockFileSystemTestCase
 block|{
-comment|// currently we don't emulate windows well enough to work on windows!
 annotation|@
 name|Override
 DECL|method|setUp
@@ -240,6 +239,7 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+comment|// irony: currently we don't emulate windows well enough to work on windows!
 name|assumeFalse
 argument_list|(
 literal|"windows is not supported"

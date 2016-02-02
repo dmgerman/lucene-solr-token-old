@@ -1132,27 +1132,6 @@ init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|ram
-operator|instanceof
-name|MockDirectoryWrapper
-condition|)
-block|{
-comment|// we verify some files get deleted
-operator|(
-operator|(
-name|MockDirectoryWrapper
-operator|)
-name|ram
-operator|)
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 name|Analyzer
 name|analyzer
 init|=

@@ -7105,13 +7105,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|path
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -692,9 +692,14 @@ condition|)
 block|{
 name|dir
 operator|.
-name|deleteFile
+name|deleteFiles
+argument_list|(
+name|Collections
+operator|.
+name|singleton
 argument_list|(
 name|file
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

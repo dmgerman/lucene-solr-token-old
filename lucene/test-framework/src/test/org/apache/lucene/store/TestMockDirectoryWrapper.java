@@ -164,14 +164,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// test manipulates filesystem directly
 return|return
 name|dir
 return|;

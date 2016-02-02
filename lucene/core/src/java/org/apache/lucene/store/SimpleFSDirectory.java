@@ -185,6 +185,11 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+name|ensureCanRead
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 name|Path
 name|path
 init|=

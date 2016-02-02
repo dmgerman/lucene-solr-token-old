@@ -3167,22 +3167,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-comment|// TODO: find the resource leak that only occurs sometimes here.
-name|startDir
-operator|.
-name|setNoDeleteOpenFile
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// test uses IW unref'ed helper which is unaware of retries
-name|startDir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriter
 name|writer
 init|=
@@ -3373,14 +3357,6 @@ expr_stmt|;
 name|dir
 operator|.
 name|setAllowRandomFileNotFoundException
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// test uses IW unref'ed helper which is unaware of retries
-name|dir
-operator|.
-name|setEnableVirusScanner
 argument_list|(
 literal|false
 argument_list|)
@@ -5170,14 +5146,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-comment|// test uses IW unref'ed helper which is unaware of retries
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriter
 name|modifier
 init|=
