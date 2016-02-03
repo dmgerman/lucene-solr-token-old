@@ -976,6 +976,9 @@ argument_list|(
 name|fs
 argument_list|,
 name|random
+operator|.
+name|nextLong
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fs

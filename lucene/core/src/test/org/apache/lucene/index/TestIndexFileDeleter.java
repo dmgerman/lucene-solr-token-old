@@ -275,19 +275,6 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
 begin_comment
 comment|/*   Verify we can read the pre-2.1 file format, do searches   against it, and add documents to it. */
 end_comment
@@ -1413,6 +1400,9 @@ name|getFileSystem
 argument_list|()
 argument_list|,
 name|random
+argument_list|()
+operator|.
+name|nextLong
 argument_list|()
 argument_list|)
 decl_stmt|;

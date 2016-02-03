@@ -73,7 +73,11 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
 import|;
 end_import
 begin_import
@@ -113,18 +117,18 @@ name|VirusCheckingFS
 extends|extends
 name|FilterFileSystemProvider
 block|{
-comment|// nocommit cannot use random here
-DECL|field|random
-specifier|final
-name|Random
-name|random
-decl_stmt|;
 DECL|field|enabled
 specifier|private
 name|boolean
 name|enabled
 init|=
 literal|true
+decl_stmt|;
+DECL|field|state
+specifier|private
+specifier|final
+name|AtomicLong
+name|state
 decl_stmt|;
 comment|/**     * Create a new instance, wrapping {@code delegate}.    */
 DECL|method|VirusCheckingFS
@@ -134,8 +138,8 @@ parameter_list|(
 name|FileSystem
 name|delegate
 parameter_list|,
-name|Random
-name|random
+name|long
+name|salt
 parameter_list|)
 block|{
 name|super
@@ -147,15 +151,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|random
+name|state
 operator|=
 operator|new
-name|Random
+name|AtomicLong
 argument_list|(
-name|random
-operator|.
-name|nextLong
-argument_list|()
+name|salt
 argument_list|)
 expr_stmt|;
 block|}
@@ -194,10 +195,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// Fake but deterministic and hopefully portable like-randomness:
+name|long
+name|hash
+init|=
+name|state
+operator|.
+name|incrementAndGet
+argument_list|()
+operator|*
+name|path
+operator|.
+name|getFileName
+argument_list|()
+operator|.
+name|hashCode
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|enabled
-comment|// test infra disables when it's "really" time to delete after test is done
+comment|// test infra disables when it's "really" time to delete after test is done, so it can reclaim temp dirs
 operator|&&
 name|Files
 operator|.
@@ -225,12 +243,11 @@ operator|==
 literal|false
 comment|// life is particularly difficult if the virus checker hits our lock file
 operator|&&
-name|random
-operator|.
-name|nextInt
-argument_list|(
+operator|(
+name|hash
+operator|%
 literal|5
-argument_list|)
+operator|)
 operator|==
 literal|1
 condition|)

@@ -158,6 +158,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -580,7 +589,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-return|return
+name|String
+index|[]
+name|array
+init|=
 name|entries
 operator|.
 name|toArray
@@ -594,6 +606,17 @@ name|size
 argument_list|()
 index|]
 argument_list|)
+decl_stmt|;
+comment|// Don't let filesystem specifics leak out of this abstraction:
+name|Arrays
+operator|.
+name|sort
+argument_list|(
+name|array
+argument_list|)
+expr_stmt|;
+return|return
+name|array
 return|;
 block|}
 annotation|@
@@ -765,7 +788,7 @@ name|FileAlreadyExistsException
 name|faee
 parameter_list|)
 block|{
-comment|// Retry with next random name
+comment|// Retry with next incremented name
 block|}
 block|}
 block|}
@@ -995,13 +1018,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|pendingDeletes
-operator|.
-name|remove
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|Files
@@ -1016,6 +1032,13 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|pendingDeletes
+operator|.
+name|remove
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1026,6 +1049,13 @@ name|e
 parameter_list|)
 block|{
 comment|// We were asked to delete a non-existent file:
+name|pendingDeletes
+operator|.
+name|remove
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 throw|throw
 name|e
 throw|;
