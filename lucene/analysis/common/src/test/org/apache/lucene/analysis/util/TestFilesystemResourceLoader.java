@@ -263,8 +263,6 @@ argument_list|(
 literal|"fsResourceLoaderBase"
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|Writer
 name|os
 init|=
@@ -392,17 +390,6 @@ argument_list|(
 name|rl
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|base
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|testDelegation
 specifier|public

@@ -479,6 +479,11 @@ name|LuceneTestCase
 operator|.
 name|createTempDir
 argument_list|()
+operator|.
+name|resolve
+argument_list|(
+literal|"unzipped"
+argument_list|)
 decl_stmt|;
 try|try
 init|(

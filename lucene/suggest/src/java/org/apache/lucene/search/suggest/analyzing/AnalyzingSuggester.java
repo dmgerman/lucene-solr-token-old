@@ -2320,17 +2320,12 @@ expr_stmt|;
 comment|// Free disk space:
 name|tempDir
 operator|.
-name|deleteFiles
-argument_list|(
-name|Collections
-operator|.
-name|singleton
+name|deleteFile
 argument_list|(
 name|tempInput
 operator|.
 name|getName
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|reader

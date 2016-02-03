@@ -159,6 +159,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|enable
+specifier|public
+name|void
+name|enable
+parameter_list|()
+block|{
+name|enabled
+operator|=
+literal|true
+expr_stmt|;
+block|}
 DECL|method|disable
 specifier|public
 name|void
@@ -226,8 +237,6 @@ condition|)
 block|{
 if|if
 condition|(
-literal|true
-operator|||
 name|LuceneTestCase
 operator|.
 name|VERBOSE

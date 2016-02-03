@@ -66,8 +66,6 @@ operator|.
 name|util
 operator|.
 name|Map
-operator|.
-name|Entry
 import|;
 end_import
 begin_import
@@ -77,6 +75,8 @@ operator|.
 name|util
 operator|.
 name|Map
+operator|.
+name|Entry
 import|;
 end_import
 begin_import
@@ -692,14 +692,9 @@ condition|)
 block|{
 name|dir
 operator|.
-name|deleteFiles
-argument_list|(
-name|Collections
-operator|.
-name|singleton
+name|deleteFile
 argument_list|(
 name|file
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
