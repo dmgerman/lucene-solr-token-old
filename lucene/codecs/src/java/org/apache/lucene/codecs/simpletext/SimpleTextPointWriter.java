@@ -496,6 +496,8 @@ throws|throws
 name|IOException
 block|{
 comment|// We use the normal BKDWriter, but subclass to customize how it writes the index and blocks to disk:
+try|try
+init|(
 name|BKDWriter
 name|writer
 init|=
@@ -1066,7 +1068,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-decl_stmt|;
+init|)
+block|{
 name|values
 operator|.
 name|intersect
@@ -1170,6 +1173,7 @@ name|dataOut
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|write

@@ -848,9 +848,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|maybeDeletePendingFiles
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|pendingDeletes
