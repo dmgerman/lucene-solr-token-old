@@ -2425,9 +2425,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Directory
+name|unwrapped
+init|=
+name|FilterDirectory
+operator|.
+name|unwrap
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|d
+name|unwrapped
 operator|instanceof
 name|FSDirectory
 operator|&&
@@ -2435,7 +2445,7 @@ operator|(
 operator|(
 name|FSDirectory
 operator|)
-name|d
+name|unwrapped
 operator|)
 operator|.
 name|checkPendingDeletions
@@ -2446,7 +2456,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Directory still has pending deleted files"
+literal|"Directory still has pending deleted files; cannot initialize IndexWriter"
 argument_list|)
 throw|;
 block|}
