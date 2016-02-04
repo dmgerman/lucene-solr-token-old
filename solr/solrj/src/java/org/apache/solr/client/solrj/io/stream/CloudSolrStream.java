@@ -62,15 +62,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -258,7 +249,7 @@ name|io
 operator|.
 name|comp
 operator|.
-name|MultipleFieldComparator
+name|FieldComparator
 import|;
 end_import
 begin_import
@@ -277,7 +268,7 @@ name|io
 operator|.
 name|comp
 operator|.
-name|FieldComparator
+name|MultipleFieldComparator
 import|;
 end_import
 begin_import
@@ -1199,6 +1190,28 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+name|String
+name|value
+init|=
+name|param
+operator|.
+name|getValue
+argument_list|()
+decl_stmt|;
+comment|// SOLR-8409: This is a special case where the params contain a " character
+comment|// Do note that in any other BASE streams with parameters where a " might come into play
+comment|// that this same replacement needs to take place.
+name|value
+operator|=
+name|value
+operator|.
+name|replace
+argument_list|(
+literal|"\""
+argument_list|,
+literal|"\\\""
+argument_list|)
+expr_stmt|;
 name|expression
 operator|.
 name|addParameter
@@ -1211,10 +1224,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|param
-operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
