@@ -46,7 +46,7 @@ newline|'\n'
 name|'import'
 name|'sys'
 newline|'\n'
-comment|"#sys.path.insert(0, 'moman/finenight/python')"
+comment|"# sys.path.insert(0, 'moman/finenight/python')"
 nl|'\n'
 name|'sys'
 op|'.'
@@ -118,7 +118,7 @@ number|'2'
 op|')'
 op|')'
 newline|'\n'
-comment|"#MODE = 'switch'"
+comment|"# MODE = 'switch'"
 nl|'\n'
 nl|'\n'
 DECL|class|LineOutput
@@ -680,16 +680,6 @@ newline|'\n'
 nl|'\n'
 name|'w'
 op|'('
-string|"'package org.apache.lucene.util.automaton;'"
-op|')'
-newline|'\n'
-name|'w'
-op|'('
-string|"''"
-op|')'
-newline|'\n'
-name|'w'
-op|'('
 string|"'/*'"
 op|')'
 newline|'\n'
@@ -766,6 +756,11 @@ newline|'\n'
 name|'w'
 op|'('
 string|"' */'"
+op|')'
+newline|'\n'
+name|'w'
+op|'('
+string|"'package org.apache.lucene.util.automaton;'"
 op|')'
 newline|'\n'
 name|'w'
@@ -2059,7 +2054,7 @@ name|'indent'
 op|'('
 op|')'
 newline|'\n'
-comment|"#w('private final static int[] minErrors = new int[] {%s};' % ','.join([str(x) for x in minErrors]))"
+comment|"# w('private final static int[] minErrors = new int[] {%s};' % ','.join([str(x) for x in minErrors]))"
 nl|'\n'
 nl|'\n'
 name|'w'
