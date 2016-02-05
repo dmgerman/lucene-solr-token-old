@@ -3,13 +3,15 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.apache.lucene.spatial.search
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|search
 package|;
@@ -21,6 +23,8 @@ operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|util
 operator|.
@@ -35,30 +39,35 @@ DECL|class|GeoBoundingBox
 class|class
 name|GeoBoundingBox
 block|{
+comment|/** minimum longitude value (in degrees) */
 DECL|field|minLon
 specifier|public
 specifier|final
 name|double
 name|minLon
 decl_stmt|;
+comment|/** minimum latitude value (in degrees) */
 DECL|field|maxLon
 specifier|public
 specifier|final
 name|double
 name|maxLon
 decl_stmt|;
+comment|/** maximum longitude value (in degrees) */
 DECL|field|minLat
 specifier|public
 specifier|final
 name|double
 name|minLat
 decl_stmt|;
+comment|/** maximum latitude value (in degrees) */
 DECL|field|maxLat
 specifier|public
 specifier|final
 name|double
 name|maxLat
 decl_stmt|;
+comment|/**    * Constructs a bounding box by first validating the provided latitude and longitude coordinates    */
 DECL|method|GeoBoundingBox
 specifier|public
 name|GeoBoundingBox

@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.util
+DECL|package|org.apache.lucene.spatial.util
 package|package
 name|org
 operator|.
@@ -11,9 +11,24 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 package|;
 end_package
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SloppyMath
+import|;
+end_import
 begin_import
 import|import static
 name|org
@@ -48,6 +63,12 @@ name|DISTANCE_PCT_ERR
 init|=
 literal|0.005
 decl_stmt|;
+comment|// No instance:
+DECL|method|GeoDistanceUtils
+specifier|private
+name|GeoDistanceUtils
+parameter_list|()
+block|{   }
 comment|/**    * Compute the great-circle distance using original haversine implementation published by Sinnot in:    * R.W. Sinnott, "Virtues of the Haversine", Sky and Telescope, vol. 68, no. 2, 1984, p. 159    *    * NOTE: this differs from {@link org.apache.lucene.util.SloppyMath#haversin} in that it uses the semi-major axis    * of the earth instead of an approximation based on the average latitude of the two points (which can introduce an    * additional error up to .337%, or ~67.6 km at the equator)    */
 DECL|method|haversin
 specifier|public

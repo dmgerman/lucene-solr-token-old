@@ -3,13 +3,15 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.apache.lucene.spatial.search
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|search
 package|;
@@ -35,6 +37,47 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|BooleanClause
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|BooleanQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Query
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
 name|util
 operator|.
 name|GeoDistanceUtils
@@ -47,6 +90,8 @@ operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|util
 operator|.
@@ -61,13 +106,15 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
 name|GeoUtils
 import|;
 end_import
 begin_comment
-comment|/** Implements a simple point distance query on a GeoPoint field. This is based on  * {@link org.apache.lucene.search.GeoPointInBBoxQuery} and is implemented using a two phase approach. First,  * like {@code GeoPointInBBoxQueryImpl} candidate terms are queried using the numeric ranges based on  * the morton codes of the min and max lat/lon pairs that intersect the boundary of the point-radius  * circle. Terms  * passing this initial filter are then passed to a secondary {@code postFilter} method that verifies whether the  * decoded lat/lon point fall within the specified query distance (see {@link org.apache.lucene.util.SloppyMath#haversin}.  * All morton value comparisons are subject to the same precision tolerance defined in  * {@value org.apache.lucene.util.GeoUtils#TOLERANCE} and distance comparisons are subject to the accuracy of the  * haversine formula (from R.W. Sinnott, "Virtues of the Haversine", Sky and Telescope, vol. 68, no. 2, 1984, p. 159)  *  *<p>Note: This query currently uses haversine which is a sloppy distance calculation (see above reference). For large  * queries one can expect upwards of 400m error. Vincenty shrinks this to ~40m error but pays a penalty for computing  * using the spheroid  *  * @lucene.experimental */
+comment|/** Implements a simple point distance query on a GeoPoint field. This is based on  * {@link GeoPointInBBoxQuery} and is implemented using a two phase approach. First,  * like {@code GeoPointInBBoxQueryImpl} candidate terms are queried using the numeric ranges based on  * the morton codes of the min and max lat/lon pairs that intersect the boundary of the point-radius  * circle. Terms  * passing this initial filter are then passed to a secondary {@code postFilter} method that verifies whether the  * decoded lat/lon point fall within the specified query distance (see {@link org.apache.lucene.util.SloppyMath#haversin}.  * All morton value comparisons are subject to the same precision tolerance defined in  * {@value org.apache.lucene.spatial.util.GeoUtils#TOLERANCE} and distance comparisons are subject to the accuracy of the  * haversine formula (from R.W. Sinnott, "Virtues of the Haversine", Sky and Telescope, vol. 68, no. 2, 1984, p. 159)  *  *<p>Note: This query currently uses haversine which is a sloppy distance calculation (see above reference). For large  * queries one can expect upwards of 400m error. Vincenty shrinks this to ~40m error but pays a penalty for computing  * using the spheroid  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|GeoPointDistanceQuery
@@ -77,25 +124,28 @@ name|GeoPointDistanceQuery
 extends|extends
 name|GeoPointInBBoxQuery
 block|{
+comment|/** longitude value (in degrees) for query location */
 DECL|field|centerLon
 specifier|protected
 specifier|final
 name|double
 name|centerLon
 decl_stmt|;
+comment|/** latitude value (in degrees) for query location */
 DECL|field|centerLat
 specifier|protected
 specifier|final
 name|double
 name|centerLat
 decl_stmt|;
+comment|/** distance (in meters) from lon, lat center location */
 DECL|field|radiusMeters
 specifier|protected
 specifier|final
 name|double
 name|radiusMeters
 decl_stmt|;
-comment|/** NOTE: radius is in meters. */
+comment|/**    * Constructs a Query for all {@link org.apache.lucene.spatial.document.GeoPointField} types within a    * distance (in meters) from a given point    **/
 DECL|method|GeoPointDistanceQuery
 specifier|public
 name|GeoPointDistanceQuery
@@ -846,6 +896,7 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/** getter method for center longitude value */
 DECL|method|getCenterLon
 specifier|public
 name|double
@@ -858,6 +909,7 @@ operator|.
 name|centerLon
 return|;
 block|}
+comment|/** getter method for center latitude value */
 DECL|method|getCenterLat
 specifier|public
 name|double
@@ -870,6 +922,7 @@ operator|.
 name|centerLat
 return|;
 block|}
+comment|/** getter method for distance value (in meters) */
 DECL|method|getRadiusMeters
 specifier|public
 name|double

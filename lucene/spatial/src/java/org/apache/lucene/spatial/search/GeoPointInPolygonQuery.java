@@ -3,13 +3,15 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.apache.lucene.spatial.search
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|search
 package|;
@@ -79,6 +81,8 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
 name|GeoRect
@@ -91,6 +95,8 @@ operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|util
 operator|.
@@ -105,13 +111,15 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
 name|GeoUtils
 import|;
 end_import
 begin_comment
-comment|/** Implements a simple point in polygon query on a GeoPoint field. This is based on  * {@code GeoPointInBBoxQueryImpl} and is implemented using a  * three phase approach. First, like {@code GeoPointInBBoxQueryImpl}  * candidate terms are queried using a numeric range based on the morton codes  * of the min and max lat/lon pairs. Terms passing this initial filter are passed  * to a secondary filter that verifies whether the decoded lat/lon point falls within  * (or on the boundary) of the bounding box query. Finally, the remaining candidate  * term is passed to the final point in polygon check. All value comparisons are subject  * to the same precision tolerance defined in {@value org.apache.lucene.util.GeoUtils#TOLERANCE}  *  *<p>NOTES:  *    1.  The polygon coordinates need to be in either clockwise or counter-clockwise order.  *    2.  The polygon must not be self-crossing, otherwise the query may result in unexpected behavior  *    3.  All latitude/longitude values must be in decimal degrees.  *    4.  Complex computational geometry (e.g., dateline wrapping, polygon with holes) is not supported  *    5.  For more advanced GeoSpatial indexing and query operations see spatial module  *  * @lucene.experimental  */
+comment|/** Implements a simple point in polygon query on a GeoPoint field. This is based on  * {@code GeoPointInBBoxQueryImpl} and is implemented using a  * three phase approach. First, like {@code GeoPointInBBoxQueryImpl}  * candidate terms are queried using a numeric range based on the morton codes  * of the min and max lat/lon pairs. Terms passing this initial filter are passed  * to a secondary filter that verifies whether the decoded lat/lon point falls within  * (or on the boundary) of the bounding box query. Finally, the remaining candidate  * term is passed to the final point in polygon check. All value comparisons are subject  * to the same precision tolerance defined in {@value org.apache.lucene.spatial.util.GeoUtils#TOLERANCE}  *  *<p>NOTES:  *    1.  The polygon coordinates need to be in either clockwise or counter-clockwise order.  *    2.  The polygon must not be self-crossing, otherwise the query may result in unexpected behavior  *    3.  All latitude/longitude values must be in decimal degrees.  *    4.  Complex computational geometry (e.g., dateline wrapping, polygon with holes) is not supported  *    5.  For more advanced GeoSpatial indexing and query operations see spatial module  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|GeoPointInPolygonQuery
@@ -138,7 +146,7 @@ name|double
 index|[]
 name|y
 decl_stmt|;
-comment|/**    * Constructs a new GeoPolygonQuery that will match encoded {@link org.apache.lucene.document.GeoPointField} terms    * that fall within or on the boundary of the polygon defined by the input parameters.    */
+comment|/**    * Constructs a new GeoPolygonQuery that will match encoded {@link org.apache.lucene.spatial.document.GeoPointField} terms    * that fall within or on the boundary of the polygon defined by the input parameters.    */
 DECL|method|GeoPointInPolygonQuery
 specifier|public
 name|GeoPointInPolygonQuery
@@ -421,6 +429,7 @@ name|maxLat
 argument_list|)
 return|;
 block|}
+comment|/** throw exception if trying to change rewrite method */
 annotation|@
 name|Override
 DECL|method|setRewriteMethod
@@ -598,6 +607,7 @@ return|return
 name|result
 return|;
 block|}
+comment|/** print out this polygon query */
 annotation|@
 name|Override
 DECL|method|toString
@@ -984,7 +994,7 @@ name|maxLat
 argument_list|)
 return|;
 block|}
-comment|/**      * The two-phase query approach. The parent      * {@link org.apache.lucene.search.GeoPointTermsEnum#accept} method is called to match      * encoded terms that fall within the bounding box of the polygon. Those documents that pass the initial      * bounding box filter are then compared to the provided polygon using the      * {@link org.apache.lucene.util.GeoRelationUtils#pointInPolygon} method.      */
+comment|/**      * The two-phase query approach. The parent      * {@link GeoPointTermsEnum#accept} method is called to match      * encoded terms that fall within the bounding box of the polygon. Those documents that pass the initial      * bounding box filter are then compared to the provided polygon using the      * {@link org.apache.lucene.spatial.util.GeoRelationUtils#pointInPolygon} method.      */
 annotation|@
 name|Override
 DECL|method|postFilter

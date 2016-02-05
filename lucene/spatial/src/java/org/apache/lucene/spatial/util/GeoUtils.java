@@ -3,13 +3,15 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.util
+DECL|package|org.apache.lucene.spatial.util
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|util
 package|;
@@ -21,6 +23,108 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BitUtil
+import|;
+end_import
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|max
+import|;
+end_import
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|min
+import|;
+end_import
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|PI
+import|;
+end_import
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|abs
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SloppyMath
+operator|.
+name|asin
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SloppyMath
+operator|.
+name|cos
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SloppyMath
+operator|.
+name|sin
 import|;
 end_import
 begin_import
@@ -53,6 +157,108 @@ operator|.
 name|TO_RADIANS
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+operator|.
+name|MAX_LAT_RADIANS
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+operator|.
+name|MAX_LON_RADIANS
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+operator|.
+name|MIN_LAT_RADIANS
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+operator|.
+name|MIN_LON_RADIANS
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+operator|.
+name|pointFromLonLatBearingGreatCircle
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+operator|.
+name|SEMIMAJOR_AXIS
+import|;
+end_import
 begin_comment
 comment|/**  * Basic reusable geo-spatial utility methods  *  * @lucene.experimental  */
 end_comment
@@ -63,6 +269,7 @@ specifier|final
 class|class
 name|GeoUtils
 block|{
+comment|/** number of bits used for quantizing latitude and longitude values */
 DECL|field|BITS
 specifier|public
 specifier|static
@@ -102,6 +309,7 @@ operator|)
 operator|/
 literal|180.0D
 decl_stmt|;
+comment|/** rounding error for quantized latitude and longitude values */
 DECL|field|TOLERANCE
 specifier|public
 specifier|static
@@ -161,6 +369,7 @@ specifier|private
 name|GeoUtils
 parameter_list|()
 block|{   }
+comment|/**    * encode longitude, latitude geopoint values using morton encoding method    * https://en.wikipedia.org/wiki/Z-order_curve    */
 DECL|method|mortonHash
 specifier|public
 specifier|static
@@ -194,6 +403,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/** decode longitude value from morton encoded geo point */
 DECL|method|mortonUnhashLon
 specifier|public
 specifier|static
@@ -218,6 +428,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/** decode latitude value from morton encoded geo point */
 DECL|method|mortonUnhashLat
 specifier|public
 specifier|static
@@ -342,7 +553,7 @@ operator|+
 name|MIN_LAT_INCL
 return|;
 block|}
-comment|/**    * Compare two position values within a {@link org.apache.lucene.util.GeoUtils#TOLERANCE} factor    */
+comment|/** Compare two position values within a {@link GeoUtils#TOLERANCE} factor */
 DECL|method|compare
 specifier|public
 specifier|static
@@ -367,8 +578,6 @@ operator|-
 name|v2
 decl_stmt|;
 return|return
-name|Math
-operator|.
 name|abs
 argument_list|(
 name|delta
@@ -381,7 +590,7 @@ else|:
 name|delta
 return|;
 block|}
-comment|/**    * Puts longitude in range of -180 to +180.    */
+comment|/** Puts longitude in range of -180 to +180. */
 DECL|method|normalizeLon
 specifier|public
 specifier|static
@@ -459,7 +668,7 @@ name|off
 return|;
 block|}
 block|}
-comment|/**    * Puts latitude in range of -90 to 90.    */
+comment|/** Puts latitude in range of -90 to 90. */
 DECL|method|normalizeLat
 specifier|public
 specifier|static
@@ -490,8 +699,6 @@ block|}
 name|double
 name|off
 init|=
-name|Math
-operator|.
 name|abs
 argument_list|(
 operator|(
@@ -519,6 +726,7 @@ operator|-
 literal|90
 return|;
 block|}
+comment|/** Converts long value to bit string (useful for debugging) */
 DECL|method|geoTermToString
 specifier|public
 specifier|static
@@ -718,8 +926,6 @@ operator|)
 expr_stmt|;
 name|pt
 operator|=
-name|GeoProjectionUtils
-operator|.
 name|pointFromLonLatBearingGreatCircle
 argument_list|(
 name|lon
@@ -793,7 +999,7 @@ return|return
 name|geometry
 return|;
 block|}
-comment|/**    * Compute Bounding Box for a circle using WGS-84 parameters    */
+comment|/** Compute Bounding Box for a circle using WGS-84 parameters */
 DECL|method|circleToBBox
 specifier|public
 specifier|static
@@ -834,8 +1040,6 @@ name|radDistance
 init|=
 name|radiusMeters
 operator|/
-name|GeoProjectionUtils
-operator|.
 name|SEMIMAJOR_AXIS
 decl_stmt|;
 name|double
@@ -862,33 +1066,23 @@ if|if
 condition|(
 name|minLat
 operator|>
-name|GeoProjectionUtils
-operator|.
 name|MIN_LAT_RADIANS
 operator|&&
 name|maxLat
 operator|<
-name|GeoProjectionUtils
-operator|.
 name|MAX_LAT_RADIANS
 condition|)
 block|{
 name|double
 name|deltaLon
 init|=
-name|SloppyMath
-operator|.
 name|asin
 argument_list|(
-name|SloppyMath
-operator|.
 name|sin
 argument_list|(
 name|radDistance
 argument_list|)
 operator|/
-name|SloppyMath
-operator|.
 name|cos
 argument_list|(
 name|radLat
@@ -905,8 +1099,6 @@ if|if
 condition|(
 name|minLon
 operator|<
-name|GeoProjectionUtils
-operator|.
 name|MIN_LON_RADIANS
 condition|)
 block|{
@@ -914,8 +1106,6 @@ name|minLon
 operator|+=
 literal|2d
 operator|*
-name|StrictMath
-operator|.
 name|PI
 expr_stmt|;
 block|}
@@ -929,8 +1119,6 @@ if|if
 condition|(
 name|maxLon
 operator|>
-name|GeoProjectionUtils
-operator|.
 name|MAX_LON_RADIANS
 condition|)
 block|{
@@ -938,8 +1126,6 @@ name|maxLon
 operator|-=
 literal|2d
 operator|*
-name|StrictMath
-operator|.
 name|PI
 expr_stmt|;
 block|}
@@ -949,40 +1135,28 @@ block|{
 comment|// a pole is within the distance
 name|minLat
 operator|=
-name|StrictMath
-operator|.
 name|max
 argument_list|(
 name|minLat
 argument_list|,
-name|GeoProjectionUtils
-operator|.
 name|MIN_LAT_RADIANS
 argument_list|)
 expr_stmt|;
 name|maxLat
 operator|=
-name|StrictMath
-operator|.
 name|min
 argument_list|(
 name|maxLat
 argument_list|,
-name|GeoProjectionUtils
-operator|.
 name|MAX_LAT_RADIANS
 argument_list|)
 expr_stmt|;
 name|minLon
 operator|=
-name|GeoProjectionUtils
-operator|.
 name|MIN_LON_RADIANS
 expr_stmt|;
 name|maxLon
 operator|=
-name|GeoProjectionUtils
-operator|.
 name|MAX_LON_RADIANS
 expr_stmt|;
 block|}
@@ -1008,7 +1182,7 @@ name|maxLat
 argument_list|)
 return|;
 block|}
-comment|/**    * Compute Bounding Box for a polygon using WGS-84 parameters    */
+comment|/** Compute Bounding Box for a polygon using WGS-84 parameters */
 DECL|method|polyToBBox
 specifier|public
 specifier|static
@@ -1154,8 +1328,6 @@ throw|;
 block|}
 name|minLon
 operator|=
-name|Math
-operator|.
 name|min
 argument_list|(
 name|polyLons
@@ -1168,8 +1340,6 @@ argument_list|)
 expr_stmt|;
 name|maxLon
 operator|=
-name|Math
-operator|.
 name|max
 argument_list|(
 name|polyLons
@@ -1182,8 +1352,6 @@ argument_list|)
 expr_stmt|;
 name|minLat
 operator|=
-name|Math
-operator|.
 name|min
 argument_list|(
 name|polyLats
@@ -1196,8 +1364,6 @@ argument_list|)
 expr_stmt|;
 name|maxLat
 operator|=
-name|Math
-operator|.
 name|max
 argument_list|(
 name|polyLats
@@ -1214,8 +1380,6 @@ return|return
 operator|new
 name|GeoRect
 argument_list|(
-name|Math
-operator|.
 name|max
 argument_list|(
 name|minLon
@@ -1225,8 +1389,6 @@ argument_list|,
 name|MIN_LON_INCL
 argument_list|)
 argument_list|,
-name|Math
-operator|.
 name|min
 argument_list|(
 name|maxLon
@@ -1236,8 +1398,6 @@ argument_list|,
 name|MAX_LON_INCL
 argument_list|)
 argument_list|,
-name|Math
-operator|.
 name|max
 argument_list|(
 name|minLat
@@ -1247,8 +1407,6 @@ argument_list|,
 name|MIN_LAT_INCL
 argument_list|)
 argument_list|,
-name|Math
-operator|.
 name|min
 argument_list|(
 name|maxLat
@@ -1260,7 +1418,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * validates latitude value is within standard +/-90 coordinate bounds    */
+comment|/** validates latitude value is within standard +/-90 coordinate bounds */
 DECL|method|isValidLat
 specifier|public
 specifier|static
@@ -1290,7 +1448,7 @@ operator|<=
 name|MAX_LAT_INCL
 return|;
 block|}
-comment|/**    * validates longitude value is within standard +/-180 coordinate bounds    */
+comment|/** validates longitude value is within standard +/-180 coordinate bounds */
 DECL|method|isValidLon
 specifier|public
 specifier|static
