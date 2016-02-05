@@ -234,19 +234,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|mockfile
-operator|.
-name|VirusCheckingFS
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -258,11 +245,6 @@ begin_comment
 comment|/** Simple test methods for IOUtils */
 end_comment
 begin_class
-annotation|@
-name|SuppressFileSystems
-argument_list|(
-literal|"VirusCheckingFS"
-argument_list|)
 DECL|class|TestIOUtils
 specifier|public
 class|class

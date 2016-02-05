@@ -182,9 +182,6 @@ operator|.
 name|TestUtil
 import|;
 end_import
-begin_comment
-comment|//@SuppressFileSystems("VirusCheckingFS")
-end_comment
 begin_class
 DECL|class|TestAddTaxonomy
 specifier|public

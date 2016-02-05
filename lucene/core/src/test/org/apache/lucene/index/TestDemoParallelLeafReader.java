@@ -4886,18 +4886,6 @@ init|=
 name|createTempDir
 argument_list|()
 decl_stmt|;
-name|assumeFalse
-argument_list|(
-literal|"we directly delete files"
-argument_list|,
-name|TestUtil
-operator|.
-name|hasVirusChecker
-argument_list|(
-name|root
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|ReindexingReader
 name|reindexer
 init|=
@@ -5396,18 +5384,6 @@ init|=
 name|createTempDir
 argument_list|()
 decl_stmt|;
-name|assumeFalse
-argument_list|(
-literal|"we directly delete files"
-argument_list|,
-name|TestUtil
-operator|.
-name|hasVirusChecker
-argument_list|(
-name|root
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|int
 name|refreshEveryNumDocs
 init|=
@@ -6002,18 +5978,6 @@ init|=
 name|createTempDir
 argument_list|()
 decl_stmt|;
-name|assumeFalse
-argument_list|(
-literal|"we directly delete files"
-argument_list|,
-name|TestUtil
-operator|.
-name|hasVirusChecker
-argument_list|(
-name|root
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|int
 name|refreshEveryNumDocs
 init|=
@@ -6811,18 +6775,6 @@ init|=
 name|createTempDir
 argument_list|()
 decl_stmt|;
-name|assumeFalse
-argument_list|(
-literal|"we directly delete files"
-argument_list|,
-name|TestUtil
-operator|.
-name|hasVirusChecker
-argument_list|(
-name|tempPath
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|ReindexingReader
 name|reindexer
 init|=
@@ -7256,18 +7208,6 @@ init|=
 name|createTempDir
 argument_list|()
 decl_stmt|;
-name|assumeFalse
-argument_list|(
-literal|"we directly delete files"
-argument_list|,
-name|TestUtil
-operator|.
-name|hasVirusChecker
-argument_list|(
-name|root
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|ReindexingReader
 name|reindexer
 init|=

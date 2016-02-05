@@ -805,7 +805,7 @@ block|{
 name|Directory
 name|directory
 init|=
-name|newDirectory
+name|newMaybeVirusCheckingDirectory
 argument_list|()
 decl_stmt|;
 if|if

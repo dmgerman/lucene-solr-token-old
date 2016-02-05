@@ -119,6 +119,7 @@ name|FilterFileSystemProvider
 block|{
 DECL|field|enabled
 specifier|private
+specifier|volatile
 name|boolean
 name|enabled
 init|=
@@ -170,6 +171,16 @@ name|enabled
 operator|=
 literal|true
 expr_stmt|;
+block|}
+DECL|method|isEnabled
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
 block|}
 DECL|method|disable
 specifier|public
