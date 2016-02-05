@@ -107,7 +107,7 @@ name|LuceneTestCase
 import|;
 end_import
 begin_comment
-comment|/**   * Acts like Windows, where random programs may open the files you just wrote in an unfriendly  * way preventing deletion (e.g. not passing FILE_SHARE_DELETE) or renaming or overwriting etc.  */
+comment|/**   * Acts like a virus checker on Windows, where random programs may open the files you just wrote in an unfriendly  * way preventing deletion (e.g. not passing FILE_SHARE_DELETE) or renaming or overwriting etc.  This is more evil  * than WindowsFS which just prevents deletion of files you still old open.  */
 end_comment
 begin_class
 DECL|class|VirusCheckingFS
@@ -302,7 +302,7 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: rename?  createOutput?  deleteIfExists?
+comment|// TODO: we could be more evil here, e.g. rename, createOutput, deleteIfExists
 block|}
 end_class
 end_unit
