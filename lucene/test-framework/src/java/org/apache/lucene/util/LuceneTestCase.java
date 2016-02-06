@@ -6086,7 +6086,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** Like {@link newDirectory} except randomly the {@link VirusCheckingFS} may be installed */
+comment|/** Like {@link #newDirectory} except randomly the {@link VirusCheckingFS} may be installed */
 DECL|method|newMaybeVirusCheckingDirectory
 specifier|public
 specifier|static
@@ -6447,7 +6447,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** Like {@link newFSDirectory(Path)}, but randomly insert {@link VirusCheckingFS} */
+comment|/** Like {@link #newFSDirectory(Path)}, but randomly insert {@link VirusCheckingFS} */
 DECL|method|newMaybeVirusCheckingFSDirectory
 specifier|public
 specifier|static
