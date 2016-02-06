@@ -206,6 +206,10 @@ name|key
 parameter_list|)
 block|{
 return|return
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|fields
@@ -214,9 +218,7 @@ name|get
 argument_list|(
 name|key
 argument_list|)
-operator|.
-name|toString
-argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|getException

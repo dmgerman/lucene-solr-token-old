@@ -4461,7 +4461,9 @@ name|assertVersionAndHits
 argument_list|(
 name|replica1
 argument_list|,
-name|primaryVersion1
+name|primary
+operator|.
+name|initInfosVersion
 argument_list|,
 literal|50
 argument_list|)
@@ -4470,7 +4472,9 @@ name|assertVersionAndHits
 argument_list|(
 name|replica2
 argument_list|,
-name|primaryVersion1
+name|primary
+operator|.
+name|initInfosVersion
 argument_list|,
 literal|50
 argument_list|)
@@ -4683,7 +4687,7 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"hitCount="
+literal|"wrong searcher version, with hitCount="
 operator|+
 name|hitCount
 argument_list|,
