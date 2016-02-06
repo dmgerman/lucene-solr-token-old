@@ -2416,6 +2416,9 @@ return|return
 literal|null
 return|;
 block|}
+comment|// This is very costly (takes more time to check than it did to index); we do this ourselves in the end instead of each time a replica
+comment|// is restarted:
+comment|// cmd.add("-Dtests.nrtreplication.checkonclose=true");
 name|cmd
 operator|.
 name|add
@@ -2812,11 +2815,6 @@ name|willCrash
 init|=
 literal|false
 decl_stmt|;
-name|boolean
-name|sawExistingSegmentsFile
-init|=
-literal|false
-decl_stmt|;
 while|while
 condition|(
 literal|true
@@ -2905,22 +2903,6 @@ operator|==
 literal|false
 condition|)
 block|{
-if|if
-condition|(
-name|sawExistingSegmentsFile
-condition|)
-block|{
-comment|// This means MDW's virus checker blocked us from deleting segments_N that we must delete in order to start ... just return null
-comment|// and retry again later:
-name|message
-argument_list|(
-literal|"failed to remove segments_N; skipping"
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
 for|for
 control|(
 name|int
@@ -3205,22 +3187,6 @@ argument_list|)
 condition|)
 block|{
 break|break;
-block|}
-elseif|else
-if|if
-condition|(
-name|l
-operator|.
-name|contains
-argument_list|(
-literal|"replica cannot start: existing segments file="
-argument_list|)
-condition|)
-block|{
-name|sawExistingSegmentsFile
-operator|=
-literal|true
-expr_stmt|;
 block|}
 block|}
 specifier|final

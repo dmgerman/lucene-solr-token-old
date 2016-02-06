@@ -599,11 +599,23 @@ DECL|field|replicaTCPPorts
 name|int
 index|[]
 name|replicaTCPPorts
+init|=
+operator|new
+name|int
+index|[
+literal|0
+index|]
 decl_stmt|;
 DECL|field|replicaIDs
 name|int
 index|[]
 name|replicaIDs
+init|=
+operator|new
+name|int
+index|[
+literal|0
+index|]
 decl_stmt|;
 comment|// So we only flip a bit once per file name:
 DECL|field|bitFlipped
@@ -798,6 +810,9 @@ name|searcherFactory
 parameter_list|,
 name|boolean
 name|doFlipBitsDuringCopy
+parameter_list|,
+name|boolean
+name|doCheckIndexOnClose
 parameter_list|)
 throws|throws
 name|IOException
@@ -811,6 +826,8 @@ argument_list|,
 name|random
 argument_list|,
 name|indexPath
+argument_list|,
+name|doCheckIndexOnClose
 argument_list|)
 argument_list|,
 name|id
@@ -912,6 +929,9 @@ name|random
 parameter_list|,
 name|Path
 name|indexPath
+parameter_list|,
+name|boolean
+name|doCheckIndexOnClose
 parameter_list|)
 throws|throws
 name|IOException
@@ -928,6 +948,8 @@ argument_list|,
 name|id
 argument_list|,
 name|indexPath
+argument_list|,
+name|doCheckIndexOnClose
 argument_list|)
 decl_stmt|;
 name|MockAnalyzer
@@ -3662,7 +3684,7 @@ name|hitCount
 init|=
 name|searcher
 operator|.
-name|search
+name|count
 argument_list|(
 operator|new
 name|TermQuery
@@ -3675,11 +3697,7 @@ argument_list|,
 literal|"the"
 argument_list|)
 argument_list|)
-argument_list|,
-literal|1
 argument_list|)
-operator|.
-name|totalHits
 decl_stmt|;
 comment|//message("version=" + version + " searcher=" + searcher);
 name|out
@@ -3696,6 +3714,11 @@ argument_list|(
 name|hitCount
 argument_list|)
 expr_stmt|;
+name|bos
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -3707,6 +3730,11 @@ name|searcher
 argument_list|)
 expr_stmt|;
 block|}
+name|bos
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
 block|}
 continue|continue
 name|outer
@@ -3756,16 +3784,12 @@ name|hitCount
 init|=
 name|searcher
 operator|.
-name|search
+name|count
 argument_list|(
 operator|new
 name|MatchAllDocsQuery
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
-operator|.
-name|totalHits
 decl_stmt|;
 comment|//message("version=" + version + " searcher=" + searcher);
 name|out
@@ -3781,6 +3805,11 @@ name|writeVInt
 argument_list|(
 name|hitCount
 argument_list|)
+expr_stmt|;
+name|bos
+operator|.
+name|flush
+argument_list|()
 expr_stmt|;
 block|}
 finally|finally
@@ -3825,6 +3854,11 @@ name|expectedAtLeastCount
 argument_list|,
 name|out
 argument_list|)
+expr_stmt|;
+name|bos
+operator|.
+name|flush
+argument_list|()
 expr_stmt|;
 block|}
 continue|continue
