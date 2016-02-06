@@ -1121,8 +1121,6 @@ argument_list|(
 literal|"testfieldswriterexceptions"
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|Directory
 name|fsDir
 init|=
@@ -1299,17 +1297,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|indexDir
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class

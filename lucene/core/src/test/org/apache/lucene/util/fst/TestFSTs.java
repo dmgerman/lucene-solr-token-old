@@ -610,7 +610,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|CompiledAutomaton
+name|Automaton
 import|;
 end_import
 begin_import
@@ -625,7 +625,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Automaton
+name|CompiledAutomaton
 import|;
 end_import
 begin_import
@@ -843,13 +843,6 @@ expr_stmt|;
 name|dir
 operator|.
 name|setPreventDoubleWrite
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
 argument_list|(
 literal|false
 argument_list|)

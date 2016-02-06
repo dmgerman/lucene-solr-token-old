@@ -157,7 +157,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Creates an IndexInput for the file with the given name. */
 annotation|@
 name|Override
 DECL|method|openInput
@@ -176,6 +175,11 @@ name|IOException
 block|{
 name|ensureOpen
 argument_list|()
+expr_stmt|;
+name|ensureCanRead
+argument_list|(
+name|name
+argument_list|)
 expr_stmt|;
 name|Path
 name|path
