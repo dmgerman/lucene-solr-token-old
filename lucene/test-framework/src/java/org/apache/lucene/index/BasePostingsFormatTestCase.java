@@ -869,13 +869,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|path
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|isPostingsEnumReuseImplemented
@@ -1036,13 +1029,6 @@ name|dir
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|path
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|checkReuse

@@ -73,7 +73,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IOUtils
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -86,7 +86,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -649,13 +649,6 @@ name|isOpen
 argument_list|)
 expr_stmt|;
 block|}
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|path
-argument_list|)
-expr_stmt|;
 block|}
 comment|// LUCENE-1468
 annotation|@
@@ -679,8 +672,6 @@ argument_list|(
 literal|"testsubdir"
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|Files
 operator|.
 name|createDirectory
@@ -743,17 +734,6 @@ literal|"subdir"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|path
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// LUCENE-1468
 DECL|method|testNotDirectory
@@ -848,13 +828,6 @@ name|fsDir
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|path
-argument_list|)
 expr_stmt|;
 block|}
 block|}

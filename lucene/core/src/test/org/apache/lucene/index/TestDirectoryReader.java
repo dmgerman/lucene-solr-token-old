@@ -5149,13 +5149,6 @@ argument_list|(
 literal|"doesnotexist"
 argument_list|)
 decl_stmt|;
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|tempDir
-argument_list|)
-expr_stmt|;
 name|Directory
 name|dir
 init|=
@@ -7433,13 +7426,6 @@ argument_list|(
 literal|"testIndexExistsOnNonExistentDirectory"
 argument_list|)
 decl_stmt|;
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
-name|tempDir
-argument_list|)
-expr_stmt|;
 name|Directory
 name|dir
 init|=

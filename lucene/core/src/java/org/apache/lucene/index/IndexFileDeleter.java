@@ -242,21 +242,6 @@ name|IndexFileDeleter
 implements|implements
 name|Closeable
 block|{
-comment|/* Files that we tried to delete but failed (likely    * because they are open and we are running on Windows),    * so we will retry them again later: */
-DECL|field|deletable
-specifier|private
-specifier|final
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|deletable
-init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-decl_stmt|;
 comment|/* Reference count for all files in the index.    * Counts how many existing commits reference a file.    **/
 DECL|field|refCounts
 specifier|private
@@ -857,6 +842,17 @@ expr_stmt|;
 comment|// Now delete anything with ref count at 0.  These are
 comment|// presumably abandoned files eg due to crash of
 comment|// IndexWriter.
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|toDelete
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -950,13 +946,20 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
-name|deleteFile
+name|toDelete
+operator|.
+name|add
 argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|deleteFiles
+argument_list|(
+name|toDelete
+argument_list|)
+expr_stmt|;
 comment|// Finally, give policy a chance to remove things on
 comment|// startup:
 name|policy
@@ -1896,11 +1899,17 @@ assert|assert
 name|locked
 argument_list|()
 assert|;
-name|deletable
-operator|.
-name|clear
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|toDelete
+init|=
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|String
 index|[]
 name|files
@@ -2026,7 +2035,7 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
-name|deletable
+name|toDelete
 operator|.
 name|add
 argument_list|(
@@ -2035,8 +2044,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|deletePendingFiles
-argument_list|()
+name|deleteFiles
+argument_list|(
+name|toDelete
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -2046,6 +2057,8 @@ specifier|public
 name|void
 name|close
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// DecRef old files from the last checkpoint, if any:
 assert|assert
@@ -2078,9 +2091,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|deletePendingFiles
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**    * Revisits the {@link IndexDeletionPolicy} by calling its    * {@link IndexDeletionPolicy#onCommit(List)} again with the known commits.    * This is useful in cases where a deletion policy which holds onto index    * commits is used. The application may know that some commits are not held by    * the deletion policy anymore and call    * {@link IndexWriter#deleteUnusedFiles()}, which will attempt to delete the    * unused commits again.    */
 DECL|method|revisitPolicy
@@ -2134,164 +2144,6 @@ expr_stmt|;
 name|deleteCommits
 argument_list|()
 expr_stmt|;
-block|}
-block|}
-DECL|method|deletePendingFiles
-specifier|public
-name|void
-name|deletePendingFiles
-parameter_list|()
-block|{
-assert|assert
-name|locked
-argument_list|()
-assert|;
-comment|// Clone the set because it will change as we iterate:
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|toDelete
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
-name|deletable
-argument_list|)
-decl_stmt|;
-comment|// First pass: delete any segments_N files.  We do these first to be certain stale commit points are removed
-comment|// before we remove any files they reference.  If any delete of segments_N fails, we leave all other files
-comment|// undeleted so index is never in a corrupt state:
-for|for
-control|(
-name|String
-name|fileName
-range|:
-name|toDelete
-control|)
-block|{
-name|RefCount
-name|rc
-init|=
-name|refCounts
-operator|.
-name|get
-argument_list|(
-name|fileName
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|rc
-operator|!=
-literal|null
-operator|&&
-name|rc
-operator|.
-name|count
-operator|>
-literal|0
-condition|)
-block|{
-comment|// LUCENE-5904: should never happen!  This means we are about to pending-delete a referenced index file
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"file \""
-operator|+
-name|fileName
-operator|+
-literal|"\" is in pending delete set but has non-zero refCount="
-operator|+
-name|rc
-operator|.
-name|count
-argument_list|)
-throw|;
-block|}
-elseif|else
-if|if
-condition|(
-name|fileName
-operator|.
-name|startsWith
-argument_list|(
-name|IndexFileNames
-operator|.
-name|SEGMENTS
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|deleteFile
-argument_list|(
-name|fileName
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-if|if
-condition|(
-name|infoStream
-operator|.
-name|isEnabled
-argument_list|(
-literal|"IFD"
-argument_list|)
-condition|)
-block|{
-name|infoStream
-operator|.
-name|message
-argument_list|(
-literal|"IFD"
-argument_list|,
-literal|"failed to remove commit point \""
-operator|+
-name|fileName
-operator|+
-literal|"\"; skipping deletion of all other pending files"
-argument_list|)
-expr_stmt|;
-block|}
-return|return;
-block|}
-block|}
-block|}
-comment|// Only delete other files if we were able to remove the segments_N files; this way we never
-comment|// leave a corrupt commit in the index even in the presense of virus checkers:
-for|for
-control|(
-name|String
-name|fileName
-range|:
-name|toDelete
-control|)
-block|{
-if|if
-condition|(
-name|fileName
-operator|.
-name|startsWith
-argument_list|(
-name|IndexFileNames
-operator|.
-name|SEGMENTS
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-name|deleteFile
-argument_list|(
-name|fileName
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**    * For definition of "check point" see IndexWriter comments:    * "Clarification: Check Points (and commits)".    *    * Writer calls this when it has made a "consistent    * change" to the index, meaning new files are written to    * the index and the in-memory SegmentInfos have been    * modified to point to those files.    *    * This may or may not be a commit (segments_N may or may    * not have been written).    *    * We simply incref the files referenced by the new    * SegmentInfos and decref the files we had previously    * seen (if any).    *    * If this is a commit, we also call the policy to give it    * a chance to remove other commits.  If any commits are    * removed, we decref their files as well.    */
@@ -2636,11 +2488,24 @@ name|String
 argument_list|>
 name|files
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|locked
 argument_list|()
 assert|;
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|toDelete
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
 name|Throwable
 name|firstThrowable
 init|=
@@ -2657,11 +2522,22 @@ control|)
 block|{
 try|try
 block|{
+if|if
+condition|(
 name|decRef
 argument_list|(
 name|file
 argument_list|)
+condition|)
+block|{
+name|toDelete
+operator|.
+name|add
+argument_list|(
+name|file
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2686,8 +2562,10 @@ block|}
 block|}
 try|try
 block|{
-name|deletePendingFiles
-argument_list|()
+name|deleteFiles
+argument_list|(
+name|toDelete
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -2713,7 +2591,7 @@ block|}
 comment|// NOTE: does nothing if firstThrowable is null
 name|IOUtils
 operator|.
-name|reThrowUnchecked
+name|reThrow
 argument_list|(
 name|firstThrowable
 argument_list|)
@@ -2735,6 +2613,17 @@ assert|assert
 name|locked
 argument_list|()
 assert|;
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|toDelete
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 specifier|final
@@ -2746,11 +2635,22 @@ control|)
 block|{
 try|try
 block|{
+if|if
+condition|(
 name|decRef
 argument_list|(
 name|file
 argument_list|)
+condition|)
+block|{
+name|toDelete
+operator|.
+name|add
+argument_list|(
+name|file
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2761,8 +2661,10 @@ block|{       }
 block|}
 try|try
 block|{
-name|deletePendingFiles
-argument_list|()
+name|deleteFiles
+argument_list|(
+name|toDelete
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -2772,9 +2674,10 @@ name|t
 parameter_list|)
 block|{     }
 block|}
+comment|/** Returns true if the file should now be deleted. */
 DECL|method|decRef
 specifier|private
-name|void
+name|boolean
 name|decRef
 parameter_list|(
 name|String
@@ -2829,28 +2732,16 @@ block|}
 block|}
 if|if
 condition|(
-literal|0
-operator|==
 name|rc
 operator|.
 name|DecRef
 argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 comment|// This file is no longer referenced by any past
 comment|// commit points nor by the in-memory SegmentInfos:
-try|try
-block|{
-name|deletable
-operator|.
-name|add
-argument_list|(
-name|fileName
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
 name|refCounts
 operator|.
 name|remove
@@ -2858,7 +2749,15 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 DECL|method|decRef
@@ -2963,23 +2862,6 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-comment|// We should never incRef a file we are already wanting to delete:
-assert|assert
-name|deletable
-operator|.
-name|contains
-argument_list|(
-name|fileName
-argument_list|)
-operator|==
-literal|false
-operator|:
-literal|"file \""
-operator|+
-name|fileName
-operator|+
-literal|"\" cannot be incRef'd: it's already pending delete"
-assert|;
 name|refCounts
 operator|.
 name|put
@@ -3024,6 +2906,17 @@ assert|assert
 name|locked
 argument_list|()
 assert|;
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|toDelete
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 specifier|final
@@ -3085,7 +2978,7 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
-name|deletable
+name|toDelete
 operator|.
 name|add
 argument_list|(
@@ -3094,19 +2987,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|deletePendingFiles
-argument_list|()
+name|deleteFiles
+argument_list|(
+name|toDelete
+argument_list|)
 expr_stmt|;
 block|}
-comment|/** Returns true if the delete succeeded. Otherwise, the fileName is    *  added to the deletable set so we will retry the delete later, and    *  we return false. */
-DECL|method|deleteFile
+DECL|method|deleteFiles
 specifier|private
-name|boolean
-name|deleteFile
+name|void
+name|deleteFiles
 parameter_list|(
+name|Collection
+argument_list|<
 name|String
-name|fileName
+argument_list|>
+name|names
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|locked
@@ -3115,8 +3014,6 @@ assert|;
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|infoStream
@@ -3135,116 +3032,58 @@ literal|"IFD"
 argument_list|,
 literal|"delete \""
 operator|+
-name|fileName
+name|names
 operator|+
 literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
+for|for
+control|(
+name|String
+name|name
+range|:
+name|names
+control|)
+block|{
+try|try
+block|{
 name|directory
 operator|.
 name|deleteFile
 argument_list|(
-name|fileName
+name|name
 argument_list|)
 expr_stmt|;
-name|deletable
-operator|.
-name|remove
-argument_list|(
-name|fileName
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|NoSuchFileException
+decl||
+name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
-comment|// if delete fails
 comment|// IndexWriter should only ask us to delete files it knows it wrote, so if we hit this, something is wrong!
-comment|// LUCENE-6684: we suppress this assert for Windows, since a file could be in a confusing "pending delete" state:
-assert|assert
-name|Constants
-operator|.
-name|WINDOWS
-operator|||
-name|e
-operator|instanceof
-name|NoSuchFileException
-operator|==
-literal|false
-operator|:
-literal|"hit unexpected NoSuchFileException: file="
-operator|+
-name|fileName
-assert|;
-assert|assert
-name|Constants
-operator|.
-name|WINDOWS
-operator|||
-name|e
-operator|instanceof
-name|FileNotFoundException
-operator|==
-literal|false
-operator|:
-literal|"hit unexpected FileNotFoundException: file="
-operator|+
-name|fileName
-assert|;
-comment|// Some operating systems (e.g. Windows) don't
-comment|// permit a file to be deleted while it is opened
-comment|// for read (e.g. by another process or thread). So
-comment|// we assume that when a delete fails it is because
-comment|// the file is open in another process, and queue
-comment|// the file for subsequent deletion.
 if|if
 condition|(
-name|infoStream
+name|Constants
 operator|.
-name|isEnabled
-argument_list|(
-literal|"IFD"
-argument_list|)
+name|WINDOWS
 condition|)
 block|{
-name|infoStream
-operator|.
-name|message
-argument_list|(
-literal|"IFD"
-argument_list|,
-literal|"unable to remove file \""
-operator|+
-name|fileName
-operator|+
-literal|"\": "
-operator|+
-name|e
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|"; Will re-try later."
-argument_list|)
-expr_stmt|;
+comment|// TODO: can we remove this OS-specific hacky logic?  If windows deleteFile is buggy, we should instead contain this workaround in
+comment|// a WindowsFSDirectory ...
+comment|// LUCENE-6684: we suppress this assert for Windows, since a file could be in a confusing "pending delete" state, and falsely
+comment|// return NSFE/FNFE
 block|}
-name|deletable
-operator|.
-name|add
-argument_list|(
-name|fileName
-argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+else|else
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+block|}
 block|}
 block|}
 comment|/**    * Tracks the reference count for a single index file:    */

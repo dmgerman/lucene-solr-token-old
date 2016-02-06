@@ -161,7 +161,7 @@ name|short
 name|MORTON_OFFSET
 init|=
 operator|(
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|BITS
 operator|<<
@@ -230,7 +230,7 @@ name|BitUtil
 operator|.
 name|flipFlop
 argument_list|(
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|mortonHash
 argument_list|(
@@ -614,7 +614,7 @@ name|ghLong
 init|=
 name|fromMorton
 argument_list|(
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|mortonHash
 argument_list|(
@@ -700,7 +700,7 @@ name|short
 name|msf
 init|=
 operator|(
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|BITS
 operator|<<
