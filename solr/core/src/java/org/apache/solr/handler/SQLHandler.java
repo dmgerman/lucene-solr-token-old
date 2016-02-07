@@ -3878,13 +3878,19 @@ operator|<
 literal|0
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|siBuf
+operator|.
+name|append
 argument_list|(
-literal|"order by is required for unlimited select statements."
+literal|"_version_ desc"
 argument_list|)
-throw|;
+expr_stmt|;
+name|fl
+operator|=
+name|fl
+operator|+
+literal|",_version_"
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -3905,9 +3911,7 @@ name|fl
 operator|=
 name|fl
 operator|+
-operator|(
 literal|",score"
-operator|)
 expr_stmt|;
 block|}
 block|}
@@ -4047,13 +4051,6 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|sqlVisitor
-operator|.
-name|hasColumnAliases
-condition|)
-block|{
 return|return
 operator|new
 name|SelectStream
@@ -4065,13 +4062,6 @@ operator|.
 name|columnAliases
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-return|return
-name|tupleStream
-return|;
-block|}
 block|}
 DECL|method|sortsEqual
 specifier|private
