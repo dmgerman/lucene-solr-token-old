@@ -29,6 +29,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -530,6 +539,8 @@ parameter_list|(
 name|CopyJob
 name|newJob
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
