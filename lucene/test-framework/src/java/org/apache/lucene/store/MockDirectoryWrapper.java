@@ -3610,6 +3610,12 @@ condition|)
 block|{
 if|if
 condition|(
+name|getCheckIndexOnClose
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|LuceneTestCase
 operator|.
 name|VERBOSE
@@ -3625,12 +3631,6 @@ literal|"\nNOTE: MockDirectoryWrapper: now crush"
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|getCheckIndexOnClose
-argument_list|()
-condition|)
-block|{
 name|crash
 argument_list|()
 expr_stmt|;
