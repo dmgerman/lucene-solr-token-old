@@ -3583,12 +3583,6 @@ name|cause
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|getCheckIndexOnClose
-argument_list|()
-condition|)
-block|{
 name|randomIOExceptionRate
 operator|=
 literal|0.0
@@ -3599,6 +3593,13 @@ literal|0.0
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|getCheckIndexOnClose
+argument_list|()
+operator|||
+name|assertNoUnreferencedFilesOnClose
+operator|)
+operator|&&
 name|DirectoryReader
 operator|.
 name|indexExists
@@ -3624,6 +3625,12 @@ literal|"\nNOTE: MockDirectoryWrapper: now crush"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|getCheckIndexOnClose
+argument_list|()
+condition|)
+block|{
 name|crash
 argument_list|()
 expr_stmt|;
@@ -3657,6 +3664,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 comment|// TODO: factor this out / share w/ TestIW.assertNoUnreferencedFiles
 if|if
 condition|(
@@ -4041,7 +4049,6 @@ literal|" after="
 operator|+
 name|numDocs2
 assert|;
-block|}
 block|}
 block|}
 name|success
