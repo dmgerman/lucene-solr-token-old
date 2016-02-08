@@ -1925,6 +1925,15 @@ name|c
 operator|.
 name|out
 operator|.
+name|writeVLong
+argument_list|(
+name|primaryGen
+argument_list|)
+expr_stmt|;
+name|c
+operator|.
+name|out
+operator|.
 name|writeInt
 argument_list|(
 name|tcpPort

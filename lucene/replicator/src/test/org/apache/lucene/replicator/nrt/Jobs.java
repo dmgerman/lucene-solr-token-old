@@ -432,6 +432,15 @@ operator|+
 name|t
 argument_list|)
 expr_stmt|;
+name|t
+operator|.
+name|printStackTrace
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -500,9 +509,16 @@ name|node
 operator|.
 name|message
 argument_list|(
-literal|"ignore exception calling cancel: "
-operator|+
+literal|"ignore exception calling cancel"
+argument_list|)
+expr_stmt|;
 name|t
+operator|.
+name|printStackTrace
+argument_list|(
+name|System
+operator|.
+name|out
 argument_list|)
 expr_stmt|;
 block|}
@@ -528,9 +544,16 @@ name|node
 operator|.
 name|message
 argument_list|(
-literal|"ignore exception calling OnceDone: "
-operator|+
+literal|"ignore exception calling OnceDone"
+argument_list|)
+expr_stmt|;
 name|t
+operator|.
+name|printStackTrace
+argument_list|(
+name|System
+operator|.
+name|out
 argument_list|)
 expr_stmt|;
 block|}
