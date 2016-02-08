@@ -1035,6 +1035,14 @@ operator|.
 name|readVLong
 argument_list|()
 decl_stmt|;
+name|long
+name|newPrimaryGen
+init|=
+name|in
+operator|.
+name|readVLong
+argument_list|()
+decl_stmt|;
 name|Thread
 operator|.
 name|currentThread
@@ -1059,10 +1067,20 @@ argument_list|(
 literal|"newNRTPoint primaryTCPPort="
 operator|+
 name|curPrimaryTCPPort
+operator|+
+literal|" version="
+operator|+
+name|version
+operator|+
+literal|" newPrimaryGen="
+operator|+
+name|newPrimaryGen
 argument_list|)
 expr_stmt|;
 name|newNRTPoint
 argument_list|(
+name|newPrimaryGen
+argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
