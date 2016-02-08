@@ -2668,13 +2668,31 @@ name|asyncId
 operator|!=
 literal|null
 condition|)
+block|{
+if|if
+condition|(
+operator|!
 name|runningMap
 operator|.
 name|remove
 argument_list|(
 name|asyncId
 argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Could not find and remove async call ["
+operator|+
+name|asyncId
+operator|+
+literal|"] from the running map."
+argument_list|)
 expr_stmt|;
+block|}
+block|}
 name|messageHandler
 operator|.
 name|unmarkExclusiveTask
@@ -2729,13 +2747,31 @@ name|asyncId
 operator|!=
 literal|null
 condition|)
+block|{
+if|if
+condition|(
+operator|!
 name|runningMap
 operator|.
 name|remove
 argument_list|(
 name|asyncId
 argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Could not find and remove async call ["
+operator|+
+name|asyncId
+operator|+
+literal|"] from the running map."
+argument_list|)
 expr_stmt|;
+block|}
+block|}
 synchronized|synchronized
 init|(
 name|runningTasks
