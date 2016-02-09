@@ -1134,7 +1134,11 @@ name|replicaTCPPorts
 operator|.
 name|length
 operator|+
-literal|" replicas: files="
+literal|" replicas; tcpPort="
+operator|+
+name|tcpPort
+operator|+
+literal|": files="
 operator|+
 name|files
 operator|.
@@ -2638,6 +2642,12 @@ parameter_list|(
 name|Socket
 name|socket
 parameter_list|,
+name|AtomicBoolean
+name|stop
+parameter_list|,
+name|InputStream
+name|is
+parameter_list|,
 name|DataInput
 name|in
 parameter_list|,
@@ -2649,6 +2659,8 @@ name|bos
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|InterruptedException
 block|{
 name|Thread
 operator|.
@@ -2672,6 +2684,41 @@ condition|(
 literal|true
 condition|)
 block|{
+while|while
+condition|(
+literal|true
+condition|)
+block|{
+if|if
+condition|(
+name|is
+operator|.
+name|available
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+break|break;
+block|}
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+block|}
 name|byte
 name|cmd
 decl_stmt|;
@@ -3627,6 +3674,10 @@ case|:
 name|handleIndexing
 argument_list|(
 name|socket
+argument_list|,
+name|stop
+argument_list|,
+name|is
 argument_list|,
 name|in
 argument_list|,
