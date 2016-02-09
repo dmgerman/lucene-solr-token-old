@@ -563,18 +563,6 @@ name|lookupClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|LOCALE
-specifier|protected
-specifier|static
-specifier|final
-name|Locale
-name|LOCALE
-init|=
-name|Locale
-operator|.
-name|getDefault
-argument_list|()
-decl_stmt|;
 DECL|field|PARAM_ENUMS_CONFIG
 specifier|protected
 specifier|static
@@ -813,7 +801,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-name|LOCALE
+name|Locale
+operator|.
+name|ROOT
 argument_list|,
 literal|"/enumsConfig/enum[@name='%s']"
 argument_list|,
@@ -863,7 +853,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-name|LOCALE
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|,
 literal|"No enum configuration found for enum '%s' in %s."
 argument_list|,
@@ -1009,7 +1001,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-name|LOCALE
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|,
 literal|"A value was defined with an no value in enum '%s' in %s."
 argument_list|,
@@ -1050,7 +1044,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-name|LOCALE
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|,
 literal|"A duplicated definition was found for value '%s' in enum '%s' in %s."
 argument_list|,
@@ -1203,7 +1199,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-name|LOCALE
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|,
 literal|"Invalid configuration was defined for enum '%s' in %s."
 argument_list|,
