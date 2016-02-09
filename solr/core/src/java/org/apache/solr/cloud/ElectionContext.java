@@ -2831,6 +2831,13 @@ name|coreName
 argument_list|)
 init|)
 block|{
+if|if
+condition|(
+name|core
+operator|!=
+literal|null
+condition|)
+block|{
 specifier|final
 name|Replica
 operator|.
@@ -2908,6 +2915,7 @@ argument_list|,
 literal|"Leader Initiated Recovery prevented leadership"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
