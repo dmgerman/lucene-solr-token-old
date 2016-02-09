@@ -1112,6 +1112,8 @@ block|,
 literal|"fc"
 block|,
 literal|"dv"
+block|,
+literal|"uif"
 block|}
 argument_list|)
 decl_stmt|;
@@ -1137,6 +1139,8 @@ block|,
 literal|"fcs"
 block|,
 literal|"dv"
+block|,
+literal|"uif"
 block|}
 argument_list|)
 decl_stmt|;
@@ -1703,6 +1707,28 @@ name|method
 operator|.
 name|equals
 argument_list|(
+literal|"uif"
+argument_list|)
+operator|&&
+name|params
+operator|.
+name|get
+argument_list|(
+literal|"facet.prefix"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+continue|continue;
+comment|// it's not supported there
+block|}
+if|if
+condition|(
+name|method
+operator|.
+name|equals
+argument_list|(
 literal|"dv"
 argument_list|)
 condition|)
@@ -1797,7 +1823,7 @@ literal|1
 init|;
 name|i
 operator|<
-name|methods
+name|responses
 operator|.
 name|size
 argument_list|()
