@@ -40,6 +40,19 @@ operator|.
 name|SolrResourceLoader
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|schema
+operator|.
+name|IndexSchema
+import|;
+end_import
 begin_comment
 comment|/**  * A factory for creating a {@link MergePolicy}.  */
 end_comment
@@ -50,6 +63,12 @@ specifier|abstract
 class|class
 name|MergePolicyFactory
 block|{
+DECL|field|schema
+specifier|protected
+specifier|final
+name|IndexSchema
+name|schema
+decl_stmt|;
 DECL|field|args
 specifier|protected
 specifier|final
@@ -71,6 +90,9 @@ name|resourceLoader
 parameter_list|,
 name|MergePolicyFactoryArgs
 name|args
+parameter_list|,
+name|IndexSchema
+name|schema
 parameter_list|)
 block|{
 name|this
@@ -84,6 +106,12 @@ operator|.
 name|args
 operator|=
 name|args
+expr_stmt|;
+name|this
+operator|.
+name|schema
+operator|=
+name|schema
 expr_stmt|;
 block|}
 DECL|method|getMergePolicy

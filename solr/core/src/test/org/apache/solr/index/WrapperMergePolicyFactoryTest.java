@@ -77,6 +77,19 @@ operator|.
 name|SolrResourceLoader
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|schema
+operator|.
+name|IndexSchema
+import|;
+end_import
 begin_comment
 comment|/** Unit tests for {@link WrapperMergePolicyFactory}. */
 end_comment
@@ -121,6 +134,8 @@ argument_list|(
 name|resourceLoader
 argument_list|,
 name|args
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertSame
@@ -169,6 +184,8 @@ argument_list|(
 name|resourceLoader
 argument_list|,
 name|args
+argument_list|,
+literal|null
 argument_list|)
 operator|.
 name|getMergePolicy
@@ -286,6 +303,8 @@ argument_list|(
 name|resourceLoader
 argument_list|,
 name|args
+argument_list|,
+literal|null
 argument_list|)
 block|{
 annotation|@
@@ -378,6 +397,9 @@ name|resourceLoader
 parameter_list|,
 name|MergePolicyFactoryArgs
 name|wrapperArgs
+parameter_list|,
+name|IndexSchema
+name|schema
 parameter_list|)
 block|{
 name|super
@@ -385,6 +407,8 @@ argument_list|(
 name|resourceLoader
 argument_list|,
 name|wrapperArgs
+argument_list|,
+name|schema
 argument_list|)
 expr_stmt|;
 if|if
