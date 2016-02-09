@@ -70,7 +70,7 @@ name|Directory
 import|;
 end_import
 begin_comment
-comment|/** Holds incRef'd file level details for one point-in-time segment infos on the primary node. */
+comment|/** Holds incRef'd file level details for one point-in-time segment infos on the primary node.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|CopyState

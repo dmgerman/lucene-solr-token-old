@@ -256,7 +256,7 @@ begin_comment
 comment|/*  * This just asks IndexWriter to open new NRT reader, in order to publish a new NRT point.  This could be improved, if we separated out 1)  * nrt flush (and incRef the SIS) from 2) opening a new reader, but this is tricky with IW's concurrency, and it would also be hard-ish to share  * IW's reader pool with our searcher manager.  So we do the simpler solution now, but that adds some unecessary latency to NRT refresh on  * replicas since step 2) could otherwise be done concurrently with replicas copying files over.  */
 end_comment
 begin_comment
-comment|/** Node that holds an IndexWriter, indexing documents into its local index. */
+comment|/** Node that holds an IndexWriter, indexing documents into its local index.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|PrimaryNode

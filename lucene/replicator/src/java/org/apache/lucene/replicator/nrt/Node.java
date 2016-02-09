@@ -302,7 +302,7 @@ name|StringHelper
 import|;
 end_import
 begin_comment
-comment|/** Common base class for {@link PrimaryNode} and {@link ReplicaNode}. */
+comment|/** Common base class for {@link PrimaryNode} and {@link ReplicaNode}.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|Node
