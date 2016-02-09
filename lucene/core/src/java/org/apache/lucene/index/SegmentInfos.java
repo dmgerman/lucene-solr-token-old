@@ -838,6 +838,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/** Read the commit from the provided {@link ChecksumIndexInput}. */
 DECL|method|readCommit
 specifier|public
 specifier|static
@@ -2039,6 +2040,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** Write ourselves to the provided {@link IndexOutput} */
 DECL|method|write
 specifier|public
 name|void
@@ -3110,6 +3112,7 @@ operator|.
 name|counter
 expr_stmt|;
 block|}
+comment|/** Set the generation to be used for the next commit */
 DECL|method|setNextWriteGeneration
 specifier|public
 name|void
@@ -3119,13 +3122,31 @@ name|long
 name|generation
 parameter_list|)
 block|{
-assert|assert
+if|if
+condition|(
 name|generation
-operator|>=
+operator|<
 name|this
 operator|.
 name|generation
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"cannot decrease generation to "
+operator|+
+name|generation
+operator|+
+literal|" from current generation "
+operator|+
+name|this
+operator|.
+name|generation
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|generation
@@ -3562,6 +3583,7 @@ return|return
 name|userData
 return|;
 block|}
+comment|/** Sets the commit data. */
 DECL|method|setUserData
 specifier|public
 name|void

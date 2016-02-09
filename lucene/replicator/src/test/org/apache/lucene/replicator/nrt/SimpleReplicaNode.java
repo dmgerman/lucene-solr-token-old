@@ -484,6 +484,10 @@ name|doCheckIndexOnClose
 argument_list|)
 argument_list|,
 name|searcherFactory
+argument_list|,
+name|System
+operator|.
+name|out
 argument_list|)
 expr_stmt|;
 name|this
@@ -892,6 +896,10 @@ name|Node
 operator|.
 name|nodeMessage
 argument_list|(
+name|System
+operator|.
+name|out
+argument_list|,
 name|id
 argument_list|,
 literal|"top: corrupt unknown files"

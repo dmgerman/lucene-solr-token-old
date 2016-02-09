@@ -21,6 +21,7 @@ comment|/** Holds metadata details about a single file that we use to confirm tw
 end_comment
 begin_class
 DECL|class|FileMetaData
+specifier|public
 class|class
 name|FileMetaData
 block|{

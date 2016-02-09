@@ -29,6 +29,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|PrintStream
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -339,6 +348,9 @@ name|forcePrimaryVersion
 parameter_list|,
 name|SearcherFactory
 name|searcherFactory
+parameter_list|,
+name|PrintStream
+name|printStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -353,6 +365,8 @@ name|getDirectory
 argument_list|()
 argument_list|,
 name|searcherFactory
+argument_list|,
+name|printStream
 argument_list|)
 expr_stmt|;
 name|message
@@ -625,9 +639,7 @@ name|t
 operator|.
 name|printStackTrace
 argument_list|(
-name|System
-operator|.
-name|out
+name|printStream
 argument_list|)
 expr_stmt|;
 throw|throw

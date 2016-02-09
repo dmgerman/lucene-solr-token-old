@@ -29,6 +29,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|PrintStream
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -376,6 +385,7 @@ comment|/** Replica node, that pulls index changes from the primary node by copy
 end_comment
 begin_class
 DECL|class|ReplicaNode
+specifier|public
 specifier|abstract
 class|class
 name|ReplicaNode
@@ -488,6 +498,9 @@ name|dir
 parameter_list|,
 name|SearcherFactory
 name|searcherFactory
+parameter_list|,
+name|PrintStream
+name|printStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -499,6 +512,8 @@ argument_list|,
 name|dir
 argument_list|,
 name|searcherFactory
+argument_list|,
+name|printStream
 argument_list|)
 expr_stmt|;
 if|if
@@ -586,9 +601,7 @@ name|t
 operator|.
 name|printStackTrace
 argument_list|(
-name|System
-operator|.
-name|out
+name|printStream
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -1603,9 +1616,7 @@ name|t
 operator|.
 name|printStackTrace
 argument_list|(
-name|System
-operator|.
-name|out
+name|printStream
 argument_list|)
 expr_stmt|;
 block|}
@@ -2597,7 +2608,7 @@ operator|+
 name|nce
 argument_list|)
 expr_stmt|;
-comment|//nce.printStackTrace(System.out);
+comment|//nce.printStackTrace(printStream);
 if|if
 condition|(
 name|state
@@ -2776,9 +2787,7 @@ name|nce
 operator|.
 name|printStackTrace
 argument_list|(
-name|System
-operator|.
-name|out
+name|printStream
 argument_list|)
 expr_stmt|;
 if|if

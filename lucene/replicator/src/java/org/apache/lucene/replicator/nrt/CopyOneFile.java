@@ -113,6 +113,7 @@ comment|/** Copies one file from an incoming DataInput to a dest filename in a l
 end_comment
 begin_class
 DECL|class|CopyOneFile
+specifier|public
 class|class
 name|CopyOneFile
 implements|implements
