@@ -577,6 +577,8 @@ specifier|static
 specifier|final
 name|Integer
 name|NUM_NODES
+init|=
+literal|null
 decl_stmt|;
 DECL|field|failed
 specifier|final
