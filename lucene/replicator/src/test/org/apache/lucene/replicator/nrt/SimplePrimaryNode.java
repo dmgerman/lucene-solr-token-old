@@ -4123,6 +4123,11 @@ literal|" current warming merges"
 argument_list|)
 expr_stmt|;
 comment|// Step through all currently warming segments and try to add this replica if it isn't there already:
+synchronized|synchronized
+init|(
+name|warmingSegments
+init|)
+block|{
 for|for
 control|(
 name|MergePreCopy
@@ -4290,6 +4295,7 @@ argument_list|(
 literal|"successfully started warming"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 break|break;
 default|default:
