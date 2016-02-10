@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.spatial.document
+DECL|package|org.apache.lucene.spatial.geopoint.document
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|document
 package|;
@@ -185,6 +187,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|document
 operator|.

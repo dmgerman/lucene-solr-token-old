@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.spatial.search
+DECL|package|org.apache.lucene.spatial.geopoint.search
 package|package
 name|org
 operator|.
@@ -12,6 +12,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|search
 package|;
@@ -38,6 +40,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|document
 operator|.
@@ -167,7 +171,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**    * Custom {@code org.apache.lucene.spatial.search.GeoPointMultiTermQuery.CellComparator} that computes morton hash    * ranges based on the defined edges of the provided polygon.    */
+comment|/**    * Custom {@code org.apache.lucene.spatial.geopoint.search.GeoPointMultiTermQuery.CellComparator} that computes morton hash    * ranges based on the defined edges of the provided polygon.    */
 DECL|class|GeoPolygonCellComparator
 specifier|private
 specifier|final
@@ -374,7 +378,7 @@ name|maxLat
 argument_list|)
 return|;
 block|}
-comment|/**      * The two-phase query approach. The parent      * {@link org.apache.lucene.spatial.search.GeoPointTermsEnum#accept} method is called to match      * encoded terms that fall within the bounding box of the polygon. Those documents that pass the initial      * bounding box filter are then compared to the provided polygon using the      * {@link org.apache.lucene.spatial.util.GeoRelationUtils#pointInPolygon} method.      */
+comment|/**      * The two-phase query approach. The parent      * {@link org.apache.lucene.spatial.geopoint.search.GeoPointTermsEnum#accept} method is called to match      * encoded terms that fall within the bounding box of the polygon. Those documents that pass the initial      * bounding box filter are then compared to the provided polygon using the      * {@link org.apache.lucene.spatial.util.GeoRelationUtils#pointInPolygon} method.      */
 annotation|@
 name|Override
 DECL|method|postFilter

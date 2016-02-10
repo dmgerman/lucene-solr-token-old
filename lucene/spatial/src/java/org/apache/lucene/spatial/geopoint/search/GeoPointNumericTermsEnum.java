@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.spatial.search
+DECL|package|org.apache.lucene.spatial.geopoint.search
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|search
 package|;
@@ -65,6 +67,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|document
 operator|.
@@ -126,7 +130,7 @@ name|LegacyNumericUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Decomposes a given {@link GeoPointMultiTermQuery} into a set of terms that represent the query criteria using  * {@link org.apache.lucene.spatial.document.GeoPointField.TermEncoding#NUMERIC} method defined by  * {@link org.apache.lucene.analysis.LegacyNumericTokenStream}. The terms are then enumerated by the  * {@link GeoPointTermQueryConstantScoreWrapper} and all docs whose GeoPoint fields match the prefix terms or  * pass the {@link GeoPointMultiTermQuery.CellComparator#postFilter} criteria are returned in the resulting DocIdSet.  *  *  @lucene.experimental  */
+comment|/**  * Decomposes a given {@link GeoPointMultiTermQuery} into a set of terms that represent the query criteria using  * {@link org.apache.lucene.spatial.geopoint.document.GeoPointField.TermEncoding#NUMERIC} method defined by  * {@link org.apache.lucene.analysis.LegacyNumericTokenStream}. The terms are then enumerated by the  * {@link GeoPointTermQueryConstantScoreWrapper} and all docs whose GeoPoint fields match the prefix terms or  * pass the {@link GeoPointMultiTermQuery.CellComparator#postFilter} criteria are returned in the resulting DocIdSet.  *  *  @lucene.experimental  */
 end_comment
 begin_class
 annotation|@

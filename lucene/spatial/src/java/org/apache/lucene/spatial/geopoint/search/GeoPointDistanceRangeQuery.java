@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.spatial.search
+DECL|package|org.apache.lucene.spatial.geopoint.search
 package|package
 name|org
 operator|.
@@ -12,6 +12,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|search
 package|;
@@ -78,6 +80,8 @@ name|lucene
 operator|.
 name|spatial
 operator|.
+name|geopoint
+operator|.
 name|document
 operator|.
 name|GeoPointField
@@ -86,7 +90,7 @@ name|TermEncoding
 import|;
 end_import
 begin_comment
-comment|/** Implements a point distance range query on a GeoPoint field. This is based on  * {@code org.apache.lucene.spatial.search.GeoPointDistanceQuery} and is implemented using a  * {@code org.apache.lucene.search.BooleanClause.MUST_NOT} clause to exclude any points that fall within  * minRadiusMeters from the provided point.  *  *    @lucene.experimental  */
+comment|/** Implements a point distance range query on a GeoPoint field. This is based on  * {@code org.apache.lucene.spatial.geopoint.search.GeoPointDistanceQuery} and is implemented using a  * {@code org.apache.lucene.search.BooleanClause.MUST_NOT} clause to exclude any points that fall within  * minRadiusMeters from the provided point.  *  *    @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|GeoPointDistanceRangeQuery
@@ -103,7 +107,7 @@ specifier|final
 name|double
 name|minRadiusMeters
 decl_stmt|;
-comment|/**    * Constructs a query for all {@link org.apache.lucene.spatial.document.GeoPointField} types within a minimum / maximum    * distance (in meters) range from a given point    */
+comment|/**    * Constructs a query for all {@link org.apache.lucene.spatial.geopoint.document.GeoPointField} types within a minimum / maximum    * distance (in meters) range from a given point    */
 DECL|method|GeoPointDistanceRangeQuery
 specifier|public
 name|GeoPointDistanceRangeQuery

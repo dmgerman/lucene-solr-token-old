@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.spatial.document
+DECL|package|org.apache.lucene.spatial.geopoint.document
 package|package
 name|org
 operator|.
@@ -12,6 +12,8 @@ operator|.
 name|lucene
 operator|.
 name|spatial
+operator|.
+name|geopoint
 operator|.
 name|document
 package|;
@@ -110,7 +112,7 @@ name|GeoEncodingUtils
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * Field that indexes<code>latitude</code><code>longitude</code> decimal-degree values  * for efficient encoding, sorting, and querying. This Geo capability is intended  * to provide a basic and efficient out of the box field type for indexing and  * querying 2 dimensional points in WGS-84 decimal degrees. An example usage is as follows:  *  *<pre class="prettyprint">  *  document.add(new GeoPointField(name, -96.33, 32.66, Field.Store.NO));  *</pre>  *  *<p>To perform simple geospatial queries against a<code>GeoPointField</code>,  * see {@link org.apache.lucene.spatial.search.GeoPointInBBoxQuery}, {@link org.apache.lucene.spatial.search.GeoPointInPolygonQuery},  * or {@link org.apache.lucene.spatial.search.GeoPointDistanceQuery}  *  * NOTE: This indexes only high precision encoded terms which may result in visiting a high number  * of terms for large queries. See LUCENE-6481 for a future improvement.  *  * @lucene.experimental  */
+comment|/**  *<p>  * Field that indexes<code>latitude</code><code>longitude</code> decimal-degree values  * for efficient encoding, sorting, and querying. This Geo capability is intended  * to provide a basic and efficient out of the box field type for indexing and  * querying 2 dimensional points in WGS-84 decimal degrees. An example usage is as follows:  *  *<pre class="prettyprint">  *  document.add(new GeoPointField(name, -96.33, 32.66, Field.Store.NO));  *</pre>  *  *<p>To perform simple geospatial queries against a<code>GeoPointField</code>,  * see {@link org.apache.lucene.spatial.geopoint.search.GeoPointInBBoxQuery}, {@link org.apache.lucene.spatial.geopoint.search.GeoPointInPolygonQuery},  * or {@link org.apache.lucene.spatial.geopoint.search.GeoPointDistanceQuery}  *  * NOTE: This indexes only high precision encoded terms which may result in visiting a high number  * of terms for large queries. See LUCENE-6481 for a future improvement.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|GeoPointField
