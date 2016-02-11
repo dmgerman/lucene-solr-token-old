@@ -178,6 +178,21 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
+name|Nightly
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
 name|SuppressCodecs
 import|;
 end_import
@@ -1196,6 +1211,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Nightly
 DECL|method|testReplicateDeleteAllDocuments
 specifier|public
 name|void
@@ -1542,6 +1559,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Nightly
 DECL|method|testReplicateForceMerge
 specifier|public
 name|void
@@ -1802,6 +1821,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Start up, index 10 docs, replicate, but crash and restart the replica without committing it:
+annotation|@
+name|Nightly
 DECL|method|testReplicaCrashNoCommit
 specifier|public
 name|void
@@ -2040,6 +2061,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Start up, index 10 docs, replicate, commit, crash and restart the replica
+annotation|@
+name|Nightly
 DECL|method|testReplicaCrashWithCommit
 specifier|public
 name|void
@@ -2260,6 +2283,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Start up, index 10 docs, replicate, commit, crash, index more docs, replicate, then restart the replica
+annotation|@
+name|Nightly
 DECL|method|testIndexingWhileReplicaIsDown
 specifier|public
 name|void
@@ -2595,6 +2620,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Crash primary and promote a replica
+annotation|@
+name|Nightly
 DECL|method|testCrashPrimary1
 specifier|public
 name|void
@@ -2814,6 +2841,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Crash primary and then restart it
+annotation|@
+name|Nightly
 DECL|method|testCrashPrimary2
 specifier|public
 name|void
@@ -3181,6 +3210,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Crash primary and then restart it, while a replica node is down, then bring replica node back up and make sure it properly "unforks" itself
+annotation|@
+name|Nightly
 DECL|method|testCrashPrimary3
 specifier|public
 name|void
@@ -3486,6 +3517,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Nightly
 DECL|method|testCrashPrimaryWhileCopying
 specifier|public
 name|void
@@ -4095,6 +4128,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Nightly
 DECL|method|testFullClusterCrash
 specifier|public
 name|void
