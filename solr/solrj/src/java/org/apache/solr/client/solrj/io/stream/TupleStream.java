@@ -26,6 +26,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -99,6 +108,8 @@ specifier|abstract
 class|class
 name|TupleStream
 implements|implements
+name|Closeable
+implements|,
 name|Serializable
 block|{
 DECL|field|serialVersionUID
