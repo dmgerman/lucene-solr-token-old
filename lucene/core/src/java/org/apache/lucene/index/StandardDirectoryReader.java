@@ -129,8 +129,12 @@ operator|.
 name|IOUtils
 import|;
 end_import
+begin_comment
+comment|/** Default implementation of {@link DirectoryReader}. */
+end_comment
 begin_class
 DECL|class|StandardDirectoryReader
+specifier|public
 specifier|final
 class|class
 name|StandardDirectoryReader
@@ -153,6 +157,12 @@ specifier|final
 name|boolean
 name|applyAllDeletes
 decl_stmt|;
+DECL|field|writeAllDeletes
+specifier|private
+specifier|final
+name|boolean
+name|writeAllDeletes
+decl_stmt|;
 comment|/** called only from static open() methods */
 DECL|method|StandardDirectoryReader
 name|StandardDirectoryReader
@@ -172,6 +182,9 @@ name|sis
 parameter_list|,
 name|boolean
 name|applyAllDeletes
+parameter_list|,
+name|boolean
+name|writeAllDeletes
 parameter_list|)
 throws|throws
 name|IOException
@@ -200,6 +213,12 @@ operator|.
 name|applyAllDeletes
 operator|=
 name|applyAllDeletes
+expr_stmt|;
+name|this
+operator|.
+name|writeAllDeletes
+operator|=
+name|writeAllDeletes
 expr_stmt|;
 block|}
 comment|/** called from DirectoryReader.open(...) methods */
@@ -334,6 +353,8 @@ argument_list|,
 name|sis
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|success
@@ -385,6 +406,9 @@ name|infos
 parameter_list|,
 name|boolean
 name|applyAllDeletes
+parameter_list|,
+name|boolean
+name|writeAllDeletes
 parameter_list|)
 throws|throws
 name|IOException
@@ -604,6 +628,8 @@ argument_list|,
 name|segmentInfos
 argument_list|,
 name|applyAllDeletes
+argument_list|,
+name|writeAllDeletes
 argument_list|)
 decl_stmt|;
 name|success
@@ -651,9 +677,9 @@ block|}
 block|}
 block|}
 block|}
-comment|/** This constructor is only used for {@link #doOpenIfChanged(SegmentInfos)} */
+comment|/** This constructor is only used for {@link #doOpenIfChanged(SegmentInfos)}, as well as NRT replication.    *    *  @lucene.internal */
 DECL|method|open
-specifier|private
+specifier|public
 specifier|static
 name|DirectoryReader
 name|open
@@ -1164,6 +1190,8 @@ argument_list|,
 name|infos
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1450,6 +1478,8 @@ operator|.
 name|getReader
 argument_list|(
 name|applyAllDeletes
+argument_list|,
+name|writeAllDeletes
 argument_list|)
 return|;
 block|}
@@ -1501,6 +1531,8 @@ operator|.
 name|getReader
 argument_list|(
 name|applyAllDeletes
+argument_list|,
+name|writeAllDeletes
 argument_list|)
 decl_stmt|;
 comment|// If in fact no changes took place, return null:
@@ -1714,6 +1746,17 @@ name|segmentInfos
 operator|.
 name|getVersion
 argument_list|()
+return|;
+block|}
+comment|/** Return the {@link SegmentInfos} for this reader.    *    * @lucene.internal */
+DECL|method|getSegmentInfos
+specifier|public
+name|SegmentInfos
+name|getSegmentInfos
+parameter_list|()
+block|{
+return|return
+name|segmentInfos
 return|;
 block|}
 annotation|@

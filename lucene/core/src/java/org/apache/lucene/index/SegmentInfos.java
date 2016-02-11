@@ -808,6 +808,7 @@ argument_list|(
 name|segmentFileName
 argument_list|)
 decl_stmt|;
+comment|//System.out.println(Thread.currentThread() + ": SegmentInfos.readCommit " + segmentFileName);
 try|try
 init|(
 name|ChecksumIndexInput
@@ -824,6 +825,38 @@ operator|.
 name|READ
 argument_list|)
 init|)
+block|{
+return|return
+name|readCommit
+argument_list|(
+name|directory
+argument_list|,
+name|input
+argument_list|,
+name|generation
+argument_list|)
+return|;
+block|}
+block|}
+comment|/** Read the commit from the provided {@link ChecksumIndexInput}. */
+DECL|method|readCommit
+specifier|public
+specifier|static
+specifier|final
+name|SegmentInfos
+name|readCommit
+parameter_list|(
+name|Directory
+name|directory
+parameter_list|,
+name|ChecksumIndexInput
+name|input
+parameter_list|,
+name|long
+name|generation
+parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// NOTE: as long as we want to throw indexformattooold (vs corruptindexexception), we need
 comment|// to read the magic ourselves.
@@ -993,6 +1026,7 @@ operator|.
 name|readLong
 argument_list|()
 expr_stmt|;
+comment|//System.out.println("READ sis version=" + infos.version);
 name|infos
 operator|.
 name|counter
@@ -1677,7 +1711,6 @@ return|return
 name|infos
 return|;
 block|}
-block|}
 DECL|field|unsupportedCodecs
 specifier|private
 specifier|static
@@ -1941,11 +1974,92 @@ operator|.
 name|DEFAULT
 argument_list|)
 expr_stmt|;
+name|write
+argument_list|(
+name|directory
+argument_list|,
+name|segnOutput
+argument_list|)
+expr_stmt|;
+name|segnOutput
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|directory
+operator|.
+name|sync
+argument_list|(
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|segmentFileName
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|success
+condition|)
+block|{
+name|pendingCommit
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// We hit an exception above; try to close the file
+comment|// but suppress any exception:
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|segnOutput
+argument_list|)
+expr_stmt|;
+comment|// Try not to leave a truncated segments_N file in
+comment|// the index:
+name|IOUtils
+operator|.
+name|deleteFilesIgnoringExceptions
+argument_list|(
+name|directory
+argument_list|,
+name|segmentFileName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/** Write ourselves to the provided {@link IndexOutput} */
+DECL|method|write
+specifier|public
+name|void
+name|write
+parameter_list|(
+name|Directory
+name|directory
+parameter_list|,
+name|IndexOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|CodecUtil
 operator|.
 name|writeIndexHeader
 argument_list|(
-name|segnOutput
+name|out
 argument_list|,
 literal|"segments"
 argument_list|,
@@ -1960,7 +2074,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|nextGeneration
+name|generation
 argument_list|,
 name|Character
 operator|.
@@ -1968,7 +2082,7 @@ name|MAX_RADIX
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeVInt
 argument_list|(
@@ -1979,7 +2093,7 @@ operator|.
 name|major
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeVInt
 argument_list|(
@@ -1990,7 +2104,7 @@ operator|.
 name|minor
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeVInt
 argument_list|(
@@ -2001,14 +2115,15 @@ operator|.
 name|bugfix
 argument_list|)
 expr_stmt|;
-name|segnOutput
+comment|//System.out.println(Thread.currentThread().getName() + ": now write " + out.getName() + " with version=" + version);
+name|out
 operator|.
 name|writeLong
 argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeInt
 argument_list|(
@@ -2016,7 +2131,7 @@ name|counter
 argument_list|)
 expr_stmt|;
 comment|// write counter
-name|segnOutput
+name|out
 operator|.
 name|writeInt
 argument_list|(
@@ -2079,7 +2194,7 @@ name|segmentVersion
 expr_stmt|;
 block|}
 block|}
-name|segnOutput
+name|out
 operator|.
 name|writeVInt
 argument_list|(
@@ -2088,7 +2203,7 @@ operator|.
 name|major
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeVInt
 argument_list|(
@@ -2097,7 +2212,7 @@ operator|.
 name|minor
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeVInt
 argument_list|(
@@ -2123,7 +2238,7 @@ name|siPerCommit
 operator|.
 name|info
 decl_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeString
 argument_list|(
@@ -2149,7 +2264,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|segnOutput
+name|out
 operator|.
 name|writeByte
 argument_list|(
@@ -2194,7 +2309,7 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-name|segnOutput
+name|out
 operator|.
 name|writeByte
 argument_list|(
@@ -2204,7 +2319,7 @@ operator|)
 literal|1
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeBytes
 argument_list|(
@@ -2216,7 +2331,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-name|segnOutput
+name|out
 operator|.
 name|writeString
 argument_list|(
@@ -2229,7 +2344,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeLong
 argument_list|(
@@ -2284,14 +2399,14 @@ name|delCount
 argument_list|)
 throw|;
 block|}
-name|segnOutput
+name|out
 operator|.
 name|writeInt
 argument_list|(
 name|delCount
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeLong
 argument_list|(
@@ -2301,7 +2416,7 @@ name|getFieldInfosGen
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeLong
 argument_list|(
@@ -2311,7 +2426,7 @@ name|getDocValuesGen
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeSetOfStrings
 argument_list|(
@@ -2338,7 +2453,7 @@ operator|.
 name|getDocValuesUpdatesFiles
 argument_list|()
 decl_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeInt
 argument_list|(
@@ -2367,7 +2482,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|segnOutput
+name|out
 operator|.
 name|writeInt
 argument_list|(
@@ -2377,7 +2492,7 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|segnOutput
+name|out
 operator|.
 name|writeSetOfStrings
 argument_list|(
@@ -2389,7 +2504,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|segnOutput
+name|out
 operator|.
 name|writeMapOfStrings
 argument_list|(
@@ -2400,67 +2515,9 @@ name|CodecUtil
 operator|.
 name|writeFooter
 argument_list|(
-name|segnOutput
+name|out
 argument_list|)
 expr_stmt|;
-name|segnOutput
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|directory
-operator|.
-name|sync
-argument_list|(
-name|Collections
-operator|.
-name|singleton
-argument_list|(
-name|segmentFileName
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|success
-operator|=
-literal|true
-expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|success
-condition|)
-block|{
-name|pendingCommit
-operator|=
-literal|true
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// We hit an exception above; try to close the file
-comment|// but suppress any exception:
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
-argument_list|(
-name|segnOutput
-argument_list|)
-expr_stmt|;
-comment|// Try not to leave a truncated segments_N file in
-comment|// the index:
-name|IOUtils
-operator|.
-name|deleteFilesIgnoringExceptions
-argument_list|(
-name|directory
-argument_list|,
-name|segmentFileName
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 comment|/**    * Returns a copy of this instance, also copying each    * SegmentInfo.    */
 annotation|@
@@ -3001,8 +3058,9 @@ throws|throws
 name|IOException
 function_decl|;
 block|}
-comment|// Carry over generation numbers from another SegmentInfos
+comment|/** Carry over generation numbers from another SegmentInfos    *    * @lucene.internal */
 DECL|method|updateGeneration
+specifier|public
 name|void
 name|updateGeneration
 parameter_list|(
@@ -3054,7 +3112,9 @@ operator|.
 name|counter
 expr_stmt|;
 block|}
+comment|/** Set the generation to be used for the next commit */
 DECL|method|setNextWriteGeneration
+specifier|public
 name|void
 name|setNextWriteGeneration
 parameter_list|(
@@ -3062,13 +3122,31 @@ name|long
 name|generation
 parameter_list|)
 block|{
-assert|assert
+if|if
+condition|(
 name|generation
-operator|>=
+operator|<
 name|this
 operator|.
 name|generation
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"cannot decrease generation to "
+operator|+
+name|generation
+operator|+
+literal|" from current generation "
+operator|+
+name|this
+operator|.
+name|generation
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|generation
@@ -3372,6 +3450,7 @@ return|;
 block|}
 comment|/** Writes and syncs to the Directory dir, taking care to    *  remove the segments file on exception    *<p>    *  Note: {@link #changed()} should be called prior to this    *  method if changes have been made to this {@link SegmentInfos} instance    *</p>      **/
 DECL|method|commit
+specifier|public
 specifier|final
 name|void
 name|commit
@@ -3504,7 +3583,9 @@ return|return
 name|userData
 return|;
 block|}
+comment|/** Sets the commit data. */
 DECL|method|setUserData
+specifier|public
 name|void
 name|setUserData
 parameter_list|(
@@ -3515,6 +3596,9 @@ argument_list|,
 name|String
 argument_list|>
 name|data
+parameter_list|,
+name|boolean
+name|doIncrementVersion
 parameter_list|)
 block|{
 if|if
@@ -3544,9 +3628,15 @@ operator|=
 name|data
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|doIncrementVersion
+condition|)
+block|{
 name|changed
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/** Replaces all segments in this instance, but keeps    *  generation, version, counter so that future commits    *  remain write once.    */
 DECL|method|replace
@@ -3629,6 +3719,45 @@ parameter_list|()
 block|{
 name|version
 operator|++
+expr_stmt|;
+comment|//System.out.println(Thread.currentThread().getName() + ": SIS.change to version=" + version);
+comment|//new Throwable().printStackTrace(System.out);
+block|}
+DECL|method|setVersion
+name|void
+name|setVersion
+parameter_list|(
+name|long
+name|newVersion
+parameter_list|)
+block|{
+if|if
+condition|(
+name|newVersion
+operator|<
+name|version
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"newVersion (="
+operator|+
+name|newVersion
+operator|+
+literal|") cannot be less than current version (="
+operator|+
+name|version
+operator|+
+literal|")"
+argument_list|)
+throw|;
+block|}
+comment|//System.out.println(Thread.currentThread().getName() + ": SIS.setVersion change from " + version + " to " + newVersion);
+name|version
+operator|=
+name|newVersion
 expr_stmt|;
 block|}
 comment|/** applies all changes caused by committing a merge to this SegmentInfos */

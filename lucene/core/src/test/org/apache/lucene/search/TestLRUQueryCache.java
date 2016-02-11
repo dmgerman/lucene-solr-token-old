@@ -682,6 +682,8 @@ name|w
 argument_list|,
 name|applyDeletes
 argument_list|,
+literal|false
+argument_list|,
 name|searcherFactory
 argument_list|)
 decl_stmt|;

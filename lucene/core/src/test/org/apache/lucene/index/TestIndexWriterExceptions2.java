@@ -1660,6 +1660,8 @@ argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|TestUtil
