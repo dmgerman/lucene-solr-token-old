@@ -1362,7 +1362,7 @@ name|'textwrap'
 op|'.'
 name|'dedent'
 op|'('
-string|"'''\n    Example usage for a Release Manager:\n    python3.2 -u buildAndPushRelease.py --push-remote mikemccand --sign 6E68DA61 --rc-num 1 --version 4.7.0 /path/to/lucene_solr_4_7\n  '''"
+string|"'''\n    Example usage for a Release Manager:\n    python3.2 -u buildAndPushRelease.py --push-remote mikemccand --sign 6E68DA61 --rc-num 1 /path/to/lucene_solr_4_7\n  '''"
 op|')'
 newline|'\n'
 name|'description'
