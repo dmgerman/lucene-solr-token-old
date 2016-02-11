@@ -386,7 +386,7 @@ op|'('
 op|')'
 newline|'\n'
 name|'if'
-string|"'Your branch is up-to-date'"
+string|"'nothing to commit, working directory clean'"
 name|'not'
 name|'in'
 name|'status'
@@ -396,23 +396,7 @@ indent|'    '
 name|'raise'
 name|'RuntimeError'
 op|'('
-string|"'git clone has local changes:\\n\\n%s'"
-op|'%'
-name|'status'
-op|')'
-newline|'\n'
-dedent|''
-name|'if'
-string|"'Untracked files'"
-name|'in'
-name|'status'
-op|':'
-newline|'\n'
-indent|'    '
-name|'raise'
-name|'RuntimeError'
-op|'('
-string|"'there are untracked files; please run git clean -xfd:\\n\\n%s'"
+string|"'git clone is dirty:\\n\\n%s'"
 op|'%'
 name|'status'
 op|')'
