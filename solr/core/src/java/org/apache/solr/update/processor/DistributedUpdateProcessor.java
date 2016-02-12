@@ -2021,6 +2021,12 @@ condition|(
 name|zkEnabled
 condition|)
 block|{
+assert|assert
+name|TestInjection
+operator|.
+name|injectUpdateRandomPause
+argument_list|()
+assert|;
 if|if
 condition|(
 operator|(
