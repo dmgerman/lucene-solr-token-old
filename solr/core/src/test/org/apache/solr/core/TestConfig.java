@@ -754,6 +754,8 @@ operator|.
 name|infoStream
 argument_list|)
 expr_stmt|;
+comment|// mergePolicyInfo and mergePolicyFactoryInfo are mutually exclusive
+comment|// so ++ count them only once for both instead of individually
 operator|++
 name|numDefaultsTested
 expr_stmt|;
@@ -767,6 +769,15 @@ argument_list|,
 name|sic
 operator|.
 name|mergePolicyInfo
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"default mergePolicyFactoryInfo"
+argument_list|,
+name|sic
+operator|.
+name|mergePolicyFactoryInfo
 argument_list|)
 expr_stmt|;
 operator|++

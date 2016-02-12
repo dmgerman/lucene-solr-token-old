@@ -1254,7 +1254,7 @@ name|m
 operator|.
 name|put
 argument_list|(
-literal|"mergePolicy"
+literal|"mergePolicyFactory"
 argument_list|,
 name|mergePolicyFactoryInfo
 operator|.
