@@ -123,7 +123,7 @@ name|SHIFT_START_LONG
 init|=
 literal|0x20
 decl_stmt|;
-comment|/**    * The maximum term length (used for<code>byte[]</code> buffer size)    * for encoding<code>long</code> values.    * @see #longToPrefixCodedBytes    */
+comment|/**    * The maximum term length (used for<code>byte[]</code> buffer size)    * for encoding<code>long</code> values.    * @see #longToPrefixCoded    */
 DECL|field|BUF_SIZE_LONG
 specifier|public
 specifier|static
@@ -147,7 +147,7 @@ name|SHIFT_START_INT
 init|=
 literal|0x60
 decl_stmt|;
-comment|/**    * The maximum term length (used for<code>byte[]</code> buffer size)    * for encoding<code>int</code> values.    * @see #intToPrefixCodedBytes    */
+comment|/**    * The maximum term length (used for<code>byte[]</code> buffer size)    * for encoding<code>int</code> values.    * @see #intToPrefixCoded    */
 DECL|field|BUF_SIZE_INT
 specifier|public
 specifier|static
@@ -167,66 +167,6 @@ specifier|public
 specifier|static
 name|void
 name|longToPrefixCoded
-parameter_list|(
-specifier|final
-name|long
-name|val
-parameter_list|,
-specifier|final
-name|int
-name|shift
-parameter_list|,
-specifier|final
-name|BytesRefBuilder
-name|bytes
-parameter_list|)
-block|{
-name|longToPrefixCodedBytes
-argument_list|(
-name|val
-argument_list|,
-name|shift
-argument_list|,
-name|bytes
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**    * Returns prefix coded bits after reducing the precision by<code>shift</code> bits.    * This is method is used by {@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    * After encoding, {@code bytes.offset} will always be 0.    * @param val the numeric value    * @param shift how many bits to strip from the right    * @param bytes will contain the encoded value    */
-DECL|method|intToPrefixCoded
-specifier|public
-specifier|static
-name|void
-name|intToPrefixCoded
-parameter_list|(
-specifier|final
-name|int
-name|val
-parameter_list|,
-specifier|final
-name|int
-name|shift
-parameter_list|,
-specifier|final
-name|BytesRefBuilder
-name|bytes
-parameter_list|)
-block|{
-name|intToPrefixCodedBytes
-argument_list|(
-name|val
-argument_list|,
-name|shift
-argument_list|,
-name|bytes
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**    * Returns prefix coded bits after reducing the precision by<code>shift</code> bits.    * This is method is used by {@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    * After encoding, {@code bytes.offset} will always be 0.    * @param val the numeric value    * @param shift how many bits to strip from the right    * @param bytes will contain the encoded value    */
-DECL|method|longToPrefixCodedBytes
-specifier|public
-specifier|static
-name|void
-name|longToPrefixCodedBytes
 parameter_list|(
 specifier|final
 name|long
@@ -360,12 +300,12 @@ literal|7
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Returns prefix coded bits after reducing the precision by<code>shift</code> bits.    * This is method is used by {@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    * After encoding, {@code bytes.offset} will always be 0.     * @param val the numeric value    * @param shift how many bits to strip from the right    * @param bytes will contain the encoded value    */
-DECL|method|intToPrefixCodedBytes
+comment|/**    * Returns prefix coded bits after reducing the precision by<code>shift</code> bits.    * This is method is used by {@link org.apache.lucene.analysis.LegacyNumericTokenStream}.    * After encoding, {@code bytes.offset} will always be 0.    * @param val the numeric value    * @param shift how many bits to strip from the right    * @param bytes will contain the encoded value    */
+DECL|method|intToPrefixCoded
 specifier|public
 specifier|static
 name|void
-name|intToPrefixCodedBytes
+name|intToPrefixCoded
 parameter_list|(
 specifier|final
 name|int
@@ -602,7 +542,7 @@ return|return
 name|shift
 return|;
 block|}
-comment|/**    * Returns a long from prefixCoded bytes.    * Rightmost bits will be zero for lower precision codes.    * This method can be used to decode a term's value.    * @throws NumberFormatException if the supplied {@link BytesRef} is    * not correctly prefix encoded.    * @see #longToPrefixCodedBytes    */
+comment|/**    * Returns a long from prefixCoded bytes.    * Rightmost bits will be zero for lower precision codes.    * This method can be used to decode a term's value.    * @throws NumberFormatException if the supplied {@link BytesRef} is    * not correctly prefix encoded.    * @see #longToPrefixCoded    */
 DECL|method|prefixCodedToLong
 specifier|public
 specifier|static
@@ -717,7 +657,7 @@ operator|^
 literal|0x8000000000000000L
 return|;
 block|}
-comment|/**    * Returns an int from prefixCoded bytes.    * Rightmost bits will be zero for lower precision codes.    * This method can be used to decode a term's value.    * @throws NumberFormatException if the supplied {@link BytesRef} is    * not correctly prefix encoded.    * @see #intToPrefixCodedBytes    */
+comment|/**    * Returns an int from prefixCoded bytes.    * Rightmost bits will be zero for lower precision codes.    * This method can be used to decode a term's value.    * @throws NumberFormatException if the supplied {@link BytesRef} is    * not correctly prefix encoded.    * @see #intToPrefixCoded    */
 DECL|method|prefixCodedToInt
 specifier|public
 specifier|static
@@ -1451,7 +1391,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|longToPrefixCodedBytes
+name|longToPrefixCoded
 argument_list|(
 name|min
 argument_list|,
@@ -1460,7 +1400,7 @@ argument_list|,
 name|minBytes
 argument_list|)
 expr_stmt|;
-name|longToPrefixCodedBytes
+name|longToPrefixCoded
 argument_list|(
 name|max
 argument_list|,
@@ -1544,7 +1484,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|intToPrefixCodedBytes
+name|intToPrefixCoded
 argument_list|(
 name|min
 argument_list|,
@@ -1553,7 +1493,7 @@ argument_list|,
 name|minBytes
 argument_list|)
 expr_stmt|;
-name|intToPrefixCodedBytes
+name|intToPrefixCoded
 argument_list|(
 name|max
 argument_list|,
