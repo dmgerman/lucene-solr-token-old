@@ -1311,6 +1311,12 @@ name|CallInfo
 name|callInfo
 parameter_list|)
 block|{
+assert|assert
+name|TestInjection
+operator|.
+name|injectRandomDelayInCoreCreation
+argument_list|()
+assert|;
 name|SolrParams
 name|params
 init|=
