@@ -1735,8 +1735,7 @@ name|WatchedEvent
 name|event
 parameter_list|)
 block|{
-comment|// session events are not change events,
-comment|// and do not remove the watcher
+comment|// session events are not change events, and do not remove the watcher
 if|if
 condition|(
 name|EventType
@@ -2086,8 +2085,7 @@ name|WatchedEvent
 name|event
 parameter_list|)
 block|{
-comment|// session events are not change events,
-comment|// and do not remove the watcher
+comment|// session events are not change events, and do not remove the watcher
 if|if
 condition|(
 name|EventType
@@ -4442,6 +4440,24 @@ name|WatchedEvent
 name|event
 parameter_list|)
 block|{
+comment|// session events are not change events, and do not remove the watcher
+if|if
+condition|(
+name|EventType
+operator|.
+name|None
+operator|.
+name|equals
+argument_list|(
+name|event
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 operator|!
@@ -4458,30 +4474,11 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Uninteresting collection [{}]"
+literal|"Uninteresting collection {}"
 argument_list|,
 name|coll
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
-comment|// session events are not change events,
-comment|// and do not remove the watcher
-if|if
-condition|(
-name|EventType
-operator|.
-name|None
-operator|.
-name|equals
-argument_list|(
-name|event
-operator|.
-name|getType
-argument_list|()
-argument_list|)
-condition|)
-block|{
 return|return;
 block|}
 name|int
@@ -4696,8 +4693,7 @@ name|WatchedEvent
 name|event
 parameter_list|)
 block|{
-comment|// session events are not change events,
-comment|// and do not remove the watcher
+comment|// session events are not change events, and do not remove the watcher
 if|if
 condition|(
 name|EventType
@@ -4908,8 +4904,7 @@ name|WatchedEvent
 name|event
 parameter_list|)
 block|{
-comment|// session events are not change events,
-comment|// and do not remove the watcher
+comment|// session events are not change events, and do not remove the watcher
 if|if
 condition|(
 name|EventType
@@ -5066,8 +5061,7 @@ name|WatchedEvent
 name|event
 parameter_list|)
 block|{
-comment|// session events are not change events,
-comment|// and do not remove the watcher
+comment|// session events are not change events, and do not remove the watcher
 if|if
 condition|(
 name|EventType

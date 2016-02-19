@@ -1877,8 +1877,7 @@ name|WatchedEvent
 name|event
 parameter_list|)
 block|{
-comment|// session events are not change events,
-comment|// and do not remove the watcher
+comment|// session events are not change events, and do not remove the watcher
 if|if
 condition|(
 name|EventType
