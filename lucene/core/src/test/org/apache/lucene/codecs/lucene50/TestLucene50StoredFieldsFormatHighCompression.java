@@ -423,7 +423,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|Lucene60Codec
@@ -431,21 +438,17 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|NullPointerException
-name|expected
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|Lucene50StoredFieldsFormat
@@ -453,20 +456,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|expected
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 block|}
 end_class

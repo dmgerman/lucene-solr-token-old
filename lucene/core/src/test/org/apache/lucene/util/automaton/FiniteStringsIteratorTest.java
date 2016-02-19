@@ -24,6 +24,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -970,7 +983,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|Automaton
 name|a
@@ -1002,20 +1022,9 @@ argument_list|(
 name|iterator
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 DECL|method|testSingletonNoLimit
 specifier|public

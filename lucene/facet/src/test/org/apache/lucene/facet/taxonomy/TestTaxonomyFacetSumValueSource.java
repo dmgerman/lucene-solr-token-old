@@ -1638,7 +1638,14 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|facets
 operator|.
@@ -1647,21 +1654,17 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exc"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|facets
 operator|.
@@ -1672,20 +1675,9 @@ argument_list|,
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exc"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|IOUtils
 operator|.
 name|close

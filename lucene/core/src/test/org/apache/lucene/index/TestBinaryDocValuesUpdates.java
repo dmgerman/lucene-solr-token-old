@@ -3270,7 +3270,14 @@ name|doc
 argument_list|)
 expr_stmt|;
 comment|// in-memory document
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|writer
 operator|.
@@ -3292,21 +3299,17 @@ literal|17L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have allowed creating new fields through update"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|writer
 operator|.
@@ -3328,20 +3331,9 @@ literal|17L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have allowed updating an existing field to binary-dv"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
 name|writer
 operator|.
 name|close

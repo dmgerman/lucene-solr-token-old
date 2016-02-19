@@ -550,7 +550,14 @@ range|:
 name|dirs
 control|)
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|LockObtainFailedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|other
 operator|.
@@ -559,20 +566,9 @@ argument_list|(
 name|lockname
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didnt get exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|LockObtainFailedException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
 block|}
 name|lock
 operator|.
@@ -794,7 +790,14 @@ literal|"afile"
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IOException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|SimpleFSDirectory
@@ -807,20 +810,9 @@ literal|"afile"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|nsde
-parameter_list|)
-block|{
-comment|// Expected
-block|}
 block|}
 finally|finally
 block|{

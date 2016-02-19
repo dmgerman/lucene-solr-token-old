@@ -517,7 +517,14 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|replicator
 operator|.
@@ -545,20 +552,9 @@ operator|.
 name|fileName
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have failed on AlreadyClosedException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 annotation|@
 name|Test
@@ -575,7 +571,14 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|replicator
 operator|.
@@ -587,20 +590,9 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have failed on AlreadyClosedException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 annotation|@
 name|Test
@@ -617,7 +609,14 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|replicator
 operator|.
@@ -626,20 +625,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have failed on AlreadyClosedException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 annotation|@
 name|Test
@@ -797,7 +785,15 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+comment|// should fail to publish an older revision
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|replicator
 operator|.
@@ -806,20 +802,9 @@ argument_list|(
 name|old
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have failed to publish an older revision"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|assertEquals
 argument_list|(
 literal|1
@@ -957,7 +942,15 @@ literal|50
 argument_list|)
 expr_stmt|;
 comment|// sufficient for expiration
-try|try
+comment|// should fail to obtain a file for an expired session
+name|expectThrows
+argument_list|(
+name|SessionExpiredException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|replicator
 operator|.
@@ -1001,20 +994,9 @@ operator|.
 name|fileName
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have failed to obtain a file for an expired session"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SessionExpiredException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 annotation|@
 name|Test

@@ -58,7 +58,14 @@ argument_list|(
 literal|"Mapping"
 argument_list|)
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|f
 operator|.
@@ -67,18 +74,9 @@ argument_list|(
 literal|"\\"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"escape character cannot be alone."
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|expected
-parameter_list|)
-block|{}
 name|assertEquals
 argument_list|(
 literal|"unexpected escaped characters"
@@ -121,7 +119,14 @@ literal|"\\u0041\\u0042"
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|f
 operator|.
@@ -130,19 +135,18 @@ argument_list|(
 literal|"\\u000"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"invalid length check."
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|expected
-parameter_list|)
-block|{}
-try|try
+comment|// invalid hex number
+name|expectThrows
+argument_list|(
+name|NumberFormatException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|f
 operator|.
@@ -151,18 +155,9 @@ argument_list|(
 literal|"\\u123x"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"invalid hex number check."
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|expected
-parameter_list|)
-block|{}
 block|}
 comment|/** Test that bogus arguments result in exception */
 DECL|method|testBogusArguments
@@ -173,7 +168,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|charFilterFactory
 argument_list|(
@@ -184,16 +189,9 @@ argument_list|,
 literal|"bogusValue"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|expected
-parameter_list|)
-block|{
+argument_list|)
+decl_stmt|;
 name|assertTrue
 argument_list|(
 name|expected
@@ -207,7 +205,6 @@ literal|"Unknown parameters"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

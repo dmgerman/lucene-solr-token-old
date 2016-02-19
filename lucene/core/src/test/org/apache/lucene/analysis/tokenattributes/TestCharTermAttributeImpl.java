@@ -1449,7 +1449,14 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IndexOutOfBoundsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|t
 operator|.
@@ -1465,19 +1472,17 @@ argument_list|,
 literal|5
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw IndexOutOfBoundsException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IndexOutOfBoundsException
-name|iobe
-parameter_list|)
-block|{     }
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|t
 operator|.
@@ -1493,18 +1498,9 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw IndexOutOfBoundsException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexOutOfBoundsException
-name|iobe
-parameter_list|)
-block|{     }
 name|t
 operator|.
 name|append
@@ -1950,7 +1946,14 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IndexOutOfBoundsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|t
 operator|.
@@ -1960,19 +1963,17 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw IndexOutOfBoundsException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IndexOutOfBoundsException
-name|iobe
-parameter_list|)
-block|{     }
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|t
 operator|.
@@ -1981,19 +1982,17 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw IndexOutOfBoundsException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IndexOutOfBoundsException
-name|iobe
-parameter_list|)
-block|{     }
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|t
 operator|.
@@ -2004,19 +2003,17 @@ argument_list|,
 literal|5
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw IndexOutOfBoundsException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IndexOutOfBoundsException
-name|iobe
-parameter_list|)
-block|{     }
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|t
 operator|.
@@ -2027,18 +2024,9 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw IndexOutOfBoundsException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexOutOfBoundsException
-name|iobe
-parameter_list|)
-block|{     }
 block|}
 DECL|method|assertCloneIsEqual
 specifier|public

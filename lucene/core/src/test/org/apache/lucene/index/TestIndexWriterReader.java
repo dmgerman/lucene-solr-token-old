@@ -4343,7 +4343,14 @@ operator|.
 name|totalHits
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|DirectoryReader
 operator|.
@@ -4352,20 +4359,9 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"failed to hit AlreadyClosedException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|ace
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|r
 operator|.
 name|close
@@ -6774,7 +6770,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|FakeIOException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|writer
 operator|.
@@ -6785,29 +6788,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|FakeIOException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"hit expected fake IOE"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 name|writer
 operator|.

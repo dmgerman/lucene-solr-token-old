@@ -2017,7 +2017,14 @@ operator|.
 name|setDoFail
 argument_list|()
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IOException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|writer
 operator|.
@@ -2038,24 +2045,22 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{     }
 name|failure
 operator|.
 name|clearDoFail
 argument_list|()
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|writer
 operator|.
@@ -2075,13 +2080,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|ace
-parameter_list|)
-block|{
-comment|// OK: abort closes the writer
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|writer
@@ -2092,7 +2092,6 @@ name|isClosed
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|dir
 operator|.
 name|close

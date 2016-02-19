@@ -978,7 +978,14 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// this should fail
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|assertNotNull
 argument_list|(
@@ -994,20 +1001,9 @@ name|conf
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit AlreadySetException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|ise
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|dir
 operator|.
 name|close
@@ -1435,7 +1431,14 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1444,18 +1447,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
+block|}
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
 comment|// Test MergeScheduler
 name|assertEquals
 argument_list|(
@@ -1496,7 +1490,14 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1505,18 +1506,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
+block|}
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
 comment|// Test Similarity:
 comment|// we shouldnt assert what the default is, just that it's not null.
 name|assertTrue
@@ -1556,7 +1548,14 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1565,18 +1564,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
+block|}
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
 comment|// Test IndexingChain
 name|assertTrue
 argument_list|(
@@ -1590,7 +1580,14 @@ name|getIndexingChain
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1599,21 +1596,17 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to set maxBufferedDeleteTerms to 0"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// this is expected
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1622,21 +1615,17 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to set maxBufferedDocs to 1"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// this is expected
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 comment|// Disable both MAX_BUF_DOCS and RAM_SIZE_MB
 name|conf
@@ -1664,20 +1653,9 @@ operator|.
 name|DISABLE_AUTO_FLUSH
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to disable maxBufferedDocs when ramBufferSizeMB is disabled as well"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// this is expected
-block|}
 name|conf
 operator|.
 name|setRAMBufferSizeMB
@@ -1696,7 +1674,14 @@ operator|.
 name|DEFAULT_MAX_BUFFERED_DOCS
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1707,21 +1692,17 @@ operator|.
 name|DISABLE_AUTO_FLUSH
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to disable ramBufferSizeMB when maxBufferedDocs is disabled as well"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// this is expected
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1730,21 +1711,17 @@ argument_list|(
 literal|2048
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to set RAMPerThreadHardLimitMB to>= 2048"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// this is expected
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1753,20 +1730,9 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to set RAMPerThreadHardLimitMB to 0"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// this is expected
-block|}
 comment|// Test MergePolicy
 name|assertEquals
 argument_list|(
@@ -1807,7 +1773,14 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|conf
 operator|.
@@ -1816,18 +1789,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
+block|}
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
 block|}
 DECL|method|testLiveChangeToCFS
 specifier|public

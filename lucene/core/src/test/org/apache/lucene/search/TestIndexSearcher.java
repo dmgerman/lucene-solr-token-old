@@ -955,7 +955,14 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|s
 operator|.
@@ -979,22 +986,9 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit IllegalArgumentException when searchAfter exceeds maxDoc"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
-finally|finally
-block|{
 name|IOUtils
 operator|.
 name|close
@@ -1004,7 +998,6 @@ argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testCount
 specifier|public

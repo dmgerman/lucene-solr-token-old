@@ -908,7 +908,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-try|try
+comment|// should already be closed because inner reader is closed!
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|pr
 operator|.
@@ -917,20 +925,9 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"ParallelLeafReader should be already closed because inner reader was closed!"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|e
-parameter_list|)
-block|{
-comment|// pass
-block|}
 comment|// noop:
 name|pr
 operator|.
@@ -1054,7 +1051,15 @@ name|dir2
 argument_list|)
 argument_list|)
 decl_stmt|;
-try|try
+comment|// indexes don't have the same number of documents
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|ParallelLeafReader
@@ -1064,21 +1069,17 @@ argument_list|,
 name|ir2
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't get exptected exception: indexes don't have same number of documents"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected exception
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|ParallelLeafReader
@@ -1094,35 +1095,28 @@ name|LeafReader
 index|[]
 block|{
 name|ir1
-block|,
+operator|,
 name|ir2
 block|}
-argument_list|,
+operator|,
 operator|new
 name|LeafReader
 index|[]
 block|{
 name|ir1
-block|,
+operator|,
 name|ir2
 block|}
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't get expected exception: indexes don't have same number of documents"
-argument_list|)
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected exception
-block|}
+block|)
+class|;
+end_class
+begin_comment
 comment|// check RefCounts
+end_comment
+begin_expr_stmt
 name|assertEquals
 argument_list|(
 literal|1
@@ -1133,6 +1127,8 @@ name|getRefCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|assertEquals
 argument_list|(
 literal|1
@@ -1143,29 +1139,38 @@ name|getRefCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|ir1
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|ir2
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|dir1
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|dir2
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
+end_expr_stmt
+begin_function
+unit|}    public
 DECL|method|testIgnoreStoredFields
-specifier|public
 name|void
 name|testIgnoreStoredFields
 parameter_list|()
@@ -1618,7 +1623,14 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// no main readers
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|ParallelLeafReader
@@ -1639,33 +1651,29 @@ name|ir1
 block|}
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't get expected exception: need a non-empty main-reader array"
-argument_list|)
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// pass
-block|}
+end_function
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+begin_expr_stmt
 name|dir1
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|dir2
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
+end_expr_stmt
+begin_function
+unit|}    private
 DECL|method|queryTest
-specifier|private
 name|void
 name|queryTest
 parameter_list|(
@@ -1852,7 +1860,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|// Fields 1-4 indexed together:
+end_comment
+begin_function
 DECL|method|single
 specifier|private
 name|IndexSearcher
@@ -2081,7 +2093,11 @@ name|ir
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|// Fields 1& 2 in one index, 3& 4 in other, with ParallelReader:
+end_comment
+begin_function
 DECL|method|parallel
 specifier|private
 name|IndexSearcher
@@ -2152,6 +2168,8 @@ name|pr
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 DECL|method|getDir1
 specifier|private
 name|Directory
@@ -2296,6 +2314,8 @@ return|return
 name|dir1
 return|;
 block|}
+end_function
+begin_function
 DECL|method|getDir2
 specifier|private
 name|Directory
@@ -2440,6 +2460,6 @@ return|return
 name|dir2
 return|;
 block|}
-block|}
-end_class
+end_function
+unit|}
 end_unit

@@ -629,6 +629,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: break this up into simpler test methods, vs "telling a story"
 DECL|method|testModifyOnUnmodifiable
 specifier|public
 name|void
@@ -1245,7 +1246,14 @@ block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|CharArraySet
 operator|.
@@ -1254,20 +1262,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"can not make null unmodifiable"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 DECL|method|testSupplementaryChars
 specifier|public
@@ -2810,7 +2807,14 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|set
 operator|.
@@ -2827,19 +2831,17 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"null value must raise NPE"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-block|{}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|set
 operator|.
@@ -2851,19 +2853,17 @@ operator|)
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"null value must raise NPE"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-block|{}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|set
 operator|.
@@ -2875,18 +2875,9 @@ operator|)
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"null value must raise NPE"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|e
-parameter_list|)
-block|{}
 block|}
 DECL|method|testToString
 specifier|public

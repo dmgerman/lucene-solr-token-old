@@ -2424,13 +2424,14 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|doc
-operator|=
+name|Document
+name|duplicate
+init|=
 operator|new
 name|Document
 argument_list|()
-expr_stmt|;
-name|doc
+decl_stmt|;
+name|duplicate
 operator|.
 name|add
 argument_list|(
@@ -2442,13 +2443,20 @@ literal|17
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
 name|addDocument
 argument_list|(
-name|doc
+name|duplicate
 argument_list|)
 expr_stmt|;
 name|w
@@ -2456,20 +2464,9 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3111,7 +3108,14 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3125,20 +3129,9 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3230,7 +3223,14 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3244,20 +3244,9 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3350,7 +3339,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3364,20 +3360,9 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3677,7 +3662,14 @@ name|ft
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3697,15 +3689,8 @@ literal|"didn't hit expected exception"
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-comment|// iae.printStackTrace(System.out);
-block|}
+argument_list|)
+expr_stmt|;
 name|w
 operator|.
 name|close
@@ -3803,7 +3788,14 @@ literal|17
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3817,20 +3809,9 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3967,7 +3948,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3981,21 +3969,17 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -4004,20 +3988,9 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exc"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|ace
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|dir
 operator|.
 name|close
@@ -4149,7 +4122,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -4163,21 +4143,17 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -4186,20 +4162,9 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exc"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|ace
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|dir
 operator|.
 name|close

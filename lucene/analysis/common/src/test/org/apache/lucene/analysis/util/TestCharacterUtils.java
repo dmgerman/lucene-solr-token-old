@@ -192,7 +192,14 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IndexOutOfBoundsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|java4
 operator|.
@@ -203,18 +210,9 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"string index out of bounds"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexOutOfBoundsException
-name|e
-parameter_list|)
-block|{     }
 name|CharacterUtils
 name|java5
 init|=
@@ -278,7 +276,14 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IndexOutOfBoundsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|java5
 operator|.
@@ -289,18 +294,9 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"string index out of bounds"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexOutOfBoundsException
-name|e
-parameter_list|)
-block|{     }
 block|}
 annotation|@
 name|Test
@@ -1104,10 +1100,16 @@ name|getLength
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+comment|// length must be>= 2
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
-name|newCharacterBuffer
-operator|=
 name|CharacterUtils
 operator|.
 name|newCharacterBuffer
@@ -1115,18 +1117,9 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"length must be>= 2"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{     }
 block|}
 annotation|@
 name|Test

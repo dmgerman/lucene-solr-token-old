@@ -4406,7 +4406,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// ensure broken doc hits exception
-try|try
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|iw
 operator|.
@@ -4415,21 +4425,12 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit expected exception"
-argument_list|)
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
+argument_list|)
+decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|iae
+name|expected
 operator|.
 name|getMessage
 argument_list|()
@@ -4437,7 +4438,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|iae
+name|expected
 operator|.
 name|getMessage
 argument_list|()
@@ -4448,7 +4449,6 @@ literal|"all instances of a given field name must have the same term vectors set
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 comment|// ensure good docs are still ok
 name|IndexReader
 name|ir
@@ -4577,7 +4577,14 @@ name|ft
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|iw
 operator|.
@@ -4586,20 +4593,9 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exc"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|IndexReader
 name|r
 init|=

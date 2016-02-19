@@ -881,7 +881,14 @@ name|NO
 argument_list|)
 expr_stmt|;
 comment|// okay
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|Field
@@ -895,18 +902,9 @@ name|FieldType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
+block|}
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected exception
-block|}
 name|Directory
 name|dir
 init|=
@@ -979,7 +977,14 @@ name|ft2
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -988,18 +993,9 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
+block|}
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected exception
-block|}
 name|w
 operator|.
 name|close
@@ -1055,6 +1051,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** test that Document.getFields() actually returns an immutable list */
 DECL|method|testGetFieldsImmutable
 specifier|public
 name|void
@@ -1091,7 +1088,14 @@ operator|.
 name|getFields
 argument_list|()
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|UnsupportedOperationException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|fields
 operator|.
@@ -1112,41 +1116,26 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Document.getFields() should return immutable List"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|UnsupportedOperationException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|fields
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Document.getFields() should return immutable List"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|UnsupportedOperationException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
 block|}
 comment|/**    * Tests {@link Document#getValues(String)} method for a brand new Document    * that has not been indexed yet.    *     * @throws Exception on error    */
 DECL|method|testGetValuesForNewDocument
@@ -2268,7 +2257,14 @@ name|void
 name|testInvalidFields
 parameter_list|()
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|Tokenizer
 name|tok
@@ -2300,20 +2296,9 @@ operator|.
 name|TYPE_STORED
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit expected exc"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 DECL|method|testNumericFieldAsString
 specifier|public

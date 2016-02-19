@@ -929,7 +929,15 @@ operator|.
 name|rollback
 argument_list|()
 expr_stmt|;
-try|try
+comment|// should not have succeeded to add a category following rollback.
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|dtw
 operator|.
@@ -942,20 +950,9 @@ literal|"a"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to add a category following rollback."
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|dir
 operator|.
 name|close
@@ -1058,7 +1055,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-try|try
+comment|// should not succeed to add a category following close.
+name|expectThrows
+argument_list|(
+name|AlreadyClosedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|dtw
 operator|.
@@ -1071,20 +1076,9 @@ literal|"a"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should not have succeeded to add a category following close."
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|dir
 operator|.
 name|close

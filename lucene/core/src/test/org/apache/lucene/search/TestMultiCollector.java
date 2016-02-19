@@ -909,7 +909,14 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|CollectionTerminatedException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|leafCollector
 operator|.
@@ -918,18 +925,9 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
+block|}
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CollectionTerminatedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|setScorerCalled1
 operator|.
 name|set

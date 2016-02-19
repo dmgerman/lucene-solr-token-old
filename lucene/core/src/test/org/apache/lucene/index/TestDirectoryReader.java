@@ -5157,7 +5157,14 @@ argument_list|(
 name|tempDir
 argument_list|)
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IndexNotFoundException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|DirectoryReader
 operator|.
@@ -5166,20 +5173,9 @@ argument_list|(
 name|dir
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexNotFoundException
-name|nsde
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|dir
 operator|.
 name|close
@@ -6812,7 +6808,14 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|r
 operator|.
@@ -6821,20 +6824,9 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|r
 operator|.
 name|close

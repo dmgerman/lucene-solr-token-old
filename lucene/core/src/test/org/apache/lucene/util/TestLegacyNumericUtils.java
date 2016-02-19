@@ -484,7 +484,20 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// test if decoding values as int fails correctly
-try|try
+specifier|final
+name|int
+name|index
+init|=
+name|i
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|NumberFormatException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|LegacyNumericUtils
 operator|.
@@ -492,27 +505,16 @@ name|prefixCodedToInt
 argument_list|(
 name|prefixVals
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"decoding a prefix coded long value as int should fail"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-comment|// worked
-block|}
 block|}
 comment|// check sort order (prefixVals should be ascending)
 for|for
@@ -828,7 +830,20 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// test if decoding values as long fails correctly
-try|try
+specifier|final
+name|int
+name|index
+init|=
+name|i
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|NumberFormatException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|LegacyNumericUtils
 operator|.
@@ -836,27 +851,16 @@ name|prefixCodedToLong
 argument_list|(
 name|prefixVals
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"decoding a prefix coded int value as long should fail"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-comment|// worked
-block|}
 block|}
 comment|// check sort order (prefixVals should be ascending)
 for|for

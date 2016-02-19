@@ -322,7 +322,17 @@ literal|"bar"
 argument_list|)
 argument_list|)
 decl_stmt|;
-try|try
+name|IllegalStateException
+name|expected
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|is
 operator|.
@@ -333,18 +343,9 @@ argument_list|,
 literal|5
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't get expected exception"
-argument_list|)
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|expected
-parameter_list|)
-block|{
+argument_list|)
+decl_stmt|;
 name|assertTrue
 argument_list|(
 name|expected
@@ -358,7 +359,6 @@ literal|"was indexed without position data"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|ir
 operator|.
 name|close

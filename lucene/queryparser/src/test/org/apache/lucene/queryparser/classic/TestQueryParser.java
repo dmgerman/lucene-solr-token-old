@@ -1583,13 +1583,21 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Wildcard queries should not be allowed
 DECL|method|testCustomQueryParserWildcard
 specifier|public
 name|void
 name|testCustomQueryParserWildcard
 parameter_list|()
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|ParseException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|QPTestParser
@@ -1615,21 +1623,11 @@ argument_list|(
 literal|"a?t"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Wildcard queries should not be allowed"
+block|}
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|ParseException
-name|expected
-parameter_list|)
-block|{
-comment|// expected exception
-block|}
-block|}
+comment|// Fuzzy queries should not be allowed
 DECL|method|testCustomQueryParserFuzzy
 specifier|public
 name|void
@@ -1638,7 +1636,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|ParseException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|QPTestParser
@@ -1664,20 +1669,9 @@ argument_list|(
 literal|"xunit~"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Fuzzy queries should not be allowed"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParseException
-name|expected
-parameter_list|)
-block|{
-comment|// expected exception
-block|}
 block|}
 comment|/** query parser that doesn't expand synonyms when users use double quotes */
 DECL|class|SmartQueryParser
@@ -3266,7 +3260,14 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|TooComplexToDeterminizeException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|qp
 operator|.
@@ -3275,20 +3276,9 @@ argument_list|(
 literal|"a*aaaaaaa"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|TooComplexToDeterminizeException
-name|tctde
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 block|}
 end_class

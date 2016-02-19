@@ -9197,7 +9197,14 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|searcher
 operator|.
@@ -9212,18 +9219,9 @@ argument_list|,
 name|sort
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't get expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|expected
-parameter_list|)
-block|{}
 name|reader
 operator|.
 name|close

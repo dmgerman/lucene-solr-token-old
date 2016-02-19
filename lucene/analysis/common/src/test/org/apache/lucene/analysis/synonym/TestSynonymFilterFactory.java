@@ -453,7 +453,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|tokenFilterFactory
 argument_list|(
@@ -468,16 +478,9 @@ argument_list|,
 literal|"bogusValue"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|expected
-parameter_list|)
-block|{
+argument_list|)
+decl_stmt|;
 name|assertTrue
 argument_list|(
 name|expected
@@ -491,7 +494,6 @@ literal|"Unknown parameters"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/** Test that analyzer and tokenizerFactory is both specified */
 DECL|method|testAnalyzer
@@ -549,7 +551,17 @@ argument_list|(
 name|factory
 argument_list|)
 expr_stmt|;
-try|try
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|tokenFilterFactory
 argument_list|(
@@ -568,16 +580,9 @@ argument_list|,
 name|tokenizerFactory
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|expected
-parameter_list|)
-block|{
+argument_list|)
+decl_stmt|;
 name|assertTrue
 argument_list|(
 name|expected
@@ -591,7 +596,6 @@ literal|"Analyzer and TokenizerFactory can't be specified both"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|field|TOK_SYN_ARG_VAL
 specifier|static
@@ -693,10 +697,15 @@ name|factory
 argument_list|)
 expr_stmt|;
 comment|// sanity check that sub-PatternTokenizerFactory fails w/o pattern
-try|try
+name|expectThrows
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
-name|factory
-operator|=
 name|tokenFilterFactory
 argument_list|(
 literal|"Synonym"
@@ -710,25 +719,19 @@ argument_list|,
 name|clazz
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"tokenizerFactory should have complained about missing pattern arg"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|expected
-parameter_list|)
-block|{
-comment|// :NOOP:
-block|}
 comment|// sanity check that sub-PatternTokenizerFactory fails on unexpected
-try|try
+name|expectThrows
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
-name|factory
-operator|=
 name|tokenFilterFactory
 argument_list|(
 literal|"Synonym"
@@ -754,20 +757,9 @@ argument_list|,
 literal|"0"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"tokenizerFactory should have complained about missing pattern arg"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|expected
-parameter_list|)
-block|{
-comment|// :NOOP:
-block|}
 block|}
 block|}
 end_class

@@ -815,7 +815,14 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|SortedSetDocValuesFacetCounts
@@ -825,20 +832,9 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit expected exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|ise
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|r
 operator|.
 name|close

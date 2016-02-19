@@ -823,7 +823,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|UnsupportedOperationException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|setAnalyzeRangeTerms
 argument_list|(
@@ -841,14 +848,8 @@ name|testCollatedRange
 argument_list|()
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|UnsupportedOperationException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -860,7 +861,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|UnsupportedOperationException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|setAutoGeneratePhraseQueries
 argument_list|(
@@ -878,14 +886,8 @@ name|testAutoGeneratePhraseQueriesOn
 argument_list|()
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|UnsupportedOperationException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

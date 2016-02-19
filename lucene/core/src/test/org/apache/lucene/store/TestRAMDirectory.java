@@ -1057,7 +1057,14 @@ argument_list|)
 argument_list|)
 init|)
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|EOFException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|is
 operator|.
@@ -1095,20 +1102,9 @@ argument_list|,
 literal|16
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Did not get EOFException"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|EOFException
-name|eof
-parameter_list|)
-block|{
-comment|// expected!
-block|}
 block|}
 block|}
 block|}

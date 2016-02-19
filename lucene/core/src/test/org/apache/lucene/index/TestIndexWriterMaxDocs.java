@@ -647,7 +647,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// 11th document should fail:
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -658,20 +665,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -752,7 +748,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// 11th document should fail:
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -768,20 +771,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -862,7 +854,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// 11th document should fail:
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -881,20 +880,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -975,7 +963,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// 11th document should fail:
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -999,20 +994,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -1193,7 +1177,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// 11th document should fail:
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -1204,20 +1195,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -1429,7 +1409,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// 11th document should fail:
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -1440,20 +1427,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -1568,7 +1544,14 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w2
 operator|.
@@ -1582,20 +1565,9 @@ name|dir
 block|}
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
-argument_list|)
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
+block|)
+function|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -1616,7 +1588,14 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|TestUtil
 operator|.
@@ -1627,51 +1606,46 @@ argument_list|,
 name|ir
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w2
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
+parameter_list|()
+constructor_decl|;
 name|ir
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
+parameter_list|()
+constructor_decl|;
 name|dir
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
+parameter_list|()
+constructor_decl|;
 name|dir2
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
+parameter_list|()
+constructor_decl|;
 block|}
+end_class
+begin_finally
 finally|finally
 block|{
 name|restoreIndexWriterMaxDocs
 argument_list|()
 expr_stmt|;
 block|}
-block|}
+end_finally
+begin_comment
+unit|}
 comment|// Make sure MultiReader lets you search exactly the limit number of docs:
+end_comment
+begin_function
+unit|public
 DECL|method|testMultiReaderExactLimit
-specifier|public
 name|void
 name|testMultiReaderExactLimit
 parameter_list|()
@@ -1906,7 +1880,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|// Make sure MultiReader is upset if you exceed the limit
+end_comment
+begin_function
 DECL|method|testMultiReaderBeyondLimit
 specifier|public
 name|void
@@ -2093,7 +2071,14 @@ index|]
 operator|=
 name|ir2
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 operator|new
 name|MultiReader
@@ -2101,20 +2086,9 @@ argument_list|(
 name|subReaders
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|ir
 operator|.
 name|close
@@ -2136,7 +2110,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/**     * LUCENE-6299: Test if addindexes(Dir[]) prevents exceeding max docs.    */
+end_comment
+begin_function
 DECL|method|testAddTooManyIndexesDir
 specifier|public
 name|void
@@ -2406,7 +2384,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/**     * LUCENE-6299: Test if addindexes(CodecReader[]) prevents exceeding max docs.    */
+end_comment
+begin_function
 DECL|method|testAddTooManyIndexesCodecReader
 specifier|public
 name|void
@@ -2704,6 +2686,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|method|testTooLargeMaxDocs
 specifier|public
 name|void
@@ -2712,7 +2696,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|IndexWriter
 operator|.
@@ -2723,22 +2714,15 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
-block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testDeleteAll
 specifier|public
 name|void
@@ -2784,7 +2768,14 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -2795,20 +2786,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|deleteAll
@@ -2823,7 +2803,14 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -2834,20 +2821,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -2866,7 +2842,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testDeleteAllAfterFlush
 specifier|public
 name|void
@@ -2929,7 +2909,14 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -2940,20 +2927,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|deleteAll
@@ -2977,7 +2953,14 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -2988,20 +2971,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3020,7 +2992,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testDeleteAllAfterCommit
 specifier|public
 name|void
@@ -3080,7 +3056,14 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3091,20 +3074,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|deleteAll
@@ -3128,7 +3100,14 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3139,20 +3118,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3171,7 +3139,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testDeleteAllMultipleThreads
 specifier|public
 name|void
@@ -3335,7 +3307,14 @@ name|join
 argument_list|()
 expr_stmt|;
 block|}
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3346,20 +3325,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|deleteAll
@@ -3390,7 +3358,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|w
 operator|.
@@ -3401,20 +3376,9 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|w
 operator|.
 name|close
@@ -3433,7 +3397,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testDeleteAllAfterClose
 specifier|public
 name|void
@@ -3484,8 +3452,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|w
-operator|=
+name|IndexWriter
+name|w2
+init|=
 operator|new
 name|IndexWriter
 argument_list|(
@@ -3497,8 +3466,8 @@ argument_list|(
 literal|null
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|w
+decl_stmt|;
+name|w2
 operator|.
 name|addDocument
 argument_list|(
@@ -3507,37 +3476,33 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|w
-operator|.
-name|addDocument
+name|expectThrows
 argument_list|(
-operator|new
-name|Document
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|IllegalArgumentException
-name|iae
-parameter_list|)
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
-comment|// expected
+name|w2
+operator|.
+name|addDocument
+argument_list|(
+operator|new
+name|Document
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-name|w
+argument_list|)
+expr_stmt|;
+name|w2
 operator|.
 name|deleteAll
 argument_list|()
 expr_stmt|;
-name|w
+name|w2
 operator|.
 name|addDocument
 argument_list|(
@@ -3546,7 +3511,7 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|w
+name|w2
 operator|.
 name|addDocument
 argument_list|(
@@ -3555,32 +3520,28 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|w
-operator|.
-name|addDocument
+name|expectThrows
 argument_list|(
-operator|new
-name|Document
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|IllegalArgumentException
-name|iae
-parameter_list|)
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
-comment|// expected
+name|w2
+operator|.
+name|addDocument
+argument_list|(
+operator|new
+name|Document
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-name|w
+argument_list|)
+expr_stmt|;
+name|w2
 operator|.
 name|close
 argument_list|()
@@ -3598,7 +3559,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testAcrossTwoIndexWriters
 specifier|public
 name|void
@@ -3649,8 +3614,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|w
-operator|=
+name|IndexWriter
+name|w2
+init|=
 operator|new
 name|IndexWriter
 argument_list|(
@@ -3662,10 +3628,17 @@ argument_list|(
 literal|null
 argument_list|)
 argument_list|)
-expr_stmt|;
-try|try
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
-name|w
+name|w2
 operator|.
 name|addDocument
 argument_list|(
@@ -3674,21 +3647,10 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
-name|w
+name|w2
 operator|.
 name|close
 argument_list|()
@@ -3706,7 +3668,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testCorruptIndexExceptionTooLarge
 specifier|public
 name|void
@@ -3766,6 +3732,15 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|expectThrows
+argument_list|(
+name|CorruptIndexException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
 name|DirectoryReader
 operator|.
 name|open
@@ -3773,19 +3748,9 @@ argument_list|(
 name|dir
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CorruptIndexException
-name|cie
-parameter_list|)
-block|{
-comment|// expected
 block|}
 finally|finally
 block|{
@@ -3799,7 +3764,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|// LUCENE-6299
+end_comment
+begin_function
 DECL|method|testCorruptIndexExceptionTooLargeWriter
 specifier|public
 name|void
@@ -3859,6 +3828,15 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|expectThrows
+argument_list|(
+name|CorruptIndexException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
 operator|new
 name|IndexWriter
 argument_list|(
@@ -3871,19 +3849,9 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CorruptIndexException
-name|cie
-parameter_list|)
-block|{
-comment|// expected
 block|}
 finally|finally
 block|{
@@ -3897,6 +3865,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
+unit|}
 end_unit

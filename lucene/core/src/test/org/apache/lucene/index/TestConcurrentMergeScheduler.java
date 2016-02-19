@@ -2264,7 +2264,14 @@ operator|new
 name|ConcurrentMergeScheduler
 argument_list|()
 decl_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|cms
 operator|.
@@ -2277,21 +2284,17 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// good
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|cms
 operator|.
@@ -2304,20 +2307,9 @@ operator|.
 name|AUTO_DETECT_MERGES_AND_THREADS
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// good
-block|}
 block|}
 DECL|method|testLiveMaxMergeCount
 specifier|public
@@ -3365,7 +3357,14 @@ name|getMaxThreadCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|cms
 operator|.
@@ -3378,21 +3377,17 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|cms
 operator|.
@@ -3405,20 +3400,9 @@ operator|.
 name|AUTO_DETECT_MERGES_AND_THREADS
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"did not hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iae
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|cms
 operator|.
 name|setMaxMergesAndThreads
