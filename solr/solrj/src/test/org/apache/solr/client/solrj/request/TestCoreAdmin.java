@@ -1003,7 +1003,7 @@ name|exceptionMessage
 operator|.
 name|contains
 argument_list|(
-literal|"must consist entirely of periods, underscores and alphanumerics"
+literal|"must consist entirely of periods, underscores, and alphanumerics"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1053,6 +1053,11 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|exceptionMessage
 operator|.
 name|contains
@@ -1077,7 +1082,7 @@ name|exceptionMessage
 operator|.
 name|contains
 argument_list|(
-literal|"must consist entirely of periods, underscores and alphanumerics"
+literal|"must consist entirely of periods, underscores, and alphanumerics"
 argument_list|)
 argument_list|)
 expr_stmt|;
