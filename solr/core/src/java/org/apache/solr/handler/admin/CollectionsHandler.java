@@ -3871,7 +3871,7 @@ literal|"Invalid shard: "
 operator|+
 name|newShardName
 operator|+
-literal|". Shard names must consist entirely of periods, underscores and alphanumerics"
+literal|". Shard names must consist entirely of periods, underscores, and alphanumerics"
 argument_list|)
 throw|;
 block|}
@@ -7396,7 +7396,7 @@ literal|"Invalid shard: "
 operator|+
 name|shard
 operator|+
-literal|". Shard names must consist entirely of periods, underscores and alphanumerics"
+literal|". Shard names must consist entirely of periods, underscores, and alphanumerics"
 argument_list|)
 throw|;
 empty_stmt|;
