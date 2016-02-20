@@ -31,6 +31,71 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|BinaryPoint
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|DoublePoint
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|FloatPoint
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|IntPoint
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|LongPoint
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|bkd
@@ -39,7 +104,7 @@ name|BKDWriter
 import|;
 end_import
 begin_comment
-comment|/** Allows recursively visiting point values indexed with {@link org.apache.lucene.document.IntPoint},  *  {@link org.apache.lucene.document.FloatPoint}, {@link org.apache.lucene.document.LongPoint}, {@link org.apache.lucene.document.DoublePoint}  *  or {@link org.apache.lucene.document.BinaryPoint}.  *  *  @lucene.experimental */
+comment|/** Allows recursively visiting point values indexed with {@link IntPoint},  *  {@link FloatPoint}, {@link LongPoint}, {@link DoublePoint}  *  or {@link BinaryPoint}.  *  *  @lucene.experimental */
 end_comment
 begin_class
 DECL|class|PointValues
@@ -90,7 +155,7 @@ comment|/** Return this if the cell and query do not overlap */
 DECL|enum constant|CELL_OUTSIDE_QUERY
 name|CELL_OUTSIDE_QUERY
 block|,
-comment|/** Return this if the cell partially overlapps the query */
+comment|/** Return this if the cell partially overlaps the query */
 DECL|enum constant|CELL_CROSSES_QUERY
 name|CELL_CROSSES_QUERY
 block|}
@@ -101,7 +166,7 @@ specifier|public
 interface|interface
 name|IntersectVisitor
 block|{
-comment|/** Called for all docs in a leaf cell that's fully contained by the query.  The      *  consumer should blindly accept the docID. */
+comment|/** Called for all documents in a leaf cell that's fully contained by the query.  The      *  consumer should blindly accept the docID. */
 DECL|method|visit
 name|void
 name|visit
@@ -112,7 +177,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Called for all docs in a leaf cell that crosses the query.  The consumer      *  should scrutinize the packedValue to decide whether to accept it. */
+comment|/** Called for all documents in a leaf cell that crosses the query.  The consumer      *  should scrutinize the packedValue to decide whether to accept it. */
 DECL|method|visit
 name|void
 name|visit
@@ -127,7 +192,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Called for non-leaf cells to test how the cell relates to the query, to      *  determine how to further recurse down the treer. */
+comment|/** Called for non-leaf cells to test how the cell relates to the query, to      *  determine how to further recurse down the tree. */
 DECL|method|compare
 name|Relation
 name|compare
@@ -153,7 +218,7 @@ parameter_list|)
 block|{}
 empty_stmt|;
 block|}
-comment|/** Finds all documents and points matching the provided visitor.    *  This method does not enforce live docs, so it's up to the caller    *  to test whether each document is deleted, if necessary. */
+comment|/** Finds all documents and points matching the provided visitor.    *  This method does not enforce live documents, so it's up to the caller    *  to test whether each document is deleted, if necessary. */
 DECL|method|intersect
 specifier|public
 specifier|abstract
