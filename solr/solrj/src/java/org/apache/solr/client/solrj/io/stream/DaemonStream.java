@@ -964,6 +964,8 @@ operator|new
 name|StreamRunner
 argument_list|(
 name|runInterval
+argument_list|,
+name|id
 argument_list|)
 expr_stmt|;
 name|this
@@ -1251,6 +1253,11 @@ specifier|private
 name|long
 name|lastRun
 decl_stmt|;
+DECL|field|id
+specifier|private
+name|String
+name|id
+decl_stmt|;
 DECL|field|shutdown
 specifier|private
 name|boolean
@@ -1262,6 +1269,9 @@ name|StreamRunner
 parameter_list|(
 name|long
 name|runInterval
+parameter_list|,
+name|String
+name|id
 parameter_list|)
 block|{
 name|this
@@ -1269,6 +1279,12 @@ operator|.
 name|runInterval
 operator|=
 name|runInterval
+expr_stmt|;
+name|this
+operator|.
+name|id
+operator|=
+name|id
 expr_stmt|;
 block|}
 DECL|method|setShutdown
@@ -1309,6 +1325,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|int
+name|errors
+init|=
+literal|0
+decl_stmt|;
 name|setStartTime
 argument_list|(
 operator|new
@@ -1384,6 +1405,11 @@ operator|.
 name|EOF
 condition|)
 block|{
+name|errors
+operator|=
+literal|0
+expr_stmt|;
+comment|// Reset errors on successful run.
 break|break
 name|INNER
 break|;
@@ -1432,11 +1458,55 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error in DaemonStream"
+literal|"Error in DaemonStream:"
+operator|+
+name|id
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+operator|++
+name|errors
+expr_stmt|;
+if|if
+condition|(
+name|errors
+operator|>
+literal|100
+condition|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"Too many consectutive errors. Stopping DaemonStream:"
+operator|+
+name|id
+argument_list|)
+expr_stmt|;
+break|break
+name|OUTER
+break|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"Fatal Error in DaemonStream:"
+operator|+
+name|id
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+comment|//For anything other then IOException break out of the loop and shutdown the thread.
 break|break
 name|OUTER
 break|;
@@ -1472,7 +1542,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error in DaemonStream"
+literal|"Error in DaemonStream:"
+operator|+
+name|id
 argument_list|,
 name|e1
 argument_list|)
@@ -1507,7 +1579,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error in DaemonStream"
+literal|"Error in DaemonStream:"
+operator|+
+name|id
 argument_list|,
 name|e
 argument_list|)
@@ -1568,7 +1642,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error in DaemonStream"
+literal|"Error in DaemonStream:"
+operator|+
+name|id
 argument_list|,
 name|e
 argument_list|)
