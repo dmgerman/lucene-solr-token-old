@@ -457,7 +457,7 @@ name|deleteDocuments
 argument_list|(
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"idx"
 argument_list|,
@@ -591,7 +591,7 @@ name|q1
 init|=
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"idx"
 argument_list|,
@@ -1691,7 +1691,7 @@ name|deleteDocuments
 argument_list|(
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"idx"
 argument_list|,
@@ -1836,7 +1836,7 @@ name|add
 argument_list|(
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"idx"
 argument_list|,

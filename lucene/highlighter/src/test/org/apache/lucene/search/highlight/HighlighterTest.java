@@ -4256,7 +4256,7 @@ name|query
 operator|=
 name|PointRangeQuery
 operator|.
-name|new1DIntRange
+name|newIntRange
 argument_list|(
 name|NUMERIC_FIELD_NAME
 argument_list|,
