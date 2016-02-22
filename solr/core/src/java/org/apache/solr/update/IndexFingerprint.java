@@ -355,7 +355,7 @@ return|return
 name|maxDoc
 return|;
 block|}
-comment|/** Opens a new realtime searcher and returns it's fingerprint */
+comment|/** Opens a new realtime searcher and returns it's (possibly cached) fingerprint */
 DECL|method|getFingerprint
 specifier|public
 specifier|static
@@ -406,13 +406,13 @@ decl_stmt|;
 try|try
 block|{
 return|return
-name|getFingerprint
-argument_list|(
 name|newestSearcher
 operator|.
 name|get
 argument_list|()
-argument_list|,
+operator|.
+name|getIndexFingerprint
+argument_list|(
 name|maxVersion
 argument_list|)
 return|;
@@ -434,6 +434,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** Calculates an index fingerprint */
 DECL|method|getFingerprint
 specifier|public
 specifier|static
