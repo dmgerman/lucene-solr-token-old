@@ -191,7 +191,7 @@ name|count
 argument_list|(
 name|InetAddressPoint
 operator|.
-name|newInetAddressExact
+name|newExactQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -210,7 +210,7 @@ name|count
 argument_list|(
 name|InetAddressPoint
 operator|.
-name|newInetAddressPrefix
+name|newPrefixQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -231,7 +231,7 @@ name|count
 argument_list|(
 name|InetAddressPoint
 operator|.
-name|newInetAddressRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -364,7 +364,7 @@ name|count
 argument_list|(
 name|InetAddressPoint
 operator|.
-name|newInetAddressExact
+name|newExactQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -383,7 +383,7 @@ name|count
 argument_list|(
 name|InetAddressPoint
 operator|.
-name|newInetAddressPrefix
+name|newPrefixQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -404,7 +404,7 @@ name|count
 argument_list|(
 name|InetAddressPoint
 operator|.
-name|newInetAddressRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -522,7 +522,7 @@ literal|"field:[1.2.3.4 TO 1.2.3.4]"
 argument_list|,
 name|InetAddressPoint
 operator|.
-name|newInetAddressExact
+name|newExactQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -544,7 +544,7 @@ literal|"field:[0:0:0:0:0:0:0:1 TO 0:0:0:0:0:0:0:1]"
 argument_list|,
 name|InetAddressPoint
 operator|.
-name|newInetAddressExact
+name|newExactQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -566,7 +566,7 @@ literal|"field:[1.2.3.0 TO 1.2.3.255]"
 argument_list|,
 name|InetAddressPoint
 operator|.
-name|newInetAddressPrefix
+name|newPrefixQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -590,7 +590,7 @@ literal|"field:[fdc8:57ed:f042:ad1:0:0:0:0 TO fdc8:57ed:f042:ad1:ffff:ffff:ffff:
 argument_list|,
 name|InetAddressPoint
 operator|.
-name|newInetAddressPrefix
+name|newPrefixQuery
 argument_list|(
 literal|"field"
 argument_list|,
