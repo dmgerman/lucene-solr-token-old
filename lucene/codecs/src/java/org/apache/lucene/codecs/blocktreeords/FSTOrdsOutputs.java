@@ -1339,9 +1339,9 @@ name|NUM_BYTES_OBJECT_HEADER
 operator|+
 literal|2
 operator|*
-name|RamUsageEstimator
+name|Long
 operator|.
-name|NUM_BYTES_LONG
+name|BYTES
 operator|+
 literal|2
 operator|*
@@ -1355,9 +1355,9 @@ name|NUM_BYTES_ARRAY_HEADER
 operator|+
 literal|2
 operator|*
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 operator|+
 name|output
 operator|.

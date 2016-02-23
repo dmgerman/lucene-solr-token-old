@@ -757,6 +757,8 @@ operator|.
 name|decodeDimension
 argument_list|(
 name|value
+argument_list|,
+literal|0
 argument_list|)
 operator|.
 name|toString
@@ -931,6 +933,8 @@ operator|.
 name|decodeDimension
 argument_list|(
 name|value
+argument_list|,
+literal|0
 argument_list|)
 operator|.
 name|toString
@@ -1105,6 +1109,8 @@ operator|.
 name|decodeDimension
 argument_list|(
 name|value
+argument_list|,
+literal|0
 argument_list|)
 operator|.
 name|toString
@@ -1279,6 +1285,8 @@ operator|.
 name|decodeDimension
 argument_list|(
 name|value
+argument_list|,
+literal|0
 argument_list|)
 operator|.
 name|toString

@@ -155,9 +155,9 @@ name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_ARRAY_HEADER
 operator|+
-name|RamUsageEstimator
+name|Character
 operator|.
-name|NUM_BYTES_CHAR
+name|BYTES
 operator|*
 name|token
 operator|.

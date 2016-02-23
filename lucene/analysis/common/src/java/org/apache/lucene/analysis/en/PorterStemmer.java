@@ -47,21 +47,6 @@ name|FileInputStream
 import|;
 end_import
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|RamUsageEstimator
-operator|.
-name|NUM_BYTES_CHAR
-import|;
-end_import
-begin_import
 import|import
 name|org
 operator|.
@@ -1915,7 +1900,9 @@ name|oversize
 argument_list|(
 name|wordLen
 argument_list|,
-name|NUM_BYTES_CHAR
+name|Character
+operator|.
+name|BYTES
 argument_list|)
 index|]
 expr_stmt|;

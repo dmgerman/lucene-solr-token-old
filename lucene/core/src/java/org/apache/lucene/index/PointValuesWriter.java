@@ -101,19 +101,6 @@ operator|.
 name|Counter
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|RamUsageEstimator
-import|;
-end_import
 begin_comment
 comment|/** Buffers up pending byte[][] value(s) per doc, then flushes when segment flushes. */
 end_comment
@@ -209,9 +196,9 @@ name|addAndGet
 argument_list|(
 literal|16
 operator|*
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 argument_list|)
 expr_stmt|;
 name|packedValue
@@ -347,9 +334,9 @@ operator|-
 name|numDocs
 operator|)
 operator|*
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 argument_list|)
 expr_stmt|;
 block|}
