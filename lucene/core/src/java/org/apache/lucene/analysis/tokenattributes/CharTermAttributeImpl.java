@@ -90,19 +90,6 @@ operator|.
 name|BytesRefBuilder
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|RamUsageEstimator
-import|;
-end_import
 begin_comment
 comment|/** Default implementation of {@link CharTermAttribute}. */
 end_comment
@@ -143,9 +130,9 @@ name|oversize
 argument_list|(
 name|MIN_BUFFER_SIZE
 argument_list|,
-name|RamUsageEstimator
+name|Character
 operator|.
-name|NUM_BYTES_CHAR
+name|BYTES
 argument_list|)
 index|]
 decl_stmt|;
@@ -268,9 +255,9 @@ name|oversize
 argument_list|(
 name|newSize
 argument_list|,
-name|RamUsageEstimator
+name|Character
 operator|.
-name|NUM_BYTES_CHAR
+name|BYTES
 argument_list|)
 index|]
 decl_stmt|;
@@ -331,9 +318,9 @@ name|oversize
 argument_list|(
 name|newSize
 argument_list|,
-name|RamUsageEstimator
+name|Character
 operator|.
-name|NUM_BYTES_CHAR
+name|BYTES
 argument_list|)
 index|]
 expr_stmt|;

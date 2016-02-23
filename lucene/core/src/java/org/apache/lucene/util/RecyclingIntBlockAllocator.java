@@ -190,9 +190,9 @@ name|addAndGet
 argument_list|(
 name|blockSize
 operator|*
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 argument_list|)
 expr_stmt|;
 return|return
@@ -399,9 +399,9 @@ operator|*
 operator|(
 name|blockSize
 operator|*
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 operator|)
 argument_list|)
 expr_stmt|;
@@ -531,9 +531,9 @@ name|count
 operator|*
 name|blockSize
 operator|*
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 argument_list|)
 expr_stmt|;
 assert|assert

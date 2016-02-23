@@ -942,9 +942,9 @@ name|ord
 operator|.
 name|length
 argument_list|,
-name|RamUsageEstimator
+name|Float
 operator|.
-name|NUM_BYTES_FLOAT
+name|BYTES
 argument_list|)
 index|]
 expr_stmt|;

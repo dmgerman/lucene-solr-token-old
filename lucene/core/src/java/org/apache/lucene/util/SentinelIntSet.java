@@ -612,9 +612,9 @@ name|RamUsageEstimator
 operator|.
 name|alignObjectSize
 argument_list|(
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 operator|*
 literal|3
 operator|+

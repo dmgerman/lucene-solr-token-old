@@ -212,7 +212,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ExactPointQuery
+name|IndexSearcher
 import|;
 end_import
 begin_import
@@ -225,7 +225,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|IndexSearcher
+name|PointRangeQuery
 import|;
 end_import
 begin_import
@@ -5772,9 +5772,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|ExactPointQuery
+name|PointRangeQuery
 operator|.
-name|new1DIntExact
+name|newIntExact
 argument_list|(
 literal|"int1"
 argument_list|,
@@ -5791,9 +5791,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|ExactPointQuery
+name|PointRangeQuery
 operator|.
-name|new1DIntExact
+name|newIntExact
 argument_list|(
 literal|"int2"
 argument_list|,

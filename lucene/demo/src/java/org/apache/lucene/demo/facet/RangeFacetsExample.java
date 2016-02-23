@@ -654,7 +654,7 @@ literal|"timestamp"
 argument_list|,
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"timestamp"
 argument_list|,

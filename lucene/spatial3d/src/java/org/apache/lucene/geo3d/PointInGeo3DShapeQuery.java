@@ -442,6 +442,10 @@ argument_list|(
 name|packedValue
 argument_list|,
 literal|1
+operator|*
+name|Integer
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -461,6 +465,10 @@ argument_list|(
 name|packedValue
 argument_list|,
 literal|2
+operator|*
+name|Integer
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -566,6 +574,10 @@ argument_list|(
 name|minPackedValue
 argument_list|,
 literal|1
+operator|*
+name|Integer
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -585,6 +597,10 @@ argument_list|(
 name|maxPackedValue
 argument_list|,
 literal|1
+operator|*
+name|Integer
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -604,6 +620,10 @@ argument_list|(
 name|minPackedValue
 argument_list|,
 literal|2
+operator|*
+name|Integer
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -623,6 +643,10 @@ argument_list|(
 name|maxPackedValue
 argument_list|,
 literal|2
+operator|*
+name|Integer
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 decl_stmt|;

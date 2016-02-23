@@ -681,7 +681,7 @@ index|[]
 name|dest
 parameter_list|,
 name|int
-name|index
+name|offset
 parameter_list|)
 block|{
 comment|// Flip the sign bit, so negative ints sort before positive ints correctly:
@@ -695,7 +695,7 @@ name|x
 argument_list|,
 name|dest
 argument_list|,
-name|index
+name|offset
 argument_list|)
 expr_stmt|;
 block|}
@@ -713,10 +713,9 @@ index|[]
 name|dest
 parameter_list|,
 name|int
-name|index
+name|offset
 parameter_list|)
 block|{
-comment|// Flip the sign bit, so negative ints sort before positive ints correctly:
 for|for
 control|(
 name|int
@@ -734,9 +733,7 @@ control|)
 block|{
 name|dest
 index|[
-literal|4
-operator|*
-name|index
+name|offset
 operator|+
 name|i
 index|]
@@ -798,7 +795,7 @@ index|[]
 name|src
 parameter_list|,
 name|int
-name|index
+name|offset
 parameter_list|)
 block|{
 name|int
@@ -826,9 +823,7 @@ operator||=
 operator|(
 name|src
 index|[
-literal|4
-operator|*
-name|index
+name|offset
 operator|+
 name|i
 index|]
@@ -863,7 +858,7 @@ index|[]
 name|bytes
 parameter_list|,
 name|int
-name|dim
+name|offset
 parameter_list|)
 block|{
 comment|// Flip the sign bit so negative longs sort before positive longs:
@@ -877,7 +872,7 @@ name|v
 argument_list|,
 name|bytes
 argument_list|,
-name|dim
+name|offset
 argument_list|)
 expr_stmt|;
 block|}
@@ -895,16 +890,9 @@ index|[]
 name|bytes
 parameter_list|,
 name|int
-name|dim
+name|offset
 parameter_list|)
 block|{
-name|int
-name|offset
-init|=
-literal|8
-operator|*
-name|dim
-decl_stmt|;
 name|bytes
 index|[
 name|offset
@@ -1039,7 +1027,7 @@ index|[]
 name|bytes
 parameter_list|,
 name|int
-name|index
+name|offset
 parameter_list|)
 block|{
 name|long
@@ -1049,7 +1037,7 @@ name|bytesToLongDirect
 argument_list|(
 name|bytes
 argument_list|,
-name|index
+name|offset
 argument_list|)
 decl_stmt|;
 comment|// Flip the sign bit back
@@ -1072,16 +1060,9 @@ index|[]
 name|bytes
 parameter_list|,
 name|int
-name|index
+name|offset
 parameter_list|)
 block|{
-name|int
-name|offset
-init|=
-literal|8
-operator|*
-name|index
-decl_stmt|;
 name|long
 name|v
 init|=

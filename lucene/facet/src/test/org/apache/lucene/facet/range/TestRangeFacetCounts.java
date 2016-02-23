@@ -2162,7 +2162,7 @@ literal|"field"
 argument_list|,
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -3433,7 +3433,7 @@ name|fastMatchQuery
 operator|=
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -3453,7 +3453,7 @@ name|fastMatchQuery
 operator|=
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -3634,7 +3634,7 @@ literal|"field"
 argument_list|,
 name|PointRangeQuery
 operator|.
-name|new1DLongRange
+name|newLongRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -4467,7 +4467,7 @@ name|fastMatchQuery
 operator|=
 name|PointRangeQuery
 operator|.
-name|new1DFloatRange
+name|newFloatRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -4487,7 +4487,7 @@ name|fastMatchQuery
 operator|=
 name|PointRangeQuery
 operator|.
-name|new1DFloatRange
+name|newFloatRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -4668,7 +4668,7 @@ literal|"field"
 argument_list|,
 name|PointRangeQuery
 operator|.
-name|new1DFloatRange
+name|newFloatRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -5419,7 +5419,7 @@ name|fastMatchFilter
 operator|=
 name|PointRangeQuery
 operator|.
-name|new1DDoubleRange
+name|newDoubleRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -5439,7 +5439,7 @@ name|fastMatchFilter
 operator|=
 name|PointRangeQuery
 operator|.
-name|new1DDoubleRange
+name|newDoubleRange
 argument_list|(
 literal|"field"
 argument_list|,
@@ -5620,7 +5620,7 @@ literal|"field"
 argument_list|,
 name|PointRangeQuery
 operator|.
-name|new1DDoubleRange
+name|newDoubleRange
 argument_list|(
 literal|"field"
 argument_list|,

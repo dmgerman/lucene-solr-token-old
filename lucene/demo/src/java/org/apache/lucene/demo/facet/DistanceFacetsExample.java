@@ -1259,7 +1259,7 @@ name|add
 argument_list|(
 name|PointRangeQuery
 operator|.
-name|new1DDoubleRange
+name|newDoubleRange
 argument_list|(
 literal|"latitude"
 argument_list|,
@@ -1316,7 +1316,7 @@ name|add
 argument_list|(
 name|PointRangeQuery
 operator|.
-name|new1DDoubleRange
+name|newDoubleRange
 argument_list|(
 literal|"longitude"
 argument_list|,
@@ -1347,7 +1347,7 @@ name|add
 argument_list|(
 name|PointRangeQuery
 operator|.
-name|new1DDoubleRange
+name|newDoubleRange
 argument_list|(
 literal|"longitude"
 argument_list|,
@@ -1397,7 +1397,7 @@ name|add
 argument_list|(
 name|PointRangeQuery
 operator|.
-name|new1DDoubleRange
+name|newDoubleRange
 argument_list|(
 literal|"longitude"
 argument_list|,
