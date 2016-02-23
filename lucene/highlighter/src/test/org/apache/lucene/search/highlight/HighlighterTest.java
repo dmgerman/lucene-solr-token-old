@@ -564,19 +564,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|PointRangeQuery
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|FuzzyQuery
 import|;
 end_import
@@ -4254,9 +4241,9 @@ block|{
 comment|// doesn't currently highlight, but make sure it doesn't cause exception either
 name|query
 operator|=
-name|PointRangeQuery
+name|IntPoint
 operator|.
-name|newIntRange
+name|newRangeQuery
 argument_list|(
 name|NUMERIC_FIELD_NAME
 argument_list|,
