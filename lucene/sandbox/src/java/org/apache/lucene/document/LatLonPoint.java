@@ -431,6 +431,7 @@ operator|/
 name|LON_SCALE
 return|;
 block|}
+comment|// nocommit newSetQuery
 block|}
 end_class
 end_unit

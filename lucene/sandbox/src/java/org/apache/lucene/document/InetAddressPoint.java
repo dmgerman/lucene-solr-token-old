@@ -840,6 +840,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// nocommit newSetQuery
 block|}
 end_class
 end_unit
