@@ -506,7 +506,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|"<field:1>"
+literal|"BigIntegerPoint<field:1>"
 argument_list|,
 operator|new
 name|BigIntegerPoint
@@ -524,7 +524,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<field:1,-2>"
+literal|"BigIntegerPoint<field:1,-2>"
 argument_list|,
 operator|new
 name|BigIntegerPoint

@@ -418,9 +418,10 @@ name|result
 operator|.
 name|append
 argument_list|(
-name|type
+name|getClass
+argument_list|()
 operator|.
-name|toString
+name|getSimpleName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -428,7 +429,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|'<'
+literal|"<"
 argument_list|)
 expr_stmt|;
 name|result
