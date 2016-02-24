@@ -1886,10 +1886,12 @@ index|[
 name|dim
 index|]
 argument_list|,
+name|numBytesPerDim
+argument_list|,
 name|scratch
 argument_list|,
 name|dim
-argument_list|,
+operator|*
 name|numBytesPerDim
 argument_list|)
 expr_stmt|;
@@ -2214,6 +2216,8 @@ argument_list|(
 name|packedValue
 argument_list|,
 name|dim
+operator|*
+name|numBytesPerDim
 argument_list|,
 name|numBytesPerDim
 argument_list|)
@@ -2303,6 +2307,8 @@ argument_list|(
 name|minPacked
 argument_list|,
 name|dim
+operator|*
+name|numBytesPerDim
 argument_list|,
 name|numBytesPerDim
 argument_list|)
@@ -2317,6 +2323,8 @@ argument_list|(
 name|maxPacked
 argument_list|,
 name|dim
+operator|*
+name|numBytesPerDim
 argument_list|,
 name|numBytesPerDim
 argument_list|)

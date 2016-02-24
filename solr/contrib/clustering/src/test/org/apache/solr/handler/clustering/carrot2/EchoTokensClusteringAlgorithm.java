@@ -246,7 +246,7 @@ operator|.
 name|DOCUMENTS
 argument_list|)
 DECL|field|documents
-specifier|private
+specifier|public
 name|List
 argument_list|<
 name|Document
@@ -267,7 +267,7 @@ operator|.
 name|CLUSTERS
 argument_list|)
 DECL|field|clusters
-specifier|private
+specifier|public
 name|List
 argument_list|<
 name|Cluster
@@ -275,6 +275,7 @@ argument_list|>
 name|clusters
 decl_stmt|;
 DECL|field|preprocessing
+specifier|public
 name|BasicPreprocessingPipeline
 name|preprocessing
 init|=

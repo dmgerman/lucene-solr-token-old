@@ -1977,9 +1977,9 @@ condition|)
 block|{
 name|query
 operator|=
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"sn_value"
 argument_list|,
@@ -2073,9 +2073,9 @@ expr_stmt|;
 block|}
 name|query
 operator|=
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"ss_value"
 argument_list|,
@@ -3309,11 +3309,20 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
-comment|// int numThreads = TestUtil.nextInt(random(), 2, 5);
 name|int
 name|numThreads
 init|=
-literal|1
+name|TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+literal|2
+argument_list|,
+literal|5
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -3799,8 +3808,9 @@ block|}
 name|Query
 name|query
 init|=
-operator|new
-name|PointRangeQuery
+name|BinaryPoint
+operator|.
+name|newMultiRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -4783,9 +4793,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -4810,9 +4820,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -4837,9 +4847,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5101,9 +5111,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5132,9 +5142,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5167,9 +5177,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5202,9 +5212,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5230,9 +5240,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5263,9 +5273,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5296,9 +5306,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5324,9 +5334,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5359,9 +5369,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5519,9 +5529,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5548,9 +5558,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5577,9 +5587,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5606,9 +5616,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5635,9 +5645,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5794,9 +5804,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5823,9 +5833,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5852,9 +5862,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5881,9 +5891,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -5910,9 +5920,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -6067,9 +6077,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -6098,9 +6108,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|BinaryPoint
 operator|.
-name|newBinaryRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -6251,9 +6261,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -6355,9 +6365,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -6501,8 +6511,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-operator|new
-name|PointRangeQuery
+name|BinaryPoint
+operator|.
+name|newMultiRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -6688,8 +6699,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-operator|new
-name|PointRangeQuery
+name|BinaryPoint
+operator|.
+name|newMultiRangeQuery
 argument_list|(
 literal|"value"
 argument_list|,
@@ -7337,9 +7349,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|IntPoint
 operator|.
-name|newIntExact
+name|newExactQuery
 argument_list|(
 literal|"int"
 argument_list|,
@@ -7356,9 +7368,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|IntPoint
 operator|.
-name|newIntExact
+name|newExactQuery
 argument_list|(
 literal|"int"
 argument_list|,
@@ -7375,9 +7387,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongExact
+name|newExactQuery
 argument_list|(
 literal|"long"
 argument_list|,
@@ -7394,9 +7406,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongExact
+name|newExactQuery
 argument_list|(
 literal|"long"
 argument_list|,
@@ -7414,9 +7426,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|FloatPoint
 operator|.
-name|newFloatExact
+name|newExactQuery
 argument_list|(
 literal|"float"
 argument_list|,
@@ -7433,9 +7445,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|FloatPoint
 operator|.
-name|newFloatExact
+name|newExactQuery
 argument_list|(
 literal|"float"
 argument_list|,
@@ -7452,9 +7464,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|DoublePoint
 operator|.
-name|newDoubleExact
+name|newExactQuery
 argument_list|(
 literal|"double"
 argument_list|,
@@ -7471,9 +7483,9 @@ name|s
 operator|.
 name|count
 argument_list|(
-name|PointRangeQuery
+name|DoublePoint
 operator|.
-name|newDoubleExact
+name|newExactQuery
 argument_list|(
 literal|"double"
 argument_list|,
@@ -7513,9 +7525,9 @@ name|assertEquals
 argument_list|(
 literal|"field:[1 TO 2}"
 argument_list|,
-name|PointRangeQuery
+name|IntPoint
 operator|.
-name|newIntRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7536,9 +7548,9 @@ name|assertEquals
 argument_list|(
 literal|"field:{-2 TO 1]"
 argument_list|,
-name|PointRangeQuery
+name|IntPoint
 operator|.
-name|newIntRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7560,9 +7572,9 @@ name|assertEquals
 argument_list|(
 literal|"field:[* TO 2}"
 argument_list|,
-name|PointRangeQuery
+name|IntPoint
 operator|.
-name|newIntRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7584,9 +7596,9 @@ name|assertEquals
 argument_list|(
 literal|"field:[1099511627776 TO 2199023255552}"
 argument_list|,
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7611,9 +7623,9 @@ name|assertEquals
 argument_list|(
 literal|"field:{-5 TO 6]"
 argument_list|,
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7635,9 +7647,9 @@ name|assertEquals
 argument_list|(
 literal|"field:[* TO 2}"
 argument_list|,
-name|PointRangeQuery
+name|LongPoint
 operator|.
-name|newLongRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7659,9 +7671,9 @@ name|assertEquals
 argument_list|(
 literal|"field:[1.3 TO 2.5}"
 argument_list|,
-name|PointRangeQuery
+name|FloatPoint
 operator|.
-name|newFloatRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7682,9 +7694,9 @@ name|assertEquals
 argument_list|(
 literal|"field:{-2.9 TO 1.0]"
 argument_list|,
-name|PointRangeQuery
+name|FloatPoint
 operator|.
-name|newFloatRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7706,9 +7718,9 @@ name|assertEquals
 argument_list|(
 literal|"field:{-2.9 TO *]"
 argument_list|,
-name|PointRangeQuery
+name|FloatPoint
 operator|.
-name|newFloatRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7731,9 +7743,9 @@ name|assertEquals
 argument_list|(
 literal|"field:[1.3 TO 2.5}"
 argument_list|,
-name|PointRangeQuery
+name|DoublePoint
 operator|.
-name|newDoubleRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7754,9 +7766,9 @@ name|assertEquals
 argument_list|(
 literal|"field:{-2.9 TO 1.0]"
 argument_list|,
-name|PointRangeQuery
+name|DoublePoint
 operator|.
-name|newDoubleRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7778,9 +7790,9 @@ name|assertEquals
 argument_list|(
 literal|"field:{-2.9 TO *]"
 argument_list|,
-name|PointRangeQuery
+name|DoublePoint
 operator|.
-name|newDoubleRange
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -7803,9 +7815,9 @@ name|assertEquals
 argument_list|(
 literal|"field:[1.3 TO 2.5},{-2.9 TO 1.0]"
 argument_list|,
-name|PointRangeQuery
+name|DoublePoint
 operator|.
-name|newMultiDoubleRange
+name|newMultiRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
