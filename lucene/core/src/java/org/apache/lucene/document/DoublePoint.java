@@ -35,6 +35,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|Query
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -678,7 +691,7 @@ comment|/**     * Create a query for matching an exact double value.    *<p>    
 DECL|method|newExactQuery
 specifier|public
 specifier|static
-name|PointRangeQuery
+name|Query
 name|newExactQuery
 parameter_list|(
 name|String
@@ -707,7 +720,7 @@ comment|/**     * Create a range query for double values.    *<p>    * This is f
 DECL|method|newRangeQuery
 specifier|public
 specifier|static
-name|PointRangeQuery
+name|Query
 name|newRangeQuery
 parameter_list|(
 name|String
@@ -765,7 +778,7 @@ comment|/**     * Create a multidimensional range query for double values.    *<
 DECL|method|newMultiRangeQuery
 specifier|public
 specifier|static
-name|PointRangeQuery
+name|Query
 name|newMultiRangeQuery
 parameter_list|(
 name|String
@@ -830,6 +843,9 @@ specifier|protected
 name|String
 name|toString
 parameter_list|(
+name|int
+name|dimension
+parameter_list|,
 name|byte
 index|[]
 name|value
