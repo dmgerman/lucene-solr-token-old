@@ -136,7 +136,7 @@ operator|.
 name|DOCUMENTS
 argument_list|)
 DECL|field|documents
-specifier|private
+specifier|public
 name|List
 argument_list|<
 name|Document
@@ -157,7 +157,7 @@ operator|.
 name|CLUSTERS
 argument_list|)
 DECL|field|clusters
-specifier|private
+specifier|public
 name|List
 argument_list|<
 name|Cluster
@@ -182,7 +182,7 @@ operator|=
 literal|5
 argument_list|)
 DECL|field|depth
-specifier|private
+specifier|public
 name|int
 name|depth
 init|=
@@ -206,7 +206,7 @@ operator|=
 literal|5
 argument_list|)
 DECL|field|labels
-specifier|private
+specifier|public
 name|int
 name|labels
 init|=
@@ -226,7 +226,7 @@ operator|=
 literal|0
 argument_list|)
 DECL|field|maxClusters
-specifier|private
+specifier|public
 name|int
 name|maxClusters
 init|=
@@ -239,7 +239,7 @@ name|Processing
 annotation|@
 name|Attribute
 DECL|field|otherTopicsModulo
-specifier|private
+specifier|public
 name|int
 name|otherTopicsModulo
 init|=

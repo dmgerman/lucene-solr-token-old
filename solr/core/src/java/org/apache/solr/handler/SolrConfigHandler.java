@@ -2846,9 +2846,9 @@ else|else
 block|{
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"persisting params version : {}"
+literal|"persisting params data : {}"
 argument_list|,
 name|Utils
 operator|.
@@ -2887,6 +2887,15 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"persisted to version : {} "
+argument_list|,
+name|latestVersion
+argument_list|)
+expr_stmt|;
 name|waitForAllReplicasState
 argument_list|(
 name|req

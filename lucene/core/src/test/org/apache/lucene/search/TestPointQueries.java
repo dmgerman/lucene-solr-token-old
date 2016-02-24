@@ -3340,11 +3340,20 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
-comment|// int numThreads = TestUtil.nextInt(random(), 2, 5);
 name|int
 name|numThreads
 init|=
-literal|1
+name|TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+literal|2
+argument_list|,
+literal|5
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -7082,7 +7091,7 @@ decl_stmt|;
 name|double
 name|maxMBSortInHeap
 init|=
-literal|3.0
+literal|4.0
 operator|+
 operator|(
 literal|3
