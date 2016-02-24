@@ -501,7 +501,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|"<field:1.2.3.4>"
+literal|"InetAddressPoint<field:1.2.3.4>"
 argument_list|,
 operator|new
 name|InetAddressPoint
@@ -522,7 +522,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<field:1.2.3.4>"
+literal|"InetAddressPoint<field:1.2.3.4>"
 argument_list|,
 operator|new
 name|InetAddressPoint
@@ -543,7 +543,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<field:[fdc8:57ed:f042:ad1:f66d:4ff:fe90:ce0c]>"
+literal|"InetAddressPoint<field:[fdc8:57ed:f042:ad1:f66d:4ff:fe90:ce0c]>"
 argument_list|,
 operator|new
 name|InetAddressPoint
