@@ -3417,6 +3417,9 @@ block|{
 name|sumOfSquares
 operator|+=
 operator|(
+operator|(
+name|double
+operator|)
 name|value
 operator|*
 name|value
@@ -3687,6 +3690,9 @@ operator|-
 operator|(
 name|sum
 operator|*
+operator|(
+name|double
+operator|)
 name|sum
 operator|)
 operator|)
