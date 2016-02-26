@@ -4429,6 +4429,9 @@ argument_list|(
 literal|"terms out of order: lastTerm="
 operator|+
 name|lastTerm
+operator|.
+name|get
+argument_list|()
 operator|+
 literal|" term="
 operator|+
@@ -5103,6 +5106,9 @@ argument_list|(
 literal|"terms out of order: lastTerm="
 operator|+
 name|lastTerm
+operator|.
+name|get
+argument_list|()
 operator|+
 literal|" term="
 operator|+
@@ -5895,6 +5901,9 @@ argument_list|(
 literal|"terms out of order: lastTerm="
 operator|+
 name|lastTerm
+operator|.
+name|get
+argument_list|()
 operator|+
 literal|" term="
 operator|+
@@ -7800,6 +7809,9 @@ argument_list|(
 literal|"seek to last term "
 operator|+
 name|lastTerm
+operator|.
+name|get
+argument_list|()
 operator|+
 literal|" failed"
 argument_list|)
@@ -7901,7 +7913,7 @@ literal|"docFreq for last term "
 operator|+
 name|lastTerm
 operator|.
-name|toBytesRef
+name|get
 argument_list|()
 operator|+
 literal|"="
