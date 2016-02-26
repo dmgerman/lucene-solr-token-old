@@ -8152,6 +8152,25 @@ block|{
 case|case
 literal|0
 case|:
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: LuceneTestCase.wrapReader: wrapping previous reader="
+operator|+
+name|r
+operator|+
+literal|" with SlowCompositeReaderWrapper.wrap"
+argument_list|)
+expr_stmt|;
+block|}
 name|r
 operator|=
 name|SlowCompositeReaderWrapper
@@ -8166,6 +8185,25 @@ case|case
 literal|1
 case|:
 comment|// will create no FC insanity in atomic case, as ParallelLeafReader has own cache key:
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: LuceneTestCase.wrapReader: wrapping previous reader="
+operator|+
+name|r
+operator|+
+literal|" with ParallelLeaf/CompositeReader"
+argument_list|)
+expr_stmt|;
+block|}
 name|r
 operator|=
 operator|(
@@ -8199,6 +8237,25 @@ case|:
 comment|// HÃ¤ckidy-Hick-Hack: a standard MultiReader will cause FC insanity, so we use
 comment|// QueryUtils' reader with a fake cache key, so insanity checker cannot walk
 comment|// along our reader:
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: LuceneTestCase.wrapReader: wrapping previous reader="
+operator|+
+name|r
+operator|+
+literal|" with FCInvisibleMultiReader"
+argument_list|)
+expr_stmt|;
+block|}
 name|r
 operator|=
 operator|new
@@ -8307,6 +8364,25 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// will create no FC insanity as ParallelLeafReader has own cache key:
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: LuceneTestCase.wrapReader: wrapping previous reader="
+operator|+
+name|r
+operator|+
+literal|" with ParallelLeafReader(SlowCompositeReaderWapper)"
+argument_list|)
+expr_stmt|;
+block|}
 name|r
 operator|=
 operator|new
@@ -8340,6 +8416,25 @@ case|:
 comment|// HÃ¤ckidy-Hick-Hack: a standard Reader will cause FC insanity, so we use
 comment|// QueryUtils' reader with a fake cache key, so insanity checker cannot walk
 comment|// along our reader:
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: LuceneTestCase.wrapReader: wrapping previous reader="
+operator|+
+name|r
+operator|+
+literal|" with AssertingLeaf/DirectoryReader"
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|r
@@ -8383,6 +8478,25 @@ break|break;
 case|case
 literal|5
 case|:
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: LuceneTestCase.wrapReader: wrapping previous reader="
+operator|+
+name|r
+operator|+
+literal|" with MismatchedLeaf/DirectoryReader"
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|r
