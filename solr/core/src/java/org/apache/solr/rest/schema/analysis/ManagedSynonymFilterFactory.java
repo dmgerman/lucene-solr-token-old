@@ -1084,13 +1084,6 @@ argument_list|(
 name|jsonList
 argument_list|)
 expr_stmt|;
-name|treeTerms
-operator|.
-name|remove
-argument_list|(
-name|origTerm
-argument_list|)
-expr_stmt|;
 name|cpsm
 operator|.
 name|mappings
