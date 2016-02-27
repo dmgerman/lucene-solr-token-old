@@ -1087,7 +1087,7 @@ name|q
 init|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|cloudClient
 operator|.

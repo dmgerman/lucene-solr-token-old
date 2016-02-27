@@ -812,34 +812,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
-operator|.
-name|CloudConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|handler
-operator|.
-name|admin
-operator|.
-name|ClusterStatus
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|handler
 operator|.
 name|component
@@ -2237,7 +2209,7 @@ name|MODIFYCOLLECTION
 case|:
 name|overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -2822,7 +2794,7 @@ name|inQueue
 init|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkClient
 argument_list|)
@@ -2925,7 +2897,7 @@ name|inQueue
 init|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkClient
 argument_list|)
@@ -3062,7 +3034,7 @@ name|inQueue
 init|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkClient
 argument_list|)
@@ -6037,7 +6009,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -6332,7 +6304,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -6677,7 +6649,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -7492,7 +7464,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -9190,7 +9162,7 @@ name|inQueue
 init|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -10092,7 +10064,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -10273,7 +10245,7 @@ name|inQueue
 init|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -10398,7 +10370,7 @@ name|inQueue
 init|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -11458,7 +11430,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -12446,7 +12418,7 @@ argument_list|)
 expr_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -14667,7 +14639,7 @@ argument_list|)
 expr_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -14968,7 +14940,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
@@ -16222,7 +16194,7 @@ argument_list|)
 decl_stmt|;
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.

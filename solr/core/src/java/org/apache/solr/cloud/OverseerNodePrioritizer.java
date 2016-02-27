@@ -609,7 +609,7 @@ block|}
 comment|//now ask the current leader to QUIT , so that the designate can takeover
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkStateReader
 operator|.
