@@ -89,6 +89,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|PointDistanceQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|PointInPolygonQuery
 import|;
 end_import
@@ -134,7 +147,7 @@ name|GeoUtils
 import|;
 end_import
 begin_comment
-comment|/**   * An indexed location field.  *<p>  * Finding all documents within a range at search time is  * efficient.  Multiple values for the same field in one document  * is allowed.   *<p>  * This field defines static factory methods for creating common queries:  *<ul>  *<li>{@link #newBoxQuery newBoxQuery()} for matching points within a bounding box.  *<li>{@link #newPolygonQuery newPolygonQuery()} for matching points within an arbitrary polygon.  *</ul>  *<p>  *<b>WARNING</b>: Values are indexed with some loss of precision, incurring up to 1E-7 error from the  * original {@code double} values.   */
+comment|/**   * An indexed location field.  *<p>  * Finding all documents within a range at search time is  * efficient.  Multiple values for the same field in one document  * is allowed.   *<p>  * This field defines static factory methods for creating common queries:  *<ul>  *<li>{@link #newBoxQuery newBoxQuery()} for matching points within a bounding box.  *<li>{@link #newDistanceQuery newDistanceQuery()} for matching points within a specified distance.  *<li>{@link #newPolygonQuery newPolygonQuery()} for matching points within an arbitrary polygon.  *</ul>  *<p>  *<b>WARNING</b>: Values are indexed with some loss of precision, incurring up to 1E-7 error from the  * original {@code double} values.   */
 end_comment
 begin_comment
 comment|// TODO ^^^ that is very sandy and hurts the API, usage, and tests tremendously, because what the user passes
@@ -1187,6 +1200,40 @@ throw|;
 block|}
 block|}
 block|}
+return|;
+block|}
+comment|/**    * Create a query for matching points within the specified distance of the supplied location.    */
+DECL|method|newDistanceQuery
+specifier|public
+specifier|static
+name|Query
+name|newDistanceQuery
+parameter_list|(
+name|String
+name|field
+parameter_list|,
+name|double
+name|latitude
+parameter_list|,
+name|double
+name|longitude
+parameter_list|,
+name|double
+name|radiusMeters
+parameter_list|)
+block|{
+return|return
+operator|new
+name|PointDistanceQuery
+argument_list|(
+name|field
+argument_list|,
+name|latitude
+argument_list|,
+name|longitude
+argument_list|,
+name|radiusMeters
+argument_list|)
 return|;
 block|}
 comment|/**     * Create a query for matching a polygon.    *<p>    * The supplied {@code polyLats}/{@code polyLons} must be clockwise or counter-clockwise.    */
