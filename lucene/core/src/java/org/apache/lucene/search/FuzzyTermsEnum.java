@@ -338,21 +338,6 @@ specifier|private
 name|BytesRef
 name|bottomTerm
 decl_stmt|;
-comment|// TODO: chicken-and-egg
-DECL|field|termComparator
-specifier|private
-specifier|final
-name|Comparator
-argument_list|<
-name|BytesRef
-argument_list|>
-name|termComparator
-init|=
-name|BytesRef
-operator|.
-name|getUTF8SortedAsUnicodeComparator
-argument_list|()
-decl_stmt|;
 DECL|field|minSimilarity
 specifier|protected
 specifier|final
@@ -1046,12 +1031,10 @@ name|lastTerm
 operator|!=
 literal|null
 operator|&&
-name|termComparator
-operator|.
-name|compare
-argument_list|(
 name|lastTerm
-argument_list|,
+operator|.
+name|compareTo
+argument_list|(
 name|bottomTerm
 argument_list|)
 operator|>=
