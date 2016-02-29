@@ -4805,6 +4805,8 @@ string|"'sandbox'"
 op|','
 string|"'spatial'"
 op|','
+string|"'spatial-extras'"
+op|','
 string|"'spatial3d'"
 op|','
 string|"'suggest'"
