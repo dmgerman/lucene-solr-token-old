@@ -3194,10 +3194,10 @@ argument_list|>
 block|{
 DECL|field|sum
 specifier|private
-name|long
+name|double
 name|sum
 init|=
-literal|0
+literal|0.0
 decl_stmt|;
 DECL|field|sumOfSquares
 name|double
@@ -3348,7 +3348,7 @@ name|sum
 operator|+=
 operator|(
 operator|(
-name|Date
+name|Number
 operator|)
 name|stv
 operator|.
@@ -3358,7 +3358,7 @@ literal|"sum"
 argument_list|)
 operator|)
 operator|.
-name|getTime
+name|doubleValue
 argument_list|()
 expr_stmt|;
 block|}
@@ -3567,11 +3567,7 @@ name|add
 argument_list|(
 literal|"sum"
 argument_list|,
-operator|new
-name|Date
-argument_list|(
 name|sum
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3602,9 +3598,14 @@ condition|?
 operator|new
 name|Date
 argument_list|(
+call|(
+name|long
+call|)
+argument_list|(
 name|sum
 operator|/
 name|count
+argument_list|)
 argument_list|)
 else|:
 literal|null
@@ -3690,9 +3691,6 @@ operator|-
 operator|(
 name|sum
 operator|*
-operator|(
-name|double
-operator|)
 name|sum
 operator|)
 operator|)

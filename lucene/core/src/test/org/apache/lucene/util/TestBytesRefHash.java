@@ -48,6 +48,17 @@ operator|.
 name|util
 operator|.
 name|Map
+operator|.
+name|Entry
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 begin_import
@@ -75,17 +86,6 @@ operator|.
 name|util
 operator|.
 name|TreeSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-operator|.
-name|Entry
 import|;
 end_import
 begin_import
@@ -1009,7 +1009,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Test method for    * {@link org.apache.lucene.util.BytesRefHash#sort(java.util.Comparator)}.    */
+comment|/**    * Test method for    * {@link org.apache.lucene.util.BytesRefHash#sort()}.    */
 annotation|@
 name|Test
 DECL|method|testSort
@@ -1048,6 +1048,7 @@ name|j
 operator|++
 control|)
 block|{
+comment|// Sorts by unicode code point order (is there a simple way, e.g. a Collator?)
 name|SortedSet
 argument_list|<
 name|String
@@ -1057,7 +1058,11 @@ init|=
 operator|new
 name|TreeSet
 argument_list|<>
-argument_list|()
+argument_list|(
+name|TestUtil
+operator|.
+name|STRING_CODEPOINT_COMPARATOR
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -1127,8 +1132,6 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
-comment|// We use the UTF-16 comparator here, because we need to be able to
-comment|// compare to native String.compareTo() [UTF-16]:
 name|int
 index|[]
 name|sort
@@ -1136,12 +1139,7 @@ init|=
 name|hash
 operator|.
 name|sort
-argument_list|(
-name|BytesRef
-operator|.
-name|getUTF8SortedAsUTF16Comparator
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(

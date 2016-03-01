@@ -171,6 +171,7 @@ specifier|private
 name|GeoEncodingUtils
 parameter_list|()
 block|{   }
+comment|/**    * encode longitude, latitude geopoint values using morton encoding method    * https://en.wikipedia.org/wiki/Z-order_curve    */
 DECL|method|mortonHash
 specifier|public
 specifier|static
@@ -204,6 +205,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/** decode longitude value from morton encoded geo point */
 DECL|method|mortonUnhashLon
 specifier|public
 specifier|static
@@ -228,6 +230,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/** decode latitude value from morton encoded geo point */
 DECL|method|mortonUnhashLat
 specifier|public
 specifier|static
@@ -255,7 +258,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|scaleLon
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|long
@@ -282,7 +285,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|scaleLat
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|long
@@ -309,7 +312,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|unscaleLon
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|double
@@ -331,7 +334,7 @@ name|MIN_LON_INCL
 return|;
 block|}
 DECL|method|unscaleLat
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|double
@@ -352,7 +355,7 @@ operator|+
 name|MIN_LAT_INCL
 return|;
 block|}
-comment|/**    * Compare two position values within a {@link GeoEncodingUtils#TOLERANCE} factor    */
+comment|/** Compare two position values within a {@link GeoEncodingUtils#TOLERANCE} factor */
 DECL|method|compare
 specifier|public
 specifier|static
@@ -391,7 +394,7 @@ else|:
 name|delta
 return|;
 block|}
-comment|/**    * Convert a geocoded morton long into a prefix coded geo term    */
+comment|/** Convert a geocoded morton long into a prefix coded geo term */
 DECL|method|geoCodedToPrefixCoded
 specifier|public
 specifier|static
@@ -418,7 +421,7 @@ name|bytes
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Convert a prefix coded geo term back into the geocoded morton long    */
+comment|/** Convert a prefix coded geo term back into the geocoded morton long */
 DECL|method|prefixCodedToGeoCoded
 specifier|public
 specifier|static

@@ -463,21 +463,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|handler
-operator|.
-name|component
-operator|.
-name|ShardHandler
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|logging
 operator|.
 name|MDCLoggingContext
@@ -494,19 +479,6 @@ operator|.
 name|update
 operator|.
 name|UpdateLog
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|update
-operator|.
-name|UpdateShardHandler
 import|;
 end_import
 begin_import
@@ -1703,6 +1675,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|zkStateReader
+operator|.
+name|createClusterStateWatchersAndUpdate
+argument_list|()
+expr_stmt|;
 comment|// this is troublesome - we dont want to kill anything the old
 comment|// leader accepted
 comment|// though I guess sync will likely get those updates back? But
@@ -1782,11 +1759,6 @@ name|registerOnReconnect
 argument_list|,
 literal|false
 argument_list|)
-expr_stmt|;
-name|zkStateReader
-operator|.
-name|createClusterStateWatchersAndUpdate
-argument_list|()
 expr_stmt|;
 comment|// we have to register as live first to pick up docs in the buffer
 name|createEphemeralLiveNode
@@ -2083,7 +2055,7 @@ name|overseerJobQueue
 operator|=
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|zkClient
 argument_list|)
@@ -3312,6 +3284,11 @@ argument_list|(
 name|zkClient
 argument_list|)
 expr_stmt|;
+name|zkStateReader
+operator|.
+name|createClusterStateWatchersAndUpdate
+argument_list|()
+expr_stmt|;
 comment|// start the overseer first as following code may need it's processing
 if|if
 condition|(
@@ -3389,11 +3366,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-name|zkStateReader
-operator|.
-name|createClusterStateWatchersAndUpdate
-argument_list|()
-expr_stmt|;
 name|Stat
 name|stat
 init|=
@@ -3424,11 +3396,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|zkStateReader
-operator|.
-name|createClusterStateWatchersAndUpdate
-argument_list|()
-expr_stmt|;
 name|publishAndWaitForDownStates
 argument_list|()
 expr_stmt|;
@@ -11477,7 +11444,8 @@ operator|)
 name|context
 operator|)
 operator|.
-name|leaderZkNodeParentVersion
+name|getLeaderZkNodeParentVersion
+argument_list|()
 decl_stmt|;
 comment|// TODO: should we do this optimistically to avoid races?
 if|if
@@ -13395,7 +13363,7 @@ try|try
 block|{
 name|Overseer
 operator|.
-name|getInQueue
+name|getStateUpdateQueue
 argument_list|(
 name|getZkClient
 argument_list|()
