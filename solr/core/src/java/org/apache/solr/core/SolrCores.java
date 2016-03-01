@@ -658,14 +658,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-for|for
-control|(
-name|SolrCore
-name|core
-range|:
-name|coreList
-control|)
-block|{
 name|ExecutorService
 name|coreCloseExecutor
 init|=
@@ -685,6 +677,14 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 try|try
+block|{
+for|for
+control|(
+name|SolrCore
+name|core
+range|:
+name|coreList
+control|)
 block|{
 name|coreCloseExecutor
 operator|.
@@ -769,6 +769,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 finally|finally
 block|{
 name|ExecutorUtil
@@ -778,7 +779,6 @@ argument_list|(
 name|coreCloseExecutor
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 do|while
