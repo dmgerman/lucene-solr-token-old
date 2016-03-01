@@ -1672,6 +1672,7 @@ name|int
 name|bOffset
 parameter_list|)
 block|{
+comment|// TODO: dedup this w/ BytesRef.compareTo?
 for|for
 control|(
 name|int
