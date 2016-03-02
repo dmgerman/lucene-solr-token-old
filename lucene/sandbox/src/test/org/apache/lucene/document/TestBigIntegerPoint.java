@@ -237,8 +237,6 @@ operator|.
 name|ONE
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|large
 operator|.
 name|add
@@ -247,8 +245,6 @@ name|BigInteger
 operator|.
 name|ONE
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -472,8 +468,6 @@ operator|.
 name|ONE
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|negative
 operator|.
 name|add
@@ -482,8 +476,6 @@ name|BigInteger
 operator|.
 name|ONE
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -635,7 +627,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"field:{1 TO 17]"
+literal|"field:[1 TO 17]"
 argument_list|,
 name|BigIntegerPoint
 operator|.
@@ -647,16 +639,12 @@ name|BigInteger
 operator|.
 name|ONE
 argument_list|,
-literal|false
-argument_list|,
 name|BigInteger
 operator|.
 name|valueOf
 argument_list|(
 literal|17
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 operator|.
 name|toString
@@ -665,11 +653,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"field:{1 TO 17],[0 TO 42}"
+literal|"field:[1 TO 17],[0 TO 42]"
 argument_list|,
 name|BigIntegerPoint
 operator|.
-name|newMultiRangeQuery
+name|newRangeQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -684,15 +672,6 @@ block|,
 name|BigInteger
 operator|.
 name|ZERO
-block|}
-argument_list|,
-operator|new
-name|boolean
-index|[]
-block|{
-literal|false
-block|,
-literal|true
 block|}
 argument_list|,
 operator|new
@@ -712,15 +691,6 @@ name|valueOf
 argument_list|(
 literal|42
 argument_list|)
-block|}
-argument_list|,
-operator|new
-name|boolean
-index|[]
-block|{
-literal|true
-block|,
-literal|false
 block|}
 argument_list|)
 operator|.

@@ -384,7 +384,7 @@ operator|>=
 name|rectLatMinEnc
 operator|&&
 name|pointLatEnc
-operator|<
+operator|<=
 name|rectLatMaxEnc
 operator|&&
 name|pointLonEnc
@@ -392,7 +392,7 @@ operator|>=
 name|rectLonMinEnc
 operator|&&
 name|pointLonEnc
-operator|<
+operator|<=
 name|rectLonMaxEnc
 return|;
 block|}
@@ -405,7 +405,7 @@ operator|>=
 name|rectLatMinEnc
 operator|&&
 name|pointLatEnc
-operator|<
+operator|<=
 name|rectLatMaxEnc
 operator|&&
 operator|(
@@ -414,7 +414,7 @@ operator|>=
 name|rectLonMinEnc
 operator|||
 name|pointLonEnc
-operator|<
+operator|<=
 name|rectLonMaxEnc
 operator|)
 return|;
