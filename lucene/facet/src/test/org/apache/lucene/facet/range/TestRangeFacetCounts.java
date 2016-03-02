@@ -1712,6 +1712,8 @@ init|=
 name|newSearcher
 argument_list|(
 name|r
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -2895,6 +2897,8 @@ init|=
 name|newSearcher
 argument_list|(
 name|r
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|FacetsConfig
@@ -3865,6 +3869,8 @@ init|=
 name|newSearcher
 argument_list|(
 name|r
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|FacetsConfig
@@ -4905,6 +4911,8 @@ init|=
 name|newSearcher
 argument_list|(
 name|r
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|FacetsConfig
