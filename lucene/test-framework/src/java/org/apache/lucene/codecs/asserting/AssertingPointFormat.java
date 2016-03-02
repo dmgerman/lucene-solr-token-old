@@ -200,6 +200,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|StringHelper
 import|;
 end_import
@@ -555,6 +568,14 @@ operator|+
 literal|" of "
 operator|+
 name|numDims
+operator|+
+literal|" value="
+operator|+
+operator|new
+name|BytesRef
+argument_list|(
+name|packedValue
+argument_list|)
 assert|;
 assert|assert
 name|StringHelper
@@ -585,6 +606,14 @@ operator|+
 literal|" of "
 operator|+
 name|numDims
+operator|+
+literal|" value="
+operator|+
+operator|new
+name|BytesRef
+argument_list|(
+name|packedValue
+argument_list|)
 assert|;
 block|}
 comment|// TODO: we should assert that this "matches" whatever relation the last call to compare had returned
@@ -1122,6 +1151,27 @@ return|return
 name|in
 operator|.
 name|getBytesPerDimension
+argument_list|(
+name|fieldName
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|size
+specifier|public
+name|long
+name|size
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
+block|{
+comment|// TODO: what to assert?
+return|return
+name|in
+operator|.
+name|size
 argument_list|(
 name|fieldName
 argument_list|)
