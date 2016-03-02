@@ -209,6 +209,15 @@ operator|.
 name|List
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
 begin_comment
 comment|/**  * Test for ContentStreamDataSource  *  *  * @since solr 1.4  */
 end_comment
@@ -972,7 +981,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
+name|Properties
+name|nodeProperties
+init|=
+operator|new
+name|Properties
+argument_list|()
+decl_stmt|;
+name|nodeProperties
 operator|.
 name|setProperty
 argument_list|(
@@ -994,6 +1010,8 @@ name|instance
 operator|.
 name|getHomeDir
 argument_list|()
+argument_list|,
+name|nodeProperties
 argument_list|,
 name|buildJettyConfig
 argument_list|(
