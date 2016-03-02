@@ -69,7 +69,7 @@ name|BeforeClass
 import|;
 end_import
 begin_comment
-comment|/**  * Tests per-field similarity support in the schema  * @see TestPerFieldSimilarityClassic  */
+comment|/**  * Tests per-field similarity support in the schema  */
 end_comment
 begin_class
 DECL|class|TestPerFieldSimilarity
