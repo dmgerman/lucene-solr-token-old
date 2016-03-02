@@ -276,6 +276,8 @@ init|=
 operator|new
 name|BKDWriter
 argument_list|(
+literal|100
+argument_list|,
 name|dir
 argument_list|,
 literal|"tmp"
@@ -781,6 +783,8 @@ init|=
 operator|new
 name|BKDWriter
 argument_list|(
+name|numDocs
+argument_list|,
 name|dir
 argument_list|,
 literal|"tmp"
@@ -1786,6 +1790,8 @@ init|=
 operator|new
 name|BKDWriter
 argument_list|(
+name|numDocs
+argument_list|,
 name|dir
 argument_list|,
 literal|"tmp"
@@ -2931,6 +2937,8 @@ block|{
 operator|new
 name|BKDWriter
 argument_list|(
+literal|1
+argument_list|,
 name|dir
 argument_list|,
 literal|"bkd"
@@ -4649,6 +4657,8 @@ init|=
 operator|new
 name|BKDWriter
 argument_list|(
+name|numValues
+argument_list|,
 name|dir
 argument_list|,
 literal|"_"
@@ -5022,6 +5032,8 @@ operator|=
 operator|new
 name|BKDWriter
 argument_list|(
+name|numValues
+argument_list|,
 name|dir
 argument_list|,
 literal|"_"
@@ -5120,6 +5132,8 @@ operator|=
 operator|new
 name|BKDWriter
 argument_list|(
+name|numValues
+argument_list|,
 name|dir
 argument_list|,
 literal|"_"
