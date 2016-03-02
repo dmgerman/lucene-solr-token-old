@@ -8815,7 +8815,10 @@ condition|(
 name|globalMinPackedValue
 operator|==
 literal|null
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|size
 operator|!=
 literal|0
@@ -8837,6 +8840,8 @@ name|size
 argument_list|)
 throw|;
 block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|globalMinPackedValue
@@ -8886,7 +8891,10 @@ condition|(
 name|globalMaxPackedValue
 operator|==
 literal|null
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|size
 operator|!=
 literal|0
@@ -8908,6 +8916,8 @@ name|size
 argument_list|)
 throw|;
 block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|globalMaxPackedValue
