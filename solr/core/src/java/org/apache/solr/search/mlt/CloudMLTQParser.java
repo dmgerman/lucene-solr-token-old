@@ -1171,7 +1171,16 @@ name|add
 argument_list|(
 name|createIdQuery
 argument_list|(
-literal|"id"
+name|req
+operator|.
+name|getSchema
+argument_list|()
+operator|.
+name|getUniqueKeyField
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|id
 argument_list|)
