@@ -25,11 +25,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|context
 operator|.
@@ -38,11 +38,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|exception
 operator|.
@@ -51,11 +51,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -64,11 +64,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -77,11 +77,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -115,7 +115,7 @@ specifier|private
 name|SpatialUtils
 parameter_list|()
 block|{}
-comment|/**    * Parses a 'geom' parameter (might also be used to parse shapes for indexing). {@code geomStr} can either be WKT or    * a rectangle-range syntax (see {@link #parseRectangle(String, com.spatial4j.core.context.SpatialContext)}.    */
+comment|/**    * Parses a 'geom' parameter (might also be used to parse shapes for indexing). {@code geomStr} can either be WKT or    * a rectangle-range syntax (see {@link #parseRectangle(String, org.locationtech.spatial4j.context.SpatialContext)}.    */
 DECL|method|parseGeomSolrException
 specifier|public
 specifier|static
@@ -526,7 +526,7 @@ return|return
 name|idx
 return|;
 block|}
-comment|/** Calls {@link #parsePoint(String, com.spatial4j.core.context.SpatialContext)} and wraps    * the exception with {@link org.apache.solr.common.SolrException} with a helpful message. */
+comment|/** Calls {@link #parsePoint(String, org.locationtech.spatial4j.context.SpatialContext)} and wraps    * the exception with {@link org.apache.solr.common.SolrException} with a helpful message. */
 DECL|method|parsePointSolrException
 specifier|public
 specifier|static
@@ -604,7 +604,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Parses {@code str} in the format of '[minPoint TO maxPoint]' where {@code minPoint} is the lower left corner    * and maxPoint is the upper-right corner of the bounding box.  Both corners may optionally be wrapped with a quote    * and then it's parsed via {@link #parsePoint(String, com.spatial4j.core.context.SpatialContext)}.    * @param str Non-null; may *not* have leading or trailing spaces    * @param ctx Non-null    * @return the Rectangle    * @throws InvalidShapeException If for any reason there was a problem parsing the string or creating the rectangle.    */
+comment|/**    * Parses {@code str} in the format of '[minPoint TO maxPoint]' where {@code minPoint} is the lower left corner    * and maxPoint is the upper-right corner of the bounding box.  Both corners may optionally be wrapped with a quote    * and then it's parsed via {@link #parsePoint(String, org.locationtech.spatial4j.context.SpatialContext)}.    * @param str Non-null; may *not* have leading or trailing spaces    * @param ctx Non-null    * @return the Rectangle    * @throws InvalidShapeException If for any reason there was a problem parsing the string or creating the rectangle.    */
 DECL|method|parseRectangle
 specifier|public
 specifier|static
@@ -769,7 +769,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Calls {@link #parseRectangle(String, com.spatial4j.core.context.SpatialContext)} and wraps the exception with    * {@link org.apache.solr.common.SolrException} with a helpful message.    */
+comment|/**    * Calls {@link #parseRectangle(String, org.locationtech.spatial4j.context.SpatialContext)} and wraps the exception with    * {@link org.apache.solr.common.SolrException} with a helpful message.    */
 DECL|method|parseRectangeSolrException
 specifier|public
 specifier|static

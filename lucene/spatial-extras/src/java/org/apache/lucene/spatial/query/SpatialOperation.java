@@ -18,11 +18,11 @@ package|;
 end_package
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -31,11 +31,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -44,11 +44,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -110,7 +110,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * A predicate that compares a stored geometry to a supplied geometry. It's enum-like. For more  * explanation of each predicate, consider looking at the source implementation  * of {@link #evaluate(com.spatial4j.core.shape.Shape, com.spatial4j.core.shape.Shape)}. It's important  * to be aware that Lucene-spatial makes no distinction of shape boundaries, unlike many standardized  * definitions. Nor does it make dimensional distinctions (e.g. line vs polygon).  * You can lookup a predicate by "Covers" or "Contains", for example, and you will get the  * same underlying predicate implementation.  *  * @see<a href="http://en.wikipedia.org/wiki/DE-9IM">DE-9IM at Wikipedia, based on OGC specs</a>  * @see<a href="http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm">  *   ESRIs docs on spatial relations</a>  *  * @lucene.experimental  */
+comment|/**  * A predicate that compares a stored geometry to a supplied geometry. It's enum-like. For more  * explanation of each predicate, consider looking at the source implementation  * of {@link #evaluate(org.locationtech.spatial4j.shape.Shape, org.locationtech.spatial4j.shape.Shape)}. It's important  * to be aware that Lucene-spatial makes no distinction of shape boundaries, unlike many standardized  * definitions. Nor does it make dimensional distinctions (e.g. line vs polygon).  * You can lookup a predicate by "Covers" or "Contains", for example, and you will get the  * same underlying predicate implementation.  *  * @see<a href="http://en.wikipedia.org/wiki/DE-9IM">DE-9IM at Wikipedia, based on OGC specs</a>  * @see<a href="http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm">  *   ESRIs docs on spatial relations</a>  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SpatialOperation

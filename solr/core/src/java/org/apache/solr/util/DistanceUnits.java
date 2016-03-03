@@ -56,11 +56,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|distance
 operator|.
