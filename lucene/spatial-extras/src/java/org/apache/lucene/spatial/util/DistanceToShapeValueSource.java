@@ -149,11 +149,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|context
 operator|.
@@ -162,11 +162,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|distance
 operator|.
@@ -175,11 +175,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -188,11 +188,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -200,7 +200,7 @@ name|Shape
 import|;
 end_import
 begin_comment
-comment|/**  * The distance from a provided Point to a Point retrieved from a ValueSource via  * {@link org.apache.lucene.queries.function.FunctionValues#objectVal(int)}. The distance  * is calculated via a {@link com.spatial4j.core.distance.DistanceCalculator}.  *  * @lucene.experimental  */
+comment|/**  * The distance from a provided Point to a Point retrieved from a ValueSource via  * {@link org.apache.lucene.queries.function.FunctionValues#objectVal(int)}. The distance  * is calculated via a {@link org.locationtech.spatial4j.distance.DistanceCalculator}.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DistanceToShapeValueSource
