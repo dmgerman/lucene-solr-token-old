@@ -664,11 +664,9 @@ operator|)
 name|query
 decl_stmt|;
 specifier|final
-name|List
-argument_list|<
 name|Term
 index|[]
-argument_list|>
+index|[]
 name|termArrays
 init|=
 name|mpq
@@ -786,8 +784,7 @@ name|i
 operator|<
 name|termArrays
 operator|.
-name|size
-argument_list|()
+name|length
 condition|;
 operator|++
 name|i
@@ -799,11 +796,9 @@ index|[]
 name|termArray
 init|=
 name|termArrays
-operator|.
-name|get
-argument_list|(
+index|[
 name|i
-argument_list|)
+index|]
 decl_stmt|;
 name|List
 argument_list|<
