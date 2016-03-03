@@ -766,11 +766,18 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid core: "
-operator|+
+name|SolrIdentifierValidator
+operator|.
+name|getIdentifierMessage
+argument_list|(
+name|SolrIdentifierValidator
+operator|.
+name|IdentifierType
+operator|.
+name|CORE
+argument_list|,
 name|coreName
-operator|+
-literal|". Core names must consist entirely of periods, underscores, and alphanumerics"
+argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -2721,11 +2728,18 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid core: "
-operator|+
+name|SolrIdentifierValidator
+operator|.
+name|getIdentifierMessage
+argument_list|(
+name|SolrIdentifierValidator
+operator|.
+name|IdentifierType
+operator|.
+name|CORE
+argument_list|,
 name|newName
-operator|+
-literal|". Core names must consist entirely of periods, underscores, and alphanumerics"
+argument_list|)
 argument_list|)
 throw|;
 block|}
