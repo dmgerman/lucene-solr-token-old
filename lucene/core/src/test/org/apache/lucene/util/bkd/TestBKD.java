@@ -5065,20 +5065,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"merge "
-operator|+
-name|toMerge
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|segCount
