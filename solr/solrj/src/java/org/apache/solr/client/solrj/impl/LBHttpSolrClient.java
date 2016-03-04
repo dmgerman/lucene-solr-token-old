@@ -2863,16 +2863,8 @@ name|lbRef
 parameter_list|)
 block|{
 return|return
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|LBHttpSolrClient
 name|lb
@@ -2915,7 +2907,6 @@ argument_list|(
 name|zombieServer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

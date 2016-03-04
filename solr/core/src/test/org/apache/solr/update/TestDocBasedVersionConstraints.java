@@ -2904,14 +2904,8 @@ name|Executors
 operator|.
 name|callable
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 comment|// log.info("ADDING DOC: " + adoc(fields));
 name|assertU
@@ -2922,7 +2916,6 @@ name|fields
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 return|;
@@ -2949,14 +2942,8 @@ name|Executors
 operator|.
 name|callable
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 try|try
 block|{
@@ -2988,7 +2975,6 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 argument_list|)

@@ -1156,16 +1156,8 @@ name|super
 operator|.
 name|execute
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|isServerPool
 operator|.
@@ -1419,7 +1411,6 @@ argument_list|(
 name|oldName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)
