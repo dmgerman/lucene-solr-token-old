@@ -20,11 +20,11 @@ package|;
 end_package
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -33,11 +33,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -58,7 +58,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Represents a grid cell. Cell instances are generally very transient and may be re-used  * internally.  To get an instance, you could start with {@link SpatialPrefixTree#getWorldCell()}.  * And from there you could either traverse down the tree with {@link #getNextLevelCells(com.spatial4j.core.shape.Shape)},  * or you could read an indexed term via {@link SpatialPrefixTree#readCell(org.apache.lucene.util.BytesRef,Cell)}.  * When a cell is read from a term, it is comprised of just the base bytes plus optionally a leaf flag.  *  * @lucene.experimental  */
+comment|/**  * Represents a grid cell. Cell instances are generally very transient and may be re-used  * internally.  To get an instance, you could start with {@link SpatialPrefixTree#getWorldCell()}.  * And from there you could either traverse down the tree with {@link #getNextLevelCells(org.locationtech.spatial4j.shape.Shape)},  * or you could read an indexed term via {@link SpatialPrefixTree#readCell(org.apache.lucene.util.BytesRef,Cell)}.  * When a cell is read from a term, it is comprised of just the base bytes plus optionally a leaf flag.  *  * @lucene.experimental  */
 end_comment
 begin_interface
 DECL|interface|Cell

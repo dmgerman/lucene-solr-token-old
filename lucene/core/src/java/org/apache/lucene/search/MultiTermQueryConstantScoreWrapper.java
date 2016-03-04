@@ -461,6 +461,17 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+comment|/** Returns the encapsulated query */
+DECL|method|getQuery
+specifier|public
+name|Q
+name|getQuery
+parameter_list|()
+block|{
+return|return
+name|query
+return|;
+block|}
 comment|/** Returns the field name for this query */
 DECL|method|getField
 specifier|public

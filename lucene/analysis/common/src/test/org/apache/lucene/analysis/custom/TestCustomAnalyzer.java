@@ -771,7 +771,7 @@ name|withDefaultMatchVersion
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_5_0_0
+name|LUCENE_6_0_0
 argument_list|)
 operator|.
 name|addCharFilter
@@ -955,7 +955,7 @@ name|assertSame
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_5_0_0
+name|LUCENE_6_0_0
 argument_list|,
 name|a
 operator|.
@@ -1067,7 +1067,7 @@ name|withDefaultMatchVersion
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_5_0_0
+name|LUCENE_6_0_0
 argument_list|)
 operator|.
 name|addCharFilter
@@ -1243,7 +1243,7 @@ name|assertSame
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_5_0_0
+name|LUCENE_6_0_0
 argument_list|,
 name|a
 operator|.

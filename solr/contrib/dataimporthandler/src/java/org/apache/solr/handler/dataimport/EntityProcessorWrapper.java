@@ -1680,19 +1680,6 @@ operator|=
 name|datasource
 expr_stmt|;
 block|}
-comment|/** @deprecated will be removed in Solr 6; use {@link #isInitialized()} */
-annotation|@
-name|Deprecated
-DECL|method|isInitalized
-specifier|public
-name|boolean
-name|isInitalized
-parameter_list|()
-block|{
-return|return
-name|initialized
-return|;
-block|}
 DECL|method|isInitialized
 specifier|public
 name|boolean
@@ -1702,25 +1689,6 @@ block|{
 return|return
 name|initialized
 return|;
-block|}
-comment|/** @deprecated will be removed in Solr 6; use {@link #setInitialized(boolean)} */
-annotation|@
-name|Deprecated
-DECL|method|setInitalized
-specifier|public
-name|void
-name|setInitalized
-parameter_list|(
-name|boolean
-name|initialized
-parameter_list|)
-block|{
-name|this
-operator|.
-name|initialized
-operator|=
-name|initialized
-expr_stmt|;
 block|}
 DECL|method|setInitialized
 specifier|public

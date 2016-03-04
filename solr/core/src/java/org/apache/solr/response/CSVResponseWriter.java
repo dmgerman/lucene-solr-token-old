@@ -947,6 +947,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|"\n"
 argument_list|)
 expr_stmt|;
 name|CSVStrategy
@@ -1249,6 +1251,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+literal|"\n"
 argument_list|)
 decl_stmt|;
 name|strat

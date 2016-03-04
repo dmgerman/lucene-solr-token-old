@@ -197,6 +197,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|NumericUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|mutable
 operator|.
 name|MutableValue
@@ -428,7 +441,7 @@ literal|0F
 return|;
 block|}
 return|return
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
@@ -539,7 +552,7 @@ name|mval
 operator|.
 name|exists
 condition|?
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(

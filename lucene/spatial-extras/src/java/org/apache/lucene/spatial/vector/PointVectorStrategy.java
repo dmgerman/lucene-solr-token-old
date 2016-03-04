@@ -18,11 +18,11 @@ package|;
 end_package
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|context
 operator|.
@@ -31,11 +31,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -44,11 +44,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -57,11 +57,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -70,11 +70,11 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -274,7 +274,7 @@ name|UnsupportedSpatialOperation
 import|;
 end_import
 begin_comment
-comment|/**  * Simple {@link SpatialStrategy} which represents Points in two numeric {@link  * org.apache.lucene.document.LegacyDoubleField}s.  The Strategy's best feature is decent distance sort.  *  *<p>  *<b>Characteristics:</b>  *<br>  *<ul>  *<li>Only indexes points; just one per field value.</li>  *<li>Can query by a rectangle or circle.</li>  *<li>{@link  * org.apache.lucene.spatial.query.SpatialOperation#Intersects} and {@link  * SpatialOperation#IsWithin} is supported.</li>  *<li>Uses the FieldCache for  * {@link #makeDistanceValueSource(com.spatial4j.core.shape.Point)} and for  * searching with a Circle.</li>  *</ul>  *  *<p>  *<b>Implementation:</b>  *<p>  * This is a simple Strategy.  Search works with {@link org.apache.lucene.search.LegacyNumericRangeQuery}s on  * an x and y pair of fields.  A Circle query does the same bbox query but adds a  * ValueSource filter on  * {@link #makeDistanceValueSource(com.spatial4j.core.shape.Point)}.  *<p>  * One performance shortcoming with this strategy is that a scenario involving  * both a search using a Circle and sort will result in calculations for the  * spatial distance being done twice -- once for the filter and second for the  * sort.  *  * @lucene.experimental  */
+comment|/**  * Simple {@link SpatialStrategy} which represents Points in two numeric {@link  * org.apache.lucene.document.LegacyDoubleField}s.  The Strategy's best feature is decent distance sort.  *  *<p>  *<b>Characteristics:</b>  *<br>  *<ul>  *<li>Only indexes points; just one per field value.</li>  *<li>Can query by a rectangle or circle.</li>  *<li>{@link  * org.apache.lucene.spatial.query.SpatialOperation#Intersects} and {@link  * SpatialOperation#IsWithin} is supported.</li>  *<li>Uses the FieldCache for  * {@link #makeDistanceValueSource(org.locationtech.spatial4j.shape.Point)} and for  * searching with a Circle.</li>  *</ul>  *  *<p>  *<b>Implementation:</b>  *<p>  * This is a simple Strategy.  Search works with {@link org.apache.lucene.search.LegacyNumericRangeQuery}s on  * an x and y pair of fields.  A Circle query does the same bbox query but adds a  * ValueSource filter on  * {@link #makeDistanceValueSource(org.locationtech.spatial4j.shape.Point)}.  *<p>  * One performance shortcoming with this strategy is that a scenario involving  * both a search using a Circle and sort will result in calculations for the  * spatial distance being done twice -- once for the filter and second for the  * sort.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PointVectorStrategy
@@ -442,7 +442,7 @@ name|shape
 argument_list|)
 throw|;
 block|}
-comment|/** @see #createIndexableFields(com.spatial4j.core.shape.Shape) */
+comment|/** @see #createIndexableFields(org.locationtech.spatial4j.shape.Shape) */
 DECL|method|createIndexableFields
 specifier|public
 name|Field

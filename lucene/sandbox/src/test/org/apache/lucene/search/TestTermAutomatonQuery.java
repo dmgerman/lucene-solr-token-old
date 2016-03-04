@@ -3612,10 +3612,14 @@ name|toString
 argument_list|()
 decl_stmt|;
 name|MultiPhraseQuery
-name|mpq
+operator|.
+name|Builder
+name|mpqb
 init|=
 operator|new
 name|MultiPhraseQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -3648,7 +3652,7 @@ operator|==
 literal|'*'
 condition|)
 block|{
-name|mpq
+name|mpqb
 operator|.
 name|add
 argument_list|(
@@ -3658,7 +3662,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|mpq
+name|mpqb
 operator|.
 name|add
 argument_list|(
@@ -3684,7 +3688,10 @@ name|bq
 operator|.
 name|add
 argument_list|(
-name|mpq
+name|mpqb
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|BooleanClause
 operator|.
