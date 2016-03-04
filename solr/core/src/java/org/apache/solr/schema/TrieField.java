@@ -458,6 +458,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|NumericUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|mutable
 operator|.
 name|MutableValueDate
@@ -1938,7 +1951,7 @@ else|:
 operator|(
 name|long
 operator|)
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -1959,7 +1972,7 @@ else|:
 operator|(
 name|long
 operator|)
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -2149,7 +2162,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2167,7 +2180,7 @@ literal|null
 condition|?
 literal|null
 else|:
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2547,7 +2560,7 @@ name|LegacyNumericUtils
 operator|.
 name|intToPrefixCoded
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -2592,7 +2605,7 @@ name|LegacyNumericUtils
 operator|.
 name|longToPrefixCoded
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(
@@ -2809,7 +2822,7 @@ name|Float
 operator|.
 name|toString
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
@@ -2846,7 +2859,7 @@ name|Double
 operator|.
 name|toString
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
@@ -2947,7 +2960,7 @@ name|Float
 operator|.
 name|toString
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
@@ -2988,7 +3001,7 @@ name|Double
 operator|.
 name|toString
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
@@ -3121,7 +3134,7 @@ case|case
 name|FLOAT
 case|:
 return|return
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
@@ -3148,7 +3161,7 @@ case|case
 name|DOUBLE
 case|:
 return|return
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
@@ -3288,7 +3301,7 @@ name|LegacyNumericUtils
 operator|.
 name|intToPrefixCoded
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|floatToSortableInt
 argument_list|(
@@ -3333,7 +3346,7 @@ name|LegacyNumericUtils
 operator|.
 name|longToPrefixCoded
 argument_list|(
-name|LegacyNumericUtils
+name|NumericUtils
 operator|.
 name|doubleToSortableLong
 argument_list|(

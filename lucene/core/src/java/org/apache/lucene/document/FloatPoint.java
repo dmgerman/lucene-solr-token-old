@@ -652,7 +652,7 @@ parameter_list|)
 block|{
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|NumericUtils
 operator|.
@@ -689,7 +689,7 @@ name|sortableIntToFloat
 argument_list|(
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|value
 argument_list|,

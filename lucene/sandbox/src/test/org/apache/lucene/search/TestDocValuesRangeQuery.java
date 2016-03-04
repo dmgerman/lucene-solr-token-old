@@ -629,7 +629,7 @@ index|]
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|l
 argument_list|,

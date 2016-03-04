@@ -3259,7 +3259,7 @@ index|]
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|v
 argument_list|,
@@ -3273,7 +3273,7 @@ name|v2
 init|=
 name|NumericUtils
 operator|.
-name|bytesToLong
+name|sortableBytesToLong
 argument_list|(
 name|tmp
 argument_list|,
@@ -3737,7 +3737,7 @@ index|]
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|values
 index|[
@@ -4093,7 +4093,7 @@ condition|)
 block|{
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|lower
 argument_list|,
@@ -4128,7 +4128,7 @@ condition|)
 block|{
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|upper
 argument_list|,
@@ -4192,7 +4192,7 @@ index|]
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|lower
 argument_list|,
@@ -4213,7 +4213,7 @@ index|]
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|upper
 argument_list|,

@@ -652,7 +652,7 @@ parameter_list|)
 block|{
 name|NumericUtils
 operator|.
-name|longToBytes
+name|longToSortableBytes
 argument_list|(
 name|value
 argument_list|,
@@ -680,7 +680,7 @@ block|{
 return|return
 name|NumericUtils
 operator|.
-name|bytesToLong
+name|sortableBytesToLong
 argument_list|(
 name|value
 argument_list|,

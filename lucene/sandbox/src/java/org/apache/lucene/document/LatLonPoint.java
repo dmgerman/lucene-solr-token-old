@@ -209,7 +209,7 @@ index|]
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|encodeLatitude
 argument_list|(
@@ -223,7 +223,7 @@ argument_list|)
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|encodeLongitude
 argument_list|(
@@ -620,7 +620,7 @@ name|decodeLatitude
 argument_list|(
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|src
 argument_list|,
@@ -679,7 +679,7 @@ name|decodeLongitude
 argument_list|(
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|src
 argument_list|,
@@ -729,7 +729,7 @@ index|]
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|encodeLatitude
 argument_list|(
@@ -757,7 +757,7 @@ index|]
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|encodeLongitude
 argument_list|(
@@ -983,7 +983,7 @@ index|]
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|Integer
 operator|.
@@ -1064,7 +1064,7 @@ index|]
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|Integer
 operator|.

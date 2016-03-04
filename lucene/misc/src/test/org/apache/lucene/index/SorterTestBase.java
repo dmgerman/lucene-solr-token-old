@@ -1304,7 +1304,7 @@ index|]
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|id
 argument_list|,

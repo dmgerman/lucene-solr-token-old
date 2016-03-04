@@ -463,7 +463,7 @@ argument_list|()
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|i
 argument_list|,
@@ -609,7 +609,7 @@ name|docID
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|packedValue
 argument_list|,
@@ -716,7 +716,7 @@ argument_list|()
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|i
 argument_list|,
@@ -875,7 +875,7 @@ name|docID
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|packedValue
 argument_list|,
@@ -974,7 +974,7 @@ argument_list|()
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|intToBytes
+name|intToSortableBytes
 argument_list|(
 name|i
 argument_list|,
@@ -1244,7 +1244,7 @@ argument_list|)
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|packedValue
 argument_list|,
@@ -2454,7 +2454,7 @@ index|]
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|bigIntToBytes
+name|bigIntToSortableBytes
 argument_list|(
 name|values
 index|[
@@ -2829,7 +2829,7 @@ name|x
 init|=
 name|NumericUtils
 operator|.
-name|bytesToBigInt
+name|sortableBytesToBigInt
 argument_list|(
 name|packedValue
 argument_list|,
@@ -2922,7 +2922,7 @@ name|min
 init|=
 name|NumericUtils
 operator|.
-name|bytesToBigInt
+name|sortableBytesToBigInt
 argument_list|(
 name|minPacked
 argument_list|,
@@ -2938,7 +2938,7 @@ name|max
 init|=
 name|NumericUtils
 operator|.
-name|bytesToBigInt
+name|sortableBytesToBigInt
 argument_list|(
 name|maxPacked
 argument_list|,

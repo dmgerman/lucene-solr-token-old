@@ -491,7 +491,7 @@ name|planetMax
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|minPackedValue
 argument_list|,
@@ -510,7 +510,7 @@ name|planetMax
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|maxPackedValue
 argument_list|,
@@ -529,7 +529,7 @@ name|planetMax
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|minPackedValue
 argument_list|,
@@ -552,7 +552,7 @@ name|planetMax
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|maxPackedValue
 argument_list|,
@@ -575,7 +575,7 @@ name|planetMax
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|minPackedValue
 argument_list|,
@@ -598,7 +598,7 @@ name|planetMax
 argument_list|,
 name|NumericUtils
 operator|.
-name|bytesToInt
+name|sortableBytesToInt
 argument_list|(
 name|maxPackedValue
 argument_list|,
