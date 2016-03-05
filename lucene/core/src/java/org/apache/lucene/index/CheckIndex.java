@@ -1854,11 +1854,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|String
-name|sFormat
-init|=
-literal|""
-decl_stmt|;
 name|result
 operator|.
 name|segmentsFileName
@@ -2019,10 +2014,6 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
-operator|+
-literal|" format="
-operator|+
-name|sFormat
 operator|+
 name|userDataString
 argument_list|)
