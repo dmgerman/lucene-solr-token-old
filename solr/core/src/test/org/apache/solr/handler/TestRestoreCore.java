@@ -866,6 +866,36 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|numRestoreTests
+init|=
+name|TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+literal|1
+argument_list|,
+literal|5
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|int
+name|attempts
+init|=
+literal|0
+init|;
+name|attempts
+operator|<
+name|numRestoreTests
+condition|;
+name|attempts
+operator|++
+control|)
+block|{
 comment|//Modify existing index before we call restore.
 comment|//Delete a few docs
 name|int
@@ -1032,6 +1062,7 @@ argument_list|(
 name|nDocs
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
