@@ -48,7 +48,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointFormat
+name|PointsFormat
 import|;
 end_import
 begin_import
@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointReader
+name|PointsReader
 import|;
 end_import
 begin_import
@@ -74,7 +74,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointWriter
+name|PointsWriter
 import|;
 end_import
 begin_import
@@ -107,13 +107,13 @@ begin_comment
 comment|/**  * Lucene 6.0 point format, which encodes dimensional values in a block KD-tree structure  * for fast shape intersection filtering. See<a href="https://www.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf">this paper</a> for details.  *  *<p>This data structure is written as a series of blocks on disk, with an in-memory perfectly balanced  * binary tree of split values referencing those blocks at the leaves.  *  *<p>The<code>.dim</code> file has both blocks and the index split  * values, for each field.  The file starts with {@link CodecUtil#writeIndexHeader}.  *  *<p>The blocks are written like this:  *  *<ul>  *<li> count (vInt)  *<li> delta-docID (vInt)<sup>count</sup> (delta coded docIDs, in sorted order)  *<li> packedValue<sup>count</sup> (the<code>byte[]</code> value of each dimension packed into a single<code>byte[]</code>)  *</ul>  *  *<p>After all blocks for a field are written, then the index is written:  *<ul>  *<li> numDims (vInt)  *<li> maxPointsInLeafNode (vInt)  *<li> bytesPerDim (vInt)  *<li> count (vInt)  *<li> byte[bytesPerDim]<sup>count</sup> (packed<code>byte[]</code> all split values)  *<li> delta-blockFP (vLong)<sup>count</sup> (delta-coded file pointers to the on-disk leaf blocks))  *</ul>  *  *<p>After all fields blocks + index data are written, {@link CodecUtil#writeFooter} writes the checksum.  *  *<p>The<code>.dii</code> file records the file pointer in the<code>.dim</code> file where each field's  * index data was written.  It starts with {@link CodecUtil#writeIndexHeader}, then has:  *  *<ul>  *<li> fieldCount (vInt)  *<li> (fieldNumber (vInt), fieldFilePointer (vLong))<sup>fieldCount</sup>  *</ul>  *  *<p>After all fields blocks + index data are written, {@link CodecUtil#writeFooter} writes the checksum.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|Lucene60PointFormat
+DECL|class|Lucene60PointsFormat
 specifier|public
 specifier|final
 class|class
-name|Lucene60PointFormat
+name|Lucene60PointsFormat
 extends|extends
-name|PointFormat
+name|PointsFormat
 block|{
 DECL|field|DATA_CODEC_NAME
 specifier|static
@@ -121,7 +121,7 @@ specifier|final
 name|String
 name|DATA_CODEC_NAME
 init|=
-literal|"Lucene60PointFormatData"
+literal|"Lucene60PointsFormatData"
 decl_stmt|;
 DECL|field|META_CODEC_NAME
 specifier|static
@@ -129,7 +129,7 @@ specifier|final
 name|String
 name|META_CODEC_NAME
 init|=
-literal|"Lucene60PointFormatMeta"
+literal|"Lucene60PointsFormatMeta"
 decl_stmt|;
 comment|/**    * Filename extension for the leaf blocks    */
 DECL|field|DATA_EXTENSION
@@ -184,16 +184,16 @@ init|=
 name|INDEX_VERSION_START
 decl_stmt|;
 comment|/** Sole constructor */
-DECL|method|Lucene60PointFormat
+DECL|method|Lucene60PointsFormat
 specifier|public
-name|Lucene60PointFormat
+name|Lucene60PointsFormat
 parameter_list|()
 block|{   }
 annotation|@
 name|Override
 DECL|method|fieldsWriter
 specifier|public
-name|PointWriter
+name|PointsWriter
 name|fieldsWriter
 parameter_list|(
 name|SegmentWriteState
@@ -204,7 +204,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene60PointWriter
+name|Lucene60PointsWriter
 argument_list|(
 name|state
 argument_list|)
@@ -214,7 +214,7 @@ annotation|@
 name|Override
 DECL|method|fieldsReader
 specifier|public
-name|PointReader
+name|PointsReader
 name|fieldsReader
 parameter_list|(
 name|SegmentReadState
@@ -225,7 +225,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene60PointReader
+name|Lucene60PointsReader
 argument_list|(
 name|state
 argument_list|)

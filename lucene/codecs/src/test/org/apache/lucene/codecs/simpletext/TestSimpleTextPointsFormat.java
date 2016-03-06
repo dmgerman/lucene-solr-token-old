@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.codecs.asserting
+DECL|package|org.apache.lucene.codecs.simpletext
 package|package
 name|org
 operator|.
@@ -13,7 +13,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|asserting
+name|simpletext
 package|;
 end_package
 begin_import
@@ -39,19 +39,19 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|BasePointFormatTestCase
+name|BasePointsFormatTestCase
 import|;
 end_import
 begin_comment
-comment|/** Test AssertingPointFormat directly */
+comment|/**  * Tests SimpleText's point format  */
 end_comment
 begin_class
-DECL|class|TestAssertingPointFormat
+DECL|class|TestSimpleTextPointsFormat
 specifier|public
 class|class
-name|TestAssertingPointFormat
+name|TestSimpleTextPointsFormat
 extends|extends
-name|BasePointFormatTestCase
+name|BasePointsFormatTestCase
 block|{
 DECL|field|codec
 specifier|private
@@ -60,7 +60,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|AssertingCodec
+name|SimpleTextCodec
 argument_list|()
 decl_stmt|;
 annotation|@

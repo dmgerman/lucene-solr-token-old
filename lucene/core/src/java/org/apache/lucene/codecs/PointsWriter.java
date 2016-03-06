@@ -62,18 +62,18 @@ begin_comment
 comment|/** Abstract API to write points  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|PointWriter
+DECL|class|PointsWriter
 specifier|public
 specifier|abstract
 class|class
-name|PointWriter
+name|PointsWriter
 implements|implements
 name|Closeable
 block|{
 comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
-DECL|method|PointWriter
+DECL|method|PointsWriter
 specifier|protected
-name|PointWriter
+name|PointsWriter
 parameter_list|()
 block|{   }
 comment|/** Write all values contained in the provided reader */
@@ -86,7 +86,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|PointReader
+name|PointsReader
 name|values
 parameter_list|)
 throws|throws
@@ -112,7 +112,7 @@ argument_list|(
 name|fieldInfo
 argument_list|,
 operator|new
-name|PointReader
+name|PointsReader
 argument_list|()
 block|{
 annotation|@
@@ -163,7 +163,7 @@ name|i
 operator|<
 name|mergeState
 operator|.
-name|pointReaders
+name|pointsReaders
 operator|.
 name|length
 condition|;
@@ -171,19 +171,19 @@ name|i
 operator|++
 control|)
 block|{
-name|PointReader
-name|pointReader
+name|PointsReader
+name|pointsReader
 init|=
 name|mergeState
 operator|.
-name|pointReaders
+name|pointsReaders
 index|[
 name|i
 index|]
 decl_stmt|;
 if|if
 condition|(
-name|pointReader
+name|pointsReader
 operator|==
 literal|null
 condition|)
@@ -213,7 +213,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|pointReader
+name|pointsReader
 operator|.
 name|intersect
 argument_list|(
@@ -305,7 +305,7 @@ index|[]
 name|maxPackedValue
 parameter_list|)
 block|{
-comment|// Forces this segment's PointReader to always visit all docs + values:
+comment|// Forces this segment's PointsReader to always visit all docs + values:
 return|return
 name|Relation
 operator|.
@@ -465,12 +465,12 @@ block|{
 comment|// check each incoming reader
 for|for
 control|(
-name|PointReader
+name|PointsReader
 name|reader
 range|:
 name|mergeState
 operator|.
-name|pointReaders
+name|pointsReaders
 control|)
 block|{
 if|if

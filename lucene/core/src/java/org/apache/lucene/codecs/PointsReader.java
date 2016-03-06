@@ -62,11 +62,11 @@ begin_comment
 comment|/** Abstract API to visit point values.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|PointReader
+DECL|class|PointsReader
 specifier|public
 specifier|abstract
 class|class
-name|PointReader
+name|PointsReader
 extends|extends
 name|PointValues
 implements|implements
@@ -75,9 +75,9 @@ implements|,
 name|Accountable
 block|{
 comment|/** Sole constructor. (For invocation by subclass constructors, typically implicit.) */
-DECL|method|PointReader
+DECL|method|PointsReader
 specifier|protected
-name|PointReader
+name|PointsReader
 parameter_list|()
 block|{}
 comment|/**     * Checks consistency of this reader.    *<p>    * Note that this may be costly in terms of I/O, e.g.     * may involve computing a checksum value against large data files.    * @lucene.internal    */
@@ -93,7 +93,7 @@ function_decl|;
 comment|/**     * Returns an instance optimized for merging.    *<p>    * The default implementation returns {@code this} */
 DECL|method|getMergeInstance
 specifier|public
-name|PointReader
+name|PointsReader
 name|getMergeInstance
 parameter_list|()
 throws|throws

@@ -35,7 +35,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointFormat
+name|PointsFormat
 import|;
 end_import
 begin_import
@@ -48,7 +48,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointReader
+name|PointsReader
 import|;
 end_import
 begin_import
@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointWriter
+name|PointsWriter
 import|;
 end_import
 begin_import
@@ -94,19 +94,19 @@ begin_comment
 comment|/** For debugging, curiosity, transparency only!!  Do not  *  use this codec in production.  *  *<p>This codec stores all dimensional data in a single  *  human-readable text file (_N.dim).  You can view this in  *  any text editor, and even edit it to alter your index.  *  *  @lucene.experimental */
 end_comment
 begin_class
-DECL|class|SimpleTextPointFormat
+DECL|class|SimpleTextPointsFormat
 specifier|public
 specifier|final
 class|class
-name|SimpleTextPointFormat
+name|SimpleTextPointsFormat
 extends|extends
-name|PointFormat
+name|PointsFormat
 block|{
 annotation|@
 name|Override
 DECL|method|fieldsWriter
 specifier|public
-name|PointWriter
+name|PointsWriter
 name|fieldsWriter
 parameter_list|(
 name|SegmentWriteState
@@ -117,7 +117,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|SimpleTextPointWriter
+name|SimpleTextPointsWriter
 argument_list|(
 name|state
 argument_list|)
@@ -127,7 +127,7 @@ annotation|@
 name|Override
 DECL|method|fieldsReader
 specifier|public
-name|PointReader
+name|PointsReader
 name|fieldsReader
 parameter_list|(
 name|SegmentReadState
@@ -138,7 +138,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|SimpleTextPointReader
+name|SimpleTextPointsReader
 argument_list|(
 name|state
 argument_list|)

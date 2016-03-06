@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointFormat
+name|PointsFormat
 import|;
 end_import
 begin_import
@@ -74,7 +74,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointReader
+name|PointsReader
 import|;
 end_import
 begin_import
@@ -87,7 +87,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PointWriter
+name|PointsWriter
 import|;
 end_import
 begin_import
@@ -100,7 +100,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|BasePointFormatTestCase
+name|BasePointsFormatTestCase
 import|;
 end_import
 begin_import
@@ -143,15 +143,15 @@ name|TestUtil
 import|;
 end_import
 begin_comment
-comment|/**  * Tests Lucene60PointFormat  */
+comment|/**  * Tests Lucene60PointsFormat  */
 end_comment
 begin_class
-DECL|class|TestLucene60PointFormat
+DECL|class|TestLucene60PointsFormat
 specifier|public
 class|class
-name|TestLucene60PointFormat
+name|TestLucene60PointsFormat
 extends|extends
-name|BasePointFormatTestCase
+name|BasePointsFormatTestCase
 block|{
 DECL|field|codec
 specifier|private
@@ -159,9 +159,9 @@ specifier|final
 name|Codec
 name|codec
 decl_stmt|;
-DECL|method|TestLucene60PointFormat
+DECL|method|TestLucene60PointsFormat
 specifier|public
-name|TestLucene60PointFormat
+name|TestLucene60PointsFormat
 parameter_list|()
 block|{
 comment|// standard issue
@@ -224,7 +224,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"TEST: using Lucene60PointFormat with maxPointsInLeafNode="
+literal|"TEST: using Lucene60PointsFormat with maxPointsInLeafNode="
 operator|+
 name|maxPointsInLeafNode
 operator|+
@@ -251,19 +251,19 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|PointFormat
-name|pointFormat
+name|PointsFormat
+name|pointsFormat
 parameter_list|()
 block|{
 return|return
 operator|new
-name|PointFormat
+name|PointsFormat
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|PointWriter
+name|PointsWriter
 name|fieldsWriter
 parameter_list|(
 name|SegmentWriteState
@@ -274,7 +274,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene60PointWriter
+name|Lucene60PointsWriter
 argument_list|(
 name|writeState
 argument_list|,
@@ -287,7 +287,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|PointReader
+name|PointsReader
 name|fieldsReader
 parameter_list|(
 name|SegmentReadState
@@ -298,7 +298,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene60PointReader
+name|Lucene60PointsReader
 argument_list|(
 name|readState
 argument_list|)

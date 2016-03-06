@@ -53,23 +53,23 @@ begin_comment
 comment|/**   * Encodes/decodes indexed points.  *  * @lucene.experimental */
 end_comment
 begin_class
-DECL|class|PointFormat
+DECL|class|PointsFormat
 specifier|public
 specifier|abstract
 class|class
-name|PointFormat
+name|PointsFormat
 block|{
 comment|/**    * Creates a new point format.    */
-DECL|method|PointFormat
+DECL|method|PointsFormat
 specifier|protected
-name|PointFormat
+name|PointsFormat
 parameter_list|()
 block|{   }
 comment|/** Writes a new segment */
 DECL|method|fieldsWriter
 specifier|public
 specifier|abstract
-name|PointWriter
+name|PointsWriter
 name|fieldsWriter
 parameter_list|(
 name|SegmentWriteState
@@ -82,7 +82,7 @@ comment|/** Reads a segment.  NOTE: by the time this call    *  returns, it must
 DECL|method|fieldsReader
 specifier|public
 specifier|abstract
-name|PointReader
+name|PointsReader
 name|fieldsReader
 parameter_list|(
 name|SegmentReadState
@@ -91,22 +91,22 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** A {@code PointFormat} that has nothing indexed */
+comment|/** A {@code PointsFormat} that has nothing indexed */
 DECL|field|EMPTY
 specifier|public
 specifier|static
 specifier|final
-name|PointFormat
+name|PointsFormat
 name|EMPTY
 init|=
 operator|new
-name|PointFormat
+name|PointsFormat
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|PointWriter
+name|PointsWriter
 name|fieldsWriter
 parameter_list|(
 name|SegmentWriteState
@@ -122,7 +122,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|PointReader
+name|PointsReader
 name|fieldsReader
 parameter_list|(
 name|SegmentReadState
@@ -131,7 +131,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|PointReader
+name|PointsReader
 argument_list|()
 block|{
 annotation|@
