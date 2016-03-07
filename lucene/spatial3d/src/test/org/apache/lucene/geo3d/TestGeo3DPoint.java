@@ -766,10 +766,6 @@ name|Geo3DPoint
 argument_list|(
 literal|"field"
 argument_list|,
-name|PlanetModel
-operator|.
-name|WGS84
-argument_list|,
 name|toRadians
 argument_list|(
 literal|50.7345267
@@ -823,10 +819,6 @@ name|Geo3DPoint
 operator|.
 name|newShapeQuery
 argument_list|(
-name|PlanetModel
-operator|.
-name|WGS84
-argument_list|,
 literal|"field"
 argument_list|,
 name|GeoCircleFactory
@@ -3941,12 +3933,6 @@ init|=
 name|newIndexWriterConfig
 argument_list|()
 decl_stmt|;
-name|PlanetModel
-name|planetModel
-init|=
-name|getPlanetModel
-argument_list|()
-decl_stmt|;
 comment|// Else we can get O(N^2) merging:
 name|int
 name|mbd
@@ -4126,8 +4112,6 @@ operator|new
 name|Geo3DPoint
 argument_list|(
 literal|"point"
-argument_list|,
-name|planetModel
 argument_list|,
 name|lats
 index|[
@@ -4423,7 +4407,9 @@ name|shape
 init|=
 name|randomShape
 argument_list|(
-name|planetModel
+name|PlanetModel
+operator|.
+name|WGS84
 argument_list|)
 decl_stmt|;
 if|if
@@ -4461,8 +4447,6 @@ name|Geo3DPoint
 operator|.
 name|newShapeQuery
 argument_list|(
-name|planetModel
-argument_list|,
 literal|"point"
 argument_list|,
 name|shape
@@ -4638,7 +4622,9 @@ init|=
 operator|new
 name|GeoPoint
 argument_list|(
-name|planetModel
+name|PlanetModel
+operator|.
+name|WGS84
 argument_list|,
 name|lats
 index|[
@@ -4657,7 +4643,9 @@ name|point2
 init|=
 name|quantize
 argument_list|(
-name|planetModel
+name|PlanetModel
+operator|.
+name|WGS84
 operator|.
 name|getMaximumMagnitude
 argument_list|()
@@ -4928,10 +4916,6 @@ name|Geo3DPoint
 argument_list|(
 literal|"point"
 argument_list|,
-name|PlanetModel
-operator|.
-name|SPHERE
-argument_list|,
 name|toRadians
 argument_list|(
 literal|44.244272
@@ -4945,7 +4929,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Geo3DPoint<point: x=0.9242545719837093 y=0.06276412683667808 z=0.37658219569203544>"
+literal|"Geo3DPoint<point: x=0.9248467864160119 y=0.06280434265368656 z=0.37682349005486243>"
 argument_list|,
 name|point
 operator|.
@@ -4962,16 +4946,12 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|"PointInGeo3DShapeQuery: field=point: PlanetModel: PlanetModel.SPHERE Shape: GeoStandardCircle: {planetmodel=PlanetModel.SPHERE, center=[lat=0.3861041107739683, lon=0.06780373760536706], radius=0.1(5.729577951308232)}"
+literal|"PointInGeo3DShapeQuery: field=point: Shape: GeoStandardCircle: {planetmodel=PlanetModel.WGS84, center=[lat=0.3861041107739683, lon=0.06780373760536706], radius=0.1(5.729577951308232)}"
 argument_list|,
 name|Geo3DPoint
 operator|.
 name|newShapeQuery
 argument_list|(
-name|PlanetModel
-operator|.
-name|SPHERE
-argument_list|,
 literal|"point"
 argument_list|,
 name|GeoCircleFactory
@@ -4980,7 +4960,7 @@ name|makeGeoCircle
 argument_list|(
 name|PlanetModel
 operator|.
-name|SPHERE
+name|WGS84
 argument_list|,
 name|toRadians
 argument_list|(

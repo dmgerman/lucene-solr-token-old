@@ -104,12 +104,6 @@ name|Geo3DPoint
 extends|extends
 name|Field
 block|{
-DECL|field|planetModel
-specifier|private
-specifier|final
-name|PlanetModel
-name|planetModel
-decl_stmt|;
 comment|/** Indexing {@link FieldType}. */
 DECL|field|TYPE
 specifier|public
@@ -141,16 +135,13 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**     * Creates a new Geo3DPoint field with the specified lat, lon (in radians), given a planet model.    *    * @throws IllegalArgumentException if the field name is null or lat or lon are out of bounds    */
+comment|/**     * Creates a new Geo3DPoint field with the specified lat, lon (in radians).    *    * @throws IllegalArgumentException if the field name is null or lat or lon are out of bounds    */
 DECL|method|Geo3DPoint
 specifier|public
 name|Geo3DPoint
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|PlanetModel
-name|planetModel
 parameter_list|,
 name|double
 name|lat
@@ -166,12 +157,6 @@ argument_list|,
 name|TYPE
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|planetModel
-operator|=
-name|planetModel
-expr_stmt|;
 comment|// Translate lat/lon to x,y,z:
 specifier|final
 name|GeoPoint
@@ -180,7 +165,9 @@ init|=
 operator|new
 name|GeoPoint
 argument_list|(
-name|planetModel
+name|PlanetModel
+operator|.
+name|WGS84
 argument_list|,
 name|lat
 argument_list|,
@@ -189,8 +176,6 @@ argument_list|)
 decl_stmt|;
 name|fillFieldsData
 argument_list|(
-name|planetModel
-argument_list|,
 name|point
 operator|.
 name|x
@@ -213,9 +198,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|PlanetModel
-name|planetModel
-parameter_list|,
 name|double
 name|x
 parameter_list|,
@@ -233,16 +215,8 @@ argument_list|,
 name|TYPE
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|planetModel
-operator|=
-name|planetModel
-expr_stmt|;
 name|fillFieldsData
 argument_list|(
-name|planetModel
-argument_list|,
 name|x
 argument_list|,
 name|y
@@ -256,9 +230,6 @@ specifier|private
 name|void
 name|fillFieldsData
 parameter_list|(
-name|PlanetModel
-name|planetModel
-parameter_list|,
 name|double
 name|x
 parameter_list|,
@@ -281,8 +252,6 @@ index|]
 decl_stmt|;
 name|encodeDimension
 argument_list|(
-name|planetModel
-argument_list|,
 name|x
 argument_list|,
 name|bytes
@@ -292,8 +261,6 @@ argument_list|)
 expr_stmt|;
 name|encodeDimension
 argument_list|(
-name|planetModel
-argument_list|,
 name|y
 argument_list|,
 name|bytes
@@ -305,8 +272,6 @@ argument_list|)
 expr_stmt|;
 name|encodeDimension
 argument_list|(
-name|planetModel
-argument_list|,
 name|z
 argument_list|,
 name|bytes
@@ -335,9 +300,6 @@ specifier|static
 name|void
 name|encodeDimension
 parameter_list|(
-name|PlanetModel
-name|planetModel
-parameter_list|,
 name|double
 name|value
 parameter_list|,
@@ -357,7 +319,9 @@ name|Geo3DUtil
 operator|.
 name|encodeValue
 argument_list|(
-name|planetModel
+name|PlanetModel
+operator|.
+name|WGS84
 operator|.
 name|getMaximumMagnitude
 argument_list|()
@@ -378,9 +342,6 @@ specifier|static
 name|double
 name|decodeDimension
 parameter_list|(
-name|PlanetModel
-name|planetModel
-parameter_list|,
 name|byte
 name|value
 index|[]
@@ -394,7 +355,9 @@ name|Geo3DUtil
 operator|.
 name|decodeValueCenter
 argument_list|(
-name|planetModel
+name|PlanetModel
+operator|.
+name|WGS84
 operator|.
 name|getMaximumMagnitude
 argument_list|()
@@ -410,16 +373,13 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** Returns a query matching all points inside the provided shape.    *     * @param planetModel The {@link PlanetModel} to use, which must match what was used during indexing    * @param field field name. must not be {@code null}.    * @param shape Which {@link GeoShape} to match    */
+comment|/** Returns a query matching all points inside the provided shape.    *     * @param field field name. must not be {@code null}.    * @param shape Which {@link GeoShape} to match    */
 DECL|method|newShapeQuery
 specifier|public
 specifier|static
 name|Query
 name|newShapeQuery
 parameter_list|(
-name|PlanetModel
-name|planetModel
-parameter_list|,
 name|String
 name|field
 parameter_list|,
@@ -431,8 +391,6 @@ return|return
 operator|new
 name|PointInGeo3DShapeQuery
 argument_list|(
-name|planetModel
-argument_list|,
 name|field
 argument_list|,
 name|shape
@@ -502,8 +460,6 @@ literal|" x="
 operator|+
 name|decodeDimension
 argument_list|(
-name|planetModel
-argument_list|,
 name|bytes
 operator|.
 name|bytes
@@ -522,8 +478,6 @@ literal|" y="
 operator|+
 name|decodeDimension
 argument_list|(
-name|planetModel
-argument_list|,
 name|bytes
 operator|.
 name|bytes
@@ -546,8 +500,6 @@ literal|" z="
 operator|+
 name|decodeDimension
 argument_list|(
-name|planetModel
-argument_list|,
 name|bytes
 operator|.
 name|bytes
