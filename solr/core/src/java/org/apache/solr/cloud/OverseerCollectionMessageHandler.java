@@ -10316,11 +10316,6 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|zkStateReader
-operator|.
-name|updateClusterState
-argument_list|()
-expr_stmt|;
 block|}
 throw|throw
 operator|new

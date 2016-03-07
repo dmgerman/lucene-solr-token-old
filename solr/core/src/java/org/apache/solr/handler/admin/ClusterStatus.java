@@ -392,11 +392,6 @@ name|KeeperException
 throws|,
 name|InterruptedException
 block|{
-name|zkStateReader
-operator|.
-name|updateClusterState
-argument_list|()
-expr_stmt|;
 comment|// read aliases
 name|Aliases
 name|aliases

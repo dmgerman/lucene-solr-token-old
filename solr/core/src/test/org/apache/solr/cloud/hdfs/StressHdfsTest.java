@@ -876,8 +876,10 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+name|DELETE_DATA_DIR_COLLECTION
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -1282,14 +1284,6 @@ name|sleep
 argument_list|(
 literal|200
 argument_list|)
-expr_stmt|;
-name|cloudClient
-operator|.
-name|getZkStateReader
-argument_list|()
-operator|.
-name|updateClusterState
-argument_list|()
 expr_stmt|;
 block|}
 comment|// check that all dirs are gone

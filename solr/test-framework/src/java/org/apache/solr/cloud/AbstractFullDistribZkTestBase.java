@@ -3991,8 +3991,10 @@ argument_list|()
 decl_stmt|;
 name|zkStateReader
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+name|DEFAULT_COLLECTION
+argument_list|)
 expr_stmt|;
 name|cloudJettys
 operator|.
@@ -11324,8 +11326,10 @@ argument_list|()
 decl_stmt|;
 name|zkr
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+name|testCollectionName
+argument_list|)
 expr_stmt|;
 comment|// force the state to be fresh
 name|ClusterState
@@ -11391,23 +11395,6 @@ operator|!
 name|allReplicasUp
 condition|)
 block|{
-comment|// refresh state every 2 secs
-if|if
-condition|(
-name|waitMs
-operator|%
-literal|2000
-operator|==
-literal|0
-condition|)
-name|cloudClient
-operator|.
-name|getZkStateReader
-argument_list|()
-operator|.
-name|updateClusterState
-argument_list|()
-expr_stmt|;
 name|cs
 operator|=
 name|cloudClient
@@ -11725,8 +11712,10 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+name|collection
+argument_list|)
 expr_stmt|;
 name|String
 name|cs

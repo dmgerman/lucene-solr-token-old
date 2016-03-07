@@ -1797,8 +1797,10 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+literal|"testPublishAndWaitForDownStates"
+argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(

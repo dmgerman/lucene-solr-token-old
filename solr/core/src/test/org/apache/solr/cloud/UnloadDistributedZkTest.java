@@ -1117,8 +1117,10 @@ argument_list|()
 decl_stmt|;
 name|zkStateReader
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+literal|"unloadcollection"
+argument_list|)
 expr_stmt|;
 name|int
 name|slices
@@ -1237,8 +1239,10 @@ expr_stmt|;
 block|}
 name|zkStateReader
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+literal|"unloadcollection"
+argument_list|)
 expr_stmt|;
 name|slices
 operator|=

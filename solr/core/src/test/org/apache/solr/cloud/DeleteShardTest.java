@@ -659,11 +659,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|zkStateReader
-operator|.
-name|updateClusterState
-argument_list|()
-expr_stmt|;
 name|clusterState
 operator|=
 name|zkStateReader
@@ -1006,11 +1001,6 @@ name|counter
 operator|--
 control|)
 block|{
-name|zkStateReader
-operator|.
-name|updateClusterState
-argument_list|()
-expr_stmt|;
 name|ClusterState
 name|clusterState
 init|=

@@ -761,14 +761,6 @@ operator|<
 name|timeout
 condition|)
 block|{
-name|cloudClient
-operator|.
-name|getZkStateReader
-argument_list|()
-operator|.
-name|updateClusterState
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|Replica

@@ -1607,8 +1607,17 @@ argument_list|()
 expr_stmt|;
 name|reader
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+literal|"c1"
+argument_list|)
+expr_stmt|;
+name|reader
+operator|.
+name|forceUpdateCollection
+argument_list|(
+literal|"c2"
+argument_list|)
 expr_stmt|;
 name|ClusterState
 name|clusterState
@@ -1765,11 +1774,6 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
-name|reader
-operator|.
-name|updateClusterState
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 name|writer
@@ -2121,8 +2125,10 @@ expr_stmt|;
 comment|// get the most up-to-date state
 name|reader
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+literal|"c2"
+argument_list|)
 expr_stmt|;
 name|state
 operator|=
@@ -2196,8 +2202,10 @@ expr_stmt|;
 comment|// get the most up-to-date state
 name|reader
 operator|.
-name|updateClusterState
-argument_list|()
+name|forceUpdateCollection
+argument_list|(
+literal|"c2"
+argument_list|)
 expr_stmt|;
 name|state
 operator|=
@@ -2252,8 +2260,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|state
-operator|=
 name|writer
 operator|.
 name|enqueueUpdate
