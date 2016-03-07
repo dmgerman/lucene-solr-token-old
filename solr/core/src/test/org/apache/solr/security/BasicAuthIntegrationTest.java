@@ -1357,10 +1357,7 @@ name|reload
 operator|.
 name|setCollectionName
 argument_list|(
-name|cloudSolrClient
-operator|.
-name|getDefaultCollection
-argument_list|()
+name|defaultCollName
 argument_list|)
 expr_stmt|;
 name|HttpSolrClient
