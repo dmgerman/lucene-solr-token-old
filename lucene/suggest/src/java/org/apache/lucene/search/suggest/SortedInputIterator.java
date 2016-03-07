@@ -684,6 +684,11 @@ name|right
 parameter_list|)
 block|{
 comment|// Make shallow copy in case decode changes the BytesRef:
+assert|assert
+name|left
+operator|!=
+name|right
+assert|;
 name|leftScratch
 operator|.
 name|bytes
@@ -1335,6 +1340,14 @@ argument_list|(
 name|scratch
 operator|.
 name|bytes
+argument_list|,
+name|scratch
+operator|.
+name|offset
+argument_list|,
+name|scratch
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 name|tmpInput
@@ -1353,7 +1366,9 @@ name|scratch
 operator|.
 name|length
 operator|-=
-literal|8
+name|Long
+operator|.
+name|BYTES
 expr_stmt|;
 comment|// long
 return|return
@@ -1386,6 +1401,14 @@ argument_list|(
 name|scratch
 operator|.
 name|bytes
+argument_list|,
+name|scratch
+operator|.
+name|offset
+argument_list|,
+name|scratch
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 name|tmpInput
@@ -1447,6 +1470,10 @@ name|setPosition
 argument_list|(
 name|scratch
 operator|.
+name|offset
+operator|+
+name|scratch
+operator|.
 name|length
 operator|-
 literal|2
@@ -1470,6 +1497,10 @@ name|tmpInput
 operator|.
 name|setPosition
 argument_list|(
+name|scratch
+operator|.
+name|offset
+operator|+
 name|scratch
 operator|.
 name|length
@@ -1543,6 +1574,14 @@ argument_list|(
 name|scratch
 operator|.
 name|bytes
+argument_list|,
+name|scratch
+operator|.
+name|offset
+argument_list|,
+name|scratch
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 name|tmpInput
@@ -1566,10 +1605,21 @@ name|readShort
 argument_list|()
 decl_stmt|;
 comment|// read payload size
+assert|assert
+name|payloadLength
+operator|>=
+literal|0
+operator|:
+name|payloadLength
+assert|;
 name|tmpInput
 operator|.
 name|setPosition
 argument_list|(
+name|scratch
+operator|.
+name|offset
+operator|+
 name|scratch
 operator|.
 name|length
