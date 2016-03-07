@@ -1236,7 +1236,7 @@ op|')'
 newline|'\n'
 name|'run'
 op|'('
-string|"'wget http://people.apache.org/keys/group/lucene.asc'"
+string|"'wget http://home.apache.org/keys/group/lucene.asc'"
 op|')'
 newline|'\n'
 name|'os'
