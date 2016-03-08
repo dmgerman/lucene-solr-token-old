@@ -48,6 +48,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|PointValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|spatial3d
 operator|.
 name|geom
@@ -125,7 +138,7 @@ name|NumericUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Add this to a document to index lat/lon or x/y/z point, indexed as a 3D point.  * Multiple values are allowed: just add multiple Geo3DPoint to the document with the  * same field name.  *<p>  * This field defines static factory methods for creating a shape query:  *<ul>  *<li>{@link #newShapeQuery newShapeQuery()} for matching all points inside a specified shape  *</ul>  *  *  @lucene.experimental */
+comment|/**  * Add this to a document to index lat/lon or x/y/z point, indexed as a 3D point.  * Multiple values are allowed: just add multiple Geo3DPoint to the document with the  * same field name.  *<p>  * This field defines static factory methods for creating a shape query:  *<ul>  *<li>{@link #newShapeQuery newShapeQuery()} for matching all points inside a specified shape  *</ul>  * @see PointValues  *  @lucene.experimental */
 end_comment
 begin_class
 DECL|class|Geo3DPoint

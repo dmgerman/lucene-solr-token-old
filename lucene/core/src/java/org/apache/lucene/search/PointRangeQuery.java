@@ -94,71 +94,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|BinaryPoint
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|DoublePoint
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|FloatPoint
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|IntPoint
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|LongPoint
 import|;
 end_import
 begin_comment
@@ -230,7 +166,7 @@ name|StringHelper
 import|;
 end_import
 begin_comment
-comment|/**   * Abstract class for range queries against single or multidimensional points such as  * {@link IntPoint}.  *<p>  * This is for subclasses and works on the underlying binary encoding: to  * create range queries for lucene's standard {@code Point} types, refer to factory  * methods on those classes, e.g. {@link IntPoint#newRangeQuery IntPoint.newRangeQuery()} for   * fields indexed with {@link IntPoint}.  *<p>  * For a single-dimensional field this query is a simple range query; in a multi-dimensional field it's a box shape.  * @see IntPoint  * @see LongPoint  * @see FloatPoint  * @see DoublePoint  * @see BinaryPoint   *  * @lucene.experimental  */
+comment|/**   * Abstract class for range queries against single or multidimensional points such as  * {@link IntPoint}.  *<p>  * This is for subclasses and works on the underlying binary encoding: to  * create range queries for lucene's standard {@code Point} types, refer to factory  * methods on those classes, e.g. {@link IntPoint#newRangeQuery IntPoint.newRangeQuery()} for   * fields indexed with {@link IntPoint}.  *<p>  * For a single-dimensional field this query is a simple range query; in a multi-dimensional field it's a box shape.  * @see PointValues  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PointRangeQuery
