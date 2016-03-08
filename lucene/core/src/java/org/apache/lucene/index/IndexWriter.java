@@ -15596,6 +15596,21 @@ operator|)
 operator|+
 literal|"; "
 operator|+
+operator|(
+name|mergeState
+operator|.
+name|mergeFieldInfos
+operator|.
+name|hasPointValues
+argument_list|()
+condition|?
+literal|"points"
+else|:
+literal|"no points"
+operator|)
+operator|+
+literal|"; "
+operator|+
 name|String
 operator|.
 name|format
