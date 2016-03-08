@@ -871,6 +871,7 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|)
+block|{}
 argument_list|)
 argument_list|)
 expr_stmt|;

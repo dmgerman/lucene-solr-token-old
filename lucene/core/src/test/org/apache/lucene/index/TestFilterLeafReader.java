@@ -1113,6 +1113,7 @@ name|FilterLeafReader
 argument_list|(
 name|r
 argument_list|)
+block|{}
 decl_stmt|;
 name|assertEquals
 argument_list|(

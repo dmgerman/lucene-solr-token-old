@@ -56,6 +56,7 @@ end_comment
 begin_class
 DECL|class|FilterOutputStream2
 specifier|public
+specifier|abstract
 class|class
 name|FilterOutputStream2
 extends|extends

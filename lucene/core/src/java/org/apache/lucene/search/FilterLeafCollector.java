@@ -29,6 +29,7 @@ end_comment
 begin_class
 DECL|class|FilterLeafCollector
 specifier|public
+specifier|abstract
 class|class
 name|FilterLeafCollector
 implements|implements

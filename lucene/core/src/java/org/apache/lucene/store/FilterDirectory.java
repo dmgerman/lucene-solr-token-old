@@ -38,6 +38,7 @@ end_comment
 begin_class
 DECL|class|FilterDirectory
 specifier|public
+specifier|abstract
 class|class
 name|FilterDirectory
 extends|extends

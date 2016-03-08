@@ -291,6 +291,7 @@ end_comment
 begin_class
 DECL|class|FilterFileSystemProvider
 specifier|public
+specifier|abstract
 class|class
 name|FilterFileSystemProvider
 extends|extends
