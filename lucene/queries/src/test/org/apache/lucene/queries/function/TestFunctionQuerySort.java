@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LegacyIntField
+name|NumericDocValuesField
 import|;
 end_import
 begin_import
@@ -74,7 +74,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|NumericDocValuesField
+name|StoredField
 import|;
 end_import
 begin_import
@@ -769,17 +769,11 @@ name|Field
 name|field
 init|=
 operator|new
-name|LegacyIntField
+name|StoredField
 argument_list|(
 literal|"value"
 argument_list|,
 literal|0
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 decl_stmt|;
 name|Field
