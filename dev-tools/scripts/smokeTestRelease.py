@@ -5215,7 +5215,7 @@ name|'java'
 op|'.'
 name|'run_java8'
 op|'('
-string|"'ant clean example'"
+string|"'ant clean server'"
 op|','
 string|"'%s/antexample.log'"
 op|'%'
@@ -5729,6 +5729,8 @@ name|'isSrc'
 op|')'
 op|':'
 newline|'\n'
+comment|'# test solr using some examples it comes with'
+nl|'\n'
 indent|'  '
 name|'logFile'
 op|'='
