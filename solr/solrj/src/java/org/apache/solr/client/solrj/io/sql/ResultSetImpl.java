@@ -504,8 +504,6 @@ throw|throw
 operator|new
 name|SQLException
 argument_list|(
-literal|"Couldn't read first tuple"
-argument_list|,
 name|e
 argument_list|)
 throw|;
