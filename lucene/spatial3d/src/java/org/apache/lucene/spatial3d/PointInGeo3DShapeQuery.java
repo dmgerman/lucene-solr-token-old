@@ -276,6 +276,7 @@ comment|/** Finds all previously indexed points that fall within the specified p
 end_comment
 begin_class
 DECL|class|PointInGeo3DShapeQuery
+specifier|final
 class|class
 name|PointInGeo3DShapeQuery
 extends|extends
@@ -950,7 +951,6 @@ annotation|@
 name|Override
 DECL|method|hashCode
 specifier|public
-specifier|final
 name|int
 name|hashCode
 parameter_list|()
