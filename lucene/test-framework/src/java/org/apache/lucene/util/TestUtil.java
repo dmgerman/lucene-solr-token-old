@@ -1817,6 +1817,8 @@ argument_list|,
 name|crossCheckTermVectors
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1837,19 +1839,29 @@ name|crossCheckTermVectors
 parameter_list|,
 name|boolean
 name|failFast
+parameter_list|,
+name|ByteArrayOutputStream
+name|output
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ByteArrayOutputStream
-name|bos
-init|=
+if|if
+condition|(
+name|output
+operator|==
+literal|null
+condition|)
+block|{
+name|output
+operator|=
 operator|new
 name|ByteArrayOutputStream
 argument_list|(
 literal|1024
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// TODO: actually use the dir's locking, unless test uses a special method?
 comment|// some tests e.g. exception tests become much more complicated if they have to close the writer
 try|try
@@ -1896,7 +1908,7 @@ argument_list|(
 operator|new
 name|PrintStream
 argument_list|(
-name|bos
+name|output
 argument_list|,
 literal|false
 argument_list|,
@@ -1948,7 +1960,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-name|bos
+name|output
 operator|.
 name|toString
 argument_list|(
@@ -1981,7 +1993,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-name|bos
+name|output
 operator|.
 name|toString
 argument_list|(
