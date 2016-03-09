@@ -38,6 +38,19 @@ operator|.
 name|Pattern
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|SolrException
+import|;
+end_import
 begin_comment
 comment|/**  * Ensures that provided identifiers align with Solr's recommendations/requirements for choosing  * collection, core, etc identifiers.  *    * Identifiers are allowed to contain underscores, periods, hyphens, and alphanumeric characters.  */
 end_comment
@@ -100,8 +113,14 @@ argument_list|)
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|SolrException
 argument_list|(
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
+argument_list|,
 name|getIdentifierMessage
 argument_list|(
 name|type

@@ -92,6 +92,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -139,7 +152,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|SolrException
 name|e
 parameter_list|)
 block|{
@@ -215,7 +228,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|SolrException
 name|e
 parameter_list|)
 block|{
@@ -291,7 +304,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|SolrException
 name|e
 parameter_list|)
 block|{
@@ -367,7 +380,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|SolrException
 name|e
 parameter_list|)
 block|{
