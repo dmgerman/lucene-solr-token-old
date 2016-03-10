@@ -3652,7 +3652,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"Missing required parameter: shard"
+literal|"At least one of shard, or split.key should be specified."
 argument_list|)
 throw|;
 block|}
