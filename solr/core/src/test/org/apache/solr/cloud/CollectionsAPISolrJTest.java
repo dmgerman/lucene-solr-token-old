@@ -423,8 +423,6 @@ name|AbstractFullDistribZkTestBase
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|test
 specifier|public
 name|void
