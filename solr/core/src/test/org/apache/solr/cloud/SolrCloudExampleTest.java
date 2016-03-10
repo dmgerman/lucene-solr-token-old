@@ -238,15 +238,6 @@ begin_comment
 comment|/**  * Emulates bin/solr -e cloud -noprompt; bin/post -c gettingstarted example/exampledocs/*.xml;  * this test is useful for catching regressions in indexing the example docs in collections that  * use data-driven schema and managed schema features provided by configsets/data_driven_schema_configs.  */
 end_comment
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|BadApple
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://issues.apache.org/jira/browse/SOLR-8135"
-argument_list|)
 DECL|class|SolrCloudExampleTest
 specifier|public
 class|class
