@@ -1318,7 +1318,7 @@ specifier|final
 name|LeafReader
 name|sr
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|r
 argument_list|)

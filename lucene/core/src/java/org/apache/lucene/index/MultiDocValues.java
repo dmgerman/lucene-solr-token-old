@@ -2674,8 +2674,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// cache key of whoever asked for this awful thing
+comment|/** Cache key of whoever asked for this awful thing */
 DECL|field|owner
+specifier|public
 specifier|final
 name|Object
 name|owner
@@ -3887,6 +3888,7 @@ name|currentGlobalOrds
 decl_stmt|;
 comment|/** Creates a new MultiSortedSetDocValues over<code>values</code> */
 DECL|method|MultiSortedSetDocValues
+specifier|public
 name|MultiSortedSetDocValues
 parameter_list|(
 name|SortedSetDocValues

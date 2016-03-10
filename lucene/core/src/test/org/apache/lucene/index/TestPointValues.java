@@ -1439,7 +1439,10 @@ operator|new
 name|CodecReader
 index|[]
 block|{
-name|getOnlySegmentReader
+operator|(
+name|CodecReader
+operator|)
+name|getOnlyLeafReader
 argument_list|(
 name|r
 argument_list|)
@@ -2613,7 +2616,10 @@ operator|new
 name|CodecReader
 index|[]
 block|{
-name|getOnlySegmentReader
+operator|(
+name|CodecReader
+operator|)
+name|getOnlyLeafReader
 argument_list|(
 name|r
 argument_list|)

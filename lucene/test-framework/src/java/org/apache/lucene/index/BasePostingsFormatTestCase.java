@@ -1207,7 +1207,7 @@ decl_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -1397,7 +1397,7 @@ decl_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -1599,7 +1599,7 @@ decl_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -1800,7 +1800,7 @@ decl_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -2034,7 +2034,7 @@ decl_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -3470,7 +3470,7 @@ comment|// sugar method (FREQS)
 name|PostingsEnum
 name|postings
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -3533,7 +3533,7 @@ comment|// termsenum reuse (FREQS)
 name|TermsEnum
 name|termsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -3911,7 +3911,7 @@ comment|// sugar method (FREQS)
 name|PostingsEnum
 name|postings
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -3974,7 +3974,7 @@ comment|// termsenum reuse (FREQS)
 name|TermsEnum
 name|termsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -4499,7 +4499,7 @@ comment|// sugar method (FREQS)
 name|PostingsEnum
 name|postings
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -4562,7 +4562,7 @@ comment|// termsenum reuse (FREQS)
 name|TermsEnum
 name|termsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -4805,7 +4805,7 @@ comment|// asking for positions, ok
 name|PostingsEnum
 name|docsAndPositionsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -5098,7 +5098,7 @@ expr_stmt|;
 comment|// payloads, offsets, etc don't cause an error if they aren't there
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -5395,7 +5395,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -5691,7 +5691,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -6121,7 +6121,7 @@ comment|// sugar method (FREQS)
 name|PostingsEnum
 name|postings
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -6184,7 +6184,7 @@ comment|// termsenum reuse (FREQS)
 name|TermsEnum
 name|termsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -6427,7 +6427,7 @@ comment|// asking for positions, ok
 name|PostingsEnum
 name|docsAndPositionsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -6780,7 +6780,7 @@ expr_stmt|;
 comment|// payloads don't cause an error if they aren't there
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -7137,7 +7137,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -7425,7 +7425,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -7855,7 +7855,7 @@ comment|// sugar method (FREQS)
 name|PostingsEnum
 name|postings
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -7918,7 +7918,7 @@ comment|// termsenum reuse (FREQS)
 name|TermsEnum
 name|termsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -8161,7 +8161,7 @@ comment|// asking for positions, ok
 name|PostingsEnum
 name|docsAndPositionsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -8522,7 +8522,7 @@ expr_stmt|;
 comment|// payloads
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -8842,7 +8842,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -9206,7 +9206,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -9690,7 +9690,7 @@ comment|// sugar method (FREQS)
 name|PostingsEnum
 name|postings
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -9753,7 +9753,7 @@ comment|// termsenum reuse (FREQS)
 name|TermsEnum
 name|termsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -9996,7 +9996,7 @@ comment|// asking for positions, ok
 name|PostingsEnum
 name|docsAndPositionsEnum
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -10417,7 +10417,7 @@ expr_stmt|;
 comment|// payloads
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -10797,7 +10797,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -11153,7 +11153,7 @@ argument_list|)
 expr_stmt|;
 name|docsAndPositionsEnum
 operator|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)

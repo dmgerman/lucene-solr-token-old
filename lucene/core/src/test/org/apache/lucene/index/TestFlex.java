@@ -417,7 +417,7 @@ decl_stmt|;
 name|TermsEnum
 name|terms
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|r
 argument_list|)

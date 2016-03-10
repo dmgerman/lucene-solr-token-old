@@ -3441,7 +3441,7 @@ expr_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -4240,7 +4240,7 @@ expr_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -4733,7 +4733,7 @@ expr_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir
 argument_list|)
@@ -5314,7 +5314,7 @@ name|DEFAULT
 operator|.
 name|getNumerics
 argument_list|(
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -5626,7 +5626,7 @@ name|DEFAULT
 operator|.
 name|getNumerics
 argument_list|(
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)

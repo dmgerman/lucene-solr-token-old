@@ -356,7 +356,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)
@@ -616,7 +616,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)
@@ -916,7 +916,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)
@@ -1228,7 +1228,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)
@@ -1545,7 +1545,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)
@@ -1985,7 +1985,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)
@@ -2426,7 +2426,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)
@@ -2800,7 +2800,7 @@ decl_stmt|;
 name|LeafReader
 name|merged
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|ir2
 argument_list|)

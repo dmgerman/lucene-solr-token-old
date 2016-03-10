@@ -6223,7 +6223,7 @@ expr_stmt|;
 name|LeafReader
 name|ir
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|DirectoryReader
 operator|.

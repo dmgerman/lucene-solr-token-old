@@ -219,7 +219,7 @@ decl_stmt|;
 name|LeafReader
 name|r
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|dr
 argument_list|)
@@ -388,7 +388,7 @@ decl_stmt|;
 name|LeafReader
 name|r
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|dr
 argument_list|)
@@ -605,7 +605,7 @@ decl_stmt|;
 name|LeafReader
 name|r
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|dr
 argument_list|)
@@ -800,7 +800,7 @@ decl_stmt|;
 name|LeafReader
 name|r
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|dr
 argument_list|)
@@ -1004,7 +1004,7 @@ decl_stmt|;
 name|LeafReader
 name|r
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|dr
 argument_list|)
@@ -1190,7 +1190,7 @@ decl_stmt|;
 name|LeafReader
 name|r
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|dr
 argument_list|)
@@ -1390,7 +1390,7 @@ decl_stmt|;
 name|LeafReader
 name|r
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|dr
 argument_list|)
