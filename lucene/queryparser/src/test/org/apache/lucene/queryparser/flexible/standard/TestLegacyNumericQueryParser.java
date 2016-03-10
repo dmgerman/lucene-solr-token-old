@@ -355,7 +355,7 @@ name|standard
 operator|.
 name|config
 operator|.
-name|NumericConfig
+name|LegacyNumericConfig
 import|;
 end_import
 begin_import
@@ -483,10 +483,10 @@ name|Test
 import|;
 end_import
 begin_class
-DECL|class|TestNumericQueryParser
+DECL|class|TestLegacyNumericQueryParser
 specifier|public
 class|class
-name|TestNumericQueryParser
+name|TestLegacyNumericQueryParser
 extends|extends
 name|LuceneTestCase
 block|{
@@ -1267,7 +1267,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|NumericConfig
+name|LegacyNumericConfig
 argument_list|>
 name|numericConfigMap
 init|=
@@ -1291,7 +1291,7 @@ argument_list|()
 decl_stmt|;
 name|qp
 operator|.
-name|setNumericConfigMap
+name|setLegacyNumericConfigMap
 argument_list|(
 name|numericConfigMap
 argument_list|)
@@ -1317,7 +1317,7 @@ name|name
 argument_list|()
 argument_list|,
 operator|new
-name|NumericConfig
+name|LegacyNumericConfig
 argument_list|(
 name|PRECISION_STEP
 argument_list|,
@@ -1485,7 +1485,7 @@ argument_list|(
 name|DATE_FIELD_NAME
 argument_list|,
 operator|new
-name|NumericConfig
+name|LegacyNumericConfig
 argument_list|(
 name|PRECISION_STEP
 argument_list|,
