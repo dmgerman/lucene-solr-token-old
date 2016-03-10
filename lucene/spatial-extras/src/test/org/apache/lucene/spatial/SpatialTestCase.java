@@ -518,7 +518,7 @@ literal|"pointvector__x"
 argument_list|,
 name|Type
 operator|.
-name|DOUBLE
+name|LEGACY_DOUBLE
 argument_list|)
 expr_stmt|;
 name|uninvertMap
@@ -529,7 +529,7 @@ literal|"pointvector__y"
 argument_list|,
 name|Type
 operator|.
-name|DOUBLE
+name|LEGACY_DOUBLE
 argument_list|)
 expr_stmt|;
 name|directory

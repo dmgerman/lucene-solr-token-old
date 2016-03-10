@@ -300,6 +300,9 @@ operator|.
 name|TestUtil
 import|;
 end_import
+begin_comment
+comment|// TODO: what happened to this test... its not actually uninverting?
+end_comment
 begin_class
 DECL|class|TestFieldCacheWithThreads
 specifier|public
@@ -670,7 +673,7 @@ literal|"number"
 argument_list|,
 name|FieldCache
 operator|.
-name|NUMERIC_UTILS_LONG_PARSER
+name|LONG_POINT_PARSER
 argument_list|,
 literal|false
 argument_list|)
@@ -781,7 +784,7 @@ literal|"number"
 argument_list|,
 name|FieldCache
 operator|.
-name|NUMERIC_UTILS_INT_PARSER
+name|INT_POINT_PARSER
 argument_list|,
 literal|false
 argument_list|)
@@ -820,7 +823,7 @@ literal|"number"
 argument_list|,
 name|FieldCache
 operator|.
-name|NUMERIC_UTILS_LONG_PARSER
+name|LONG_POINT_PARSER
 argument_list|,
 literal|false
 argument_list|)
@@ -859,7 +862,7 @@ literal|"number"
 argument_list|,
 name|FieldCache
 operator|.
-name|NUMERIC_UTILS_FLOAT_PARSER
+name|FLOAT_POINT_PARSER
 argument_list|,
 literal|false
 argument_list|)
@@ -898,7 +901,7 @@ literal|"number"
 argument_list|,
 name|FieldCache
 operator|.
-name|NUMERIC_UTILS_DOUBLE_PARSER
+name|DOUBLE_POINT_PARSER
 argument_list|,
 literal|false
 argument_list|)

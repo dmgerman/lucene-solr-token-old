@@ -1391,7 +1391,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|INTEGER
+name|LEGACY_INTEGER
 return|;
 block|}
 block|}

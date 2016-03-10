@@ -1252,7 +1252,7 @@ case|:
 return|return
 name|Type
 operator|.
-name|INTEGER
+name|LEGACY_INTEGER
 return|;
 case|case
 name|LONG
@@ -1263,7 +1263,7 @@ case|:
 return|return
 name|Type
 operator|.
-name|LONG
+name|LEGACY_LONG
 return|;
 case|case
 name|FLOAT
@@ -1271,7 +1271,7 @@ case|:
 return|return
 name|Type
 operator|.
-name|FLOAT
+name|LEGACY_FLOAT
 return|;
 case|case
 name|DOUBLE
@@ -1279,7 +1279,7 @@ case|:
 return|return
 name|Type
 operator|.
-name|DOUBLE
+name|LEGACY_DOUBLE
 return|;
 default|default:
 throw|throw
