@@ -4427,7 +4427,7 @@ name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|wrapper
+name|reader
 argument_list|,
 name|w
 argument_list|,
