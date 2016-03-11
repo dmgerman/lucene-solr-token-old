@@ -5754,8 +5754,6 @@ literal|0
 init|;
 name|i
 operator|<
-name|source
-operator|.
 name|count
 condition|;
 name|i
@@ -6155,7 +6153,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|int
+name|long
 name|i
 init|=
 literal|0
