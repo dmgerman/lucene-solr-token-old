@@ -100,6 +100,12 @@ specifier|private
 name|boolean
 name|closed
 decl_stmt|;
+comment|// true if ords are written as long (8 bytes), else 4 bytes
+DECL|field|longOrds
+specifier|private
+name|boolean
+name|longOrds
+decl_stmt|;
 DECL|method|OfflinePointWriter
 specifier|public
 name|OfflinePointWriter
@@ -112,6 +118,9 @@ name|tempFileNamePrefix
 parameter_list|,
 name|int
 name|packedBytesLength
+parameter_list|,
+name|boolean
+name|longOrds
 parameter_list|)
 throws|throws
 name|IOException
@@ -145,6 +154,12 @@ name|packedBytesLength
 operator|=
 name|packedBytesLength
 expr_stmt|;
+name|this
+operator|.
+name|longOrds
+operator|=
+name|longOrds
+expr_stmt|;
 block|}
 comment|/** Initializes on an already written/closed file, just so consumers can use {@link #getReader} to read the file. */
 DECL|method|OfflinePointWriter
@@ -162,6 +177,9 @@ name|packedBytesLength
 parameter_list|,
 name|long
 name|count
+parameter_list|,
+name|boolean
+name|longOrds
 parameter_list|)
 block|{
 name|this
@@ -191,6 +209,12 @@ expr_stmt|;
 name|closed
 operator|=
 literal|true
+expr_stmt|;
+name|this
+operator|.
+name|longOrds
+operator|=
+name|longOrds
 expr_stmt|;
 block|}
 annotation|@
@@ -233,6 +257,11 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|longOrds
+condition|)
+block|{
 name|out
 operator|.
 name|writeLong
@@ -240,6 +269,27 @@ argument_list|(
 name|ord
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+assert|assert
+name|ord
+operator|<=
+name|Integer
+operator|.
+name|MAX_VALUE
+assert|;
+name|out
+operator|.
+name|writeInt
+argument_list|(
+operator|(
+name|int
+operator|)
+name|ord
+argument_list|)
+expr_stmt|;
+block|}
 name|out
 operator|.
 name|writeInt
@@ -285,6 +335,8 @@ argument_list|,
 name|count
 operator|-
 name|start
+argument_list|,
+name|longOrds
 argument_list|)
 return|;
 block|}
