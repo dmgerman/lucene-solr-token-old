@@ -389,7 +389,7 @@ name|errPrefix
 init|=
 name|VERSION_FIELD
 operator|+
-literal|" field must exist in schema, using indexed=\"true\" or docValues=\"true\", stored=\"true\" and multiValued=\"false\""
+literal|" field must exist in schema and be searchable (indexed or docValues) and retrievable(stored or docValues) and not multiValued"
 decl_stmt|;
 name|SchemaField
 name|sf
@@ -459,7 +459,7 @@ literal|" ("
 operator|+
 name|VERSION_FIELD
 operator|+
-literal|" must be either indexed or have docValues"
+literal|" not searchable"
 argument_list|)
 throw|;
 block|}
@@ -469,6 +469,12 @@ operator|!
 name|sf
 operator|.
 name|stored
+argument_list|()
+operator|&&
+operator|!
+name|sf
+operator|.
+name|hasDocValues
 argument_list|()
 condition|)
 block|{
@@ -488,7 +494,7 @@ literal|" ("
 operator|+
 name|VERSION_FIELD
 operator|+
-literal|" is not stored"
+literal|" not retrievable"
 argument_list|)
 throw|;
 block|}
