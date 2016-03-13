@@ -121,6 +121,9 @@ name|packedBytesLength
 parameter_list|,
 name|boolean
 name|longOrds
+parameter_list|,
+name|String
+name|desc
 parameter_list|)
 throws|throws
 name|IOException
@@ -135,7 +138,9 @@ name|createTempOutput
 argument_list|(
 name|tempFileNamePrefix
 argument_list|,
-literal|"bkd"
+literal|"bkd_"
+operator|+
+name|desc
 argument_list|,
 name|IOContext
 operator|.

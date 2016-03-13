@@ -1027,6 +1027,8 @@ argument_list|,
 name|packedBytesLength
 argument_list|,
 name|longOrds
+argument_list|,
+literal|"switch"
 argument_list|)
 expr_stmt|;
 name|tempInput
@@ -6303,8 +6305,14 @@ init|=
 name|getPointWriter
 argument_list|(
 name|leftCount
+argument_list|,
+literal|"left"
+operator|+
+name|dim
 argument_list|)
-init|;              PointWriter rightPointWriter = getPointWriter(source.count - leftCount)
+init|;              PointWriter rightPointWriter = getPointWriter(source.count - leftCount
+operator|,
+init|"right" + dim)
 empty_stmt|;
 name|PointReader
 name|reader
@@ -6716,6 +6724,9 @@ name|getPointWriter
 parameter_list|(
 name|long
 name|count
+parameter_list|,
+name|String
+name|desc
 parameter_list|)
 throws|throws
 name|IOException
@@ -6764,6 +6775,8 @@ argument_list|,
 name|packedBytesLength
 argument_list|,
 name|longOrds
+argument_list|,
+name|desc
 argument_list|)
 return|;
 block|}
