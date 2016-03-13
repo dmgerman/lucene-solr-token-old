@@ -1115,18 +1115,14 @@ parameter_list|,
 name|byte
 index|[]
 name|bytes
+parameter_list|,
+name|int
+name|bytesOffset
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 comment|// NOTE: we don't do prefix coding, so we ignore commonPrefixLengths
-assert|assert
-name|bytes
-operator|.
-name|length
-operator|==
-name|packedBytesLength
-assert|;
 name|write
 argument_list|(
 name|out
@@ -1143,11 +1139,9 @@ name|BytesRef
 argument_list|(
 name|bytes
 argument_list|,
-literal|0
+name|bytesOffset
 argument_list|,
-name|bytes
-operator|.
-name|length
+name|packedBytesLength
 argument_list|)
 operator|.
 name|toString
