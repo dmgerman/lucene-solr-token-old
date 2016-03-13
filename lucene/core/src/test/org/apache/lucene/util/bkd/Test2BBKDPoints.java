@@ -419,7 +419,7 @@ literal|1
 argument_list|,
 literal|1024
 argument_list|,
-literal|128
+literal|256
 argument_list|,
 name|Long
 operator|.
@@ -674,6 +674,10 @@ literal|"_0"
 argument_list|,
 literal|2
 argument_list|,
+literal|1024
+argument_list|,
+literal|256
+argument_list|,
 name|Long
 operator|.
 name|BYTES
@@ -683,7 +687,7 @@ operator|*
 name|numDocs
 argument_list|)
 decl_stmt|;
-name|long
+name|int
 name|counter
 init|=
 literal|0
@@ -765,7 +769,7 @@ expr_stmt|;
 comment|// then two random ints for the 2nd dimension:
 name|NumericUtils
 operator|.
-name|intoSortableBytes
+name|intToSortableBytes
 argument_list|(
 name|random
 argument_list|()
@@ -782,7 +786,7 @@ argument_list|)
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intoSortableBytes
+name|intToSortableBytes
 argument_list|(
 name|random
 argument_list|()
