@@ -1170,6 +1170,8 @@ argument_list|(
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 argument_list|,
 literal|false
@@ -2422,6 +2424,8 @@ name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|writer
@@ -2750,6 +2754,8 @@ name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|writer
@@ -3078,6 +3084,8 @@ name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|writer
@@ -3735,6 +3743,8 @@ init|=
 name|newSearcher
 argument_list|(
 name|closeIndexReader
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return
