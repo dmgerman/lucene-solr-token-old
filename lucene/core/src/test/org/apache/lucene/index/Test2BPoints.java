@@ -1065,7 +1065,7 @@ name|MIN_VALUE
 block|,
 name|Long
 operator|.
-name|MAX_VALUE
+name|MIN_VALUE
 block|}
 argument_list|,
 operator|new
@@ -1074,7 +1074,7 @@ index|[]
 block|{
 name|Long
 operator|.
-name|MIN_VALUE
+name|MAX_VALUE
 block|,
 name|Long
 operator|.
