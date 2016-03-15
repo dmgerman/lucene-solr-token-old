@@ -421,10 +421,6 @@ name|Long
 operator|.
 name|BYTES
 argument_list|,
-literal|1024
-argument_list|,
-literal|256
-argument_list|,
 literal|26L
 operator|*
 name|numDocs
@@ -677,10 +673,6 @@ argument_list|,
 name|Long
 operator|.
 name|BYTES
-argument_list|,
-literal|1024
-argument_list|,
-literal|256
 argument_list|,
 literal|26L
 operator|*
