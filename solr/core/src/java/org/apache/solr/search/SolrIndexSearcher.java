@@ -5078,9 +5078,9 @@ condition|)
 block|{
 name|newVal
 operator|=
-name|NumericUtils
+name|Float
 operator|.
-name|sortableIntToFloat
+name|intBitsToFloat
 argument_list|(
 name|val
 operator|.
@@ -5102,9 +5102,9 @@ condition|)
 block|{
 name|newVal
 operator|=
-name|NumericUtils
+name|Double
 operator|.
-name|sortableLongToDouble
+name|longBitsToDouble
 argument_list|(
 name|val
 argument_list|)
