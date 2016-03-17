@@ -62,19 +62,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|LeafReaderContext
 import|;
 end_import
@@ -144,7 +131,7 @@ name|Weight
 import|;
 end_import
 begin_comment
-comment|/**  * A Query wrapping a {@link ValueSource} that matches docs in which the values in the value source match a configured  * range.  The score is the float value.  This can be a slow query if run by itself since it must visit all docs;  * ideally it's combined with other queries.  * It's mostly a wrapper around  * {@link FunctionValues#getRangeScorer(IndexReader, String, String, boolean, boolean)}.  *  * A similar class is {@code org.apache.lucene.search.DocValuesRangeQuery} in the sandbox module.  That one is  * constant scoring.  *  * @see FunctionQuery (constant scoring)  * @lucene.experimental  */
+comment|/**  * A Query wrapping a {@link ValueSource} that matches docs in which the values in the value source match a configured  * range.  The score is the float value.  This can be a slow query if run by itself since it must visit all docs;  * ideally it's combined with other queries.  * It's mostly a wrapper around  * {@link FunctionValues#getRangeScorer(LeafReaderContext, String, String, boolean, boolean)}.  *  * A similar class is {@code org.apache.lucene.search.DocValuesRangeQuery} in the sandbox module.  That one is  * constant scoring.  *  * @see FunctionQuery (constant scoring)  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FunctionRangeQuery
@@ -801,9 +788,6 @@ operator|.
 name|getRangeScorer
 argument_list|(
 name|context
-operator|.
-name|reader
-argument_list|()
 argument_list|,
 name|lowerVal
 argument_list|,

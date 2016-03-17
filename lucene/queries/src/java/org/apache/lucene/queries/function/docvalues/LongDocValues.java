@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -374,8 +374,8 @@ specifier|public
 name|ValueSourceScorer
 name|getRangeScorer
 parameter_list|(
-name|IndexReader
-name|reader
+name|LeafReaderContext
+name|readerContext
 parameter_list|,
 name|String
 name|lowerVal
@@ -488,7 +488,7 @@ return|return
 operator|new
 name|ValueSourceScorer
 argument_list|(
-name|reader
+name|readerContext
 argument_list|,
 name|this
 argument_list|)
@@ -503,6 +503,17 @@ name|int
 name|doc
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|exists
+argument_list|(
+name|doc
+argument_list|)
+condition|)
+return|return
+literal|false
+return|;
 name|long
 name|val
 init|=
@@ -511,8 +522,6 @@ argument_list|(
 name|doc
 argument_list|)
 decl_stmt|;
-comment|// only check for deleted if it's the default value
-comment|// if (val==0&& reader.isDeleted(doc)) return false;
 return|return
 name|val
 operator|>=
