@@ -502,25 +502,17 @@ argument_list|)
 expr_stmt|;
 name|command
 operator|=
-literal|"{'set-user-role': { 'tom': ['admin','dev']},\n"
+literal|"{'set-permission':{ collection : acoll ,\n"
+operator|+
+literal|"                      path : '/nonexistentpath',\n"
+operator|+
+literal|"                      role :guest },\n"
+operator|+
+literal|"'set-user-role': { 'tom': ['admin','dev']},"
 operator|+
 literal|"'set-permission':{'name': 'security-edit',\n"
 operator|+
-literal|"                  'role': 'admin'\n"
-operator|+
-literal|"                  },\n"
-operator|+
-literal|"'set-permission':{'name':'some-permission',\n"
-operator|+
-literal|"                      'collection':'acoll',\n"
-operator|+
-literal|"                      'path':'/nonexistentpath',\n"
-operator|+
-literal|"                      'role':'guest',\n"
-operator|+
-literal|"                      'before':'security-edit'\n"
-operator|+
-literal|"                      }\n"
+literal|"                  'role': 'admin'}\n"
 operator|+
 literal|"}"
 expr_stmt|;
@@ -734,13 +726,13 @@ control|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"some-permission"
+literal|"acoll"
 argument_list|,
 name|p
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"collection"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -750,7 +742,7 @@ name|command
 operator|=
 literal|"{\n"
 operator|+
-literal|"'set-permission':{'name': 'security-edit',\n"
+literal|"'set-permission':{index : 2,  name : security-edit,\n"
 operator|+
 literal|"                  'role': ['admin','dev']\n"
 operator|+
@@ -942,7 +934,7 @@ name|command
 operator|=
 literal|"{\n"
 operator|+
-literal|"'update-permission':{'name': 'some-permission',\n"
+literal|"'update-permission':{'index': 1,\n"
 operator|+
 literal|"                  'role': ['guest','admin']\n"
 operator|+
@@ -1082,13 +1074,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"some-permission"
+literal|"acoll"
 argument_list|,
 name|p
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"collection"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1132,9 +1124,9 @@ name|command
 operator|=
 literal|"{\n"
 operator|+
-literal|"'delete-permission': 'some-permission',\n"
+literal|"delete-permission: 1,\n"
 operator|+
-literal|"'set-user-role':{'tom':null}\n"
+literal|" set-user-role : { tom :null}\n"
 operator|+
 literal|"}"
 expr_stmt|;
@@ -1336,7 +1328,7 @@ name|command
 operator|=
 literal|"{\n"
 operator|+
-literal|"'set-permission':{'name': 'security-edit',\n"
+literal|"'set-permission':{index : 2,  'name': 'security-edit',\n"
 operator|+
 literal|"                  'method':'POST',"
 operator|+
