@@ -1548,6 +1548,13 @@ operator|+
 literal|", expected="
 operator|+
 name|expected
+operator|+
+literal|", fp="
+operator|+
+name|in
+operator|.
+name|getFilePointer
+argument_list|()
 argument_list|,
 name|in
 argument_list|)
@@ -1572,6 +1579,13 @@ operator|+
 literal|", expected="
 operator|+
 name|expected
+operator|+
+literal|", fp="
+operator|+
+name|in
+operator|.
+name|getFilePointer
+argument_list|()
 argument_list|,
 name|in
 argument_list|)

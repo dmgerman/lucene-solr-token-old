@@ -69,6 +69,9 @@ name|getReader
 parameter_list|(
 name|long
 name|startPoint
+parameter_list|,
+name|long
+name|length
 parameter_list|)
 throws|throws
 name|IOException
