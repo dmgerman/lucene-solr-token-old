@@ -1849,6 +1849,10 @@ name|sslConfig
 operator|=
 literal|null
 expr_stmt|;
+name|testSolrHome
+operator|=
+literal|null
+expr_stmt|;
 block|}
 name|IpTables
 operator|.

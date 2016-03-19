@@ -489,10 +489,16 @@ name|cluster
 operator|!=
 literal|null
 condition|)
+block|{
 name|cluster
 operator|.
 name|shutdown
 argument_list|()
+expr_stmt|;
+block|}
+name|cluster
+operator|=
+literal|null
 expr_stmt|;
 block|}
 annotation|@
