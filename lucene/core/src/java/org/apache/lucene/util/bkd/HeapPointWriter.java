@@ -108,6 +108,11 @@ specifier|final
 name|int
 name|packedBytesLength
 decl_stmt|;
+DECL|field|singleValuePerDoc
+specifier|final
+name|boolean
+name|singleValuePerDoc
+decl_stmt|;
 comment|// NOTE: can't use ByteBlockPool because we need random-write access when sorting in heap
 DECL|field|blocks
 specifier|final
@@ -138,6 +143,9 @@ name|packedBytesLength
 parameter_list|,
 name|boolean
 name|longOrds
+parameter_list|,
+name|boolean
+name|singleValuePerDoc
 parameter_list|)
 block|{
 name|docIDs
@@ -160,6 +168,32 @@ name|packedBytesLength
 operator|=
 name|packedBytesLength
 expr_stmt|;
+name|this
+operator|.
+name|singleValuePerDoc
+operator|=
+name|singleValuePerDoc
+expr_stmt|;
+if|if
+condition|(
+name|singleValuePerDoc
+condition|)
+block|{
+name|this
+operator|.
+name|ordsLong
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|ords
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|longOrds
@@ -188,6 +222,7 @@ index|[
 name|initSize
 index|]
 expr_stmt|;
+block|}
 block|}
 comment|// 4K per page, unless each value is> 4K:
 name|valuesPerBlock
@@ -263,6 +298,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|singleValuePerDoc
+operator|==
+literal|false
+condition|)
+block|{
+if|if
+condition|(
 name|other
 operator|.
 name|ords
@@ -325,6 +367,7 @@ operator|.
 name|nextWrite
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 for|for
 control|(
@@ -757,6 +800,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|singleValuePerDoc
+operator|==
+literal|false
+condition|)
+block|{
+if|if
+condition|(
 name|ordsLong
 operator|!=
 literal|null
@@ -785,6 +835,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 name|writePackedValue
 argument_list|(
 name|nextWrite
@@ -792,6 +843,13 @@ argument_list|,
 name|packedValue
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|singleValuePerDoc
+operator|==
+literal|false
+condition|)
+block|{
 if|if
 condition|(
 name|ordsLong
@@ -826,6 +884,7 @@ name|int
 operator|)
 name|ord
 expr_stmt|;
+block|}
 block|}
 name|docIDs
 index|[
@@ -897,6 +956,8 @@ operator|)
 name|start
 argument_list|,
 name|nextWrite
+argument_list|,
+name|singleValuePerDoc
 argument_list|)
 return|;
 block|}
