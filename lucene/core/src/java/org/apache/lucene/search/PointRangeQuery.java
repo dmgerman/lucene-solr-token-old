@@ -277,7 +277,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|upperPoint
+name|lowerPoint
 operator|.
 name|length
 operator|!=
@@ -299,6 +299,23 @@ operator|+
 name|upperPoint
 operator|.
 name|length
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|numDims
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"numDims must be positive, got "
+operator|+
+name|numDims
 argument_list|)
 throw|;
 block|}
