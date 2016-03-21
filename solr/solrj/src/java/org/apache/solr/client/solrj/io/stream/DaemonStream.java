@@ -1494,11 +1494,6 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|exception
 operator|=
 name|e
@@ -1544,11 +1539,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|t
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|error
