@@ -785,7 +785,7 @@ comment|// compute a maximum partial haversin: unless our box is crazy, we can u
 comment|// to reject edge cases faster in matches()
 specifier|final
 name|double
-name|minPartialDistance
+name|maxPartialDistance
 decl_stmt|;
 if|if
 condition|(
@@ -806,7 +806,7 @@ operator|<
 literal|90
 condition|)
 block|{
-name|minPartialDistance
+name|maxPartialDistance
 operator|=
 name|Math
 operator|.
@@ -846,7 +846,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|minPartialDistance
+name|maxPartialDistance
 operator|=
 name|Double
 operator|.
@@ -1653,7 +1653,7 @@ if|if
 condition|(
 name|h1
 operator|>
-name|minPartialDistance
+name|maxPartialDistance
 condition|)
 block|{
 continue|continue;
