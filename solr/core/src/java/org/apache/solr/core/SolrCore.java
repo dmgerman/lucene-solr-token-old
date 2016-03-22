@@ -2897,6 +2897,18 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// allow DirectoryFactory instances to access the CoreContainer
+name|dirFactory
+operator|.
+name|initCoreContainer
+argument_list|(
+name|getCoreDescriptor
+argument_list|()
+operator|.
+name|getCoreContainer
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|dirFactory
 operator|.
 name|init
@@ -2921,6 +2933,17 @@ operator|=
 operator|new
 name|NRTCachingDirectoryFactory
 argument_list|()
+expr_stmt|;
+name|dirFactory
+operator|.
+name|initCoreContainer
+argument_list|(
+name|getCoreDescriptor
+argument_list|()
+operator|.
+name|getCoreContainer
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return
