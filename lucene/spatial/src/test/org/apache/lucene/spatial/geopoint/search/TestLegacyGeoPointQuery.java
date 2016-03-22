@@ -171,13 +171,15 @@ name|DISTANCE_PCT_ERR
 import|;
 end_import
 begin_comment
-comment|/**  * random testing for GeoPoint query logic  *  * @lucene.experimental  */
+comment|/**  * random testing for GeoPoint query logic (with deprecated numeric encoding)  * @deprecated remove this when TermEncoding.NUMERIC is removed  */
 end_comment
 begin_class
-DECL|class|TestGeoPointQuery
+annotation|@
+name|Deprecated
+DECL|class|TestLegacyGeoPointQuery
 specifier|public
 class|class
-name|TestGeoPointQuery
+name|TestLegacyGeoPointQuery
 extends|extends
 name|BaseGeoPointTestCase
 block|{
@@ -228,7 +230,7 @@ name|lat
 argument_list|,
 name|GeoPointField
 operator|.
-name|PREFIX_TYPE_NOT_STORED
+name|NUMERIC_TYPE_NOT_STORED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -255,7 +257,7 @@ name|field
 argument_list|,
 name|TermEncoding
 operator|.
-name|PREFIX
+name|NUMERIC
 argument_list|,
 name|rect
 operator|.
@@ -303,7 +305,7 @@ name|field
 argument_list|,
 name|TermEncoding
 operator|.
-name|PREFIX
+name|NUMERIC
 argument_list|,
 name|centerLon
 argument_list|,
@@ -344,7 +346,7 @@ name|field
 argument_list|,
 name|TermEncoding
 operator|.
-name|PREFIX
+name|NUMERIC
 argument_list|,
 name|centerLon
 argument_list|,
@@ -383,7 +385,7 @@ name|field
 argument_list|,
 name|TermEncoding
 operator|.
-name|PREFIX
+name|NUMERIC
 argument_list|,
 name|lons
 argument_list|,
