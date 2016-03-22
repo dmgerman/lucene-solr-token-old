@@ -2876,13 +2876,13 @@ return|return
 operator|new
 name|GeoRect
 argument_list|(
-name|lon0
-argument_list|,
-name|lon1
-argument_list|,
 name|lat0
 argument_list|,
 name|lat1
+argument_list|,
+name|lon0
+argument_list|,
+name|lon1
 argument_list|)
 return|;
 block|}
