@@ -4336,6 +4336,22 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|useThreads
+condition|)
+block|{
+comment|// We must disable query cache otherwise test seed may not reproduce since different
+comment|// threads may or may not get a cache hit or miss depending on order the JVM
+comment|// schedules the threads:
+name|s
+operator|.
+name|setQueryCache
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Make sure queries are thread safe:
 name|int
 name|numThreads
@@ -4967,21 +4983,21 @@ literal|"  docID="
 operator|+
 name|docID
 operator|+
-literal|" centerLon="
-operator|+
-name|centerLon
-operator|+
 literal|" centerLat="
 operator|+
 name|centerLat
 operator|+
-literal|" pointLon="
+literal|" centerLon="
 operator|+
-name|pointLon
+name|centerLon
 operator|+
 literal|" pointLat="
 operator|+
 name|pointLat
+operator|+
+literal|" pointLon="
+operator|+
+name|pointLon
 operator|+
 literal|" distanceMeters="
 operator|+
