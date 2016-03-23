@@ -341,10 +341,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|setSchema
-argument_list|(
 name|collection
-argument_list|)
+operator|=
+name|collection
 expr_stmt|;
 name|this
 operator|.
@@ -390,6 +389,15 @@ parameter_list|()
 block|{
 return|return
 name|client
+return|;
+block|}
+DECL|method|getCollection
+name|String
+name|getCollection
+parameter_list|()
+block|{
+return|return
+name|collection
 return|;
 block|}
 DECL|method|getProperties
@@ -1416,14 +1424,7 @@ name|schema
 parameter_list|)
 throws|throws
 name|SQLException
-block|{
-name|this
-operator|.
-name|collection
-operator|=
-name|schema
-expr_stmt|;
-block|}
+block|{    }
 annotation|@
 name|Override
 DECL|method|getSchema
@@ -1435,9 +1436,7 @@ throws|throws
 name|SQLException
 block|{
 return|return
-name|this
-operator|.
-name|collection
+literal|null
 return|;
 block|}
 annotation|@
