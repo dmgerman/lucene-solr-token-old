@@ -1931,7 +1931,6 @@ name|obj
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|field
 operator|.
 name|equals
@@ -1940,6 +1939,8 @@ name|other
 operator|.
 name|field
 argument_list|)
+operator|==
+literal|false
 condition|)
 return|return
 literal|false
