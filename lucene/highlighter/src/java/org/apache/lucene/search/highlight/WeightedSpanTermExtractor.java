@@ -1680,7 +1680,7 @@ operator|!=
 name|origQuery
 condition|)
 block|{
-comment|// only rewrite once and then flatten again - the rewritten query could have a speacial treatment
+comment|// only rewrite once and then flatten again - the rewritten query could have a special treatment
 comment|// if this method is overwritten in a subclass or above in the next recursion
 name|extract
 argument_list|(
@@ -1692,7 +1692,8 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+else|else
+block|{
 name|extractUnknownQuery
 argument_list|(
 name|query
@@ -1700,6 +1701,8 @@ argument_list|,
 name|terms
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|extractUnknownQuery
 specifier|protected
