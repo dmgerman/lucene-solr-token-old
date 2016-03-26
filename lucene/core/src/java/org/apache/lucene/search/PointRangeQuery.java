@@ -309,7 +309,9 @@ name|IllegalArgumentException
 argument_list|(
 literal|"lowerPoint has length="
 operator|+
-name|numDims
+name|lowerPoint
+operator|.
+name|length
 operator|+
 literal|" but upperPoint has different length="
 operator|+
