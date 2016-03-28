@@ -6263,7 +6263,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// nocommit can we wrap again?
 comment|// We can't wrap with "exotic" readers because points needs to work:
 name|IndexSearcher
 name|s
@@ -6271,8 +6270,6 @@ init|=
 name|newSearcher
 argument_list|(
 name|r
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 specifier|final
