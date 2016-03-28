@@ -36,7 +36,7 @@ specifier|private
 name|String
 name|fieldName
 decl_stmt|;
-comment|/**    * Constructs a {@link FieldConfig}    *     * @param fieldName the field name, it cannot be null    * @throws IllegalArgumentException if the field name is null    */
+comment|/**    * Constructs a {@link FieldConfig}    *     * @param fieldName the field name, it must not be null    * @throws IllegalArgumentException if the field name is null    */
 DECL|method|FieldConfig
 specifier|public
 name|FieldConfig
@@ -56,7 +56,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"field name should not be null!"
+literal|"field name must not be null!"
 argument_list|)
 throw|;
 block|}

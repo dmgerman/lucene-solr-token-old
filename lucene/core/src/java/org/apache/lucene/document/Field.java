@@ -236,7 +236,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"name cannot be null"
+literal|"name must not be null"
 argument_list|)
 throw|;
 block|}
@@ -257,7 +257,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"type cannot be null"
+literal|"type must not be null"
 argument_list|)
 throw|;
 block|}
@@ -294,7 +294,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"name cannot be null"
+literal|"name must not be null"
 argument_list|)
 throw|;
 block|}
@@ -309,7 +309,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"type cannot be null"
+literal|"type must not be null"
 argument_list|)
 throw|;
 block|}
@@ -324,7 +324,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"reader cannot be null"
+literal|"reader must not be null"
 argument_list|)
 throw|;
 block|}
@@ -415,7 +415,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"name cannot be null"
+literal|"name must not be null"
 argument_list|)
 throw|;
 block|}
@@ -430,7 +430,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"tokenStream cannot be null"
+literal|"tokenStream must not be null"
 argument_list|)
 throw|;
 block|}
@@ -599,7 +599,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"name cannot be null"
+literal|"name must not be null"
 argument_list|)
 throw|;
 block|}
@@ -614,7 +614,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"bytes cannot be null"
+literal|"bytes must not be null"
 argument_list|)
 throw|;
 block|}
@@ -664,7 +664,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"name cannot be null"
+literal|"name must not be null"
 argument_list|)
 throw|;
 block|}
@@ -679,7 +679,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"value cannot be null"
+literal|"value must not be null"
 argument_list|)
 throw|;
 block|}
@@ -846,7 +846,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"value cannot be null"
+literal|"value must not be null"
 argument_list|)
 throw|;
 block|}
@@ -988,7 +988,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"value cannot be null"
+literal|"value must not be null"
 argument_list|)
 throw|;
 block|}

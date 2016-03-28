@@ -190,7 +190,7 @@ name|requireNonNull
 argument_list|(
 name|docValues
 argument_list|,
-literal|"DocValuesType cannot be null (field: \""
+literal|"DocValuesType must not be null (field: \""
 operator|+
 name|name
 operator|+
@@ -207,7 +207,7 @@ name|requireNonNull
 argument_list|(
 name|indexOptions
 argument_list|,
-literal|"IndexOptions cannot be null (field: \""
+literal|"IndexOptions must not be null (field: \""
 operator|+
 name|name
 operator|+
@@ -539,7 +539,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"IndexOptions cannot be null (field: \""
+literal|"IndexOptions must not be null (field: \""
 operator|+
 name|name
 operator|+
@@ -955,7 +955,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"DocValuesType cannot be null (field: \""
+literal|"DocValuesType must not be null (field: \""
 operator|+
 name|name
 operator|+

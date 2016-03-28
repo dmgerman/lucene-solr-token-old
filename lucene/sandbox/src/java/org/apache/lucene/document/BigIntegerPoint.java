@@ -380,7 +380,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"point cannot be null"
+literal|"point must not be null"
 argument_list|)
 throw|;
 block|}
@@ -397,7 +397,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"point cannot be 0 dimensions"
+literal|"point must not be 0 dimensions"
 argument_list|)
 throw|;
 block|}

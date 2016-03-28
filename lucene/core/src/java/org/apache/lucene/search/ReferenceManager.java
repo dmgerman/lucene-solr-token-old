@@ -672,7 +672,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"Listener cannot be null"
+literal|"Listener must not be null"
 argument_list|)
 throw|;
 block|}
@@ -705,7 +705,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"Listener cannot be null"
+literal|"Listener must not be null"
 argument_list|)
 throw|;
 block|}

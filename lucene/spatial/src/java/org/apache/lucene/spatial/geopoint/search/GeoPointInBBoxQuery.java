@@ -268,7 +268,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"field cannot be null"
+literal|"field must not be null"
 argument_list|)
 throw|;
 block|}
@@ -283,7 +283,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"termEncoding cannot be null"
+literal|"termEncoding must not be null"
 argument_list|)
 throw|;
 block|}
