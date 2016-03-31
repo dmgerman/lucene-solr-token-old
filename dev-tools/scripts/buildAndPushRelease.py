@@ -482,12 +482,12 @@ op|')'
 newline|'\n'
 name|'print'
 op|'('
-string|"'  svn up...'"
+string|"'  git pull...'"
 op|')'
 newline|'\n'
 name|'run'
 op|'('
-string|"'svn up'"
+string|"'git pull'"
 op|')'
 newline|'\n'
 nl|'\n'
@@ -1633,7 +1633,7 @@ name|'root'
 op|')'
 op|':'
 newline|'\n'
-comment|'# TODO: add additional svn check to ensure dir is a real lucene-solr checkout'
+comment|'# TODO: add additional git check to ensure dir is a real lucene-solr checkout'
 nl|'\n'
 indent|'    '
 name|'parser'
