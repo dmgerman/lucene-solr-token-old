@@ -1941,7 +1941,7 @@ index|]
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.4626D
+literal|0.4621D
 argument_list|,
 operator|(
 name|Double
@@ -1972,7 +1972,7 @@ index|]
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0562D
+literal|1.055D
 argument_list|,
 operator|(
 name|Double
@@ -2003,7 +2003,7 @@ index|]
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5.2918D
+literal|5.2859D
 argument_list|,
 operator|(
 name|Double
