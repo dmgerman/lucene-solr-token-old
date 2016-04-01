@@ -793,13 +793,6 @@ argument_list|)
 decl_stmt|;
 name|client
 operator|.
-name|setDefaultMaxConnectionsPerHost
-argument_list|(
-literal|25
-argument_list|)
-expr_stmt|;
-name|client
-operator|.
 name|setConnectionTimeout
 argument_list|(
 literal|30000
@@ -844,13 +837,6 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-name|client
-operator|.
-name|setDefaultMaxConnectionsPerHost
-argument_list|(
-literal|25
-argument_list|)
-expr_stmt|;
 name|client
 operator|.
 name|setConnectionTimeout

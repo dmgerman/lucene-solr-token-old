@@ -213,17 +213,6 @@ operator|.
 name|Utils
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|zookeeper
-operator|.
-name|KeeperException
-import|;
-end_import
 begin_class
 DECL|class|ZkStateReaderTest
 specifier|public
@@ -594,7 +583,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|500
 condition|;
 operator|++
 name|i
@@ -798,7 +787,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|500
 condition|;
 operator|++
 name|i

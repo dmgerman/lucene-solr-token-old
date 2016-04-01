@@ -271,6 +271,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|SolrClient
 name|client
 init|=
@@ -285,7 +287,8 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CoreAdminRequest
 operator|.
 name|Create
@@ -318,6 +321,7 @@ argument_list|(
 name|createReq
 argument_list|)
 expr_stmt|;
+block|}
 name|assertTrue
 argument_list|(
 name|Files

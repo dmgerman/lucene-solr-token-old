@@ -851,6 +851,11 @@ operator|.
 name|execute
 argument_list|(
 name|request
+argument_list|,
+name|HttpClientUtil
+operator|.
+name|createNewHttpClientRequestContext
+argument_list|()
 argument_list|)
 operator|.
 name|getEntity
@@ -890,10 +895,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|httpClient
+name|HttpClientUtil
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|httpClient
+argument_list|)
 expr_stmt|;
 block|}
 block|}

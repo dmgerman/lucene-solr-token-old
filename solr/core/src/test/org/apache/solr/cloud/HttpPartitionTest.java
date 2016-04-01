@@ -1494,6 +1494,8 @@ argument_list|,
 literal|10000
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|HttpSolrClient
 name|leaderSolr
 init|=
@@ -1503,7 +1505,8 @@ name|leader
 argument_list|,
 name|testCollectionName
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertDocExists
 argument_list|(
 name|leaderSolr
@@ -1513,6 +1516,7 @@ argument_list|,
 literal|"3"
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|Replica
@@ -1521,6 +1525,8 @@ range|:
 name|notLeaders
 control|)
 block|{
+try|try
+init|(
 name|HttpSolrClient
 name|notLeaderSolr
 init|=
@@ -1530,7 +1536,8 @@ name|notLeader
 argument_list|,
 name|testCollectionName
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertDocNotExists
 argument_list|(
 name|notLeaderSolr
@@ -1540,6 +1547,7 @@ argument_list|,
 literal|"3"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Retry sending doc 3
 name|achievedRf
