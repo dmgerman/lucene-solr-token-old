@@ -150,9 +150,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoUtils
 import|;
@@ -396,9 +394,9 @@ block|{
 name|GeoRect
 name|box
 init|=
-name|GeoUtils
+name|GeoRect
 operator|.
-name|circleToBBox
+name|fromPointDistance
 argument_list|(
 name|latitude
 argument_list|,
