@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.spatial.util
+DECL|package|org.apache.lucene.geo
 package|package
 name|org
 operator|.
@@ -11,24 +11,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 package|;
 end_package
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|geo
-operator|.
-name|GeoUtils
-import|;
-end_import
 begin_import
 import|import static
 name|java
@@ -283,10 +268,10 @@ begin_comment
 comment|/** Represents a lat/lon rectangle. */
 end_comment
 begin_class
-DECL|class|GeoRect
+DECL|class|Rectangle
 specifier|public
 class|class
-name|GeoRect
+name|Rectangle
 block|{
 comment|/** maximum longitude value (in degrees) */
 DECL|field|minLat
@@ -317,9 +302,9 @@ name|double
 name|maxLon
 decl_stmt|;
 comment|/**    * Constructs a bounding box by first validating the provided latitude and longitude coordinates    */
-DECL|method|GeoRect
+DECL|method|Rectangle
 specifier|public
-name|GeoRect
+name|Rectangle
 parameter_list|(
 name|double
 name|minLat
@@ -510,7 +495,7 @@ comment|/** Compute Bounding Box for a circle using WGS-84 parameters */
 DECL|method|fromPointDistance
 specifier|public
 specifier|static
-name|GeoRect
+name|Rectangle
 name|fromPointDistance
 parameter_list|(
 specifier|final
@@ -688,7 +673,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|GeoRect
+name|Rectangle
 argument_list|(
 name|toDegrees
 argument_list|(
@@ -883,7 +868,7 @@ comment|/** Returns the bounding box over an array of polygons */
 DECL|method|fromPolygon
 specifier|public
 specifier|static
-name|GeoRect
+name|Rectangle
 name|fromPolygon
 parameter_list|(
 name|Polygon
@@ -1004,7 +989,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|GeoRect
+name|Rectangle
 argument_list|(
 name|minLat
 argument_list|,

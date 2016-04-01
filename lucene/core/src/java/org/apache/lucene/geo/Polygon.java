@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.spatial.util
+DECL|package|org.apache.lucene.geo
 package|package
 name|org
 operator|.
@@ -11,9 +11,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 package|;
 end_package
 begin_import
@@ -25,21 +23,8 @@ operator|.
 name|Arrays
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|geo
-operator|.
-name|GeoUtils
-import|;
-end_import
 begin_comment
-comment|/**   * Represents a closed polygon on the earth's surface.  * @lucene.experimental   */
+comment|/**  * Represents a closed polygon on the earth's surface.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|Polygon
@@ -97,8 +82,18 @@ specifier|final
 name|double
 name|maxLon
 decl_stmt|;
+comment|// TODO: refactor to GeoUtils once LUCENE-7165 is complete
+DECL|field|ENCODING_TOLERANCE
+specifier|private
+specifier|static
+specifier|final
+name|double
+name|ENCODING_TOLERANCE
+init|=
+literal|1e-6
+decl_stmt|;
 comment|// TODO: we could also compute the maximal inner bounding box, to make relations faster to compute?
-comment|/**     * Creates a new Polygon from the supplied latitude/longitude array, and optionally any holes.    */
+comment|/**    * Creates a new Polygon from the supplied latitude/longitude array, and optionally any holes.    */
 DECL|method|Polygon
 specifier|public
 name|Polygon
@@ -593,7 +588,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/*       * simple even-odd point in polygon computation      *    1.  Determine if point is contained in the longitudinal range      *    2.  Determine whether point crosses the edge by computing the latitudinal delta      *        between the end-point of a parallel vector (originating at the point) and the      *        y-component of the edge sink      *      * NOTE: Requires polygon point (x,y) order either clockwise or counter-clockwise      */
+comment|/*      * simple even-odd point in polygon computation      *    1.  Determine if point is contained in the longitudinal range      *    2.  Determine whether point crosses the edge by computing the latitudinal delta      *        between the end-point of a parallel vector (originating at the point) and the      *        y-component of the edge sink      *      * NOTE: Requires polygon point (x,y) order either clockwise or counter-clockwise      */
 name|boolean
 name|inPoly
 init|=
@@ -1276,6 +1271,7 @@ operator|*
 name|c1
 operator|)
 expr_stmt|;
+comment|// todo TOLERANCE SHOULD MATCH EVERYWHERE this is currently blocked by LUCENE-7165
 name|x00
 operator|=
 name|Math
@@ -1301,9 +1297,7 @@ literal|0
 index|]
 argument_list|)
 operator|-
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 name|x01
 operator|=
@@ -1330,9 +1324,7 @@ literal|0
 index|]
 argument_list|)
 operator|+
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 name|y00
 operator|=
@@ -1359,9 +1351,7 @@ literal|1
 index|]
 argument_list|)
 operator|-
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 name|y01
 operator|=
@@ -1388,9 +1378,7 @@ literal|1
 index|]
 argument_list|)
 operator|+
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 name|x10
 operator|=
@@ -1411,9 +1399,7 @@ literal|1
 index|]
 argument_list|)
 operator|-
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 name|x11
 operator|=
@@ -1434,9 +1420,7 @@ literal|1
 index|]
 argument_list|)
 operator|+
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 name|y10
 operator|=
@@ -1457,9 +1441,7 @@ literal|1
 index|]
 argument_list|)
 operator|-
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 name|y11
 operator|=
@@ -1480,9 +1462,7 @@ literal|1
 index|]
 argument_list|)
 operator|+
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|ENCODING_TOLERANCE
 expr_stmt|;
 comment|// check whether the intersection point is touching one of the line segments
 name|boolean
