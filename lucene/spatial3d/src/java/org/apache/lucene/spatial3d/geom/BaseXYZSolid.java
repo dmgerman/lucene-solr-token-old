@@ -21,7 +21,6 @@ comment|/**  * Base class of a family of 3D rectangles, bounded on six sides by 
 end_comment
 begin_class
 DECL|class|BaseXYZSolid
-specifier|public
 specifier|abstract
 class|class
 name|BaseXYZSolid

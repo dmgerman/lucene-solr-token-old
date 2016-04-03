@@ -21,7 +21,6 @@ comment|/**  * GeoCircles have all the characteristics of GeoBaseDistanceShapes,
 end_comment
 begin_class
 DECL|class|GeoBaseCircle
-specifier|public
 specifier|abstract
 class|class
 name|GeoBaseCircle

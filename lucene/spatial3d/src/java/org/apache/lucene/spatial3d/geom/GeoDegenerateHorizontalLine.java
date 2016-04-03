@@ -21,7 +21,6 @@ comment|/**  * Degenerate bounding box limited on two sides (left lon, right lon
 end_comment
 begin_class
 DECL|class|GeoDegenerateHorizontalLine
-specifier|public
 class|class
 name|GeoDegenerateHorizontalLine
 extends|extends

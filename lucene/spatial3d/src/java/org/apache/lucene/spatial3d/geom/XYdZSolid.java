@@ -21,7 +21,6 @@ comment|/**  * 3D rectangle, bounded on six sides by X,Y,Z limits, degenerate in
 end_comment
 begin_class
 DECL|class|XYdZSolid
-specifier|public
 class|class
 name|XYdZSolid
 extends|extends

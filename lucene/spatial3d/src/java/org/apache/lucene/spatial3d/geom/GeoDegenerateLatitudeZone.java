@@ -21,7 +21,6 @@ comment|/**  * This GeoBBox represents an area rectangle of one specific latitud
 end_comment
 begin_class
 DECL|class|GeoDegenerateLatitudeZone
-specifier|public
 class|class
 name|GeoDegenerateLatitudeZone
 extends|extends

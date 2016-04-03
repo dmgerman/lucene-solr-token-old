@@ -17,11 +17,10 @@ name|geom
 package|;
 end_package
 begin_comment
-comment|/**  * GeoBasePolygon objects are the base class of most GeoPolygon objects.  *  * @lucene.experimental  */
+comment|/**  * GeoBasePolygon objects are the base class of most GeoPolygon objects.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|GeoBasePolygon
-specifier|public
 specifier|abstract
 class|class
 name|GeoBasePolygon

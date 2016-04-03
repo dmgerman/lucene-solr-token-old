@@ -21,7 +21,6 @@ comment|/**  * Bounding box limited on left and right.  * The left-right maximum
 end_comment
 begin_class
 DECL|class|GeoLongitudeSlice
-specifier|public
 class|class
 name|GeoLongitudeSlice
 extends|extends

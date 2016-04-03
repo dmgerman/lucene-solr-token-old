@@ -21,7 +21,6 @@ comment|/**  * Bounding box wider than PI but limited on three sides (  * bottom
 end_comment
 begin_class
 DECL|class|GeoWideNorthRectangle
-specifier|public
 class|class
 name|GeoWideNorthRectangle
 extends|extends

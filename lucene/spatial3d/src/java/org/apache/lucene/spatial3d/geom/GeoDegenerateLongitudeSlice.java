@@ -21,7 +21,6 @@ comment|/**  * Degenerate longitude slice.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|GeoDegenerateLongitudeSlice
-specifier|public
 class|class
 name|GeoDegenerateLongitudeSlice
 extends|extends

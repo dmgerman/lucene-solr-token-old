@@ -21,7 +21,6 @@ comment|/**  * 3D rectangle, bounded on six sides by X,Y,Z limits  *  * @lucene.
 end_comment
 begin_class
 DECL|class|StandardXYZSolid
-specifier|public
 class|class
 name|StandardXYZSolid
 extends|extends

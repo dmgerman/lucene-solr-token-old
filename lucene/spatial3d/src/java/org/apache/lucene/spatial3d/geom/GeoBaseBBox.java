@@ -21,7 +21,6 @@ comment|/**  * All bounding box shapes can derive from this base class, which fu
 end_comment
 begin_class
 DECL|class|GeoBaseBBox
-specifier|public
 specifier|abstract
 class|class
 name|GeoBaseBBox
