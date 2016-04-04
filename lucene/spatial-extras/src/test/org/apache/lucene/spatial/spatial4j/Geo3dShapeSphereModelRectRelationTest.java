@@ -104,7 +104,7 @@ name|spatial3d
 operator|.
 name|geom
 operator|.
-name|GeoStandardCircle
+name|GeoCircleFactory
 import|;
 end_import
 begin_import
@@ -385,8 +385,9 @@ block|{
 name|GeoShape
 name|geo3dCircle
 init|=
-operator|new
-name|GeoStandardCircle
+name|GeoCircleFactory
+operator|.
+name|makeGeoCircle
 argument_list|(
 name|planetModel
 argument_list|,
