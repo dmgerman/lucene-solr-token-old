@@ -1207,7 +1207,7 @@ specifier|final
 name|SidedPlane
 name|exception
 decl_stmt|;
-comment|/** Constructor.       */
+comment|/** Constructor.       * @param exception is the one plane to exclude from the check.       */
 DECL|method|EitherBound
 specifier|public
 name|EitherBound
