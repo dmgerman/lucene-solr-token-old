@@ -109,7 +109,6 @@ interface|interface
 name|HttpRequestInterceptorProvider
 block|{
 DECL|method|getHttpRequestInterceptor
-specifier|public
 name|HttpRequestInterceptor
 name|getHttpRequestInterceptor
 parameter_list|()
@@ -121,7 +120,6 @@ interface|interface
 name|CredentialsProviderProvider
 block|{
 DECL|method|getCredentialsProvider
-specifier|public
 name|CredentialsProvider
 name|getCredentialsProvider
 parameter_list|()
@@ -133,7 +131,6 @@ interface|interface
 name|AuthSchemeRegistryProvider
 block|{
 DECL|method|getAuthSchemeRegistry
-specifier|public
 name|Lookup
 argument_list|<
 name|AuthSchemeProvider
@@ -148,7 +145,6 @@ interface|interface
 name|CookieSpecRegistryProvider
 block|{
 DECL|method|getCookieSpecRegistry
-specifier|public
 name|Lookup
 argument_list|<
 name|CookieSpecProvider
