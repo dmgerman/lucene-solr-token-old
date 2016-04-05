@@ -214,7 +214,7 @@ name|spatial3d
 operator|.
 name|geom
 operator|.
-name|GeoPath
+name|GeoPathFactory
 import|;
 end_import
 begin_import
@@ -871,8 +871,9 @@ specifier|final
 name|GeoShape
 name|shape
 init|=
-operator|new
-name|GeoPath
+name|GeoPathFactory
+operator|.
+name|makeGeoPath
 argument_list|(
 name|PlanetModel
 operator|.
