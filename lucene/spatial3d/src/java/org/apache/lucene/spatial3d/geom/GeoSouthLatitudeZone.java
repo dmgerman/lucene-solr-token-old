@@ -21,7 +21,6 @@ comment|/**  * This GeoBBox represents an area rectangle limited only in north l
 end_comment
 begin_class
 DECL|class|GeoSouthLatitudeZone
-specifier|public
 class|class
 name|GeoSouthLatitudeZone
 extends|extends

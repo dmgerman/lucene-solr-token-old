@@ -21,7 +21,6 @@ comment|/**  * Degenerate bounding box wider than PI and limited on two sides (l
 end_comment
 begin_class
 DECL|class|GeoWideDegenerateHorizontalLine
-specifier|public
 class|class
 name|GeoWideDegenerateHorizontalLine
 extends|extends

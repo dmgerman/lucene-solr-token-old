@@ -21,7 +21,6 @@ comment|/**  * Bounding box limited on four sides (top lat, bottom lat, left lon
 end_comment
 begin_class
 DECL|class|GeoRectangle
-specifier|public
 class|class
 name|GeoRectangle
 extends|extends

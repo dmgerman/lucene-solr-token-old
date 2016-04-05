@@ -21,7 +21,6 @@ comment|/**  * Bounding box wider than PI but limited on three sides (top lat,  
 end_comment
 begin_class
 DECL|class|GeoWideSouthRectangle
-specifier|public
 class|class
 name|GeoWideSouthRectangle
 extends|extends

@@ -21,7 +21,6 @@ comment|/**  * Bounding box wider than PI but limited on left and right sides ( 
 end_comment
 begin_class
 DECL|class|GeoWideLongitudeSlice
-specifier|public
 class|class
 name|GeoWideLongitudeSlice
 extends|extends

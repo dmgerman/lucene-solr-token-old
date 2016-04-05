@@ -21,7 +21,6 @@ comment|/**  * Bounding box limited on three sides (top lat, left lon, right lon
 end_comment
 begin_class
 DECL|class|GeoSouthRectangle
-specifier|public
 class|class
 name|GeoSouthRectangle
 extends|extends

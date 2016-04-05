@@ -17,22 +17,22 @@ name|geom
 package|;
 end_package
 begin_comment
-comment|/**  * GeoBasePolygon objects are the base class of most GeoPolygon objects.  *  * @lucene.internal  */
+comment|/**  * GeoPaths have all the characteristics of GeoBaseDistanceShapes.  *  * @lucene.internal  */
 end_comment
 begin_class
-DECL|class|GeoBasePolygon
+DECL|class|GeoBasePath
 specifier|abstract
 class|class
-name|GeoBasePolygon
+name|GeoBasePath
 extends|extends
-name|GeoBaseMembershipShape
+name|GeoBaseDistanceShape
 implements|implements
-name|GeoPolygon
+name|GeoPath
 block|{
 comment|/** Constructor.    *@param planetModel is the planet model to use.    */
-DECL|method|GeoBasePolygon
+DECL|method|GeoBasePath
 specifier|public
-name|GeoBasePolygon
+name|GeoBasePath
 parameter_list|(
 specifier|final
 name|PlanetModel

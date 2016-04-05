@@ -21,7 +21,6 @@ comment|/**  * Circular area with a center and radius.  *  * @lucene.experimenta
 end_comment
 begin_class
 DECL|class|GeoStandardCircle
-specifier|public
 class|class
 name|GeoStandardCircle
 extends|extends

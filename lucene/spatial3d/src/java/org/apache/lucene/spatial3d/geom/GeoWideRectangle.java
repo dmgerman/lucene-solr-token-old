@@ -21,7 +21,6 @@ comment|/**  * Bounding box wider than PI but limited on four sides (top lat,  *
 end_comment
 begin_class
 DECL|class|GeoWideRectangle
-specifier|public
 class|class
 name|GeoWideRectangle
 extends|extends
