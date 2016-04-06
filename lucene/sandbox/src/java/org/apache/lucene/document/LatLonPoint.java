@@ -783,7 +783,7 @@ operator|.
 name|MIN_LAT_INCL
 operator|&&
 name|result
-operator|<=
+operator|<
 name|GeoUtils
 operator|.
 name|MAX_LAT_INCL
@@ -847,7 +847,7 @@ operator|.
 name|MIN_LON_INCL
 operator|&&
 name|result
-operator|<=
+operator|<
 name|GeoUtils
 operator|.
 name|MAX_LON_INCL
