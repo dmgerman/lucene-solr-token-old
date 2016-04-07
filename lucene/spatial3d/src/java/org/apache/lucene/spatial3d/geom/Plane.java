@@ -29,7 +29,7 @@ name|Vector
 block|{
 comment|/** An array with no points in it */
 DECL|field|NO_POINTS
-specifier|protected
+specifier|public
 specifier|final
 specifier|static
 name|GeoPoint
@@ -44,7 +44,7 @@ index|]
 decl_stmt|;
 comment|/** An array with no bounds in it */
 DECL|field|NO_BOUNDS
-specifier|protected
+specifier|public
 specifier|final
 specifier|static
 name|Membership
@@ -59,7 +59,7 @@ index|]
 decl_stmt|;
 comment|/** A vertical plane normal to the Y axis */
 DECL|field|normalYPlane
-specifier|protected
+specifier|public
 specifier|final
 specifier|static
 name|Plane
@@ -79,7 +79,7 @@ argument_list|)
 decl_stmt|;
 comment|/** A vertical plane normal to the X axis */
 DECL|field|normalXPlane
-specifier|protected
+specifier|public
 specifier|final
 specifier|static
 name|Plane
@@ -99,7 +99,7 @@ argument_list|)
 decl_stmt|;
 comment|/** A vertical plane normal to the Z axis */
 DECL|field|normalZPlane
-specifier|protected
+specifier|public
 specifier|final
 specifier|static
 name|Plane
@@ -6697,7 +6697,7 @@ block|}
 block|}
 comment|/** Add a point to boundsInfo if within a specifically bounded area.    * @param boundsInfo is the object to be modified.    * @param bounds is the area that the point must be within.    * @param point is the point.    */
 DECL|method|addPoint
-specifier|protected
+specifier|private
 specifier|static
 name|void
 name|addPoint
@@ -6746,8 +6746,6 @@ name|point
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Add a point to boundsInfo if within a specifically bounded area.    * @param boundsInfo is the object to be modified.    * @param bounds is the area that the point must be within.    * @param x is the x value.    * @param y is the y value.    * @param z is the z value.    */
-comment|/*   protected static void addPoint(final Bounds boundsInfo, final Membership[] bounds, final double x, final double y, final double z) {     //System.err.println(" Want to add point x="+x+" y="+y+" z="+z);     // Make sure the discovered point is within the bounds     for (Membership bound : bounds) {       if (!bound.isWithin(x, y, z))         return;     }     // Add the point     //System.err.println("  point added");     //System.out.println("Adding point x="+x+" y="+y+" z="+z);     boundsInfo.addPoint(x, y, z);   }   */
 comment|/**    * Determine whether the plane intersects another plane within the    * bounds provided.    *    * @param planetModel is the planet model to use in determining intersection.    * @param q                 is the other plane.    * @param notablePoints     are points to look at to disambiguate cases when the two planes are identical.    * @param moreNotablePoints are additional points to look at to disambiguate cases when the two planes are identical.    * @param bounds            is one part of the bounds.    * @param moreBounds        are more bounds.    * @return true if there's an intersection.    */
 DECL|method|intersects
 specifier|public
@@ -6875,7 +6873,7 @@ return|;
 block|}
 comment|/**    * Returns true if this plane and the other plane are identical within the margin of error.    * @param p is the plane to compare against.    * @return true if the planes are numerically identical.    */
 DECL|method|isNumericallyIdentical
-specifier|protected
+specifier|public
 name|boolean
 name|isNumericallyIdentical
 parameter_list|(
@@ -7055,7 +7053,7 @@ return|;
 block|}
 comment|/**    * Check if a vector meets the provided bounds.    * @param p is the vector.    * @param bounds are the bounds.    * @return true if the vector describes a point within the bounds.    */
 DECL|method|meetsAllBounds
-specifier|protected
+specifier|private
 specifier|static
 name|boolean
 name|meetsAllBounds
@@ -7091,7 +7089,7 @@ return|;
 block|}
 comment|/**    * Check if a vector meets the provided bounds.    * @param x is the x value.    * @param y is the y value.    * @param z is the z value.    * @param bounds are the bounds.    * @return true if the vector describes a point within the bounds.    */
 DECL|method|meetsAllBounds
-specifier|protected
+specifier|private
 specifier|static
 name|boolean
 name|meetsAllBounds
@@ -7147,7 +7145,7 @@ return|;
 block|}
 comment|/**    * Check if a vector meets the provided bounds.    * @param p is the vector.    * @param bounds are the bounds.    * @param moreBounds are an additional set of bounds.    * @return true if the vector describes a point within the bounds.    */
 DECL|method|meetsAllBounds
-specifier|protected
+specifier|private
 specifier|static
 name|boolean
 name|meetsAllBounds
@@ -7190,7 +7188,7 @@ return|;
 block|}
 comment|/**    * Check if a vector meets the provided bounds.    * @param x is the x value.    * @param y is the y value.    * @param z is the z value.    * @param bounds are the bounds.    * @param moreBounds are an additional set of bounds.    * @return true if the vector describes a point within the bounds.    */
 DECL|method|meetsAllBounds
-specifier|protected
+specifier|private
 specifier|static
 name|boolean
 name|meetsAllBounds

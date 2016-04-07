@@ -29,7 +29,7 @@ name|Bounds
 block|{
 comment|/** Set to true if no longitude bounds can be stated */
 DECL|field|noLongitudeBound
-specifier|protected
+specifier|private
 name|boolean
 name|noLongitudeBound
 init|=
@@ -37,7 +37,7 @@ literal|false
 decl_stmt|;
 comment|/** Set to true if no top latitude bound can be stated */
 DECL|field|noTopLatitudeBound
-specifier|protected
+specifier|private
 name|boolean
 name|noTopLatitudeBound
 init|=
@@ -45,7 +45,7 @@ literal|false
 decl_stmt|;
 comment|/** Set to true if no bottom latitude bound can be stated */
 DECL|field|noBottomLatitudeBound
-specifier|protected
+specifier|private
 name|boolean
 name|noBottomLatitudeBound
 init|=
@@ -53,7 +53,7 @@ literal|false
 decl_stmt|;
 comment|/** If non-null, the minimum latitude bound */
 DECL|field|minLatitude
-specifier|protected
+specifier|private
 name|Double
 name|minLatitude
 init|=
@@ -61,7 +61,7 @@ literal|null
 decl_stmt|;
 comment|/** If non-null, the maximum latitude bound */
 DECL|field|maxLatitude
-specifier|protected
+specifier|private
 name|Double
 name|maxLatitude
 init|=
@@ -120,7 +120,7 @@ comment|// to the right.  We choose the direction with the least longitude diffe
 comment|// and can recognize that, we can set "unconstrained in longitude".)
 comment|/** If non-null, the left longitude bound */
 DECL|field|leftLongitude
-specifier|protected
+specifier|private
 name|Double
 name|leftLongitude
 init|=
@@ -128,7 +128,7 @@ literal|null
 decl_stmt|;
 comment|/** If non-null, the right longitude bound */
 DECL|field|rightLongitude
-specifier|protected
+specifier|private
 name|Double
 name|rightLongitude
 init|=
@@ -575,7 +575,7 @@ block|}
 comment|// Protected methods
 comment|/** Update latitude bound.    *@param latitude is the latitude.    */
 DECL|method|addLatitudeBound
-specifier|protected
+specifier|private
 name|void
 name|addLatitudeBound
 parameter_list|(
@@ -624,7 +624,7 @@ expr_stmt|;
 block|}
 comment|/** Update longitude bound.    *@param longitude is the new longitude value.    */
 DECL|method|addLongitudeBound
-specifier|protected
+specifier|private
 name|void
 name|addLongitudeBound
 parameter_list|(
