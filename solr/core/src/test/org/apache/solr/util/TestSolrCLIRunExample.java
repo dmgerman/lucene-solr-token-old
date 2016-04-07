@@ -2021,8 +2021,7 @@ block|{
 name|HttpSolrClient
 name|solrClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 literal|"http://localhost:"
 operator|+
@@ -2502,8 +2501,7 @@ try|try
 block|{
 name|cloudClient
 operator|=
-operator|new
-name|CloudSolrClient
+name|getCloudSolrClient
 argument_list|(
 name|executor
 operator|.

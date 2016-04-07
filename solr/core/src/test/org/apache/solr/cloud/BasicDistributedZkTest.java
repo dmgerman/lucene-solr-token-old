@@ -3474,8 +3474,7 @@ init|(
 name|HttpSolrClient
 name|one
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|rep
 operator|.
@@ -4301,8 +4300,7 @@ specifier|final
 name|HttpSolrClient
 name|httpSolrClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url3
 argument_list|)
@@ -5728,8 +5726,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|sourceClient
 operator|.
@@ -6372,8 +6369,7 @@ init|(
 name|HttpSolrClient
 name|unloadClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)
@@ -7161,8 +7157,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)
@@ -8087,8 +8082,7 @@ init|(
 name|HttpSolrClient
 name|client1
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)
@@ -8251,8 +8245,7 @@ comment|// setup the server...
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|baseUrl
 operator|+

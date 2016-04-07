@@ -783,8 +783,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|buildUrl
 argument_list|(
@@ -857,8 +856,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|buildUrl
 argument_list|(
@@ -906,8 +904,7 @@ init|(
 name|CloudSolrClient
 name|cloudSolrClient
 init|=
-operator|new
-name|CloudSolrClient
+name|getCloudSolrClient
 argument_list|(
 name|zkServer
 operator|.
@@ -1059,8 +1056,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|buildUrl
 argument_list|(
@@ -1133,8 +1129,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|buildUrl
 argument_list|(
@@ -1280,8 +1275,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|getBaseUrl
 argument_list|(
@@ -1343,8 +1337,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|getBaseUrl
 argument_list|(

@@ -3324,8 +3324,7 @@ operator|+
 name|coll
 decl_stmt|;
 return|return
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)

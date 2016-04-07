@@ -178,6 +178,8 @@ operator|.
 name|impl
 operator|.
 name|CloudSolrClient
+operator|.
+name|Builder
 import|;
 end_import
 begin_import
@@ -1451,10 +1453,16 @@ block|{
 name|cloudSolrClient
 operator|=
 operator|new
-name|CloudSolrClient
+name|Builder
+argument_list|()
+operator|.
+name|withZkHost
 argument_list|(
 name|zkHost
 argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

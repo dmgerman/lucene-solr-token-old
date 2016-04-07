@@ -434,9 +434,14 @@ name|client
 operator|=
 operator|new
 name|HttpSolrClient
+operator|.
+name|Builder
 argument_list|(
 name|baseUrl
 argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 else|else

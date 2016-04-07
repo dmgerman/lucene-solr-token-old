@@ -759,8 +759,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url1
 argument_list|)
@@ -1039,8 +1038,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url1
 argument_list|)
@@ -1170,8 +1168,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url2
 argument_list|)
@@ -1307,8 +1304,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|leaderProps
 operator|.
@@ -1439,8 +1435,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url3
 argument_list|)
@@ -1527,8 +1522,7 @@ init|(
 name|HttpSolrClient
 name|addClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url3
 operator|+
@@ -1599,8 +1593,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|leaderProps
 operator|.
@@ -1729,8 +1722,7 @@ init|(
 name|HttpSolrClient
 name|addClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url2
 operator|+
@@ -1823,8 +1815,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url4
 argument_list|)
@@ -1928,8 +1919,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|leaderProps
 operator|.
@@ -2062,8 +2052,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|leaderProps
 operator|.
@@ -2147,8 +2136,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url2
 operator|+
@@ -2214,8 +2202,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url3
 operator|+
@@ -2281,8 +2268,7 @@ init|(
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url4
 operator|+
@@ -2392,8 +2378,7 @@ specifier|final
 name|HttpSolrClient
 name|adminClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url3
 argument_list|)

@@ -672,21 +672,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|security
-operator|.
-name|PermissionNameProvider
-operator|.
-name|Name
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|util
 operator|.
 name|CommandOperation
@@ -5691,9 +5676,14 @@ name|solr
 init|=
 operator|new
 name|HttpSolrClient
+operator|.
+name|Builder
 argument_list|(
 name|coreUrl
 argument_list|)
+operator|.
+name|build
+argument_list|()
 init|)
 block|{
 comment|// eventually, this loop will get killed by the ExecutorService's timeout

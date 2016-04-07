@@ -462,8 +462,7 @@ argument_list|()
 decl_stmt|;
 name|collection1
 operator|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 operator|+
@@ -472,8 +471,7 @@ argument_list|)
 expr_stmt|;
 name|collection2
 operator|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 operator|+
@@ -538,8 +536,7 @@ init|(
 name|HttpSolrClient
 name|nodeClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)

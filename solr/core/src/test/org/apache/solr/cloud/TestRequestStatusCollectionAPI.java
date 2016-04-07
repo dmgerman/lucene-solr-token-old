@@ -1119,8 +1119,7 @@ init|(
 name|HttpSolrClient
 name|baseServer
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)
