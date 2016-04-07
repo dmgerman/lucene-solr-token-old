@@ -361,6 +361,66 @@ operator|.
 name|Polygon
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|geo
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|decodeLatitude
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|geo
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|decodeLongitude
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|geo
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|encodeLatitude
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|geo
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|encodeLongitude
+import|;
+end_import
 begin_comment
 comment|/** Finds all previously indexed points that fall within the specified polygons.  *  *<p>The field must be indexed with using {@link org.apache.lucene.document.LatLonPoint} added per document.  *  *  @lucene.experimental */
 end_comment
@@ -585,8 +645,6 @@ name|NumericUtils
 operator|.
 name|intToSortableBytes
 argument_list|(
-name|LatLonPoint
-operator|.
 name|encodeLatitude
 argument_list|(
 name|box
@@ -603,8 +661,6 @@ name|NumericUtils
 operator|.
 name|intToSortableBytes
 argument_list|(
-name|LatLonPoint
-operator|.
 name|encodeLatitude
 argument_list|(
 name|box
@@ -621,8 +677,6 @@ name|NumericUtils
 operator|.
 name|intToSortableBytes
 argument_list|(
-name|LatLonPoint
-operator|.
 name|encodeLongitude
 argument_list|(
 name|box
@@ -639,8 +693,6 @@ name|NumericUtils
 operator|.
 name|intToSortableBytes
 argument_list|(
-name|LatLonPoint
-operator|.
 name|encodeLongitude
 argument_list|(
 name|box
@@ -701,8 +753,6 @@ init|=
 operator|new
 name|LatLonGrid
 argument_list|(
-name|LatLonPoint
-operator|.
 name|encodeLatitude
 argument_list|(
 name|box
@@ -710,8 +760,6 @@ operator|.
 name|minLat
 argument_list|)
 argument_list|,
-name|LatLonPoint
-operator|.
 name|encodeLatitude
 argument_list|(
 name|box
@@ -719,8 +767,6 @@ operator|.
 name|maxLat
 argument_list|)
 argument_list|,
-name|LatLonPoint
-operator|.
 name|encodeLongitude
 argument_list|(
 name|box
@@ -728,8 +774,6 @@ operator|.
 name|minLon
 argument_list|)
 argument_list|,
-name|LatLonPoint
-operator|.
 name|encodeLongitude
 argument_list|(
 name|box
@@ -1134,8 +1178,6 @@ block|}
 name|double
 name|cellMinLat
 init|=
-name|LatLonPoint
-operator|.
 name|decodeLatitude
 argument_list|(
 name|minPackedValue
@@ -1146,8 +1188,6 @@ decl_stmt|;
 name|double
 name|cellMinLon
 init|=
-name|LatLonPoint
-operator|.
 name|decodeLongitude
 argument_list|(
 name|minPackedValue
@@ -1160,8 +1200,6 @@ decl_stmt|;
 name|double
 name|cellMaxLat
 init|=
-name|LatLonPoint
-operator|.
 name|decodeLatitude
 argument_list|(
 name|maxPackedValue
@@ -1172,8 +1210,6 @@ decl_stmt|;
 name|double
 name|cellMaxLon
 init|=
-name|LatLonPoint
-operator|.
 name|decodeLongitude
 argument_list|(
 name|maxPackedValue
