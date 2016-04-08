@@ -422,6 +422,7 @@ literal|null
 condition|)
 block|{
 comment|// Legal pole
+comment|//System.out.println("Pole = "+pole+"; isInside="+isPoleInside+"; pointList = "+pointList);
 return|return
 name|makeGeoPolygon
 argument_list|(
@@ -691,116 +692,66 @@ block|{
 comment|// First, compute sine and cosine of pole point latitude and longitude
 specifier|final
 name|double
-name|norm
+name|latitude
 init|=
-literal|1.0
-operator|/
 name|point
 operator|.
-name|magnitude
+name|getLatitude
 argument_list|()
 decl_stmt|;
 specifier|final
 name|double
-name|xyDenom
+name|longitude
 init|=
-name|Math
-operator|.
-name|sqrt
-argument_list|(
 name|point
 operator|.
-name|x
-operator|*
-name|point
-operator|.
-name|x
-operator|+
-name|point
-operator|.
-name|y
-operator|*
-name|point
-operator|.
-name|y
-argument_list|)
+name|getLongitude
+argument_list|()
 decl_stmt|;
 specifier|final
 name|double
 name|sinLatitude
 init|=
-name|point
+name|Math
 operator|.
-name|z
-operator|*
-name|norm
+name|sin
+argument_list|(
+name|latitude
+argument_list|)
 decl_stmt|;
 specifier|final
 name|double
 name|cosLatitude
 init|=
-name|xyDenom
-operator|*
-name|norm
-decl_stmt|;
-specifier|final
-name|double
-name|sinLongitude
-decl_stmt|;
-specifier|final
-name|double
-name|cosLongitude
-decl_stmt|;
-if|if
-condition|(
 name|Math
 operator|.
-name|abs
+name|cos
 argument_list|(
-name|xyDenom
+name|latitude
 argument_list|)
-operator|<
-name|Vector
-operator|.
-name|MINIMUM_RESOLUTION
-condition|)
-block|{
-name|sinLongitude
-operator|=
-literal|0.0
-expr_stmt|;
-name|cosLongitude
-operator|=
-literal|1.0
-expr_stmt|;
-block|}
-else|else
-block|{
+decl_stmt|;
 specifier|final
 name|double
-name|xyNorm
-init|=
-literal|1.0
-operator|/
-name|xyDenom
-decl_stmt|;
 name|sinLongitude
-operator|=
-name|point
+init|=
+name|Math
 operator|.
-name|y
-operator|*
-name|xyNorm
-expr_stmt|;
+name|sin
+argument_list|(
+name|longitude
+argument_list|)
+decl_stmt|;
+specifier|final
+name|double
 name|cosLongitude
-operator|=
-name|point
+init|=
+name|Math
 operator|.
-name|x
-operator|*
-name|xyNorm
-expr_stmt|;
-block|}
+name|cos
+argument_list|(
+name|longitude
+argument_list|)
+decl_stmt|;
 comment|// Now, compute the incremental arc distance around the points of the polygon
 name|double
 name|arcDistance
@@ -812,6 +763,7 @@ name|prevAngle
 init|=
 literal|null
 decl_stmt|;
+comment|//System.out.println("Computing angles:");
 for|for
 control|(
 specifier|final
@@ -929,6 +881,7 @@ name|arcDistance
 operator|+=
 name|angleDelta
 expr_stmt|;
+comment|//System.out.println(" For point "+polyPoint+" angle is "+angle+"; delta is "+angleDelta+"; arcDistance is "+arcDistance);
 block|}
 name|prevAngle
 operator|=
@@ -1048,6 +1001,7 @@ name|arcDistance
 operator|+=
 name|angleDelta
 expr_stmt|;
+comment|//System.out.println(" For point "+polyPoints.get(0)+" angle is "+lastAngle+"; delta is "+angleDelta+"; arcDistance is "+arcDistance);
 block|}
 comment|// Clockwise == inside == negative
 comment|//System.out.println("Arcdistance = "+arcDistance);
@@ -1110,13 +1064,14 @@ comment|// y1 = x0 sin T + y0 cos T
 comment|// We need to rotate the point in question into the coordinate frame specified by
 comment|// the lat and lon trig functions.
 comment|// To do this we need to do two rotations on it.  First rotation is in x/y.  Second rotation is in x/z.
+comment|// And we rotate in the negative direction.
 comment|// So:
-comment|// x1 = x0 cos az - y0 sin az
-comment|// y1 = x0 sin az + y0 cos az
+comment|// x1 = x0 cos az + y0 sin az
+comment|// y1 = - x0 sin az + y0 cos az
 comment|// z1 = z0
-comment|// x2 = x1 cos al - z1 sin al
+comment|// x2 = x1 cos al + z1 sin al
 comment|// y2 = y1
-comment|// z2 = x1 sin al + z1 cos al
+comment|// z2 = - x1 sin al + z1 cos al
 specifier|final
 name|double
 name|x1
@@ -1126,7 +1081,7 @@ operator|.
 name|x
 operator|*
 name|cosLongitude
-operator|-
+operator|+
 name|point
 operator|.
 name|y
@@ -1137,6 +1092,7 @@ specifier|final
 name|double
 name|y1
 init|=
+operator|-
 name|point
 operator|.
 name|x
@@ -1157,7 +1113,7 @@ name|point
 operator|.
 name|z
 decl_stmt|;
-comment|//final double x2 = x1 * cosLatitude - z1 * sinLatitude;
+comment|// final double x2 = x1 * cosLatitude + z1 * sinLatitude;
 specifier|final
 name|double
 name|y2
@@ -1168,6 +1124,7 @@ specifier|final
 name|double
 name|z2
 init|=
+operator|-
 name|x1
 operator|*
 name|sinLatitude
