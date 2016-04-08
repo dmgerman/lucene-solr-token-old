@@ -9964,9 +9964,14 @@ name|client
 init|=
 operator|new
 name|HttpSolrClient
+operator|.
+name|Builder
 argument_list|(
 name|url
 argument_list|)
+operator|.
+name|build
+argument_list|()
 init|)
 block|{
 name|client

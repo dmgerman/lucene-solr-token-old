@@ -1035,8 +1035,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -1239,8 +1238,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2064,8 +2062,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2083,8 +2080,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2436,8 +2432,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)
@@ -2455,8 +2450,7 @@ init|(
 name|HttpSolrClient
 name|collectionClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|url
 argument_list|)

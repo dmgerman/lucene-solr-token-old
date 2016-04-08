@@ -681,8 +681,7 @@ init|(
 name|HttpSolrClient
 name|replica1Client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|replica1
 operator|.
@@ -1358,8 +1357,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)

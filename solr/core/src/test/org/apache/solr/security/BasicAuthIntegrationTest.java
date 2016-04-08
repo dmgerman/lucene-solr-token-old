@@ -584,6 +584,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+operator|.
+name|getHttpSolrClient
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|common
 operator|.
 name|cloud
@@ -1417,8 +1430,7 @@ init|(
 name|HttpSolrClient
 name|solrClient
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|baseUrl
 argument_list|)

@@ -260,7 +260,7 @@ specifier|private
 name|ConfusionMatrixGenerator
 parameter_list|()
 block|{    }
-comment|/**    * get the {@link org.apache.lucene.classification.utils.ConfusionMatrixGenerator.ConfusionMatrix} of a given {@link Classifier},    * generated on the given {@link LeafReader}, class and text fields.    *    * @param reader         the {@link LeafReader} containing the index used for creating the {@link Classifier}    * @param classifier     the {@link Classifier} whose confusion matrix has to be generated    * @param classFieldName the name of the Lucene field used as the classifier's output    * @param textFieldName  the nome the Lucene field used as the classifier's input    * @param<T>            the return type of the {@link ClassificationResult} returned by the given {@link Classifier}    * @return a {@link org.apache.lucene.classification.utils.ConfusionMatrixGenerator.ConfusionMatrix}    * @throws IOException if problems occurr while reading the index or using the classifier    */
+comment|/**    * get the {@link org.apache.lucene.classification.utils.ConfusionMatrixGenerator.ConfusionMatrix} of a given {@link Classifier},    * generated on the given {@link LeafReader}, class and text fields.    *    * @param reader              the {@link LeafReader} containing the index used for creating the {@link Classifier}    * @param classifier          the {@link Classifier} whose confusion matrix has to be generated    * @param classFieldName      the name of the Lucene field used as the classifier's output    * @param textFieldName       the nome the Lucene field used as the classifier's input    * @param timeoutMilliseconds timeout to wait before stopping creating the confusion matrix    * @param<T>                 the return type of the {@link ClassificationResult} returned by the given {@link Classifier}    * @return a {@link org.apache.lucene.classification.utils.ConfusionMatrixGenerator.ConfusionMatrix}    * @throws IOException if problems occurr while reading the index or using the classifier    */
 DECL|method|getConfusionMatrix
 specifier|public
 specifier|static
@@ -284,6 +284,9 @@ name|classFieldName
 parameter_list|,
 name|String
 name|textFieldName
+parameter_list|,
+name|long
+name|timeoutMilliseconds
 parameter_list|)
 throws|throws
 name|IOException
@@ -364,6 +367,11 @@ name|time
 init|=
 literal|0d
 decl_stmt|;
+name|int
+name|counter
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|ScoreDoc
@@ -374,6 +382,19 @@ operator|.
 name|scoreDocs
 control|)
 block|{
+if|if
+condition|(
+name|timeoutMilliseconds
+operator|>
+literal|0
+operator|&&
+name|time
+operator|>=
+name|timeoutMilliseconds
+condition|)
+block|{
+break|break;
+block|}
 name|Document
 name|doc
 init|=
@@ -512,6 +533,9 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|counter
+operator|++
+expr_stmt|;
 name|String
 name|classified
 init|=
@@ -667,7 +691,7 @@ name|TimeoutException
 name|timeoutException
 parameter_list|)
 block|{
-comment|// add timeout
+comment|// add classification timeout
 name|time
 operator|+=
 literal|5000
@@ -700,13 +724,9 @@ name|counts
 argument_list|,
 name|time
 operator|/
-name|topDocs
-operator|.
-name|totalHits
+name|counter
 argument_list|,
-name|topDocs
-operator|.
-name|totalHits
+name|counter
 argument_list|)
 return|;
 block|}
@@ -864,8 +884,7 @@ decl_stmt|;
 name|double
 name|fp
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -954,8 +973,6 @@ block|}
 block|}
 return|return
 name|tp
-operator|+
-name|fp
 operator|>
 literal|0
 condition|?
@@ -1106,6 +1123,49 @@ name|getPrecision
 argument_list|(
 name|klass
 argument_list|)
+decl_stmt|;
+return|return
+name|precision
+operator|>
+literal|0
+operator|&&
+name|recall
+operator|>
+literal|0
+condition|?
+literal|2
+operator|*
+name|precision
+operator|*
+name|recall
+operator|/
+operator|(
+name|precision
+operator|+
+name|recall
+operator|)
+else|:
+literal|0
+return|;
+block|}
+comment|/**      * get the F-1 measure on this confusion matrix      *      * @return the F-1 measure      */
+DECL|method|getF1Measure
+specifier|public
+name|double
+name|getF1Measure
+parameter_list|()
+block|{
+name|double
+name|recall
+init|=
+name|getRecall
+argument_list|()
+decl_stmt|;
+name|double
+name|precision
+init|=
+name|getPrecision
+argument_list|()
 decl_stmt|;
 return|return
 name|precision

@@ -2654,8 +2654,7 @@ init|(
 name|HttpSolrClient
 name|server
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 name|cloudJettys
 operator|.
@@ -4896,8 +4895,7 @@ init|(
 name|HttpSolrClient
 name|client
 init|=
-operator|new
-name|HttpSolrClient
+name|getHttpSolrClient
 argument_list|(
 operator|new
 name|ZkCoreNodeProps
