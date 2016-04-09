@@ -1106,6 +1106,7 @@ name|edgeIndex
 argument_list|)
 condition|)
 block|{
+comment|//System.err.println("Checking convex edge "+edge+" for intersection against plane "+p);
 if|if
 condition|(
 name|edge

@@ -737,11 +737,12 @@ argument_list|(
 name|endPointIndex
 argument_list|)
 decl_stmt|;
-comment|// Here note the flip of the sense of the sided plane!!
-specifier|final
-name|SidedPlane
-name|sp
-init|=
+comment|//System.out.println("Created edge "+sp+" using start="+start+" end="+end+" check="+check);
+name|edges
+index|[
+name|i
+index|]
+operator|=
 operator|new
 name|SidedPlane
 argument_list|(
@@ -753,14 +754,6 @@ name|start
 argument_list|,
 name|end
 argument_list|)
-decl_stmt|;
-comment|//System.out.println("Created edge "+sp+" using start="+start+" end="+end+" check="+check);
-name|edges
-index|[
-name|i
-index|]
-operator|=
-name|sp
 expr_stmt|;
 name|invertedEdges
 index|[
@@ -770,7 +763,10 @@ operator|=
 operator|new
 name|SidedPlane
 argument_list|(
-name|sp
+name|edges
+index|[
+name|i
+index|]
 argument_list|)
 expr_stmt|;
 name|notableEdgePoints
@@ -1153,6 +1149,15 @@ name|edgeIndex
 index|]
 decl_stmt|;
 specifier|final
+name|SidedPlane
+name|invertedEdge
+init|=
+name|invertedEdges
+index|[
+name|edgeIndex
+index|]
+decl_stmt|;
+specifier|final
 name|GeoPoint
 index|[]
 name|points
@@ -1175,9 +1180,10 @@ name|edgeIndex
 argument_list|)
 condition|)
 block|{
+comment|//System.err.println("Checking concave edge "+edge+" for intersection against plane "+p);
 if|if
 condition|(
-name|edge
+name|invertedEdge
 operator|.
 name|intersects
 argument_list|(
