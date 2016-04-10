@@ -1171,12 +1171,11 @@ name|degrees
 parameter_list|)
 block|{
 return|return
-name|Math
-operator|.
-name|toRadians
-argument_list|(
 name|degrees
-argument_list|)
+operator|*
+name|Geo3DPoint
+operator|.
+name|RADIANS_PER_DEGREE
 return|;
 block|}
 DECL|class|Cell
@@ -5307,6 +5306,7 @@ name|void
 name|testToString
 parameter_list|()
 block|{
+comment|// Don't compare entire strings because Java 9 and Java 8 have slightly different values
 name|Geo3DPoint
 name|point
 init|=
@@ -5320,9 +5320,15 @@ argument_list|,
 literal|7.769736
 argument_list|)
 decl_stmt|;
+specifier|final
+name|String
+name|stringToCompare
+init|=
+literal|"Geo3DPoint<point: x="
+decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Geo3DPoint<point: x="
+name|stringToCompare
 argument_list|,
 name|point
 operator|.
@@ -5333,7 +5339,7 @@ name|substring
 argument_list|(
 literal|0
 argument_list|,
-literal|"Geo3DPoint<point: x="
+name|stringToCompare
 operator|.
 name|length
 argument_list|()
@@ -5347,9 +5353,16 @@ name|void
 name|testShapeQueryToString
 parameter_list|()
 block|{
+comment|// Don't compare entire strings because Java 9 and Java 8 have slightly different values
+specifier|final
+name|String
+name|stringToCompare
+init|=
+literal|"PointInGeo3DShapeQuery: field=point: Shape: GeoStandardCircle: {planetmodel=PlanetModel.WGS84, center=[lat=0.7"
+decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"PointInGeo3DShapeQuery: field=point: Shape: GeoStandardCircle: {planetmodel=PlanetModel.WGS84, center=[lat=0.7722082215479366, lon=0.13560747521073413([X=0.7094263130137863, Y=0.09679758930862137, Z=0.6973564619248455])], radius=0.1(5.729577951308232)}"
+name|stringToCompare
 argument_list|,
 name|Geo3DPoint
 operator|.
@@ -5381,6 +5394,16 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|stringToCompare
+operator|.
+name|length
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5515,8 +5538,6 @@ name|GeoPoint
 argument_list|(
 name|pm
 argument_list|,
-name|Math
-operator|.
 name|toRadians
 argument_list|(
 name|GeoTestUtil
@@ -5525,8 +5546,6 @@ name|nextLatitude
 argument_list|()
 argument_list|)
 argument_list|,
-name|Math
-operator|.
 name|toRadians
 argument_list|(
 name|GeoTestUtil
@@ -5622,8 +5641,6 @@ specifier|static
 name|double
 name|MINIMUM_EDGE_ANGLE
 init|=
-name|Math
-operator|.
 name|toRadians
 argument_list|(
 literal|5.0
@@ -5635,8 +5652,6 @@ specifier|static
 name|double
 name|MINIMUM_ARC_ANGLE
 init|=
-name|Math
-operator|.
 name|toRadians
 argument_list|(
 literal|1.0
@@ -6738,8 +6753,6 @@ name|GeoPoint
 argument_list|(
 name|pm
 argument_list|,
-name|Math
-operator|.
 name|toRadians
 argument_list|(
 name|lats
@@ -6748,8 +6761,6 @@ name|i
 index|]
 argument_list|)
 argument_list|,
-name|Math
-operator|.
 name|toRadians
 argument_list|(
 name|lons
