@@ -3747,6 +3747,8 @@ operator|.
 name|nextBox
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 return|return
 name|Geo3DPoint
 operator|.
@@ -3771,6 +3773,15 @@ operator|.
 name|maxLon
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+continue|continue;
+block|}
 block|}
 case|case
 literal|3
