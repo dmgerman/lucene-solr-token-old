@@ -8317,6 +8317,8 @@ name|contains
 argument_list|(
 name|cell
 argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 name|stack
