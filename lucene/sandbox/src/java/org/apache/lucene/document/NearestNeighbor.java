@@ -373,6 +373,10 @@ literal|" TO "
 operator|+
 name|maxLon
 operator|+
+literal|"; distanceMeters="
+operator|+
+name|distanceMeters
+operator|+
 literal|")"
 return|;
 block|}
@@ -468,10 +472,6 @@ init|=
 name|Double
 operator|.
 name|POSITIVE_INFINITY
-decl_stmt|;
-DECL|field|pointCheckCount
-name|int
-name|pointCheckCount
 decl_stmt|;
 DECL|method|NearestVisitor
 specifier|public
@@ -580,6 +580,7 @@ operator|.
 name|distanceMeters
 argument_list|)
 decl_stmt|;
+comment|//System.out.println("    update bbox to " + box);
 name|minLat
 operator|=
 name|box
@@ -740,9 +741,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|pointCheckCount
-operator|++
-expr_stmt|;
 name|double
 name|distanceMeters
 init|=
@@ -972,7 +970,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("NEAREST: r=" + r + " liveDocs=" + liveDocs);
+comment|//System.out.println("NEAREST: readers=" + readers + " liveDocs=" + liveDocs + " pointLat=" + pointLat + " pointLon=" + pointLon);
 comment|// Holds closest collected points seen so far:
 comment|// TODO: if we used lucene's PQ we could just updateTop instead of poll/offer:
 specifier|final
@@ -1129,28 +1127,6 @@ operator|.
 name|getMinPackedValue
 argument_list|()
 decl_stmt|;
-name|double
-name|minLat
-init|=
-name|decodeLatitude
-argument_list|(
-name|minPackedValue
-argument_list|,
-literal|0
-argument_list|)
-decl_stmt|;
-name|double
-name|minLon
-init|=
-name|decodeLongitude
-argument_list|(
-name|minPackedValue
-argument_list|,
-name|Integer
-operator|.
-name|BYTES
-argument_list|)
-decl_stmt|;
 name|byte
 index|[]
 name|maxPackedValue
@@ -1159,28 +1135,6 @@ name|reader
 operator|.
 name|getMaxPackedValue
 argument_list|()
-decl_stmt|;
-name|double
-name|maxLat
-init|=
-name|decodeLatitude
-argument_list|(
-name|maxPackedValue
-argument_list|,
-literal|0
-argument_list|)
-decl_stmt|;
-name|double
-name|maxLon
-init|=
-name|decodeLongitude
-argument_list|(
-name|maxPackedValue
-argument_list|,
-name|Integer
-operator|.
-name|BYTES
-argument_list|)
 decl_stmt|;
 name|states
 operator|.
@@ -1217,13 +1171,9 @@ argument_list|()
 argument_list|,
 name|approxBestDistance
 argument_list|(
-name|minLat
+name|minPackedValue
 argument_list|,
-name|maxLat
-argument_list|,
-name|minLon
-argument_list|,
-name|maxLon
+name|maxPackedValue
 argument_list|,
 name|pointLat
 argument_list|,
@@ -1721,7 +1671,7 @@ name|minLon
 operator|&&
 name|pointLon
 operator|<=
-name|minLon
+name|maxLon
 condition|)
 block|{
 comment|// point is inside the cell!
