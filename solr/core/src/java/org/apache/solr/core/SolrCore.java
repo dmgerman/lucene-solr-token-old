@@ -8670,18 +8670,8 @@ name|searcherExecutor
 operator|.
 name|submit
 argument_list|(
-operator|new
-name|Callable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|Object
-name|call
 parameter_list|()
-throws|throws
-name|Exception
+lambda|->
 block|{
 try|try
 block|{
@@ -8742,7 +8732,6 @@ block|}
 return|return
 literal|null
 return|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
