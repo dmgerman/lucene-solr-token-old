@@ -21,7 +21,6 @@ interface|interface
 name|RESTfulServerProvider
 block|{
 DECL|method|getBaseURL
-specifier|public
 name|String
 name|getBaseURL
 parameter_list|()
