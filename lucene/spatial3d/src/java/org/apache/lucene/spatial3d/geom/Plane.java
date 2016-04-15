@@ -3977,6 +3977,19 @@ operator|*
 name|a
 operator|)
 decl_stmt|;
+comment|// Valid?
+if|if
+condition|(
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|m
+argument_list|)
+operator|>=
+name|MINIMUM_RESOLUTION
+condition|)
+block|{
 specifier|final
 name|double
 name|l
@@ -4049,6 +4062,21 @@ argument_list|,
 name|thePoint
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// This is a plane of the form A=n B=0 C=0.  We can set a bound only by noting the D value.
+name|boundsInfo
+operator|.
+name|addXValue
+argument_list|(
+operator|-
+name|D
+operator|/
+name|A
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -4667,6 +4695,19 @@ operator|*
 name|a
 operator|)
 decl_stmt|;
+comment|// Valid?
+if|if
+condition|(
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|m
+argument_list|)
+operator|>=
+name|MINIMUM_RESOLUTION
+condition|)
+block|{
 specifier|final
 name|double
 name|l
@@ -4739,6 +4780,21 @@ argument_list|,
 name|thePoint
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// This is a plane of the form A=0 B=n C=0.  We can set a bound only by noting the D value.
+name|boundsInfo
+operator|.
+name|addYValue
+argument_list|(
+operator|-
+name|D
+operator|/
+name|B
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
