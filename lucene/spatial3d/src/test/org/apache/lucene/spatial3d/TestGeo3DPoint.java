@@ -1549,6 +1549,16 @@ index|[
 name|numDocs
 index|]
 decl_stmt|;
+name|GeoPoint
+index|[]
+name|unquantizedDocs
+init|=
+operator|new
+name|GeoPoint
+index|[
+name|numDocs
+index|]
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1564,13 +1574,11 @@ name|docID
 operator|++
 control|)
 block|{
-name|docs
+name|unquantizedDocs
 index|[
 name|docID
 index|]
 operator|=
-name|quantize
-argument_list|(
 operator|new
 name|GeoPoint
 argument_list|(
@@ -1594,6 +1602,18 @@ name|nextLongitude
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|docs
+index|[
+name|docID
+index|]
+operator|=
+name|quantize
+argument_list|(
+name|unquantizedDocs
+index|[
+name|docID
+index|]
 argument_list|)
 expr_stmt|;
 if|if
@@ -1614,6 +1634,13 @@ operator|+
 literal|": "
 operator|+
 name|docs
+index|[
+name|docID
+index|]
+operator|+
+literal|"; unquantized: "
+operator|+
+name|unquantizedDocs
 index|[
 name|docID
 index|]
@@ -1942,6 +1969,34 @@ index|[
 name|docID
 index|]
 decl_stmt|;
+name|GeoPoint
+name|mappedPoint
+init|=
+name|unquantizedDocs
+index|[
+name|docID
+index|]
+decl_stmt|;
+name|boolean
+name|pointWithinShape
+init|=
+name|shape
+operator|.
+name|isWithin
+argument_list|(
+name|point
+argument_list|)
+decl_stmt|;
+name|boolean
+name|mappedPointWithinShape
+init|=
+name|shape
+operator|.
+name|isWithin
+argument_list|(
+name|mappedPoint
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|cell
@@ -1954,12 +2009,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|shape
-operator|.
-name|isWithin
-argument_list|(
-name|point
-argument_list|)
+name|mappedPointWithinShape
 condition|)
 block|{
 if|if
@@ -1975,7 +2025,9 @@ literal|"    check doc="
 operator|+
 name|docID
 operator|+
-literal|": match!"
+literal|": match!  Actual quantized point within: "
+operator|+
+name|pointWithinShape
 argument_list|)
 expr_stmt|;
 block|}
@@ -2002,7 +2054,9 @@ literal|"    check doc="
 operator|+
 name|docID
 operator|+
-literal|": no match"
+literal|": no match.  Quantized point within: "
+operator|+
+name|pointWithinShape
 argument_list|)
 expr_stmt|;
 block|}
@@ -2867,6 +2921,14 @@ index|[
 name|docID
 index|]
 decl_stmt|;
+name|GeoPoint
+name|mappedPoint
+init|=
+name|unquantizedDocs
+index|[
+name|docID
+index|]
+decl_stmt|;
 name|boolean
 name|expected
 init|=
@@ -2874,7 +2936,7 @@ name|shape
 operator|.
 name|isWithin
 argument_list|(
-name|point
+name|mappedPoint
 argument_list|)
 decl_stmt|;
 name|boolean
