@@ -618,8 +618,6 @@ operator|.
 name|SPHERE
 argument_list|,
 name|points
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|ctx
@@ -1034,12 +1032,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final
-name|int
-name|convexPointIndex
-init|=
-literal|0
-decl_stmt|;
-specifier|final
 name|GeoShape
 name|shape
 init|=
@@ -1052,8 +1044,6 @@ operator|.
 name|SPHERE
 argument_list|,
 name|geoPoints
-argument_list|,
-name|convexPointIndex
 argument_list|)
 decl_stmt|;
 return|return
@@ -1219,8 +1209,6 @@ operator|.
 name|SPHERE
 argument_list|,
 name|geoPoints
-argument_list|,
-name|convexPointIndex
 argument_list|)
 decl_stmt|;
 return|return
