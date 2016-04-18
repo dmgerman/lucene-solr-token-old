@@ -612,7 +612,7 @@ literal|"error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 name|TestBlobHandler
 operator|.
@@ -621,13 +621,19 @@ argument_list|(
 name|map
 argument_list|)
 argument_list|,
-literal|".system collection not available"
-argument_list|,
 name|map
 operator|.
 name|get
 argument_list|(
 literal|"msg"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|".system collection not available"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -679,7 +685,7 @@ literal|"error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"full output "
 operator|+
@@ -690,13 +696,19 @@ argument_list|(
 name|map
 argument_list|)
 argument_list|,
-literal|"no such blob or version available: colltest/1"
-argument_list|,
 name|map
 operator|.
 name|get
 argument_list|(
 literal|"msg"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"no such blob or version available: colltest/1"
 argument_list|)
 argument_list|)
 expr_stmt|;
