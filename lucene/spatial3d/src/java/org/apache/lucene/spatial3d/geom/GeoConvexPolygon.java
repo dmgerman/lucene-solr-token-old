@@ -701,7 +701,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Polygon points are all coplanar"
+literal|"Polygon points are all coplanar: "
+operator|+
+name|points
 argument_list|)
 throw|;
 block|}
