@@ -220,6 +220,14 @@ name|Metric
 name|newInstance
 parameter_list|()
 function_decl|;
+DECL|method|getColumns
+specifier|public
+specifier|abstract
+name|String
+index|[]
+name|getColumns
+parameter_list|()
+function_decl|;
 block|}
 end_class
 end_unit
