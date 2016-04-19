@@ -109,7 +109,7 @@ name|GRID_SIZE
 init|=
 literal|1
 operator|<<
-literal|5
+literal|7
 decl_stmt|;
 DECL|field|minLat
 specifier|final
