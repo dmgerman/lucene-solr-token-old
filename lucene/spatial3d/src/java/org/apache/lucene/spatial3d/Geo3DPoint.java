@@ -643,6 +643,7 @@ modifier|...
 name|polygons
 parameter_list|)
 block|{
+comment|//System.err.println("Creating polygon...");
 if|if
 condition|(
 name|polygons
@@ -761,6 +762,7 @@ operator|=
 name|poly
 expr_stmt|;
 block|}
+comment|//System.err.println("...done");
 return|return
 name|newShapeQuery
 argument_list|(
@@ -1152,7 +1154,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
+comment|//System.err.println(" building polygon with "+points.size()+" points...");
+specifier|final
+name|GeoPolygon
+name|rval
+init|=
 name|GeoPolygonFactory
 operator|.
 name|makeGeoPolygon
@@ -1165,6 +1171,10 @@ name|points
 argument_list|,
 name|holeList
 argument_list|)
+decl_stmt|;
+comment|//System.err.println(" ...done");
+return|return
+name|rval
 return|;
 block|}
 comment|/**     * Creates a new Geo3DPoint field with the specified x,y,z.    *    * @throws IllegalArgumentException if the field name is null or latitude or longitude are out of bounds    */
