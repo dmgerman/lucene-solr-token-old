@@ -264,6 +264,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|input
+operator|.
+name|CloseShieldInputStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -2737,11 +2752,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// Protect container owned streams from being closed by us, see SOLR-8933
 return|return
+operator|new
+name|CloseShieldInputStream
+argument_list|(
 name|req
 operator|.
 name|getInputStream
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -3304,6 +3324,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+comment|// Protect container owned streams from being closed by us, see SOLR-8933
 name|in
 operator|=
 name|FastInputStream
@@ -3314,10 +3335,14 @@ name|in
 operator|==
 literal|null
 condition|?
+operator|new
+name|CloseShieldInputStream
+argument_list|(
 name|req
 operator|.
 name|getInputStream
 argument_list|()
+argument_list|)
 else|:
 name|in
 argument_list|)
@@ -3872,6 +3897,7 @@ argument_list|(
 literal|"curl/"
 argument_list|)
 decl_stmt|;
+comment|// Protect container owned streams from being closed by us, see SOLR-8933
 name|FastInputStream
 name|input
 init|=
@@ -3879,10 +3905,14 @@ name|FastInputStream
 operator|.
 name|wrap
 argument_list|(
+operator|new
+name|CloseShieldInputStream
+argument_list|(
 name|req
 operator|.
 name|getInputStream
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
