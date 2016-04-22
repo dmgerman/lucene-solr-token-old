@@ -189,9 +189,9 @@ parameter_list|,
 name|int
 name|maxLon
 parameter_list|,
-name|Polygon
-modifier|...
-name|polygons
+name|LatLonTree
+index|[]
+name|tree
 parameter_list|)
 block|{
 name|this
@@ -222,12 +222,7 @@ name|this
 operator|.
 name|tree
 operator|=
-name|LatLonTree
-operator|.
-name|build
-argument_list|(
-name|polygons
-argument_list|)
+name|tree
 expr_stmt|;
 if|if
 condition|(
