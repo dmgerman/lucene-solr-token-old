@@ -1313,7 +1313,7 @@ argument_list|)
 expr_stmt|;
 name|maxMBSortInHeap
 operator|=
-literal|4.0
+literal|5.0
 operator|+
 operator|(
 literal|3
