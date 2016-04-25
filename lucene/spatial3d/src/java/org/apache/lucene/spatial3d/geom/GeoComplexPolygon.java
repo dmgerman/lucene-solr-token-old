@@ -619,8 +619,6 @@ argument_list|,
 name|thePoint
 argument_list|)
 decl_stmt|;
-comment|// Note: need to detect condition where edge endpoint is the check point!
-comment|// MHL
 specifier|final
 name|CrossingEdgeIterator
 name|crossingEdgeIterator
@@ -633,9 +631,14 @@ argument_list|,
 name|testPointCutoff
 argument_list|,
 name|checkPointCutoff
+argument_list|,
+name|thePoint
 argument_list|)
 decl_stmt|;
 comment|// Traverse our way from the test point to the check point.  Use the y tree because that's fixed.
+if|if
+condition|(
+operator|!
 name|yTree
 operator|.
 name|traverse
@@ -650,7 +653,13 @@ name|testPoint
 operator|.
 name|y
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+comment|// Endpoint is on edge
+return|return
+literal|true
+return|;
+block|}
 return|return
 operator|(
 operator|(
@@ -710,8 +719,6 @@ argument_list|,
 name|thePoint
 argument_list|)
 decl_stmt|;
-comment|// Note: need to detect condition where edge endpoint is the check point!
-comment|// MHL
 specifier|final
 name|CrossingEdgeIterator
 name|crossingEdgeIterator
@@ -724,9 +731,14 @@ argument_list|,
 name|testPointCutoff
 argument_list|,
 name|checkPointCutoff
+argument_list|,
+name|thePoint
 argument_list|)
 decl_stmt|;
 comment|// Traverse our way from the test point to the check point.  Use the x tree because that's fixed.
+if|if
+condition|(
+operator|!
 name|xTree
 operator|.
 name|traverse
@@ -741,7 +753,13 @@ name|testPoint
 operator|.
 name|x
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+comment|// Endpoint is on edge
+return|return
+literal|true
+return|;
+block|}
 return|return
 operator|(
 operator|(
@@ -801,8 +819,6 @@ argument_list|,
 name|thePoint
 argument_list|)
 decl_stmt|;
-comment|// Note: need to detect condition where edge endpoint is the check point!
-comment|// MHL
 specifier|final
 name|CrossingEdgeIterator
 name|crossingEdgeIterator
@@ -815,9 +831,14 @@ argument_list|,
 name|testPointCutoff
 argument_list|,
 name|checkPointCutoff
+argument_list|,
+name|thePoint
 argument_list|)
 decl_stmt|;
 comment|// Traverse our way from the test point to the check point.  Use the z tree because that's fixed.
+if|if
+condition|(
+operator|!
 name|zTree
 operator|.
 name|traverse
@@ -832,7 +853,13 @@ name|testPoint
 operator|.
 name|z
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+comment|// Endpoint is on edge
+return|return
+literal|true
+return|;
+block|}
 return|return
 operator|(
 operator|(
@@ -1037,8 +1064,13 @@ argument_list|,
 name|checkPointCutoffPlane
 argument_list|,
 name|checkPointOtherCutoffPlane
+argument_list|,
+name|thePoint
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
 name|yTree
 operator|.
 name|traverse
@@ -1053,7 +1085,13 @@ name|thePoint
 operator|.
 name|y
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+comment|// Endpoint is on edge
+return|return
+literal|true
+return|;
+block|}
 return|return
 operator|(
 operator|(
@@ -1261,8 +1299,13 @@ argument_list|,
 name|checkPointCutoffPlane
 argument_list|,
 name|checkPointOtherCutoffPlane
+argument_list|,
+name|thePoint
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
 name|xTree
 operator|.
 name|traverse
@@ -1277,7 +1320,13 @@ name|thePoint
 operator|.
 name|x
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+comment|// Endpoint is on edge
+return|return
+literal|true
+return|;
+block|}
 return|return
 operator|(
 operator|(
@@ -1442,7 +1491,7 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-comment|// Note: we need to handle the cases where end point of the leg sits on an edge!
+comment|// Note: we need to handle the cases where end point of the first leg sits on an edge!
 comment|// MHL
 specifier|final
 name|CrossingEdgeIterator
@@ -1485,8 +1534,13 @@ argument_list|,
 name|checkPointCutoffPlane
 argument_list|,
 name|checkPointOtherCutoffPlane
+argument_list|,
+name|thePoint
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
 name|zTree
 operator|.
 name|traverse
@@ -1501,7 +1555,13 @@ name|thePoint
 operator|.
 name|z
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+comment|// Endpoint is on edge
+return|return
+literal|true
+return|;
+block|}
 return|return
 operator|(
 operator|(
@@ -3202,6 +3262,12 @@ specifier|final
 name|Membership
 name|bound2
 decl_stmt|;
+DECL|field|thePoint
+specifier|private
+specifier|final
+name|GeoPoint
+name|thePoint
+decl_stmt|;
 DECL|field|crossingCount
 specifier|public
 name|int
@@ -3224,6 +3290,10 @@ parameter_list|,
 specifier|final
 name|Membership
 name|bound2
+parameter_list|,
+specifier|final
+name|GeoPoint
+name|thePoint
 parameter_list|)
 block|{
 name|this
@@ -3268,6 +3338,12 @@ name|bound2
 operator|=
 name|bound2
 expr_stmt|;
+name|this
+operator|.
+name|thePoint
+operator|=
+name|thePoint
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -3281,6 +3357,41 @@ name|Edge
 name|edge
 parameter_list|)
 block|{
+comment|// Early exit if the point is on the edge.
+if|if
+condition|(
+name|edge
+operator|.
+name|plane
+operator|.
+name|evaluateIsZero
+argument_list|(
+name|thePoint
+argument_list|)
+operator|&&
+name|edge
+operator|.
+name|startPlane
+operator|.
+name|isWithin
+argument_list|(
+name|thePoint
+argument_list|)
+operator|&&
+name|edge
+operator|.
+name|endPlane
+operator|.
+name|isWithin
+argument_list|(
+name|thePoint
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 specifier|final
 name|GeoPoint
 index|[]
