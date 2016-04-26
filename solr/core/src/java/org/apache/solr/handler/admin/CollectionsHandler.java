@@ -1692,7 +1692,11 @@ operator|==
 literal|null
 condition|)
 return|return
-literal|null
+name|PermissionNameProvider
+operator|.
+name|Name
+operator|.
+name|COLL_READ_PERM
 return|;
 name|CollectionParams
 operator|.
