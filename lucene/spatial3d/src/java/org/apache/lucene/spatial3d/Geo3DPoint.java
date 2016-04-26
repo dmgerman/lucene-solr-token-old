@@ -684,8 +684,6 @@ name|polygons
 index|[
 literal|0
 index|]
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -737,8 +735,6 @@ init|=
 name|fromPolygon
 argument_list|(
 name|p
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -932,7 +928,7 @@ name|shape
 argument_list|)
 return|;
 block|}
-comment|/**     * Convert a Polygon object into a GeoPolygon.     * This method uses     * @param polygon is the Polygon object.     * @param reverseMe is true if the order of the points should be reversed.     * @return the GeoPolygon.     */
+comment|/**     * Convert a Polygon object into a GeoPolygon.     * This method uses     * @param polygon is the Polygon object.     * @return the GeoPolygon.     */
 DECL|method|fromPolygon
 specifier|private
 specifier|static
@@ -942,10 +938,6 @@ parameter_list|(
 specifier|final
 name|Polygon
 name|polygon
-parameter_list|,
-specifier|final
-name|boolean
-name|reverseMe
 parameter_list|)
 block|{
 comment|// First, assemble the "holes".  The geo3d convention is to use the same polygon sense on the inner ring as the
@@ -993,9 +985,6 @@ init|=
 name|fromPolygon
 argument_list|(
 name|hole
-argument_list|,
-operator|!
-name|reverseMe
 argument_list|)
 decl_stmt|;
 if|if
@@ -1074,43 +1063,6 @@ name|i
 operator|++
 control|)
 block|{
-if|if
-condition|(
-name|reverseMe
-condition|)
-block|{
-name|points
-operator|.
-name|add
-argument_list|(
-operator|new
-name|GeoPoint
-argument_list|(
-name|PlanetModel
-operator|.
-name|WGS84
-argument_list|,
-name|fromDegrees
-argument_list|(
-name|polyLats
-index|[
-name|i
-index|]
-argument_list|)
-argument_list|,
-name|fromDegrees
-argument_list|(
-name|polyLons
-index|[
-name|i
-index|]
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 specifier|final
 name|int
 name|index
@@ -1152,7 +1104,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|//System.err.println(" building polygon with "+points.size()+" points...");
 specifier|final

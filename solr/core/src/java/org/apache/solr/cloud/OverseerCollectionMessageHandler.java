@@ -7311,12 +7311,10 @@ else|else
 block|{
 name|parentSlice
 operator|=
-name|clusterState
+name|collection
 operator|.
 name|getSlice
 argument_list|(
-name|collectionName
-argument_list|,
 name|slice
 argument_list|)
 expr_stmt|;
@@ -7328,16 +7326,8 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|clusterState
-operator|.
-name|hasCollection
-argument_list|(
-name|collectionName
-argument_list|)
-condition|)
-block|{
+comment|// no chance of the collection being null because ClusterState#getCollection(String) would have thrown
+comment|// an exception already
 throw|throw
 operator|new
 name|SolrException
@@ -7351,23 +7341,6 @@ operator|+
 name|slice
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|SolrException
-argument_list|(
-name|ErrorCode
-operator|.
-name|BAD_REQUEST
-argument_list|,
-literal|"No collection with the specified name exists: "
-operator|+
-name|collectionName
-argument_list|)
-throw|;
-block|}
 block|}
 comment|// find the leader for the shard
 name|Replica
@@ -8051,12 +8024,10 @@ expr_stmt|;
 name|Slice
 name|oSlice
 init|=
-name|clusterState
+name|collection
 operator|.
 name|getSlice
 argument_list|(
-name|collectionName
-argument_list|,
 name|subSlice
 argument_list|)
 decl_stmt|;
@@ -9053,14 +9024,7 @@ comment|// TODO: Have replication factor decided in some other way instead of nu
 name|int
 name|repFactor
 init|=
-name|clusterState
-operator|.
-name|getSlice
-argument_list|(
-name|collectionName
-argument_list|,
-name|slice
-argument_list|)
+name|parentSlice
 operator|.
 name|getReplicas
 argument_list|()
@@ -10365,7 +10329,7 @@ name|results
 parameter_list|)
 block|{
 name|String
-name|collection
+name|collectionName
 init|=
 name|message
 operator|.
@@ -10402,7 +10366,7 @@ name|clusterState
 operator|.
 name|getSlice
 argument_list|(
-name|collection
+name|collectionName
 argument_list|,
 name|sliceId
 argument_list|)
@@ -10420,7 +10384,7 @@ name|clusterState
 operator|.
 name|hasCollection
 argument_list|(
-name|collection
+name|collectionName
 argument_list|)
 condition|)
 block|{
@@ -10438,7 +10402,7 @@ name|sliceId
 operator|+
 literal|" exists for collection "
 operator|+
-name|collection
+name|collectionName
 argument_list|)
 throw|;
 block|}
@@ -10454,7 +10418,7 @@ name|BAD_REQUEST
 argument_list|,
 literal|"No collection with the specified name exists: "
 operator|+
-name|collection
+name|collectionName
 argument_list|)
 throw|;
 block|}
@@ -10726,7 +10690,7 @@ name|ZkStateReader
 operator|.
 name|COLLECTION_PROP
 argument_list|,
-name|collection
+name|collectionName
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -10790,17 +10754,25 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-name|removed
-operator|=
+name|DocCollection
+name|collection
+init|=
 name|zkStateReader
 operator|.
 name|getClusterState
 argument_list|()
 operator|.
+name|getCollection
+argument_list|(
+name|collectionName
+argument_list|)
+decl_stmt|;
+name|removed
+operator|=
+name|collection
+operator|.
 name|getSlice
 argument_list|(
-name|collection
-argument_list|,
 name|sliceId
 argument_list|)
 operator|==
@@ -10838,7 +10810,7 @@ name|SERVER_ERROR
 argument_list|,
 literal|"Could not fully remove collection: "
 operator|+
-name|collection
+name|collectionName
 operator|+
 literal|" shard: "
 operator|+
@@ -10852,7 +10824,7 @@ name|info
 argument_list|(
 literal|"Successfully deleted collection: "
 operator|+
-name|collection
+name|collectionName
 operator|+
 literal|", shard: "
 operator|+
@@ -10886,7 +10858,7 @@ name|SERVER_ERROR
 argument_list|,
 literal|"Error executing delete operation for collection: "
 operator|+
-name|collection
+name|collectionName
 operator|+
 literal|" shard: "
 operator|+
@@ -11785,6 +11757,33 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
+name|sourceCollection
+operator|=
+name|zkStateReader
+operator|.
+name|getClusterState
+argument_list|()
+operator|.
+name|getCollection
+argument_list|(
+name|sourceCollection
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|sourceSlice
+operator|=
+name|sourceCollection
+operator|.
+name|getSlice
+argument_list|(
+name|sourceSlice
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -11793,23 +11792,7 @@ name|RoutingRule
 argument_list|>
 name|rules
 init|=
-name|zkStateReader
-operator|.
-name|getClusterState
-argument_list|()
-operator|.
-name|getSlice
-argument_list|(
-name|sourceCollection
-operator|.
-name|getName
-argument_list|()
-argument_list|,
 name|sourceSlice
-operator|.
-name|getName
-argument_list|()
-argument_list|)
 operator|.
 name|getRoutingRules
 argument_list|()
