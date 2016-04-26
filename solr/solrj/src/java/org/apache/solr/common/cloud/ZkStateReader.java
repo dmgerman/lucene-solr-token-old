@@ -1535,10 +1535,17 @@ condition|(
 name|ref
 operator|==
 literal|null
+operator|||
+name|legacyCollectionStates
+operator|.
+name|containsKey
+argument_list|(
+name|collection
+argument_list|)
 condition|)
 block|{
-comment|// We don't know anything about this collection, maybe it's new?
-comment|// First try to update the legacy cluster state.
+comment|// We either don't know anything about this collection (maybe it's new?) or it's legacy.
+comment|// First update the legacy cluster state.
 name|refreshLegacyClusterState
 argument_list|(
 literal|null
@@ -1612,24 +1619,6 @@ block|{
 return|return;
 block|}
 comment|// Edge case: if there's no external collection, try refreshing legacy cluster state in case it's there.
-name|refreshLegacyClusterState
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|legacyCollectionStates
-operator|.
-name|containsKey
-argument_list|(
-name|collection
-argument_list|)
-condition|)
-block|{
-comment|// Exists, and lives in legacy cluster state, force a refresh.
 name|refreshLegacyClusterState
 argument_list|(
 literal|null
