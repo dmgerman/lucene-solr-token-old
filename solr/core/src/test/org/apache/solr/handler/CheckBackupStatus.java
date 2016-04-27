@@ -222,7 +222,11 @@ operator|.
 name|getBaseURL
 argument_list|()
 operator|+
-literal|"/replication?command="
+name|ReplicationHandler
+operator|.
+name|PATH
+operator|+
+literal|"?command="
 operator|+
 name|ReplicationHandler
 operator|.

@@ -701,15 +701,6 @@ name|STARTING_RECOVERY_DELAY
 init|=
 literal|5000
 decl_stmt|;
-DECL|field|REPLICATION_HANDLER
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|REPLICATION_HANDLER
-init|=
-literal|"/replication"
-decl_stmt|;
 DECL|interface|RecoveryListener
 specifier|public
 specifier|static
@@ -1046,7 +1037,9 @@ name|core
 operator|.
 name|getRequestHandler
 argument_list|(
-name|REPLICATION_HANDLER
+name|ReplicationHandler
+operator|.
+name|PATH
 argument_list|)
 decl_stmt|;
 name|ReplicationHandler
@@ -1074,7 +1067,9 @@ name|SERVICE_UNAVAILABLE
 argument_list|,
 literal|"Skipping recovery, no "
 operator|+
-name|REPLICATION_HANDLER
+name|ReplicationHandler
+operator|.
+name|PATH
 operator|+
 literal|" handler found"
 argument_list|)
