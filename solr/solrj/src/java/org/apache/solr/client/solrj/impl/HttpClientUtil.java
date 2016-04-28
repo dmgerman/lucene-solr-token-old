@@ -973,11 +973,11 @@ operator|=
 name|newHttpClientBuilder
 expr_stmt|;
 block|}
-DECL|method|setSchemeRegistryProvider
+DECL|method|setSchemaRegistryProvider
 specifier|public
 specifier|static
 name|void
-name|setSchemeRegistryProvider
+name|setSchemaRegistryProvider
 parameter_list|(
 name|SchemaRegistryProvider
 name|newRegistryProvider
