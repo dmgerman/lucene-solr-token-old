@@ -796,6 +796,21 @@ return|;
 block|}
 else|else
 block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"isWithin() for check point "
+operator|+
+name|thePoint
+operator|+
+literal|", test point "
+operator|+
+name|testPoint
+argument_list|)
+expr_stmt|;
 comment|// We need to use two planes to get there.  We don't know which two planes will do it but we can figure it out.
 specifier|final
 name|Plane
@@ -1057,15 +1072,15 @@ name|x
 expr_stmt|;
 name|firstLegPlane
 operator|=
-name|testPointYZPlane
+name|testPointXZPlane
 expr_stmt|;
 name|firstLegAbovePlane
 operator|=
-name|testPointYZAbovePlane
+name|testPointXZAbovePlane
 expr_stmt|;
 name|firstLegBelowPlane
 operator|=
-name|testPointYZBelowPlane
+name|testPointXZBelowPlane
 expr_stmt|;
 name|secondLegPlane
 operator|=
@@ -1073,11 +1088,11 @@ name|travelPlaneFixedX
 expr_stmt|;
 name|firstLegTree
 operator|=
-name|xTree
+name|yTree
 expr_stmt|;
 name|secondLegTree
 operator|=
-name|yTree
+name|xTree
 expr_stmt|;
 name|intersectionPoint
 operator|=
@@ -1150,19 +1165,19 @@ name|z
 expr_stmt|;
 name|firstLegPlane
 operator|=
-name|testPointXYPlane
+name|testPointXZPlane
 expr_stmt|;
 name|firstLegAbovePlane
 operator|=
-name|testPointXYAbovePlane
+name|testPointXZAbovePlane
 expr_stmt|;
 name|firstLegBelowPlane
 operator|=
-name|testPointXYBelowPlane
+name|testPointXZBelowPlane
 expr_stmt|;
 name|secondLegPlane
 operator|=
-name|travelPlaneFixedX
+name|travelPlaneFixedZ
 expr_stmt|;
 name|firstLegTree
 operator|=
@@ -1243,15 +1258,15 @@ name|y
 expr_stmt|;
 name|firstLegPlane
 operator|=
-name|testPointXZPlane
+name|testPointYZPlane
 expr_stmt|;
 name|firstLegAbovePlane
 operator|=
-name|testPointXZAbovePlane
+name|testPointYZAbovePlane
 expr_stmt|;
 name|firstLegBelowPlane
 operator|=
-name|testPointXZBelowPlane
+name|testPointYZBelowPlane
 expr_stmt|;
 name|secondLegPlane
 operator|=
@@ -1336,19 +1351,19 @@ name|z
 expr_stmt|;
 name|firstLegPlane
 operator|=
-name|testPointXYPlane
+name|testPointYZPlane
 expr_stmt|;
 name|firstLegAbovePlane
 operator|=
-name|testPointXYAbovePlane
+name|testPointYZAbovePlane
 expr_stmt|;
 name|firstLegBelowPlane
 operator|=
-name|testPointXYBelowPlane
+name|testPointYZBelowPlane
 expr_stmt|;
 name|secondLegPlane
 operator|=
-name|travelPlaneFixedX
+name|travelPlaneFixedZ
 expr_stmt|;
 name|firstLegTree
 operator|=
@@ -1429,19 +1444,19 @@ name|x
 expr_stmt|;
 name|firstLegPlane
 operator|=
-name|testPointYZPlane
+name|testPointXYPlane
 expr_stmt|;
 name|firstLegAbovePlane
 operator|=
-name|testPointYZAbovePlane
+name|testPointXYAbovePlane
 expr_stmt|;
 name|firstLegBelowPlane
 operator|=
-name|testPointYZBelowPlane
+name|testPointXYBelowPlane
 expr_stmt|;
 name|secondLegPlane
 operator|=
-name|travelPlaneFixedZ
+name|travelPlaneFixedX
 expr_stmt|;
 name|firstLegTree
 operator|=
@@ -1522,19 +1537,19 @@ name|y
 expr_stmt|;
 name|firstLegPlane
 operator|=
-name|testPointXZPlane
+name|testPointXYPlane
 expr_stmt|;
 name|firstLegAbovePlane
 operator|=
-name|testPointXZAbovePlane
+name|testPointXYAbovePlane
 expr_stmt|;
 name|firstLegBelowPlane
 operator|=
-name|testPointXZBelowPlane
+name|testPointXYBelowPlane
 expr_stmt|;
 name|secondLegPlane
 operator|=
-name|travelPlaneFixedZ
+name|travelPlaneFixedY
 expr_stmt|;
 name|firstLegTree
 operator|=
@@ -2291,7 +2306,11 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Recording edge from "
+literal|"Recording edge "
+operator|+
+name|this
+operator|+
+literal|" from "
 operator|+
 name|startPoint
 operator|+
@@ -2563,7 +2582,10 @@ literal|null
 condition|)
 block|{
 comment|// Create and return a new node
-return|return
+specifier|final
+name|Node
+name|rval
+init|=
 operator|new
 name|Node
 argument_list|(
@@ -2573,8 +2595,13 @@ name|minimumValue
 argument_list|,
 name|maximumValue
 argument_list|)
+decl_stmt|;
+comment|//System.err.println("Creating new node "+rval+" for edge "+newEdge+" in tree "+this);
+return|return
+name|rval
 return|;
 block|}
+comment|//System.err.println("Adding edge "+newEdge+" into node "+node+" in tree "+this);
 comment|// Compare with what's here
 name|int
 name|result
@@ -2618,13 +2645,12 @@ argument_list|,
 name|maximumValue
 argument_list|)
 decl_stmt|;
+comment|//System.err.println(" Inserting new node "+rval+" at head of current 'within' chain in tree "+this);
 name|rval
 operator|.
 name|within
 operator|=
 name|node
-operator|.
-name|within
 expr_stmt|;
 return|return
 name|rval
@@ -2633,6 +2659,7 @@ case|case
 name|WITHIN
 case|:
 comment|// The new edge is within the node provided
+comment|//System.err.println(" Adding edge into 'within' chain in tree "+this);
 name|node
 operator|.
 name|within
@@ -2658,6 +2685,7 @@ name|OVERLAPS_MINIMUM
 case|:
 comment|// The new edge overlaps the minimum value, but not the maximum value.
 comment|// Here we need to create TWO entries: one for the lesser side, and one for the within chain.
+comment|//System.err.println(" Inserting edge into BOTH lesser chain and within chain in tree "+this);
 specifier|final
 name|double
 name|lesserMaximum
@@ -2707,6 +2735,7 @@ name|OVERLAPS_MAXIMUM
 case|:
 comment|// The new edge overlaps the maximum value, but not the minimum value.
 comment|// Need to create two entries, one on the greater side, and one back into the current node.
+comment|//System.err.println(" Inserting edge into BOTH greater chain and within chain in tree "+this);
 specifier|final
 name|double
 name|greaterMinimum
@@ -2755,6 +2784,7 @@ case|case
 name|LESS
 case|:
 comment|// The new edge is clearly less than the current node.
+comment|//System.err.println(" Edge goes into the lesser chain in tree "+this);
 name|node
 operator|.
 name|lesser
@@ -2779,6 +2809,7 @@ case|case
 name|GREATER
 case|:
 comment|// The new edge is clearly greater than the current node.
+comment|//System.err.println(" Edge goes into the greater chain in tree "+this);
 name|node
 operator|.
 name|greater
@@ -2826,6 +2857,7 @@ name|double
 name|value
 parameter_list|)
 block|{
+comment|//System.err.println("Traversing tree, value = "+value);
 comment|// Since there is one distinct value we are looking for, we can just do a straight descent through the nodes.
 name|Node
 name|currentNode
@@ -2848,6 +2880,7 @@ operator|.
 name|minimumValue
 condition|)
 block|{
+comment|//System.err.println(" value is less than "+currentNode.minimumValue);
 name|currentNode
 operator|=
 name|currentNode
@@ -2865,6 +2898,7 @@ operator|.
 name|maximumValue
 condition|)
 block|{
+comment|//System.err.println(" value is greater than "+currentNode.maximumValue);
 name|currentNode
 operator|=
 name|currentNode
@@ -2874,6 +2908,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|//System.err.println(" value within "+currentNode.minimumValue+" to "+currentNode.maximumValue);
 comment|// We're within the bounds of the node.  Call the iterator, and descend
 if|if
 condition|(
@@ -2900,6 +2935,7 @@ name|within
 expr_stmt|;
 block|}
 block|}
+comment|//System.err.println("Done with tree");
 return|return
 literal|true
 return|;
@@ -3285,6 +3321,46 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
+DECL|method|traverse
+specifier|public
+name|boolean
+name|traverse
+parameter_list|(
+specifier|final
+name|EdgeIterator
+name|edgeIterator
+parameter_list|,
+specifier|final
+name|double
+name|value
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Traversing in Z, value= "
+operator|+
+name|value
+operator|+
+literal|"..."
+argument_list|)
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|traverse
+argument_list|(
+name|edgeIterator
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getMinimum
 specifier|protected
 name|double
@@ -3342,6 +3418,46 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
+DECL|method|traverse
+specifier|public
+name|boolean
+name|traverse
+parameter_list|(
+specifier|final
+name|EdgeIterator
+name|edgeIterator
+parameter_list|,
+specifier|final
+name|double
+name|value
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Traversing in Y, value= "
+operator|+
+name|value
+operator|+
+literal|"..."
+argument_list|)
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|traverse
+argument_list|(
+name|edgeIterator
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getMinimum
 specifier|protected
 name|double
@@ -3397,6 +3513,46 @@ specifier|public
 name|XTree
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|traverse
+specifier|public
+name|boolean
+name|traverse
+parameter_list|(
+specifier|final
+name|EdgeIterator
+name|edgeIterator
+parameter_list|,
+specifier|final
+name|double
+name|value
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Traversing in X, value= "
+operator|+
+name|value
+operator|+
+literal|"..."
+argument_list|)
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|traverse
+argument_list|(
+name|edgeIterator
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getMinimum
@@ -4993,6 +5149,18 @@ argument_list|(
 literal|"Processing edge "
 operator|+
 name|edge
+operator|+
+literal|", startpoint="
+operator|+
+name|edge
+operator|.
+name|startPoint
+operator|+
+literal|" endpoint="
+operator|+
+name|edge
+operator|.
+name|endPoint
 argument_list|)
 expr_stmt|;
 comment|// Early exit if the point is on the edge.
@@ -5056,6 +5224,17 @@ condition|(
 name|isSecondLeg
 condition|)
 block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|" check point plane = "
+operator|+
+name|travelPlane
+argument_list|)
+expr_stmt|;
 name|crossingPoints
 operator|=
 name|travelPlane
@@ -5084,6 +5263,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|" test point plane = "
+operator|+
+name|testPointPlane
+argument_list|)
+expr_stmt|;
 name|crossingPoints
 operator|=
 name|testPointPlane
