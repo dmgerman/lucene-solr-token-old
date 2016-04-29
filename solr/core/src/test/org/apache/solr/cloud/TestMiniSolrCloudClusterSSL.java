@@ -74,17 +74,6 @@ import|;
 end_import
 begin_import
 import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|SSLHandshakeException
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1501,7 +1490,7 @@ block|{
 comment|// w/o a valid client cert, SSL connection should fail
 name|expectThrows
 argument_list|(
-name|SSLHandshakeException
+name|IOException
 operator|.
 name|class
 argument_list|,
