@@ -339,7 +339,7 @@ name|AlreadyClosedException
 argument_list|(
 literal|"Underlying file changed by an external force at "
 operator|+
-name|creationTime
+name|ctime
 operator|+
 literal|", (lock="
 operator|+
@@ -446,7 +446,7 @@ literal|"SimpleFSLock(path="
 operator|+
 name|path
 operator|+
-literal|",ctime="
+literal|",creationTime="
 operator|+
 name|creationTime
 operator|+
