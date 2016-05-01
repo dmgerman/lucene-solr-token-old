@@ -1919,6 +1919,15 @@ condition|)
 block|{
 name|bounds
 operator|.
+name|addPoint
+argument_list|(
+name|currentEdge
+operator|.
+name|startPoint
+argument_list|)
+expr_stmt|;
+name|bounds
+operator|.
 name|addPlane
 argument_list|(
 name|this
