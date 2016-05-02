@@ -4602,11 +4602,39 @@ argument_list|,
 name|thePoint
 argument_list|)
 expr_stmt|;
-comment|// Convert travel plane to a sided plane
 name|this
 operator|.
 name|testPointOtherCutoffPlane
 operator|=
+operator|new
+name|SidedPlane
+argument_list|(
+name|testPoint
+argument_list|,
+name|testPointPlane
+argument_list|,
+name|intersectionPoint
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|checkPointOtherCutoffPlane
+operator|=
+operator|new
+name|SidedPlane
+argument_list|(
+name|thePoint
+argument_list|,
+name|travelPlane
+argument_list|,
+name|intersectionPoint
+argument_list|)
+expr_stmt|;
+comment|// Convert travel plane to a sided plane
+specifier|final
+name|Membership
+name|intersectionBound1
+init|=
 operator|new
 name|SidedPlane
 argument_list|(
@@ -4618,12 +4646,12 @@ name|travelPlane
 operator|.
 name|D
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Convert testPoint plane to a sided plane
-name|this
-operator|.
-name|checkPointOtherCutoffPlane
-operator|=
+specifier|final
+name|Membership
+name|intersectionBound2
+init|=
 operator|new
 name|SidedPlane
 argument_list|(
@@ -4635,7 +4663,7 @@ name|testPointPlane
 operator|.
 name|D
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Sanity check
 assert|assert
 name|testPointCutoffPlane
@@ -4677,6 +4705,26 @@ argument_list|)
 operator|:
 literal|"intersection must be within checkPointOtherCutoffPlane"
 assert|;
+assert|assert
+name|intersectionBound1
+operator|.
+name|isWithin
+argument_list|(
+name|intersectionPoint
+argument_list|)
+operator|:
+literal|"intersection must be within intersectionBound1"
+assert|;
+assert|assert
+name|intersectionBound2
+operator|.
+name|isWithin
+argument_list|(
+name|intersectionPoint
+argument_list|)
+operator|:
+literal|"intersection must be within intersectionBound2"
+assert|;
 comment|// Figure out which of the above/below planes are inside vs. outside.  To do this,
 comment|// we look for the point that is within the bounds of the testPointPlane and travelPlane.  The two sides that intersected there are the inside
 comment|// borders.
@@ -4717,9 +4765,9 @@ name|planetModel
 argument_list|,
 name|testPointAbovePlane
 argument_list|,
-name|testPointOtherCutoffPlane
+name|intersectionBound1
 argument_list|,
-name|checkPointOtherCutoffPlane
+name|intersectionBound2
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -4742,9 +4790,9 @@ name|planetModel
 argument_list|,
 name|testPointBelowPlane
 argument_list|,
-name|testPointOtherCutoffPlane
+name|intersectionBound1
 argument_list|,
-name|checkPointOtherCutoffPlane
+name|intersectionBound2
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -4767,9 +4815,9 @@ name|planetModel
 argument_list|,
 name|testPointBelowPlane
 argument_list|,
-name|testPointOtherCutoffPlane
+name|intersectionBound1
 argument_list|,
-name|checkPointOtherCutoffPlane
+name|intersectionBound2
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -4792,9 +4840,9 @@ name|planetModel
 argument_list|,
 name|testPointAbovePlane
 argument_list|,
-name|testPointOtherCutoffPlane
+name|intersectionBound1
 argument_list|,
-name|checkPointOtherCutoffPlane
+name|intersectionBound2
 argument_list|)
 decl_stmt|;
 assert|assert
