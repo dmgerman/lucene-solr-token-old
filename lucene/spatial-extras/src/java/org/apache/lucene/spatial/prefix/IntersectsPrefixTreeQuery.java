@@ -200,6 +200,8 @@ specifier|protected
 name|void
 name|start
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|results
 operator|=
@@ -207,6 +209,8 @@ operator|new
 name|DocIdSetBuilder
 argument_list|(
 name|maxDoc
+argument_list|,
+name|terms
 argument_list|)
 expr_stmt|;
 block|}

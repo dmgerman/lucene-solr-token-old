@@ -854,6 +854,8 @@ operator|new
 name|DocIdSetBuilder
 argument_list|(
 name|maxDoc
+argument_list|,
+name|terms
 argument_list|)
 decl_stmt|;
 DECL|field|exactBuilder
@@ -864,6 +866,8 @@ operator|new
 name|DocIdSetBuilder
 argument_list|(
 name|maxDoc
+argument_list|,
+name|terms
 argument_list|)
 decl_stmt|;
 DECL|field|approxIsEmpty
