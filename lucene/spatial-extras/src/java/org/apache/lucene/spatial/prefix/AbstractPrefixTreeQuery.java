@@ -29,19 +29,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|locationtech
-operator|.
-name|spatial4j
-operator|.
-name|shape
-operator|.
-name|Shape
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|lucene
@@ -248,6 +235,19 @@ operator|.
 name|util
 operator|.
 name|DocIdSetBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|locationtech
+operator|.
+name|spatial4j
+operator|.
+name|shape
+operator|.
+name|Shape
 import|;
 end_import
 begin_comment
@@ -594,6 +594,7 @@ specifier|final
 name|Terms
 name|terms
 decl_stmt|;
+comment|// maybe null
 DECL|field|termsEnum
 specifier|protected
 specifier|final
