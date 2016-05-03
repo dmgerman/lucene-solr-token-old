@@ -378,25 +378,33 @@ name|docCount
 operator|!=
 name|valueCount
 expr_stmt|;
-name|this
-operator|.
-name|numValuesPerDoc
-operator|=
-operator|(
+if|if
+condition|(
 name|docCount
-operator|<
+operator|<=
 literal|0
 operator|||
 name|valueCount
 operator|<
 literal|0
-operator|)
+condition|)
+block|{
 comment|// assume one value per doc, this means the cost will be overestimated
 comment|// if the docs are actually multi-valued
-condition|?
+name|this
+operator|.
+name|numValuesPerDoc
+operator|=
 literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// otherwise compute from index stats
-else|:
+name|this
+operator|.
+name|numValuesPerDoc
+operator|=
 operator|(
 name|double
 operator|)
@@ -404,10 +412,19 @@ name|valueCount
 operator|/
 name|docCount
 expr_stmt|;
+block|}
 assert|assert
 name|numValuesPerDoc
 operator|>=
 literal|1
+operator|:
+literal|"valueCount="
+operator|+
+name|valueCount
+operator|+
+literal|" docCount="
+operator|+
+name|docCount
 assert|;
 comment|// For ridiculously small sets, we'll just use a sorted int[]
 comment|// maxDoc>>> 7 is a good value if you want to save memory, lower values
