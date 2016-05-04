@@ -18943,7 +18943,10 @@ operator|.
 name|getClusterState
 argument_list|()
 operator|.
-name|getCollections
+name|getCollectionsMap
+argument_list|()
+operator|.
+name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -19061,7 +19064,10 @@ operator|.
 name|getClusterState
 argument_list|()
 operator|.
-name|getCollections
+name|getCollectionsMap
+argument_list|()
+operator|.
+name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;

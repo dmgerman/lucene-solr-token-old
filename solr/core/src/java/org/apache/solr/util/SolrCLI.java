@@ -11052,7 +11052,10 @@ operator|.
 name|getClusterState
 argument_list|()
 operator|.
-name|getCollections
+name|getCollectionsMap
+argument_list|()
+operator|.
+name|keySet
 argument_list|()
 decl_stmt|;
 comment|// give a little note to the user if there are many collections in case it takes a while
