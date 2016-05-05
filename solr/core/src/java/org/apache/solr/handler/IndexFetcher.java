@@ -3542,6 +3542,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
+operator|.
+name|getCoreContainer
+argument_list|()
+operator|.
+name|isZooKeeperAware
+argument_list|()
+condition|)
+block|{
+comment|// we only track replication success in SolrCloud mode
 name|core
 operator|.
 name|getUpdateHandler
@@ -3555,6 +3570,7 @@ argument_list|(
 name|successfulInstall
 argument_list|)
 expr_stmt|;
+block|}
 name|filesToDownload
 operator|=
 name|filesDownloaded
