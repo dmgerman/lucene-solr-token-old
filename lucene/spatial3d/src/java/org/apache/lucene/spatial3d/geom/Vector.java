@@ -433,7 +433,7 @@ name|bounds
 parameter_list|,
 specifier|final
 name|Membership
-index|[]
+modifier|...
 name|moreBounds
 parameter_list|)
 block|{
@@ -441,6 +441,7 @@ comment|// Return true if the point described is within all provided bounds
 comment|//System.err.println("  checking if "+this+" is within bounds");
 for|for
 control|(
+specifier|final
 name|Membership
 name|bound
 range|:
@@ -470,6 +471,7 @@ block|}
 block|}
 for|for
 control|(
+specifier|final
 name|Membership
 name|bound
 range|:
