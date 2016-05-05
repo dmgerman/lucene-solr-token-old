@@ -500,7 +500,7 @@ literal|2
 argument_list|,
 name|loadedClusterState
 operator|.
-name|getCollections
+name|getCollectionsMap
 argument_list|()
 operator|.
 name|size
@@ -509,7 +509,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Poperties not copied properly"
+literal|"Properties not copied properly"
 argument_list|,
 name|replica
 operator|.
@@ -543,7 +543,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Poperties not copied properly"
+literal|"Properties not copied properly"
 argument_list|,
 name|replica
 operator|.
@@ -616,7 +616,7 @@ literal|0
 argument_list|,
 name|loadedClusterState
 operator|.
-name|getCollections
+name|getCollectionsMap
 argument_list|()
 operator|.
 name|size
@@ -664,7 +664,7 @@ literal|0
 argument_list|,
 name|loadedClusterState
 operator|.
-name|getCollections
+name|getCollectionsMap
 argument_list|()
 operator|.
 name|size
