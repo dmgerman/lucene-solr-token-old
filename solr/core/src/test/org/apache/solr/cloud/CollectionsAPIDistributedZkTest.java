@@ -7009,7 +7009,7 @@ literal|"Could not find collection in :"
 operator|+
 name|clusterState
 operator|.
-name|getCollections
+name|getCollectionsMap
 argument_list|()
 argument_list|)
 throw|;
