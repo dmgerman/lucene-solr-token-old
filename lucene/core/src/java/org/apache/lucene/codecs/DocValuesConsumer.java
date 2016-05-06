@@ -1726,11 +1726,6 @@ name|boolean
 name|setNext
 parameter_list|()
 block|{
-while|while
-condition|(
-literal|true
-condition|)
-block|{
 name|NumericDocValuesSub
 name|sub
 init|=
@@ -1787,7 +1782,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
 block|}
 block|}
 return|;
