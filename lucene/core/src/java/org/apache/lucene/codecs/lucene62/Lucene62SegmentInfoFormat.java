@@ -1650,7 +1650,7 @@ argument_list|)
 expr_stmt|;
 name|output
 operator|.
-name|writeLong
+name|writeInt
 argument_list|(
 name|Float
 operator|.

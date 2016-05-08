@@ -870,7 +870,7 @@ name|missingOrd
 operator|=
 name|Integer
 operator|.
-name|MIN_VALUE
+name|MAX_VALUE
 expr_stmt|;
 block|}
 else|else
@@ -879,7 +879,7 @@ name|missingOrd
 operator|=
 name|Integer
 operator|.
-name|MAX_VALUE
+name|MIN_VALUE
 expr_stmt|;
 block|}
 specifier|final
@@ -1098,7 +1098,7 @@ literal|1
 expr_stmt|;
 block|}
 specifier|final
-name|int
+name|long
 name|missingValue
 decl_stmt|;
 if|if
@@ -1114,7 +1114,7 @@ block|{
 name|missingValue
 operator|=
 operator|(
-name|Integer
+name|Long
 operator|)
 name|sortField
 operator|.
@@ -1173,9 +1173,6 @@ condition|)
 block|{
 name|valueA
 operator|=
-operator|(
-name|int
-operator|)
 name|values
 operator|.
 name|get
@@ -1216,9 +1213,6 @@ condition|)
 block|{
 name|valueB
 operator|=
-operator|(
-name|int
-operator|)
 name|values
 operator|.
 name|get
