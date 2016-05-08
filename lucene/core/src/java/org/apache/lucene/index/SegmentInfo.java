@@ -783,8 +783,6 @@ name|delCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit does search time "do the right thing" automatically when segment is sorted?
-comment|// nocommit remove sorter_key from diagnostics
 if|if
 condition|(
 name|indexSort

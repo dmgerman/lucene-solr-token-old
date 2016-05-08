@@ -207,7 +207,6 @@ class|class
 name|MergeState
 block|{
 comment|/** Maps document IDs from old segments to document IDs in the new segment */
-comment|// nocommit in the unsorted case, this should map correctly, e.g. apply per segment docBase
 DECL|field|docMaps
 specifier|public
 specifier|final
@@ -1100,7 +1099,6 @@ literal|null
 condition|)
 block|{
 comment|//System.out.println("    sort!");
-comment|// nocommit what about MergedReaderWrapper in here?
 name|leaf
 operator|=
 name|SlowCodecReaderWrapper
@@ -1111,7 +1109,11 @@ name|SortingLeafReader
 operator|.
 name|wrap
 argument_list|(
+operator|new
+name|MergeReaderWrapper
+argument_list|(
 name|leaf
+argument_list|)
 argument_list|,
 name|sortDocMap
 argument_list|)

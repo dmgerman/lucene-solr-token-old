@@ -140,9 +140,6 @@ operator|.
 name|DocMap
 name|docMap
 parameter_list|,
-name|Bits
-name|liveDocs
-parameter_list|,
 name|int
 name|maxDoc
 parameter_list|,
@@ -153,8 +150,6 @@ block|{
 name|super
 argument_list|(
 name|docMap
-argument_list|,
-name|liveDocs
 argument_list|)
 expr_stmt|;
 name|this
@@ -318,8 +313,6 @@ return|;
 block|}
 block|}
 argument_list|,
-literal|null
-argument_list|,
 name|maxDoc
 argument_list|,
 name|valueStart
@@ -441,9 +434,6 @@ operator|.
 name|DocMap
 name|docMap
 parameter_list|,
-name|Bits
-name|liveDocs
-parameter_list|,
 name|int
 name|maxDoc
 parameter_list|,
@@ -454,8 +444,6 @@ block|{
 name|super
 argument_list|(
 name|docMap
-argument_list|,
-name|liveDocs
 argument_list|)
 expr_stmt|;
 name|this
@@ -822,8 +810,6 @@ index|]
 return|;
 block|}
 block|}
-argument_list|,
-literal|null
 argument_list|,
 name|docMap
 operator|.
