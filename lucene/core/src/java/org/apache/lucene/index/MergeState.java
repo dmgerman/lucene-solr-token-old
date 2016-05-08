@@ -1051,7 +1051,6 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//System.out.println("MergeState.maybeSortReaders indexSort=" + indexSort);
 for|for
 control|(
 name|CodecReader
@@ -1068,7 +1067,6 @@ operator|.
 name|getIndexSort
 argument_list|()
 decl_stmt|;
-comment|//System.out.println("  leaf=" + leaf + " sort=" + segmentSort);
 if|if
 condition|(
 name|segmentSort
@@ -1077,7 +1075,7 @@ literal|null
 condition|)
 block|{
 comment|// TODO: fix IW to also sort when flushing?  It's somewhat tricky because of stored fields and term vectors, which write "live"
-comment|// to the files on each indexed document:
+comment|// to their index files on each indexed document:
 comment|// This segment was written by flush, so documents are not yet sorted, so we sort them now:
 name|Sorter
 operator|.
@@ -1098,7 +1096,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//System.out.println("    sort!");
 name|leaf
 operator|=
 name|SlowCodecReaderWrapper
