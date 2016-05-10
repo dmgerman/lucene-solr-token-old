@@ -676,7 +676,7 @@ operator|)
 operator|+
 literal|"). "
 operator|+
-literal|"Use UninvertingReader or index with docvalues."
+literal|" Re-index with correct docvalues type."
 argument_list|)
 throw|;
 block|}

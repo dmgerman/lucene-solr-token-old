@@ -214,9 +214,8 @@ name|DocMap
 index|[]
 name|docMaps
 decl_stmt|;
-comment|// nocommit can we somehow not need to expose this?  should IW's reader pool always sort on load...?
+comment|// Only used by IW when it must remap deletes that arrived against the merging segmetns while a merge was running:
 DECL|field|leafDocMaps
-specifier|public
 specifier|final
 name|DocMap
 index|[]
@@ -333,6 +332,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+operator|.
+name|infoStream
+operator|=
+name|infoStream
+expr_stmt|;
 specifier|final
 name|Sort
 name|indexSort
@@ -707,12 +712,6 @@ operator|.
 name|segmentInfo
 operator|=
 name|segmentInfo
-expr_stmt|;
-name|this
-operator|.
-name|infoStream
-operator|=
-name|infoStream
 expr_stmt|;
 name|this
 operator|.
@@ -1096,6 +1095,34 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"SM"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"SM"
+argument_list|,
+literal|"segment "
+operator|+
+name|leaf
+operator|+
+literal|" is not sorted; wrapping for sort "
+operator|+
+name|indexSort
+operator|+
+literal|" now"
+argument_list|)
+expr_stmt|;
+block|}
 name|leaf
 operator|=
 name|SlowCodecReaderWrapper
@@ -1150,8 +1177,40 @@ block|}
 block|}
 expr_stmt|;
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"SM"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"SM"
+argument_list|,
+literal|"segment "
+operator|+
+name|leaf
+operator|+
+literal|" is not sorted, but is already accidentally in sort "
+operator|+
+name|indexSort
+operator|+
+literal|" order"
+argument_list|)
+expr_stmt|;
 block|}
-elseif|else
+block|}
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|segmentSort
@@ -1177,6 +1236,31 @@ operator|+
 name|segmentSort
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"SM"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"SM"
+argument_list|,
+literal|"segment "
+operator|+
+name|leaf
+operator|+
+literal|" already sorted"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|readers
 operator|.

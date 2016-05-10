@@ -1667,7 +1667,6 @@ expr_stmt|;
 break|break;
 block|}
 break|break;
-comment|// nocommit need the rest
 default|default:
 throw|throw
 operator|new
@@ -2569,7 +2568,6 @@ operator|=
 literal|"float"
 expr_stmt|;
 break|break;
-comment|// nocommit the rest:
 default|default:
 throw|throw
 operator|new
