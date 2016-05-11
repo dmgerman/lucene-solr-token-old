@@ -47,7 +47,7 @@ name|NAME
 import|;
 end_import
 begin_comment
-comment|/**  * Wrapper class for Logger implementaions  */
+comment|/**  * Wrapper class for Logger implementations  */
 end_comment
 begin_class
 DECL|class|LoggerInfo

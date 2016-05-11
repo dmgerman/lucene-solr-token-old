@@ -184,7 +184,7 @@ name|AtomicInteger
 import|;
 end_import
 begin_comment
-comment|/**  * A Mock ValueSource parser that produces ValueSources that returns a constant   * value butalso keeps track of how many times it was asked for a value for any   * document via a static map and a user defined key.  **/
+comment|/**  * A Mock ValueSource parser that produces ValueSources that returns a constant   * value but also keeps track of how many times it was asked for a value for any   * document via a static map and a user defined key.  **/
 end_comment
 begin_class
 DECL|class|CountUsageValueSourceParser

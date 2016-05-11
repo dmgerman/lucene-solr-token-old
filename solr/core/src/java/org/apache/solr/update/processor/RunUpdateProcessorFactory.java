@@ -93,7 +93,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Executes the update commands using the underlying UpdateHandler.  * Allmost all processor chains should end with an instance of   *<code>RunUpdateProcessorFactory</code> unless the user is explicitly   * executing the update commands in an alternative custom   *<code>UpdateRequestProcessorFactory</code>  *   * @since solr 1.3  * @see DistributingUpdateProcessorFactory  */
+comment|/**  * Executes the update commands using the underlying UpdateHandler.  * Almost all processor chains should end with an instance of   *<code>RunUpdateProcessorFactory</code> unless the user is explicitly   * executing the update commands in an alternative custom   *<code>UpdateRequestProcessorFactory</code>  *   * @since solr 1.3  * @see DistributingUpdateProcessorFactory  */
 end_comment
 begin_class
 DECL|class|RunUpdateProcessorFactory

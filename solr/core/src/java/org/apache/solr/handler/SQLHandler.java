@@ -3438,7 +3438,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Group by queries must include atleast one aggregate function."
+literal|"Group by queries must include at least one aggregate function."
 argument_list|)
 throw|;
 block|}

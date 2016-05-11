@@ -865,7 +865,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/** Adds a new parser for the name and returns any existing one that was overriden.    *  This is not thread safe.    */
+comment|/** Adds a new parser for the name and returns any existing one that was overridden.    *  This is not thread safe.    */
 DECL|method|addParser
 specifier|public
 specifier|static
@@ -890,7 +890,7 @@ name|p
 argument_list|)
 return|;
 block|}
-comment|/** Adds a new parser for the name and returns any existing one that was overriden.    *  This is not thread safe.    */
+comment|/** Adds a new parser for the name and returns any existing one that was overridden.    *  This is not thread safe.    */
 DECL|method|addParser
 specifier|public
 specifier|static
@@ -2734,7 +2734,7 @@ literal|"Multi-Valued field selector '"
 operator|+
 name|s
 operator|+
-literal|"' not spported"
+literal|"' not supported"
 argument_list|)
 throw|;
 block|}

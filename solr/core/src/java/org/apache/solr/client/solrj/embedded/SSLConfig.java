@@ -34,7 +34,7 @@ name|SslContextFactory
 import|;
 end_import
 begin_comment
-comment|/**   * Encapsulates settings related to SSL Configuration for an embedded Jetty Server.  * NOTE: all other settings are ignogred if {@link #isSSLMode} is false.  * @see #setUseSSL  */
+comment|/**   * Encapsulates settings related to SSL Configuration for an embedded Jetty Server.  * NOTE: all other settings are ignored if {@link #isSSLMode} is false.  * @see #setUseSSL  */
 end_comment
 begin_class
 DECL|class|SSLConfig

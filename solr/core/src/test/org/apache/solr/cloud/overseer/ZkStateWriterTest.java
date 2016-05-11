@@ -1792,7 +1792,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"enqueueUpdate after BadVersionException should not have suceeded"
+literal|"enqueueUpdate after BadVersionException should not have succeeded"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1813,7 +1813,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"writePendingUpdates after BadVersionException should not have suceeded"
+literal|"writePendingUpdates after BadVersionException should not have succeeded"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2305,7 +2305,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"enqueueUpdate after BadVersionException should not have suceeded"
+literal|"enqueueUpdate after BadVersionException should not have succeeded"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2326,7 +2326,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"writePendingUpdates after BadVersionException should not have suceeded"
+literal|"writePendingUpdates after BadVersionException should not have succeeded"
 argument_list|)
 expr_stmt|;
 block|}

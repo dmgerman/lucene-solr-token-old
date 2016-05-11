@@ -13541,7 +13541,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// LUCENE-6808 workarround
+comment|// LUCENE-6808 workaround
 DECL|method|cloneIfBytesRef
 specifier|private
 specifier|static
@@ -13934,7 +13934,7 @@ operator|<=
 name|lastCompare
 condition|)
 block|{
-comment|// we're either not competitive, or we're completley tied with another doc that's already group head
+comment|// we're either not competitive, or we're completely tied with another doc that's already group head
 comment|// that's already been selected
 return|return
 literal|false

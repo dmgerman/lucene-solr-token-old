@@ -546,7 +546,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"soft529 occured too fast, in "
+literal|"soft529 occurred too fast, in "
 operator|+
 name|soft529Ms
 operator|+
@@ -580,7 +580,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"hard529 occured too fast, in "
+literal|"hard529 occurred too fast, in "
 operator|+
 name|hard529Ms
 operator|+
@@ -829,7 +829,7 @@ operator|.
 name|assertSaneOffers
 argument_list|()
 expr_stmt|;
-comment|// wait a bit, w/o other action we definitley shouldn't see any
+comment|// wait a bit, w/o other action we definitely shouldn't see any
 comment|// new hard/soft commits
 name|assertNull
 argument_list|(
@@ -1107,7 +1107,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"soft529 occured too fast, in "
+literal|"soft529 occurred too fast, in "
 operator|+
 name|soft529Ms
 operator|+
@@ -1141,7 +1141,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"hard529 occured too fast, in "
+literal|"hard529 occurred too fast, in "
 operator|+
 name|hard529Ms
 operator|+
@@ -1225,7 +1225,7 @@ operator|<=
 name|hard529
 argument_list|)
 expr_stmt|;
-comment|// clear commmits
+comment|// clear commits
 name|monitor
 operator|.
 name|hard
@@ -1537,7 +1537,7 @@ name|assertTrue
 argument_list|(
 name|i
 operator|+
-literal|": soft occured too fast: "
+literal|": soft occurred too fast: "
 operator|+
 name|softMs
 operator|+
@@ -1631,7 +1631,7 @@ name|assertTrue
 argument_list|(
 name|i
 operator|+
-literal|": hard occured too fast: "
+literal|": hard occurred too fast: "
 operator|+
 name|hardMs
 operator|+
