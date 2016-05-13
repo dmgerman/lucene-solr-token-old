@@ -651,6 +651,10 @@ specifier|public
 name|ReaderSlice
 name|slice
 decl_stmt|;
+DECL|method|EnumWithSlice
+name|EnumWithSlice
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString

@@ -140,6 +140,7 @@ specifier|private
 name|int
 name|nextIndex
 decl_stmt|;
+comment|/** Represents one sub-reader being merged */
 DECL|class|Sub
 specifier|public
 specifier|static
@@ -147,6 +148,7 @@ specifier|abstract
 class|class
 name|Sub
 block|{
+comment|/** Mapped doc ID */
 DECL|field|mappedDocID
 specifier|public
 name|int
@@ -159,6 +161,7 @@ operator|.
 name|DocMap
 name|docMap
 decl_stmt|;
+comment|/** Sole constructor */
 DECL|method|Sub
 specifier|public
 name|Sub
@@ -185,6 +188,7 @@ name|nextDoc
 parameter_list|()
 function_decl|;
 block|}
+comment|/** Construct this from the provided subs, specifying the maximum sub count */
 DECL|method|DocIDMerger
 specifier|public
 name|DocIDMerger
@@ -208,7 +212,6 @@ name|subs
 operator|=
 name|subs
 expr_stmt|;
-comment|// nocommit safe?
 if|if
 condition|(
 name|indexIsSorted
@@ -276,6 +279,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** Construct this from the provided subs */
 DECL|method|DocIDMerger
 specifier|public
 name|DocIDMerger
