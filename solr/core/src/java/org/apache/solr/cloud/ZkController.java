@@ -1173,7 +1173,6 @@ decl_stmt|;
 comment|// example: 127.0.0.1:54065_solr
 DECL|field|baseURL
 specifier|private
-specifier|final
 name|String
 name|baseURL
 decl_stmt|;
@@ -2255,19 +2254,6 @@ name|securityNodeChanged
 argument_list|()
 expr_stmt|;
 block|}
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|baseURL
-operator|=
-name|zkStateReader
-operator|.
-name|getBaseUrlForNodeName
-argument_list|(
-name|this
-operator|.
-name|nodeName
 argument_list|)
 expr_stmt|;
 name|init
@@ -3389,6 +3375,19 @@ name|zkStateReader
 operator|.
 name|createClusterStateWatchersAndUpdate
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|baseURL
+operator|=
+name|zkStateReader
+operator|.
+name|getBaseUrlForNodeName
+argument_list|(
+name|this
+operator|.
+name|nodeName
+argument_list|)
 expr_stmt|;
 comment|// start the overseer first as following code may need it's processing
 if|if
@@ -8065,9 +8064,6 @@ operator|.
 name|isLegacy
 argument_list|(
 name|zkStateReader
-operator|.
-name|getClusterProps
-argument_list|()
 argument_list|)
 condition|)
 block|{
