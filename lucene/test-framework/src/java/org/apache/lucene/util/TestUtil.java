@@ -417,9 +417,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene60
+name|lucene62
 operator|.
-name|Lucene60Codec
+name|Lucene62Codec
 import|;
 end_import
 begin_import
@@ -6820,7 +6820,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|Lucene60Codec
+name|Lucene62Codec
 argument_list|()
 return|;
 block|}

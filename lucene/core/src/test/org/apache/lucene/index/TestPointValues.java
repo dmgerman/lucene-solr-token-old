@@ -3070,7 +3070,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// Write point values, one segment with Lucene60, another with SimpleText, then forceMerge with SimpleText
+comment|// Write point values, one segment with Lucene62, another with SimpleText, then forceMerge with SimpleText
 end_comment
 begin_function
 DECL|method|testDifferentCodecs1
@@ -3109,7 +3109,7 @@ name|Codec
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene60"
+literal|"Lucene62"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3237,7 +3237,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// Write point values, one segment with Lucene60, another with SimpleText, then forceMerge with Lucene60
+comment|// Write point values, one segment with Lucene62, another with SimpleText, then forceMerge with Lucene60
 end_comment
 begin_function
 DECL|method|testDifferentCodecs2
@@ -3344,7 +3344,7 @@ name|Codec
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene60"
+literal|"Lucene62"
 argument_list|)
 argument_list|)
 expr_stmt|;

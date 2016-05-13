@@ -196,6 +196,11 @@ specifier|final
 name|SegmentWriteState
 name|writeState
 decl_stmt|;
+DECL|field|segment
+specifier|final
+name|String
+name|segment
+decl_stmt|;
 DECL|field|END
 specifier|final
 specifier|static
@@ -333,6 +338,14 @@ operator|.
 name|segmentSuffix
 argument_list|)
 decl_stmt|;
+name|segment
+operator|=
+name|writeState
+operator|.
+name|segmentInfo
+operator|.
+name|name
+expr_stmt|;
 name|out
 operator|=
 name|writeState
