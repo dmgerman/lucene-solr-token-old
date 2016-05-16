@@ -4830,8 +4830,9 @@ string|"'common-build.xml'"
 op|','
 string|"'module-build.xml'"
 op|','
-string|"'ivy-settings.xml'"
+string|"'top-level-ivy-settings.xml'"
 op|','
+string|"'default-nested-ivy-settings.xml'"
 string|"'ivy-versions.properties'"
 op|','
 string|"'ivy-ignore-conflicts.properties'"
