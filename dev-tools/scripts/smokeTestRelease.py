@@ -4833,6 +4833,7 @@ op|','
 string|"'top-level-ivy-settings.xml'"
 op|','
 string|"'default-nested-ivy-settings.xml'"
+op|','
 string|"'ivy-versions.properties'"
 op|','
 string|"'ivy-ignore-conflicts.properties'"
