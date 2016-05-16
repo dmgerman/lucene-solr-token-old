@@ -800,6 +800,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+comment|// invert the docs mapping:
 for|for
 control|(
 name|int

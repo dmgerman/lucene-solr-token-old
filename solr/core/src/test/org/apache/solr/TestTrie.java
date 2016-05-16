@@ -1386,10 +1386,6 @@ argument_list|(
 name|DateMathParser
 operator|.
 name|UTC
-argument_list|,
-name|Locale
-operator|.
-name|ROOT
 argument_list|)
 decl_stmt|;
 name|String
@@ -1826,10 +1822,6 @@ argument_list|(
 name|DateMathParser
 operator|.
 name|UTC
-argument_list|,
-name|Locale
-operator|.
-name|ROOT
 argument_list|)
 decl_stmt|;
 for|for

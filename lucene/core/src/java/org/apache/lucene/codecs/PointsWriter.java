@@ -335,16 +335,6 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|int
-name|docBase
-init|=
-name|mergeState
-operator|.
-name|docBase
-index|[
-name|i
-index|]
-decl_stmt|;
 name|pointsReader
 operator|.
 name|intersect
@@ -413,8 +403,6 @@ name|mergedVisitor
 operator|.
 name|visit
 argument_list|(
-name|docBase
-operator|+
 name|newDocID
 argument_list|,
 name|packedValue

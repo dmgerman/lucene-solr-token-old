@@ -1096,7 +1096,7 @@ name|clusterProps
 init|=
 name|zkStateReader
 operator|.
-name|getClusterProps
+name|getClusterProperties
 argument_list|()
 decl_stmt|;
 if|if
