@@ -1173,7 +1173,7 @@ block|{
 return|return
 name|degrees
 operator|*
-name|Geo3DPoint
+name|Geo3DUtil
 operator|.
 name|RADIANS_PER_DEGREE
 return|;
