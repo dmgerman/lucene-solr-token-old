@@ -4463,13 +4463,6 @@ argument_list|,
 name|coreConfig
 argument_list|)
 expr_stmt|;
-name|solrCores
-operator|.
-name|addCreated
-argument_list|(
-name|core
-argument_list|)
-expr_stmt|;
 comment|// always kick off recovery if we are in non-Cloud mode
 if|if
 condition|(
