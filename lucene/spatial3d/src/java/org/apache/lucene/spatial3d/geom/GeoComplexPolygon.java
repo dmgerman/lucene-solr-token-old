@@ -979,7 +979,7 @@ name|bestDistance
 init|=
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 decl_stmt|;
 name|double
 name|firstLegValue
@@ -1807,7 +1807,7 @@ name|bestDistance
 operator|<
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 operator|:
 literal|"Couldn't find an intersection point of any kind"
 assert|;
@@ -2241,7 +2241,7 @@ name|minimumDistance
 init|=
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 decl_stmt|;
 for|for
 control|(
