@@ -874,6 +874,33 @@ argument_list|,
 literal|"zkHost"
 argument_list|)
 decl_stmt|;
+comment|// Collection Name
+if|if
+condition|(
+literal|null
+operator|==
+name|collectionName
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"invalid expression %s - collectionName expected as first operand"
+argument_list|,
+name|expression
+argument_list|)
+argument_list|)
+throw|;
+block|}
 comment|// Validate there are no unknown parameters - zkHost and alias are namedParameter so we don't need to count it twice
 if|if
 condition|(
@@ -906,33 +933,6 @@ operator|.
 name|ROOT
 argument_list|,
 literal|"invalid expression %s - unknown operands found"
-argument_list|,
-name|expression
-argument_list|)
-argument_list|)
-throw|;
-block|}
-comment|// Collection Name
-if|if
-condition|(
-literal|null
-operator|==
-name|collectionName
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|,
-literal|"invalid expression %s - collectionName expected as first operand"
 argument_list|,
 name|expression
 argument_list|)
@@ -1732,6 +1732,46 @@ expr_stmt|;
 comment|// If the comparator is null then it was not explicitly set so we will create one using the sort parameter
 comment|// of the query. While doing this we will also take into account any aliases such that if we are sorting on
 comment|// fieldA but fieldA is aliased to alias.fieldA then the comparater will be against alias.fieldA.
+if|if
+condition|(
+name|params
+operator|.
+name|get
+argument_list|(
+literal|"q"
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"q param expected for search function"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|params
+operator|.
+name|getParams
+argument_list|(
+literal|"fl"
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"fl param expected for search function"
+argument_list|)
+throw|;
+block|}
 name|String
 name|fls
 init|=
@@ -1751,7 +1791,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|fls
+name|params
+operator|.
+name|getParams
+argument_list|(
+literal|"sort"
+argument_list|)
 operator|==
 literal|null
 condition|)
@@ -1760,7 +1805,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"fl param expected for a stream"
+literal|"sort param expected for search function"
 argument_list|)
 throw|;
 block|}
@@ -1781,21 +1826,6 @@ literal|"sort"
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|sorts
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"sort param expected for a stream"
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|comp

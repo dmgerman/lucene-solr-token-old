@@ -1701,11 +1701,9 @@ name|float
 name|positionsCost
 parameter_list|()
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+return|return
+literal|0
+return|;
 block|}
 block|}
 block|}
