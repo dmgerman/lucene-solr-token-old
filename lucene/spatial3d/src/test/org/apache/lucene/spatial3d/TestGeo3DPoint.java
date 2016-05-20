@@ -2993,10 +2993,16 @@ name|println
 argument_list|(
 literal|"  point="
 operator|+
-name|docs
-index|[
-name|docID
-index|]
+name|point
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|println
+argument_list|(
+literal|"  mappedPoint="
+operator|+
+name|mappedPoint
 argument_list|)
 expr_stmt|;
 name|fail
