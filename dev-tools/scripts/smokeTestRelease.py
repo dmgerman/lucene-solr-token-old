@@ -1217,7 +1217,7 @@ op|','
 nl|'\n'
 comment|'# Make sure 1.8 compiler was used to build release bits:'
 nl|'\n'
-string|"'X-Compile-Source-JDK: 1.8'"
+string|"'X-Compile-Source-JDK: 8'"
 op|','
 nl|'\n'
 comment|'# Make sure 1.8 ant was used to build release bits: (this will match 1.8+)'
@@ -1227,7 +1227,7 @@ op|','
 nl|'\n'
 comment|'# Make sure .class files are 1.8 format:'
 nl|'\n'
-string|"'X-Compile-Target-JDK: 1.8'"
+string|"'X-Compile-Target-JDK: 8'"
 op|','
 nl|'\n'
 string|"'Specification-Version: %s'"
