@@ -9812,7 +9812,7 @@ init|=
 name|getHttpClient
 argument_list|()
 decl_stmt|;
-name|Tool
+name|ToolBase
 name|tool
 init|=
 literal|null
@@ -9875,7 +9875,7 @@ expr_stmt|;
 block|}
 name|tool
 operator|.
-name|runTool
+name|runImpl
 argument_list|(
 name|cli
 argument_list|)
