@@ -402,6 +402,11 @@ operator|.
 name|getBundle
 argument_list|(
 literal|"org.apache.lucene.queryParser.messages.QueryParserMessages"
+argument_list|,
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
