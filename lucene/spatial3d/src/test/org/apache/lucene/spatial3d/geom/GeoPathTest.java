@@ -156,7 +156,7 @@ name|assertEquals
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|,
 name|p
 operator|.
@@ -259,7 +259,7 @@ name|assertEquals
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|,
 name|p
 operator|.
@@ -520,7 +520,7 @@ name|assertEquals
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|,
 name|p
 operator|.
@@ -556,7 +556,7 @@ name|assertEquals
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|,
 name|p
 operator|.

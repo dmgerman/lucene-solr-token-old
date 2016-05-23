@@ -106,7 +106,7 @@ name|BeforeClass
 import|;
 end_import
 begin_comment
-comment|/**  * Sanity tests basic functionality of {@link ScriptEngineManager} and   * {@link ScriptEngine} w/o excercising any Lucene specific code.  */
+comment|/**  * Sanity tests basic functionality of {@link ScriptEngineManager} and   * {@link ScriptEngine} w/o exercising any Lucene specific code.  */
 end_comment
 begin_class
 DECL|class|ScriptEngineTest

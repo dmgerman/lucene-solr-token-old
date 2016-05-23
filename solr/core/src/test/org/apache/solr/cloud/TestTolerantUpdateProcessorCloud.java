@@ -1795,7 +1795,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// verify oportunistic concurrency deletions fail as we expect when docs are / aren't present
+comment|// verify opportunistic concurrency deletions fail as we expect when docs are / aren't present
 for|for
 control|(
 name|UpdateRequest
@@ -1878,7 +1878,7 @@ argument_list|)
 decl_stmt|;
 name|fail
 argument_list|(
-literal|"sanity check for oportunistic concurrency delete didn't fail: "
+literal|"sanity check for opportunistic concurrency delete didn't fail: "
 operator|+
 name|r
 operator|.
@@ -1902,7 +1902,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"not the expected oportunistic concurrency failure code: "
+literal|"not the expected opportunistic concurrency failure code: "
 operator|+
 name|r
 operator|.
@@ -2120,7 +2120,7 @@ name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// attempt to delete individual doc id(s) that should fail because of oportunistic concurrency constraints
+comment|// attempt to delete individual doc id(s) that should fail because of opportunistic concurrency constraints
 for|for
 control|(
 name|String
@@ -2177,7 +2177,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delId="
+literal|"failed opportunistic concurrent delId="
 operator|+
 name|id
 argument_list|,
@@ -2190,7 +2190,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// multiple failed deletes from the same shard (via oportunistic concurrent w/ bogus ids)
+comment|// multiple failed deletes from the same shard (via opportunistic concurrent w/ bogus ids)
 name|rsp
 operator|=
 name|update
@@ -2244,7 +2244,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delete by id for 2 bogus docs"
+literal|"failed opportunistic concurrent delete by id for 2 bogus docs"
 argument_list|,
 name|rsp
 argument_list|,
@@ -2274,7 +2274,7 @@ argument_list|,
 name|docId2
 argument_list|)
 expr_stmt|;
-comment|// multiple failed deletes from the diff shards due to oportunistic concurrency constraints
+comment|// multiple failed deletes from the diff shards due to opportunistic concurrency constraints
 name|rsp
 operator|=
 name|update
@@ -2324,7 +2324,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delete by id for 2 docs"
+literal|"failed opportunistic concurrent delete by id for 2 docs"
 argument_list|,
 name|rsp
 argument_list|,
@@ -2389,7 +2389,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delete by query"
+literal|"failed opportunistic concurrent delete by query"
 argument_list|,
 name|rsp
 argument_list|,
@@ -2454,7 +2454,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delete by query"
+literal|"failed opportunistic concurrent delete by query"
 argument_list|,
 name|rsp
 argument_list|,
@@ -2525,7 +2525,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delete by id: exists"
+literal|"failed opportunistic concurrent delete by id: exists"
 argument_list|,
 name|rsp
 argument_list|,
@@ -2596,7 +2596,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delete by id: bogus"
+literal|"failed opportunistic concurrent delete by id: bogus"
 argument_list|,
 name|rsp
 argument_list|,
@@ -2677,7 +2677,7 @@ argument_list|)
 expr_stmt|;
 name|assertUpdateTolerantErrors
 argument_list|(
-literal|"failed oportunistic concurrent delete by query"
+literal|"failed opportunistic concurrent delete by query"
 argument_list|,
 name|rsp
 argument_list|,

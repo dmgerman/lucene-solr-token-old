@@ -2029,7 +2029,7 @@ name|Codec
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene60"
+literal|"Lucene62"
 argument_list|)
 argument_list|)
 expr_stmt|;
