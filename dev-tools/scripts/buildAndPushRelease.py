@@ -1527,7 +1527,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git --version'"
+string|"'git --version >/dev/null 2>/dev/null'"
 op|')'
 op|':'
 newline|'\n'
