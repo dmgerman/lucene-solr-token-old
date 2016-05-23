@@ -1741,7 +1741,7 @@ op|')'
 newline|'\n'
 name|'print'
 op|'('
-string|"'%s -u %(s)smokeTestRelease.py %s'"
+string|"'%s -u %ssmokeTestRelease.py %s'"
 op|'%'
 op|'('
 name|'sys'
