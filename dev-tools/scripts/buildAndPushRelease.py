@@ -1226,7 +1226,7 @@ op|','
 nl|'\n'
 name|'help'
 op|'='
-string|"'Release Candidate number, required'"
+string|"'Release Candidate number.  Default: 1'"
 op|')'
 newline|'\n'
 name|'parser'
@@ -1237,7 +1237,7 @@ string|"'--root'"
 op|','
 name|'metavar'
 op|'='
-string|"'WORKING_TREE_PATH'"
+string|"'PATH'"
 op|','
 name|'default'
 op|'='
@@ -1246,7 +1246,7 @@ op|','
 nl|'\n'
 name|'help'
 op|'='
-string|"'Root of Git working tree for lucene-solr'"
+string|'\'Root of Git working tree for lucene-solr.  Default: "." (the current directory)\''
 op|')'
 newline|'\n'
 name|'config'
