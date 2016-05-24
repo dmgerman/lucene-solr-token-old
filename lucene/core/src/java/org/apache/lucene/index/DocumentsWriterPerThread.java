@@ -1321,7 +1321,7 @@ return|;
 block|}
 DECL|method|updateDocuments
 specifier|public
-name|int
+name|long
 name|updateDocuments
 parameter_list|(
 name|Iterable
@@ -1502,6 +1502,9 @@ expr_stmt|;
 comment|// Apply delTerm only after all indexing has
 comment|// succeeded, but apply it only to docs prior to when
 comment|// this batch started:
+name|long
+name|seqNo
+decl_stmt|;
 if|if
 condition|(
 name|delTerm
@@ -1509,6 +1512,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|seqNo
+operator|=
 name|deleteQueue
 operator|.
 name|add
@@ -1539,8 +1544,25 @@ operator|-
 name|docCount
 argument_list|)
 expr_stmt|;
+return|return
+name|seqNo
+return|;
 block|}
-comment|// nocommit return seqNo here
+else|else
+block|{
+name|seqNo
+operator|=
+name|deleteQueue
+operator|.
+name|seqNo
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|seqNo
+return|;
 block|}
 finally|finally
 block|{
@@ -1593,9 +1615,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-return|return
-name|docCount
-return|;
 block|}
 DECL|method|finishDocument
 specifier|private
@@ -1657,7 +1676,6 @@ argument_list|(
 name|deleteSlice
 argument_list|)
 expr_stmt|;
-comment|// nocommit we don't need to increment here?
 name|seqNo
 operator|=
 name|deleteQueue
