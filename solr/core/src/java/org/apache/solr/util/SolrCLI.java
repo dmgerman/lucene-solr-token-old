@@ -14660,6 +14660,13 @@ condition|(
 operator|!
 name|isWindows
 operator|&&
+name|cwdPath
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|1
+operator|&&
 name|solrHome
 operator|.
 name|startsWith
