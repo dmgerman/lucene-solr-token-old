@@ -89,6 +89,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|HardlinkCopyDirectoryWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|SuppressForbidden
@@ -240,6 +253,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// try to use hardlinks if possible
 name|indexes
 index|[
 name|i
@@ -247,6 +261,9 @@ operator|-
 literal|1
 index|]
 operator|=
+operator|new
+name|HardlinkCopyDirectoryWrapper
+argument_list|(
 name|FSDirectory
 operator|.
 name|open
@@ -259,6 +276,7 @@ name|args
 index|[
 name|i
 index|]
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
