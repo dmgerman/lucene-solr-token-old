@@ -5166,7 +5166,7 @@ block|}
 comment|/**    * Updates a document's {@link NumericDocValues} for<code>field</code> to the    * given<code>value</code>. You can only update fields that already exist in    * the index, not add new fields through this method.    *     * @param term    *          the term to identify the document(s) to be updated    * @param field    *          field name of the {@link NumericDocValues} field    * @param value    *          new value for the field    * @throws CorruptIndexException    *           if the index is corrupt    * @throws IOException    *           if there is a low-level IO error    */
 DECL|method|updateNumericDocValue
 specifier|public
-name|void
+name|long
 name|updateNumericDocValue
 parameter_list|(
 name|Term
@@ -5209,8 +5209,9 @@ throw|;
 block|}
 try|try
 block|{
-if|if
-condition|(
+name|long
+name|seqNo
+init|=
 name|docWriter
 operator|.
 name|updateDocValues
@@ -5225,8 +5226,19 @@ argument_list|,
 name|value
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|seqNo
+operator|<
+literal|0
 condition|)
 block|{
+name|seqNo
+operator|=
+operator|-
+name|seqNo
+expr_stmt|;
 name|processEvents
 argument_list|(
 literal|true
@@ -5235,6 +5247,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|seqNo
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -5249,12 +5264,17 @@ argument_list|,
 literal|"updateNumericDocValue"
 argument_list|)
 expr_stmt|;
+comment|// dead code but javac disagrees:
+return|return
+operator|-
+literal|1
+return|;
 block|}
 block|}
 comment|/**    * Updates a document's {@link BinaryDocValues} for<code>field</code> to the    * given<code>value</code>. You can only update fields that already exist in    * the index, not add new fields through this method.    *     *<p>    *<b>NOTE:</b> this method currently replaces the existing value of all    * affected documents with the new value.    *     * @param term    *          the term to identify the document(s) to be updated    * @param field    *          field name of the {@link BinaryDocValues} field    * @param value    *          new value for the field    * @throws CorruptIndexException    *           if the index is corrupt    * @throws IOException    *           if there is a low-level IO error    */
 DECL|method|updateBinaryDocValue
 specifier|public
-name|void
+name|long
 name|updateBinaryDocValue
 parameter_list|(
 name|Term
@@ -5314,8 +5334,9 @@ throw|;
 block|}
 try|try
 block|{
-if|if
-condition|(
+name|long
+name|seqNo
+init|=
 name|docWriter
 operator|.
 name|updateDocValues
@@ -5330,8 +5351,19 @@ argument_list|,
 name|value
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|seqNo
+operator|<
+literal|0
 condition|)
 block|{
+name|seqNo
+operator|=
+operator|-
+name|seqNo
+expr_stmt|;
 name|processEvents
 argument_list|(
 literal|true
@@ -5340,6 +5372,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|seqNo
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -5354,12 +5389,17 @@ argument_list|,
 literal|"updateBinaryDocValue"
 argument_list|)
 expr_stmt|;
+comment|// dead code but javac disagrees:
+return|return
+operator|-
+literal|1
+return|;
 block|}
 block|}
 comment|/**    * Updates documents' DocValues fields to the given values. Each field update    * is applied to the set of documents that are associated with the    * {@link Term} to the same value. All updates are atomically applied and    * flushed together.    *     * @param updates    *          the updates to apply    * @throws CorruptIndexException    *           if the index is corrupt    * @throws IOException    *           if there is a low-level IO error    */
 DECL|method|updateDocValues
 specifier|public
-name|void
+name|long
 name|updateDocValues
 parameter_list|(
 name|Term
@@ -5581,16 +5621,28 @@ block|}
 block|}
 try|try
 block|{
-if|if
-condition|(
+name|long
+name|seqNo
+init|=
 name|docWriter
 operator|.
 name|updateDocValues
 argument_list|(
 name|dvUpdates
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|seqNo
+operator|<
+literal|0
 condition|)
 block|{
+name|seqNo
+operator|=
+operator|-
+name|seqNo
+expr_stmt|;
 name|processEvents
 argument_list|(
 literal|true
@@ -5599,6 +5651,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|seqNo
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -5613,6 +5668,11 @@ argument_list|,
 literal|"updateDocValues"
 argument_list|)
 expr_stmt|;
+comment|// dead code but javac disagrees:
+return|return
+operator|-
+literal|1
+return|;
 block|}
 block|}
 comment|// for test purpose
@@ -10207,7 +10267,6 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-comment|// nocommit should we put seq no into sis?
 return|return
 name|commitInternal
 argument_list|(
