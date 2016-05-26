@@ -848,10 +848,29 @@ parameter_list|)
 throws|throws
 name|SyntaxError
 function_decl|;
-comment|/* standard functions */
+comment|/** standard functions supported by default, filled in static class initialization */
+DECL|field|standardVSParsers
+specifier|private
+specifier|static
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ValueSourceParser
+argument_list|>
+name|standardVSParsers
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+comment|/** standard functions supported by default */
 DECL|field|standardValueSourceParsers
 specifier|public
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -860,14 +879,16 @@ name|ValueSourceParser
 argument_list|>
 name|standardValueSourceParsers
 init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|standardVSParsers
+argument_list|)
 decl_stmt|;
 comment|/** Adds a new parser for the name and returns any existing one that was overridden.    *  This is not thread safe.    */
 DECL|method|addParser
-specifier|public
+specifier|private
 specifier|static
 name|ValueSourceParser
 name|addParser
@@ -880,7 +901,7 @@ name|p
 parameter_list|)
 block|{
 return|return
-name|standardValueSourceParsers
+name|standardVSParsers
 operator|.
 name|put
 argument_list|(
@@ -892,7 +913,7 @@ return|;
 block|}
 comment|/** Adds a new parser for the name and returns any existing one that was overridden.    *  This is not thread safe.    */
 DECL|method|addParser
-specifier|public
+specifier|private
 specifier|static
 name|ValueSourceParser
 name|addParser
@@ -902,7 +923,7 @@ name|p
 parameter_list|)
 block|{
 return|return
-name|standardValueSourceParsers
+name|standardVSParsers
 operator|.
 name|put
 argument_list|(
@@ -928,13 +949,13 @@ name|String
 name|dest
 parameter_list|)
 block|{
-name|standardValueSourceParsers
+name|standardVSParsers
 operator|.
 name|put
 argument_list|(
 name|dest
 argument_list|,
-name|standardValueSourceParsers
+name|standardVSParsers
 operator|.
 name|get
 argument_list|(
