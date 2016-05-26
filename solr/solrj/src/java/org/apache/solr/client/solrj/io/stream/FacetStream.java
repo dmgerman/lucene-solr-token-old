@@ -3460,7 +3460,8 @@ name|long
 name|l
 init|=
 operator|(
-name|long
+operator|(
+name|Number
 operator|)
 name|bucket
 operator|.
@@ -3468,6 +3469,10 @@ name|get
 argument_list|(
 literal|"count"
 argument_list|)
+operator|)
+operator|.
+name|longValue
+argument_list|()
 decl_stmt|;
 name|t
 operator|.
