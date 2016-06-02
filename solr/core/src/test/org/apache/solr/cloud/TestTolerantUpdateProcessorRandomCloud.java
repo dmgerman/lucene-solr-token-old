@@ -251,6 +251,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+operator|.
+name|SuppressSSL
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|client
 operator|.
 name|solrj
@@ -493,6 +506,13 @@ begin_comment
 comment|/**  * Test of TolerantUpdateProcessor using a randomized MiniSolrCloud.  * Reuses some utility methods in {@link TestTolerantUpdateProcessorCloud}  *  *<p>  *<b>NOTE:</b> This test sets up a static instance of MiniSolrCloud with a single collection   * and several clients pointed at specific nodes. These are all re-used across multiple test methods,   * and assumes that the state of the cluster is healthy between tests.  *</p>  *  */
 end_comment
 begin_class
+annotation|@
+name|SuppressSSL
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://issues.apache.org/jira/browse/SOLR-9182 - causes OOM"
+argument_list|)
 DECL|class|TestTolerantUpdateProcessorRandomCloud
 specifier|public
 class|class
