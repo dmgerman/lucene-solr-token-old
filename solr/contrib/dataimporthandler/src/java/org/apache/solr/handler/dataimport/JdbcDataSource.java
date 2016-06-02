@@ -351,6 +351,8 @@ name|initProps
 operator|=
 name|decryptPwd
 argument_list|(
+name|context
+argument_list|,
 name|initProps
 argument_list|)
 expr_stmt|;
@@ -692,6 +694,9 @@ specifier|private
 name|Properties
 name|decryptPwd
 parameter_list|(
+name|Context
+name|context
+parameter_list|,
 name|Properties
 name|initProps
 parameter_list|)
@@ -699,11 +704,16 @@ block|{
 name|String
 name|encryptionKey
 init|=
+name|context
+operator|.
+name|replaceTokens
+argument_list|(
 name|initProps
 operator|.
 name|getProperty
 argument_list|(
 literal|"encryptKeyFile"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
