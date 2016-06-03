@@ -315,7 +315,7 @@ literal|"config"
 argument_list|,
 name|getFile
 argument_list|(
-literal|"solrj/solr/collection1/conf"
+literal|"solrj/solr/configsets/streaming/conf"
 argument_list|)
 operator|.
 name|toPath
@@ -323,6 +323,14 @@ argument_list|()
 argument_list|)
 operator|.
 name|configure
+argument_list|()
+expr_stmt|;
+name|cluster
+operator|.
+name|getSolrClient
+argument_list|()
+operator|.
+name|connect
 argument_list|()
 expr_stmt|;
 block|}
@@ -1611,7 +1619,7 @@ name|waitInBackground
 argument_list|(
 literal|"stateformat1"
 argument_list|,
-literal|10
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
