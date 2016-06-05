@@ -509,7 +509,6 @@ argument_list|)
 expr_stmt|;
 name|doUpdate
 operator|=
-operator|!
 name|w
 operator|.
 name|tryDeleteDocument
@@ -525,6 +524,9 @@ index|]
 operator|.
 name|doc
 argument_list|)
+operator|==
+operator|-
+literal|1
 expr_stmt|;
 if|if
 condition|(
