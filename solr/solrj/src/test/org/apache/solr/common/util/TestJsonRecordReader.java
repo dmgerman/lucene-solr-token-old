@@ -172,8 +172,6 @@ literal|" ]\n"
 operator|+
 literal|"}"
 decl_stmt|;
-comment|//    System.out.println(json);
-comment|//    All parameters are mapped with field name
 name|JsonRecordReader
 name|streamer
 init|=
@@ -1459,9 +1457,7 @@ name|JsonRecordReader
 operator|.
 name|getInst
 argument_list|(
-literal|"/"
-argument_list|,
-literal|"/a/b"
+literal|"/|/a/b"
 argument_list|,
 name|Arrays
 operator|.
@@ -1661,9 +1657,7 @@ name|JsonRecordReader
 operator|.
 name|getInst
 argument_list|(
-literal|"/"
-argument_list|,
-literal|"/a/b"
+literal|"/|/a/b"
 argument_list|,
 name|Arrays
 operator|.
